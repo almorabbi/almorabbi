@@ -17,6 +17,7 @@ on:
       - 'ops/scripts/**'
       - 'ops/data/campaign_*'
       - 'ops/data/kb_fidelity/**'
+      - 'ops/data/sira/**'
       - 'ops/data/en_unpublished/**'
       - 'pytest.ini'
       - 'ops/tests/test_golden_ci.py'
@@ -60,6 +61,7 @@ on:
       - 'ops/data/en_parity_*.json'
       # KB fidelity verdicts and the archive of withdrawn units (check_kb_fidelity.py).
       - 'ops/data/kb_fidelity/**'
+      - 'ops/data/sira/**'
       - 'ops/data/en_unpublished/**'
       - 'ops/tools/**'
       - 'pytest.ini'
@@ -185,6 +187,17 @@ jobs:
         run: |
           cd "$GITHUB_WORKSPACE"
           python ops/tools/check_anbiya_stories.py
+
+      # Seerah stories (series sira_sahih) against their sources — the cited
+      # narrations of al-Bukhari/Muslim (pinned edition) and verses in
+      # ops/data/sira, every «» held verbatim by its cited number, no unquoted
+      # speech, no name or number the sources lack, a deny-list of non-sahih
+      # Seerah details, every sentence "supported" by two other model families.
+      # Stdlib only, no network; exit 2 = its self-tests broke.
+      - name: Run Seerah stories guard (check_sira_stories.py)
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          python ops/tools/check_sira_stories.py
 
       # English parity gate — the full check, not --staged. Until 2026-10-04 it ran
       # only in pre-commit, so a GitHub merge (or a merge commit that never ran the

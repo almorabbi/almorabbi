@@ -8,6 +8,8 @@
 /// and the prophets' stories (series anbiya_quran) since 2026-10-25: their
 /// story pages show only what the Qur'an mentions — no prophet, no person —
 /// so no region there is ever cued by a prophet's name onto a human figure.
+/// The Seerah season (series sira_sahih, 2026-10-30) likewise: the Prophet ﷺ
+/// and his companions are never pictured, so no region is cued by a person.
 /// The paper-cut scenes stay for a story the server adds before the app
 /// knows it, and as the fallback when a painting cannot be loaded (offline).
 ///
@@ -4002,6 +4004,649 @@ final Map<String, List<LivingPicture>> _catalog = {
           'the green land',
           Rect.fromLTRB(0.0, 0.7, 1.0, 1.0),
           cue: ['عبر', 'lessons'],
+        ),
+      ],
+    ),
+  ],
+
+  // ───── من السيرة النبوية (series: sira_sahih) ─────
+  // 🚨 The Prophet ﷺ is never pictured, and no companion either: a story page
+  // shows only the places and things the hadith names (the cave, the palms,
+  // the stones, the minbar, the trunk, the little bird); page 1 is a family of
+  // today. So no region is ever cued by a person's name.
+
+  // صاحبا الغار — The Two in the Cave
+  'sira_ghar_young': [
+    LivingPicture(
+      image: _page('sira_ghar_young', 1),
+      regions: [
+        PictureRegion(
+          'the mountain at night through the window',
+          Rect.fromLTRB(0.7, 0.0, 0.98, 0.43),
+          cue: ['مكة', 'makkah'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_ghar_young', 2),
+      ambient: PictureAmbient.sparkles,
+      regions: [
+        PictureRegion(
+          'the cave mouth',
+          Rect.fromLTRB(0.44, 0.35, 0.58, 0.48),
+          cue: ['غار', 'cave'],
+        ),
+        PictureRegion(
+          'the mountain',
+          Rect.fromLTRB(0.12, 0.14, 0.88, 0.66),
+          cue: ['جبل', 'mountain'],
+        ),
+        PictureRegion(
+          'the crescent moon',
+          Rect.fromLTRB(0.66, 0.06, 0.84, 0.22),
+          cue: ['ليال', 'night'],
+          burst: PictureBurst.sparkles,
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_ghar_young', 3),
+      regions: [
+        PictureRegion(
+          'the night outside the cave',
+          Rect.fromLTRB(0.24, 0.12, 0.72, 0.62),
+          cue: ['نظر', 'look'],
+        ),
+        PictureRegion(
+          'the cave floor',
+          Rect.fromLTRB(0.08, 0.76, 0.92, 0.98),
+          cue: ['قدميه', 'feet'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_ghar_young', 4),
+      ambient: PictureAmbient.sparkles,
+      regions: [
+        PictureRegion(
+          'the dawn light on the mountain',
+          Rect.fromLTRB(0.5, 0.2, 0.95, 0.5),
+          cue: ['الطمأنينة', 'tranquillity'],
+          burst: PictureBurst.sparkles,
+        ),
+        PictureRegion(
+          'the mountain',
+          Rect.fromLTRB(0.12, 0.16, 0.88, 0.7),
+          cue: ['أنجاه', 'saved'],
+        ),
+      ],
+    ),
+  ],
+  'sira_ghar_older': [
+    LivingPicture(
+      image: _page('sira_ghar_older', 1),
+      regions: [
+        PictureRegion(
+          'the mountains through the window',
+          Rect.fromLTRB(0.5, 0.05, 0.88, 0.55),
+          cue: ['مكة', 'makkah'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_ghar_older', 2),
+      ambient: PictureAmbient.sparkles,
+      regions: [
+        PictureRegion(
+          'the town between the mountains',
+          Rect.fromLTRB(0.38, 0.36, 0.68, 0.54),
+          cue: ['مكة', 'makkah'],
+        ),
+        PictureRegion(
+          'the mountains',
+          Rect.fromLTRB(0.0, 0.24, 1.0, 0.52),
+          cue: ['جبل', 'mountain'],
+        ),
+        PictureRegion(
+          'the crescent moon',
+          Rect.fromLTRB(0.38, 0.06, 0.56, 0.22),
+          cue: ['ليال', 'night'],
+          burst: PictureBurst.sparkles,
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_ghar_older', 3),
+      regions: [
+        PictureRegion(
+          'the cave mouth high on the mountain',
+          Rect.fromLTRB(0.26, 0.06, 0.44, 0.28),
+          cue: ['الغار', 'cave'],
+        ),
+        PictureRegion(
+          'the tracks in the sand below',
+          Rect.fromLTRB(0.2, 0.62, 0.8, 0.96),
+          cue: ['قدميه', 'feet'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_ghar_older', 4),
+      ambient: PictureAmbient.sparkles,
+      regions: [
+        PictureRegion(
+          'the starry sky through the cave mouth',
+          Rect.fromLTRB(0.38, 0.1, 0.88, 0.66),
+          cue: ['اثنين', 'two'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_ghar_older', 5),
+      ambient: PictureAmbient.sparkles,
+      regions: [
+        PictureRegion(
+          'the glow of the sky over the cave',
+          Rect.fromLTRB(0.1, 0.05, 0.9, 0.45),
+          cue: ['الطمأنينة', 'tranquillity'],
+          burst: PictureBurst.sparkles,
+        ),
+        PictureRegion(
+          'the cave',
+          Rect.fromLTRB(0.12, 0.38, 0.88, 0.78),
+          cue: ['أنجاه', 'saved'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_ghar_older', 6),
+      regions: [
+        PictureRegion(
+          'the cave at sunrise',
+          Rect.fromLTRB(0.08, 0.38, 0.72, 0.8),
+          cue: ['الغار', 'cave'],
+        ),
+        PictureRegion(
+          'the rising sun',
+          Rect.fromLTRB(0.6, 0.3, 0.98, 0.62),
+          cue: ['نصر', 'help'],
+          burst: PictureBurst.sparkles,
+        ),
+      ],
+    ),
+  ],
+
+  // بناء المسجد النبوي — Building the Prophet's Mosque
+  'sira_masjid_young': [
+    LivingPicture(
+      image: _page('sira_masjid_young', 1),
+      regions: [
+        PictureRegion(
+          'the houses behind the courtyard',
+          Rect.fromLTRB(0.48, 0.0, 0.96, 0.44),
+          cue: ['المدينة', 'madinah'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_masjid_young', 2),
+      regions: [
+        PictureRegion(
+          'the house with its door',
+          Rect.fromLTRB(0.68, 0.46, 0.96, 0.68),
+          cue: ['دار', 'house'],
+        ),
+        PictureRegion(
+          'the palm garden',
+          Rect.fromLTRB(0.7, 0.0, 1.0, 0.86),
+          cue: ['=بستانكم', 'garden'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_masjid_young', 3),
+      regions: [
+        PictureRegion(
+          'the old ruins in the garden',
+          Rect.fromLTRB(0.08, 0.56, 0.82, 0.86),
+          cue: ['ثمن', 'price'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_masjid_young', 4),
+      regions: [
+        PictureRegion(
+          'the palm trunks set in a row',
+          Rect.fromLTRB(0.18, 0.36, 0.82, 0.72),
+          cue: ['النخل', 'palm'],
+        ),
+        PictureRegion(
+          'the piles of stones',
+          Rect.fromLTRB(0.02, 0.68, 0.44, 0.9),
+          cue: ['الصخر', 'rock'],
+        ),
+      ],
+    ),
+  ],
+  'sira_masjid_older': [
+    LivingPicture(
+      image: _page('sira_masjid_older', 1),
+      regions: [
+        PictureRegion(
+          'the clay houses on the table',
+          Rect.fromLTRB(0.44, 0.44, 0.7, 0.64),
+          cue: ['المدينة', 'madinah'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_masjid_older', 2),
+      regions: [
+        PictureRegion(
+          'the house',
+          Rect.fromLTRB(0.76, 0.46, 0.98, 0.68),
+          cue: ['دار', 'house'],
+        ),
+        PictureRegion(
+          'the yard in front of the house',
+          Rect.fromLTRB(0.62, 0.62, 0.98, 0.92),
+          cue: ['فناء', 'courtyard'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_masjid_older', 3),
+      regions: [
+        PictureRegion(
+          'the palm tree',
+          Rect.fromLTRB(0.52, 0.04, 0.76, 0.56),
+          cue: ['=بستانكم', 'garden'],
+        ),
+        PictureRegion(
+          'the mat on the ground',
+          Rect.fromLTRB(0.66, 0.74, 0.96, 0.92),
+          cue: ['الصلاة', 'prayer'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_masjid_older', 4),
+      regions: [
+        PictureRegion(
+          'the ruins',
+          Rect.fromLTRB(0.12, 0.14, 0.52, 0.5),
+          cue: ['خرب', 'ruins'],
+        ),
+        PictureRegion(
+          'the palms',
+          Rect.fromLTRB(0.0, 0.0, 1.0, 0.36),
+          cue: ['نخل', 'palm'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_masjid_older', 5),
+      regions: [
+        PictureRegion(
+          'the palm trunks set in rows',
+          Rect.fromLTRB(0.04, 0.44, 0.76, 0.82),
+          cue: ['النخل', 'palm'],
+        ),
+        PictureRegion(
+          'the stone posts of the door',
+          Rect.fromLTRB(0.14, 0.28, 0.36, 0.5),
+          cue: ['الحجارة', 'stone'],
+        ),
+        PictureRegion(
+          'the pile of stones',
+          Rect.fromLTRB(0.44, 0.34, 0.72, 0.48),
+          cue: ['الصخر', 'rock'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_masjid_older', 6),
+      regions: [
+        PictureRegion(
+          'the palms of the garden',
+          Rect.fromLTRB(0.0, 0.0, 1.0, 0.36),
+          cue: ['=بستانهم', 'garden'],
+        ),
+        PictureRegion(
+          'the stones by the wall',
+          Rect.fromLTRB(0.0, 0.72, 0.18, 0.92),
+          cue: ['الصخر', 'rock'],
+        ),
+      ],
+    ),
+  ],
+
+  // الجذع الذي حنّ — The Palm Trunk That Cried
+  'sira_jidh_young': [
+    LivingPicture(
+      image: _page('sira_jidh_young', 1),
+      regions: [
+        PictureRegion(
+          'the palm trunk',
+          Rect.fromLTRB(0.6, 0.12, 0.76, 0.76),
+          cue: ['جذع', 'trunk'],
+        ),
+        PictureRegion(
+          'the palm fronds',
+          Rect.fromLTRB(0.08, 0.0, 0.96, 0.26),
+          cue: ['النخل', 'palm'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_jidh_young', 2),
+      regions: [
+        PictureRegion(
+          'the empty floor by the trunk',
+          Rect.fromLTRB(0.2, 0.54, 0.56, 0.78),
+          cue: ['منبر', 'minbar'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_jidh_young', 3),
+      regions: [
+        PictureRegion(
+          'the minbar',
+          Rect.fromLTRB(0.32, 0.48, 0.56, 0.7),
+          cue: ['منبر', 'المنبر', 'minbar'],
+        ),
+        PictureRegion(
+          'the palm trunk',
+          Rect.fromLTRB(0.52, 0.0, 0.68, 0.82),
+          cue: ['الجذع', 'trunk'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_jidh_young', 4),
+      ambient: PictureAmbient.sparkles,
+      regions: [
+        PictureRegion(
+          'the palm trunk',
+          Rect.fromLTRB(0.56, 0.0, 0.7, 0.84),
+          cue: ['ضم', 'held'],
+          burst: PictureBurst.hearts,
+        ),
+        PictureRegion(
+          'the light falling into the mosque',
+          Rect.fromLTRB(0.28, 0.08, 0.62, 0.5),
+          cue: ['الذكر', 'remembrance'],
+          burst: PictureBurst.sparkles,
+        ),
+        PictureRegion(
+          'the minbar',
+          Rect.fromLTRB(0.38, 0.48, 0.56, 0.7),
+          cue: ['نزل', 'down'],
+        ),
+      ],
+    ),
+  ],
+  'sira_jidh_older': [
+    LivingPicture(
+      image: _page('sira_jidh_older', 1),
+      regions: [
+        PictureRegion(
+          'the palm trunk',
+          Rect.fromLTRB(0.68, 0.06, 0.86, 0.86),
+          cue: ['جذع', 'trunk'],
+        ),
+        PictureRegion(
+          'the palm fronds',
+          Rect.fromLTRB(0.24, 0.0, 0.98, 0.26),
+          cue: ['النخل', 'palm'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_jidh_older', 2),
+      regions: [
+        PictureRegion(
+          'the open floor of the mosque',
+          Rect.fromLTRB(0.2, 0.5, 0.76, 0.86),
+          cue: ['منبر', 'minbar'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_jidh_older', 3),
+      regions: [
+        PictureRegion(
+          'the minbar',
+          Rect.fromLTRB(0.1, 0.5, 0.44, 0.82),
+          cue: ['منبر', 'المنبر', 'minbar'],
+        ),
+        PictureRegion(
+          'the carpenter\'s tools',
+          Rect.fromLTRB(0.52, 0.74, 0.84, 0.92),
+          cue: ['صنعوا', 'made'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_jidh_older', 4),
+      regions: [
+        PictureRegion(
+          'the palm trunk',
+          Rect.fromLTRB(0.66, 0.0, 0.84, 0.84),
+          cue: ['الجذع', 'trunk'],
+        ),
+        PictureRegion(
+          'the rings of sound around the trunk',
+          Rect.fromLTRB(0.46, 0.18, 0.98, 0.8),
+          cue: ['صوت', 'sound'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_jidh_older', 5),
+      ambient: PictureAmbient.sparkles,
+      regions: [
+        PictureRegion(
+          'the palm trunk',
+          Rect.fromLTRB(0.66, 0.0, 0.84, 0.86),
+          cue: ['ضم', 'held'],
+          burst: PictureBurst.hearts,
+        ),
+        PictureRegion(
+          'the minbar',
+          Rect.fromLTRB(0.1, 0.5, 0.44, 0.82),
+          cue: ['نزل', 'down'],
+        ),
+        PictureRegion(
+          'the light falling into the mosque',
+          Rect.fromLTRB(0.3, 0.08, 0.66, 0.5),
+          cue: ['الذكر', 'remembrance'],
+          burst: PictureBurst.sparkles,
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_jidh_older', 6),
+      ambient: PictureAmbient.sparkles,
+      regions: [
+        PictureRegion(
+          'the palm trunk',
+          Rect.fromLTRB(0.64, 0.0, 0.82, 0.86),
+          cue: ['الجذع', 'trunk'],
+        ),
+        PictureRegion(
+          'the minbar',
+          Rect.fromLTRB(0.1, 0.5, 0.44, 0.82),
+          cue: ['نزل', 'down'],
+        ),
+        PictureRegion(
+          'the evening light',
+          Rect.fromLTRB(0.3, 0.06, 0.66, 0.5),
+          cue: ['الذكر', 'remembrance'],
+          burst: PictureBurst.sparkles,
+        ),
+      ],
+    ),
+  ],
+
+  // أبو عمير وطائره الصغير — Abu Umair and His Little Bird
+  'sira_abu_umair_young': [
+    LivingPicture(
+      image: _page('sira_abu_umair_young', 1),
+      regions: [
+        PictureRegion(
+          'the sparrow on the railing',
+          Rect.fromLTRB(0.72, 0.26, 0.9, 0.4),
+          cue: ['نغر', 'طائر', 'nughar', 'bird'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_abu_umair_young', 2),
+      regions: [
+        PictureRegion(
+          'the little bird',
+          Rect.fromLTRB(0.5, 0.64, 0.74, 0.84),
+          cue: ['النغير', 'طائر', 'nughayr', 'bird'],
+        ),
+        PictureRegion(
+          'the doorway',
+          Rect.fromLTRB(0.1, 0.2, 0.34, 0.66),
+          cue: ['=جاء', 'came'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_abu_umair_young', 3),
+      ambient: PictureAmbient.sparkles,
+      regions: [
+        PictureRegion(
+          'the doorway of the house',
+          Rect.fromLTRB(0.08, 0.2, 0.42, 0.7),
+          cue: ['خلق', 'character'],
+          burst: PictureBurst.sparkles,
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_abu_umair_young', 4),
+      ambient: PictureAmbient.sparkles,
+      regions: [
+        PictureRegion(
+          'the evening sky',
+          Rect.fromLTRB(0.44, 0.0, 0.96, 0.32),
+          cue: ['سنين', 'years'],
+          burst: PictureBurst.sparkles,
+        ),
+        PictureRegion(
+          'the water jug',
+          Rect.fromLTRB(0.76, 0.44, 0.9, 0.62),
+          cue: ['خدمت', 'served'],
+        ),
+      ],
+    ),
+  ],
+  'sira_abu_umair_older': [
+    LivingPicture(
+      image: _page('sira_abu_umair_older', 1),
+      ambient: PictureAmbient.sparkles,
+      regions: [
+        PictureRegion(
+          'the sunny window',
+          Rect.fromLTRB(0.64, 0.08, 0.98, 0.44),
+          cue: ['خلق', 'character'],
+          burst: PictureBurst.sparkles,
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_abu_umair_older', 2),
+      regions: [
+        PictureRegion(
+          'the little bird at the bowl',
+          Rect.fromLTRB(0.42, 0.52, 0.62, 0.7),
+          cue: ['نغر', 'طائر', 'nughar', 'bird'],
+        ),
+        PictureRegion(
+          'the toy duck',
+          Rect.fromLTRB(0.48, 0.72, 0.6, 0.84),
+          cue: ['يلعب', 'played'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_abu_umair_older', 3),
+      regions: [
+        PictureRegion(
+          'the little bird on the step',
+          Rect.fromLTRB(0.18, 0.6, 0.38, 0.78),
+          cue: ['النغير', 'nughayr'],
+        ),
+        PictureRegion(
+          'the open door',
+          Rect.fromLTRB(0.1, 0.14, 0.5, 0.7),
+          cue: ['=جاء', 'came'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_abu_umair_older', 4),
+      regions: [
+        PictureRegion(
+          'the mat',
+          Rect.fromLTRB(0.26, 0.68, 0.92, 0.92),
+          cue: ['بساط', 'mat'],
+        ),
+        PictureRegion(
+          'the broom',
+          Rect.fromLTRB(0.14, 0.18, 0.34, 0.76),
+          cue: ['يكنس', 'swept'],
+        ),
+        PictureRegion(
+          'the water jar',
+          Rect.fromLTRB(0.04, 0.62, 0.22, 0.86),
+          cue: ['ماء', 'water'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_abu_umair_older', 5),
+      ambient: PictureAmbient.sparkles,
+      regions: [
+        PictureRegion(
+          'the palm with its dates',
+          Rect.fromLTRB(0.38, 0.0, 0.72, 0.6),
+          cue: ['سنين', 'years'],
+          burst: PictureBurst.sparkles,
+        ),
+        PictureRegion(
+          'the door of the house',
+          Rect.fromLTRB(0.12, 0.3, 0.3, 0.74),
+          cue: ['خدمت', 'served'],
+        ),
+      ],
+    ),
+    LivingPicture(
+      image: _page('sira_abu_umair_older', 6),
+      ambient: PictureAmbient.sparkles,
+      regions: [
+        PictureRegion(
+          'the little bird on the wall',
+          Rect.fromLTRB(0.28, 0.36, 0.48, 0.52),
+          cue: ['طائر', 'bird'],
+        ),
+        PictureRegion(
+          'the walls of the house',
+          Rect.fromLTRB(0.0, 0.3, 1.0, 0.76),
+          cue: ['بيت', 'family'],
+        ),
+        PictureRegion(
+          'the sunset sky',
+          Rect.fromLTRB(0.0, 0.0, 1.0, 0.34),
+          cue: ['سنين', 'years'],
+          burst: PictureBurst.sparkles,
         ),
       ],
     ),

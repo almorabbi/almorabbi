@@ -40,6 +40,23 @@ StoryNarration _manifest(String id, String lang) => StoryNarration.tryParse(
   ),
 )!;
 
+bool _recorded(String id) =>
+    File('test/fixtures/narration/${id}_ar.json').existsSync() &&
+    File('test/fixtures/narration/${id}_en.json').existsSync();
+
+/// Living stories painted before they were recorded. Shrinks to empty as
+/// their fixtures are copied in from the server (test: only these may wait).
+const _pendingNarration = {
+  'sira_ghar_young',
+  'sira_ghar_older',
+  'sira_masjid_young',
+  'sira_masjid_older',
+  'sira_jidh_young',
+  'sira_jidh_older',
+  'sira_abu_umair_young',
+  'sira_abu_umair_older',
+};
+
 List<NarrationSentence> _even(String text, double seconds) => [
   NarrationSentence(from: 0, to: text.length, start: 0, end: seconds),
 ];
@@ -187,12 +204,57 @@ void main() {
       }
       // Every bundled story is painted now.
       expect(livingStories.length, library.length);
-      expect(library.length, 39);
+      expect(library.length, 47);
     });
 
     for (final s in library) {
       final id = s['id'] as String;
       if (!livingStories.contains(id)) continue;
+      // Recorded later than painted: a story whose narration is not on the
+      // server yet (only the Seerah season, 2026-10-30 — the Gemini quota is
+      // shared) has its cues checked against the bundled page text instead.
+      // The day its fixtures are copied in, the strict check below takes over.
+      if (!_recorded(id)) {
+        test('$id (narration pending): every page has its painting, every '
+            'region its words — each on the page text in ar or en', () {
+          expect(_pendingNarration, contains(id));
+          final pages = s['pages'] as List;
+          final enPages = en[id]!['pages'] as List;
+          expect(livingPictureFor(id, pages.length), isNull);
+          expect(livingCoverFor(id), 'docs/stories/${id}_cover.png');
+          for (var i = 0; i < pages.length; i++) {
+            final picture = livingPictureFor(id, i)!;
+            expect(picture.image, 'docs/stories/${id}_${i + 1}.png');
+            expect(picture.image, (pages[i] as Map)['image']);
+            expect(picture.regions, isNotEmpty, reason: '$id page ${i + 1}');
+            final texts = [
+              (pages[i] as Map)['text'] as String,
+              (enPages[i] as Map)['text'] as String,
+            ];
+            for (final r in picture.regions) {
+              expect(r.cue, isNotEmpty, reason: '$id page ${i + 1} ${r.name}');
+              for (final w in r.cue) {
+                final said = texts.any(
+                  (t) => wordCuesFor(
+                    [
+                      [w],
+                    ],
+                    t,
+                    _even(t, 10),
+                  ).isNotEmpty,
+                );
+                expect(
+                  said,
+                  isTrue,
+                  reason:
+                      '$id page ${i + 1} ${r.name}: «$w» is not on the page',
+                );
+              }
+            }
+          }
+        });
+        continue;
+      }
       test('$id: every page has its painting, every region its words — '
           'each said on the page in ar or en', () {
         final ar = _manifest(id, 'ar'), enN = _manifest(id, 'en');
@@ -239,7 +301,14 @@ void main() {
     // be sent to a figure on a prophet's name.
     test("a prophet's story never cues a prophet's name", () {
       const names = {
-        'يونس', 'yunus', 'سليمان', 'sulayman', 'داود', 'dawud', 'نبي', 'prophet',
+        'يونس',
+        'yunus',
+        'سليمان',
+        'sulayman',
+        'داود',
+        'dawud',
+        'نبي',
+        'prophet',
       };
       final prophets = [
         for (final s in library)
@@ -252,13 +321,81 @@ void main() {
           for (final r in livingPictureFor(id, i)!.regions) {
             for (final w in r.cue) {
               expect(
-                names.any((n) => normalizeCueWord(w).contains(normalizeCueWord(n))),
+                names.any(
+                  (n) => normalizeCueWord(w).contains(normalizeCueWord(n)),
+                ),
                 isFalse,
                 reason: '$id page ${i + 1} ${r.name}: «$w»',
               );
             }
           }
         }
+      }
+    });
+
+    // من السيرة النبوية (2026-10-30): the Prophet ﷺ is never pictured, nor
+    // any companion — a page shows the cave, the palms, the minbar, the
+    // trunk, the bird. The camera must never be sent to a person's name.
+    test('a Seerah story never cues a person', () {
+      const names = {
+        'النبي',
+        'رسول',
+        'prophet',
+        'messenger',
+        'بكر',
+        'bakr',
+        'أنس',
+        'anas',
+        'جابر',
+        'jabir',
+        'عمير',
+        'umair',
+        'أيوب',
+        'ayyub',
+        'امرأة',
+        'woman',
+        'رجل',
+        '=man',
+      };
+      final seerah = [
+        for (final s in library)
+          if (s['series'] == 'sira_sahih') s['id'] as String,
+      ];
+      expect(seerah, hasLength(8));
+      for (final id in seerah) {
+        expect(livingStories, contains(id));
+        for (var i = 0; livingPictureFor(id, i) != null; i++) {
+          for (final r in livingPictureFor(id, i)!.regions) {
+            for (final w in r.cue) {
+              final cue = normalizeCueWord(w);
+              expect(
+                names.any(
+                  (n) => n.startsWith('=')
+                      ? cue == n.substring(1)
+                      : cue.contains(normalizeCueWord(n)),
+                ),
+                isFalse,
+                reason: '$id page ${i + 1} ${r.name}: «$w»',
+              );
+            }
+          }
+        }
+      }
+    });
+
+    test('only the Seerah season may wait for its narration', () {
+      final waiting = {
+        for (final s in library)
+          if (livingStories.contains(s['id']) && !_recorded(s['id'] as String))
+            s['id'] as String,
+      };
+      expect(waiting, _pendingNarration);
+      for (final id in waiting) {
+        expect(
+          library.firstWhere((s) => s['id'] == id)['series'],
+          'sira_sahih',
+          reason: id,
+        );
       }
     });
 

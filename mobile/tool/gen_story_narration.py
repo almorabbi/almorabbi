@@ -79,7 +79,21 @@ SPOKEN = {"en": {"ﷺ": "sallallahu alayhi wa sallam"}}
 VERSE_GAP_S = 0.3
 
 
+# A hadith's citation is for the eye, not the ear (the Seerah season, 2026-10-30):
+# «…» (صحيح البخاري ٦٢٠٣) / “…” (Sahih al-Bukhari 6203) stays on the page and in
+# the manifest, but the narrator does not read it — the TTS input and the
+# transcript check both go without it. The app's word cues skip the same span
+# (lib/features/stories/narration/word_cues.dart, the same pattern).
+CITATION = re.compile(r"\s*\(\s*(?:صحيح\s+(?:البخاري|مسلم)|Sahih\s+(?:al-)?(?:Bukhari|Muslim))[^()]*\)", re.I)
+
+
+def unspoken(text: str) -> str:
+    """[text] without what the narrator does not say: hadith citations."""
+    return CITATION.sub("", text)
+
+
 def spoken(text: str, lang: str) -> str:
+    text = unspoken(text)
     for sym, said in SPOKEN.get(lang, {}).items():
         text = text.replace(sym, said)
     return text
@@ -438,8 +452,8 @@ def record_story(story: dict, lang: str, voice: str, model: str, out_dir: Path,
                 for is_verse, bit in (parts(text[a:b]) if split else [(False, text[a:b])]):
                     if is_verse:
                         plan.append(((a, b), True, bit))
-                    else:
-                        piece = trim_silence(synth(spoken(bit, lang), lang, voice, model, key, usage))
+                    elif re.search(r"\w", said := spoken(bit, lang)):
+                        piece = trim_silence(synth(said, lang, voice, model, key, usage))
                         own += (vgap if own else b"") + piece
                         plan.append(((a, b), False, piece))
             if split:

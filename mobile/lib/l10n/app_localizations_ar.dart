@@ -6401,7 +6401,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get storyShelfSeerahSubtitle =>
-      'من القرآن والصحيحين بنصّ الحديث ورقمه — بلا صور للنبي ﷺ ولا للصحابة.';
+      'من القرآن وصحيحَي البخاري ومسلم، بنصّ الحديث ورقمه — بلا صور للنبي ﷺ ولا للصحابة.';
 
   @override
   String get storyShelfTales => 'حكايات وآداب';

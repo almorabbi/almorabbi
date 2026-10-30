@@ -64,7 +64,7 @@ void main() {
       expect(story.hasDebrief, isFalse);
     });
 
-    test('both docs/stories.json and mobile/assets/data/stories.json are valid and contain all 39 stories', () {
+    test('both docs/stories.json and mobile/assets/data/stories.json are valid and contain all 47 stories', () {
       final docsFile = File('../docs/stories.json');
       final assetsFile = File('assets/data/stories.json');
 
@@ -79,8 +79,8 @@ void main() {
           .map((e) => Story.fromJson(e as Map<String, dynamic>))
           .toList();
 
-      expect(docsStories.length, 39);
-      expect(assetsStories.length, 39);
+      expect(docsStories.length, 47);
+      expect(assetsStories.length, 47);
 
       // Verify Kindergarten stories exist
       final badr = docsStories.firstWhere((s) => s.id == 'badr_broken_toy');
@@ -94,14 +94,22 @@ void main() {
       expect(sarah.ageGroup, '3-6 سنوات');
       expect(sarah.hasDebrief, isTrue);
 
-      // The Qur'anic prophets' stories carry their series, in both copies.
+      // The Qur'anic prophets' stories and the Seerah stories carry their
+      // series, in both copies — and no story is in both.
       for (final stories in [docsStories, assetsStories]) {
         expect(
           stories.where((s) => s.isProphetStory).map((s) => s.id).toSet(),
           _anbiyaIds,
         );
+        expect(
+          stories.where((s) => s.isSeerahStory).map((s) => s.id).toSet(),
+          _siraIds,
+        );
         for (final s in stories) {
-          if (!_anbiyaIds.contains(s.id)) expect(s.series, isNull, reason: s.id);
+          expect(s.isProphetStory && s.isSeerahStory, isFalse, reason: s.id);
+          if (!_anbiyaIds.contains(s.id) && !_siraIds.contains(s.id)) {
+            expect(s.series, isNull, reason: s.id);
+          }
         }
       }
     });
@@ -144,9 +152,35 @@ void main() {
       final story = Story.fromJson(storyJson({'series': ' seerah '}));
       expect(story.series, 'seerah');
       expect(story.isProphetStory, isFalse);
+      expect(story.isSeerahStory, isFalse);
+    });
+
+    test('the Seerah series is read, and is not a prophet story', () {
+      final story = Story.fromJson(storyJson({'series': kSiraSeries}));
+      expect(story.series, 'sira_sahih');
+      expect(story.isSeerahStory, isTrue);
+      expect(story.isProphetStory, isFalse);
+      final padded = Story.fromJson(storyJson({'series': ' sira_sahih '}));
+      expect(padded.isSeerahStory, isTrue);
+      for (final bad in <Object?>[5, ['sira_sahih'], '', null]) {
+        expect(Story.fromJson(storyJson({'series': bad})).isSeerahStory, isFalse,
+            reason: '$bad');
+      }
+      expect(Story.fromJson(storyJson({'series': kAnbiyaSeries})).isSeerahStory, isFalse);
     });
   });
 }
+
+const _siraIds = {
+  'sira_ghar_young',
+  'sira_ghar_older',
+  'sira_masjid_young',
+  'sira_masjid_older',
+  'sira_jidh_young',
+  'sira_jidh_older',
+  'sira_abu_umair_young',
+  'sira_abu_umair_older',
+};
 
 const _anbiyaIds = {
   'anbiya_yunus_young',

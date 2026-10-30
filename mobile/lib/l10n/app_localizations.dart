@@ -10829,7 +10829,7 @@ abstract class AppLocalizations {
   /// No description provided for @storyShelfSeerahSubtitle.
   ///
   /// In ar, this message translates to:
-  /// **'من القرآن والصحيحين بنصّ الحديث ورقمه — بلا صور للنبي ﷺ ولا للصحابة.'**
+  /// **'من القرآن وصحيحَي البخاري ومسلم، بنصّ الحديث ورقمه — بلا صور للنبي ﷺ ولا للصحابة.'**
   String get storyShelfSeerahSubtitle;
 
   /// No description provided for @storyShelfTales.

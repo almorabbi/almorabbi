@@ -1,0 +1,747 @@
+{
+  "id": "sira_jidh_young",
+  "series": "sira_sahih",
+  "about": "مصادر القصة: الأحاديث من صحيح البخاري ومسلم بنصّها في الطبعة المثبّتة (fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784) — وهي التي بُني منها فهرس الصحيحين — والآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/sira_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py --series sira_sahih.",
+  "tafsir_source": null,
+  "content_sha256": "718af961e2569e5cbb1b769a760366e5c2ec8c86641a9bfb2eb57d5c17331775",
+  "refs": [
+    "bukhari:3583",
+    "bukhari:3584",
+    "bukhari:3585"
+  ],
+  "hadith": {
+    "bukhari:3583": {
+      "book": "البخاري",
+      "number": 3583,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ الْمُثَنَّى، حَدَّثَنَا يَحْيَى بْنُ كَثِيرٍ أَبُو غَسَّانَ، حَدَّثَنَا أَبُو حَفْصٍ ـ وَاسْمُهُ عُمَرُ بْنُ الْعَلاَءِ أَخُو أَبِي عَمْرِو بْنِ الْعَلاَءِ ـ قَالَ سَمِعْتُ نَافِعًا، عَنِ ابْنِ عُمَرَ ـ رضى الله عنهما ـ كَانَ النَّبِيُّ صلى الله عليه وسلم يَخْطُبُ إِلَى جِذْعٍ فَلَمَّا اتَّخَذَ الْمِنْبَرَ تَحَوَّلَ إِلَيْهِ، فَحَنَّ الْجِذْعُ فَأَتَاهُ فَمَسَحَ يَدَهُ عَلَيْهِ‏.‏ وَقَالَ عَبْدُ الْحَمِيدِ أَخْبَرَنَا عُثْمَانُ بْنُ عُمَرَ، أَخْبَرَنَا مُعَاذُ بْنُ الْعَلاَءِ، عَنْ نَافِعٍ، بِهَذَا‏.‏ وَرَوَاهُ أَبُو عَاصِمٍ عَنِ ابْنِ أَبِي رَوَّادٍ، عَنْ نَافِعٍ، عَنِ ابْنِ عُمَرَ، عَنِ النَّبِيِّ صلى الله عليه وسلم‏.‏",
+      "edition": "fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784",
+      "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784/editions/ara-bukhari/3583.json",
+      "reference": {
+        "book": 61,
+        "hadith": 92
+      },
+      "fetched_at": "2026-10-30T15:13:46+00:00"
+    },
+    "bukhari:3584": {
+      "book": "البخاري",
+      "number": 3584,
+      "text": "حَدَّثَنَا أَبُو نُعَيْمٍ، حَدَّثَنَا عَبْدُ الْوَاحِدِ بْنُ أَيْمَنَ، قَالَ سَمِعْتُ أَبِي، عَنْ جَابِرِ بْنِ عَبْدِ اللَّهِ ـ رضى الله عنهما ـ أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ يَقُومُ يَوْمَ الْجُمُعَةِ إِلَى شَجَرَةٍ أَوْ نَخْلَةٍ، فَقَالَتِ امْرَأَةٌ مِنَ الأَنْصَارِ ـ أَوْ رَجُلٌ ـ يَا رَسُولَ اللَّهِ أَلاَ نَجْعَلُ لَكَ مِنْبَرًا قَالَ ‏\"‏ إِنْ شِئْتُمْ ‏\"‏‏.‏ فَجَعَلُوا لَهُ مِنْبَرًا، فَلَمَّا كَانَ يَوْمُ الْجُمُعَةِ دُفِعَ إِلَى الْمِنْبَرِ، فَصَاحَتِ النَّخْلَةُ صِيَاحَ الصَّبِيِّ، ثُمَّ نَزَلَ النَّبِيُّ صلى الله عليه وسلم فَضَمَّهُ إِلَيْهِ تَئِنُّ أَنِينَ الصَّبِيِّ، الَّذِي يُسَكَّنُ، قَالَ ‏\"‏ كَانَتْ تَبْكِي عَلَى مَا كَانَتْ تَسْمَعُ مِنَ الذِّكْرِ عِنْدَهَا ‏\"‏‏.‏",
+      "edition": "fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784",
+      "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784/editions/ara-bukhari/3584.json",
+      "reference": {
+        "book": 61,
+        "hadith": 93
+      },
+      "fetched_at": "2026-10-30T12:51:39+00:00"
+    },
+    "bukhari:3585": {
+      "book": "البخاري",
+      "number": 3585,
+      "text": "حَدَّثَنَا إِسْمَاعِيلُ، قَالَ حَدَّثَنِي أَخِي، عَنْ سُلَيْمَانَ بْنِ بِلاَلٍ، عَنْ يَحْيَى بْنِ سَعِيدٍ، قَالَ أَخْبَرَنِي حَفْصُ بْنُ عُبَيْدِ اللَّهِ بْنِ أَنَسِ بْنِ مَالِكٍ، أَنَّهُ سَمِعَ جَابِرَ بْنَ عَبْدِ اللَّهِ ـ رضى الله عنهما ـ يَقُولُ كَانَ الْمَسْجِدُ مَسْقُوفًا عَلَى جُذُوعٍ مِنْ نَخْلٍ فَكَانَ النَّبِيُّ صلى الله عليه وسلم إِذَا خَطَبَ يَقُومُ إِلَى جِذْعٍ مِنْهَا، فَلَمَّا صُنِعَ لَهُ الْمِنْبَرُ، وَكَانَ عَلَيْهِ فَسَمِعْنَا لِذَلِكَ الْجِذْعِ صَوْتًا كَصَوْتِ الْعِشَارِ، حَتَّى جَاءَ النَّبِيُّ صلى الله عليه وسلم فَوَضَعَ يَدَهُ عَلَيْهَا فَسَكَنَتْ‏.‏",
+      "edition": "fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784",
+      "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784/editions/ara-bukhari/3585.json",
+      "reference": {
+        "book": 61,
+        "hadith": 94
+      },
+      "fetched_at": "2026-10-30T12:51:39+00:00"
+    }
+  },
+  "verses": {},
+  "tafsir": {},
+  "tafsir_meta": {},
+  "fields": [
+    {
+      "path": "title",
+      "refs": [
+        "bukhari:3583",
+        "bukhari:3584",
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "الجذع الذي حنّ",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The hadith states the trunk cried for the remembrance it used to hear, which entails its yearning/longing.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The title only summarizes what the cited hadiths state: the trunk/palm cried and made a moaning sound ( sound like the العشار, and «كَانَتْ تَبْكِي عَلَى مَا كَانَتْ تَسْمَعُ مِنَ الذِّكْرِ عِنْدَهَا»), which is the ordinary meaning of حنّ.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "f12cf8defea50938fa5d2ef327d9209772f2e1b684885e52a7bc079d23704c9b",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "refs": [
+        "bukhari:3584",
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "قصة الجذع الذي بكى حين صُنع للنبيّ ﷺ منبر، كما رواها جابر بن عبد الله رضي الله عنهما في صحيح البخاري، بنصّ الحديث ورقمه.",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The description accurately summarizes the cited hadiths from Sahih al-Bukhari narrated by Jabir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The weeping trunk, the making of the minbar, and the attribution to Jabir ibn Abdullah in Sahih al-Bukhari are all directly stated in the cited hadiths, and «كانت تبكي» is the Prophet's wording in 3584.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "461a08b96ff56dede9bc84a2f60c850d92c5a1fc77555504660c565f7eb64e04",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[0].text",
+      "refs": [
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "كان سقف المسجد قائمًا على جذوعٍ من النخل، وكان النبيُّ ﷺ إذا خطب يقوم إلى جذعٍ منها.",
+          "refs": [
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "This is a faithful paraphrase of the cited hadith about the mosque roof resting on palm trunks and the Prophet standing by one when he gave the khutbah.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly restates the hadith's wording that the mosque was roofed on palm trunks and that the Prophet ﷺ would stand by one of them when preaching, with only minor rephrasing for children.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "26e54352d01b5a3e2804eb1192660b8619669398f66b1130e3cf72fb87e6b5ff",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[1].text",
+      "refs": [
+        "bukhari:3584"
+      ],
+      "sentences": [
+        {
+          "text": "فقالت امرأةٌ من الأنصار، أو رجلٌ: «يَا رَسُولَ اللَّهِ أَلاَ نَجْعَلُ لَكَ مِنْبَرًا»، قال: «إِنْ شِئْتُمْ» (صحيح البخاري ٣٥٨٤).",
+          "refs": [
+            "bukhari:3584"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited hadith's wording, speaker, and framing exactly.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The quotes are verbatim from Bukhari 3584, correctly attributed to the Ansari woman (or man) and to the Prophet ﷺ, matching the hadith's wording and sequence.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "92f70e2fffaa7d6f863226f05df35a010f9165e599e6d2e8bdfdcc97184f333d",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[2].text",
+      "refs": [
+        "bukhari:3584",
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "فصنعوا له منبرًا.",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The hadith states they made a minbar for him after he agreed.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence matches both hadiths: 'فَجَعَلُوا لَهُ مِنْبَرًا' in Bukhari 3584 and 'صُنِعَ لَهُ الْمِنْبَرُ' in Bukhari 3585.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "9a0fe23713013e0952d442f98e8179c92512a1cd708d5b3ef61e16f6cb932db3",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        },
+        {
+          "text": "فلما كان يوم الجمعة انتقل ﷺ إلى المنبر، فصاح الجذع صياحَ الصبيّ.",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches Bukhari 3584's narration that on Friday the Prophet moved to the minbar and the trunk cried like a child.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Every element is in the cited hadiths of the same event from Jabir: 'فلما كان يوم الجمعة' and the crying like a child are in Bukhari 3584 ('فَصَاحَتِ النَّخْلَةُ صِيَاحَ الصَّبِيِّ'), the object is the trunk (الجذع) in Bukhari 3585, and moving to the minbar matches 'دُفِعَ إِلَى الْمِنْبَرِ' / 'وَكَانَ عَلَيْهِ'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "1437f4b56aff2aa66dfb31f696692f6eafdad2ed0eca3e72ade36a7d2946eaeb",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[3].text",
+      "refs": [
+        "bukhari:3584",
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "فنزل النبيُّ ﷺ فضمّه إليه، فجعل يئنّ أنين الصبيّ الذي يُسكَّت، وقال: «كَانَتْ تَبْكِي عَلَى مَا كَانَتْ تَسْمَعُ مِنَ الذِّكْرِ عِنْدَهَا» (صحيح البخاري ٣٥٨٤).",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the wording and attribution of the cited hadith about the trunk moaning and the Prophet's statement.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The actions and sequence match hadith 3584, the quote is verbatim and correctly attributed to the Prophet ﷺ, and 'يُسكَّت' is a fair synonym for 'يُسَكَّنُ' adding no new fact.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "24012ec08ddbd67e0d86ecb00cc3013370a0a5fd7ab2f05816940e9ae056330f",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.question",
+      "refs": [
+        "bukhari:3584",
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "صاح الجذع حين ابتعد عنه النبيّ ﷺ.",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The hadith says the trunk cried when the Prophet ﷺ moved to the minbar, so this is a simple supported paraphrase.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The cited hadiths state that when the pulpit was made and the Prophet ﷺ stood on it instead of by the trunk, the trunk/palm cried out, and he ﷺ explained it wept over the dhikr it used to hear near it, so 'it cried when the Prophet moved away from it' is directly entailed.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "1d6d2878354609e3ab14a3faee42fe447d2f39874e3f5f8df751ceb134d73efe",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        },
+        {
+          "text": "لو رأيت صديقًا حزينًا، ماذا تفعل؟",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks the child a general question about helping a sad friend and makes no unsupported claim about the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general question to the child about the child's own life and asserts nothing about the Prophet ﷺ, the companions, or the events of the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "5dcfce7566874a2fd2f7764b68bcafa2770e9622371dfa8fe5935473bf089714",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.affirm",
+      "refs": [
+        "bukhari:3584",
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "أحسنت!",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is just praise to the child and asserts nothing about the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "A general word of praise to the child makes no claim about the story or its sources.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "db03a3a002a31de0a8ff82e56d905ab35e55580fffe5564e18fc4944b7f78c2d",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        },
+        {
+          "text": "نزل النبيّ ﷺ إلى الجذع فضمّه إليه.",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "This matches Sahih al-Bukhari 3584, where the Prophet ﷺ came down and embraced the trunk.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Matches Bukhari 3584: 'ثم نزل النبي ﷺ فضمه إليه', with the trunk (الجذع) named as in Bukhari 3585.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "e78e9913ca9174f70f8b758913d0dfcaa0904a4022f5cea1cd26c4b0848add9d",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.nudge",
+      "refs": [
+        "bukhari:3584",
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا فعل النبيّ ﷺ حين صاح الجذع؟",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about an action that the cited hadith narrates, without adding unsupported details.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "It is a question to the child, and its premise (the trunk/palm crying out) is directly stated in the cited hadiths (فصاحت النخلة / سمعنا لذلك الجذع صوتًا).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "83150db2035084caa426110e8d06d5cd47d9b35d64c512338d4f38e1c150593a",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[0]",
+      "refs": [
+        "bukhari:3584",
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "أقترب منه وأواسيه",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is the child's own possible action or general good manners in today's life, not a claim about the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is the child's own possible choice in today's life and asserts no unsupported fact about the story or the Prophet ﷺ.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "c39eee8715a501788ea42bd7b122ac90924a69ced2467e0ea037819b914f051e",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[1]",
+      "refs": [
+        "bukhari:3584",
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "أتركه وحده",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The child's own possible choice does not assert anything about the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is an answer option representing the child's own possible choice in life and asserts nothing about the Prophet ﷺ or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "5614a897386ad8860bb704dc5cde5ea3293c994ab2f566dd8388f5864086cd66",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[0]",
+      "refs": [
+        "bukhari:3584",
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "على أيّ شيء كان النبيّ ﷺ يقوم وهو يخطب قبل المنبر؟",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks what the Prophet ﷺ stood on while preaching before the pulpit, which is supported by the cited hadiths stating he stood by a tree/palm trunk.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question's presupposition matches Bukhari 3585/3584, where before the minbar was made the Prophet ﷺ would stand at a palm trunk/tree while preaching, and it asserts nothing beyond that.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "3cbc317f5868e278c96bd81d027694dcd9bbe4c9c1b82473bdcfba4d10d302ab",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[1]",
+      "refs": [
+        "bukhari:3584",
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا فعل الجذع حين قام النبيّ ﷺ على المنبر؟",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about an event directly found in the cited hadiths, where the trunk made a sound when the Prophet was on the minbar.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question's premise matches Bukhari 3584 and 3585, where after the minbar was made and the Prophet ﷺ was on it, the trunk/palm made a crying sound.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "363a908bcd604b902a35273e1e699323ad47a8876da3cbce50371e3cbc048224",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[2]",
+      "refs": [
+        "bukhari:3584",
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا فعل النبيّ ﷺ حتى سكن الجذع؟",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks what the Prophet did to calm the trunk, which the cited hadith supports: he placed his hand on it and it became still.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question only asks about an event stated in the cited hadith (the Prophet ﷺ placed his hand on / embraced the trunk and it became calm).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "37cffb9359d12b471494bc2cd8031a09bd9fbb708150d5e244cefa8869d1d39c",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "islamicValue",
+      "refs": [
+        "bukhari:3584",
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "قال النبيّ ﷺ عن الجذع: «كَانَتْ تَبْكِي عَلَى مَا كَانَتْ تَسْمَعُ مِنَ الذِّكْرِ عِنْدَهَا» (صحيح البخاري ٣٥٨٤).",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence accurately attributes the cited hadith wording to the Prophet ﷺ about the palm trunk.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The quoted words are verbatim from Bukhari 3584 and are spoken by the Prophet ﷺ there, about the same palm-trunk whose crying is described as the جذع in Bukhari 3585.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "9c78ca2aeba4387ba6112ed0b46b7c20374771f3f69433862eee4f4b46f1a68a",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "actionChallenge",
+      "refs": [
+        "bukhari:3584",
+        "bukhari:3585"
+      ],
+      "sentences": [
+        {
+          "text": "اذكر الله مع أهلك اليوم، وتذكّر الجذع الذي بكى على ما كان يسمع من الذِّكر.",
+          "refs": [
+            "bukhari:3584",
+            "bukhari:3585"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The instruction is a practical prompt, and the description of the trunk weeping over the dhikr it used to hear matches Bukhari 3584.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The instruction to the child is fine, and its embedded description of the trunk that wept over the dhikr it used to hear matches the Prophet's ﷺ words in Bukhari 3584 («كَانَتْ تَبْكِي عَلَى مَا كَانَتْ تَسْمَعُ مِنَ الذِّكْرِ») combined with the جذع in Bukhari 3585.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "74ed13d86984e39f8aeb55ba271631e5878e9f5f170bf95e9522a21d77db12ab",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    }
+  ]
+}

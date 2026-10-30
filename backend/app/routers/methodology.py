@@ -165,6 +165,21 @@ _PROPHETS_HTML = """
 """
 
 
+# «من السيرة النبوية» (2026-10-30). The same discipline as the prophets' stories, held by
+# ops/tools/check_sira_stories.py on pre-commit: the Qur'an and the two Sahihs only,
+# every quote verbatim with its number — and, again, no human reviewer.
+_SEERAH_HTML = """
+<h2 id="seerah">من السيرة النبوية</h2>
+<p>لا تروي قصص السيرة في المكتبة إلا ما في <strong>القرآن الكريم وصحيحَي البخاري ومسلم</strong>، ولا مصدر لها غيرها. وكل ما يقوله النبيّ ﷺ أو أحدٌ من صحابته فيها منقولٌ بنصّ الحديث بين «» ومعه اسم الكتاب ورقم الحديث، مثل (صحيح البخاري ٦٢٠٣)، أو بنص الآية بين ﴿﴾؛ فلا حوار مؤلَّف ولا كلام بالمعنى، ولا تفاصيل مشهورة لم تثبت فيهما. ونصّ كل حديث مستشهَد به محفوظ مع القصة. ولا تُرسَم في صفحات القصص صورة النبيّ ﷺ ولا أحدٍ من صحابته: الصور تُظهر الأماكن والأشياء التي ذكرها الحديث، كالغار والنخل والمنبر والجذع والطائر الصغير.</p>
+<p>تُفحص كل قصة آليًا عند كل تعديل: يُطابَق كل اقتباس على لفظ الحديث في رقمه، وتُعرض كل جملة على نموذجين من عائلتين مختلفتين ليحكما هل تسندها مصادرها. <strong>ولا يراجعها مراجع بشري ولا أحدٌ من أهل العلم.</strong> فإن وجدت فيها خطأً فأخبرنا من «شاركنا رأيك» داخل التطبيق، أو على support@alsaba.cloud.</p>
+<section lang="en" dir="ltr">
+<h3>From the Seerah</h3>
+<p>The Seerah stories in the library tell only what is in <strong>the Qur'an and the two Sahihs, al-Bukhari and Muslim</strong> — no other source. Whatever the Prophet ﷺ or a companion says in them is quoted in the hadith's own words, with the book and the hadith number, such as (Sahih al-Bukhari 6203), or as the verse itself — no invented dialogue, nothing retold in other words, and no well-known detail that those two books do not carry. The text of every cited hadith is kept with the story. Neither the Prophet ﷺ nor any of his companions is pictured on a story page: the pictures show the places and things the hadith mentions, such as the cave, the palm trees, the minbar, the palm trunk and the little bird.</p>
+<p>Each story is checked automatically on every change: every quote is matched against the wording of the hadith under its number, and every sentence is put to two models from two different families to judge whether its sources support it. <strong>No human reviewer — and no one of religious learning — reads these stories.</strong> If you find a mistake, please tell us through "Share Your Feedback" in the app, or at support@alsaba.cloud.</p>
+</section>
+"""
+
+
 @router.get("/methodology", include_in_schema=False)
 def methodology_page(request: Request):
     """Our methodology and sources — public page for parents and reviewers."""
@@ -217,6 +232,8 @@ def methodology_page(request: Request):
 </ul>
 
 {_PROPHETS_HTML}
+
+{_SEERAH_HTML}
 
 <h2>مجاني لوجه الله</h2>
 <p>المربّي مجاني بالكامل — بلا إعلانات ولا اشتراكات ولا مشتريات داخلية. تطبيق خيري نبنيه لوجه الله، ولا نبيع بيانات المستخدمين.</p>

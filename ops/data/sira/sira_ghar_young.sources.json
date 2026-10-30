@@ -1,0 +1,770 @@
+{
+  "id": "sira_ghar_young",
+  "series": "sira_sahih",
+  "about": "مصادر القصة: الأحاديث من صحيح البخاري ومسلم بنصّها في الطبعة المثبّتة (fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784) — وهي التي بُني منها فهرس الصحيحين — والآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/sira_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py --series sira_sahih.",
+  "tafsir_source": "moyassar",
+  "content_sha256": "ab532dd108d272d674b37c2a1f7940dee7e6fecef535f80ad2b86a75709a9d7f",
+  "refs": [
+    "9:40",
+    "bukhari:3653",
+    "bukhari:3905"
+  ],
+  "hadith": {
+    "bukhari:3653": {
+      "book": "البخاري",
+      "number": 3653,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ سِنَانٍ، حَدَّثَنَا هَمَّامٌ، عَنْ ثَابِتٍ، عَنْ أَنَسٍ، عَنْ أَبِي بَكْرٍ ـ رضى الله عنه ـ قَالَ قُلْتُ لِلنَّبِيِّ صلى الله عليه وسلم وَأَنَا فِي الْغَارِ لَوْ أَنَّ أَحَدَهُمْ نَظَرَ تَحْتَ قَدَمَيْهِ لأَبْصَرَنَا‏.‏ فَقَالَ ‏ \"‏ مَا ظَنُّكَ يَا أَبَا بَكْرٍ بِاثْنَيْنِ اللَّهُ ثَالِثُهُمَا ‏\"‏‏.‏",
+      "edition": "fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784",
+      "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784/editions/ara-bukhari/3653.json",
+      "reference": {
+        "book": 62,
+        "hadith": 5
+      },
+      "fetched_at": "2026-10-30T12:51:36+00:00"
+    },
+    "bukhari:3905": {
+      "book": "البخاري",
+      "number": 3905,
+      "text": "حَدَّثَنَا يَحْيَى بْنُ بُكَيْرٍ، حَدَّثَنَا اللَّيْثُ، عَنْ عُقَيْلٍ، قَالَ ابْنُ شِهَابٍ فَأَخْبَرَنِي عُرْوَةُ بْنُ الزُّبَيْرِ، أَنَّ عَائِشَةَ ـ رضى الله عنها ـ زَوْجَ النَّبِيِّ صلى الله عليه وسلم قَالَتْ لَمْ أَعْقِلْ أَبَوَىَّ قَطُّ إِلاَّ وَهُمَا يَدِينَانِ الدِّينَ، وَلَمْ يَمُرَّ عَلَيْنَا يَوْمٌ إِلاَّ يَأْتِينَا فِيهِ رَسُولُ اللَّهِ صلى الله عليه وسلم طَرَفَىِ النَّهَارِ بُكْرَةً وَعَشِيَّةً، فَلَمَّا ابْتُلِيَ الْمُسْلِمُونُ خَرَجَ أَبُو بَكْرٍ مُهَاجِرًا نَحْوَ أَرْضِ الْحَبَشَةِ، حَتَّى بَلَغَ بَرْكَ الْغِمَادِ لَقِيَهُ ابْنُ الدَّغِنَةِ وَهْوَ سَيِّدُ الْقَارَةِ‏.‏ فَقَالَ أَيْنَ تُرِيدُ يَا أَبَا بَكْرٍ فَقَالَ أَبُو بَكْرٍ أَخْرَجَنِي قَوْمِي، فَأُرِيدُ أَنْ أَسِيحَ فِي الأَرْضِ وَأَعْبُدَ رَبِّي‏.‏ قَالَ ابْنُ الدَّغِنَةِ فَإِنَّ مِثْلَكَ يَا أَبَا بَكْرٍ لاَ يَخْرُجُ وَلاَ يُخْرَجُ، إِنَّكَ تَكْسِبُ الْمَعْدُومَ، وَتَصِلُ الرَّحِمَ وَتَحْمِلُ الْكَلَّ، وَتَقْرِي الضَّيْفَ، وَتُعِينُ عَلَى نَوَائِبِ الْحَقِّ، فَأَنَا لَكَ جَارٌ، ارْجِعْ وَاعْبُدْ رَبَّكَ بِبَلَدِكَ‏.‏ فَرَجَعَ وَارْتَحَلَ مَعَهُ ابْنُ الدَّغِنَةِ، فَطَافَ ابْنُ الدَّغِنَةِ عَشِيَّةً فِي أَشْرَافِ قُرَيْشٍ، فَقَالَ لَهُمْ إِنَّ أَبَا بَكْرٍ لاَ يَخْرُجُ مِثْلُهُ وَلاَ يُخْرَجُ، أَتُخْرِجُونَ رَجُلاً يَكْسِبُ الْمَعْدُومَ، وَيَصِلُ الرَّحِمَ، وَيَحْمِلُ الْكَلَّ، وَيَقْرِي الضَّيْفَ، وَيُعِينُ عَلَى نَوَائِبِ الْحَقِّ فَلَمْ تُكَذِّبْ قُرَيْشٌ بِجِوَارِ ابْنِ الدَّغِنَةِ، وَقَالُوا لاِبْنِ الدَّغِنَةِ مُرْ أَبَا بَكْرٍ فَلْيَعْبُدْ رَبَّهُ فِي دَارِهِ، فَلْيُصَلِّ فِيهَا وَلْيَقْرَأْ مَا شَاءَ، وَلاَ يُؤْذِينَا بِذَلِكَ، وَلاَ يَسْتَعْلِنْ بِهِ، فَإِنَّا نَخْشَى أَنْ يَفْتِنَ نِسَاءَنَا وَأَبْنَاءَنَا‏.‏ فَقَالَ ذَلِكَ ابْنُ الدَّغِنَةِ لأَبِي بَكْرٍ، فَلَبِثَ أَبُو بَكْرٍ بِذَلِكَ يَعْبُدُ رَبَّهُ فِي دَارِهِ، وَلاَ يَسْتَعْلِنُ بِصَلاَتِهِ، وَلاَ يَقْرَأُ فِي غَيْرِ دَارِهِ، ثُمَّ بَدَا لأَبِي بَكْرٍ فَابْتَنَى مَسْجِدًا بِفِنَاءِ دَارِهِ وَكَانَ يُصَلِّي فِيهِ وَيَقْرَأُ الْقُرْآنَ، فَيَنْقَذِفُ عَلَيْهِ نِسَاءُ الْمُشْرِكِينَ وَأَبْنَاؤُهُمْ، وَهُمْ يَعْجَبُونَ مِنْهُ، وَيَنْظُرُونَ إِلَيْهِ، وَكَانَ أَبُو بَكْرٍ رَجُلاً بَكَّاءً، لاَ يَمْلِكُ عَيْنَيْهِ إِذَا قَرَأَ الْقُرْآنَ، وَأَفْزَعَ ذَلِكَ أَشْرَافَ قُرَيْشٍ مِنَ الْمُشْرِكِينَ، فَأَرْسَلُوا إِلَى ابْنِ الدَّغِنَةِ، فَقَدِمَ عَلَيْهِمْ‏.‏ فَقَالُوا إِنَّا كُنَّا أَجَرْنَا أَبَا بَكْرٍ بِجِوَارِكَ، عَلَى أَنْ يَعْبُدَ رَبَّهُ فِي دَارِهِ، فَقَدْ جَاوَزَ ذَلِكَ، فَابْتَنَى مَسْجِدًا بِفِنَاءِ دَارِهِ، فَأَعْلَنَ بِالصَّلاَةِ وَالْقِرَاءَةِ فِيهِ، وَإِنَّا قَدْ خَشِينَا أَنْ يَفْتِنَ نِسَاءَنَا وَأَبْنَاءَنَا فَانْهَهُ، فَإِنْ أَحَبَّ أَنْ يَقْتَصِرَ عَلَى أَنْ يَعْبُدَ رَبَّهُ فِي دَارِهِ فَعَلَ، وَإِنْ أَبَى إِلاَّ أَنْ يُعْلِنَ بِذَلِكَ فَسَلْهُ أَنْ يَرُدَّ إِلَيْكَ ذِمَّتَكَ، فَإِنَّا قَدْ كَرِهْنَا أَنْ نُخْفِرَكَ، وَلَسْنَا مُقِرِّينَ لأَبِي بَكْرٍ الاِسْتِعْلاَنَ‏.‏ قَالَتْ عَائِشَةُ فَأَتَى ابْنُ الدَّغِنَةِ إِلَى أَبِي بَكْرٍ فَقَالَ قَدْ عَلِمْتَ الَّذِي عَاقَدْتُ لَكَ عَلَيْهِ، فَإِمَّا أَنْ تَقْتَصِرَ عَلَى ذَلِكَ، وَإِمَّا أَنْ تَرْجِعَ إِلَىَّ ذِمَّتِي، فَإِنِّي لاَ أُحِبُّ أَنْ تَسْمَعَ الْعَرَبُ أَنِّي أُخْفِرْتُ فِي رَجُلٍ عَقَدْتُ لَهُ‏.‏ فَقَالَ أَبُو بَكْرٍ فَإِنِّي أَرُدُّ إِلَيْكَ جِوَارَكَ وَأَرْضَى بِجِوَارِ اللَّهِ عَزَّ وَجَلَّ‏.‏ وَالنَّبِيُّ صلى الله عليه وسلم يَوْمَئِذٍ بِمَكَّةَ، فَقَالَ النَّبِيُّ صلى الله عليه وسلم لِلْمُسْلِمِينَ ‏\"‏ إِنِّي أُرِيتُ دَارَ هِجْرَتِكُمْ ذَاتَ نَخْلٍ بَيْنَ لاَبَتَيْنِ ‏\"‏‏.‏ وَهُمَا الْحَرَّتَانِ، فَهَاجَرَ مَنْ هَاجَرَ قِبَلَ الْمَدِينَةِ، وَرَجَعَ عَامَّةُ مَنْ كَانَ هَاجَرَ بِأَرْضِ الْحَبَشَةِ إِلَى الْمَدِينَةِ، وَتَجَهَّزَ أَبُو بَكْرٍ قِبَلَ الْمَدِينَةِ، فَقَالَ لَهُ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ عَلَى رِسْلِكَ، فَإِنِّي أَرْجُو أَنْ يُؤْذَنَ لِي ‏\"‏‏.‏ فَقَالَ أَبُو بَكْرٍ وَهَلْ تَرْجُو ذَلِكَ بِأَبِي أَنْتَ قَالَ ‏\"‏ نَعَمْ ‏\"‏‏.‏ فَحَبَسَ أَبُو بَكْرٍ نَفْسَهُ عَلَى رَسُولِ اللَّهِ صلى الله عليه وسلم لِيَصْحَبَهُ، وَعَلَفَ رَاحِلَتَيْنِ كَانَتَا عِنْدَهُ وَرَقَ السَّمُرِ وَهْوَ الْخَبَطُ أَرْبَعَةَ أَشْهُرٍ‏.‏ قَالَ ابْنُ شِهَابٍ قَالَ عُرْوَةُ قَالَتْ عَائِشَةُ فَبَيْنَمَا نَحْنُ يَوْمًا جُلُوسٌ فِي بَيْتِ أَبِي بَكْرٍ فِي نَحْرِ الظَّهِيرَةِ قَالَ قَائِلٌ لأَبِي بَكْرٍ هَذَا رَسُولُ اللَّهِ صلى الله عليه وسلم مُتَقَنِّعًا ـ فِي سَاعَةٍ لَمْ يَكُنْ يَأْتِينَا فِيهَا ـ فَقَالَ أَبُو بَكْرٍ فِدَاءٌ لَهُ أَبِي وَأُمِّي، وَاللَّهِ مَا جَاءَ بِهِ فِي هَذِهِ السَّاعَةِ إِلاَّ أَمْرٌ‏.‏ قَالَتْ فَجَاءَ رَسُولُ اللَّهِ صلى الله عليه وسلم فَاسْتَأْذَنَ، فَأُذِنَ لَهُ فَدَخَلَ، فَقَالَ النَّبِيُّ صلى الله عليه وسلم لأَبِي بَكْرٍ ‏\"‏ أَخْرِجْ مَنْ عِنْدَكَ ‏\"‏‏.‏ فَقَالَ أَبُو بَكْرٍ إِنَّمَا هُمْ أَهْلُكَ بِأَبِي أَنْتَ يَا رَسُولَ اللَّهِ‏.‏ قَالَ ‏\"‏ فَإِنِّي قَدْ أُذِنَ لِي فِي الْخُرُوجِ ‏\"‏‏.‏ فَقَالَ أَبُو بَكْرٍ الصَّحَابَةُ بِأَبِي أَنْتَ يَا رَسُولَ اللَّهِ‏.‏ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ نَعَمْ ‏\"‏‏.‏ قَالَ أَبُو بَكْرٍ فَخُذْ بِأَبِي أَنْتَ يَا رَسُولَ اللَّهِ إِحْدَى رَاحِلَتَىَّ هَاتَيْنِ‏.‏ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ بِالثَّمَنِ ‏\"‏‏.‏ قَالَتْ عَائِشَةُ فَجَهَّزْنَاهُمَا أَحَثَّ الْجَهَازِ، وَصَنَعْنَا لَهُمَا سُفْرَةً فِي جِرَابٍ، فَقَطَعَتْ أَسْمَاءُ بِنْتُ أَبِي بَكْرٍ قِطْعَةً مَنْ نِطَاقِهَا فَرَبَطَتْ بِهِ عَلَى فَمِ الْجِرَابِ، فَبِذَلِكَ سُمِّيَتْ ذَاتَ النِّطَاقِ ـ قَالَتْ ـ ثُمَّ لَحِقَ رَسُولُ اللَّهِ صلى الله عليه وسلم وَأَبُو بَكْرٍ بِغَارٍ فِي جَبَلِ ثَوْرٍ فَكَمَنَا فِيهِ ثَلاَثَ لَيَالٍ، يَبِيتُ عِنْدَهُمَا عَبْدُ اللَّهِ بْنُ أَبِي بَكْرٍ وَهْوَ غُلاَمٌ شَابٌّ ثَقِفٌ لَقِنٌ، فَيُدْلِجُ مِنْ عِنْدِهِمَا بِسَحَرٍ، فَيُصْبِحُ مَعَ قُرَيْشٍ بِمَكَّةَ كَبَائِتٍ، فَلاَ يَسْمَعُ أَمْرًا يُكْتَادَانِ بِهِ إِلاَّ وَعَاهُ، حَتَّى يَأْتِيَهُمَا بِخَبَرِ ذَلِكَ حِينَ يَخْتَلِطُ الظَّلاَمُ، وَيَرْعَى عَلَيْهِمَا عَامِرُ بْنُ فُهَيْرَةَ مَوْلَى أَبِي بَكْرٍ مِنْحَةً مِنْ غَنَمٍ، فَيُرِيحُهَا عَلَيْهِمَا حِينَ يَذْهَبُ سَاعَةٌ مِنَ الْعِشَاءِ، فَيَبِيتَانِ فِي رِسْلٍ وَهْوَ لَبَنُ مِنْحَتِهِمَا وَرَضِيفِهِمَا، حَتَّى يَنْعِقَ بِهَا عَامِرُ بْنُ فُهَيْرَةَ بِغَلَسٍ، يَفْعَلُ ذَلِكَ فِي كُلِّ لَيْلَةٍ مِنْ تِلْكَ اللَّيَالِي الثَّلاَثِ، وَاسْتَأْجَرَ رَسُولُ اللَّهِ صلى الله عليه وسلم وَأَبُو بَكْرٍ رَجُلاً مِنْ بَنِي الدِّيلِ، وَهْوَ مِنْ بَنِي عَبْدِ بْنِ عَدِيٍّ هَادِيًا خِرِّيتًا ـ وَالْخِرِّيتُ الْمَاهِرُ بِالْهِدَايَةِ ـ قَدْ غَمَسَ حِلْفًا فِي آلِ الْعَاصِ بْنِ وَائِلٍ السَّهْمِيِّ، وَهْوَ عَلَى دِينِ كُفَّارِ قُرَيْشٍ فَأَمِنَاهُ، فَدَفَعَا إِلَيْهِ رَاحِلَتَيْهِمَا، وَوَاعَدَاهُ غَارَ ثَوْرٍ بَعْدَ ثَلاَثِ لَيَالٍ بِرَاحِلَتَيْهِمَا صُبْحَ ثَلاَثٍ، وَانْطَلَقَ مَعَهُمَا عَامِرُ بْنُ فُهَيْرَةَ وَالدَّلِيلُ فَأَخَذَ بِهِمْ طَرِيقَ السَّوَاحِلِ‏.‏",
+      "edition": "fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784",
+      "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784/editions/ara-bukhari/3905.json",
+      "reference": {
+        "book": 63,
+        "hadith": 130
+      },
+      "fetched_at": "2026-10-30T15:13:46+00:00"
+    }
+  },
+  "verses": {
+    "9:40": "إِلَّا تَنصُرُوهُ فَقَدۡ نَصَرَهُ ٱللَّهُ إِذۡ أَخۡرَجَهُ ٱلَّذِينَ كَفَرُواْ ثَانِيَ ٱثۡنَيۡنِ إِذۡ هُمَا فِي ٱلۡغَارِ إِذۡ يَقُولُ لِصَٰحِبِهِۦ لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ فَأَنزَلَ ٱللَّهُ سَكِينَتَهُۥ عَلَيۡهِ وَأَيَّدَهُۥ بِجُنُودٖ لَّمۡ تَرَوۡهَا وَجَعَلَ كَلِمَةَ ٱلَّذِينَ كَفَرُواْ ٱلسُّفۡلَىٰۗ وَكَلِمَةُ ٱللَّهِ هِيَ ٱلۡعُلۡيَاۗ وَٱللَّهُ عَزِيزٌ حَكِيمٌ"
+  },
+  "tafsir": {
+    "9:40": "يا معشر أصحاب رسول الله صلى الله عليه وسلم إن لا تنفروا معه أيها المؤمنون إذا استَنْفَركم، وإن لا تنصروه; فقد أيده الله ونصره يوم أخرجه الكفار من قريش من بلده (مكة) ، وهو ثاني اثنين (هو وأبو بكر الصديق رضي الله عنه) وألجؤوهما إلى نقب في جبل ثور بـ «مكة» ، فمكثا فيه ثلاث ليال، إذ يقول لصاحبه (أبي بكر) لما رأى منه الخوف عليه: لا تحزن إن الله معنا بنصره وتأييده، فأنزل الله الطمأنينة في قلب رسول الله صلى الله عليه وسلم، وأعانه بجنود لم يرها أحد من البشر وهم الملائكة، فأنجاه الله من عدوه وأذل الله أعداءه، وجعل كلمة الذين كفروا السفلى. وكلمةُ الله هي العليا، وذلك بإعلاء شأن الإسلام. والله عزيز في ملكه، حكيم في تدبير شؤون عباده. وفي هذه الآية منقبة عظيمة لأبي بكر الصديق رضي الله عنه."
+  },
+  "tafsir_meta": {
+    "9:40": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-30T12:51:37+00:00"
+    }
+  },
+  "fields": [
+    {
+      "path": "title",
+      "refs": [
+        "9:40",
+        "bukhari:3653"
+      ],
+      "sentences": [
+        {
+          "text": "صاحبا الغار",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state the Prophet and Abu Bakr were the two in the cave.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The title 'the two companions of the cave' is directly entailed by Qur'an 9:40 (ثاني اثنين... لصاحبه... في الغار) and the cited hadith of Abu Bakr in the cave.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "93e7e408bf5f43d084c8276a8bab40cb21b2e1e1bad57189b7efb4b1e6e7adcc",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "refs": [
+        "9:40",
+        "bukhari:3653"
+      ],
+      "sentences": [
+        {
+          "text": "قصة النبيّ ﷺ وصاحبه أبي بكر الصدّيق رضي الله عنه في الغار، كما ذكرها القرآن الكريم وصحيح البخاري، بنصّ الآية والحديث.",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The description accurately states that the cave story of the Prophet ﷺ and Abu Bakr is mentioned in the cited Qur'an verse and Sahih al-Bukhari hadith.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The description only restates what the cited sources state: the verse and tafsir identify the Prophet ﷺ with his companion Abu Bakr al-Siddiq in the cave, and Bukhari 3653 narrates Abu Bakr's words in the cave.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "d4d9136e4fd4b4599c518311a85e8dfcd7a86765d01a61387be089b1a0e63557",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[0].text",
+      "refs": [
+        "9:40"
+      ],
+      "sentences": [
+        {
+          "text": "أخرج كفّارُ قريش النبيَّ ﷺ من بلده مكة، فخرج ومعه صاحبُه أبو بكر الصدّيق رضي الله عنه.",
+          "refs": [
+            "9:40"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "This matches the tafsir: Quraysh disbelievers drove him from Mecca, and he was the second of two with Abu Bakr al-Siddiq.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse and its tafsir state that the disbelievers of Quraysh drove the Prophet ﷺ out of his town Mecca and that his companion was Abu Bakr al-Siddiq (ثاني اثنين هو وأبو بكر الصديق).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "e3ae9e71f878ac9bb46d8642cd7e277ce96e227e78fc28d3c15fb12d9173de41",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[1].text",
+      "refs": [
+        "9:40",
+        "bukhari:3905"
+      ],
+      "sentences": [
+        {
+          "text": "ولجأ الاثنان إلى غارٍ في جبل ثور، فمكثا فيه ثلاث ليال.",
+          "refs": [
+            "9:40"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir of 9:40 states they were forced into a cave in Mount Thawr and stayed there three nights.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The cited tafsir of 9:40 states they were forced into a cave in Jabal Thawr and stayed there three nights (فمكثا فيه ثلاث ليال), and the verse itself mentions they were in the cave.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "968b41cbb351efd241e110013a0150870959729d9bc3ceb9ab15ad8eb9f5ede8",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[2].text",
+      "refs": [
+        "9:40",
+        "bukhari:3653"
+      ],
+      "sentences": [
+        {
+          "text": "وخاف أبو بكر على النبيّ ﷺ، فقال: «لَوْ أَنَّ أَحَدَهُمْ نَظَرَ تَحْتَ قَدَمَيْهِ لأَبْصَرَنَا» (صحيح البخاري ٣٦٥٣).",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir states Abu Bakr's fear for the Prophet and the hadith gives his exact words.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir of 9:40 explicitly states the Prophet saw fear for him in Abu Bakr («لما رأى منه الخوف عليه»), and the quoted words are the verbatim Bukhari 3653 correctly attributed to Abu Bakr speaking in the cave.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "268acdbf9edd2aa7b869f4ec5accfe6f07a3c4e0043db91b2ca49c5f86a9d6fd",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[3].text",
+      "refs": [
+        "9:40"
+      ],
+      "sentences": [
+        {
+          "text": "فقال له النبيّ ﷺ: ﴿لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ﴾.",
+          "refs": [
+            "9:40"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The Qur'an and tafsir state that the Prophet said to his companion, Abu Bakr, 'Do not grieve; indeed Allah is with us.'",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse (9:40) and its tafsir state that the Prophet ﷺ said these very words to his companion Abu Bakr in the cave.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a01bc0a6c3cac2ad746b6c996a5ef442b48c849a8b7455b43fe62e9a528f5809",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        },
+        {
+          "text": "فأنزل اللهُ الطمأنينة في قلب نبيّه، وأنجاه من عدوّه.",
+          "refs": [
+            "9:40"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited tafsir of 9:40, which states that Allah sent down tranquility into the Prophet's heart and saved him from his enemy.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence matches the tafsir al-Muyassar on 9:40, which states God sent tranquility into His Prophet's heart and saved him from his enemy.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "bc2085f87717f0a81b0f7b80aaea9e26291de4771ef02b8782b3ca091975987c",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.question",
+      "refs": [
+        "9:40",
+        "bukhari:3653"
+      ],
+      "sentences": [
+        {
+          "text": "خاف أبو بكر في الغار.",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir of 9:40 explicitly mentions that the Prophet saw fear in Abu Bakr when they were in the cave.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The cited tafsir of 9:40 explicitly says the Prophet saw fear in Abu Bakr in the cave («لما رأى منه الخوف عليه»), so his being afraid there is directly in the allowed sources.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "453ad691a76f41eb6261ada65a50ec13180fcadfb114cb82c85892d5c42d449d",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        },
+        {
+          "text": "وأنت، ماذا تتذكّر حين تخاف؟",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question is addressed to the child and does not assert anything about the story that the sources do not support.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a question addressed to the child about the child's own experience and asserts nothing about the Prophet ﷺ, Abu Bakr, or the story events.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "ca1661b0a22fd212e469a827d9e730d3cf05855436e36ac4635b7c2d3ab5456f",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.affirm",
+      "refs": [
+        "9:40",
+        "bukhari:3653"
+      ],
+      "sentences": [
+        {
+          "text": "أحسنت!",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a simple praise to the child and asserts nothing about the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "A general word of praise to the child that asserts nothing about the Prophet ﷺ, his companion, or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "b9dcb23a65d54e30f9d0af613f34f44f611c205748136f15e28d61dcaef72eac",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        },
+        {
+          "text": "قال النبيّ ﷺ لصاحبه: ﴿لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ﴾.",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the Qur'anic verse and tafsir, where the Prophet tells his companion in the cave not to grieve because Allah is with them.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The Qur'anic quote and its attribution to the Prophet ﷺ speaking to his companion are directly stated in verse 9:40 and its tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "61f3986521503c5fd4457c7fbfaa923a515ad49fafd1ece55223aaa8ac75b5bf",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.nudge",
+      "refs": [
+        "9:40",
+        "bukhari:3653"
+      ],
+      "sentences": [
+        {
+          "text": "الخوف صعب…",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general statement about fear and does not assert any fact about the Prophet ﷺ or his companions.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "A general empathetic remark to the child about fear being hard, asserting no fact, feeling, or event about the story beyond what the sources state.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "d881ea6b108478cd0c7f414ae7366f651ae7b194ea0ace85483823fd44458339",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        },
+        {
+          "text": "ماذا قال النبيّ ﷺ لأبي بكر في الغار؟",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks what the Prophet ﷺ said to Abu Bakr in the cave, which the sources directly report.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "It is a question to the child whose presupposition (that the Prophet ﷺ spoke to Abu Bakr in the cave) is directly stated in the cited verse, its tafsir, and Bukhari 3653.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "2ef1b860d120cfea7737a2b97da4f2809a308635a2820fdfe3d46742c3fceda2",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[0]",
+      "refs": [
+        "9:40",
+        "bukhari:3653"
+      ],
+      "sentences": [
+        {
+          "text": "أن الله معي",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "As the child's own possible answer about today's life, it states a general belief in God's presence and does not assert anything about the Prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "It is the child's own answer option expressing trust that Allah is with them, mirroring the cited verse «إِنَّ ٱللَّهَ مَعَنَا» and asserting no extra fact about the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "36c243bf1a1d2640f0a4ff0c189bd2e9884d7f3a930c1e3fc46c2406e8a7c9b6",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[1]",
+      "refs": [
+        "9:40",
+        "bukhari:3653"
+      ],
+      "sentences": [
+        {
+          "text": "أنني وحدي",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a child's own possible answer about a feeling, not a claim about the Prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is the child's own possible answer choice about their own life and asserts nothing about the Prophet ﷺ, Abu Bakr, or the cave story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "90274e78fc804cb17cc06b3c1201d53eaeb04cb018116439f3bdf74b9f203217",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[0]",
+      "refs": [
+        "9:40",
+        "bukhari:3653"
+      ],
+      "sentences": [
+        {
+          "text": "أين لجأ النبيّ ﷺ وصاحبه؟",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question's presupposition that the Prophet ﷺ and his companion took refuge somewhere is directly supported by the cited sources, which mention them in the cave.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks about a fact stated in the sources: the verse says both were in the cave (إذ هما في الغار) and the tafsir says they were forced to take refuge (ألجؤوهما) there, so asking where they took refuge is fully supported.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "c36d4904613cb086dd604a0330032d013947c41e36e606b64596e0c3d60dd38d",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[1]",
+      "refs": [
+        "9:40",
+        "bukhari:3653"
+      ],
+      "sentences": [
+        {
+          "text": "مَن كان صاحبَ النبيّ ﷺ في الغار؟",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about a fact stated in the sources: the Prophet ﷺ had a companion in the cave.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question only asks who accompanied the Prophet ﷺ in the cave, a fact stated in the verse (ثاني اثنين), the tafsir (أبو بكر), and the hadith where Abu Bakr says he was in the cave.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "dfbcf0b1301dc7ccb37865fbc4b575d0a34f3c34d97e158ca59f0335f68fee63",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[2]",
+      "refs": [
+        "9:40",
+        "bukhari:3653"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا قال النبيّ ﷺ لأبي بكر حين خاف؟",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources mention Abu Bakr's fear and the Prophet's words to him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question only presupposes that Abu Bakr was afraid and that the Prophet spoke to him, both stated in the cited tafsir (لما رأى منه الخوف عليه: لا تحزن) and the cited hadith.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a1e0f95c06d67b0013affaf01064d09648f1f3f693100a7749c8fb9520f8786f",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "islamicValue",
+      "refs": [
+        "9:40",
+        "bukhari:3653"
+      ],
+      "sentences": [
+        {
+          "text": "قال الله تعالى: ﴿إِذۡ يَقُولُ لِصَٰحِبِهِۦ لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ﴾ [التوبة: ٤٠].",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the Qur'anic verse verbatim and attributes it to Allah correctly.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is the verbatim Qur'anic verse from the cited source [9:40], correctly attributed to Allah تعالى with the correct surah and verse reference.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "2911cd923c7a1d2d4efb2b69025976d45923b9f94155c2c4e6d43d875d1d7312",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "actionChallenge",
+      "refs": [
+        "9:40",
+        "bukhari:3653"
+      ],
+      "sentences": [
+        {
+          "text": "حين تخاف، تذكّر مع والديك قول النبيّ ﷺ لصاحبه: ﴿لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ﴾ [التوبة: ٤٠].",
+          "refs": [
+            "9:40",
+            "bukhari:3653"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The verse states that the Prophet ﷺ said «لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا» to his companion, so the practical reminder is correctly attributed.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The instruction to the child is a permissible challenge, and the quoted verse is verbatim Qur'an correctly attributed to the Prophet ﷺ speaking to his companion, exactly as in 9:40 and its tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "9e5dab778c91947ea2432d58e02d25fbd5705437842adc7c0714b1a0a8ccbe71",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    }
+  ]
+}

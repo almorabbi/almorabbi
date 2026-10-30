@@ -125,6 +125,13 @@ class StoryPause {
 /// person in the picture — no prophet and no human is depicted.
 const kAnbiyaSeries = 'anbiya_quran';
 
+/// The `series` tag of the Seerah stories («من السيرة النبوية», season 2).
+///
+/// Told only from the Qur'an and Sahih al-Bukhari / Muslim — anyone's words
+/// are the hadith verbatim, with its number — and drawn without the Prophet ﷺ
+/// or any companion in the picture.
+const kSiraSeries = 'sira_sahih';
+
 class Story {
   final String id;
   final String title;
@@ -162,7 +169,8 @@ class Story {
   /// Noor's mid-story question to the child, if the story has one.
   final StoryPause? pause;
 
-  /// The collection this story belongs to (e.g. [kAnbiyaSeries]), or null.
+  /// The collection this story belongs to (e.g. [kAnbiyaSeries],
+  /// [kSiraSeries]), or null.
   ///
   /// Optional and additive: versions in the field read explicit keys and
   /// never see it.
@@ -221,6 +229,9 @@ class Story {
 
   /// Whether this is one of the Qur'anic prophets' stories.
   bool get isProphetStory => series == kAnbiyaSeries;
+
+  /// Whether this is one of the Seerah stories («من السيرة النبوية»).
+  bool get isSeerahStory => series == kSiraSeries;
 
   /// Whether the story has a looping ambient video cover.
   ///

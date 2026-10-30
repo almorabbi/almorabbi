@@ -4662,5 +4662,1001 @@
         "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
       }
     }
+  },
+  {
+    "id": "sira_ghar_young",
+    "title": "The Two in the Cave",
+    "description": "The story of the Prophet ﷺ and his companion Abu Bakr as-Siddiq (may Allah be pleased with him) in the cave, as the Qur'an and Sahih al-Bukhari tell it, in the words of the verse and the hadith.",
+    "coverImage": "docs/stories/sira_ghar_young_cover.png",
+    "themeColor": "0xFF5B4A3A",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The disbelievers of Quraysh drove the Prophet ﷺ out of his town, Makkah, and he set out with his companion Abu Bakr as-Siddiq (may Allah be pleased with him).",
+        "image": "docs/stories/sira_ghar_young_1.png"
+      },
+      {
+        "pageNumber": 2,
+        "text": "The two of them took refuge in a cave in the mountain of Thawr, and they stayed there for three nights.",
+        "image": "docs/stories/sira_ghar_young_2.png"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Abu Bakr was afraid for the Prophet ﷺ, and he said: “If one of them were to look down beneath his feet, he would see us.” (Sahih al-Bukhari 3653)",
+        "image": "docs/stories/sira_ghar_young_3.png"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The Prophet ﷺ said to him: ﴿لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ﴾ — interpretation of the meaning: 'Do not grieve; Allah is with us.' And Allah sent down tranquillity into the heart of His Prophet, and saved him from his enemy.",
+        "image": "docs/stories/sira_ghar_young_4.png"
+      }
+    ],
+    "ageGroup": "3-6 years",
+    "category": "From the Seerah",
+    "series": "sira_sahih",
+    "discussionQuestions": [
+      "Where did the Prophet ﷺ and his companion take refuge?",
+      "Who was the Prophet's ﷺ companion in the cave?",
+      "What did the Prophet ﷺ say to Abu Bakr when he was afraid?"
+    ],
+    "islamicValue": "Allah says: ﴿إِذۡ يَقُولُ لِصَٰحِبِهِۦ لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ﴾ (At-Tawbah: 40) — interpretation of the meaning: 'when he said to his companion: Do not grieve; Allah is with us.'",
+    "actionChallenge": "When you are afraid, remember with your parents what the Prophet ﷺ said to his companion: ﴿لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ﴾ (At-Tawbah: 40) — interpretation of the meaning: 'Do not grieve; Allah is with us.'",
+    "pause": {
+      "afterPage": 3,
+      "question": "Abu Bakr was afraid in the cave. And you — what do you remember when you are afraid?",
+      "options": [
+        "That Allah is with me",
+        "That I am all alone"
+      ],
+      "caring": 0,
+      "affirm": "Well done! The Prophet ﷺ said to his companion: ﴿لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ﴾ — interpretation of the meaning: 'Do not grieve; Allah is with us.'",
+      "nudge": "Fear is hard… what did the Prophet ﷺ say to Abu Bakr in the cave?"
+    },
+    "language": "en",
+    "source_language": "ar",
+    "translation": {
+      "translator_model": "claude-opus-5.5",
+      "reviewer_model": "deepseek-v4-pro+glm-5.2",
+      "attempts": 1,
+      "needs_scholar_review": true,
+      "scholar_signals": {
+        "keyword": true,
+        "quoted_arabic": true,
+        "quran_ayah": true,
+        "reviewer_model": true
+      },
+      "review_verdict": "low_only",
+      "review_defects": [
+        {
+          "model": "glm-5.2",
+          "field": "pages[2].text",
+          "type": "hadith",
+          "why": "Abu Bakr's words are set off as a direct quote with a Bukhari citation (and the description promises the hadith's exact wording), but the Arabic slightly paraphrases the actual text of Sahih al-Bukhar"
+        }
+      ],
+      "english_authors": [
+        "claude-opus-5.5"
+      ],
+      "manual_fix_note": "Written by hand (claude-opus-5.5) from the Arabic and its sources: each hadith rendered literally with its citation (Sahih al-Bukhari N), the verse kept in Arabic with an interpretation of the meaning from al-Muyassar. translate_stories.py was not used: the Ollama Cloud quota it runs on was exhausted (2026-10-30).",
+      "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-30",
+      "auto_review": {
+        "reviewers": [
+          "deepseek-v4-pro",
+          "glm-5.2"
+        ],
+        "providers": {
+          "deepseek-v4-pro": {
+            "provider": "deepseek",
+            "model": "deepseek-v4-pro"
+          },
+          "glm-5.2": {
+            "provider": "zai-coding",
+            "model": "glm-5.2"
+          }
+        },
+        "fixer": null,
+        "rounds": 1,
+        "prompt_version": "dfa8a5f39718",
+        "content_sha256": "5299725b674ed235a19b6a05ab9afba102e078ec542aa94d4d4570bb1d9574ae",
+        "reviewed_at": "2026-10-30T17:20:57+00:00",
+        "residual_low": [
+          {
+            "model": "glm-5.2",
+            "field": "pages[2].text",
+            "type": "hadith",
+            "why": "Abu Bakr's words are set off as a direct quote with a Bukhari citation (and the description promises the hadith's exact wording), but the Arabic slightly paraphrases the actual text of Sahih al-Bukhar"
+          }
+        ],
+        "adjudicated": [],
+        "tool": "ops/tools/review_en_parity.py",
+        "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+      },
+      "revalidated_at": "2026-10-30T17:20:57+00:00"
+    }
+  },
+  {
+    "id": "sira_ghar_older",
+    "title": "The Two in the Cave",
+    "description": "The story of the Prophet ﷺ and his companion Abu Bakr as-Siddiq (may Allah be pleased with him) in the cave, as the Qur'an tells it in Surat at-Tawbah and Sahih al-Bukhari tells it, in the words of the verse and the hadith, with its number.",
+    "coverImage": "docs/stories/sira_ghar_older_cover.png",
+    "themeColor": "0xFF46382B",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The disbelievers of Quraysh drove the Prophet ﷺ out of his town, Makkah, and he set out with his companion Abu Bakr as-Siddiq (may Allah be pleased with him). So he ﷺ was ﴿ثَانِيَ ٱثۡنَيۡنِ﴾ — interpretation of the meaning: 'the second of two'.",
+        "image": "docs/stories/sira_ghar_older_1.png"
+      },
+      {
+        "pageNumber": 2,
+        "text": "The two of them took refuge in a cave in the mountain of Thawr in Makkah, and they stayed there for three nights.",
+        "image": "docs/stories/sira_ghar_older_2.png"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Abu Bakr was afraid for the Prophet ﷺ, and while the two of them were in the cave he said: “If one of them were to look down beneath his feet, he would see us.” (Sahih al-Bukhari 3653)",
+        "image": "docs/stories/sira_ghar_older_3.png"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The Prophet ﷺ said to him: “O Abu Bakr, what do you think of two, the third of whom is Allah?” (Sahih al-Bukhari 3653)",
+        "image": "docs/stories/sira_ghar_older_4.png"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Allah mentioned this in the Qur'an: ﴿إِذۡ هُمَا فِي ٱلۡغَارِ إِذۡ يَقُولُ لِصَٰحِبِهِۦ لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ فَأَنزَلَ ٱللَّهُ سَكِينَتَهُۥ عَلَيۡهِ﴾ — interpretation of the meaning: 'when the two of them were in the cave, when he said to his companion: Do not grieve; Allah is with us. Then Allah sent down His tranquillity upon him' — that is, He sent down calm into the heart of His Messenger ﷺ, and saved him from his enemy.",
+        "image": "docs/stories/sira_ghar_older_5.png"
+      },
+      {
+        "pageNumber": 6,
+        "text": "In this story, Allah was with His Prophet and his companion with His help and support; and in it is a great honour for Abu Bakr as-Siddiq (may Allah be pleased with him), the companion of the Prophet ﷺ in the cave.",
+        "image": "docs/stories/sira_ghar_older_6.png"
+      }
+    ],
+    "ageGroup": "7-12 years",
+    "category": "From the Seerah",
+    "series": "sira_sahih",
+    "discussionQuestions": [
+      "How many nights did the Prophet ﷺ and his companion stay in the cave?",
+      "What did Abu Bakr say when he was afraid, and how did the Prophet ﷺ answer him?",
+      "When do you need to remember that Allah is with you?"
+    ],
+    "islamicValue": "Allah says: ﴿إِذۡ هُمَا فِي ٱلۡغَارِ إِذۡ يَقُولُ لِصَٰحِبِهِۦ لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ﴾ (At-Tawbah: 40) — interpretation of the meaning: 'when the two of them were in the cave, when he said to his companion: Do not grieve; Allah is with us.'",
+    "actionChallenge": "If your friend or your brother is afraid, reassure him as the Prophet ﷺ reassured his companion: ﴿لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ﴾ (At-Tawbah: 40) — interpretation of the meaning: 'Do not grieve; Allah is with us.'",
+    "pause": {
+      "afterPage": 4,
+      "question": "How do you reassure your friend when he is afraid?",
+      "options": [
+        "I remind him that Allah is with us",
+        "I laugh at him"
+      ],
+      "caring": 0,
+      "affirm": "Well done! That is how the Prophet ﷺ reassured his companion in the cave.",
+      "nudge": "If you were afraid, what would you like your friend to say to you?"
+    },
+    "language": "en",
+    "source_language": "ar",
+    "translation": {
+      "translator_model": "claude-opus-5.5",
+      "reviewer_model": "deepseek-v4-pro+glm-5.2",
+      "attempts": 1,
+      "needs_scholar_review": true,
+      "scholar_signals": {
+        "keyword": true,
+        "quoted_arabic": true,
+        "quran_ayah": true,
+        "reviewer_model": true
+      },
+      "review_verdict": "clean",
+      "review_defects": [],
+      "english_authors": [
+        "claude-opus-5.5"
+      ],
+      "manual_fix_note": "Written by hand (claude-opus-5.5) from the Arabic and its sources: each hadith rendered literally with its citation (Sahih al-Bukhari N), the verse kept in Arabic with an interpretation of the meaning from al-Muyassar. translate_stories.py was not used: the Ollama Cloud quota it runs on was exhausted (2026-10-30).",
+      "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-30",
+      "auto_review": {
+        "reviewers": [
+          "deepseek-v4-pro",
+          "glm-5.2"
+        ],
+        "providers": {
+          "deepseek-v4-pro": {
+            "provider": "deepseek",
+            "model": "deepseek-v4-pro"
+          },
+          "glm-5.2": {
+            "provider": "zai-coding",
+            "model": "glm-5.2"
+          }
+        },
+        "fixer": null,
+        "rounds": 1,
+        "prompt_version": "dfa8a5f39718",
+        "content_sha256": "8ff6e03f74747ecd274e3ca2ac80e617e42eaf65a3a2d1e112686e488888fb11",
+        "reviewed_at": "2026-10-30T17:20:57+00:00",
+        "residual_low": [],
+        "adjudicated": [],
+        "tool": "ops/tools/review_en_parity.py",
+        "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+      },
+      "revalidated_at": "2026-10-30T17:20:57+00:00"
+    }
+  },
+  {
+    "id": "sira_masjid_young",
+    "title": "Building the Prophet's Mosque",
+    "description": "The story of building the mosque when the Prophet ﷺ came to Madinah, as Anas (may Allah be pleased with him) narrated it in Sahih al-Bukhari, in the words of the hadith, with its number.",
+    "coverImage": "docs/stories/sira_masjid_young_cover.png",
+    "themeColor": "0xFF2F6B4F",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The Prophet ﷺ came to Madinah and stayed in its upper part, with a people called Banu Amr ibn Awf.",
+        "image": "docs/stories/sira_masjid_young_1.png"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Then he stopped in the courtyard of the house of Abu Ayyub, and ordered the mosque to be built. He said to Banu an-Najjar: “O Banu an-Najjar, name me a price for this walled garden of yours.” (Sahih al-Bukhari 428) — that is: sell me this garden of yours.",
+        "image": "docs/stories/sira_masjid_young_2.png"
+      },
+      {
+        "pageNumber": 3,
+        "text": "They said: “No, by Allah! We seek its price only from Allah.” (Sahih al-Bukhari 428)",
+        "image": "docs/stories/sira_masjid_young_3.png"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The palm trees were cut down and set in a row as the qiblah of the mosque, and they began carrying the rocks, and the Prophet ﷺ was with them, saying: “O Allah, there is no good except the good of the Hereafter, so forgive the Ansar and the Muhajirun.” (Sahih al-Bukhari 428)",
+        "image": "docs/stories/sira_masjid_young_4.png"
+      }
+    ],
+    "ageGroup": "3-6 years",
+    "category": "From the Seerah",
+    "series": "sira_sahih",
+    "discussionQuestions": [
+      "What did the Prophet ﷺ want to build in Madinah?",
+      "What did Banu an-Najjar say when the Prophet ﷺ asked to buy their garden?",
+      "What were they carrying while they built the mosque?"
+    ],
+    "islamicValue": "The Prophet ﷺ was with his companions while they carried the rocks, saying: “O Allah, there is no good except the good of the Hereafter, so forgive the Ansar and the Muhajirun.” (Sahih al-Bukhari 428)",
+    "actionChallenge": "Help your family today with a job around the house, as the Prophet ﷺ was with his companions while they built the mosque.",
+    "pause": {
+      "afterPage": 3,
+      "question": "Banu an-Najjar gave their garden, seeking its price only from Allah. And you — what do you do when someone needs something you have?",
+      "options": [
+        "I give it and share",
+        "I hide it from them"
+      ],
+      "caring": 0,
+      "affirm": "Well done! That is what Banu an-Najjar did when the mosque needed their land.",
+      "nudge": "What did Banu an-Najjar do when the Prophet ﷺ asked for their garden?"
+    },
+    "language": "en",
+    "source_language": "ar",
+    "translation": {
+      "translator_model": "claude-opus-5.5",
+      "reviewer_model": "deepseek-v4-pro+glm-5.2",
+      "attempts": 1,
+      "needs_scholar_review": true,
+      "scholar_signals": {
+        "keyword": true,
+        "quoted_arabic": true,
+        "quran_ayah": false,
+        "reviewer_model": true
+      },
+      "review_verdict": "low_only",
+      "review_defects": [
+        {
+          "model": "glm-5.2",
+          "field": "pages[3].text",
+          "type": "meaning",
+          "why": "Reads as though the palm trees themselves were the mosque's qiblah, whereas they were aligned toward/along the qiblah side."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "pause.options[0]",
+          "type": "meaning",
+          "why": "The Arabic carries both objects ('I give it to him and share it with him') while the English clause trails off without an object, reading slightly clipped."
+        }
+      ],
+      "english_authors": [
+        "claude-opus-5.5"
+      ],
+      "manual_fix_note": "Written by hand (claude-opus-5.5) from the Arabic and its sources: each hadith rendered literally with its citation (Sahih al-Bukhari N), the verse kept in Arabic with an interpretation of the meaning from al-Muyassar. translate_stories.py was not used: the Ollama Cloud quota it runs on was exhausted (2026-10-30).",
+      "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-30",
+      "auto_review": {
+        "reviewers": [
+          "deepseek-v4-pro",
+          "glm-5.2"
+        ],
+        "providers": {
+          "deepseek-v4-pro": {
+            "provider": "deepseek",
+            "model": "deepseek-v4-pro"
+          },
+          "glm-5.2": {
+            "provider": "zai-coding",
+            "model": "glm-5.2"
+          }
+        },
+        "fixer": null,
+        "rounds": 1,
+        "prompt_version": "dfa8a5f39718",
+        "content_sha256": "044a85cd2fec69b1cbbee90ef61b7987b7692ba57a3dd1e51561277772160a22",
+        "reviewed_at": "2026-10-30T17:37:56+00:00",
+        "residual_low": [
+          {
+            "model": "glm-5.2",
+            "field": "pages[3].text",
+            "type": "meaning",
+            "why": "Reads as though the palm trees themselves were the mosque's qiblah, whereas they were aligned toward/along the qiblah side."
+          },
+          {
+            "model": "glm-5.2",
+            "field": "pause.options[0]",
+            "type": "meaning",
+            "why": "The Arabic carries both objects ('I give it to him and share it with him') while the English clause trails off without an object, reading slightly clipped."
+          }
+        ],
+        "adjudicated": [
+          {
+            "field": "pages[3].text",
+            "type": "hadith",
+            "reason": "The pinned edition (fawazahmed0 hadith-api df57907, the corpus of ops/data/hadith_index.json.gz) reads Sahih al-Bukhari 428 exactly «اللَّهُمَّ لاَ خَيْرَ إِلاَّ خَيْرُ الآخِرَهْ فَاغْفِرْ لِلأَنْصَارِ وَالْمُهَاجِرَهْ»; scripture_scan.sahihayn_holds('البخاري', 428, …) is True. «لا عيش إلا عيش الآخرة» is a different narration (located at Bukhari 2961), not a correction of 428.",
+            "by": "claude-opus-5.5 (Seerah season 2 en-parity adjudication, verified against the pinned corpus)",
+            "on": "2026-10-30"
+          },
+          {
+            "field": "islamicValue",
+            "type": "hadith",
+            "reason": "The pinned edition (fawazahmed0 hadith-api df57907, the corpus of ops/data/hadith_index.json.gz) reads Sahih al-Bukhari 428 exactly «اللَّهُمَّ لاَ خَيْرَ إِلاَّ خَيْرُ الآخِرَهْ فَاغْفِرْ لِلأَنْصَارِ وَالْمُهَاجِرَهْ»; scripture_scan.sahihayn_holds('البخاري', 428, …) is True. «لا عيش إلا عيش الآخرة» is a different narration (located at Bukhari 2961), not a correction of 428.",
+            "by": "claude-opus-5.5 (Seerah season 2 en-parity adjudication, verified against the pinned corpus)",
+            "on": "2026-10-30"
+          }
+        ],
+        "tool": "ops/tools/review_en_parity.py",
+        "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+      },
+      "revalidated_at": "2026-10-30T17:37:56+00:00"
+    }
+  },
+  {
+    "id": "sira_masjid_older",
+    "title": "Building the Prophet's Mosque",
+    "description": "The story of the Prophet ﷺ arriving in Madinah and building his mosque, as Anas (may Allah be pleased with him) narrated it in Sahih al-Bukhari, in the words of the hadith, with its number.",
+    "coverImage": "docs/stories/sira_masjid_older_cover.png",
+    "themeColor": "0xFF24543E",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The Prophet ﷺ came to Madinah and stayed in its upper part, in a quarter whose people were called Banu Amr ibn Awf, and he stayed among them for fourteen nights.",
+        "image": "docs/stories/sira_masjid_older_1.png"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Then he sent for Banu an-Najjar and they came. He ﷺ was on his mount with Abu Bakr riding behind him, and Banu an-Najjar around him, until he stopped in the courtyard of the house of Abu Ayyub.",
+        "image": "docs/stories/sira_masjid_older_2.png"
+      },
+      {
+        "pageNumber": 3,
+        "text": "He ﷺ loved to pray wherever the time of prayer reached him. Then he ordered the mosque to be built, and said to Banu an-Najjar: “O Banu an-Najjar, name me a price for this walled garden of yours.” (Sahih al-Bukhari 428) — that is: sell me this garden of yours.",
+        "image": "docs/stories/sira_masjid_older_3.png"
+      },
+      {
+        "pageNumber": 4,
+        "text": "They said: “No, by Allah! We seek its price only from Allah.” (Sahih al-Bukhari 428). In the garden there were ruins and palm trees: the ruins were levelled, and the palm trees were cut down.",
+        "image": "docs/stories/sira_masjid_older_4.png"
+      },
+      {
+        "pageNumber": 5,
+        "text": "They set the palm trunks in a row as the qiblah of the mosque, made the two sides of its door of stone, and began carrying the rocks, chanting verses as they worked, and the Prophet ﷺ was with them, saying: “O Allah, there is no good except the good of the Hereafter, so forgive the Ansar and the Muhajirun.” (Sahih al-Bukhari 428)",
+        "image": "docs/stories/sira_masjid_older_5.png"
+      },
+      {
+        "pageNumber": 6,
+        "text": "In this story, Banu an-Najjar gave their garden seeking its price only from Allah, and the Prophet ﷺ was with his companions as they carried the rocks, praying for the Ansar and the Muhajirun.",
+        "image": "docs/stories/sira_masjid_older_6.png"
+      }
+    ],
+    "ageGroup": "7-12 years",
+    "category": "From the Seerah",
+    "series": "sira_sahih",
+    "discussionQuestions": [
+      "How many nights did the Prophet ﷺ stay with Banu Amr ibn Awf?",
+      "Why did Banu an-Najjar not take a price for their garden?",
+      "What was the Prophet ﷺ saying while he was with his companions building the mosque?"
+    ],
+    "islamicValue": "Banu an-Najjar said to the Prophet ﷺ: “No, by Allah! We seek its price only from Allah.” (Sahih al-Bukhari 428)",
+    "actionChallenge": "This week, join your family or your friends in some useful work, and work with them with your own hands.",
+    "pause": {
+      "afterPage": 4,
+      "question": "Banu an-Najjar gave their garden for the mosque. What can you give to something useful?",
+      "options": [
+        "My time and my help",
+        "Nothing"
+      ],
+      "caring": 0,
+      "affirm": "Well done! Your time and your help are a big gift.",
+      "nudge": "Remember what Banu an-Najjar gave… and what can you give?"
+    },
+    "language": "en",
+    "source_language": "ar",
+    "translation": {
+      "translator_model": "claude-opus-5.5",
+      "reviewer_model": "deepseek-v4-pro+glm-5.2",
+      "attempts": 1,
+      "needs_scholar_review": true,
+      "scholar_signals": {
+        "keyword": true,
+        "quoted_arabic": true,
+        "quran_ayah": false,
+        "reviewer_model": true
+      },
+      "review_verdict": "low_only",
+      "review_defects": [
+        {
+          "model": "glm-5.2",
+          "field": "islamicValue",
+          "type": "hadith",
+          "why": "The quote omits the particle «ما» of the canonical Sahih al-Bukhari 428 wording («لا والله ما نطلب ثمنه إلا إلى الله»); meaning is unchanged, but a cited hadith should match the source verbatim."
+        }
+      ],
+      "english_authors": [
+        "claude-opus-5.5"
+      ],
+      "manual_fix_note": "Written by hand (claude-opus-5.5) from the Arabic and its sources: each hadith rendered literally with its citation (Sahih al-Bukhari N), the verse kept in Arabic with an interpretation of the meaning from al-Muyassar. translate_stories.py was not used: the Ollama Cloud quota it runs on was exhausted (2026-10-30).",
+      "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-30",
+      "auto_review": {
+        "reviewers": [
+          "deepseek-v4-pro",
+          "glm-5.2"
+        ],
+        "providers": {
+          "deepseek-v4-pro": {
+            "provider": "deepseek",
+            "model": "deepseek-v4-pro"
+          },
+          "glm-5.2": {
+            "provider": "zai-coding",
+            "model": "glm-5.2"
+          }
+        },
+        "fixer": null,
+        "rounds": 1,
+        "prompt_version": "dfa8a5f39718",
+        "content_sha256": "f7cc51351f9a3f034c2a2010db0310b7cb77cb766f8779e14480b609d1bf2599",
+        "reviewed_at": "2026-10-30T17:37:56+00:00",
+        "residual_low": [
+          {
+            "model": "glm-5.2",
+            "field": "islamicValue",
+            "type": "hadith",
+            "why": "The quote omits the particle «ما» of the canonical Sahih al-Bukhari 428 wording («لا والله ما نطلب ثمنه إلا إلى الله»); meaning is unchanged, but a cited hadith should match the source verbatim."
+          }
+        ],
+        "adjudicated": [
+          {
+            "field": "pages[4].text",
+            "type": "hadith",
+            "reason": "The pinned edition (fawazahmed0 hadith-api df57907, the corpus of ops/data/hadith_index.json.gz) reads Sahih al-Bukhari 428 exactly «اللَّهُمَّ لاَ خَيْرَ إِلاَّ خَيْرُ الآخِرَهْ فَاغْفِرْ لِلأَنْصَارِ وَالْمُهَاجِرَهْ»; scripture_scan.sahihayn_holds('البخاري', 428, …) is True. «لا عيش إلا عيش الآخرة» is a different narration (located at Bukhari 2961), not a correction of 428.",
+            "by": "claude-opus-5.5 (Seerah season 2 en-parity adjudication, verified against the pinned corpus)",
+            "on": "2026-10-30"
+          },
+          {
+            "field": "actionChallenge",
+            "type": "source_corruption",
+            "reason": "«شارك أهلك أو أصدقاءك»: أصدقاءَك is the object (accusative), so the hamza stays on the line after the alif; «أصدقائك» would be the genitive. Correct as written.",
+            "by": "claude-opus-5.5 (Seerah season 2 en-parity adjudication, verified against the pinned corpus)",
+            "on": "2026-10-30"
+          }
+        ],
+        "tool": "ops/tools/review_en_parity.py",
+        "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+      },
+      "revalidated_at": "2026-10-30T17:37:56+00:00"
+    }
+  },
+  {
+    "id": "sira_jidh_young",
+    "title": "The Palm Trunk That Yearned",
+    "description": "The story of the palm trunk that cried when a minbar was made for the Prophet ﷺ, as Jabir ibn Abdullah (may Allah be pleased with them both) narrated it in Sahih al-Bukhari, in the words of the hadith, with its number.",
+    "coverImage": "docs/stories/sira_jidh_young_cover.png",
+    "themeColor": "0xFF7A5230",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The roof of the mosque stood on trunks of palm trees, and when the Prophet ﷺ gave a sermon, he would stand by one of those trunks.",
+        "image": "docs/stories/sira_jidh_young_1.png"
+      },
+      {
+        "pageNumber": 2,
+        "text": "A woman of the Ansar, or a man, said: “O Messenger of Allah, shall we not make a minbar for you?” He said: “If you wish.” (Sahih al-Bukhari 3584)",
+        "image": "docs/stories/sira_jidh_young_2.png"
+      },
+      {
+        "pageNumber": 3,
+        "text": "So they made a minbar for him. When Friday came and he ﷺ moved to the minbar, the trunk cried out like a little child.",
+        "image": "docs/stories/sira_jidh_young_3.png"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The Prophet ﷺ came down and held it close to him, and it moaned like a little child being hushed; and he said: “It was crying for the remembrance it used to hear near it.” (Sahih al-Bukhari 3584)",
+        "image": "docs/stories/sira_jidh_young_4.png"
+      }
+    ],
+    "ageGroup": "3-6 years",
+    "category": "From the Seerah",
+    "series": "sira_sahih",
+    "discussionQuestions": [
+      "Before the minbar, what did the Prophet ﷺ stand by when he gave a sermon?",
+      "What did the trunk do when the Prophet ﷺ stood on the minbar?",
+      "What did the Prophet ﷺ do until the trunk became calm?"
+    ],
+    "islamicValue": "The Prophet ﷺ said about the trunk: “It was crying for the remembrance it used to hear near it.” (Sahih al-Bukhari 3584)",
+    "actionChallenge": "Remember Allah with your family today, and think of the trunk that cried for the remembrance it used to hear.",
+    "pause": {
+      "afterPage": 3,
+      "question": "The trunk cried out when the Prophet ﷺ moved away from it. If you saw a sad friend, what would you do?",
+      "options": [
+        "Go close to him and comfort him",
+        "Leave him alone"
+      ],
+      "caring": 0,
+      "affirm": "Well done! The Prophet ﷺ came down to the trunk and held it close to him.",
+      "nudge": "What did the Prophet ﷺ do when the trunk cried out?"
+    },
+    "language": "en",
+    "source_language": "ar",
+    "translation": {
+      "translator_model": "claude-opus-5.5",
+      "reviewer_model": "deepseek-v4-pro+glm-5.2",
+      "attempts": 1,
+      "needs_scholar_review": true,
+      "scholar_signals": {
+        "keyword": true,
+        "quoted_arabic": true,
+        "quran_ayah": false,
+        "reviewer_model": true
+      },
+      "review_verdict": "clean",
+      "review_defects": [],
+      "english_authors": [
+        "claude-opus-5.5"
+      ],
+      "manual_fix_note": "Written by hand (claude-opus-5.5) from the Arabic and its sources: each hadith rendered literally with its citation (Sahih al-Bukhari N), the verse kept in Arabic with an interpretation of the meaning from al-Muyassar. translate_stories.py was not used: the Ollama Cloud quota it runs on was exhausted (2026-10-30).",
+      "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-30",
+      "auto_review": {
+        "reviewers": [
+          "deepseek-v4-pro",
+          "glm-5.2"
+        ],
+        "providers": {
+          "deepseek-v4-pro": {
+            "provider": "deepseek",
+            "model": "deepseek-v4-pro"
+          },
+          "glm-5.2": {
+            "provider": "zai-coding",
+            "model": "glm-5.2"
+          }
+        },
+        "fixer": null,
+        "rounds": 1,
+        "prompt_version": "dfa8a5f39718",
+        "content_sha256": "980ba49eea3a82adad320390b4acc31be6a9fdcdac9e59737b6a2f64839a31a9",
+        "reviewed_at": "2026-10-30T17:37:56+00:00",
+        "residual_low": [],
+        "adjudicated": [],
+        "tool": "ops/tools/review_en_parity.py",
+        "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+      },
+      "revalidated_at": "2026-10-30T17:37:56+00:00"
+    }
+  },
+  {
+    "id": "sira_jidh_older",
+    "title": "The Palm Trunk That Yearned",
+    "description": "The story of the palm trunk that cried when the Prophet ﷺ stood on the minbar, as Jabir ibn Abdullah (may Allah be pleased with them both) narrated it in Sahih al-Bukhari, in the words of the hadith, with its number.",
+    "coverImage": "docs/stories/sira_jidh_older_cover.png",
+    "themeColor": "0xFF5F3F24",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The mosque was roofed on trunks of palm trees, and when the Prophet ﷺ gave a sermon, he would stand by one of those trunks.",
+        "image": "docs/stories/sira_jidh_older_1.png"
+      },
+      {
+        "pageNumber": 2,
+        "text": "A woman of the Ansar, or a man, said: “O Messenger of Allah, shall we not make a minbar for you?” He said: “If you wish.” (Sahih al-Bukhari 3584)",
+        "image": "docs/stories/sira_jidh_older_2.png"
+      },
+      {
+        "pageNumber": 3,
+        "text": "So they made a minbar for him, and when Friday came, the Prophet ﷺ moved to the minbar.",
+        "image": "docs/stories/sira_jidh_older_3.png"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The trunk cried out like a little child, and Jabir ibn Abdullah (may Allah be pleased with them both) said: “We heard from that trunk a sound like the sound of the ishar” (Sahih al-Bukhari 3585) — the ishar are she-camels carrying young.",
+        "image": "docs/stories/sira_jidh_older_4.png"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The Prophet ﷺ came down and held it close to him, and it began to moan like a little child being hushed; he ﷺ put his hand on it, and it became calm. And he said: “It was crying for the remembrance it used to hear near it.” (Sahih al-Bukhari 3584)",
+        "image": "docs/stories/sira_jidh_older_5.png"
+      },
+      {
+        "pageNumber": 6,
+        "text": "In this story, the trunk cried for the remembrance it used to hear, and the Prophet ﷺ came down to it, held it close, and put his hand on it until it became calm.",
+        "image": "docs/stories/sira_jidh_older_6.png"
+      }
+    ],
+    "ageGroup": "7-12 years",
+    "category": "From the Seerah",
+    "series": "sira_sahih",
+    "discussionQuestions": [
+      "Why did the trunk cry, as the Prophet ﷺ told us?",
+      "What did Jabir compare the trunk's sound to?",
+      "What do we learn from what the Prophet ﷺ did with the trunk?"
+    ],
+    "islamicValue": "The Prophet ﷺ said about the trunk: “It was crying for the remembrance it used to hear near it.” (Sahih al-Bukhari 3584)",
+    "actionChallenge": "This week, set aside a time with your family to remember Allah together, and think of the trunk that cried at being parted from the remembrance.",
+    "pause": {
+      "afterPage": 4,
+      "question": "If you heard someone crying, what would you do?",
+      "options": [
+        "Go to him and ask what is wrong",
+        "Carry on playing"
+      ],
+      "caring": 0,
+      "affirm": "Well done! That is how the Prophet ﷺ came down to the trunk when it cried.",
+      "nudge": "What did the Prophet ﷺ do when he heard the trunk crying?"
+    },
+    "language": "en",
+    "source_language": "ar",
+    "translation": {
+      "translator_model": "claude-opus-5.5",
+      "reviewer_model": "deepseek-v4-pro+glm-5.2",
+      "attempts": 1,
+      "needs_scholar_review": true,
+      "scholar_signals": {
+        "keyword": true,
+        "quoted_arabic": true,
+        "quran_ayah": false,
+        "reviewer_model": true
+      },
+      "review_verdict": "low_only",
+      "review_defects": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "pause.options[0]",
+          "type": "meaning",
+          "why": "The English changes the child's first-person answer into an imperative; the action is kept but the voice is shifted."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "pause.options[1]",
+          "type": "meaning",
+          "why": "The English changes the child's first-person answer into an imperative; the action is kept but the voice is shifted."
+        }
+      ],
+      "english_authors": [
+        "claude-opus-5.5"
+      ],
+      "manual_fix_note": "Written by hand (claude-opus-5.5) from the Arabic and its sources: each hadith rendered literally with its citation (Sahih al-Bukhari N), the verse kept in Arabic with an interpretation of the meaning from al-Muyassar. translate_stories.py was not used: the Ollama Cloud quota it runs on was exhausted (2026-10-30).",
+      "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-30",
+      "auto_review": {
+        "reviewers": [
+          "deepseek-v4-pro",
+          "glm-5.2"
+        ],
+        "providers": {
+          "deepseek-v4-pro": {
+            "provider": "deepseek",
+            "model": "deepseek-v4-pro"
+          },
+          "glm-5.2": {
+            "provider": "zai-coding",
+            "model": "glm-5.2"
+          }
+        },
+        "fixer": null,
+        "rounds": 1,
+        "prompt_version": "dfa8a5f39718",
+        "content_sha256": "dde4a53f74f126834573c6fe31209e83b1c24fa5d0af201aebd1dd868bb1ecd3",
+        "reviewed_at": "2026-10-30T17:37:56+00:00",
+        "residual_low": [
+          {
+            "model": "deepseek-v4-pro",
+            "field": "pause.options[0]",
+            "type": "meaning",
+            "why": "The English changes the child's first-person answer into an imperative; the action is kept but the voice is shifted."
+          },
+          {
+            "model": "deepseek-v4-pro",
+            "field": "pause.options[1]",
+            "type": "meaning",
+            "why": "The English changes the child's first-person answer into an imperative; the action is kept but the voice is shifted."
+          }
+        ],
+        "adjudicated": [],
+        "tool": "ops/tools/review_en_parity.py",
+        "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+      },
+      "revalidated_at": "2026-10-30T17:37:56+00:00"
+    }
+  },
+  {
+    "id": "sira_abu_umair_young",
+    "title": "Abu Umair and His Little Bird",
+    "description": "The story of little Abu Umair and his bird, and how the Prophet ﷺ asked about it, as Anas ibn Malik (may Allah be pleased with him) narrated it in Sahih al-Bukhari, in the words of the hadith, with its number.",
+    "coverImage": "docs/stories/sira_abu_umair_young_cover.png",
+    "themeColor": "0xFF3F6E8C",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Anas ibn Malik (may Allah be pleased with him) had a little brother called Abu Umair, and he had a nughar that he played with — a little bird.",
+        "image": "docs/stories/sira_abu_umair_young_1.png"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Whenever the Prophet ﷺ came, he would say to him: “O Abu Umair, what did the nughayr do?” (Sahih al-Bukhari 6203) — asking him about his little bird.",
+        "image": "docs/stories/sira_abu_umair_young_2.png"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Anas said: “The Prophet ﷺ was the best of people in character.” (Sahih al-Bukhari 6203)",
+        "image": "docs/stories/sira_abu_umair_young_3.png"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Anas said: “I served the Prophet ﷺ for ten years, and he never said to me ‘uff’.” (Sahih al-Bukhari 6038)",
+        "image": "docs/stories/sira_abu_umair_young_4.png"
+      }
+    ],
+    "ageGroup": "3-6 years",
+    "category": "From the Seerah",
+    "series": "sira_sahih",
+    "discussionQuestions": [
+      "What did Abu Umair have to play with?",
+      "What did the Prophet ﷺ use to say to Abu Umair?",
+      "For how many years did Anas serve the Prophet ﷺ?"
+    ],
+    "islamicValue": "Anas (may Allah be pleased with him) said: “The Prophet ﷺ was the best of people in character.” (Sahih al-Bukhari 6203)",
+    "actionChallenge": "Today, ask your little brother or a little friend about his toy, as the Prophet ﷺ used to ask Abu Umair about his bird.",
+    "pause": {
+      "afterPage": 2,
+      "question": "Your little brother is playing with his toy. What do you say to him?",
+      "options": [
+        "I ask him about it and play with him",
+        "I take it from him"
+      ],
+      "caring": 0,
+      "affirm": "Well done! The Prophet ﷺ used to ask little Abu Umair about his bird.",
+      "nudge": "What did the Prophet ﷺ use to say to little Abu Umair?"
+    },
+    "language": "en",
+    "source_language": "ar",
+    "translation": {
+      "translator_model": "claude-opus-5.5",
+      "reviewer_model": "deepseek-v4-pro+glm-5.2",
+      "attempts": 1,
+      "needs_scholar_review": true,
+      "scholar_signals": {
+        "keyword": true,
+        "quoted_arabic": true,
+        "quran_ayah": false,
+        "reviewer_model": true
+      },
+      "review_verdict": "clean",
+      "review_defects": [],
+      "english_authors": [
+        "claude-opus-5.5"
+      ],
+      "manual_fix_note": "Written by hand (claude-opus-5.5) from the Arabic and its sources: each hadith rendered literally with its citation (Sahih al-Bukhari N), the verse kept in Arabic with an interpretation of the meaning from al-Muyassar. translate_stories.py was not used: the Ollama Cloud quota it runs on was exhausted (2026-10-30).",
+      "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-30",
+      "auto_review": {
+        "reviewers": [
+          "deepseek-v4-pro",
+          "glm-5.2"
+        ],
+        "providers": {
+          "deepseek-v4-pro": {
+            "provider": "deepseek",
+            "model": "deepseek-v4-pro"
+          },
+          "glm-5.2": {
+            "provider": "zai-coding",
+            "model": "glm-5.2"
+          }
+        },
+        "fixer": null,
+        "rounds": 1,
+        "prompt_version": "dfa8a5f39718",
+        "content_sha256": "6ab8abb2de07f7d5f535d45ed7a20a76197a845b17ca4701942cfb61bd7dab39",
+        "reviewed_at": "2026-10-30T17:20:57+00:00",
+        "residual_low": [],
+        "adjudicated": [],
+        "tool": "ops/tools/review_en_parity.py",
+        "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+      },
+      "revalidated_at": "2026-10-30T17:20:57+00:00"
+    }
+  },
+  {
+    "id": "sira_abu_umair_older",
+    "title": "Abu Umair and His Little Bird",
+    "description": "The story of Abu Umair and his little bird, and the Prophet's ﷺ character with the family of Anas, as Anas ibn Malik (may Allah be pleased with him) narrated it in Sahih al-Bukhari, in the words of the hadith, with its number.",
+    "coverImage": "docs/stories/sira_abu_umair_older_cover.png",
+    "themeColor": "0xFF30566E",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Anas ibn Malik (may Allah be pleased with him) said: “The Prophet ﷺ was the best of people in character.” (Sahih al-Bukhari 6203)",
+        "image": "docs/stories/sira_abu_umair_older_1.png"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Anas had a little brother called Abu Umair, and he had a nughar that he played with — a little bird.",
+        "image": "docs/stories/sira_abu_umair_older_2.png"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Whenever the Prophet ﷺ came, he would say to him: “O Abu Umair, what did the nughayr do?” (Sahih al-Bukhari 6203). And Anas said: “The Prophet ﷺ would mix with us.” (Sahih al-Bukhari 6129)",
+        "image": "docs/stories/sira_abu_umair_older_3.png"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Sometimes the time of prayer came while he ﷺ was in their house; he would order the mat beneath him to be swept and sprinkled with water, then he would stand, and they would stand behind him, and he would lead them in prayer.",
+        "image": "docs/stories/sira_abu_umair_older_4.png"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Anas said: “I served the Prophet ﷺ for ten years, and he never said to me ‘uff’, nor ‘why did you do that?’, nor ‘why did you not do that?’” (Sahih al-Bukhari 6038)",
+        "image": "docs/stories/sira_abu_umair_older_5.png"
+      },
+      {
+        "pageNumber": 6,
+        "text": "In this story, the Prophet ﷺ mixed with the family of Anas and asked little Abu Umair about his bird, and for ten years he never said ‘uff’ to Anas, nor blamed him for what he did or did not do.",
+        "image": "docs/stories/sira_abu_umair_older_6.png"
+      }
+    ],
+    "ageGroup": "7-12 years",
+    "category": "From the Seerah",
+    "series": "sira_sahih",
+    "discussionQuestions": [
+      "What did the Prophet ﷺ use to say to Abu Umair, and what was he asking him about?",
+      "For how many years did Anas serve the Prophet ﷺ, and what did he say about him?",
+      "How do you treat your little brother or your little sister?"
+    ],
+    "islamicValue": "Anas (may Allah be pleased with him) said: “I served the Prophet ﷺ for ten years, and he never said to me ‘uff’, nor ‘why did you do that?’, nor ‘why did you not do that?’” (Sahih al-Bukhari 6038)",
+    "actionChallenge": "Today, ask the youngest one at home about his toy or about something he loves, and listen to him.",
+    "pause": {
+      "afterPage": 3,
+      "question": "Your little brother spoiled your toy without meaning to. What do you say to him?",
+      "options": [
+        "I speak to him gently",
+        "I shout at him"
+      ],
+      "caring": 0,
+      "affirm": "Well done! For ten years, the Prophet ﷺ never said ‘uff’ to Anas.",
+      "nudge": "Remember: how was the Prophet ﷺ with Anas and his little brother?"
+    },
+    "language": "en",
+    "source_language": "ar",
+    "translation": {
+      "translator_model": "claude-opus-5.5",
+      "reviewer_model": "deepseek-v4-pro+glm-5.2",
+      "attempts": 1,
+      "needs_scholar_review": true,
+      "scholar_signals": {
+        "keyword": true,
+        "quoted_arabic": true,
+        "quran_ayah": false,
+        "reviewer_model": true
+      },
+      "review_verdict": "low_only",
+      "review_defects": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "pages[1].text",
+          "type": "leakage",
+          "why": "The Arabic bird name is transliterated rather than translated, and it is not one of the allowed transliterated Islamic terms, though its meaning is given after the dash."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "pages[2].text",
+          "type": "leakage",
+          "why": "The Arabic diminutive bird name is left untranslated in the English hadith rendering and is not an allowed Islamic-term transliteration."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "pages[2].text",
+          "type": "meaning",
+          "why": "The emphatic Arabic construction is slightly understated by dropping the sense of 'indeed' in the English rendering."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "pages[1].text",
+          "type": "leakage",
+          "why": "\"Nughar\" is a common Arabic noun, not an approved transliterated Islamic term, and is left untranslated for a 7-12 audience even though the appositive gloss preserves the meaning."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "pages[2].text",
+          "type": "leakage",
+          "why": "The untranslated non-glossary word \"nughayr\" (a variant form of the word glossed on the previous page) appears again inside the hadith rendering, which young readers may find opaque even though it ech"
+        }
+      ],
+      "english_authors": [
+        "claude-opus-5.5"
+      ],
+      "manual_fix_note": "Written by hand (claude-opus-5.5) from the Arabic and its sources: each hadith rendered literally with its citation (Sahih al-Bukhari N), the verse kept in Arabic with an interpretation of the meaning from al-Muyassar. translate_stories.py was not used: the Ollama Cloud quota it runs on was exhausted (2026-10-30).",
+      "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-30",
+      "auto_review": {
+        "reviewers": [
+          "deepseek-v4-pro",
+          "glm-5.2"
+        ],
+        "providers": {
+          "deepseek-v4-pro": {
+            "provider": "deepseek",
+            "model": "deepseek-v4-pro"
+          },
+          "glm-5.2": {
+            "provider": "zai-coding",
+            "model": "glm-5.2"
+          }
+        },
+        "fixer": null,
+        "rounds": 1,
+        "prompt_version": "dfa8a5f39718",
+        "content_sha256": "883f1e5b03eb96bc845290e265f6cc97b3e9feae35243011cfd07796078f56c8",
+        "reviewed_at": "2026-10-30T17:37:56+00:00",
+        "residual_low": [
+          {
+            "model": "deepseek-v4-pro",
+            "field": "pages[1].text",
+            "type": "leakage",
+            "why": "The Arabic bird name is transliterated rather than translated, and it is not one of the allowed transliterated Islamic terms, though its meaning is given after the dash."
+          },
+          {
+            "model": "deepseek-v4-pro",
+            "field": "pages[2].text",
+            "type": "leakage",
+            "why": "The Arabic diminutive bird name is left untranslated in the English hadith rendering and is not an allowed Islamic-term transliteration."
+          },
+          {
+            "model": "deepseek-v4-pro",
+            "field": "pages[2].text",
+            "type": "meaning",
+            "why": "The emphatic Arabic construction is slightly understated by dropping the sense of 'indeed' in the English rendering."
+          },
+          {
+            "model": "glm-5.2",
+            "field": "pages[1].text",
+            "type": "leakage",
+            "why": "\"Nughar\" is a common Arabic noun, not an approved transliterated Islamic term, and is left untranslated for a 7-12 audience even though the appositive gloss preserves the meaning."
+          },
+          {
+            "model": "glm-5.2",
+            "field": "pages[2].text",
+            "type": "leakage",
+            "why": "The untranslated non-glossary word \"nughayr\" (a variant form of the word glossed on the previous page) appears again inside the hadith rendering, which young readers may find opaque even though it ech"
+          }
+        ],
+        "adjudicated": [
+          {
+            "field": "islamicValue",
+            "type": "source_corruption",
+            "reason": "The pinned edition reads Sahih al-Bukhari 6038 «وَلاَ أَلاَّ صَنَعْتَ» with the shadda; ألّا here is the particle of reproach/urging (= هلّا, 'why did you not'), which is exactly the meaning the reviewer asks for. The quote is verbatim (sahihayn_holds('البخاري', 6038, …) is True).",
+            "by": "claude-opus-5.5 (Seerah season 2 en-parity adjudication, verified against the pinned corpus)",
+            "on": "2026-10-30"
+          }
+        ],
+        "tool": "ops/tools/review_en_parity.py",
+        "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+      },
+      "revalidated_at": "2026-10-30T17:37:56+00:00"
+    }
   }
 ]
