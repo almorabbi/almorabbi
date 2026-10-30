@@ -1,0 +1,36 @@
+{
+  "id": "isl-c0936200",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "تفسير سبب النهي للأبناء في كلام ابن بطال",
+  "language": "ar",
+  "age_group": "unspecified",
+  "behavior_type": "تعليم ديني",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين - عماد عبدالعظيم (الألوكة)",
+  "text_original": "تلخيص تحريري للمقطع المنسوب إلى ابن بطال في صفحة ١٨٠ المطبوعة من الكتاب: يوجه الوالدين إلى تعريف الأبناء بسبب النهي عن الشيء، لينشؤوا على العلم ويبلغوا وقت التكليف وهم على علم بالشريعة. هذه إعادة صياغة وليست نقلا حرفيا.",
+  "text_simplified": "ينقل الكتاب عن ابن بطال توصية بأن يوضح الوالدان للأبناء سبب نهيهم عن شيء، لينشؤوا على العلم ويبلغوا وقت التكليف وهم يعرفون الشريعة.",
+  "labels": [
+    "ابن بطال",
+    "سبب النهي",
+    "تعلم الأبناء"
+  ],
+  "created_at": "2026-06-21T10:33:16Z",
+  "updated_at": "2026-10-07T14:46:18.417566+00:00",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "حقوق الأولاد على الوالدين",
+    "source_author": "عماد بن أحمد بن عبدالعظيم"
+  },
+  "source_url": "https://www.alukah.net/Books/Files/Book_17337/BookFile/brotherandboys.pdf#page=181",
+  "source_note": "Primary-source recovery 2026-10-07. Immutable raw OCR locator, exact primary PDF and excerpt proof: ops/data/kb_fidelity/source_recovery/isl-c0936200.json. Source-specific historical attribution and scope limits retained. Fresh DeepSeek+GLM English parity recorded separately; no scholar/human/publication approval.",
+  "needs_ocr": false,
+  "translation": {
+    "needs_scholar_review": true,
+    "approved_by": null,
+    "draft_status": "draft",
+    "source_recovery_note": "Primary source recovered and checked; exact English parity reviewed by DeepSeek and GLM on 2026-10-07. Auto parity is not source or scholar approval; draft status and human Sharia review remain pending. Raw verdicts: ops/data/kb_fidelity/source_recovery/last-six-canonical-review-2026-10-07.json."
+  }
+}

@@ -1,0 +1,355 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../core/haptics.dart';
+import '../../../l10n/app_localizations.dart';
+import '../../../theme/app_theme.dart';
+import '../../../theme/design_tokens.dart';
+import '../models/habit_models.dart';
+import '../../agreement/child_agreement_screen.dart';
+import '../../child_corner/child_corner_screen.dart';
+import '../../handover/child_hand_back.dart';
+import '../../license/child_license_screen.dart';
+import '../../missions/child_mission_screen.dart';
+import '../../programs/widgets/child_prayer_card.dart';
+import '../providers/child_mode_providers.dart';
+import 'child_mode_lock_screen.dart' show localizedChildModeError;
+import '../../../widgets/ui/brand_glyph.dart';
+import '../../../widgets/ui/celebration_overlay.dart';
+import 'package:almorabbi/widgets/ui/loading_view.dart';
+
+/// The child-facing self-reporting screen.
+/// Very simple, large buttons, one tap with a few seconds to undo, no
+/// edit/delete once sent.
+class HabitChildModeScreen extends ConsumerWidget {
+  const HabitChildModeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(childModeProvider);
+
+    if (!state.active) {
+      return const Scaffold(
+        body: LoadingView.spinner(),
+      );
+    }
+
+    // «ركن الطفل» owns its whole session — the story, the game, the task, and
+    // how it ends (time spent, a lost connection, the hand-back) — so it is
+    // routed before the guards below, which would each replace it with a
+    // screen of their own. Only the family agreement outranks it, for the
+    // same reason it outranks every surface.
+    if (state.corner &&
+        !state.agreementAwaitsChild &&
+        state.error != kChildModeAgreementRequired) {
+      return const ChildCornerScreen();
+    }
+
+    // Precedence, highest first. The two error guards outrank the surface: a
+    // dead session or an unsigned agreement is true whatever the child came
+    // here to do.
+
+    // No session behind this screen, and nothing to explain: the app was
+    // restarted while a child had it (restore), the mission card closed it,
+    // or the server stopped accepting the child's token. The device goes back
+    // by hand; the frame's Exit, behind the PIN, is the way out.
+    //
+    // The expired token used to get a guard that pushed the PIN screen in
+    // *entry* mode — a new session for the child, not an exit — and, with no
+    // child id, a page of text with no way off it. It was never reached: the
+    // 401 that set the code also cleared child mode, so the parent's app
+    // opened instead.
+    if (state.error == kChildModeHandedBack ||
+        state.error == kChildModeErrorSessionExpired) {
+      return const ChildHandBackScreen();
+    }
+
+    // The server refuses every other surface until the family agreement is
+    // signed, and it names the agreement as the way through. Sending the
+    // child straight there is what makes that refusal an instruction rather
+    // than a dead end — the gate is only a gate if its exit is reachable.
+    if (state.error == kChildModeAgreementRequired) {
+      return const ChildAgreementScreen();
+    }
+
+    // A parent signed and the child has not. Show them the agreement before
+    // anything else — this is the same destination the server's refusal would
+    // have named, reached without needing the refusal.
+    //
+    // Without this the signing screen is unreachable in practice: it opens
+    // only on `kChildModeAgreementRequired`, which only appears when
+    // AGREEMENT_REQUIRED is on, and that switch stays off until the floor
+    // build is live. A parent signs, hands over the device, and the child
+    // lands on the habit screen having never seen what they are meant to
+    // agree to.
+    if (state.agreementAwaitsChild) {
+      return const ChildAgreementScreen();
+    }
+
+    // The session closed under the child: the day's time is spent, or the
+    // connection went. Whatever surface this was, it is over — and leaving
+    // its screen up was worse than it looked. The token died with the
+    // session, so the habit checklist's next tap came back 401, which clears
+    // child mode and hands the child the parent's app with no PIN. Close on
+    // the hand-back screen instead; the frame's Exit, behind the PIN, is the
+    // way out.
+    //
+    // Not the mission card: its own exit closes the app («فهمت، سأذهب»), it
+    // swallows a dead token without a 401, and it is three minutes long.
+    if (state.surface != 'mission' &&
+        state.sessionId == null &&
+        (state.error == kChildModeBudgetSpent ||
+            state.error == kChildModeOffline)) {
+      return ChildHandBackScreen(
+        message: localizedChildModeError(
+            state.error, AppLocalizations.of(context)),
+      );
+    }
+
+    // Surfaces other than `habit` have their own screen and never load the
+    // habit day, so they must be routed before the wait below — otherwise a
+    // mission session sits on a spinner that nothing will ever resolve.
+    if (state.surface == 'mission') {
+      return const ChildMissionScreen();
+    }
+
+    if (state.surface == 'license') {
+      return const ChildLicenseScreen();
+    }
+
+    if (state.day == null) {
+      return const Scaffold(
+        body: SafeArea(child: LoadingView(itemHeight: 120)),
+      );
+    }
+
+    return Scaffold(
+      // Exit and the time bar live in ChildModeShell, above every surface.
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context).habitChildModeTitle),
+        automaticallyImplyLeading: false,
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: CustomScrollView(
+                slivers: [
+                  // «صلاتي اليوم» first, for a child on the Prayer Journey —
+                  // it renders nothing for everyone else (and on an older
+                  // server), so the habit list is unchanged for them. A box
+                  // sliver, not an item of the lazy list: an item scrolled
+                  // away is disposed, and with it a claim in flight.
+                  const SliverPadding(
+                    padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+                    sliver: SliverToBoxAdapter(child: ChildPrayerCard()),
+                  ),
+                  SliverPadding(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                    sliver: SliverList.builder(
+                      itemCount: state.day!.habits.length,
+                      itemBuilder: (context, index) {
+                        final item = state.day!.habits[index];
+                        return _HabitChildCard(
+                          item: HabitItem(
+                            category: item.category,
+                            habitName: item.habitName,
+                          ),
+                          submitted: state.isSubmitted(item.habitName),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _HabitChildCard extends ConsumerStatefulWidget {
+  const _HabitChildCard({required this.item, required this.submitted});
+
+  final HabitItem item;
+  final bool submitted;
+
+  @override
+  ConsumerState<_HabitChildCard> createState() => _HabitChildCardState();
+}
+
+class _HabitChildCardState extends ConsumerState<_HabitChildCard> {
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final color = switch (widget.item.category) {
+      HabitCategory.worship => theme.colorScheme.primary,
+      HabitCategory.selfBuilding => theme.colorScheme.secondary,
+      HabitCategory.study => theme.colorScheme.tertiary,
+    };
+
+    return Card(
+      margin: const EdgeInsets.only(bottom: 12),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(_categoryIcon(widget.item.category), color: color),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    habitDisplayName(widget.item.habitName, AppLocalizations.of(context)),
+                    style: theme.textTheme.titleMedium,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            if (widget.submitted)
+              Center(
+                child: Chip(
+                  avatar: Icon(Icons.check_circle, color: AppTheme.onPrimary),
+                  label: Text(AppLocalizations.of(context).habitChildModeLogged),
+                  backgroundColor: AppTheme.primary,
+                  labelStyle: TextStyle(color: AppTheme.onPrimary),
+                ),
+              )
+            else
+              // Palette tokens with their paired on-colours instead of
+              // Colors.green/orange/red under white text (2.1–3.5:1, below
+              // WCAG AA), and a Wrap so three labelled buttons reflow instead
+              // of overflowing at large text sizes or with English labels.
+              // "Missed" is neutral rather than red: a child uses this screen,
+              // and a red ✗ reads as a punishment rather than a record.
+              Wrap(
+                alignment: WrapAlignment.spaceEvenly,
+                spacing: Dt.s8,
+                runSpacing: Dt.s8,
+                children: [
+                  _ActionButton(
+                    label: AppLocalizations.of(context).habitChildModeDone,
+                    icon: Icons.check,
+                    color: AppTheme.primary,
+                    foreground: AppTheme.onPrimary,
+                    onPressed: () => _submit('completed'),
+                  ),
+                  _ActionButton(
+                    label: AppLocalizations.of(context).habitChildModePartial,
+                    icon: Icons.remove_circle_outline,
+                    color: AppTheme.accent,
+                    foreground: AppTheme.onAccent,
+                    onPressed: () => _submit('partially'),
+                  ),
+                  _ActionButton(
+                    label: AppLocalizations.of(context).habitChildModeMissed,
+                    icon: Icons.close,
+                    color: AppTheme.surfaceAlt,
+                    foreground: AppTheme.textPrimary,
+                    onPressed: () => _submit('missed'),
+                  ),
+                ],
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  IconData _categoryIcon(HabitCategory c) => switch (c) {
+    HabitCategory.worship => Icons.mosque,
+    HabitCategory.selfBuilding => Icons.self_improvement,
+    HabitCategory.study => Icons.menu_book,
+  };
+
+  /// One tap logs it (UX_UI_ROADMAP G3). The card flips to "logged" at once,
+  /// and a snackbar offers Undo for a few seconds before anything is sent —
+  /// a confirmation dialog on every check-in doubled the taps for the rare
+  /// mistake it guarded against.
+  Future<void> _submit(String status) async {
+    final l10n = AppLocalizations.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    final navigator = Navigator.of(context);
+    final notifier = ref.read(childModeProvider.notifier);
+    final name = widget.item.habitName;
+
+    final result = notifier.stage(widget.item, status);
+    if (result == null) return;
+    unawaited(Haptics.success());
+    messenger
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(
+        content: Text(l10n.habitChildModeLoggedName(habitDisplayName(name, l10n))),
+        duration: ChildModeNotifier.undoWindow,
+        persist: false,
+        action: SnackBarAction(
+          label: l10n.habitChildModeUndo,
+          onPressed: () => notifier.undo(name),
+        ),
+      ));
+
+    // The card may have scrolled away by the time this resolves; the
+    // messenger and navigator outlive it.
+    final r = await result;
+    if (r.outcome == StageOutcome.failed) {
+      unawaited(Haptics.warning());
+      messenger.showSnackBar(SnackBar(content: Text(l10n.habitChildModeFailed)));
+    } else if (r.milestone != null && navigator.mounted) {
+      // quiet (phase 1: مستويات الاحتفال): a streak milestone in child mode
+      // is acknowledged, not staged — the child's screen stays its own calm
+      // place, and confetti over a routine tracker was a volume the moment
+      // did not ask for.
+      await showCelebration(
+        navigator.context,
+        tier: CelebrationTier.quiet,
+        glyph: BrandIcon.star,
+        title: l10n.habitMilestoneTitle(switch (r.milestone) {
+          3 => 'three',
+          7 => 'week',
+          30 => 'month',
+          _ => 'other',
+        }),
+        message: l10n.habitMilestoneMsg,
+        buttonLabel: l10n.habitMilestoneButton,
+      );
+    }
+  }
+}
+
+class _ActionButton extends StatelessWidget {
+  const _ActionButton({
+    required this.label,
+    required this.icon,
+    required this.color,
+    required this.foreground,
+    this.onPressed,
+  });
+
+  final String label;
+  final IconData icon;
+  final Color color;
+  final Color foreground;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      onPressed: onPressed,
+      icon: Icon(icon, color: foreground),
+      label: Text(label),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: color,
+        foregroundColor: foreground,
+        minimumSize: const Size(Dt.minTouchChild, Dt.minTouchChild),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      ),
+    );
+  }
+}

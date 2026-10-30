@@ -1,0 +1,280 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../core/app_routes.dart';
+import '../../../l10n/app_localizations.dart';
+import '../providers/child_mode_providers.dart';
+import '../services/child_mode_secure_storage.dart';
+import 'package:almorabbi/core/haptics.dart';
+
+/// Lock screen used to enter/exit child mode. PIN is verified locally.
+class ChildModeLockScreen extends ConsumerStatefulWidget {
+  const ChildModeLockScreen({
+    super.key,
+    required this.childId,
+    required this.childName,
+    this.isExit = false,
+    this.surface = 'habit',
+    this.verifyOnly = false,
+  });
+
+  final int childId;
+  final String childName;
+  final bool isExit;
+
+  /// Check the PIN and hand it back to the caller, opening nothing.
+  ///
+  /// The hand-over gate uses this: it plays its doors in parent mode after
+  /// the PIN and before the session exists, then opens the session itself
+  /// through [ChildModeNotifier.enter] — which checks the PIN again.
+  final bool verifyOnly;
+
+  /// Which surface the parent is opening. The server budgets each one
+  /// separately and refuses any the child's age band does not allow, so it has
+  /// to travel from the entry point rather than be assumed here.
+  final String surface;
+
+  @override
+  ConsumerState<ChildModeLockScreen> createState() => _ChildModeLockScreenState();
+}
+
+/// A child-mode error code, as a parent should read it.
+String localizedChildModeError(String? code, AppLocalizations l10n) {
+  return switch (code) {
+    kChildModeErrorPinRequired => l10n.childModePinRequired,
+    kChildModeErrorPinIncorrect => l10n.childModePinIncorrect,
+    kChildModeErrorSessionExpired => l10n.childModeSessionExpired,
+    // Neither of these is a failure the child did anything to cause, and
+    // neither should ever surface as a raw code.
+    kChildModeBudgetSpent => l10n.childModeBudgetSpent,
+    kChildModeOffline => l10n.childModeOffline,
+    kChildModeSurfaceNotAllowed => l10n.childModeSurfaceNotAllowed,
+    // Anything else is a failure's own text (the provider keeps it for
+    // diagnostics) — never something to put in front of a child.
+    _ => l10n.childModeEnterFailed,
+  };
+}
+
+class _ChildModeLockScreenState extends ConsumerState<ChildModeLockScreen> {
+  final _pin = <String>[];
+  String? _error;
+  bool _firstSetup = false;
+  String _confirmPin = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _checkFirstSetup();
+  }
+
+  Future<void> _checkFirstSetup() async {
+    final hasPin = await hasChildModePin();
+    setState(() => _firstSetup = !hasPin);
+  }
+
+  void _onDigit(String d) {
+    if (_pin.length >= 4) return;
+    setState(() {
+      _pin.add(d);
+      _error = null;
+    });
+    if (_pin.length == 4) {
+      final entered = _pin.join();
+      if (_firstSetup && widget.isExit == false) {
+        if (_confirmPin.isEmpty) {
+          _confirmPin = entered;
+          setState(_pin.clear);
+        } else if (_confirmPin == entered) {
+          _finish(entered);
+        } else {
+          _confirmPin = '';
+          setState(() {
+            _pin.clear();
+            unawaited(Haptics.warning());
+            _error = AppLocalizations.of(context).childModePinMismatch;
+          });
+        }
+      } else {
+        _finish(entered);
+      }
+    }
+  }
+
+  Future<void> _finish(String pin) async {
+    final l10n = AppLocalizations.of(context);
+    final notifier = ref.read(childModeProvider.notifier);
+    if (widget.isExit) {
+      final ok = await notifier.exit(pin);
+      if (mounted) {
+        if (ok) {
+          Navigator.of(context).pop(true);
+        } else {
+          unawaited(Haptics.warning());
+          setState(() {
+            _pin.clear();
+            _error = l10n.childModePinIncorrect;
+          });
+        }
+      }
+    } else if (widget.verifyOnly) {
+      final ok = await notifier.checkPin(pin);
+      if (!mounted) return;
+      if (ok) {
+        Navigator.of(context).pop(pin);
+      } else {
+        unawaited(Haptics.warning());
+        setState(() {
+          _pin.clear();
+          _error = localizedChildModeError(
+              ref.read(childModeProvider).error, l10n);
+        });
+      }
+    } else {
+      final ok = await notifier.enter(
+          childId: widget.childId, pin: pin, surface: widget.surface);
+      if (mounted) {
+        if (ok) {
+          // Unwind to the root, not one step back.
+          //
+          // The child surface is the *root* widget — _AppBootstrapper returns
+          // HabitChildModeScreen whenever childMode.active. Popping one route
+          // returned to DailyRoutineScreen, which sits above that root and
+          // hides it completely. So the parent entered their PIN, the session
+          // opened on the server, and the screen did not change: handing over
+          // the device showed the parent's own routine screen, "today's
+          // mission" opened nothing, and screen-off listening never appeared.
+          // One pop, three symptoms.
+          Navigator.of(context).popUntil((route) => route.isFirst);
+        } else {
+          setState(() {
+            _pin.clear();
+            _error = localizedChildModeError(
+                ref.read(childModeProvider).error, l10n);
+          });
+        }
+      }
+    }
+  }
+
+  void _backspace() => setState(() {
+        if (_pin.isNotEmpty) _pin.removeLast();
+        _error = null;
+      });
+
+  @override
+  Widget build(BuildContext context) {
+    final title = widget.isExit ? AppLocalizations.of(context).habitChildModeExitTitle : AppLocalizations.of(context).childMode;
+    // What to do on this screen, in each of its four states. (It used to
+    // say «المرحلة العمرية» on first setup and «غير متصل بالإنترنت» otherwise —
+    // two unrelated strings left behind by a key migration.)
+    final l10n = AppLocalizations.of(context);
+    final subtitle = widget.isExit
+        ? l10n.childModePinExitSubtitle
+        : !_firstSetup
+            ? l10n.childModePinEnterSubtitle
+            : _confirmPin.isEmpty
+                ? l10n.childModePinSetupSubtitle
+                : l10n.childModePinConfirmSubtitle;
+
+    return Scaffold(
+      appBar: AppBar(title: Text(title)),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(subtitle, textAlign: TextAlign.center),
+              const SizedBox(height: 24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                  4,
+                  (i) => Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
+                    width: 16,
+                    height: 16,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: i < _pin.length
+                          ? Theme.of(context).colorScheme.primary
+                          : Colors.grey.shade300,
+                    ),
+                  ),
+                ),
+              ),
+              if (_error != null) ...[
+                const SizedBox(height: 16),
+                Text(
+                  _error!,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.error,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                // A refusal has to point somewhere. The age gate and the spent
+                // budget both end here, and until this section existed the
+                // policy file carried three activities inside its own refusal
+                // text as a stopgap — a comment there says so. The product's
+                // claim is that there is something better to do, so the screen
+                // that says "not this" must be able to say "this instead".
+                if (ref.read(childModeProvider).error == kChildModeBudgetSpent)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: TextButton(
+                      onPressed: () => Navigator.of(context)
+                          .push(AppRoutes.offscreenActivities()),
+                      child: Text(AppLocalizations.of(context).offscreenOpen),
+                    ),
+                  ),
+              ],
+              const SizedBox(height: 32),
+              _buildKeypad(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildKeypad() {
+    final keys = [
+      ['1', '2', '3'],
+      ['4', '5', '6'],
+      ['7', '8', '9'],
+      ['', '0', '⌫'],
+    ];
+    return Column(
+      children: keys
+          .map(
+            (row) => Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: row
+                  .map(
+                    (k) => SizedBox(
+                      width: 80,
+                      height: 80,
+                      child: k.isEmpty
+                          ? const SizedBox()
+                          : Padding(
+                              padding: const EdgeInsets.all(6),
+                              child: FilledButton.tonal(
+                                onPressed: () =>
+                                    k == '⌫' ? _backspace() : _onDigit(k),
+                                child: Text(
+                                  k,
+                                  style: const TextStyle(fontSize: 22),
+                                ),
+                              ),
+                            ),
+                    ),
+                  )
+                  .toList(),
+            ),
+          )
+          .toList(),
+    );
+  }
+}

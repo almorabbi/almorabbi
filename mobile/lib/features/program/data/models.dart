@@ -1,0 +1,284 @@
+/// Curriculum content models — Phase 4 (Flutter UI).
+///
+/// These mirror the JSON shapes served by the backend
+/// (`knowledge_base/curriculum/schema/*.schema.json`) and the
+/// `routers/program.py` endpoints under `/api/program/*`.
+///
+/// All fields are parsed strictly; unknown fields are tolerated on the
+/// wire (per `MOBILE_API.md` v1 contract — "clients must ignore unknown
+/// fields"). Numbers and durations are decoded conservatively.
+library;
+
+import '../../../models/enums.dart';
+import 'package:almorabbi/l10n/app_localizations.dart';
+
+/// A "journey" — 3-10 lessons over 1-30 days for a specific age+domain.
+class CurriculumPath {
+  final String id;
+  final String title;
+  final String ageGroup; // canonical wire value, e.g. "4-6"
+  final String domain; // canonical: medical | cyber | islamic_parenting | development
+  final String description;
+  final List<String> lessonIds;
+  final int estimatedDays;
+  final String? pedagogicalFramework;
+  final PathReference? primaryReference;
+  final List<String> prerequisites;
+  final bool isPublished;
+  final String? version;
+  final String? videoMp4;
+
+  const CurriculumPath({
+    required this.id,
+    required this.title,
+    required this.ageGroup,
+    required this.domain,
+    required this.description,
+    required this.lessonIds,
+    required this.estimatedDays,
+    this.pedagogicalFramework,
+    this.primaryReference,
+    this.prerequisites = const [],
+    this.isPublished = true,
+    this.version,
+    this.videoMp4,
+  });
+
+  factory CurriculumPath.fromJson(Map<String, dynamic> json) {
+    return CurriculumPath(
+      id: json['id'] as String,
+      title: json['title'] as String,
+      ageGroup: json['age_group'] as String,
+      domain: json['domain'] as String,
+      description: json['description'] as String? ?? '',
+      lessonIds: ((json['lesson_ids'] as List?) ?? const [])
+          .map((e) => e as String)
+          .toList(),
+      estimatedDays: (json['estimated_days'] as num?)?.toInt() ?? 0,
+      pedagogicalFramework: json['pedagogical_framework'] as String?,
+      primaryReference: json['primary_reference'] == null
+          ? null
+          : PathReference.fromJson(
+              json['primary_reference'] as Map<String, dynamic>,
+            ),
+      prerequisites: ((json['prerequisites'] as List?) ?? const [])
+          .map((e) => e as String)
+          .toList(),
+      isPublished: json['is_published'] as bool? ?? true,
+      version: json['version'] as String?,
+      videoMp4: json['video_mp4'] as String?,
+    );
+  }
+
+  /// Human-readable age label (uses the same mapping as `models/enums.dart`
+  /// for the canonical enums; falls back to the raw wire value).
+  String ageLabel(AppLocalizations l10n) {
+    final ag = AgeGroup.fromWire(ageGroup);
+    return ag == AgeGroup.unspecified ? ageGroup : ag.label(l10n);
+  }
+
+  /// Human-readable domain label.
+  String domainLabel(AppLocalizations l10n) => _domainLabel(domain, l10n);
+
+  /// Human-readable label for a canonical domain wire value (no instance
+  /// needed — used by the domain filter chips on the paths screen).
+  static String labelForDomain(String wire, AppLocalizations l10n) =>
+      _domainLabel(wire, l10n);
+
+  static String _domainLabel(String wire, AppLocalizations l10n) {
+    switch (wire) {
+      case 'islamic_parenting':
+        return l10n.pathDomainIslamic;
+      case 'aqeedah':
+        return l10n.pathDomainAqeedah;
+      case 'development':
+        return l10n.pathDomainDevelopment;
+      case 'medical':
+        return l10n.pathDomainSkills;
+      case 'infant_pregnancy':
+        return 'الحمل والرضع';
+      case 'cyber':
+        return l10n.pathDomainCyber;
+      default:
+        return wire;
+    }
+  }
+}
+
+/// Book/hadith/journal reference attached to a path.
+class PathReference {
+  final String type; // canonical reference_type
+  final String info;
+
+  const PathReference({required this.type, required this.info});
+
+  factory PathReference.fromJson(Map<String, dynamic> json) {
+    return PathReference(
+      type: json['type'] as String,
+      info: json['info'] as String? ?? '',
+    );
+  }
+}
+
+/// A single lesson — 3-15 minutes, 1-10 knowledge unit_ids.
+class CurriculumLesson {
+  final String id;
+  final String pathId;
+  final String title;
+  final String ageGroup;
+  final String domain;
+  final List<String> unitIds;
+  final String summary;
+  final String tryThis;
+  final int order;
+  final int estimatedMinutes;
+  final List<String> reflectionPrompts;
+  final List<String> warningFlags;
+  final bool isPublished;
+  final String? version;
+
+  const CurriculumLesson({
+    required this.id,
+    required this.pathId,
+    required this.title,
+    required this.ageGroup,
+    required this.domain,
+    required this.unitIds,
+    required this.summary,
+    required this.tryThis,
+    required this.order,
+    required this.estimatedMinutes,
+    this.reflectionPrompts = const [],
+    this.warningFlags = const [],
+    this.isPublished = true,
+    this.version,
+  });
+
+  factory CurriculumLesson.fromJson(Map<String, dynamic> json) {
+    return CurriculumLesson(
+      id: json['id'] as String,
+      pathId: json['path_id'] as String,
+      title: json['title'] as String,
+      ageGroup: json['age_group'] as String,
+      domain: json['domain'] as String,
+      unitIds: ((json['unit_ids'] as List?) ?? const [])
+          .map((e) => e as String)
+          .toList(),
+      summary: json['summary'] as String? ?? '',
+      tryThis: json['try_this'] as String? ?? '',
+      order: (json['order'] as num?)?.toInt() ?? 0,
+      estimatedMinutes: (json['estimated_minutes'] as num?)?.toInt() ?? 5,
+      reflectionPrompts: ((json['reflection_prompts'] as List?) ?? const [])
+          .map((e) => e as String)
+          .toList(),
+      warningFlags: ((json['warning_flags'] as List?) ?? const [])
+          .map((e) => e as String)
+          .toList(),
+      isPublished: json['is_published'] as bool? ?? true,
+      version: json['version'] as String?,
+    );
+  }
+
+  bool get needsProfessionalFollowup =>
+      warningFlags.contains('needs_professional_followup');
+  bool get hasRegionalFiqhVariation =>
+      warningFlags.contains('regional_fiqh_variation');
+  bool get isDevelopmentalRedFlag =>
+      warningFlags.contains('developmental_red_flag');
+}
+
+/// Proactive parenting coach tip — `GET /api/program/coach-tip?child_id=`.
+/// The backend gracefully degrades to a plain daily tip when it can't
+/// produce a safe, topic-matched personal tip, so the card always renders.
+class CoachTip {
+  final int id;
+  final String text;
+  final String domain;
+  final int childId;
+  final String date;
+
+  const CoachTip({
+    required this.id,
+    required this.text,
+    required this.domain,
+    required this.childId,
+    required this.date,
+  });
+
+  factory CoachTip.fromJson(Map<String, dynamic> json) {
+    return CoachTip(
+      id: (json['id'] as num).toInt(),
+      text: json['text'] as String? ?? '',
+      domain: json['domain'] as String? ?? '',
+      childId: (json['child_id'] as num).toInt(),
+      date: json['date'] as String? ?? '',
+    );
+  }
+}
+
+/// The single lesson the home screen should open, from
+/// `GET /api/program/next-lesson`.
+class NextLesson {
+  final String lessonId;
+  final String pathId;
+  final String pathTitle;
+  final String title;
+  final int order;
+
+  /// False on the parent's very first lesson — "ابدأ" rather than "أكمل".
+  final bool resumed;
+
+  const NextLesson({
+    required this.lessonId,
+    required this.pathId,
+    required this.pathTitle,
+    required this.title,
+    required this.order,
+    required this.resumed,
+  });
+
+  factory NextLesson.fromJson(Map<String, dynamic> json) {
+    return NextLesson(
+      lessonId: json['lesson_id'] as String? ?? '',
+      pathId: json['path_id'] as String? ?? '',
+      pathTitle: json['path_title'] as String? ?? '',
+      title: json['title'] as String? ?? '',
+      order: (json['order'] as num?)?.toInt() ?? 1,
+      resumed: json['resumed'] as bool? ?? false,
+    );
+  }
+}
+
+/// Bundle returned by `GET /api/program/paths/{id}?include=lessons`.
+class PathDetail {
+  final CurriculumPath path;
+  final List<CurriculumLesson> lessons;
+
+  const PathDetail({required this.path, required this.lessons});
+
+  factory PathDetail.fromPathAndList(
+    CurriculumPath path,
+    List<CurriculumLesson> lessons,
+  ) {
+    return PathDetail(path: path, lessons: lessons);
+  }
+}
+
+/// A simple "envelope" for the bare `GET /api/program/paths` response
+/// `{ "count": N, "paths": [...] }`.
+class PathListEnvelope {
+  final int count;
+  final List<CurriculumPath> paths;
+
+  const PathListEnvelope({required this.count, required this.paths});
+
+  factory PathListEnvelope.fromJson(Map<String, dynamic> json) {
+    final list = ((json['paths'] as List?) ?? const [])
+        .map((e) => CurriculumPath.fromJson(e as Map<String, dynamic>))
+        .toList();
+    return PathListEnvelope(
+      count: (json['count'] as num?)?.toInt() ?? list.length,
+      paths: list,
+    );
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "voice": "gemini-3.8-flash-tts/Algieba",
+  "language": "ar",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/ar/anbiya_musa_bahr_young_p1.m4a",
+      "text": "أوحى اللهُ إلى نبيِّه موسى عليه السلام أن يسير ليلًا بمن آمن معه، لأنّ فرعونَ وجنودَه سيتبعونهم.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 96,
+          "start": 0.0,
+          "end": 12.161
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_musa_bahr_young_p2.m4a",
+      "text": "فسار موسى ومن معه في الليل. فلمّا رأى أصحابُ موسى جمعَ فرعون، قال لهم موسى: ﴿كَلَّآۖ إِنَّ مَعِيَ رَبِّي سَيَهۡدِينِ﴾.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 27,
+          "start": 0.0,
+          "end": 4.031
+        },
+        {
+          "from": 28,
+          "to": 119,
+          "start": 4.481,
+          "end": 22.766
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_musa_bahr_young_p3.m4a",
+      "text": "فأوحى اللهُ إلى موسى أن يضرب بعصاه البحر، فضربه فانفلق. فكانت كلُّ قطعةٍ من البحر كالجبل العظيم.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 55,
+          "start": 0.0,
+          "end": 9.352
+        },
+        {
+          "from": 56,
+          "to": 96,
+          "start": 9.802,
+          "end": 15.671
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_musa_bahr_young_p4.m4a",
+      "text": "واستمرّ البحرُ منفلقًا حتى عبر موسى ومن معه إلى البرّ. فأنجى اللهُ موسى ومن معه أجمعين.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 54,
+          "start": 0.0,
+          "end": 8.301
+        },
+        {
+          "from": 55,
+          "to": 87,
+          "start": 8.751,
+          "end": 13.252
+        }
+      ]
+    }
+  ]
+}

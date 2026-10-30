@@ -1,0 +1,62 @@
+{
+  "id": "isl-620730b0__en",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "The Prophet ﷺ Carrying Umama During Salah",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "قدوة تربوية",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين - عماد عبدالعظيم (الألوكة)",
+  "text_original": "ومن شفقته ﷺ بالصغار ورحمته بهم حمله لأمامة بنت زينب وهو يصلي:\nعن أبي قتادة الأنصاري رضي الله عنه، أن رسول الله ﷺ كان يصلي وهو حامل أمامة بنت زينب بنت رسول الله ﷺ، ولأبي العاص بن ربيعة بن عبد شمس، فإذا سجد وضعها وإذا قام حملها.\nأخرجه البخاري (٥١٦)، ومسلم (٥٤٣).",
+  "text_simplified": "The Prophet ﷺ prayed while carrying Umama, the daughter of Zaynab, the daughter of the Messenger of Allah ﷺ. When he went into sujud, he set her down; when he stood up, he carried her.",
+  "labels": [
+    "صلاة",
+    "أمامة بنت زينب",
+    "رحمة الصغار"
+  ],
+  "created_at": "2026-06-21T10:19:09Z",
+  "updated_at": "2026-10-07T09:34:03.424360+00:00",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "حقوق الأولاد على الوالدين",
+    "source_author": "عماد أحمد عبدالعظيم"
+  },
+  "source_language": "ar",
+  "translated_from": "isl-620730b0",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+    "draft_status": "draft",
+    "source_recovery_note": "Source-faithful draft; no model review or approval.",
+    "fixer_model": "openai:codex",
+    "english_authors": [
+      "mistral-large-3:675b",
+      "openai:codex"
+    ],
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "6744be3d859f648f7cbb98f29e1745f901a727fb0d72183bf757d45641451733",
+      "reviewed_at": "2026-10-07T09:36:39+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "revalidated_at": "2026-10-07T09:36:39+00:00"
+  },
+  "source_url": "https://www.alukah.net/Books/Files/Book_17337/BookFile/brotherandboys.pdf#page=50",
+  "source_note": "DRAFT source recovery, 2026-10-07. Selected primary PDF excerpt; provenance and exact local citation checks: ops/data/kb_fidelity/source_recovery/isl-620730b0.json. No scholar, human, model or publication approval."
+}

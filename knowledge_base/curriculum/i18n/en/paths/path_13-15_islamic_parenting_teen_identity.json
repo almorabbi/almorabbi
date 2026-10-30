@@ -1,0 +1,55 @@
+{
+  "id": "path_13-15_islamic_parenting_teen_identity",
+  "title": "Building the Islamic Identity of the Teenager: Between Doubt and Certainty (Ages 13-15)",
+  "age_group": "13-15",
+  "domain": "islamic_parenting",
+  "description": "A pathway to help parents accompany their teenage son in the journey of building his Islamic identity: confronting doubts, understanding acts of worship deeply, preparing for marriage, and making an independent decision.",
+  "lesson_ids": [
+    "lesson_13-15_islamic_parenting_teen_identity_02",
+    "lesson_13-15_islamic_parenting_teen_identity_03",
+    "lesson_13-15_islamic_parenting_teen_identity_04"
+  ],
+  "estimated_days": 3,
+  "pedagogical_framework": "prophetic_7_7_7",
+  "primary_reference": {
+    "type": "كتاب_تربوي",
+    "info": "Tarbiyat al-Awlad fi al-Islam (Raising Children in Islam) by Abdullah Nasih Ulwan + Fiqh al-Nafs by al-Qarni"
+  },
+  "prerequisites": [],
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "fixed_at": "2026-08-13T19:06:49.633733+00:00",
+    "fixer_model": "mistral-large-3:675b",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "e0b068c217d8fc917582f0cb06179b8978f6ef164622ac24a6f22d43ddbdbbdc",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

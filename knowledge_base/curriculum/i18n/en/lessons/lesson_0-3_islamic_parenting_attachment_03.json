@@ -1,0 +1,55 @@
+{
+  "id": "lesson_0-3_islamic_parenting_attachment_03",
+  "path_id": "path_0-3_islamic_parenting_attachment",
+  "title": "Effective Communication with Your Young Child: Building Trust from the First Months",
+  "age_group": "0-3",
+  "domain": "islamic_parenting",
+  "unit_ids": [],
+  "summary": "A child communicates from the first months: through crying, smiling, and eye contact. A father who responds to his child’s communication builds what psychology calls 'secure attachment'—and this is exactly what Islam guided in rahmah and care for children. Communication does not only mean speech—it means presence: looking into his eyes, smiling so he smiles back, imitating his sounds in the early months. A father who is present in body and heart raises a child confident in himself and the world around him.",
+  "try_this": "Ten minutes daily: put your phone aside completely, sit with your child on the floor, and let him lead the play. If he points to something, say its name: 'Yes, that...' If he makes a sound, imitate it. If he smiles, mirror his smile. This is called 'synchronous responsiveness'—the most powerful tool for building secure attachment in modern psychology, and it is the practical application of the Prophetic value of rahmah in its practical form.",
+  "order": 3,
+  "estimated_minutes": 39,
+  "reflection_prompts": [
+    "Do you feel you are truly 'present' with your child, or do distractions steal those moments?",
+    "What daily routine can you dedicate to full presence with your child?"
+  ],
+  "warning_flags": [],
+  "is_published": true,
+  "version": "1.0.0",
+  "created_at": "2026-06-10T16:00:00",
+  "updated_at": "2026-06-10T16:00:00",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": true,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "fixed_at": "2026-08-13T19:42:41.119625+00:00",
+    "fixer_model": "mistral-large-3:675b",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "e89b0f6a6a567befbbdd61ec4d906572e84fe94ee572ebdf949eaf1c4011d37b",
+      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

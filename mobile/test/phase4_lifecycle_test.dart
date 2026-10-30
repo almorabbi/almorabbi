@@ -1,0 +1,345 @@
+// Phase 4 lifecycle tests — bootstrap rehydration + session recycling.
+//
+// We use a custom BaseClient (so we can return a real StreamedResponse for
+// the SSE path) and an in-memory FlutterSecureStorage to drive the
+// notifier through realistic app restart sequences:
+//   1. Cold start with no persisted session → createSession called.
+//   2. Cold start with a persisted (still-valid) session → getHistory
+//      called and messages rehydrated.
+//   3. Cold start with a session that returns 404 → storage is cleared
+//      and a new session is created transparently.
+//   4. 401 mid-turn → the notifier catches it, clears the session,
+//      creates a new one, and retries the request exactly once.
+
+import 'dart:async';
+import 'dart:convert';
+
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart' as http;
+
+import 'package:package_info_plus/package_info_plus.dart';
+
+import 'package:almorabbi/api/tg_client.dart';
+import 'package:almorabbi/state/chat_notifier.dart';
+
+class _MemStorage implements FlutterSecureStorage {
+  final Map<String, String> _store = {};
+  @override
+  Future<String?> read({
+    required String key,
+    Object? aOptions,
+    Object? iOptions,
+    Object? lOptions,
+    Object? webOptions,
+    Object? mOptions,
+    Object? wOptions,
+  }) async =>
+      _store[key];
+  @override
+  Future<void> write({
+    required String key,
+    required String? value,
+    Object? aOptions,
+    Object? iOptions,
+    Object? lOptions,
+    Object? webOptions,
+    Object? mOptions,
+    Object? wOptions,
+  }) async {
+    if (value == null) {
+      _store.remove(key);
+    } else {
+      _store[key] = value;
+    }
+  }
+  @override
+  Future<void> delete({
+    required String key,
+    Object? aOptions,
+    Object? iOptions,
+    Object? lOptions,
+    Object? webOptions,
+    Object? mOptions,
+    Object? wOptions,
+  }) async =>
+      _store.remove(key);
+  @override
+  noSuchMethod(Invocation i) => super.noSuchMethod(i);
+}
+
+/// A scripted BaseClient — handlers are popped off in FIFO order.
+class _ScriptedClient extends http.BaseClient {
+  final List<http.StreamedResponse Function(http.BaseRequest req)> handlers = [];
+  final List<http.Request> seen = [];
+
+  void route(http.StreamedResponse Function(http.BaseRequest) h) =>
+      handlers.add(h);
+
+  @override
+  Future<http.StreamedResponse> send(http.BaseRequest request) async {
+    seen.add(request as http.Request);
+    if (handlers.isEmpty) {
+      return http.StreamedResponse(
+        Stream.value(utf8.encode('{}')),
+        500,
+        headers: {'content-type': 'application/json'},
+      );
+    }
+    return handlers.removeAt(0)(request);
+  }
+}
+
+http.StreamedResponse _sseOkResponse() {
+  const sse = '''event: token
+data: {"delta": "في "}
+
+event: token
+data: {"delta": "هذه "}
+
+event: token
+data: {"delta": "الحالة."}
+
+event: done
+data: {"reply_text":"في هذه الحالة.","domain":"medical","severity":"خفيف","needs_human_review":true,"escalation_target":null,"mode":"llm_generated","session_id":"s1"}
+
+''';
+  return http.StreamedResponse(
+    Stream.value(utf8.encode(sse)),
+    200,
+    headers: {'content-type': 'text/event-stream; charset=utf-8'},
+  );
+}
+
+http.StreamedResponse _jsonResponse(int status, Object body) {
+  return http.StreamedResponse(
+    Stream.value(utf8.encode(jsonEncode(body))),
+    status,
+    headers: {'content-type': 'application/json'},
+  );
+}
+
+void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  test('Cold start: no persisted session → createSession is called',
+      () async {
+    final storage = _MemStorage();
+    final client = _ScriptedClient();
+    client.route((_) => _jsonResponse(201,
+        {'session_id': 'new-1', 'token': 'tg_new'}));
+
+    final tg = TgClient.forTesting(
+      baseUrl: 'http://x',
+      httpClient: client,
+      storage: storage,
+    );
+    final notifier = ChatNotifier(tg);
+
+    await notifier.bootstrap();
+
+    expect(notifier.state.sessionId, 'new-1');
+    expect(notifier.state.messages, isEmpty);
+    expect(notifier.state.turnCount, 0);
+    expect(await storage.read(key: 'tg_session_id'), 'new-1');
+    expect(await storage.read(key: 'tg_token'), 'tg_new');
+  });
+
+  test('Cold start: persisted valid session → getHistory rehydrates',
+      () async {
+    final storage = _MemStorage();
+    await storage.write(key: 'tg_session_id', value: 'old-1');
+    await storage.write(key: 'tg_token', value: 'tg_old');
+
+    final client = _ScriptedClient();
+    client.route((req) {
+      expect(req.url.path, '/api/chat/sessions/old-1');
+      return _jsonResponse(200, {
+        'id': 'old-1',
+        'device_id': 'd',
+        'created_at': '2026-06-08T10:00:00',
+        'updated_at': '2026-06-08T10:01:00',
+        'metadata': <String, dynamic>{},
+        'messages': [
+          {
+            'role': 'user',
+            'content': 'سؤال ١',
+            'domain': null,
+            'severity': null,
+            'mode': null,
+            'needs_human_review': false,
+            'created_at': '2026-06-08T10:00:00',
+          },
+          {
+            'role': 'assistant',
+            'content': 'جواب ١',
+            'domain': 'medical',
+            'severity': 'خفيف',
+            'mode': 'llm_generated',
+            'needs_human_review': true,
+            'created_at': '2026-06-08T10:00:30',
+          },
+        ],
+      });
+    });
+
+    final tg = TgClient.forTesting(
+      baseUrl: 'http://x',
+      httpClient: client,
+      storage: storage,
+    );
+    final notifier = ChatNotifier(tg);
+
+    await notifier.bootstrap();
+
+    expect(notifier.state.sessionId, 'old-1');
+    expect(notifier.state.messages.length, 2);
+    expect(notifier.state.messages[0].role, 'user');
+    expect(notifier.state.messages[0].content, 'سؤال ١');
+    expect(notifier.state.messages[1].content, 'جواب ١');
+    expect(notifier.state.turnCount, 1);
+  });
+
+  test('Cold start: persisted session 404 → storage cleared + new session',
+      () async {
+    final storage = _MemStorage();
+    await storage.write(key: 'tg_session_id', value: 'stale-1');
+    await storage.write(key: 'tg_token', value: 'tg_stale');
+
+    final client = _ScriptedClient();
+    client.route((req) =>
+        _jsonResponse(404, {'detail': 'Session not found'}));
+    client.route((_) => _jsonResponse(201,
+        {'session_id': 'fresh-1', 'token': 'tg_fresh'}));
+
+    final tg = TgClient.forTesting(
+      baseUrl: 'http://x',
+      httpClient: client,
+      storage: storage,
+    );
+    final notifier = ChatNotifier(tg);
+
+    await notifier.bootstrap();
+
+    expect(notifier.state.sessionId, 'fresh-1');
+    expect(await storage.read(key: 'tg_session_id'), 'fresh-1');
+    expect(await storage.read(key: 'tg_token'), 'tg_fresh');
+  });
+
+  // A 401 on the stream means the token was refused (it expired, audit H5).
+  // TgClient renews the token below the notifier and replays the request, so
+  // the parent's conversation carries on in the same session — it used to be
+  // rotated into a new, empty one.
+  test('sendMessage: 401 mid-stream renews the token and keeps the session',
+      () async {
+    final storage = _MemStorage();
+    await storage.write(key: 'tg_session_id', value: 'orig-1');
+    await storage.write(key: 'tg_token', value: 'tg_orig');
+
+    final client = _ScriptedClient();
+    // Bootstrap re-checks the session: 404 → rotate.
+    client.route((_) => _jsonResponse(404, {'detail': 'not found'}));
+    client.route((_) => _jsonResponse(201,
+        {'session_id': 'rot-1', 'token': 'tg_rot'}));
+
+    // First stream attempt with rot-1: still 401.
+    client.route(
+        (_) => _jsonResponse(401, {'detail': 'Token غير صالح.'}));
+
+    // TgClient renews the token (the mint answers with a new session id,
+    // which is not adopted) …
+    client.route((_) => _jsonResponse(201,
+        {'session_id': 'rot-2', 'token': 'tg_rot2'}));
+
+    // … and replays the stream with it: SSE success.
+    client.route((_) => _sseOkResponse());
+
+    final tg = TgClient.forTesting(
+      baseUrl: 'http://x',
+      httpClient: client,
+      storage: storage,
+    );
+    final notifier = ChatNotifier(tg);
+
+    await notifier.bootstrap();
+    await notifier.sendMessage('ابني يخاف من الظلام');
+
+    expect(notifier.state.sessionId, 'rot-1');
+    expect(await tg.currentSessionId(), 'rot-1');
+    expect(client.seen.last.headers['Authorization'], 'Bearer tg_rot2');
+    expect(notifier.state.phase, ChatPhase.idle);
+    expect(notifier.state.messages.length, 2);
+    expect(notifier.state.messages[1].content, 'في هذه الحالة.');
+    expect(notifier.state.messages[1].reply, isNotNull);
+    expect(notifier.state.turnCount, 1);
+  });
+
+  // ── The build census ────────────────────────────────────────────────────
+
+  group('registerPushToken reports the installed build', () {
+    // The version used to be recorded in the session metadata, and a session is
+    // created once per install and never updated — so a device that installed
+    // on 1.0.29 and now runs 1.0.51 still reported 1.0.29. Push registration is
+    // the one request that happens on every launch, which is what makes it a
+    // census. Without it MINIMUM_BUILD_NUMBER cannot be raised on evidence.
+    setUp(() {
+      PackageInfo.setMockInitialValues(
+        appName: 'almorabbi',
+        packageName: 'com.alsaba.almorabbi',
+        version: '1.0.51',
+        buildNumber: '96',
+        buildSignature: '',
+      );
+    });
+
+    test('sends the version and build with the token', () async {
+      final client = _ScriptedClient();
+      client.route((_) => _jsonResponse(201,
+          {'session_id': 's-1', 'token': 'tg_1'}));
+      client.route((_) => _jsonResponse(200, {'ok': true}));
+
+      final tg = TgClient.forTesting(
+        baseUrl: 'http://x',
+        httpClient: client,
+        storage: _MemStorage(),
+      );
+      await tg.registerPushToken('fcm-token');
+
+      final register = client.seen.last;
+      expect(register.url.path, '/api/push/register');
+      final body = jsonDecode(register.body) as Map<String, dynamic>;
+      expect(body['token'], 'fcm-token');
+      expect(body['app_version'], '1.0.51');
+      expect(body['build_number'], 96);
+    });
+
+    test('a device that cannot report its version still registers', () async {
+      // Never lose a push registration over a missing version string: the
+      // notification matters, the census does not.
+      PackageInfo.setMockInitialValues(
+        appName: 'almorabbi',
+        packageName: 'com.alsaba.almorabbi',
+        version: '1.0.51',
+        buildNumber: 'not-a-number',
+        buildSignature: '',
+      );
+      final client = _ScriptedClient();
+      client.route((_) => _jsonResponse(201,
+          {'session_id': 's-1', 'token': 'tg_1'}));
+      client.route((_) => _jsonResponse(200, {'ok': true}));
+
+      final tg = TgClient.forTesting(
+        baseUrl: 'http://x',
+        httpClient: client,
+        storage: _MemStorage(),
+      );
+      await tg.registerPushToken('fcm-token');
+
+      final body = jsonDecode(client.seen.last.body) as Map<String, dynamic>;
+      expect(body['token'], 'fcm-token');
+      expect(body.containsKey('build_number'), isFalse,
+          reason: 'an unparseable build is omitted, not sent as junk');
+      expect(body['app_version'], '1.0.51');
+    });
+  });
+}

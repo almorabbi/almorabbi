@@ -1,0 +1,90 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/anbiya_nuh_young_p1.m4a",
+      "text": "Allah commanded His Prophet Nuh (peace be upon him) to build the ship, and he was in Allah's keeping and care. And He told him that those of his people who did wrong would be drowned by the flood.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 110,
+          "start": 0.0,
+          "end": 6.56
+        },
+        {
+          "from": 111,
+          "to": 196,
+          "start": 7.01,
+          "end": 11.379
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_nuh_young_p2.m4a",
+      "text": "And Nuh built the ship as Allah had commanded him. Whenever a group of the chiefs of his people passed by him, they mocked him.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 50,
+          "start": 0.0,
+          "end": 3.014
+        },
+        {
+          "from": 51,
+          "to": 127,
+          "start": 3.464,
+          "end": 7.423
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_nuh_young_p3.m4a",
+      "text": "When the command of Allah came, water gushed out strongly from the oven. And Allah commanded Nuh to carry in the ship a male and a female of every kind of animal, and those who believed with him.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 72,
+          "start": 0.0,
+          "end": 4.138
+        },
+        {
+          "from": 73,
+          "to": 195,
+          "start": 4.588,
+          "end": 11.948
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_nuh_young_p4.m4a",
+      "text": "Nuh said to those who believed with him: ﴿ٱرۡكَبُواْ فِيهَا بِسۡمِ ٱللَّهِ مَجۡرٜىٰهَا وَمُرۡسَىٰهَآۚ إِنَّ رَبِّي لَغَفُورٞ رَّحِيمٞ﴾ — interpretation of the meaning: 'Board it; in the name of Allah it sails and in the name of Allah it comes to rest. My Lord is Forgiving, Merciful.' And the ship sailed with them through waves like mountains. Then the water went down, and the ship came to rest on Mount al-Judi.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 252,
+          "start": 0.0,
+          "end": 24.768
+        },
+        {
+          "from": 253,
+          "to": 285,
+          "start": 25.218,
+          "end": 27.618
+        },
+        {
+          "from": 286,
+          "to": 345,
+          "start": 28.068,
+          "end": 30.851
+        },
+        {
+          "from": 346,
+          "to": 415,
+          "start": 31.301,
+          "end": 35.621
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/anbiya_musa_tabut_young_p1.m4a",
+      "text": "Allah inspired the mother of Musa to nurse him calmly. If she feared for him, she was to put him in a box and cast it into the river, the Nile.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 54,
+          "start": 0.0,
+          "end": 3.36
+        },
+        {
+          "from": 55,
+          "to": 143,
+          "start": 3.81,
+          "end": 9.145
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_musa_tabut_young_p2.m4a",
+      "text": "And Allah inspired her: ﴿أَنِ ٱقۡذِفِيهِ فِي ٱلتَّابُوتِ فَٱقۡذِفِيهِ فِي ٱلۡيَمِّ﴾ — interpretation of the meaning: 'Put him in the box, then cast it into the river.' So his mother put him in a box and cast it into the river.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 167,
+          "start": 0.0,
+          "end": 14.936
+        },
+        {
+          "from": 168,
+          "to": 226,
+          "start": 15.386,
+          "end": 18.64
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_musa_tabut_young_p3.m4a",
+      "text": "The river cast the box onto the shore. Allah had promised his mother to return him to her.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 38,
+          "start": 0.0,
+          "end": 2.24
+        },
+        {
+          "from": 39,
+          "to": 90,
+          "start": 2.69,
+          "end": 5.25
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_musa_tabut_young_p4.m4a",
+      "text": "Allah returned Musa to his mother, so that she would be glad and not grieve. Allah kept His promise, for the promise of Allah is true.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 76,
+          "start": 0.0,
+          "end": 4.47
+        },
+        {
+          "from": 77,
+          "to": 134,
+          "start": 4.92,
+          "end": 8.28
+        }
+      ]
+    }
+  ]
+}

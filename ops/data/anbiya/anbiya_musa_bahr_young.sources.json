@@ -1,0 +1,891 @@
+{
+  "id": "anbiya_musa_bahr_young",
+  "series": "anbiya_quran",
+  "about": "مصادر القصة: الآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/anbiya_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py.",
+  "tafsir_source": "moyassar",
+  "content_sha256": "e442f4d3420c306da83dd2fa59d71da25e3ac2f51ca81277b9cc7435810c4244",
+  "refs": [
+    "26:52",
+    "26:61",
+    "26:62",
+    "26:63",
+    "26:64",
+    "26:65"
+  ],
+  "verses": {
+    "26:52": "۞وَأَوۡحَيۡنَآ إِلَىٰ مُوسَىٰٓ أَنۡ أَسۡرِ بِعِبَادِيٓ إِنَّكُم مُّتَّبَعُونَ",
+    "26:61": "فَلَمَّا تَرَـٰٓءَا ٱلۡجَمۡعَانِ قَالَ أَصۡحَٰبُ مُوسَىٰٓ إِنَّا لَمُدۡرَكُونَ",
+    "26:62": "قَالَ كَلَّآۖ إِنَّ مَعِيَ رَبِّي سَيَهۡدِينِ",
+    "26:63": "فَأَوۡحَيۡنَآ إِلَىٰ مُوسَىٰٓ أَنِ ٱضۡرِب بِّعَصَاكَ ٱلۡبَحۡرَۖ فَٱنفَلَقَ فَكَانَ كُلُّ فِرۡقٖ كَٱلطَّوۡدِ ٱلۡعَظِيمِ",
+    "26:64": "وَأَزۡلَفۡنَا ثَمَّ ٱلۡأٓخَرِينَ",
+    "26:65": "وَأَنجَيۡنَا مُوسَىٰ وَمَن مَّعَهُۥٓ أَجۡمَعِينَ"
+  },
+  "tafsir": {
+    "26:52": "وأوحى الله إلى موسى عليه السلام: أَنْ سِرْ ليلا بمن آمن من بني إسرائيل؛ لأن فرعون وجنوده متبعوكم حتى لا يدركوكم قبل وصولكم إلى البحر.",
+    "26:61": "فلما رأى كل واحد من الفريقين الآخر قال أصحاب موسى: إنَّ جَمْعَ فرعون مُدْرِكنا ومهلكنا.",
+    "26:62": "قال موسى لهم: كلا ليس الأمر كما ذكرتم فلن تُدْرَكوا; إن معي ربي بالنصر، سيهديني لما فيه نجاتي ونجاتكم.",
+    "26:63": "فأوحينا إلى موسى أن اضرب بعصاك البحر، فضرب، فانفلق البحر إلى اثني عشر طريقًا بعدد قبائل بني إسرائيل، فكانت كل قطعة انفصلت من البحر كالجبل العظيم.",
+    "26:64": "وقرَّبْنا هناك فرعون وقومه حتى دخلوا البحر، وأنجينا موسى ومَن معه أجمعين. فاستمر البحر على انفلاقه حتى عبروا إلى البر، ثم أغرقنا فرعون ومن معه بإطباق البحر عليهم بعد أن دخلوا فيه متبعين موسى وقومه.",
+    "26:65": "وقرَّبْنا هناك فرعون وقومه حتى دخلوا البحر، وأنجينا موسى ومَن معه أجمعين. فاستمر البحر على انفلاقه حتى عبروا إلى البر، ثم أغرقنا فرعون ومن معه بإطباق البحر عليهم بعد أن دخلوا فيه متبعين موسى وقومه."
+  },
+  "tafsir_meta": {
+    "26:52": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:08+00:00"
+    },
+    "26:61": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:08+00:00"
+    },
+    "26:62": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:09+00:00"
+    },
+    "26:63": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:10+00:00"
+    },
+    "26:64": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:10+00:00"
+    },
+    "26:65": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:11+00:00"
+    }
+  },
+  "fields": [
+    {
+      "path": "title",
+      "refs": [
+        "26:52",
+        "26:61",
+        "26:62",
+        "26:63",
+        "26:64",
+        "26:65"
+      ],
+      "sentences": [
+        {
+          "text": "موسى عليه السلام والبحر",
+          "refs": [
+            "26:52",
+            "26:61",
+            "26:62",
+            "26:63",
+            "26:64",
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The title simply names Moses with an honorific and the sea, both present in the sources.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The title only names Musa (peace be upon him) and the sea, both of which are central to the cited verses.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "26b5b100d4c1726839ac448557700fd9bb88afc7a9aef9be446cd094e9fca604",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "refs": [
+        "26:52",
+        "26:61",
+        "26:62",
+        "26:63",
+        "26:64",
+        "26:65"
+      ],
+      "sentences": [
+        {
+          "text": "قصة نبيّ الله موسى عليه السلام والبحر كما ذكرها القرآن الكريم في سورة الشعراء، مكتوبة من التفسير الميسّر لآياتها.",
+          "refs": [
+            "26:52",
+            "26:61",
+            "26:62",
+            "26:63",
+            "26:64",
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a meta description of the story's source and does not assert any unsupported story detail.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a meta-description of the story's source and scope, accurately referencing Surah Ash-Shu'ara and the Tafsir Al-Muyassar, with no unsupported claims about the prophet or events.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "6ac79a0af6af64cb24e866e15353c95c61937015d66f60f2d593f83278a8eea5",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[0].text",
+      "refs": [
+        "26:52"
+      ],
+      "sentences": [
+        {
+          "text": "أوحى اللهُ إلى نبيِّه موسى عليه السلام أن يسير ليلًا بمن آمن معه، لأنّ فرعونَ وجنودَه سيتبعونهم.",
+          "refs": [
+            "26:52"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited verse and tafsir, with only minor simplification.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence faithfully paraphrases the verse and tafsir, which state that Allah revealed to Musa to travel at night with the believers because Pharaoh and his soldiers would follow them.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "bdff533f6e6ba054bb468e7f19a79ca6927d75d85e55ffe0b66012988e278ca7",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[1].text",
+      "refs": [
+        "26:52",
+        "26:61",
+        "26:62"
+      ],
+      "sentences": [
+        {
+          "text": "فسار موسى ومن معه في الليل.",
+          "refs": [
+            "26:52",
+            "26:61"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir states that Moses was commanded to travel by night with the believers, so narrating that he and those with him traveled at night is directly supported.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse commands Musa to travel by night with his people, and the tafsir confirms he was to travel ليلا with the believers.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "592c3628fcaa635309055887ec04aa9c148d756a06973eb3d00bb068c32b2eb9",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فلمّا رأى أصحابُ موسى جمعَ فرعون، قال لهم موسى: ﴿كَلَّآۖ إِنَّ مَعِيَ رَبِّي سَيَهۡدِينِ﴾.",
+          "refs": [
+            "26:61",
+            "26:62"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the tafsir that each group saw the other and that Moses then said the quoted verse to his companions.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence accurately reflects 26:61-62 and its tafsir: the two groups saw each other, and Musa replied with the verbatim Qur'anic verse.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "146bd26326a7a1577de130e1a1569e0506ccf33a9a732c2693ed075a9a7d201f",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[2].text",
+      "refs": [
+        "26:63"
+      ],
+      "sentences": [
+        {
+          "text": "فأوحى اللهُ إلى موسى أن يضرب بعصاه البحر، فضربه فانفلق.",
+          "refs": [
+            "26:63"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited verse and tafsir, which state that God revealed to Moses to strike the sea with his staff, he struck it, and it split.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence faithfully summarizes verse [26:63] and its tafsir, which state that Allah revealed to Musa to strike the sea with his staff, he struck it, and it split.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "82ce996b679ee969c8299d5bde08d9115ffeeec0a2b1b424112ccc29b7321bd4",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فكانت كلُّ قطعةٍ من البحر كالجبل العظيم.",
+          "refs": [
+            "26:63"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the verse and tafsir that each separated part of the sea was like a great mountain.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited tafsir text 'فكانت كل قطعة انفصلت من البحر كالجبل العظيم' with only minor simplification.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "aa12c1f1658500ed76ff497be306fb096efd826f1c86e9e680fd003f52ae7c64",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[3].text",
+      "refs": [
+        "26:64",
+        "26:65"
+      ],
+      "sentences": [
+        {
+          "text": "واستمرّ البحرُ منفلقًا حتى عبر موسى ومن معه إلى البرّ.",
+          "refs": [
+            "26:64",
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir explicitly states the sea remained split until they crossed to land.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence matches the tafsir which states 'فاستمر البحر على انفلاقه حتى عبروا إلى البر'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "29de3829a0c581fa22e1752b55b03fd9f7d3c3c55dd46d60af47a65cd4868d82",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فأنجى اللهُ موسى ومن معه أجمعين.",
+          "refs": [
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence directly matches the Qur'anic verse and tafsir stating that God saved Moses and all who were with him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly restates Qur'an 26:65 and its tafsir, that Allah saved Moses and all those with him.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "aba23dbf269bd93c11194a19879c0e22a9d87e3ecb030bc69366eac21f100669",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.question",
+      "refs": [
+        "26:52",
+        "26:61",
+        "26:62",
+        "26:63",
+        "26:64",
+        "26:65"
+      ],
+      "sentences": [
+        {
+          "text": "حين تخاف من شيء، ماذا تفعل؟",
+          "refs": [
+            "26:52",
+            "26:61",
+            "26:62",
+            "26:63",
+            "26:64",
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks the child about their own behavior and does not assert anything about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general question addressed to the child about their own life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "d8ebc6cb3907d11bb571086c7901a013ac0c80db7fe7b7703d69e0cf191906cb",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.affirm",
+      "refs": [
+        "26:52",
+        "26:61",
+        "26:62",
+        "26:63",
+        "26:64",
+        "26:65"
+      ],
+      "sentences": [
+        {
+          "text": "أحسنت!",
+          "refs": [
+            "26:52",
+            "26:61",
+            "26:62",
+            "26:63",
+            "26:64",
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is only a warm praise with no claim about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is general praise for the child's choice, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "6373a754f3ce4bab25e71794a51dd2861a31beea68d63959e740d43159ac14dc",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "قال موسى عليه السلام لمن معه: ﴿كَلَّآۖ إِنَّ مَعِيَ رَبِّي سَيَهۡدِينِ﴾.",
+          "refs": [
+            "26:52",
+            "26:61",
+            "26:62",
+            "26:63",
+            "26:64",
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the exact Qur'anic verse and the tafsir states Moses said this to them.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir of 26:62 confirms Musa said this to his companions, and the quoted words are the verbatim Qur'anic verse.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "bfd52f27d50eadeb017d47b9becaf554c0edd6c6ad23f22a2ad3b688dedda444",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.nudge",
+      "refs": [
+        "26:52",
+        "26:61",
+        "26:62",
+        "26:63",
+        "26:64",
+        "26:65"
+      ],
+      "sentences": [
+        {
+          "text": "أفهم أن الخوف صعب…",
+          "refs": [
+            "26:52",
+            "26:61",
+            "26:62",
+            "26:63",
+            "26:64",
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general empathetic statement that does not assert anything about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is Noor's empathetic reply to the child, making a general statement about fear without asserting anything about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "b42b1da428e035a15b57ff44d2430467423ec7cb5cafc27c1ee2809689ff6903",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ماذا قال موسى عليه السلام لمن معه حين رأوا جمع فرعون؟",
+          "refs": [
+            "26:52",
+            "26:61",
+            "26:62",
+            "26:63",
+            "26:64",
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about what Musa said when the two groups saw each other, which the cited verses and tafsir directly report.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks about an event directly supported by [26:61-62], where Musa's companions saw Pharaoh's gathering and Musa replied to them.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "591c4598c6d959c2940b53757a266cda1e50740061467ca07e5e3efc51c334d1",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[0]",
+      "refs": [
+        "26:52",
+        "26:61",
+        "26:62",
+        "26:63",
+        "26:64",
+        "26:65"
+      ],
+      "sentences": [
+        {
+          "text": "أدعو الله وأتوكّل عليه",
+          "refs": [
+            "26:52",
+            "26:61",
+            "26:62",
+            "26:63",
+            "26:64",
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general act of worship in the child's own life, not a claim about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is the child's own possible life choice expressing trust in Allah, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "4712f1629b548a8a635a130932532d91cac8c41ec131cc81fe334171a8016a11",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[1]",
+      "refs": [
+        "26:52",
+        "26:61",
+        "26:62",
+        "26:63",
+        "26:64",
+        "26:65"
+      ],
+      "sentences": [
+        {
+          "text": "أبقى خائفًا وحدي",
+          "refs": [
+            "26:52",
+            "26:61",
+            "26:62",
+            "26:63",
+            "26:64",
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is the child's own possible choice about their feelings today, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a child's own possible life choice and makes no claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "ab9c2bc6c83e582959e52533f2fa17687b66d8f502df38ae0cfd92e43c9c84d2",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[0]",
+      "refs": [
+        "26:52",
+        "26:61",
+        "26:62",
+        "26:63",
+        "26:64",
+        "26:65"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا قال موسى عليه السلام لأصحابه؟",
+          "refs": [
+            "26:52",
+            "26:61",
+            "26:62",
+            "26:63",
+            "26:64",
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about what Musa said to his companions, which is directly reported in the cited verses.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks what Musa said to his companions, which is directly based on 26:62 where Musa replies to his people.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "0c18c09e3a0061aa120daae8620d645975b4ff90436cbdf28cbd7c5cdbd1aebf",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[1]",
+      "refs": [
+        "26:52",
+        "26:61",
+        "26:62",
+        "26:63",
+        "26:64",
+        "26:65"
+      ],
+      "sentences": [
+        {
+          "text": "بماذا ضرب موسى عليه السلام البحر؟",
+          "refs": [
+            "26:52",
+            "26:61",
+            "26:62",
+            "26:63",
+            "26:64",
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about the tool Musa used to strike the sea, which the cited verse and tafsir state was his staff.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks what Musa struck the sea with, and the sources state he struck it with his staff (عصاك).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "2e7c478338a248d7b45119839ce539683f213d0137b0b561ccfdcc1056d5c291",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[2]",
+      "refs": [
+        "26:52",
+        "26:61",
+        "26:62",
+        "26:63",
+        "26:64",
+        "26:65"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا صارت كلُّ قطعةٍ من البحر حين انفلق؟",
+          "refs": [
+            "26:52",
+            "26:61",
+            "26:62",
+            "26:63",
+            "26:64",
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks the child to recall what the Qur'an states about each split portion of the sea, which is supported by 26:63.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks about a detail explicitly stated in the tafsir of 26:63: 'فكانت كل قطعة انفصلت من البحر كالجبل العظيم'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "087244d4fff9db2f4d6f6614e0b6e7c8f484aab5f09a2e6424a0f1a598a4588f",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "islamicValue",
+      "refs": [
+        "26:65"
+      ],
+      "sentences": [
+        {
+          "text": "﴿وَأَنجَيۡنَا مُوسَىٰ وَمَن مَّعَهُۥٓ أَجۡمَعِينَ﴾ [الشعراء: ٦٥].",
+          "refs": [
+            "26:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic verse already provided in the sources.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic verse inside ﴿﴾, which is always supported.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "ff18fade63db55b393856f6ee6109080dbf03df16548ea37d86ac5a296a138f4",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "actionChallenge",
+      "refs": [
+        "26:62"
+      ],
+      "sentences": [
+        {
+          "text": "احفظ مع والديك قول موسى عليه السلام: ﴿كَلَّآۖ إِنَّ مَعِيَ رَبِّي سَيَهۡدِينِ﴾ [الشعراء: ٦٢].",
+          "refs": [
+            "26:62"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the exact Qur'anic verse and attributes it to Moses as the source confirms.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence instructs the child to memorize the verbatim Qur'anic verse, which is supported by the cited source.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "279f8a31c98a78fb7b6b6177942538cd63c5dfaa00dcac1b7f0c3da020f72449",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,361 @@
+#!/usr/bin/env python3
+"""Weekly metrics dashboard — sends a formatted summary to Telegram.
+
+Usage (VPS cron, every Friday 8:00 UTC):
+    docker exec -w /app tg_backend python ops/scripts/weekly_dashboard.py
+
+Collects:
+  - ops-llm metrics (p95, cache hit rate, token usage, DeepSeek valve)
+  - community stats (total users, active users, new users)
+  - DB metrics (chat sessions, lessons completed, active children)
+  - D1/D7 retention estimates from daily_login_streaks
+
+Every device count leaves out eval-harness and remote-E2E test devices
+(backend/app/core/real_traffic.py). The ops-llm numbers come from the API's
+call log, which carries no device.
+
+Requires: TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID in environment
+(or passed via --token / --chat-id flags).
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import sqlite3
+import sys
+import urllib.request
+import urllib.parse
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+
+# Add backend root to path
+_backend_root = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(_backend_root))
+# app.core.* — the backend container already has backend/ on PYTHONPATH.
+sys.path.insert(1, str(_backend_root / "backend"))
+
+from app.core.real_traffic import e2e_devices_sql, real_device_sql  # noqa: E402
+from app.services import story_experiment  # noqa: E402
+
+# All product tables queried below (chat_sessions, lesson_progress,
+# child_profiles, daily_login_streaks) live in conversations.db — same
+# resolution as app.db.init_db.db_path(). sessions.db only holds llm_calls
+# etc., which this script reads via the /api/stats/ops-llm endpoint instead.
+_DB = Path(os.environ.get(
+    "CONVERSATIONS_DB",
+    str(Path(__file__).resolve().parents[2] / "ops" / "conversations.db"),
+))
+
+
+def _query_db(sql: str, params: tuple = ()) -> list[dict]:
+    """Run a query against conversations.db and return list of dicts."""
+    conn = sqlite3.connect(str(_DB))
+    conn.row_factory = sqlite3.Row
+    try:
+        rows = conn.execute(sql, params).fetchall()
+        return [dict(r) for r in rows]
+    finally:
+        conn.close()
+
+
+def _real(column: str = "device_id") -> str:
+    """SQL predicate: a real family's device, not eval or E2E test traffic.
+    Finds the E2E devices with one query; each section calls it once."""
+    tables = {r["name"] for r in _query_db("SELECT name FROM sqlite_master WHERE type='table'")}
+    e2e = {r["device_id"] for r in _query_db(e2e_devices_sql(tables))}
+    return real_device_sql(column, e2e)
+
+
+def _fetch_ops_metrics() -> dict:
+    """Fetch from /api/stats/ops-llm using the ops token."""
+    base = os.environ.get("TG_API_BASE", "https://tg-api.alsaba.cloud")
+    token = os.environ.get("TG_OPS_METRICS_TOKEN", "")
+    if not token:
+        return {"error": "no token"}
+    try:
+        req = urllib.request.Request(
+            f"{base}/api/stats/ops-llm",
+            headers={"X-Ops-Token": token},
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            return json.loads(resp.read())
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def _compute_retention() -> dict:
+    """Estimate D1/D7 retention from daily_login_streaks."""
+    today = datetime.now(timezone.utc).date()
+    d1_date = (today - timedelta(days=1)).isoformat()
+    d7_date = (today - timedelta(days=7)).isoformat()
+
+    real = _real()
+
+    # D1: users who logged in yesterday and also the day before
+    d1_rows = _query_db(
+        f"SELECT DISTINCT device_id FROM daily_login_streaks WHERE date = ? AND {real}",
+        (d1_date,),
+    )
+    d1_prev_rows = _query_db(
+        f"SELECT DISTINCT device_id FROM daily_login_streaks WHERE date = ? AND {real}",
+        ((today - timedelta(days=2)).isoformat(),),
+    )
+    d1_users = {r["device_id"] for r in d1_rows}
+    d1_prev_users = {r["device_id"] for r in d1_prev_rows}
+    d1_retained = len(d1_users & d1_prev_users)
+    d1_rate = (d1_retained / len(d1_prev_users) * 100) if d1_prev_users else 0
+
+    # D7: users active in last 7 days who were also active 7-14 days ago
+    d7_active = _query_db(
+        f"SELECT DISTINCT device_id FROM daily_login_streaks WHERE date >= ? AND {real}",
+        (d7_date,),
+    )
+    d7_prev_start = (today - timedelta(days=14)).isoformat()
+    d7_prev_end = (today - timedelta(days=8)).isoformat()
+    d7_prev_active = _query_db(
+        "SELECT DISTINCT device_id FROM daily_login_streaks "
+        f"WHERE date >= ? AND date <= ? AND {real}",
+        (d7_prev_start, d7_prev_end),
+    )
+    d7_users = {r["device_id"] for r in d7_active}
+    d7_prev_users = {r["device_id"] for r in d7_prev_active}
+    d7_retained = len(d7_users & d7_prev_users)
+    d7_rate = (d7_retained / len(d7_prev_users) * 100) if d7_prev_users else 0
+
+    return {
+        "d1_rate": round(d1_rate, 1),
+        "d1_users": d1_retained,
+        "d7_rate": round(d7_rate, 1),
+        "d7_users": d7_retained,
+        "total_active_7d": len(d7_users),
+    }
+
+
+def _db_stats() -> dict:
+    """Key database statistics."""
+    stats = {}
+    real = _real()
+
+    # Total chat sessions
+    rows = _query_db(f"SELECT COUNT(*) as cnt FROM chat_sessions WHERE {real}")
+    stats["total_sessions"] = rows[0]["cnt"] if rows else 0
+
+    # Sessions in last 7 days
+    week_ago = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
+    rows = _query_db(
+        f"SELECT COUNT(*) as cnt FROM chat_sessions WHERE created_at >= ? AND {real}",
+        (week_ago,),
+    )
+    stats["sessions_7d"] = rows[0]["cnt"] if rows else 0
+
+    # Unique active children (7d)
+    rows = _query_db(
+        "SELECT COUNT(DISTINCT device_id || '-' || child_id) as cnt "
+        f"FROM lesson_progress WHERE updated_at >= ? AND {real}",
+        (week_ago,),
+    )
+    stats["active_children_7d"] = rows[0]["cnt"] if rows else 0
+
+    # Lessons completed (7d)
+    rows = _query_db(
+        "SELECT COUNT(*) as cnt FROM lesson_progress "
+        f"WHERE status = 'completed' AND updated_at >= ? AND {real}",
+        (week_ago,),
+    )
+    stats["lessons_completed_7d"] = rows[0]["cnt"] if rows else 0
+
+    # Total children registered
+    rows = _query_db(f"SELECT COUNT(*) as cnt FROM child_profiles WHERE {real}")
+    stats["total_children"] = rows[0]["cnt"] if rows else 0
+
+    # Daily logins today
+    today = datetime.now(timezone.utc).date().isoformat()
+    rows = _query_db(
+        "SELECT COUNT(DISTINCT device_id) as cnt FROM daily_login_streaks "
+        f"WHERE date = ? AND {real}",
+        (today,),
+    )
+    stats["logins_today"] = rows[0]["cnt"] if rows else 0
+
+    return stats
+
+
+def _story_experiment() -> dict | None:
+    """«صورة حيّة»: the two arms over the last 7 days (and, for re-opens, the
+    week before with its 7 days after). None until the app has sent any."""
+    tables = {r["name"] for r in _query_db("SELECT name FROM sqlite_master WHERE type='table'")}
+    if "story_events" not in tables:
+        return None
+    now = datetime.now(timezone.utc).replace(tzinfo=None)
+    rows = _query_db(
+        f"SELECT * FROM story_events WHERE created_at >= ? AND {_real()}",
+        ((now - timedelta(days=14)).strftime("%Y-%m-%d %H:%M:%S"),))
+    week = [r for r in rows if r["created_at"] >= (now - timedelta(days=7)).strftime("%Y-%m-%d %H:%M:%S")]
+    out = {}
+    for arm in story_experiment.ARMS:
+        s = story_experiment.arm_summary(week, arm)
+        s["reopened_7d"] = story_experiment.reopen_rate(
+            rows, arm, now - timedelta(days=14), now - timedelta(days=7))
+        out[arm] = s
+    return out
+
+
+def _story_lines(exp: dict | None) -> list[str]:
+    if exp is None:
+        return []
+
+    def pct(x):
+        return "—" if x is None else f"{x * 100:.0f}%"
+
+    lines = ["📖 تجربة «صورة حيّة» (7 أيام، من غير أجهزة تقليل الحركة):"]
+    for arm, label in (("motion", "متحركة"), ("static", "ثابتة")):
+        s = exp[arm]
+        r = s["ratings"]
+        ppo = "—" if s["pages_per_open"] is None else f"{s['pages_per_open']:.1f}"
+        lines.append(
+            f"  • {label}: فتح {s['opens']} · إكمال {pct(s['completion'])} · صفحات/فتحة {ppo}"
+            f" · تقييم 😍{r[3]} 🙂{r[2]} 😐{r[1]} · رجوع خلال 7 أيام {pct(s['reopened_7d'])}"
+            f" · سماع للآخر {pct(s['listen_through'])}")
+    lines.append("")
+    return lines
+
+
+def _format_report(ops: dict, retention: dict, db: dict, stories: dict | None = None) -> str:
+    """Format the weekly report as a Telegram-friendly message."""
+    now = datetime.now(timezone.utc)
+    week_start = (now - timedelta(days=7)).strftime("%Y-%m-%d")
+    week_end = now.strftime("%Y-%m-%d")
+
+    lines = [
+        f"📊 تقرير المربي الأسبوعي",
+        f"📅 {week_start} → {week_end}",
+        "",
+    ]
+
+    # LLM Metrics
+    #
+    # The key names below are the ones /api/stats/ops-llm actually returns. The
+    # first version of this block read p95_ms, calls_7d, tokens_month and
+    # valve_usage_pct — none of which exist — so the only report that reaches
+    # The maintainer printed N/A in place of token spend and valve usage every week,
+    # and cost growth was invisible in the one place built to show it.
+    #
+    # The failure key is `telemetry_error`, not `error`: when telemetry itself
+    # broke, this block used to print numbers that were not there.
+    err = ops.get("telemetry_error") or ops.get("error")
+    if not err:
+        month_tokens = ops.get("month_tokens_by_provider") or {}
+        cache_rate = ops.get("cache_hit_rate")
+        valve = ops.get("valve") or {}
+        valve_pct = valve.get("used_pct")
+        lines.append("🤖 مقاييس الذكاء الاصطناعي:")
+        lines.append(f"  • p95 latency: {ops.get('p95_latency_ms', 'N/A')}ms")
+        # cache_hit_rate is a ratio (0.03), and printing it beside a % sign said
+        # "0.03%" for what is actually 3%.
+        lines.append(
+            f"  • Cache hit rate: {round(cache_rate * 100, 1) if cache_rate is not None else 'N/A'}%"
+        )
+        lines.append(f"  • Total calls (7d): {ops.get('calls', 'N/A')}")
+        lines.append(f"  • Token usage (month): {sum(month_tokens.values()) if month_tokens else 'N/A'}")
+        if month_tokens:
+            lines.append(f"      {month_tokens}")
+        lines.append(
+            f"  • DeepSeek valve: {round(valve_pct * 100, 1) if valve_pct is not None else 'N/A'}%"
+        )
+        lines.append("")
+    else:
+        lines.append(f"🤖 مقاييس LLM: ⚠️ {err}")
+        lines.append("")
+
+    # Retention
+    lines.append("📈 الاحتفاظ:")
+    lines.append(f"  • D1 retention: {retention['d1_rate']}% ({retention['d1_users']} مستخدم)")
+    lines.append(f"  • D7 retention: {retention['d7_rate']}% ({retention['d7_users']} مستخدم)")
+    lines.append(f"  • نشطون (7 أيام): {retention['total_active_7d']}")
+    lines.append("")
+
+    # DB Stats
+    lines.append("📱 إحصائيات التطبيق:")
+    lines.append(f"  • جلسات محادثة (7 أيام): {db['sessions_7d']}")
+    lines.append(f"  • دروس مكتملة (7 أيام): {db['lessons_completed_7d']}")
+    lines.append(f"  • أطفال نشطون (7 أيام): {db['active_children_7d']}")
+    lines.append(f"  • إجمالي أطفال مسجلين: {db['total_children']}")
+    lines.append(f"  • تسجيلات دخول اليوم: {db['logins_today']}")
+    lines.append("")
+
+    lines.extend(_story_lines(stories))
+
+    lines.append("— المربّي الذكي · مجاني لوجه الله 🤍")
+
+    return "\n".join(lines)
+
+
+def _send_telegram(token: str, chat_id: str, text: str) -> bool:
+    """Send a message via Telegram Bot API."""
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    data = urllib.parse.urlencode({
+        "chat_id": chat_id,
+        "text": text,
+        "parse_mode": "HTML",
+    }).encode()
+    try:
+        req = urllib.request.Request(url, data=data, method="POST")
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            result = json.loads(resp.read())
+            return result.get("ok", False)
+    except Exception as e:
+        print(f"Telegram send failed: {e}", file=sys.stderr)
+        return False
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Weekly dashboard report")
+    parser.add_argument("--token", help="Telegram bot token (or env TELEGRAM_BOT_TOKEN)")
+    parser.add_argument("--chat-id", help="Telegram chat ID (or env TELEGRAM_CHAT_ID)")
+    parser.add_argument("--dry-run", action="store_true", help="Print report without sending")
+    args = parser.parse_args()
+
+    token = args.token or os.environ.get("TELEGRAM_BOT_TOKEN", "")
+    chat_id = args.chat_id or os.environ.get("TELEGRAM_CHAT_ID", "")
+
+    # Collect metrics
+    print("Fetching ops metrics...")
+    ops = _fetch_ops_metrics()
+
+    print("Computing retention...")
+    retention = _compute_retention()
+
+    print("Collecting DB stats...")
+    db = _db_stats()
+
+    print("Collecting story experiment...")
+    try:
+        stories = _story_experiment()
+    except Exception as e:  # the experiment must never cost the report
+        print(f"story experiment unavailable: {e}", file=sys.stderr)
+        stories = None
+
+    # Format report
+    report = _format_report(ops, retention, db, stories)
+
+    if args.dry_run:
+        print(report)
+        return
+
+    # Send to Telegram
+    if not token or not chat_id:
+        print("Warning: no Telegram credentials, printing report only", file=sys.stderr)
+        print(report)
+        return
+
+    ok = _send_telegram(token, chat_id, report)
+    if ok:
+        print("Report sent to Telegram successfully")
+    else:
+        print("Failed to send report", file=sys.stderr)
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

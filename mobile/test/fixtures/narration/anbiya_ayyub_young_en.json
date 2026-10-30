@@ -1,0 +1,72 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/anbiya_ayyub_young_p1.m4a",
+      "text": "Allah tested His servant Ayyub (peace be upon him) with harm that touched him, and he lost his family and his wealth. And Ayyub was patient with the trial.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 117,
+          "start": 0.0,
+          "end": 7.353
+        },
+        {
+          "from": 118,
+          "to": 155,
+          "start": 7.803,
+          "end": 9.803
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_ayyub_young_p2.m4a",
+      "text": "Ayyub called out to his Lord: ﴿أَنِّي مَسَّنِيَ ٱلضُّرُّ وَأَنتَ أَرۡحَمُ ٱلرَّـٰحِمِينَ﴾ — interpretation of the meaning: 'Harm has touched me, and You are the Most Merciful of the merciful.'",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 192,
+          "start": 0.0,
+          "end": 19.321
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_ayyub_young_p3.m4a",
+      "text": "Allah answered his prayer. Cool water sprang up for him from the ground, to drink and to wash in, and the harm left him.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 26,
+          "start": 0.0,
+          "end": 1.61
+        },
+        {
+          "from": 27,
+          "to": 120,
+          "start": 2.06,
+          "end": 7.42
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_ayyub_young_p4.m4a",
+      "text": "Allah lifted the trial from him and gave him back his family, and as many again with them. It was a mercy from Allah, and an example for everyone who is patient with a trial.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 90,
+          "start": 0.0,
+          "end": 6.31
+        },
+        {
+          "from": 91,
+          "to": 174,
+          "start": 6.76,
+          "end": 11.8
+        }
+      ]
+    }
+  ]
+}

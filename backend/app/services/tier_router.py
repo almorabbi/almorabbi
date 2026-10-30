@@ -1,0 +1,83 @@
+"""Quality-tier routing — decides whether a request deserves the cloud
+quality model or the fast local chain.
+
+Policy (cheap heuristics, evaluated top-down):
+  cloud_quality when the answer is high-stakes or hard:
+    • severity متوسط/شديد
+    • fiqh / islamic_parenting / aqeedah domain (precision matters religiously)
+    • multi-domain questions (synthesis)
+    • long questions or deep conversations
+    • weak retrieval (the local 3B can't compensate for thin context)
+  otherwise local_fast.
+
+A tiny circuit breaker keeps UX intact when the free cloud tier rate-limits:
+after N consecutive cloud failures we route everything local for a
+cool-down window. The gateway reports outcomes via record_cloud_result().
+"""
+from __future__ import annotations
+
+import logging
+
+from app.config.llm_config import LLM
+from app.core.circuit_breaker import CircuitBreaker
+
+logger = logging.getLogger(__name__)
+
+_cloud_breaker = CircuitBreaker("cloud tier", failure_threshold=2, cooldown_seconds=300)
+
+
+def record_cloud_result(ok: bool) -> None:
+    """Called by the gateway after each cloud-provider attempt."""
+    _cloud_breaker.record(ok)
+
+
+def circuit_open() -> bool:
+    return _cloud_breaker.is_open()
+
+
+def cloud_available() -> bool:
+    return bool(
+        LLM.cloud_tier_enabled
+        and LLM.azure_endpoint
+        and LLM.azure_api_key
+    )
+
+
+def choose_tier(
+    query_text: str,
+    domains: list[str],
+    severity: str,
+    retrieved_units: list[dict],
+    history_len: int = 0,
+) -> tuple[str, str]:
+    """Returns (tier, reason). tier ∈ {"cloud_quality", "local_fast"}."""
+    if not cloud_available():
+        return ("local_fast", "cloud_disabled")
+    if circuit_open():
+        return ("local_fast", "cloud_circuit_open")
+    if severity in ("متوسط", "شديد"):
+        return ("cloud_quality", f"severity:{severity}")
+    if any(d in ("fiqh", "islamic_parenting", "aqeedah") for d in domains):
+        return ("cloud_quality", "domain:fiqh")
+    if len(domains) >= 2:
+        return ("cloud_quality", "multi_domain")
+    if len(query_text) > 200 or history_len >= 4:
+        return ("cloud_quality", "long_or_deep_context")
+    # Weak retrieval → the local 3B can't compensate for thin context.
+    # Prefer the cross-encoder signal when present (Phase 2); fall back
+    # to raw vector distance otherwise.
+    rerank_scores = [
+        u.get("rerank_score") for u in retrieved_units
+        if isinstance(u.get("rerank_score"), (int, float))
+    ]
+    if rerank_scores:
+        if max(rerank_scores) < -4.5:
+            return ("cloud_quality", "weak_retrieval")
+    else:
+        distances = [
+            u.get("distance") for u in retrieved_units
+            if isinstance(u.get("distance"), (int, float))
+        ]
+        if distances and min(distances) > 0.70:
+            return ("cloud_quality", "weak_retrieval")
+    return ("local_fast", "default")

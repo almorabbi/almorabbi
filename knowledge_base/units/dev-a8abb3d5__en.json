@@ -1,0 +1,55 @@
+{
+  "id": "dev-a8abb3d5__en",
+  "domain": "development",
+  "source_file": "Harvard_Environment_of_Relationships.pdf",
+  "title": "The Impact of the Home Environment and Family Relationships on School Performance",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "تأثير البيئة المنزلية على الأداء المدرسي",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "Harvard Center on the Developing Child",
+  "text_original": "B.M., & Rock, S.L. (1988). Home New York: McGraw-Hill. environment and school performance: A ten-year follow- 2. Collins, W.A., & Laursen, B. (1999). Relationships as de- up and examination of three models of environmental velopmental contexts. The Minnesota Symposia on Child action. Child Development, 59(2), 852-867. Psychology, Vol. 30. Mahwah, NJ: Lawrence Erlbaum 20. Estrada, P., Arsenio,W.F., Hess, R.D., & Holloway, S.D. Associates. (1987). Affective quality of the mother-child relation- 3. Dunn, J. (1993). Young children’s close relation- ship: Longitudinal consequences for children’s school- ships: Beyond attachment. Newbury Park, CA: Sage relevant cognitive functioning. Developmental Psychology, Publications. 23(2), 210-215. 4. Reis, H.T., Collins,W.A. & Berscheid, E. (2000). 21. Gottfried,A.W., & Gottfried,A.E. (1984). Home envi- Relationships in human behavior and development. ronment and early cognitive development. New York: Psychological Bulletin, 126(6), 844-872. Academic Press. 5. Dawson, D. , & Fischer, K.W. (Eds.) (1994). Human 22. Peisner-Feinberg, E.S., Burchinal, M.R., Clifford, R.M., behavior and the developing brain. New York: Guilford Culkin, M.I., Howes, C., Kagan, S.I.,Yazejian, . . . Zelazo, Press. J. (2000). The children of the Cost, Quality, and Outcomes 6. Panksep, J. (1998). Affective neuroscience. New York: Study go to school: Technical report. Chapel Hill, NC: Oxford. Frank Porter Graham Child Development Center, 7. Bornstein, Marc (Ed.) (2002). Handbook of parenting University of North Carolina at Chapel Hill. (2nd ed.). Mahwah, NJ: Lawrence Erlbaum Assoc. 23. Pianta, R.C., Nimetz, S.L., & Bennett, E. (1997). Mother- 8. Cassidy, J. & Shaver, P.R. (Eds.) (1999). Handbook of at- child relationships, teacher-child relationships,",
+  "text_simplified": "The home environment has a profound effect on a child’s school performance. Emotional bonds between the mother and child play a crucial role in their cognitive development. Additionally, the quality of family relationships and early interaction contribute significantly to a child’s academic success.",
+  "labels": [
+    "بيئة منزلية",
+    "أداء مدرسي",
+    "علاقات أسرية",
+    "تطور معرفي",
+    "تفاعل مبكر"
+  ],
+  "created_at": "2026-06-20T14:29:55Z",
+  "updated_at": "2026-06-20T14:29:55Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Harvard_Environment_of_Relationships",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "dev-a8abb3d5",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "9247916007a47b51ac1297e3db6152372a7f6bc7800a3988ae30475175ccfc35",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

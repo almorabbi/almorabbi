@@ -1,0 +1,769 @@
+import 'dart:async';
+import 'dart:io';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'l10n/app_localizations.dart';
+import 'l10n/l10n_global.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'package:flutter_animate/flutter_animate.dart';
+
+import 'core/analytics.dart';
+import 'core/notification_permission_gate.dart';
+import 'core/local_only_files.dart';
+import 'core/crash_triage.dart';
+import 'core/nav_observer.dart';
+
+import 'api/tg_client.dart';
+import 'state/chat_notifier.dart';
+import 'widgets/ui/bouncy_button.dart';
+import 'widgets/app_status_banner.dart';
+import 'features/identity/identity_service.dart';
+import 'features/onboarding/providers/onboarding_providers.dart';
+import 'features/onboarding/screens/onboarding_screen.dart';
+import 'features/onboarding/screens/update_splash_screen.dart';
+import 'features/program/providers/settings_providers.dart';
+import 'features/program/providers/progress_providers.dart';
+import 'features/deeplink/deep_link_handler.dart';
+import 'features/child_memory/data/local_wipe.dart' show renewPushTokenAfterWipe;
+import 'features/child_memory/data/pending_deletion.dart';
+import 'features/child_memory/screens/account_deletion_screen.dart'
+    show finishDeletedAccount;
+import 'features/child_memory/device_proof/device_proof_service.dart';
+import 'features/push/push_service.dart';
+import 'features/referral/referral_service.dart';
+import 'firebase_options.dart';
+import 'features/routine/providers/child_mode_providers.dart';
+import 'features/routine/widgets/child_mode_gate.dart';
+import 'features/adhkar/data/family_adhkar.dart';
+import 'features/adhkar/services/notification_service.dart';
+import 'features/whats_new/data/whats_new.dart';
+import 'features/journey/data/journey_milestones.dart';
+import 'features/shell/root_scaffold.dart';
+import 'features/support/support_providers.dart' show supportBootProvider;
+import 'features/tour/tour_overlay.dart';
+import 'theme/app_palette.dart';
+import 'theme/app_theme.dart';
+import 'theme/bundled_fonts.dart';
+import 'widgets/ui/art_image.dart';
+import 'theme/design_tokens.dart';
+import 'features/push/notification_channels.dart';
+import 'core/e2e_probes.dart';
+import 'core/haptics.dart';
+import 'core/sound_fx.dart';
+import 'core/failures.dart';
+
+// FCM background handler lives in features/push/push_service.dart
+// (registered there via FirebaseMessaging.onBackgroundMessage).
+
+/// Load the bundled content packs, returning the failure instead of throwing
+/// (see the call site in main for why a failure is reported, not fatal).
+///
+/// The stored language first, the device second — `resolvedContentLanguage`
+/// encodes that order but has to be *given* the stored value: passing null
+/// meant a parent on an Arabic phone who chose English still got fourteen
+/// days of Arabic reminders.
+Future<(Object, StackTrace)?> _loadContentPacks(
+  Future<SharedPreferences> prefs,
+) async {
+  try {
+    final storedLanguage = (await prefs).getString('tg.ui_language');
+    await Future.wait([
+      FamilyAdhkar.load(language: resolvedContentLanguage(storedLanguage)),
+      JourneyMilestones.load(),
+      Haptics.load(),
+    ]);
+    return null;
+  } catch (e, stack) {
+    return (e, stack);
+  }
+}
+
+Future<int?> _installedBuildNumber() async {
+  try {
+    return int.tryParse((await PackageInfo.fromPlatform()).buildNumber);
+  } catch (_) {
+    return null;
+  }
+}
+
+void main() async {
+  // One line per run of this entrypoint. The E2E logcat gate counts them per
+  // process: a second one means a second Flutter engine is running the whole
+  // app — every startup side effect twice, and on a fresh install two device
+  // ids (the 2026-10 "device twin"; see pubspec.yaml for what caused it).
+  debugPrint('tg.main: entrypoint started');
+  WidgetsFlutterBinding.ensureInitialized();
+  configureBundledFonts();
+
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  // Icon brightness only.
+  //
+  // `statusBarColor` and `systemNavigationBarColor` map onto
+  // Window.setStatusBarColor / setNavigationBarColor, both deprecated as of
+  // Android 15 and flagged by Play against 1.0.42. Under edge-to-edge — which
+  // the line above requests, and which Android 15 applies to every SDK-35 app
+  // regardless — the system draws its own transparent bars, so setting them to
+  // transparent was already asking for what we were going to get. Dropping
+  // them removes the deprecated call without changing a pixel; the icon
+  // brightness, which is not deprecated, is what actually mattered here.
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    systemNavigationBarIconBrightness: Brightness.dark,
+    statusBarIconBrightness: Brightness.dark,
+  ));
+
+  // NO background audio package here, deliberately. See
+  // features/screen_off/audio_tag.dart for the full story: this app has five
+  // AudioPlayer instances, and just_audio_background supports exactly one.
+  // Not even as an unused dependency: its audio_service plugin starts a second
+  // engine that runs this main() again (pubspec.yaml).
+  //
+  // Startup work that does not depend on Firebase starts now and runs while
+  // Firebase initialises, instead of one step after another before the first
+  // frame (Play vitals: 9.35% slow cold starts). Each future captures its own
+  // failure, so nothing surfaces as an unhandled error before the handlers
+  // below exist.
+  final prefsFuture = SharedPreferences.getInstance();
+  final contentPacks = _loadContentPacks(prefsFuture);
+  final buildNumber = _installedBuildNumber();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  // Crashlytics. Everything that lands here is non-fatal by definition — the
+  // app is still running — so nothing below reports as a crash. See
+  // core/crash_triage.dart for why, and promote to fatal only at the two
+  // sites where the app genuinely cannot continue.
+  //
+  // Collection is off outside release so debug runs, emulators and CI stop
+  // filing reports against production.
+  unawaited(
+    FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(kReleaseMode),
+  );
+
+  // A widget that throws during build must not hand the user a page of red
+  // text on black. It happened on the parent dashboard: a hard cast on a
+  // payload key threw, and Flutter's default error box is what a parent saw.
+  // The underlying casts are fixed, but the class of failure is not — so the
+  // fallback is a quiet line instead of a stack trace.
+  ErrorWidget.builder = (details) {
+    FirebaseCrashlytics.instance.recordFlutterError(details, fatal: false);
+    return const Material(
+      child: Center(
+        child: Padding(
+          padding: EdgeInsets.all(24),
+          child: Text(
+            'تعذّر عرض هذا الجزء. حاول مرة أخرى، وإن تكرّر أرسل لنا ملاحظة.',
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+    );
+  };
+
+  FlutterError.onError = (details) {
+    // Keep the red screen in debug and the console dump everywhere.
+    FlutterError.presentError(details);
+    if (severityForFlutterError(details) == CrashSeverity.nonFatal) {
+      FirebaseCrashlytics.instance.recordFlutterError(details, fatal: false);
+    }
+  };
+
+  // No runZonedGuarded here: on this SDK it overlaps PlatformDispatcher.onError
+  // and every async error would be reported twice.
+  PlatformDispatcher.instance.onError = (error, stack) {
+    if (severityFor(error) == CrashSeverity.nonFatal) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: false);
+    }
+    return true;
+  };
+
+  // Content packs, before anything reads them. The adhkar pack in particular
+  // must be loaded before NotificationService.init(), which schedules 14 days
+  // of reminders out of it — an unloaded pack is an empty list, and
+  // scheduleDaily would return having queued nothing.
+  //
+  // Not fatal. These are bundled assets, so a failure here is a build defect,
+  // not a runtime condition — but letting it throw would replace the app with
+  // a black screen before the first frame. Reporting it and carrying on
+  // degrades two features (no daily reminder, no milestone suggestions) and
+  // leaves the rest of the app usable, which is the better half of a bad day.
+  final packFailure = await contentPacks;
+  if (packFailure != null) {
+    FirebaseCrashlytics.instance.recordError(
+      packFailure.$1, packFailure.$2,
+      reason: 'content pack failed to load at startup',
+      fatal: false,
+    );
+  }
+
+  // Every session mint says which build asks (`X-App-Build`, the versionCode):
+  // a build that handles `410 device_erased` gets it for a device id erased
+  // with its account — a phone backup restored after the deletion, or a
+  // deletion whose answer was lost (MOBILE_API §3.2). The client then becomes
+  // a new device and mints again; the app clears what the backup brought
+  // back and ends calmly on the deleted page. Both before anything can mint.
+  TgClient.appBuild = await buildNumber;
+  TgClient.shared.onDeviceErased = () {
+    _accountGone = true;
+    return finishDeletedAccount(appNavigatorKey);
+  };
+
+  // A deletion the server confirmed but the app did not see through (killed
+  // before the phone was cleared) is finished here, before anything reads the
+  // onboarding state. Local only: a deletion still waiting for its answer is
+  // settled after the first frame (_settleLostDeletion), never holding it.
+  var clearedBeforeFirstFrame = false;
+  try {
+    clearedBeforeFirstFrame = await completePendingAccountDeletion();
+  } catch (e, s) {
+    FirebaseCrashlytics.instance.recordError(e, s,
+        reason: 'pending account deletion not finished', fatal: false);
+  }
+
+  // Before onboarding can complete: the only moment a first install is
+  // distinguishable from an upgrade, and therefore the only moment the
+  // «what's new» card can be silenced for someone with no "before".
+  try {
+    final build = await buildNumber;
+    if (build != null) await seedWhatsNewForFreshInstall(await prefsFuture, build);
+  } catch (_) {
+    // Worst case the card shows to a new install once. Not worth a crash on
+    // the path to runApp.
+  }
+
+  runApp(const ProviderScope(child: TutorGuardianApp()));
+
+  // Phase 0/1 deep links.
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    DeepLinkHandler.instance.init(appNavigatorKey);
+    // Soft interface sounds load after the first frame, off the launch path;
+    // until they do, every tick is a no-op. Never throws (core/sound_fx.dart).
+    unawaited(SoundFx.init());
+    // The CI rehearsal's key probe (core/e2e_probes.dart). kE2eProbes is a
+    // const false in every build but the rehearsal APK, so this line and the
+    // probe itself are compiled out of what ships.
+    if (kE2eProbes) E2eProbes.installIfEnabled();
+    // Reminders are queued after the first frame now, not before it. The
+    // adhkar pack they are built from is already loaded above. A launch from a
+    // tapped notification is read inside init(), so the tap is handled once
+    // it completes.
+    unawaited(NotificationService.instance
+        .init()
+        .then((_) => NotificationService.instance.processPendingTap())
+        .catchError((Object e, StackTrace s) {
+      FirebaseCrashlytics.instance.recordError(
+        e, s,
+        reason: 'notification setup failed after launch',
+        fatal: false,
+      );
+    }));
+    // The launch-time permission ask is gone (Phase 1, NOOR_WAL_QANADIL):
+    // it was a cold permission at the door — nothing seen, nothing at
+    // stake, one deny and the daily reminders never exist. The ask now
+    // happens once per install, right after the FIRST completed lesson
+    // (`Analytics.lessonCompleted` → `NotificationPermissionGate`). The
+    // platform ask itself is wired here — Firebase first (it waits for the
+    // Activity rather than giving up on it, see `requestNotificationPermission`),
+    // the plugin request as the fallback for a device with no Play Services.
+    NotificationPermissionGate.ask = () async {
+      if (await PushService.instance.requestNotificationPermission()) return;
+      await NotificationService.instance.ensurePermission();
+    };
+  });
+
+  // Notification taps need neither a session nor a token, so they are handled
+  // here rather than inside _postLaunchGrowthLoop — which returns early when
+  // ensureSession() throws, silently dropping the tap that opened the app.
+  unawaited(PushService.instance.listenTaps());
+
+  // The device-proof inbox (MOBILE_API §9.0.1), for the same reason: a code
+  // can arrive before the growth loop below gets anywhere, and this isolate
+  // must be the one the background handler hands it to — registered once,
+  // here, in the app's own `main()`.
+  PushService.instance.listenDeviceProof();
+
+  // Channels, for exactly the same reason. They are a local OS call with no
+  // network in it, and putting them behind ensureSession() would mean a
+  // device that cold-started offline never creates the safety channel — so
+  // the next child-safety alert files under the default one, next to the
+  // marketing nudges a parent has already muted.
+  unawaited(ensureNotificationChannels());
+
+  // Phase 0.2 + Phase 1 growth loops — fire-and-forget so it never blocks
+  // cold start. Order: a lost account deletion settled → session → push
+  // token → referral → identity.
+  unawaited(() async {
+    // Deleted after all: the deleted page is up, and nothing below is
+    // wanted for a phone about to close.
+    if (await _settleLostDeletion()) return;
+    await _postLaunchGrowthLoop();
+  }());
+
+  // Voice notes and agreement images older builds left where every backup
+  // picked them up (core/local_only_files.dart).
+  unawaited(removeStrayPrivateFiles());
+
+  // The one network step of a deletion's clearing, kept out of the first
+  // frame's way (PR #36 review, round 3): a new push token for this phone.
+  if (clearedBeforeFirstFrame) unawaited(renewPushTokenAfterWipe());
+
+  // Activation-funnel bookkeeping (first-open day → one-shot day2_return).
+  unawaited(Analytics.appOpened());
+}
+
+/// An account deletion whose answer was lost: the same DELETE is sent again
+/// (TgClient.settleAccountDeletion), before the growth loop — nothing there
+/// should work for an account that turns out gone. After the first frame,
+/// because it needs the network. No network when nothing is pending. True
+/// when the account turned out deleted (the phone is cleared and the deleted
+/// page is up).
+Future<bool> _settleLostDeletion() async {
+  try {
+    final settled = await settlePendingAccountDeletion();
+    switch (settled.outcome) {
+      case PendingDeletion.deleted:
+        await finishDeletedAccount(appNavigatorKey, result: settled.result);
+        return true;
+      case PendingDeletion.notDeleted:
+        // The parent last saw «we don't know yet»: say how it ended.
+        messengerKey.currentState?.showSnackBar(SnackBar(
+            content: Text(AppL10n.current.deleteAccountNotDeletedNotice)));
+      case PendingDeletion.none || PendingDeletion.unknown:
+        break;
+    }
+  } catch (e, s) {
+    FirebaseCrashlytics.instance.recordError(e, s,
+        reason: 'lost account deletion not settled', fatal: false);
+  }
+  return false;
+}
+
+/// The account behind this install turned out deleted during this run (a
+/// mint answered `410 device_erased`): the deleted page is up, and the
+/// growth loop has nothing left to do for a phone about to close.
+bool _accountGone = false;
+
+Future<void> _postLaunchGrowthLoop() async {
+  try {
+    await TgClient.shared.ensureSession();
+  } catch (_) {
+    return;
+  }
+  // Checked after every step, not once: a `410 device_erased` can meet any
+  // request of this loop, and nothing after it is wanted for a phone about
+  // to close — least of all a silent Google re-link.
+  if (_accountGone) return;
+  // The launch path is the one registration allowed to ask for permission.
+  await PushService.instance.registerToken(askPermission: true);
+  if (_accountGone) return;
+  await PushService.instance.listenForeground();
+  if (_accountGone) return;
+  // Prove this session in the background once its push token is on the
+  // server (MOBILE_API §9.0.1) — answers and coach tips use memory only for a
+  // proven session. Alongside the referral work, and before the Google
+  // re-link: a link made by a proven session is a confirmed one, the only kind
+  // an account deletion follows to the family's other phones (§10).
+  final proof = DeviceProofService.instance.proveIfUseful();
+  await ReferralService.instance.captureAndClaimOnFirstRun();
+  if (_accountGone) return;
+  await ReferralService.instance.refresh();
+  if (_accountGone) return;
+  await proof;
+  if (_accountGone) return;
+  await IdentityService.instance.silentRestore();
+}
+
+// Global navigator key for deep links/pushes that fire before a context exists.
+final GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
+
+/// Global messenger, for the case where a screen has to say something *and*
+/// close itself. Once a route is popped its context is gone, so
+/// ScaffoldMessenger.of(context) has nothing to attach to — the message is
+/// silently dropped, which is how a failing screen-off player closed with no
+/// explanation at all.
+final GlobalKey<ScaffoldMessengerState> messengerKey =
+    GlobalKey<ScaffoldMessengerState>();
+
+// Names every screen visit and classifies how it ended, so we can find where
+// users actually get lost instead of guessing. See core/nav_observer.dart.
+final TgNavObserver tgNavObserver = TgNavObserver();
+
+/// Root widget.
+///
+/// MaterialApp is configured for Arabic + RTL out of the box. The
+/// home surface is decided at first frame:
+///
+///   * If `SharedPreferences` is not yet loaded (cold boot) → splash.
+///   * If onboarding is not completed → [OnboardingScreen].
+///   * Otherwise → [RootScaffold] (ChatScreen + PathsScreen).
+///
+/// Phase 6 wired up the onboarding gate. The active child id is
+/// re-hydrated from [OnboardingStorage] in `bootProvider` so the
+/// rest of the app can treat `activeChildIdProvider` as the truth.
+class TutorGuardianApp extends ConsumerWidget {
+  const TutorGuardianApp({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    // If in test environment, default to Arabic so existing tests don't break,
+    // otherwise use null (which lets Flutter resolve the locale dynamically based on device system settings).
+    final defaultLocale = Platform.environment.containsKey('FLUTTER_TEST')
+        ? const Locale('ar')
+        : null;
+
+    final appLocale = ref.watch(appLocaleProvider);
+
+    return MaterialApp(
+      navigatorKey: appNavigatorKey,
+      scaffoldMessengerKey: messengerKey,
+      navigatorObservers: [tgNavObserver, tourRouteObserver],
+      onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light(),
+      darkTheme: AppTheme.dark(),
+      themeMode: ref.watch(themeModeProvider),
+      locale: appLocale ?? defaultLocale,
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      builder: (context, child) {
+        // Keep the global l10n handle (used by contextless services such as
+        // TgClient and state notifiers) in sync with the app locale.
+        final l10n = AppLocalizations.of(context);
+        AppL10n.current = l10n;
+
+        // Same contract as AppL10n above, for the same reason: hundreds of
+        // colour references — and helpers like Dt.softShadow — resolve without
+        // a BuildContext. This is the first point in the frame where the
+        // resolved brightness exists, so it is where the palette is pinned.
+        // A real light/dark change also rebuilds every widget once, so none
+        // keeps the old palette (UX_UI_ROADMAP DS5 — see AppPalette.sync).
+        AppPalette.sync(Theme.of(context).brightness);
+
+        // Force Directionality based on the resolved locale's text direction.
+        // We use Directionality here to ensure transitions and widgets inherit it.
+        final locale = Localizations.localeOf(context);
+        final isRtl = locale.languageCode == 'ar';
+        // Bar icons follow the resolved theme. main() sets dark icons once,
+        // which is right for the light theme only: on a dark-theme screen
+        // with no AppBar (an AppBar annotates its own strip and wins over
+        // this one) the clock and the gesture handle went dark on dark.
+        // Icon brightness only — no bar colours, which would mean the
+        // deprecated Window.setStatusBarColor / setNavigationBarColor.
+        final iconBrightness = Theme.of(context).brightness == Brightness.dark
+            ? Brightness.light
+            : Brightness.dark;
+        return AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle(
+            statusBarIconBrightness: iconBrightness,
+            systemNavigationBarIconBrightness: iconBrightness,
+            // iOS names the bar's background, not its icons.
+            statusBarBrightness: Theme.of(context).brightness,
+          ),
+          child: Directionality(
+            textDirection: isRtl ? TextDirection.rtl : TextDirection.ltr,
+            // Translucent so it observes taps without consuming any: this
+            // feeds TgNavObserver's idle detection, which otherwise cannot
+            // tell "reading the screen" from "stuck on the screen".
+            child: Listener(
+              behavior: HitTestBehavior.translucent,
+              onPointerDown: TgNavObserver.recordTap,
+              // Offline and "saved copy" in one place for every route (E2).
+              child: AppStatusBanner(child: child ?? const SizedBox.shrink()),
+            ),
+          ),
+        );
+      },
+      home: const _AppBootstrapper(),
+    );
+  }
+}
+
+/// Last `minimum_build_number` the server actually confirmed. Kept so a failed
+/// config fetch can still enforce the gate instead of falling open — old builds
+/// were slipping past the update wall whenever the call timed out.
+const kCachedMinBuildKey = 'cached_minimum_build_number';
+
+/// Fetches the app config, remembering the gate value across launches.
+///
+/// On a failed fetch we fall back to the last confirmed minimum rather than
+/// opening the app: a device that has seen the server once must keep obeying
+/// the gate offline. A device that has *never* reached it rethrows and stays
+/// open, so a backend outage can't lock out a first launch.
+Future<Map<String, dynamic>> resolveAppConfig({
+  required Future<Map<String, dynamic>> Function() fetch,
+  required SharedPreferences prefs,
+}) async {
+  try {
+    final config = await fetch();
+    final minBuild = config['minimum_build_number'];
+    if (minBuild is int) {
+      await prefs.setInt(kCachedMinBuildKey, minBuild);
+    }
+    return config;
+  } catch (_) {
+    final cached = prefs.getInt(kCachedMinBuildKey);
+    if (cached == null) rethrow;
+    return <String, dynamic>{'minimum_build_number': cached};
+  }
+}
+
+final appConfigProvider = FutureProvider<Map<String, dynamic>>((ref) async {
+  final client = ref.watch(tgClientProvider);
+  return resolveAppConfig(
+    fetch: client.fetchAppConfig,
+    prefs: await SharedPreferences.getInstance(),
+  );
+});
+
+final packageInfoProvider = FutureProvider<PackageInfo>((ref) async {
+  return await PackageInfo.fromPlatform();
+});
+
+class ForceUpdateScreen extends ConsumerWidget {
+  final String storeUrl;
+  const ForceUpdateScreen({super.key, required this.storeUrl});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                '🚀',
+                style: TextStyle(fontSize: 72),
+              ).animate().scale(duration: 400.ms),
+              const SizedBox(height: 24),
+              Text(
+                l10n.forceUpdateTitle,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w900,
+                  color: AppTheme.textPrimary,
+                ),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                l10n.forceUpdateMessage,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: AppTheme.textSecondary,
+                  height: 1.5,
+                ),
+              ),
+              const SizedBox(height: 32),
+              BouncyButton(
+                label: '${l10n.forceUpdateButton} 🔗',
+                color: Dt.primary,
+                onTap: () async {
+                  final uri = Uri.parse(storeUrl);
+                  if (await canLaunchUrl(uri)) {
+                    await launchUrl(uri, mode: LaunchMode.externalApplication);
+                  }
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Resolves the cold-boot async chain: prefs → onboarding flag →
+/// active child re-hydration → push the right screen.
+class _AppBootstrapper extends ConsumerWidget {
+  const _AppBootstrapper();
+
+  /// The child surface or the parent's app — and, between a restart and
+  /// restore() answering, neither (see [ChildModeGate]).
+  Widget _buildNormalApp() => const ChildModeGate(
+        parentApp: _ParentApp(),
+        waiting: _SplashScreen(),
+      );
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final asyncPrefs = ref.watch(sharedPreferencesProvider);
+    // Start looking for a child mode the last run left on, alongside the
+    // config fetch rather than after it: the gate below waits on the answer.
+    ref.watch(childModeRestoreProvider);
+    // The child surface is silent: no interface sounds while it is open
+    // (SoundPolicy). Mirrored on every change, starting from the default
+    // (inactive) both sides agree on.
+    ref.listen<bool>(
+      childModeProvider.select((s) => s.active),
+      (_, active) => SoundFx.childMode = active,
+    );
+    return asyncPrefs.when(
+      data: (_) {
+        final configAsync = ref.watch(appConfigProvider);
+        return configAsync.when(
+          data: (config) {
+            // «ادعم المربّي»: starts the app-wide purchase listener when, and
+            // only when, the server has donations on. A no-op for everyone
+            // else — billing is never touched.
+            ref.watch(supportBootProvider);
+            final minBuild = config['minimum_build_number'] as int? ?? 0;
+            final storeUrl = config['store_url'] as String? ??
+                'https://play.google.com/store/apps/details?id=com.alsaba.almorabbi';
+
+            final packageInfoAsync = ref.watch(packageInfoProvider);
+            return packageInfoAsync.when(
+              data: (packageInfo) {
+                final currentBuild = int.tryParse(packageInfo.buildNumber) ?? 0;
+                if (currentBuild < minBuild) {
+                  return ForceUpdateScreen(storeUrl: storeUrl);
+                }
+                return _buildNormalApp();
+              },
+              loading: () => const _SplashScreen(),
+              error: (_, _) => _buildNormalApp(),
+            );
+          },
+          loading: () => const _SplashScreen(),
+          error: (_, _) => _buildNormalApp(),
+        );
+      },
+      loading: () => const _SplashScreen(),
+      error: (e, _) => _BootErrorScreen(error: e),
+    );
+  }
+}
+
+/// The parent's app: onboarding, the what's-new splash, or the home tabs.
+///
+/// Built only by [ChildModeGate], and only once no child has the device.
+class _ParentApp extends ConsumerWidget {
+  const _ParentApp();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    // First, sync the onboardingCompletedProvider from disk.
+    final completed = ref.watch(onboardingCompletedProvider);
+    if (!completed) {
+      return const OnboardingScreen();
+    }
+    // Re-hydrate active child id from disk so all the existing
+    // `ref.watch(activeChildIdProvider)` consumers pick it up.
+    final profile = ref.watch(activeChildProfileProvider);
+    if (profile != null) {
+      // Push the id into the runtime provider used everywhere.
+      Future(() {
+        if (ref.read(activeChildIdProvider) != profile.id) {
+          ref.read(activeChildIdProvider.notifier).state = profile.id;
+        }
+      });
+    }
+    // The stored child may no longer exist on the server — deleted from another
+    // device, or removed while this one was offline. Nothing used to notice, so
+    // the app kept asking for a dead id and quietly showed less on every screen
+    // keyed by it. Once per launch, and only when the list actually answers.
+    if (profile != null) {
+      Future(() => ref.read(activeChildReconcileProvider.future));
+    }
+    // If the user just updated the app, show the what's-new splash
+    // once before entering the main screen.
+    ref.watch(updateSplashDismissedProvider);
+    final seenVersion = ref.read(onboardingStorageProvider).lastSeenVersion;
+    if (seenVersion != updateSplashVersion) {
+      return const UpdateSplashScreen();
+    }
+    return const RootScaffold();
+  }
+}
+
+class _SplashScreen extends StatelessWidget {
+  const _SplashScreen();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // «اللوجو اللي بره مش نفس اللوجو اللي جوة» — #fb_337870fd,
+            // 22 Jun 2026. The launcher/asset mismatch that report named was
+            // fixed the same day (ee770ee), but the boot sequence still ran:
+            // correct crescent on the native splash, then a shield emoji here.
+            // The reporter was describing something real that outlived the fix
+            // they were given. Since 2026-10-14 the mark is the «ورق مقصوص»
+            // logo (crescent, open book, sprout) — vector, so it is crisp at
+            // any density without a 250 KB PNG.
+            ArtImage(
+              'assets/svg/art/logo_mark.svg',
+              width: 96,
+              height: 96,
+              fallback: (_) =>
+                  const Text('🌙', style: TextStyle(fontSize: 64)),
+            )
+                .animate()
+                .scale(
+                  begin: const Offset(.6, .6),
+                  duration: Dt.slow,
+                  curve: Curves.easeOutBack,
+                ),
+            const SizedBox(height: 12),
+            Text(
+              AppLocalizations.of(context).appTitle,
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w800,
+                color: AppTheme.primary,
+              ),
+            ).animate(delay: 150.ms).fadeIn(duration: Dt.base),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _BootErrorScreen extends StatelessWidget {
+  const _BootErrorScreen({required this.error});
+  final Object error;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return Scaffold(
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.error_outline,
+                  size: 56, color: AppTheme.dangerFg),
+              const SizedBox(height: 12),
+              Text(
+                '${l10n.bootError}\n${describeFailure(l10n, error)}',
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

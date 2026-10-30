@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tutor-guardian.local/schemas/knowledge_unit.schema.json",
+  "title": "Knowledge Unit",
+  "description": "وحدة معرفة واحدة في المستودع (طبي / تربية إسلامية / تطوري / سيبراني) لاستخدامها في نظام RAG. ملاحظة: قيم enum هنا يجب أن تطابق backend/app/core/taxonomy.py — يتحقق من ذلك check_kb_integrity.py.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "domain",
+    "age_group",
+    "behavior_type",
+    "intervention_type",
+    "severity",
+    "reference_info",
+    "text_original",
+    "text_simplified",
+    "created_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "معرّف فريد لوحدة المعرفة (يمكن أن يكون UUID)."
+    },
+    "domain": {
+      "type": "string",
+      "description": "المجال العلمي للوحدة (القيمة المخزّنة — القانونية). «app_help»: دليل استخدام التطبيق نفسه، لا محتوى تربوي.",
+      "enum": [
+        "medical",
+        "cyber",
+        "islamic_parenting",
+        "development",
+        "aqeedah",
+        "infant_pregnancy",
+        "app_help"
+      ]
+    },
+    "age_group": {
+      "type": "string",
+      "description": "الفئة العمرية المستهدفة. 'prenatal-1' = فترة الحمل وحتى عام. 'unspecified' للوحدات العامة غير المرتبطة بعمر محدد.",
+      "enum": [
+        "prenatal-1",
+        "2-3",
+        "4-6",
+        "7-9",
+        "10-12",
+        "13-15",
+        "16-18",
+        "unspecified"
+      ]
+    },
+    "behavior_type": {
+      "type": "string",
+      "description": "نوع السلوك أو المشكلة الأساسية (مثل: فرط حركة، عناد، قلق، اكتئاب، إدمان ألعاب...)."
+    },
+    "intervention_type": {
+      "type": "string",
+      "description": "نوع التدخل المقترح.",
+      "enum": [
+        "وقائي",
+        "إرشادي",
+        "علاجي",
+        "إحالة_لطبيب"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "description": "تقدير شدة الحالة.",
+      "enum": [
+        "خفيف",
+        "متوسط",
+        "شديد",
+        "طارئ"
+      ]
+    },
+    "reference_type": {
+      "type": "string",
+      "description": "اختياري: نوع المرجع العلمي أو الشرعي.",
+      "enum": [
+        "DSM-5",
+        "كتاب_فقهي",
+        "حديث",
+        "كتاب_تربوي",
+        "تقرير_سيبراني",
+        "إرشاد_مهني",
+        "مقال_تنموي",
+        "تقرير_طبي",
+        "مقال_تربوي"
+      ]
+    },
+    "reference_info": {
+      "type": "string",
+      "description": "معلومة مرجعية مختصرة (اسم الكتاب، المؤلف، رقم الصفحة أو الباب، أو اسم الجهة المصدِرة للتقرير...)."
+    },
+    "jurisdiction": {
+      "type": "string",
+      "description": "اختياري: يحدد المذهب أو البلد أو إطار الإفتاء إن لزم.",
+      "nullable": true
+    },
+    "text_original": {
+      "type": "string",
+      "description": "النص الأصلي المقتبس من المرجع كما هو أو مع أقل قدر من التعديل."
+    },
+    "text_simplified": {
+      "type": "string",
+      "description": "صياغة مبسطة موجهة للأهل بلغة سهلة، تلخص الفكرة أو التوصية."
+    },
+    "labels": {
+      "type": "array",
+      "description": "وسوم إضافية لتسهيل البحث (tags).",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "keywords": {
+      "type": "array",
+      "description": "اختياري: كلمات مفتاحية مستخرجة من المصدر لتعزيز البحث.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "تاريخ ووقت إنشاء وحدة المعرفة بتنسيق ISO 8601."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "اختياري: تاريخ ووقت آخر تعديل."
+    },
+    "version": {
+      "type": "string",
+      "description": "اختياري: رقم إصدار هذه الوحدة (مثال: 1.0.0)."
+    },
+    "title": {
+      "type": "string",
+      "description": "اختياري: عنوان مختصر للوحدة (غالباً من ملف المصدر)."
+    },
+    "language": {
+      "type": "string",
+      "description": "اختياري: لغة النص (ar / en / mixed)."
+    },
+    "source_file": {
+      "type": "string",
+      "description": "اختياري: اسم ملف المصدر الذي اشتُقّت منه الوحدة."
+    },
+    "source_url": {
+      "type": "string",
+      "description": "اختياري: رابط المصدر إن توفر."
+    },
+    "needs_ocr": {
+      "type": "boolean",
+      "description": "اختياري: علامة داخلية تشير إلى أن المصدر يحتاج OCR."
+    },
+    "source_meta": {
+      "type": "object",
+      "description": "بيانات اختيارية إضافية عن المصدر.",
+      "additionalProperties": false,
+      "properties": {
+        "source_title": {
+          "type": "string",
+          "description": "عنوان المصدر (كتاب، مقال، دليل...)."
+        },
+        "source_author": {
+          "type": "string",
+          "description": "اسم المؤلف أو الجهة."
+        },
+        "source_year": {
+          "type": "integer",
+          "description": "سنة النشر إن وُجدت."
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "رابط إلكتروني للمصدر إن توفر."
+        }
+      }
+    },
+    "source_language": {
+      "type": "string",
+      "description": "اللغة المُترجَم عنها. حاضر في الوحدات المولَّدة بالترجمة فقط — الوحدة الأصلية لا تحمله."
+    },
+    "translated_from": {
+      "type": "string",
+      "description": "معرّف الوحدة المصدر. الوحدة المترجمة **وحدة جديدة** لا نسخة تحلّ محلّ الأصل، والأصل يبقى في الفهرس بلغته."
+    },
+    "translation": {
+      "type": "object",
+      "description": "سِجلّ الترجمة: أي نموذج ترجم، وأيّ نموذج راجع (من عائلة مختلفة عمدًا)، وهل تحتاج مراجعة شرعية، ومن اعتمدها.",
+      "properties": {
+        "translator_model": {
+          "type": "string"
+        },
+        "reviewer_model": {
+          "type": "string"
+        },
+        "needs_scholar_review": {
+          "type": "boolean"
+        },
+        "review_verdict": {
+          "type": "string"
+        },
+        "review_defects": {
+          "type": "array"
+        },
+        "approved_by": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "إما ختم المراجعة الآلية `auto-review:<مراجع A>+<مراجع B>:<YYYY-MM-DD>` (أو `auto-review:<مراجع>:<YYYY-MM-DD>` لمراجعٍ واحد من عائلة نماذج غير عائلة كتّاب الإنجليزي) الذي يكتبه ops/tools/review_en_parity.py وحده، وبصمته في translation.auto_review.content_sha256؛ وإما توقيع إنسانٍ قرأ النصّين يكتبه `review_en_parity.py sign` مع بصمته في translation.approval.content_sha256 — اسمٌ بلا بصمة ترفضه البوابة. الختم يشهد أن الإنجليزي يطابق العربي فقط، لا أن العربي أمينٌ لمصدره، وليس إجازة شرعية. أي تعديل بعده في أيٍّ من اللغتين يُبطله. null = غير مختوم: لا يُقبل منشورًا إلا مُدرَجًا في ops/data/en_parity_queue.json ببصمة نصّه (CI وpre-commit)."
+        }
+      },
+      "additionalProperties": true
+    },
+    "source_kind": {
+      "type": "string",
+      "enum": [
+        "authored_guidance"
+      ],
+      "description": "اختياري: «authored_guidance» = نصّ الوحدة إرشادٌ كتبه التطبيق (أُعيدت كتابته عمدًا ورُوجع)، لا ملخّصٌ لـ text_original الذي يبقى سجلًّا لأصل توليدها. غيابه = ملخّصٌ لمصدره، ويُحاكَم أمامه (check_kb_fidelity.py)."
+    },
+    "authored_references": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3
+      },
+      "minItems": 1,
+      "description": "مع authored_guidance: المراجع التي يقوم عليها النص فعلًا (حديثٌ موصوف لا مقتبس، بطاقة من الصحيحين، موقف التطبيق المكتوب…)."
+    },
+    "source_note": {
+      "type": "string",
+      "minLength": 10,
+      "description": "مع authored_guidance: متى ولماذا أُعيدت كتابة النص، وعلاقته بـ text_original."
+    }
+  },
+  "dependentRequired": {
+    "source_kind": [
+      "authored_references",
+      "source_note"
+    ]
+  }
+}

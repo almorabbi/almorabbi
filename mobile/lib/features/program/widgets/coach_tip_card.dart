@@ -1,0 +1,239 @@
+/// Proactive parenting coach card — the day's tip on Home.
+///
+/// Fetches a personalized (or gracefully-degraded) coach tip for the active
+/// child via [coachTipProvider]. The fetch itself records the "shown" signal
+/// server-side (deduped once/day); tapping records engagement and jumps to
+/// the assistant via [onAsk]. Hides itself until the active child is loaded.
+library;
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../l10n/app_localizations.dart';
+import '../../../theme/app_palette.dart';
+import '../../../theme/app_theme.dart';
+import '../../onboarding/providers/onboarding_providers.dart';
+import '../../share/share_service.dart';
+import '../../share/shareable_moment_card.dart';
+import '../providers/program_providers.dart';
+
+/// The card mixes its own amber rather than using the tokens, so it needs its
+/// own dark counterpart: on the cream ground the ink is deep brown; on the
+/// dark ground that same brown is invisible.
+Color get _coachInk => AppPalette.current.tipInk;
+
+class CoachTipCard extends ConsumerWidget {
+  const CoachTipCard({
+    super.key,
+    this.onAsk,
+    this.padding = const EdgeInsets.fromLTRB(12, 8, 12, 0),
+  });
+
+  /// Invoked when the parent taps the card (e.g. switch to the chat tab).
+  final VoidCallback? onAsk;
+
+  /// Outer padding. The «اسأل المربّي» block on Home passes zero so the tip
+  /// lines up with the other two blocks' cards.
+  final EdgeInsetsGeometry padding;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final profile = ref.watch(activeChildProfileProvider);
+    if (profile == null) {
+      return const SizedBox.shrink();
+    }
+    final asyncTip = ref.watch(coachTipProvider(profile.id));
+    return Padding(
+      padding: padding,
+      child: asyncTip.when(
+        data: (tip) => _CoachCard(
+          text: tip.text,
+          childName: profile.name,
+          onTap: () {
+            // Fire-and-forget engagement log; never block the UX on it.
+            ref.read(programRepositoryProvider).recordCoachTipTap(tip.id);
+            // Seed the assistant with a concrete question about *this* tip so
+            // switching tabs lands the parent in a relevant conversation,
+            // not a blank chat. ChatScreen picks this up and auto-sends it.
+            // Localised, and not only for tidiness: this text is *sent to the
+            // assistant*, which since 2026-08-21 answers in the language the
+            // parent wrote in. Arabic scaffolding around an English tip is a
+            // mixed-language question, and it would pull the answer back into
+            // Arabic — undoing the fix one screen away.
+            ref.read(pendingChatQuestionProvider.notifier).state =
+                AppLocalizations.of(context)
+                    .coachTipAskPrefill(tip.text, profile.name);
+            onAsk?.call();
+          },
+          // Render the tip as a reverent, branded 1080×1080 card and open the
+          // share sheet — turns the daily tip into a صدقة جارية growth surface.
+          // The shared artifact stays child-agnostic for privacy.
+          onShare: () {
+            final share = coachTipShare(AppLocalizations.of(context), tip.text);
+            ShareService.shareMomentCard(
+              fileTag: 'coachtip_${tip.id}',
+              message: share.message,
+              card: share.card,
+            );
+          },
+        ),
+        loading: () => const SizedBox.shrink(),
+        error: (_, _) => const SizedBox.shrink(),
+      ),
+    );
+  }
+}
+
+/// Today's coach tip, as the parent shares it — child-agnostic for privacy:
+/// the [tip] text only, never the child's name.
+MomentShare coachTipShare(AppLocalizations l10n, String tip) => (
+      message: l10n.shareCoachTipMessage(tip),
+      card: ShareableMomentCard(
+        emoji: '🌱',
+        eyebrow: l10n.shareCoachTipEyebrow,
+        headline: l10n.shareCoachTipHeadline,
+        body: tip,
+      ),
+    );
+
+class _CoachCard extends StatelessWidget {
+  const _CoachCard({
+    required this.text,
+    required this.childName,
+    required this.onTap,
+    required this.onShare,
+  });
+
+  final String text;
+  final String childName;
+  final VoidCallback onTap;
+  final VoidCallback onShare;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(14),
+        child: Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: AppPalette.current.tipGradient,
+            ),
+            borderRadius: BorderRadius.circular(14),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 36,
+                height: 36,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: AppPalette.current.surface.withValues(alpha: 0.4),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Icon(Icons.lightbulb_outline,
+                    color: _coachInk, size: 20),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      AppLocalizations.of(context).insightsTitle,
+                      style: TextStyle(
+                        color: _coachInk,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      text,
+                      style: TextStyle(
+                        color: AppTheme.textPrimary,
+                        fontSize: 13,
+                        height: 1.5,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        // Share pill — own tap target so it doesn't trigger
+                        // the card's "ask" onTap.
+                        _ShareButton(onTap: onShare),
+                        const Spacer(),
+                        Text(
+                          AppLocalizations.of(context).coachAskAboutTip,
+                          style: TextStyle(
+                            color: _coachInk,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 12,
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        // arrow_forward, not arrow_back: both mirror with
+                        // the text direction, and "ask" is a step forward —
+                        // ← in Arabic, → in English.
+                        Icon(Icons.arrow_forward,
+                            color: _coachInk, size: 16),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Small "شير" pill inside the coach card. Has its own [InkWell] so tapping it
+/// shares the tip instead of bubbling up to the card's "ask the coach" action.
+class _ShareButton extends StatelessWidget {
+  const _ShareButton({required this.onTap});
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(20),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          decoration: BoxDecoration(
+            color: AppPalette.current.surface.withValues(alpha: 0.55),
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: _coachInk, width: 1),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.ios_share, color: _coachInk, size: 15),
+              const SizedBox(width: 5),
+              Text(
+                AppLocalizations.of(context).share,
+                style: TextStyle(
+                  color: _coachInk,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 12,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

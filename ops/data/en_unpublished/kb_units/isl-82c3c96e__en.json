@@ -1,0 +1,54 @@
+{
+  "id": "isl-82c3c96e__en",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "Teaching Children the Rights of Others and Tolerance",
+  "language": "en",
+  "age_group": "4-6",
+  "behavior_type": "تربية أخلاقية",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين - عماد عبدالعظيم (الألوكة)",
+  "text_original": "م :ينتذاصياٚ ٤اٝبْلأا ٤اسمأب ١ُٝطتيا بشتطٜٚ .)5(»)4(ؿقهاربإ لبأ ؿساب فتقؿسف ملاغ ةؾقؾلا لل دلو« :ﷺ لاق دؼف ؿفئاقبكلب نقؿسي اقكاك ؿنهإ« :ءاقبكٕا ءاؿسلب كؿس ـؿل ارؼم ﷺ لاقو .)6(»ؿفؾبق ـقحلاصلاو .)2133( ؿمٚسمُو ،)6186( يراخبمًا فمضرمظأ (1) .)571/11( »يرابمًا حتمو« (2) ـمق ،حمٞجمٟ بيأ ـمسا ـمق ،ةمٜمٞمٞمق ـمسا امٜمصدمط :لامى )475/8( ةبمٞمؿ بيأ ـمسا فمضرمظأ (3) تاقمٚص ءامٞبمٟٕا ءمامؾم٠مس ةمٞمٛستمًا زاقمضو فمشدٓو مقي دقمًقمعا ةمٞمٛسمش زاقمض فمٞموو« (4) .)75/15( »ؿمٚسمُ حشر« »فمُلامؾو ؿمٝمٞمٚمق للها .)2315( ؿمٚسمُ فمضرمظأ (5) .)2135( ؿمٚسمُ فمضرمظأ (6) ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ نيدلاىلا ىلع دلاولأا قىقح ــــــــــــــــــــ .)1(ؿقهاربإ ﷺ لبـلا هاؿسف ملاغ ﭬ كسقم لبٕ دلوو ملاسلا ؿفقؾط ءاقبكٕا ءاؿسلب ةقؿستلا زاقج كؾط ةطاؿج فب لدتسا« لبـلا كؿس دقو فؾيولت ؼبسو ﭬ رؿط ـط هاـمدق ام ٓإ ءاؿؾعلا فقؾط عؿجأو .)2(»ءاقبكٕا ءاؿسلب نقؿسم ؼئلاخ فباحصأ في ناكو ؿقهاربإ فـبا ﷺ .)3(ػسقي ﭬ ملاس ـب للها دبعل دلو ﷺ لبـلا كؿسو .)4( ءاقَ ِ بكْ َٕا ء َٕا بُ حَ أَ : لَ ا قَ ,بِ قَ س ـم ؿهرقغو تاقباحصلاو ةباحصلا ءاؿسلب لؿستلا بحتسقف فقؾطو :ٔطس ِضا لىإ حٝبكيا ِضلاا يرػٜ ٕانٚ تكأ :لاقو ,ةقصاط ؿسا رقغ ﷺ للها لقسر نأ ,ﭭ رؿط ـبا ـط للها لقسر لقحف ,ةرب افؿسا ةيريقج تكاك :لاق ,ﭭ سابط ـبا ـطو .)6(»ةرب دـط ـم جرخ :لاؼي نأ هرؽي ناكو ,ةيريقج افؿسا ﷺ .)2145( ؿمٚسمُو ،)5467( يراخبمًا فمضرمظأ (1) .)117/14( »ؿمٚسمُ حشر« (2) .حمٞحص دامٜمؾم٢مس )838( »درمٗمعا بدٕا« مذ يراخبمًا دمٜمق قهو (3) .فمس بمٞسمعا ـمسا ـمق ،دواد ـمق ،يدمق بيأ ـمسا ـمق )475/8( ةبمٞمؿ بيأ ـمسا فمضرمظأ (4) .)2139( ؿمٚسمُ فمضرمظأ (5) .)2141( ؿمٚسمُ",
+  "text_simplified": "Parents must teach their children the rights of others, such as the rights of the neighbor and the companion, and not to harm them. They should also instill the values of tolerance and justice in the hearts of children from a young age. These guidelines are derived from the Prophetic hadiths that encourage good treatment.",
+  "labels": [
+    "حقوق الآخرين",
+    "تسامح",
+    "تربية إسلامية",
+    "تعامل اجتماعي"
+  ],
+  "created_at": "2026-06-21T10:17:31Z",
+  "updated_at": "2026-06-21T10:17:31Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Alukah_Rights_of_Children",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-82c3c96e",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "7d83fbb74b6801ce9f22d41c518f6ee75ec7662198df7f6f6cf078c49c4ba8f8",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

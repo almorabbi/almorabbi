@@ -1,0 +1,84 @@
+{
+  "id": "path_10-12_islamic_parenting_worship_love",
+  "title": "Worship out of Love: From Habit to the Heart (10-12 years)",
+  "age_group": "10-12",
+  "domain": "islamic_parenting",
+  "description": "A path to help parents guide their son from performing 'ibadah out of habit to loving it with the heart, at an age when some children reach puberty and others are approaching it: Salah with love, the first fasts, a living relationship with the Qur'an, and du'a as intimate conversation.",
+  "lesson_ids": [
+    "lesson_10-12_islamic_parenting_worship_love_01",
+    "lesson_10-12_islamic_parenting_worship_love_02",
+    "lesson_10-12_islamic_parenting_worship_love_03",
+    "lesson_10-12_islamic_parenting_worship_love_04"
+  ],
+  "estimated_days": 4,
+  "pedagogical_framework": "prophetic_7_7_7",
+  "primary_reference": {
+    "type": "كتاب_تربوي",
+    "info": "Tarbiyat al-Awlad fi al-Islam (Raising Children in Islam) by Abdullah Nasih Ulwan + Manhaj al-Tarbiyah al-Nabawiyyah lil-Tifl (The Prophetic Method of Raising the Child) by Muhammad Nur Suwayd"
+  },
+  "prerequisites": [],
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "description",
+        "type": "meaning",
+        "why": "The Arabic uses the dual 'الوالدين' (both parents) and 'ابنهم' (their son), while the English uses the generic plural 'parents' and 'their son', which is a slight nuance shift but not a substantive er"
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+    "revalidated_at": "2026-10-08T15:21:56+00:00",
+    "fixed_at": "2026-08-13T19:06:38.444693+00:00",
+    "fixer_model": "mistral-large-3:675b",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "openrouter",
+          "model": "deepseek/deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "openrouter",
+          "model": "z-ai/glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "a9b0a804fe66cc9540fe32b067a69d41f7047a049a6ca2bc8012f289e1360d7e",
+      "reviewed_at": "2026-10-08T15:21:56+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "description",
+          "type": "meaning",
+          "why": "The Arabic uses the dual 'الوالدين' (both parents) and 'ابنهم' (their son), while the English uses the generic plural 'parents' and 'their son', which is a slight nuance shift but not a substantive er"
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "english_authors": [
+      "mistral-large-3:675b",
+      "claude-opus-5-5"
+    ]
+  }
+}

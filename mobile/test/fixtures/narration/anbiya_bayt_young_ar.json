@@ -1,0 +1,66 @@
+{
+  "voice": "gemini-3.8-flash-tts/Algieba",
+  "language": "ar",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/ar/anbiya_bayt_young_p1.m4a",
+      "text": "جعل اللهُ الكعبةَ بيتًا للناس، يأتونه ثم يرجعون إليه، وجعله أمنًا لهم. وقد رفع إبراهيمُ وابنُه إسماعيلُ عليهما السلام أُسُسَها.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 70,
+          "start": 0.0,
+          "end": 10.708
+        },
+        {
+          "from": 71,
+          "to": 127,
+          "start": 11.158,
+          "end": 18.348
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_bayt_young_p2.m4a",
+      "text": "ودعا إبراهيمُ ربَّه أن يجعل هذا البلدَ آمنًا، ويرزقَ أهلَه من الثمرات.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 70,
+          "start": 0.0,
+          "end": 8.995
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_bayt_young_p3.m4a",
+      "text": "ورفع إبراهيمُ وإسماعيلُ قواعدَ البيت، وهما يدعوان اللهَ في خشوع: ﴿رَبَّنَا تَقَبَّلۡ مِنَّآۖ إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلۡعَلِيمُ﴾.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 131,
+          "start": 0.0,
+          "end": 24.362
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_bayt_young_p4.m4a",
+      "text": "وأمر اللهُ إبراهيمَ وإسماعيلَ أن يطهّرا بيتَه للطائفين والمصلّين. فهو بيتُ الله، يطوف الناس حوله ويصلّون فيه.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 65,
+          "start": 0.0,
+          "end": 7.436
+        },
+        {
+          "from": 66,
+          "to": 109,
+          "start": 7.886,
+          "end": 15.686
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "tip_0-3_025",
+  "age_group": "0-3",
+  "domain": "islamic_parenting",
+  "text": "Make du'a for your child to be righteous every day while you carry him; tie affection with the remembrance of Allah.",
+  "unit_id": null,
+  "day_of_week": 5,
+  "time_of_day": "anytime",
+  "tags": [],
+  "is_published": true,
+  "version": "1.0.0",
+  "created_at": "2026-06-19T12:00:00",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "fixed_at": "2026-08-13T18:52:17.553889+00:00",
+    "fixer_model": "mistral-large-3:675b",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "3a99106d8fc3b3c153fa4bba6acbce4d2f1ce07111e54e8306b9dcd9521cac7a",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

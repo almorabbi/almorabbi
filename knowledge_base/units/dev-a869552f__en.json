@@ -1,0 +1,69 @@
+{
+  "id": "dev-a869552f__en",
+  "domain": "development",
+  "source_file": "CDC_Milestones_18_24_Months.pdf",
+  "title": "Guiding the Child to Learn Sharing and Self-Control",
+  "language": "en",
+  "age_group": "4-6",
+  "behavior_type": "تطور الطفل ونموه",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "CDC Developmental Milestones",
+  "text_original": "more. This operate more complicated toys. opens up new ways to play. hand-y! ■ Have fun in the kitchen: finger paint with colored pudding on a baking sheet or mold cookie dough into fun shapes to bake. For toddlers, emotions still win ■ Play back and forth games to help her understand and practice over self-control. This can make turn-taking. sharing very hard. Your child may ■ Make sure your child has lots of opportunities to play with other understand “no” but her mind still children. Be their guide in learning to share. Developing this says “yes” as she grabs a toy from skill takes time and practice. another child. · Your toddler may be experiencing ■ Expand his words and phrases into a sentence: “Me down” be- a “vocabulary explosion.” He’s comes “You want to get down.” Chatter-box learning new words every day and ■ Play games with words. Try replacing a word in a familiar song: may combine two or more in a “Row, row, row your car.” phrase. He may want to practice Your toddler may have more tan- ■ Continue to label his emotions to help him feel in control and to trums. He may get frustrated when let him know you understand. he can’t do something he wants by some steam. ■ Help him slow down or take a break when you see signs that he is getting frustrated or overwhelmed. Your toddler will love music, danc- ■ Make music a part of your day",
+  "text_simplified": "At this stage, the child needs opportunities to play with others to learn sharing and self-control. Parents can help by engaging in role-exchange games and expanding his sentences. Tantrums should also be handled with understanding, calming him when he feels frustrated. Music and dance are beloved activities for a child at this age.",
+  "labels": [
+    "مشاركة",
+    "ضبط النفس",
+    "نوبات غضب",
+    "تطور اللغة",
+    "لعب تفاعلي"
+  ],
+  "created_at": "2026-06-20T15:13:43Z",
+  "updated_at": "2026-06-20T15:13:43Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "CDC_Milestones_18_24_Months",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "dev-a869552f",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "In child-development context 'تبادل الأدوار' refers to turn-taking games, not role-exchange games."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "c7345eadb4a0d1204dff792639f8c8c82fd76cd11a418cb2a0c81b545f158614",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "In child-development context 'تبادل الأدوار' refers to turn-taking games, not role-exchange games."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

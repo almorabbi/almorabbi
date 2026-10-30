@@ -1,0 +1,19 @@
+# The first-run coach-mark tour starts one frame after the root scaffold shows.
+# Baseline: version 2, five stops from the nav bar. Head: version 3, one mark
+# on Today's ① card — and only for a parent who never finished version 2, so
+# after an upgrade from a baseline that showed it there is nothing to skip and
+# the loop below runs zero times. Both have «تخطّي» (tourSkip). Let it appear,
+# then skip it.
+appId: com.alsaba.almorabbi
+---
+- waitForAnimationToEnd:
+    timeout: 5000
+- repeat:
+    times: 3
+    while:
+      visible: '${output.t.tourSkip}'
+    commands:
+      - takeScreenshot: tour
+      - tapOn: '${output.t.tourSkip}'
+      - waitForAnimationToEnd:
+          timeout: 3000

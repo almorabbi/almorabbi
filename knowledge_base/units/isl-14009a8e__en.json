@@ -1,0 +1,62 @@
+{
+  "id": "isl-14009a8e__en",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "Abu Qirsafa Calling His Son Iyad to Salah",
+  "language": "en",
+  "age_group": "7-9",
+  "behavior_type": "تربية دينية",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين - عماد عبدالعظيم (الألوكة)",
+  "text_original": "وكان أبو قرصافة رضي الله عنه له ابن يقال له: عياض، فكان أبو قرصافة إذا انتبه لصلاة الغداة، نادى: يا عياض الصلاة، فيقول: لبيك لبيك يا أبة، قال: وإن عياضا خرج إلى أرض الروم، وأن أبا قرصافة كان إذا انتبه وهو بالشام نادى كما كان يصنع: يا عياض الصلاة الصلاة، وهو بأرض الروم، فإذا انتبه يقول: يا عياض، فيقول عياض: يا أبة لبيك لبيك.",
+  "text_simplified": "Abu Qirsafa would call his son Iyad to the dawn salah, and Iyad would answer, \"Here I am, here I am, Father.\" After Iyad left for the land of the Romans, his father continued to call him when he awoke in al-Sham.",
+  "labels": [
+    "صلاة الغداة",
+    "أبو قرصافة",
+    "عياض"
+  ],
+  "created_at": "2026-06-21T10:23:42Z",
+  "updated_at": "2026-10-07T09:47:34.210358+00:00",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "حقوق الأولاد على الوالدين",
+    "source_author": "عماد أحمد عبدالعظيم"
+  },
+  "source_language": "ar",
+  "translated_from": "isl-14009a8e",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+    "draft_status": "draft",
+    "source_recovery_note": "Source-faithful historical draft. English parity was independently approved by DeepSeek and GLM; this is not scholar/source-content or human approval.",
+    "fixer_model": "openai:codex",
+    "english_authors": [
+      "mistral-large-3:675b",
+      "openai:codex"
+    ],
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "04175f90493abe1678629be444c141f88488f98ccbaedbd01e931208e51b940e",
+      "reviewed_at": "2026-10-07T10:02:47+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "revalidated_at": "2026-10-07T10:02:47+00:00"
+  },
+  "source_url": "https://www.alukah.net/Books/Files/Book_17337/BookFile/brotherandboys.pdf#page=90",
+  "source_note": "Primary-source recovery evidence: ops/data/kb_fidelity/source_recovery/isl-14009a8e.json. Actual English parity approval is recorded at its exact hash in three-units-parity-2026-10-07.json. Scholar/source-content and human approval remain pending."
+}

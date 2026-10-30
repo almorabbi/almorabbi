@@ -1,0 +1,54 @@
+{
+  "id": "path_7-9_cyber_digital_basics",
+  "title": "First Steps in Digital Safety (Ages 7-9)",
+  "age_group": "7-9",
+  "domain": "cyber",
+  "description": "A path to help parents establish their child’s digital awareness: a family screen covenant, distinguishing between beneficial and harmful games, protecting privacy, and dealing with cyberbullying.",
+  "lesson_ids": [
+    "lesson_7-9_cyber_digital_basics_01",
+    "lesson_7-9_cyber_digital_basics_02",
+    "lesson_7-9_cyber_digital_basics_03",
+    "lesson_7-9_cyber_digital_basics_04"
+  ],
+  "estimated_days": 4,
+  "pedagogical_framework": "prophetic_7_7_7",
+  "primary_reference": {
+    "type": "مرجع_علمي",
+    "info": "Digital citizenship for children — Common Sense Media + digital safety guidelines"
+  },
+  "prerequisites": [],
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T11:18:19+00:00",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "7063faf9707fc1631716af072bd812231f6a8fdd88df977bd7f1520d6271ab11",
+      "reviewed_at": "2026-10-04T11:18:19+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

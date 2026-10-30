@@ -1,0 +1,92 @@
+{
+  "id": "path_16-18_islamic_parenting_adult_faith",
+  "title": "Toward Independent Imani Growth: Accompanying Your Young Adult at Life’s Threshold (16-18 Years)",
+  "age_group": "16-18",
+  "domain": "islamic_parenting",
+  "description": "A pathway to help parents guide their child from the iman they received at home to an iman they deepen through understanding and conviction, while preparing for marriage and upholding `iffah (chastity) through open dialogue. It focuses on crafting a life mission that connects ambition with purpose, and independence with decision-making and responsibility—before leaving home.",
+  "lesson_ids": [
+    "lesson_16-18_islamic_parenting_adult_faith_02",
+    "lesson_16-18_islamic_parenting_adult_faith_04"
+  ],
+  "estimated_days": 2,
+  "pedagogical_framework": "prophetic_7_7_7",
+  "primary_reference": {
+    "type": "كتاب_تربوي",
+    "info": "Tarbiyat al-Awlad fi al-Islam (Raising Children in Islam) by Abdullah Nasih Ulwan + Manhaj al-Tarbiyah al-Nabawiyyah lil-Tifl (The Prophetic Method of Raising the Child) by Muhammad Nur Suwayd"
+  },
+  "prerequisites": [],
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "description",
+        "type": "meaning",
+        "why": "The Arabic specifies 'ابنهم' (their son), while the English uses the gender-neutral 'child', which loses the specific reference to a male child."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "description",
+        "type": "leakage",
+        "why": "The backtick character before 'iffah' is a non-standard transliteration marker for the Arabic letter ʿayn; it should use the standard ʿ symbol."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+    "revalidated_at": "2026-10-08T15:21:56+00:00",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "openrouter",
+          "model": "deepseek/deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "openrouter",
+          "model": "z-ai/glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "f849e53afea82fa6aba9bc2d37328f694b381be8f7d238cede8940430655b37a",
+      "reviewed_at": "2026-10-08T15:21:56+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "description",
+          "type": "meaning",
+          "why": "The Arabic specifies 'ابنهم' (their son), while the English uses the gender-neutral 'child', which loses the specific reference to a male child."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "description",
+          "type": "leakage",
+          "why": "The backtick character before 'iffah' is a non-standard transliteration marker for the Arabic letter ʿayn; it should use the standard ʿ symbol."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "english_authors": [
+      "mistral-large-3:675b",
+      "claude-opus-5-5"
+    ]
+  }
+}

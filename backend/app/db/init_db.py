@@ -1,0 +1,1755 @@
+"""
+SQLite app database — جلسات ورسائل المحادثة + tokens + feedback
+================================================================
+Migration v2: added api_tokens table for device authentication.
+Migration v3: added user_feedback table for 👍/👎 ratings.
+Migration v4: added child_profiles + lesson_progress tables for the
+              program layer (Phase 2). Endpoints that mutate these
+              (POST /api/program/progress, POST /api/program/children)
+              are not yet implemented — they land in a later phase.
+Migration v5: added avatar_emoji column to child_profiles (Phase 5
+              Flutter UI requirement). Endpoints that mutate
+              child_profiles + lesson_progress are implemented in
+              routers/children.py and routers/program.py.
+Migration v6: added coach_tips table for the proactive parenting coach.
+              Stores the daily surfaced tip per (device_id, child_id, date)
+              with lightweight engagement logging (shown_at, tapped_at).
+              The `source` column is internal (generated|fallback).
+Migration v7: added child_challenges table for «رحلة الطفل» — the parent's
+              current challenge per child (sleep/lying/screens…). The active
+              row feeds the proactive coach as a higher-priority signal than
+              the most recent chat question (see coach_service).
+Migration v8: added referral_codes + referrals tables for the Phase 0
+              viral growth loop (device-based invites + attribution).
+Migration v9: added push_tokens + parent_identities tables for Phase 1:
+              server-side push notifications and optional Google Sign-In
+              identity that survives app reinstall.
+Migration v10: added daily_login_streaks table. Stores one row per
+               (device_id, child_id, date). The progress endpoint uses it
+               to compute a "consecutive days the child was engaged" streak
+               that is independent from lesson completions, so opening the
+               app daily counts toward the streak even when no lesson is
+               completed.
+Migration v11: added session_id + expires_at columns to api_tokens to match
+               the token contract used by conversation_store.py and auth.py.
+Migration v12: aligned child_challenges schema with children.py router:
+               added topic, domain, note, resolved_at; removed notes, completed_at.
+Migration v13: aligned chat_messages schema with conversation_store.py:
+               added domain, severity, mode, needs_human_review.
+Migration v14: added child_daily_routines + routine_events tables for
+               «حِساب اليوم» daily routine tracker (sleep/feed/diaper).
+Migration v15: added habits_value_events table for «ميزان العادات» —
+               age-dynamic habit/value tracking for children 7–18.
+Migration v16: added habit_templates table for custom parent-defined habits
+               with soft-delete via is_active and unique (child_id, custom_name).
+Migration v17: added submitted_by + device_timestamp columns to
+               habits_value_events to track entry source and device time.
+Migration v20: added feedback_replies table so a reply written in Telegram can
+               be delivered back to the device that sent the feedback.
+Migration v21: added child_screen_sessions table — the server-side time budget
+               behind the child surface. local_date is derived on the server
+               from a client-supplied UTC offset rather than taken as a date
+               string, and every read of the day's usage is floored by a
+               rolling 24-hour window, so changing the device timezone cannot
+               hand a child a second daily allowance.
+Migration v22: added family_agreements + agreement_clauses — the two-sided
+               media agreement between a parent and a child. Clauses carry
+               `applies_to`, because an agreement whose every rule points at
+               the child is a list of orders, and the research this feature
+               rests on is about an agreement.
+Migration v23: added child_missions — one off-screen task a day, claimed by
+               the child without waiting and confirmed by the parent in a
+               single evening batch. The unique key is (child, date, mission)
+               so a retry cannot assign the same task twice.
+Migration v24: added child_licences + child_scenario_answers — the internet
+               licence. `outcome` is copied onto the answer row rather than
+               read back from the bank, so re-classifying a choice next year
+               cannot rewrite what a child did last March. And a level is not
+               granted by answering: status goes practising → awaiting_talk →
+               granted, and the middle step is a parent recording that they
+               actually talked, which is what makes this a family agreement
+               rather than a certificate the app issues to itself.
+Migration v27: child_challenges drops UNIQUE(device_id, child_id, status) for a
+               partial unique index on the ACTIVE row only. The old key allowed
+               one 'resolved' row per child ever, so the third challenge change
+               (or a clear after one resolve) failed with IntegrityError → 500.
+Migration v28: api_tokens stores sha256(token) instead of the bearer itself,
+               and every token carries an expires_at (sliding, see
+               conversation_store.TOKEN_TTL_DAYS). Existing plaintext rows are
+               hashed in place and given a full TTL, so no install is logged out
+               by the upgrade (audit H5).
+Migration v29: child_web_claims holds the one-time QR claim codes for the teen
+               web surface (sha256 of the code; the token is minted on
+               redemption). Replaces an in-process dict (audit L11). Additive.
+Migration v30: «المربّي يعرف ابنك» — child_facts (what the assistant has
+               learned about each child, name-free), followups (the "did the
+               advice work?" loop), weekly_plans (one cached plan per child
+               per ISO week and language) and child_memory_settings (the
+               per-device off switch). Every table is keyed by device_id and
+               cascades from child_profiles, and every one is listed in
+               routers/privacy.py MEMORY_TABLES — the delete-all path. Additive.
+Migration v32: install attribution. referrals.via records how a claim was made
+               ('code' = an exact code, 'auto' = matched to a click by IP;
+               NULL = before this); referral_click_days holds per-code daily
+               click counts once raw clicks (IP, user agent) pass their
+               seven-day retention; ix_referral_clicks_time serves both. Additive,
+               ensured unconditionally (v30 and v31 belong to other branches).
+Migration v33: device twins (services/device_twins.py). device_aliases maps a
+               device id folded away to the family device that absorbed it —
+               an app in the field keeps the twin's id on disk and sends it at
+               its next session mint; without the row that mint would hand it a
+               fresh, childless identity again. device_fold_log records every
+               row a fold moved or deleted (table, rowid, from, to, and the
+               deleted row itself), in the fold's own transaction, so a fold can
+               be audited and reverted. Column names carry "device" so the
+               account-deletion discovery covers both. Additive.
+Migration v34: family programs (Phase 2) — Ramadan, the Prayer Journey and the
+               proactive milestones. child_profiles.birth_month (optional
+               YYYY-MM) times the milestones; child_missions.source marks the
+               Prayer Journey's tasks ('prayer_journey'; NULL = the off-screen
+               bank) so they ride the existing claim/confirm/digest flow
+               without being mistaken for the day's bank card. New tables:
+               program_settings, program_children, ramadan_fasting,
+               ramadan_marks, prayer_journeys, milestone_alerts — every one
+               carries device_id (and child_id when it is about one child), so
+               the delete paths reach it. Additive, ensured unconditionally
+               (v33 = device twins).
+Migration v35: erased_devices — a one-way hash (never the id) of every device id
+               an account deletion removed, so a phone backup restored on a
+               reinstall cannot bring the account back: the session mint answers
+               410 device_erased to builds that understand it
+               (services/erased_devices.py). No device_id column on purpose —
+               an account deletion keeps these rows. Additive.
+"""
+import hashlib
+import os
+import sqlite3
+from pathlib import Path
+
+_DEFAULT = Path(__file__).resolve().parents[3] / "ops" / "conversations.db"
+
+_CREATE_PUSH_TOKENS: str = """
+CREATE TABLE IF NOT EXISTS push_tokens (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id   TEXT NOT NULL UNIQUE,
+    token       TEXT NOT NULL,
+    platform    TEXT NOT NULL DEFAULT 'android',
+    updated_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS ix_push_tokens_device
+    ON push_tokens (device_id);
+"""
+
+# One row per push actually handed to FCM.
+#
+# There was no send log at all, so no sender could ask "have we already
+# bothered this device?". streak_at_risk fires for any device idle >36h and
+# win_back for any idle >5 days, which meant the same permanently-lapsed device
+# got the identical message every single evening, forever. Halving the daily
+# volume does not fix that; a frequency cap does.
+#
+# Deliberately not unique on (device_id, kind): the history is the point, and a
+# cap is a question about the recent past, not a constraint on the table.
+_CREATE_PUSH_SENDS: str = """
+CREATE TABLE IF NOT EXISTS push_sends (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id   TEXT NOT NULL,
+    kind        TEXT NOT NULL,
+    sent_at     TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS ix_push_sends_device_time
+    ON push_sends (device_id, sent_at);
+"""
+
+_CREATE_USER_BACKUPS: str = """
+CREATE TABLE IF NOT EXISTS user_backups (
+    device_id   TEXT PRIMARY KEY,
+    google_id   TEXT,
+    salt        TEXT NOT NULL,
+    nonce       TEXT NOT NULL,
+    payload     TEXT NOT NULL,
+    updated_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS ix_user_backups_google
+    ON user_backups (google_id);
+"""
+
+_CREATE_PARENT_IDENTITIES: str = """
+CREATE TABLE IF NOT EXISTS parent_identities (
+    google_id    TEXT PRIMARY KEY,
+    email        TEXT,
+    display_name TEXT,
+    created_at   TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE TABLE IF NOT EXISTS identity_links (
+    device_id   TEXT PRIMARY KEY,
+    google_id   TEXT NOT NULL,
+    linked_at   TEXT NOT NULL DEFAULT (datetime('now')),
+    FOREIGN KEY (google_id) REFERENCES parent_identities(google_id)
+);
+CREATE INDEX IF NOT EXISTS ix_identity_links_google
+    ON identity_links (google_id);
+"""
+
+_CREATE_COACH_TIPS: str = """
+CREATE TABLE IF NOT EXISTS coach_tips (
+    id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id    TEXT NOT NULL,
+    child_id     INTEGER NOT NULL,
+    date         TEXT NOT NULL,
+    domain       TEXT,
+    text         TEXT NOT NULL,
+    source       TEXT NOT NULL DEFAULT 'fallback',
+    shown_at     TEXT,
+    tapped_at    TEXT,
+    created_at   TEXT NOT NULL DEFAULT (datetime('now')),
+    UNIQUE(device_id, child_id, date)
+);
+CREATE INDEX IF NOT EXISTS ix_coach_tips_device_child_date
+    ON coach_tips (device_id, child_id, date);
+CREATE INDEX IF NOT EXISTS ix_coach_tips_date
+    ON coach_tips (date);
+"""
+
+_CREATE_CHILD_CHALLENGES: str = """
+CREATE TABLE IF NOT EXISTS child_challenges (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id       TEXT NOT NULL,
+    child_id        INTEGER NOT NULL,
+    challenge_key   TEXT NOT NULL,
+    topic           TEXT NOT NULL,
+    domain          TEXT NOT NULL,
+    status          TEXT NOT NULL DEFAULT 'active',
+    note            TEXT,
+    started_at      TEXT NOT NULL DEFAULT (datetime('now')),
+    resolved_at     TEXT
+);
+CREATE INDEX IF NOT EXISTS ix_child_challenges_device_child
+    ON child_challenges (device_id, child_id, status);
+-- At most one ACTIVE challenge per child; resolved history is unbounded.
+CREATE UNIQUE INDEX IF NOT EXISTS ux_child_challenges_active
+    ON child_challenges (device_id, child_id) WHERE status = 'active';
+"""
+
+_CREATE_REFERRALS: str = """
+CREATE TABLE IF NOT EXISTS referral_codes (
+    device_id  TEXT PRIMARY KEY,
+    code       TEXT NOT NULL UNIQUE,
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE TABLE IF NOT EXISTS referrals (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    referrer_device TEXT NOT NULL,
+    referred_device TEXT NOT NULL UNIQUE,  -- a device can be referred only once
+    code            TEXT NOT NULL,
+    created_at      TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS ix_referrals_referrer
+    ON referrals (referrer_device);
+"""
+
+# 30 = child memory, 31 = «ادعم المربّي» ledger, 32 = attribution provenance,
+# 33 = device twins (aliases + fold log), 34 = family programs,
+# 35 = erased-device tombstones,
+# 36 = honest weekly counter: followups.source + weekly_plan_marks.
+# Every _ensure_* step runs unconditionally and the stamp only ever moves up,
+# so branches can land in any order: keep the highest number.
+SCHEMA_VERSION = 36
+
+
+def db_path() -> Path:
+    """Resolve the DB path at call time (so tests can override via env)."""
+    return Path(os.environ.get("CONVERSATIONS_DB", str(_DEFAULT)))
+
+
+def get_conn() -> sqlite3.Connection:
+    path = db_path()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(path)
+    conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA foreign_keys = ON")
+    # Handlers run concurrently in the threadpool: WAL lets readers proceed
+    # during a write, and busy_timeout retries instead of instantly raising
+    # "database is locked" (which used to 500 fully-generated replies).
+    conn.execute("PRAGMA journal_mode = WAL")
+    conn.execute("PRAGMA busy_timeout = 5000")
+    return conn
+
+
+def init_db() -> None:
+    """Create tables if missing and stamp schema_version. Idempotent."""
+    conn = get_conn()
+    conn.executescript(
+        """
+        CREATE TABLE IF NOT EXISTS schema_version (
+            version INTEGER NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS chat_sessions (
+            id          TEXT PRIMARY KEY,
+            device_id   TEXT,
+            created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+            updated_at  TEXT NOT NULL DEFAULT (datetime('now')),
+            metadata    TEXT
+        );
+
+        CREATE TABLE IF NOT EXISTS chat_messages (
+            id                 INTEGER PRIMARY KEY AUTOINCREMENT,
+            session_id         TEXT NOT NULL
+                                 REFERENCES chat_sessions(id) ON DELETE CASCADE,
+            role               TEXT NOT NULL,
+            content            TEXT NOT NULL,
+            domain             TEXT,
+            severity           TEXT,
+            mode               TEXT,
+            needs_human_review INTEGER NOT NULL DEFAULT 0,
+            created_at         TEXT NOT NULL DEFAULT (datetime('now')),
+            model              TEXT,
+            guardrail_version  TEXT
+        );
+        CREATE INDEX IF NOT EXISTS ix_chat_messages_session
+            ON chat_messages (session_id, created_at);
+
+        CREATE TABLE IF NOT EXISTS api_tokens (
+            token       TEXT PRIMARY KEY,
+            device_id   TEXT NOT NULL,
+            session_id  TEXT NOT NULL,
+            expires_at  TEXT,
+            created_at  TEXT NOT NULL DEFAULT (datetime('now'))
+        );
+        CREATE INDEX IF NOT EXISTS ix_api_tokens_device
+            ON api_tokens (device_id);
+        CREATE INDEX IF NOT EXISTS ix_api_tokens_session
+            ON api_tokens (session_id);
+
+        CREATE TABLE IF NOT EXISTS user_feedback (
+            id          INTEGER PRIMARY KEY AUTOINCREMENT,
+            session_id  TEXT NOT NULL,
+            message_id  INTEGER NOT NULL,
+            rating      TEXT NOT NULL,
+            comment     TEXT,
+            created_at  TEXT NOT NULL DEFAULT (datetime('now'))
+        );
+
+        CREATE TABLE IF NOT EXISTS child_profiles (
+            id          INTEGER PRIMARY KEY AUTOINCREMENT,
+            device_id   TEXT NOT NULL,
+            name        TEXT NOT NULL,
+            age_group   TEXT NOT NULL,
+            gender      TEXT,
+            avatar_emoji TEXT,
+            created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+            updated_at  TEXT NOT NULL DEFAULT (datetime('now'))
+        );
+        CREATE INDEX IF NOT EXISTS ix_child_profiles_device
+            ON child_profiles (device_id);
+
+        CREATE TABLE IF NOT EXISTS lesson_progress (
+            id             INTEGER PRIMARY KEY AUTOINCREMENT,
+            device_id      TEXT NOT NULL,
+            child_id       INTEGER NOT NULL,
+            path_id        TEXT NOT NULL,
+            lesson_id      TEXT NOT NULL,
+            status         TEXT NOT NULL DEFAULT 'not_started',
+            started_at     TEXT,
+            completed_at   TEXT,
+            score          INTEGER,
+            updated_at     TEXT,
+            -- NOT (device_id, child_id, path_id, lesson_id): path_id in the
+            -- key let one lesson hold two rows, and it never matched what
+            -- production actually had, which was (device_id, lesson_id) —
+            -- one row per device per lesson, so siblings overwrote each
+            -- other. See _ensure_lesson_progress_child_key.
+            UNIQUE(device_id, child_id, lesson_id)
+        );
+    """
+    )
+
+    # Defensive (prod hotfix): an older prod lesson_progress table can predate
+    # the child_id column (its CREATE TABLE IF NOT EXISTS was a no-op). The old
+    # indexes never referenced child_id so the gap stayed hidden; the new
+    # child_id index crashed startup with "no such column: child_id". Ensure
+    # the column exists (idempotent — no-op when present) BEFORE the index.
+    # lesson_progress is created in the executescript above, so it exists here.
+    _ensure_column(
+        conn, table="lesson_progress", column="child_id",
+        ddl="ALTER TABLE lesson_progress ADD COLUMN child_id INTEGER",
+    )
+    _ensure_column(
+        conn,
+        table="lesson_progress",
+        column="updated_at",
+        ddl="ALTER TABLE lesson_progress ADD COLUMN updated_at TEXT",
+    )
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS ix_lesson_progress_device_child "
+        "ON lesson_progress (device_id, child_id, path_id)"
+    )
+
+    _ensure_column(
+        conn,
+        table="child_profiles",
+        column="age_group",
+        ddl="ALTER TABLE child_profiles ADD COLUMN age_group TEXT NOT NULL DEFAULT ''",
+    )
+    _ensure_column(
+        conn,
+        table="child_profiles",
+        column="avatar_emoji",
+        ddl="ALTER TABLE child_profiles ADD COLUMN avatar_emoji TEXT",
+    )
+
+    _ensure_coach_tips_table(conn)
+    # v26 — the coach tip is cached one row per device/child/day, so the first
+    # reader's language used to win the whole day for the household.
+    _ensure_column(
+        conn, table="coach_tips", column="lang",
+        ddl="ALTER TABLE coach_tips ADD COLUMN lang TEXT",
+    )
+    _ensure_child_challenges_table(conn)
+    _ensure_child_challenges_active_key(conn)
+    _ensure_referrals_table(conn)
+    _ensure_push_tokens_table(conn)
+    # v25 — the build census. `push_tokens` is the only row the app touches on
+    # every launch, which makes it the only place a *current* version can be
+    # recorded. `chat_sessions.metadata` was the previous answer and it cannot
+    # work: a session is created once per install and never updated, so a
+    # device that installed on 1.0.29 and now runs 1.0.51 still reports 1.0.29.
+    # 371 of the last 400 sessions carried no version at all.
+    #
+    # Without this there is no way to decide MINIMUM_BUILD_NUMBER on evidence —
+    # see docs/OPS_RUNBOOK.md §10.1.
+    _ensure_column(
+        conn, table="push_tokens", column="app_version",
+        ddl="ALTER TABLE push_tokens ADD COLUMN app_version TEXT",
+    )
+    _ensure_column(
+        conn, table="push_tokens", column="build_number",
+        ddl="ALTER TABLE push_tokens ADD COLUMN build_number INTEGER",
+    )
+    _ensure_push_sends_table(conn)
+    _ensure_parent_identities_table(conn)
+    _ensure_daily_login_streaks_table(conn)
+    _ensure_api_tokens_columns(conn)
+    _ensure_api_tokens_hashed(conn)
+    _ensure_chat_messages_columns(conn)
+    _ensure_daily_routines_table(conn)
+    _ensure_habits_value_table(conn)
+    _ensure_habit_templates_table(conn)
+    _ensure_habits_value_audit_columns(conn)
+    _ensure_user_backups_table(conn)
+    _ensure_referral_clicks_table(conn)
+    _ensure_feedback_replies_table(conn)
+    _ensure_child_screen_sessions_table(conn)
+    _ensure_family_agreements_tables(conn)
+    _ensure_child_missions_table(conn)
+    _ensure_lesson_progress_child_key(conn)
+    _ensure_licence_tables(conn)
+    _ensure_child_web_claims_table(conn)
+    _ensure_child_memory_tables(conn)
+    _ensure_donations_table(conn)
+    _ensure_attribution_v32(conn)
+    ensure_device_twin_tables(conn)
+    _ensure_family_programs_v34(conn)
+    _ensure_erased_devices_v35(conn)
+    _ensure_honest_counter_v36(conn)
+
+    row = conn.execute("SELECT version FROM schema_version LIMIT 1").fetchone()
+    if row is None:
+        conn.execute("INSERT INTO schema_version (version) VALUES (?)", (SCHEMA_VERSION,))
+    elif row["version"] < SCHEMA_VERSION:
+        conn.execute("UPDATE schema_version SET version = ?", (SCHEMA_VERSION,))
+    conn.commit()
+    conn.close()
+
+
+_CREATE_DAILY_ROUTINES: str = """
+CREATE TABLE IF NOT EXISTS child_daily_routines (
+    id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id    TEXT NOT NULL,
+    child_id     INTEGER NOT NULL,
+    routine_date TEXT NOT NULL,
+    created_at   TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at   TEXT NOT NULL DEFAULT (datetime('now')),
+    UNIQUE(device_id, child_id, routine_date),
+    FOREIGN KEY (child_id) REFERENCES child_profiles(id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS ix_daily_routines_device_child_date
+    ON child_daily_routines (device_id, child_id, routine_date);
+CREATE INDEX IF NOT EXISTS ix_daily_routines_date
+    ON child_daily_routines (routine_date);
+
+CREATE TABLE IF NOT EXISTS routine_events (
+    id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    routine_id   INTEGER NOT NULL,
+    event_type   TEXT NOT NULL,
+    started_at   TEXT NOT NULL,
+    ended_at     TEXT,
+    feed_type    TEXT,
+    amount_ml    INTEGER,
+    side         TEXT,
+    diaper_type  TEXT,
+    notes        TEXT,
+    source       TEXT NOT NULL DEFAULT 'manual',
+    created_at   TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at   TEXT NOT NULL DEFAULT (datetime('now')),
+    FOREIGN KEY (routine_id) REFERENCES child_daily_routines(id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS ix_routine_events_routine
+    ON routine_events (routine_id, event_type, started_at);
+"""
+
+_CREATE_DAILY_LOGIN_STREAKS: str = """
+CREATE TABLE IF NOT EXISTS daily_login_streaks (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id   TEXT NOT NULL,
+    child_id    INTEGER NOT NULL,
+    date        TEXT NOT NULL,
+    created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+    UNIQUE(device_id, child_id, date)
+);
+CREATE INDEX IF NOT EXISTS ix_daily_login_streaks_device_child
+    ON daily_login_streaks (device_id, child_id, date);
+CREATE INDEX IF NOT EXISTS ix_daily_login_streaks_date
+    ON daily_login_streaks (date);
+"""
+
+
+_CREATE_HABITS_VALUE_EVENTS: str = """
+CREATE TABLE IF NOT EXISTS habits_value_events (
+    id               INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id        TEXT NOT NULL,
+    child_id         INTEGER NOT NULL,
+    category         TEXT NOT NULL,
+    habit_name       TEXT NOT NULL,
+    status           TEXT NOT NULL,
+    submitted_by     TEXT NOT NULL DEFAULT 'parent',
+    device_timestamp TEXT NOT NULL DEFAULT (datetime('now')),
+    created_at       TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at       TEXT NOT NULL DEFAULT (datetime('now')),
+    FOREIGN KEY (child_id) REFERENCES child_profiles(id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS ix_habits_value_events_device_child_date
+    ON habits_value_events (device_id, child_id, created_at);
+"""
+
+_CREATE_HABIT_TEMPLATES: str = """
+CREATE TABLE IF NOT EXISTS habit_templates (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id   TEXT NOT NULL,
+    child_id    INTEGER NOT NULL,
+    category    TEXT NOT NULL,
+    custom_name TEXT NOT NULL,
+    is_active   INTEGER NOT NULL DEFAULT 1,
+    created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at  TEXT NOT NULL DEFAULT (datetime('now')),
+    UNIQUE(child_id, custom_name),
+    FOREIGN KEY (child_id) REFERENCES child_profiles(id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS ix_habit_templates_device_child_active
+    ON habit_templates (device_id, child_id, is_active);
+"""
+
+# No foreign key to app_feedback: that table is created lazily by the feedback
+# router rather than here, so it may not exist yet. The route is the only
+# writer and only ever inserts a feedback_id it has just looked up.
+_CREATE_CHILD_SCREEN_SESSIONS: str = """
+CREATE TABLE IF NOT EXISTS child_screen_sessions (
+    id                INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id         TEXT NOT NULL,
+    child_id          INTEGER NOT NULL,
+    surface           TEXT NOT NULL,
+    -- Derived on the server from tz_offset_minutes, never taken from the
+    -- client as a string. A client that picks its own date picks its own
+    -- daily budget.
+    local_date        TEXT NOT NULL,
+    tz_offset_minutes INTEGER NOT NULL,
+    started_at        TEXT NOT NULL,
+    last_heartbeat_at TEXT NOT NULL,
+    ended_at          TEXT,
+    -- completed | budget_exhausted | timeout | parent_exit | superseded
+    ended_reason      TEXT,
+    counted_seconds   INTEGER NOT NULL DEFAULT 0,
+    created_at        TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS ix_css_child_date
+    ON child_screen_sessions (child_id, local_date);
+CREATE INDEX IF NOT EXISTS ix_css_open
+    ON child_screen_sessions (child_id, ended_at);
+-- The rolling-24h floor scans by start time across all children.
+CREATE INDEX IF NOT EXISTS ix_css_started
+    ON child_screen_sessions (child_id, started_at);
+"""
+
+_CREATE_CHILD_MISSIONS: str = """
+CREATE TABLE IF NOT EXISTS child_missions (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id     TEXT NOT NULL,
+    child_id      INTEGER NOT NULL,
+    mission_key   TEXT NOT NULL,
+    local_date    TEXT NOT NULL,
+    -- assigned | claimed | confirmed | not_done | expired
+    status        TEXT NOT NULL DEFAULT 'assigned',
+    assigned_at   TEXT NOT NULL DEFAULT (datetime('now')),
+    claimed_at    TEXT,
+    confirmed_at  TEXT,
+    parent_note   TEXT,
+    UNIQUE (child_id, local_date, mission_key)
+);
+CREATE INDEX IF NOT EXISTS ix_missions_pending
+    ON child_missions (device_id, status);
+CREATE INDEX IF NOT EXISTS ix_missions_child_date
+    ON child_missions (child_id, local_date);
+-- The 21-day no-repeat rule scans a child's history by mission.
+CREATE INDEX IF NOT EXISTS ix_missions_child_key
+    ON child_missions (child_id, mission_key, local_date);
+"""
+
+_CREATE_CHILD_LICENCES: str = """
+CREATE TABLE IF NOT EXISTS child_licences (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id     TEXT NOT NULL,
+    child_id      INTEGER NOT NULL,
+    -- stranger | signal | contact | footprint | public
+    level_key     TEXT NOT NULL,
+    -- practising | awaiting_talk | granted
+    status        TEXT NOT NULL DEFAULT 'practising',
+    granted_at    TEXT,
+    talked_at     TEXT,
+    next_review_date TEXT,
+    created_at    TEXT NOT NULL DEFAULT (datetime('now')),
+    UNIQUE (child_id, level_key)
+);
+CREATE INDEX IF NOT EXISTS ix_licences_child
+    ON child_licences (child_id, status);
+"""
+
+_CREATE_SCENARIO_ANSWERS: str = """
+CREATE TABLE IF NOT EXISTS child_scenario_answers (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id     TEXT NOT NULL,
+    child_id      INTEGER NOT NULL,
+    scenario_key  TEXT NOT NULL,
+    level_key     TEXT NOT NULL,
+    choice_key    TEXT NOT NULL,
+    -- safe | unsafe | critical, copied from the bank at answer time. Read
+    -- back from the bank instead and editing a classification would rewrite
+    -- history; the log has to stay what it was.
+    outcome       TEXT NOT NULL,
+    attempt       INTEGER NOT NULL DEFAULT 1,
+    answered_at   TEXT NOT NULL DEFAULT (datetime('now')),
+    parent_alerted_at TEXT
+);
+CREATE INDEX IF NOT EXISTS ix_scenarios_child
+    ON child_scenario_answers (child_id, level_key);
+-- The seven-day repeat rule scans a child's history by scenario.
+CREATE INDEX IF NOT EXISTS ix_scenarios_repeat
+    ON child_scenario_answers (child_id, scenario_key, answered_at);
+"""
+
+_CREATE_FAMILY_AGREEMENTS: str = """
+CREATE TABLE IF NOT EXISTS family_agreements (
+    id                  INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id           TEXT NOT NULL,
+    child_id            INTEGER NOT NULL,
+    version             INTEGER NOT NULL DEFAULT 1,
+    -- draft | active | archived. Only one active row per child; superseding
+    -- one archives it rather than deleting, so a family can see what they
+    -- agreed to last month and what changed.
+    status              TEXT NOT NULL DEFAULT 'draft',
+    signed_by_parent_at TEXT,
+    signed_by_child_at  TEXT,
+    next_review_date    TEXT,
+    created_at          TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE TABLE IF NOT EXISTS agreement_clauses (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    agreement_id  INTEGER NOT NULL,
+    -- child | parent | both. The column that makes this an agreement.
+    applies_to    TEXT NOT NULL,
+    clause_key    TEXT,
+    text_ar       TEXT NOT NULL,
+    is_custom     INTEGER NOT NULL DEFAULT 0,
+    sort_order    INTEGER NOT NULL DEFAULT 0,
+    -- Set when the child ticks "I understand" on this clause specifically.
+    -- One OK for the whole page is a signature on something unread.
+    acknowledged_at TEXT
+);
+CREATE INDEX IF NOT EXISTS ix_agreements_child
+    ON family_agreements (child_id, status);
+CREATE INDEX IF NOT EXISTS ix_clauses_agreement
+    ON agreement_clauses (agreement_id, sort_order);
+"""
+
+_CREATE_FEEDBACK_REPLIES: str = """
+CREATE TABLE IF NOT EXISTS feedback_replies (
+    id           TEXT PRIMARY KEY,
+    feedback_id  TEXT NOT NULL,
+    device_id    TEXT,
+    reply_text   TEXT NOT NULL,
+    created_at   TEXT NOT NULL DEFAULT (datetime('now')),
+    delivered_at TEXT,
+    read_at      TEXT
+);
+CREATE INDEX IF NOT EXISTS ix_feedback_replies_device
+    ON feedback_replies (device_id, read_at);
+CREATE INDEX IF NOT EXISTS ix_feedback_replies_feedback
+    ON feedback_replies (feedback_id);
+"""
+
+
+def _ensure_daily_routines_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v14 daily routines tables."""
+    try:
+        cur = conn.execute("PRAGMA table_info(child_daily_routines)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_DAILY_ROUTINES)
+
+
+def _ensure_daily_login_streaks_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v10 daily_login_streaks table."""
+    try:
+        cur = conn.execute("PRAGMA table_info(daily_login_streaks)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_DAILY_LOGIN_STREAKS)
+
+
+def _ensure_habits_value_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v15 habits_value_events table."""
+    try:
+        cur = conn.execute("PRAGMA table_info(habits_value_events)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_HABITS_VALUE_EVENTS)
+
+
+def _ensure_habit_templates_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v16 habit_templates table."""
+    try:
+        cur = conn.execute("PRAGMA table_info(habit_templates)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_HABIT_TEMPLATES)
+
+
+def _ensure_child_missions_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v23 child_missions table."""
+    try:
+        cur = conn.execute("PRAGMA table_info(child_missions)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_CHILD_MISSIONS)
+
+
+def _ensure_lesson_progress_child_key(conn: sqlite3.Connection) -> None:
+    """One progress row per (device, child, lesson) — not per (device, lesson).
+
+    Production shipped `UNIQUE (device_id, lesson_id)`: one row per device per
+    lesson, however many children the family has. The handler wrote `child_id`
+    into that single row, so a second child finishing the same lesson did not
+    add a row — it re-pointed the first child's. Reads filter
+    `child_id IN (?, 0)` (children.py), so child A's completed lesson vanished
+    from A's progress the moment B completed the same one.
+
+    That is «أتمم الدرس ولا يتم تسجيل التقدم» (#fb_a1325670, v1.0.40+85) for
+    every family with more than one child. The August 2026 fix corrected which
+    child a completion was attributed to; it could not create the second row,
+    because the unique index forbade one. 305 devices have more than one child
+    and 191 of those carry progress rows.
+
+    Two schemas were live at once, which is why this reads the constraint
+    rather than a version number: production had the two-column key above,
+    while `CREATE TABLE` in this file declared a four-column one including
+    `path_id`. Fresh databases (CI, local dev) therefore behaved differently
+    from production on exactly the code path that produced the bug report.
+    `path_id` has no business in the key — a lesson belongs to one path — so
+    the target is three columns.
+
+    Columns are read from the live table rather than assumed. The first
+    attempt at this migration (2026-08-17, deploy 32022710188) hard-coded the
+    column list from `CREATE TABLE` above and named `score` — which production
+    does not have. `no such column: score` killed startup, and because
+    `executescript` commits before it runs, the half-built
+    `lesson_progress_new` survived and turned every retry into `table
+    lesson_progress_new already exists`. The rollback saved the data; nothing
+    in the test suite caught it, because the fixture was written from the
+    schema in this file instead of copied from production.
+
+    So: drop any debris first, take the intersection of the columns that
+    actually exist, and do the whole swap in one transaction that rolls back
+    as a unit. Idempotent, and safe to re-run after a failure.
+    """
+    row = conn.execute(
+        "SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'lesson_progress'"
+    ).fetchone()
+    if row is None or not row[0]:
+        return  # table not created yet; the CREATE above owns the right key
+    if "unique (device_id, child_id, lesson_id)" in " ".join(row[0].split()).lower():
+        return
+
+    target_cols = ("device_id", "child_id", "path_id", "lesson_id", "status",
+                   "started_at", "completed_at", "score", "updated_at")
+    live_cols = {r[1] for r in conn.execute("PRAGMA table_info(lesson_progress)")}
+    copied = [c for c in target_cols if c in live_cols]
+    # Legacy rows carry child_id NULL; SQLite treats NULLs as distinct, so two
+    # unattributed rows for one lesson would slip through the new key. Fold
+    # them onto 0 — the "unattributed" id the read path already surfaces for
+    # every child. A table predating the column at all starts everyone at 0.
+    if "child_id" in copied:
+        picked = ["COALESCE(child_id, 0) AS child_id" if c == "child_id" else c
+                  for c in copied]
+    else:
+        copied = ["child_id", *copied]
+        picked = ["0 AS child_id", *copied[1:]]
+
+    col_list = ", ".join(copied)
+    # `MAX()` with bare columns is SQLite's documented idiom for "the row that
+    # won". The old two-column key means nothing can collide coming out of
+    # production; a four-column table can hold rows differing only by path_id,
+    # so keep the furthest along — completed (2) over in_progress (1) over
+    # not_started (0).
+    copy_sql = f"""
+        INSERT INTO lesson_progress_new ({col_list})
+        SELECT {col_list} FROM (
+            SELECT {", ".join(picked)},
+                   MAX(CASE status
+                         WHEN 'completed'   THEN 2
+                         WHEN 'in_progress' THEN 1
+                         ELSE 0
+                       END)
+              FROM lesson_progress
+             GROUP BY device_id, COALESCE(child_id, 0), lesson_id
+        )
+    """
+
+    # `executescript` COMMITs before it runs, which is exactly how the first
+    # attempt left debris behind. Drive the swap with explicit statements in
+    # one transaction instead, so a failure anywhere undoes all of it.
+    previous_isolation = conn.isolation_level
+    conn.isolation_level = None
+    try:
+        conn.execute("BEGIN IMMEDIATE")
+        conn.execute("DROP TABLE IF EXISTS lesson_progress_new")
+        conn.execute(
+            """
+            CREATE TABLE lesson_progress_new (
+                id             INTEGER PRIMARY KEY AUTOINCREMENT,
+                device_id      TEXT NOT NULL,
+                child_id       INTEGER NOT NULL DEFAULT 0,
+                path_id        TEXT NOT NULL,
+                lesson_id      TEXT NOT NULL,
+                status         TEXT NOT NULL DEFAULT 'not_started',
+                started_at     TEXT,
+                completed_at   TEXT,
+                score          INTEGER,
+                updated_at     TEXT,
+                UNIQUE (device_id, child_id, lesson_id)
+            )
+            """
+        )
+        conn.execute(copy_sql)
+        conn.execute("DROP TABLE lesson_progress")
+        conn.execute("ALTER TABLE lesson_progress_new RENAME TO lesson_progress")
+        # DROP TABLE takes its indexes with it, so rebuild all three.
+        conn.execute("CREATE INDEX IF NOT EXISTS ix_lesson_progress_device "
+                     "ON lesson_progress (device_id)")
+        conn.execute("CREATE INDEX IF NOT EXISTS ix_lesson_progress_path_device "
+                     "ON lesson_progress (device_id, path_id)")
+        conn.execute("CREATE INDEX IF NOT EXISTS ix_lesson_progress_device_child "
+                     "ON lesson_progress (device_id, child_id, path_id)")
+        conn.execute("COMMIT")
+    except Exception:
+        conn.execute("ROLLBACK")
+        raise
+    finally:
+        conn.isolation_level = previous_isolation
+
+
+
+def _ensure_licence_tables(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v24 internet-licence tables."""
+    for table, ddl in (("child_licences", _CREATE_CHILD_LICENCES),
+                       ("child_scenario_answers", _CREATE_SCENARIO_ANSWERS)):
+        try:
+            cur = conn.execute(f"PRAGMA table_info({table})")
+            names = {row[1] for row in cur.fetchall()}
+        except sqlite3.Error:
+            names = set()
+        if not names:
+            conn.executescript(ddl)
+
+
+def _ensure_family_agreements_tables(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v22 agreement tables."""
+    try:
+        cur = conn.execute("PRAGMA table_info(family_agreements)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_FAMILY_AGREEMENTS)
+
+
+def _ensure_child_screen_sessions_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v21 child_screen_sessions table."""
+    try:
+        cur = conn.execute("PRAGMA table_info(child_screen_sessions)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_CHILD_SCREEN_SESSIONS)
+
+
+def _ensure_feedback_replies_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v20 feedback_replies table."""
+    try:
+        cur = conn.execute("PRAGMA table_info(feedback_replies)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_FEEDBACK_REPLIES)
+
+
+def _ensure_habits_value_audit_columns(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v17 audit columns on habits_value_events."""
+    _ensure_column(
+        conn,
+        table="habits_value_events",
+        column="submitted_by",
+        ddl="ALTER TABLE habits_value_events ADD COLUMN submitted_by TEXT NOT NULL DEFAULT 'parent'",
+    )
+    _ensure_column(
+        conn,
+        table="habits_value_events",
+        column="device_timestamp",
+        ddl="ALTER TABLE habits_value_events ADD COLUMN device_timestamp TEXT NOT NULL DEFAULT (datetime('now'))",
+    )
+
+
+def current_version() -> int:
+    conn = get_conn()
+    try:
+        row = conn.execute("SELECT version FROM schema_version LIMIT 1").fetchone()
+        return row["version"] if row else 0
+    finally:
+        conn.close()
+
+
+def _ensure_column(
+    conn: sqlite3.Connection,
+    *,
+    table: str,
+    column: str,
+    ddl: str,
+) -> None:
+    """Add a column to an existing table if it is missing."""
+    try:
+        cur = conn.execute(f"PRAGMA table_info({table})")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if names and column not in names:
+        conn.execute(ddl)
+
+
+def _ensure_coach_tips_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v6 coach_tips table."""
+    try:
+        cur = conn.execute("PRAGMA table_info(coach_tips)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_COACH_TIPS)
+
+
+def _ensure_child_challenges_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v7+ child_challenges table.
+
+    v12: aligned schema with children.py router (topic, domain, note,
+    resolved_at). Existing rows are dropped because this is dev/test data;
+    production migration should back up first.
+    """
+    try:
+        cur = conn.execute("PRAGMA table_info(child_challenges)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_CHILD_CHALLENGES)
+        return
+    # Migrate old v7/v10 schema to v12 if needed.
+    required = {"topic", "domain", "note", "resolved_at"}
+    if not required.issubset(names):
+        conn.executescript(
+            """
+            ALTER TABLE child_challenges RENAME TO child_challenges_old;
+            """
+            + _CREATE_CHILD_CHALLENGES
+            + """
+            INSERT INTO child_challenges (
+                id, device_id, child_id, challenge_key, topic, domain,
+                status, note, started_at, resolved_at
+            )
+            SELECT
+                id, device_id, child_id, challenge_key, challenge_key,
+                'islamic_parenting', status, notes, started_at, completed_at
+            FROM child_challenges_old
+            WHERE status = 'active' OR completed_at IS NOT NULL;
+            DROP TABLE child_challenges_old;
+            """
+        )
+
+
+def _ensure_child_challenges_active_key(conn: sqlite3.Connection) -> None:
+    """v27 — replace UNIQUE(device_id, child_id, status) with an active-only key.
+
+    The table-level constraint meant a child could hold ONE resolved challenge,
+    ever: set A, switch to B (A → resolved), switch to C (B → resolved) and the
+    UPDATE collides with A. PUT/DELETE /challenge answered 500 from the third
+    change on. SQLite cannot drop a table constraint, so the table is rebuilt —
+    in one explicit transaction, the same way as _ensure_lesson_progress_child_key,
+    so a failure leaves the original table untouched. The old key already
+    guaranteed at most one active row per child, so the copy cannot violate the
+    new partial index.
+    """
+    row = conn.execute(
+        "SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'child_challenges'"
+    ).fetchone()
+    if row is None or not row[0]:
+        return
+    if "unique(device_id,child_id,status)" not in "".join(row[0].split()).lower():
+        # Already rebuilt (or created from the current DDL): just make sure
+        # the partial index exists.
+        conn.execute(
+            "CREATE UNIQUE INDEX IF NOT EXISTS ux_child_challenges_active "
+            "ON child_challenges (device_id, child_id) WHERE status = 'active'"
+        )
+        return
+
+    cols = ("id", "device_id", "child_id", "challenge_key", "topic", "domain",
+            "status", "note", "started_at", "resolved_at")
+    live = {r[1] for r in conn.execute("PRAGMA table_info(child_challenges)")}
+    copied = ", ".join(c for c in cols if c in live)
+
+    previous_isolation = conn.isolation_level
+    conn.isolation_level = None
+    try:
+        conn.execute("BEGIN IMMEDIATE")
+        conn.execute("DROP TABLE IF EXISTS child_challenges_v27")
+        conn.execute(
+            """
+            CREATE TABLE child_challenges_v27 (
+                id              INTEGER PRIMARY KEY AUTOINCREMENT,
+                device_id       TEXT NOT NULL,
+                child_id        INTEGER NOT NULL,
+                challenge_key   TEXT NOT NULL,
+                topic           TEXT NOT NULL,
+                domain          TEXT NOT NULL,
+                status          TEXT NOT NULL DEFAULT 'active',
+                note            TEXT,
+                started_at      TEXT NOT NULL DEFAULT (datetime('now')),
+                resolved_at     TEXT
+            )
+            """
+        )
+        conn.execute(
+            f"INSERT INTO child_challenges_v27 ({copied}) "
+            f"SELECT {copied} FROM child_challenges"
+        )
+        conn.execute("DROP TABLE child_challenges")
+        conn.execute("ALTER TABLE child_challenges_v27 RENAME TO child_challenges")
+        conn.execute(
+            "CREATE INDEX IF NOT EXISTS ix_child_challenges_device_child "
+            "ON child_challenges (device_id, child_id, status)"
+        )
+        conn.execute(
+            "CREATE UNIQUE INDEX IF NOT EXISTS ux_child_challenges_active "
+            "ON child_challenges (device_id, child_id) WHERE status = 'active'"
+        )
+        conn.execute("COMMIT")
+    except Exception:
+        conn.execute("ROLLBACK")
+        raise
+    finally:
+        conn.isolation_level = previous_isolation
+
+
+_CREATE_REFERRAL_CLICKS: str = """
+CREATE TABLE IF NOT EXISTS referral_clicks (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    ip         TEXT NOT NULL,
+    user_agent TEXT,
+    code       TEXT NOT NULL,
+    clicked_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS ix_referral_clicks_ip
+    ON referral_clicks (ip, clicked_at);
+"""
+
+
+def _ensure_referral_clicks_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the referral_clicks table."""
+    try:
+        cur = conn.execute("PRAGMA table_info(referral_clicks)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_REFERRAL_CLICKS)
+
+
+_CREATE_CHILD_MEMORY: str = """
+CREATE TABLE IF NOT EXISTS child_facts (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id   TEXT NOT NULL,
+    child_id    INTEGER NOT NULL,
+    category    TEXT NOT NULL,
+    fact        TEXT NOT NULL,
+    source      TEXT NOT NULL DEFAULT 'chat',
+    confidence  REAL NOT NULL DEFAULT 0.5,
+    status      TEXT NOT NULL DEFAULT 'active',
+    lang        TEXT NOT NULL DEFAULT 'ar',
+    times_seen  INTEGER NOT NULL DEFAULT 1,
+    created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at  TEXT NOT NULL DEFAULT (datetime('now')),
+    FOREIGN KEY (child_id) REFERENCES child_profiles(id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS ix_child_facts_child
+    ON child_facts (device_id, child_id, status);
+
+CREATE TABLE IF NOT EXISTS followups (
+    id                INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id         TEXT NOT NULL,
+    child_id          INTEGER NOT NULL,
+    strategy          TEXT NOT NULL,
+    topic             TEXT,
+    lang              TEXT NOT NULL DEFAULT 'ar',
+    source_message_id INTEGER,
+    due_at            TEXT NOT NULL,
+    status            TEXT NOT NULL DEFAULT 'pending',
+    outcome           TEXT,
+    note              TEXT,
+    outcome_fact_id   INTEGER,
+    pushed_at         TEXT,
+    answered_at       TEXT,
+    created_at        TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at        TEXT NOT NULL DEFAULT (datetime('now')),
+    FOREIGN KEY (child_id) REFERENCES child_profiles(id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS ix_followups_due ON followups (status, due_at);
+CREATE INDEX IF NOT EXISTS ix_followups_child
+    ON followups (device_id, child_id, status);
+
+CREATE TABLE IF NOT EXISTS weekly_plans (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id   TEXT NOT NULL,
+    child_id    INTEGER NOT NULL,
+    iso_week    TEXT NOT NULL,
+    lang        TEXT NOT NULL DEFAULT 'ar',
+    plan_json   TEXT NOT NULL,
+    created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+    personal    INTEGER NOT NULL DEFAULT 0,  -- shaped by memory (confirmed sessions only)
+    UNIQUE (device_id, child_id, iso_week, lang, personal),
+    FOREIGN KEY (child_id) REFERENCES child_profiles(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS child_memory_settings (
+    device_id         TEXT PRIMARY KEY,
+    enabled           INTEGER NOT NULL DEFAULT 1,
+    generation        INTEGER NOT NULL DEFAULT 0,
+    tz_offset_minutes INTEGER,
+    updated_at        TEXT NOT NULL DEFAULT (datetime('now'))
+);
+"""
+
+
+# Proof that a session holds the phone behind its device id (v30; see
+# services/device_proof.py). Hashes only: the code, the session token and the
+# push token are never stored here in the clear.
+_CREATE_DEVICE_PROOF: str = """
+CREATE TABLE IF NOT EXISTS device_proof_challenges (
+    id               INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id        TEXT NOT NULL,
+    token_hash       TEXT NOT NULL,   -- the session that asked; only it may answer
+    code_hash        TEXT NOT NULL,
+    push_token_hash  TEXT NOT NULL,   -- the push token the code was sent to
+    created_at       TEXT NOT NULL DEFAULT (datetime('now')),
+    expires_at       TEXT NOT NULL,
+    attempts         INTEGER NOT NULL DEFAULT 0,
+    used_at          TEXT
+);
+CREATE INDEX IF NOT EXISTS ix_device_proof_challenges_device
+    ON device_proof_challenges (device_id, created_at);
+CREATE INDEX IF NOT EXISTS ix_device_proof_challenges_created
+    ON device_proof_challenges (created_at);
+
+-- One row per session that completed a challenge. It is proven while the
+-- device's current push token is still the one the code was delivered to.
+-- `clean` = the device was not in a push-token cooldown when it proved: only
+-- a clean proof can vouch for a later push-token change.
+CREATE TABLE IF NOT EXISTS device_proof_sessions (
+    token_hash       TEXT PRIMARY KEY,
+    device_id        TEXT NOT NULL,
+    push_token_hash  TEXT NOT NULL,
+    proven_at        TEXT NOT NULL DEFAULT (datetime('now')),
+    clean            INTEGER NOT NULL DEFAULT 0
+);
+CREATE INDEX IF NOT EXISTS ix_device_proof_sessions_device
+    ON device_proof_sessions (device_id);
+
+-- The device itself: when it last proved, against which push token, and when
+-- it first did (from then on its destructive child routes need a proof too).
+CREATE TABLE IF NOT EXISTS device_proofs (
+    device_id        TEXT PRIMARY KEY,
+    push_token_hash  TEXT NOT NULL,
+    proven_at        TEXT NOT NULL DEFAULT (datetime('now')),
+    first_proven_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+-- The notice owed to the phone that just lost the account's push token
+-- (services/device_alerts.py). `old_token` is that phone's FCM token, kept only
+-- until the notice is sent; `sent_at` enforces one notice a day.
+CREATE TABLE IF NOT EXISTS device_alerts (
+    device_id   TEXT PRIMARY KEY,
+    old_token   TEXT,
+    queued_at   TEXT,
+    sent_at     TEXT
+);
+"""
+
+
+def _ensure_child_memory_tables(conn: sqlite3.Connection) -> None:
+    """v30: child memory, follow-ups, weekly plans, memory switch; and the
+    device-proof tables (services/device_proof.py). Additive and unconditional
+    (it runs whatever the stamp says, so a database a later branch already
+    stamped higher still gets every piece).
+    """
+    conn.executescript(_CREATE_CHILD_MEMORY)
+    conn.executescript(_CREATE_DEVICE_PROOF)
+    _ensure_column(conn, table="device_proof_sessions", column="clean",
+                   ddl="ALTER TABLE device_proof_sessions ADD COLUMN clean "
+                       "INTEGER NOT NULL DEFAULT 0")
+    # The challenge's public id: random, so another session cannot name it.
+    _ensure_column(conn, table="device_proof_challenges", column="public_id",
+                   ddl="ALTER TABLE device_proof_challenges ADD COLUMN public_id TEXT")
+    conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS ux_device_proof_challenges_public "
+                 "ON device_proof_challenges (public_id)")
+    _ensure_column(conn, table="weekly_plans", column="personal",
+                   ddl="ALTER TABLE weekly_plans ADD COLUMN personal INTEGER NOT NULL DEFAULT 0")
+    # 1 = the Google link was made by a session proven to hold the phone. Account
+    # deletion follows only such links (routers/privacy.py account_devices).
+    _ensure_column(conn, table="identity_links", column="confirmed",
+                   ddl="ALTER TABLE identity_links ADD COLUMN confirmed INTEGER")
+    # When the device's current push token became current, and whether that
+    # change was vouched for by a proven session (services/device_proof.py:
+    # an unvouched change pauses the protected routes for 72 hours).
+    _ensure_column(conn, table="push_tokens", column="token_since",
+                   ddl="ALTER TABLE push_tokens ADD COLUMN token_since TEXT")
+    _ensure_column(conn, table="push_tokens", column="token_vouched",
+                   ddl="ALTER TABLE push_tokens ADD COLUMN token_vouched INTEGER")
+    # 1 = the first push token of an established device: its first 72 hours
+    # pause the irreversible routes only (account and child deletion).
+    _ensure_column(conn, table="push_tokens", column="token_first",
+                   ddl="ALTER TABLE push_tokens ADD COLUMN token_first INTEGER")
+    # Columns that arrived after the first v30 shape (PR #26 review).
+    _ensure_column(conn, table="child_memory_settings", column="generation",
+                   ddl="ALTER TABLE child_memory_settings ADD COLUMN generation "
+                       "INTEGER NOT NULL DEFAULT 0")
+    _ensure_column(conn, table="child_memory_settings", column="tz_offset_minutes",
+                   ddl="ALTER TABLE child_memory_settings ADD COLUMN tz_offset_minutes INTEGER")
+    # One open follow-up per child and topic, even with two workers racing.
+    conn.execute(
+        "CREATE UNIQUE INDEX IF NOT EXISTS ux_followups_pending_topic "
+        "ON followups (device_id, child_id, topic) "
+        "WHERE status = 'pending' AND topic != 'other'"
+    )
+
+
+def _ensure_child_web_claims_table(conn: sqlite3.Connection) -> None:
+    """v29: one-time QR claim codes for the teen web surface.
+
+    Previously an in-process dict (lost on every restart, invisible to a
+    second worker, and redeemable twice under a race). Holds the sha256 of the
+    code and what to mint on redemption — never the code, never a token.
+    """
+    conn.executescript(
+        """
+        CREATE TABLE IF NOT EXISTS child_web_claims (
+            code_hash   TEXT PRIMARY KEY,
+            device_id   TEXT NOT NULL,
+            child_id    INTEGER NOT NULL,
+            ttl_seconds INTEGER NOT NULL,
+            expires_at  REAL NOT NULL,
+            used_at     REAL
+        );
+        CREATE INDEX IF NOT EXISTS ix_child_web_claims_expires
+            ON child_web_claims (expires_at);
+        """
+    )
+
+
+_CREATE_DONATIONS: str = """
+CREATE TABLE IF NOT EXISTS donations (
+    id               INTEGER PRIMARY KEY AUTOINCREMENT,
+    token_hash       TEXT NOT NULL UNIQUE,
+    order_hash       TEXT,
+    product_id       TEXT NOT NULL,
+    amount_micros    INTEGER,
+    currency         TEXT,
+    usd_cents        INTEGER,
+    amount_source    TEXT NOT NULL DEFAULT 'none',
+    purchase_type    INTEGER,
+    consumed         INTEGER NOT NULL DEFAULT 0,
+    voided           INTEGER NOT NULL DEFAULT 0,
+    reprice_order_id TEXT,
+    created_at       TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS ix_donations_created
+    ON donations (created_at);
+"""
+
+
+def _ensure_donations_table(conn: sqlite3.Connection) -> None:
+    """v31: the «ادعم المربّي» ledger — one row per verified Play purchase.
+
+    Deliberately holds nothing that identifies a person or a device: the
+    purchase token and order id are stored as sha256 (enough to make a retry
+    idempotent and to match a later refund), and there is no device_id column
+    at all. The one plain order id is reprice_order_id, held only while a row
+    waits to be priced and cleared once it is. Because no row points at a
+    device, the privacy delete path has nothing here to erase.
+
+    purchase_type is Play's (0 test, 1 promo, 2 rewarded; NULL for an ordinary
+    purchase) and voided is set when Play reports a refund or chargeback; only
+    NULL/0 rows count as money. See app/services/donations.py.
+
+    The table's first shape (commit 765be74f, never deployed) had is_test and
+    none of purchase_type / voided / reprice_order_id. A database created then
+    is brought forward: an empty table is recreated; one with rows gets the
+    missing columns, and its test rows keep counting as test rows.
+    """
+    conn.executescript(_CREATE_DONATIONS)
+    columns = {row[1] for row in conn.execute("PRAGMA table_info(donations)")}
+    missing = {"purchase_type", "voided", "reprice_order_id"} - columns
+    if not missing:
+        return
+    if conn.execute("SELECT COUNT(*) FROM donations").fetchone()[0] == 0:
+        conn.executescript("DROP TABLE donations;\n" + _CREATE_DONATIONS)
+        return
+    for column, ddl in (
+        ("purchase_type", "ALTER TABLE donations ADD COLUMN purchase_type INTEGER"),
+        ("voided", "ALTER TABLE donations ADD COLUMN voided INTEGER NOT NULL DEFAULT 0"),
+        ("reprice_order_id", "ALTER TABLE donations ADD COLUMN reprice_order_id TEXT"),
+    ):
+        if column in missing:
+            conn.execute(ddl)
+    if "is_test" in columns:
+        conn.execute("UPDATE donations SET purchase_type = 0 "
+                     "WHERE is_test = 1 AND purchase_type IS NULL")
+    conn.commit()
+
+
+def _ensure_attribution_v32(conn: sqlite3.Connection) -> None:
+    """v32: claim provenance + daily click counts. Additive and idempotent."""
+    _ensure_column(
+        conn, table="referrals", column="via",
+        ddl="ALTER TABLE referrals ADD COLUMN via TEXT",
+    )
+    conn.executescript(
+        """
+        CREATE TABLE IF NOT EXISTS referral_click_days (
+            day    TEXT NOT NULL,
+            code   TEXT NOT NULL,
+            clicks INTEGER NOT NULL,
+            PRIMARY KEY (day, code)
+        );
+        CREATE INDEX IF NOT EXISTS ix_referral_clicks_time
+            ON referral_clicks (clicked_at);
+        """
+    )
+
+
+# Plain statements, not executescript: device_twins runs this inside the
+# transaction that folds a twin, and executescript would COMMIT it half-done.
+_CREATE_DEVICE_TWIN_TABLES = (
+    """
+    CREATE TABLE IF NOT EXISTS device_aliases (
+        device_id        TEXT PRIMARY KEY,   -- the folded-away twin
+        canonical_device TEXT NOT NULL,      -- the family device that absorbed it
+        folded_at        TEXT NOT NULL DEFAULT (datetime('now'))
+    )
+    """,
+    "CREATE INDEX IF NOT EXISTS ix_device_aliases_canonical ON device_aliases (canonical_device)",
+    """
+    CREATE TABLE IF NOT EXISTS device_fold_log (
+        id          INTEGER PRIMARY KEY AUTOINCREMENT,
+        folded_at   TEXT NOT NULL DEFAULT (datetime('now')),
+        table_name  TEXT NOT NULL,
+        row_id      INTEGER NOT NULL,
+        column_name TEXT NOT NULL,
+        from_device TEXT NOT NULL,
+        to_device   TEXT NOT NULL,
+        action      TEXT NOT NULL,           -- moved | deleted
+        row_json    TEXT                     -- a deleted row, so it can be put back
+    )
+    """,
+    "CREATE INDEX IF NOT EXISTS ix_device_fold_log_from ON device_fold_log (from_device)",
+    "CREATE INDEX IF NOT EXISTS ix_device_fold_log_to ON device_fold_log (to_device)",
+)
+
+
+def ensure_device_twin_tables(conn: sqlite3.Connection) -> None:
+    """v33: device_aliases + device_fold_log (see the migration note)."""
+    for statement in _CREATE_DEVICE_TWIN_TABLES:
+        conn.execute(statement)
+
+
+# ── v34: family programs (Ramadan, Prayer Journey, milestones) ─────────────
+#
+# Every table carries device_id, and child_id when a row is about one child:
+# the account delete (routers/privacy.erase_account) discovers tables by
+# device_id and a proven child delete (privacy.erase_child) by child_id, so
+# both reach these with no list to keep. A family-level row (a Ramadan
+# challenge the whole family did) is stored under child_id 0, so deleting one
+# child never deletes the family's own.
+_CREATE_FAMILY_PROGRAMS: str = """
+-- One row per device: what the app last told us about where and in which
+-- language the family is. tz_offset_minutes is never guessed — a device that
+-- never reported one is never pushed (milestone_push). The ramadan_* columns
+-- are the family's own moon sighting for one season (ramadan_year): a start
+-- one day either side of the configured one, and a month of 29 or 30 days.
+CREATE TABLE IF NOT EXISTS program_settings (
+    device_id          TEXT PRIMARY KEY,
+    tz_offset_minutes  INTEGER,
+    lang               TEXT,
+    ramadan_year       INTEGER,
+    ramadan_shift_days INTEGER NOT NULL DEFAULT 0,
+    ramadan_days       INTEGER,
+    updated_at         TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+-- Per child, across programs. reached_puberty is set by the parent from the
+-- fasting ladder: it moves the child to the 13-15 ladder whatever the age
+-- band, and retires the "before puberty" milestone reminders.
+CREATE TABLE IF NOT EXISTS program_children (
+    child_id        INTEGER PRIMARY KEY,
+    device_id       TEXT NOT NULL,
+    reached_puberty INTEGER NOT NULL DEFAULT 0,
+    updated_at      TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS ix_program_children_device
+    ON program_children (device_id);
+
+-- The child's current step on the fasting ladder, per Ramadan. A rowid key and
+-- a UNIQUE pair, not a composite primary key: every user table here is a plain
+-- rowid table, which is what the account-erase and twin-fold sweeps assume.
+CREATE TABLE IF NOT EXISTS ramadan_fasting (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id   TEXT NOT NULL,
+    child_id    INTEGER NOT NULL,
+    hijri_year  INTEGER NOT NULL,
+    step_key    TEXT,
+    updated_at  TEXT NOT NULL DEFAULT (datetime('now')),
+    UNIQUE (child_id, hijri_year)
+);
+CREATE INDEX IF NOT EXISTS ix_ramadan_fasting_device
+    ON ramadan_fasting (device_id, hijri_year);
+
+-- «تمّ» marks. Positive only: nothing here records a missed day, a broken
+-- fast or a step down — the program has no shame metric to compute.
+-- child_id 0 = the family (challenge, wird, story, juz, night, family word);
+-- a child's own rows are fasting_practised and fasting_step_up.
+CREATE TABLE IF NOT EXISTS ramadan_marks (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id   TEXT NOT NULL,
+    child_id    INTEGER NOT NULL DEFAULT 0,
+    hijri_year  INTEGER NOT NULL,
+    day         INTEGER NOT NULL,
+    mark        TEXT NOT NULL,
+    value       TEXT,
+    created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+    UNIQUE (device_id, child_id, hijri_year, day, mark)
+);
+CREATE INDEX IF NOT EXISTS ix_ramadan_marks_family
+    ON ramadan_marks (device_id, hijri_year, mark);
+
+-- Prayer Journey enrolment. One ACTIVE row per child; graduating closes the
+-- journey row and opens an ownership row, so the history stays readable.
+CREATE TABLE IF NOT EXISTS prayer_journeys (
+    id               INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id        TEXT NOT NULL,
+    child_id         INTEGER NOT NULL,
+    -- preparation | journey | ownership
+    track            TEXT NOT NULL,
+    stage            INTEGER,
+    -- active | graduated | ended
+    status           TEXT NOT NULL DEFAULT 'active',
+    started_on       TEXT NOT NULL,
+    stage_started_on TEXT,
+    ended_on         TEXT,
+    created_at       TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at       TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE UNIQUE INDEX IF NOT EXISTS ux_prayer_journeys_active
+    ON prayer_journeys (child_id) WHERE status = 'active';
+CREATE INDEX IF NOT EXISTS ix_prayer_journeys_device
+    ON prayer_journeys (device_id, child_id);
+
+-- One milestone reminder per child per milestone (per season for seasonal
+-- ones). The row is written BEFORE the push is sent — a claim, so two workers
+-- or a restart mid-send cannot send it twice — and deleted again if the send
+-- fails, so a later tick can retry.
+CREATE TABLE IF NOT EXISTS milestone_alerts (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id     TEXT NOT NULL,
+    child_id      INTEGER NOT NULL,
+    alert_key     TEXT NOT NULL,
+    milestone_key TEXT NOT NULL,
+    -- claimed | sent
+    status        TEXT NOT NULL DEFAULT 'claimed',
+    claimed_at    TEXT NOT NULL DEFAULT (datetime('now')),
+    sent_at       TEXT,
+    UNIQUE (child_id, alert_key)
+);
+CREATE INDEX IF NOT EXISTS ix_milestone_alerts_device_time
+    ON milestone_alerts (device_id, claimed_at);
+"""
+
+
+def _ensure_family_programs_v34(conn: sqlite3.Connection) -> None:
+    """v34: family programs. Additive and idempotent — two optional columns on
+    tables production already has (checked against the live schema
+    2026-10-04: neither column exists there) and six new tables."""
+    _ensure_column(
+        conn, table="child_profiles", column="birth_month",
+        ddl="ALTER TABLE child_profiles ADD COLUMN birth_month TEXT",
+    )
+    _ensure_column(
+        conn, table="child_missions", column="source",
+        ddl="ALTER TABLE child_missions ADD COLUMN source TEXT",
+    )
+    conn.executescript(_CREATE_FAMILY_PROGRAMS)
+
+
+def _ensure_erased_devices_v35(conn: sqlite3.Connection) -> None:
+    """v35: erased-device tombstones (services/erased_devices.py). Additive and
+    idempotent; the service creates the table too, inside an erase, should a
+    store not have been through this step yet."""
+    from app.services.erased_devices import CREATE_TABLE
+    conn.execute(CREATE_TABLE)
+
+
+# ── v36: the honest weekly counter (نور والقناديل, Phase 0) ───────────────
+#
+# One shared migration for both objects the honest counter needs. The rules
+# that govern them live in services/family_actions.py: worship acts never
+# light lantern counters, and a mark is a parenting step taken, never a
+# judgement on the child.
+_CREATE_WEEKLY_PLAN_MARKS: str = """
+-- One «تمّ» per child per plan item per marked_on. The API (Phase 3,
+-- services/weekly_plan.py mark_item) marks by plan week, so marked_on holds
+-- the plan week's Monday. Plain rowid table with a UNIQUE pair, like every
+-- user table here (the account-erase and twin-fold sweeps assume rowid tables
+-- that carry device_id). Positive only: un-marking is a DELETE of the row;
+-- nothing records a "missed" day.
+CREATE TABLE IF NOT EXISTS weekly_plan_marks (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id   TEXT NOT NULL,
+    child_id    INTEGER NOT NULL,
+    item_id     TEXT NOT NULL,
+    marked_on   TEXT NOT NULL,
+    created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+    UNIQUE (device_id, child_id, item_id, marked_on),
+    FOREIGN KEY (child_id) REFERENCES child_profiles(id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS ix_weekly_plan_marks_device_child
+    ON weekly_plan_marks (device_id, child_id);
+"""
+
+
+def _ensure_honest_counter_v36(conn: sqlite3.Connection) -> None:
+    """v36: followups.source + weekly_plan_marks. Additive and idempotent.
+
+    `followups.source` is nullable TEXT with no backfill: rows created before
+    this migration keep NULL, meaning "came from the chat follow-up engine" —
+    the only source that existed. New rows name where the follow-up came from
+    (e.g. a weekly-plan promise)."""
+    _ensure_column(
+        conn, table="followups", column="source",
+        ddl="ALTER TABLE followups ADD COLUMN source TEXT",
+    )
+    conn.executescript(_CREATE_WEEKLY_PLAN_MARKS)
+
+
+def _ensure_referrals_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v8 referral tables."""
+    try:
+        cur = conn.execute("PRAGMA table_info(referral_codes)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_REFERRALS)
+
+
+def _ensure_push_tokens_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v9 push_tokens table."""
+    try:
+        cur = conn.execute("PRAGMA table_info(push_tokens)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_PUSH_TOKENS)
+
+
+def _ensure_push_sends_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the push_sends frequency log."""
+    try:
+        cur = conn.execute("PRAGMA table_info(push_sends)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_PUSH_SENDS)
+
+
+def _ensure_parent_identities_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v9 identity tables."""
+    try:
+        cur = conn.execute("PRAGMA table_info(parent_identities)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_PARENT_IDENTITIES)
+
+
+def _ensure_api_tokens_columns(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v11 api_tokens schema drift.
+
+    conversation_store.py expects session_id + expires_at; older tables
+    created with the v10 schema lack both columns. Add them without
+    touching existing rows.
+    """
+    try:
+        cur = conn.execute("PRAGMA table_info(api_tokens)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if names:
+        if "session_id" not in names:
+            conn.execute("ALTER TABLE api_tokens ADD COLUMN session_id TEXT NOT NULL DEFAULT ''")
+        if "expires_at" not in names:
+            conn.execute("ALTER TABLE api_tokens ADD COLUMN expires_at TEXT")
+
+
+def token_ttl_days() -> int:
+    """Sliding lifetime of a bearer token (env ``TOKEN_TTL_DAYS``, default 180)."""
+    try:
+        return max(1, int(os.environ.get("TOKEN_TTL_DAYS", "180")))
+    except ValueError:
+        return 180
+
+
+def _ensure_api_tokens_hashed(conn: sqlite3.Connection) -> None:
+    """v28: hash plaintext bearer tokens in place and give them an expiry.
+
+    A stored row is already hashed when it is 64 lowercase hex characters
+    (sha256). Issued tokens are ``tg_`` + 64 hex, so the two never collide and
+    re-running this is a no-op. Legacy rows keep working: the client still
+    holds the raw token, and validation hashes what it is sent.
+    """
+    try:
+        rows = conn.execute("SELECT token, expires_at FROM api_tokens").fetchall()
+    except sqlite3.Error:
+        return
+    plain = [r for r in rows if not _is_token_hash(r[0])]
+    unexpiring = any(r[1] is None for r in rows)
+    if not plain and not unexpiring:
+        return
+    expiry = f"+{token_ttl_days()} days"
+    if conn.in_transaction:
+        conn.commit()
+    previous_isolation = conn.isolation_level
+    conn.isolation_level = None
+    try:
+        conn.execute("BEGIN IMMEDIATE")
+        for r in plain:
+            conn.execute(
+                "UPDATE api_tokens SET token = ? WHERE token = ?",
+                (hash_token(r[0]), r[0]),
+            )
+        conn.execute(
+            "UPDATE api_tokens SET expires_at = datetime('now', ?) "
+            "WHERE expires_at IS NULL",
+            (expiry,),
+        )
+        conn.execute("COMMIT")
+    except Exception:
+        conn.execute("ROLLBACK")
+        raise
+    finally:
+        conn.isolation_level = previous_isolation
+
+
+def hash_token(token: str) -> str:
+    """What api_tokens stores for a bearer token. Tokens are 256-bit random,
+    so an unsalted sha256 is enough: there is nothing to brute-force."""
+    return hashlib.sha256(token.encode()).hexdigest()
+
+
+def _is_token_hash(value: str | None) -> bool:
+    return (
+        isinstance(value, str)
+        and len(value) == 64
+        and all(c in "0123456789abcdef" for c in value)
+    )
+
+
+def _ensure_chat_messages_columns(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the v13 chat_messages schema drift.
+
+    conversation_store.py expects domain, severity, mode, needs_human_review;
+    older tables created with the v10 schema lack these columns.
+    """
+    try:
+        cur = conn.execute("PRAGMA table_info(chat_messages)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if names:
+        for col, ddl in [
+            ("domain", "ALTER TABLE chat_messages ADD COLUMN domain TEXT"),
+            ("severity", "ALTER TABLE chat_messages ADD COLUMN severity TEXT"),
+            ("mode", "ALTER TABLE chat_messages ADD COLUMN mode TEXT"),
+            ("needs_human_review", "ALTER TABLE chat_messages ADD COLUMN needs_human_review INTEGER NOT NULL DEFAULT 0"),
+        ]:
+            if col not in names:
+                conn.execute(ddl)
+
+
+def _ensure_user_backups_table(conn: sqlite3.Connection) -> None:
+    """Idempotent migration helper for the user_backups table."""
+    try:
+        cur = conn.execute("PRAGMA table_info(user_backups)")
+        names = {row[1] for row in cur.fetchall()}
+    except sqlite3.Error:
+        names = set()
+    if not names:
+        conn.executescript(_CREATE_USER_BACKUPS)

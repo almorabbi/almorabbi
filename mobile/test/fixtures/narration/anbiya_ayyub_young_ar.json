@@ -1,0 +1,72 @@
+{
+  "voice": "gemini-3.8-flash-tts/Algieba",
+  "language": "ar",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/ar/anbiya_ayyub_young_p1.m4a",
+      "text": "ابتلى اللهُ عبدَه أيوبَ عليه السلام بضُرٍّ أصابه، وفقد أهلَه ومالَه. فصبر أيوبُ على البلاء.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 68,
+          "start": 0.0,
+          "end": 8.542
+        },
+        {
+          "from": 69,
+          "to": 91,
+          "start": 8.992,
+          "end": 11.815
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_ayyub_young_p2.m4a",
+      "text": "ونادى أيوبُ ربَّه: ﴿أَنِّي مَسَّنِيَ ٱلضُّرُّ وَأَنتَ أَرۡحَمُ ٱلرَّـٰحِمِينَ﴾.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 79,
+          "start": 0.0,
+          "end": 14.05
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_ayyub_young_p3.m4a",
+      "text": "فاستجاب اللهُ دعاءه. ونبع له من الأرض ماءٌ باردٌ، يشرب منه ويغتسل، فذهب عنه الضرّ.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 20,
+          "start": 0.0,
+          "end": 3.206
+        },
+        {
+          "from": 21,
+          "to": 82,
+          "start": 3.656,
+          "end": 13.538
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_ayyub_young_p4.m4a",
+      "text": "وكشف اللهُ عنه البلاء، وردّ عليه أهلَه ومثلَهم معهم. وكان ذلك رحمةً من الله، وقدوةً لكل صابر على البلاء.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 52,
+          "start": 0.0,
+          "end": 6.528
+        },
+        {
+          "from": 53,
+          "to": 104,
+          "start": 6.978,
+          "end": 14.243
+        }
+      ]
+    }
+  ]
+}

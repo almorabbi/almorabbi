@@ -1,0 +1,67 @@
+# Checkpoint 4 — hand the device to the child through «باب التسليم», and take
+# it back with the PIN.
+# The cold start that follows (07) is the check for the 2026-08-16 lock-out:
+# a child-mode flag left on disk → white screen and an endless spinner.
+appId: com.alsaba.almorabbi
+name: fresh/04 child mode in → PIN out
+---
+- runScript: ../common/l10n.js
+- runFlow: ../common/home.yaml
+- tapOn: '${output.lead.navMore}'
+# The habit tile is in the hub's first group, and the hub keeps its scroll
+# position — onboarding left it at the bottom (Settings). Scroll up.
+- scrollUntilVisible:
+    element:
+      text: '${output.tile.routineTitle}'
+    direction: UP
+    timeout: 20000
+- tapOn: '${output.tile.routineTitle}'
+- extendedWaitUntil:
+    visible: '${output.t.routineChildMode}'
+    timeout: 30000
+- takeScreenshot: child_mode_1_habits
+# One button now, where there were four: it opens the gate.
+- tapOn: '${output.t.routineChildMode}'
+- extendedWaitUntil:
+    visible: '${output.t.handoverTitle}'
+    timeout: 20000
+- takeScreenshot: child_mode_1b_gate
+# The gate lists only what a 7-9 child's band allows; the habit tracker is one.
+# Its tile merges title + one-line description into one node: `lead`.
+- tapOn: '${output.lead.habitChildModeTitle}'
+- extendedWaitUntil:
+    visible: '${output.t.childMode}'
+    timeout: 20000
+# First use: choose the PIN, then confirm it. The confirmation only checks it —
+# the doors open next, in parent mode, and the session opens after them.
+- runFlow: ../common/enter_pin.yaml
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow: ../common/enter_pin.yaml
+# The doors' moment is ~1.2 s plus the session request, so a slow check can
+# miss it; the child surface below is the assertion that matters.
+- extendedWaitUntil:
+    visible: '${output.c.handoverYourTurn}'
+    timeout: 5000
+    optional: true
+# The child surface: "Child Mode · <name>" in the header.
+- extendedWaitUntil:
+    visible: '(?s).*${output.t.childMode} . ${CHILD_NAME}.*'
+    timeout: 30000
+- takeScreenshot: child_mode_2_child_surface
+# The parent app fades out under the child surface (300 ms).
+- waitForAnimationToEnd:
+    timeout: 3000
+- tapOn: '${output.t.a11yExitChildMode}'
+- extendedWaitUntil:
+    visible: '${output.t.habitChildModeExitTitle}'
+    timeout: 15000
+# The confirm dialog's own "Exit" button; the header icon is behind the barrier.
+- tapOn: '${output.t.habitChildModeExit}'
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: ../common/enter_pin.yaml
+- extendedWaitUntil:
+    visible: '${output.lead.navToday}'
+    timeout: 30000
+- takeScreenshot: child_mode_3_parent_again

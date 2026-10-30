@@ -1,0 +1,72 @@
+{
+  "voice": "gemini-3.8-flash-tts/Algieba",
+  "language": "ar",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/ar/anbiya_zakariya_young_p1.m4a",
+      "text": "هذه قصةُ رحمةِ الله بعبده زكريا عليه السلام. وقد كبر زكريا، وكانت امرأته لا تلد.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 44,
+          "start": 0.0,
+          "end": 5.678
+        },
+        {
+          "from": 45,
+          "to": 80,
+          "start": 6.128,
+          "end": 10.808
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_zakariya_young_p2.m4a",
+      "text": "فدعا زكريا ربَّه سرًّا. وسأله أن يرزقه من عنده ولدًا.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 23,
+          "start": 0.0,
+          "end": 4.828
+        },
+        {
+          "from": 24,
+          "to": 53,
+          "start": 5.278,
+          "end": 10.987
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_zakariya_young_p3.m4a",
+      "text": "فاستجاب اللهُ دعاءه، وبشّره بغلام: ﴿يَٰزَكَرِيَّآ إِنَّا نُبَشِّرُكَ بِغُلَٰمٍ ٱسۡمُهُۥ يَحۡيَىٰ﴾.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 99,
+          "start": 0.0,
+          "end": 14.537
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_zakariya_young_p4.m4a",
+      "text": "ويحيى اسمٌ لم يُسمَّ به أحدٌ قبله. وهكذا رحم اللهُ عبدَه زكريا، واستجاب دعاءه.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 34,
+          "start": 0.0,
+          "end": 6.37
+        },
+        {
+          "from": 35,
+          "to": 78,
+          "start": 6.82,
+          "end": 14.022
+        }
+      ]
+    }
+  ]
+}

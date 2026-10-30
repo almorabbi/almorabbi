@@ -1,0 +1,335 @@
+{
+  "seed-screen-79__en": {
+    "content_sha256": "5ad9ace0573d728f026eaa471e09fdf9ce2bdc75a0066b5c019cf2c986b4f647",
+    "overrides": [
+      {
+        "field": "text_simplified",
+        "type": "source_corruption",
+        "reason": "«ضع خطةً عائليةً متّفقًا عليها» is correct Arabic: متّفقًا is a نعت سببي describing خطة through «عليها», so it takes the masculine accusative. Nothing to fix.",
+        "by": "claude-opus-5.5 (en-parity review, PR #20)",
+        "on": "2026-10-04"
+      }
+    ]
+  },
+  "isl-48e32cae__en": {
+    "content_sha256": "2131be772fc83ce9c60847b4b209f533a40e344e2ae905d0815e14607687bf28",
+    "overrides": [
+      {
+        "field": "text_simplified",
+        "type": "source_corruption",
+        "reason": "The Arabic is coherent as written (all people err; bad habits are to be reproached). The proposed «لا يعيبه على الخطأ بل…» is a speculative reconstruction that would add content the source does not carry.",
+        "by": "claude-opus-5.5 (en-parity review, PR #20)",
+        "on": "2026-10-04"
+      }
+    ]
+  },
+  "isl-f2bef952__en": {
+    "content_sha256": "2c8841eec7783fac641b05d79be71217885ca90e41f9295388d8b0b5899a0f6e",
+    "overrides": [
+      {
+        "field": "text_simplified",
+        "type": "hadith",
+        "reason": "The Arabic names the narration's real source (Abu Dawud) for the prayer-at-seven hadith, which the master plan's Prayer Journey also builds on. Deleting a correct attribution would make it less verifiable, not safer; the English reproduces the Arabic citation faithfully. Policy question for the maintainer: keep or drop explicit non-Sahihayn citations in existing content.",
+        "by": "claude-opus-5.5 (en-parity review, PR #20)",
+        "on": "2026-10-04"
+      }
+    ]
+  },
+  "adhkar:family_adhkar": {
+    "content_sha256": "34e847e50f009fd70efd1956ec0f1c526a548cab65cc9835cf1b191839314d45",
+    "overrides": [
+      {
+        "field": "items[145].source",
+        "type": "hadith",
+        "reason": "«فاتقوا الله واعدلوا بين أولادكم» is Sahih al-Bukhari 2587's own wording, «ف» included; check_scripture_coverage verifies the number holds it.",
+        "by": "claude-opus-5.5 (en-parity review, PR #20)",
+        "on": "2026-10-04"
+      },
+      {
+        "field": "items[208].text",
+        "type": "source_corruption",
+        "reason": "«في كل كبد رطبة أجر» without «ذات» is a Sahih al-Bukhari wording (6009); the cited 2363 holds it per check_scripture_coverage.",
+        "by": "claude-opus-5.5 (en-parity review, PR #20)",
+        "on": "2026-10-04"
+      },
+      {
+        "field": "items[231].text",
+        "type": "source_corruption",
+        "reason": "The tip quotes the opening of the leaving-home dhikr accurately; completing a du'a or hadith from memory is exactly what the content rules forbid.",
+        "by": "claude-opus-5.5 (en-parity review, PR #20)",
+        "on": "2026-10-04"
+      }
+    ]
+  },
+  "tip_16-18_013": {
+    "content_sha256": "aea7a3fbc805e9c0e4958f2c135bfcf84021f8ec418bbb9001c45dc03b1c801f",
+    "overrides": [
+      {
+        "field": "text",
+        "type": "source_corruption",
+        "reason": "The Arabic already reads «وليبحث»; the «يطلب» the reviewer objects to is not in the text.",
+        "by": "claude-opus-5.5 (en-parity review, PR #20)",
+        "on": "2026-10-04"
+      }
+    ]
+  },
+  "isl-602bfb05__en": {
+    "content_sha256": "412b10b5917bb83dee467c6170fec85988604344bcaec98307b5ef185b34805b",
+    "overrides": [
+      {
+        "field": "text_simplified",
+        "type": "hadith",
+        "reason": "fix/trust-content (#27) wording: names where the narration is (Abu Dawud, «ليس في الصحيحين») without quoting it, and states the app never recommends hitting; check_scripture_coverage passes.",
+        "by": "claude-opus-5.5 (en-parity review, PR #20)",
+        "on": "2026-10-04"
+      }
+    ]
+  },
+  "isl-d54fd8e8__en": {
+    "content_sha256": "da422be0b8a52626a6d603a8cb87e4d4b8307c33a625fe50e1f4c13e86af5427",
+    "overrides": [
+      {
+        "field": "text_simplified",
+        "type": "hadith",
+        "reason": "fix/trust-content (#27) wording: names where the narration is (Abu Dawud, «ليس في الصحيحين») without quoting it, and states the app never recommends hitting; check_scripture_coverage passes.",
+        "by": "claude-opus-5.5 (en-parity review, PR #20)",
+        "on": "2026-10-04"
+      }
+    ]
+  },
+  "isl-a0625782__en": {
+    "content_sha256": "154cd53de19afdbcd03c51ac4845c9ef8c1700499afcbd05bae491757b98faa4",
+    "overrides": [
+      {
+        "field": "text_simplified",
+        "type": "tone",
+        "reason": "The source passage singles out 1½–3 years inside guidance (don't search the child's room; give trust) that applies to the unit's band; the band is KB metadata, not translation.",
+        "by": "claude-opus-5.5 (en-parity review, PR #20)",
+        "on": "2026-10-04"
+      }
+    ]
+  },
+  "isl-f6c0c64a__en": {
+    "content_sha256": "98011199c372376ac80f4ba3c07c1e37b7db6ed5e0643a1f3e24b0b6d51408bc",
+    "overrides": [
+      {
+        "field": "text_simplified",
+        "type": "hadith",
+        "reason": "Sahih al-Bukhari 1418 reads exactly «من ابتلي من هذه البنات بشيء كن له سترا من النار»; «فأحسن إليهن» belongs to Bukhari 5995 / Muslim 2629. Both sides quote 1418 faithfully; check_scripture_coverage verifies it.",
+        "by": "claude-opus-5.5 (en-parity review, PR #20)",
+        "on": "2026-10-04"
+      }
+    ]
+  },
+  "med-08886df5__en": {
+    "content_sha256": "fa7dac7176657bbebdabfcdcba7ac1623f82a3be0be84a2fb3d612b6ac922464",
+    "rebound": "2026-10-04 after a title-only fix (PR #20 review: «التحريضي» → «التخريبي (DMDD)»); the adjudicated text_simplified is unchanged",
+    "overrides": [
+      {
+        "field": "text_simplified",
+        "type": "medical",
+        "reason": "Faithful to the NIMH «DMDD: The Basics» text the unit summarises («Youth with DMDD are diagnosed between the ages of 6 and 10»), which the reviewer reads as too narrow.",
+        "by": "claude-opus-5.5 (en-parity review, PR #20)",
+        "on": "2026-10-04"
+      }
+    ]
+  },
+  "lesson_13-15_islamic_mockery_01": {
+    "content_sha256": "e3bb16579e347c2c0949297e9318fe43e8242ad3a29aef36204f183168839d60",
+    "overrides": [
+      {
+        "field": "summary",
+        "type": "hadith",
+        "reason": "The Arabic names the prayer-at-seven narration's real source (Abu Dawud) in indirect speech, as in isl-f2bef952 — same decision and the same open question for the maintainer; check_scripture_coverage passes.",
+        "by": "claude-opus-5.5 (en-parity review, PR #20)",
+        "on": "2026-10-04"
+      }
+    ]
+  },
+  "lesson_0-3_cyber_screen_foundations_01": {
+    "content_sha256": "8aea720321cf73f381dda20f393c72266b99268348859ebcc0df48eb7053ea9d",
+    "overrides": [
+      {
+        "field": "summary",
+        "type": "source_corruption",
+        "reason": "The sole GLM objection is that 2026 is a future/nonexistent publication date. Actual session date is 2026-10-07. The official revised AAP primary article was read directly and displays JANUARY 20 2026, Pediatrics (2026) 157 (2): e2025075320, DOI 10.1542/peds.2025-075320. https://publications.aap.org/pediatrics/article/157/2/e2025075320/206129/Digital-Ecosystems-Children-and-Adolescents-Policy . Set time boundaries and Relationship-building supply the quoted guidance; cyb-aap-digital-ecosystems-2026 and ops/reports/SCREEN_GUIDANCE_REVISED_AAP_OCT7.md preserve the dated evidence. The DOI suffix 2025 is not the publication year. Replacing the correct date with 2016 would falsify current-source provenance. Both reviewers actually reviewed this unchanged hash; this override rejects only this source-date hallucination, not translation defects.",
+        "by": "openai:codex (native primary-source verification; author disclosed, not an additional independent model reviewer)",
+        "on": "2026-10-07"
+      }
+    ]
+  },
+  "lesson_0-3_cyber_screen_foundations_b04": {
+    "content_sha256": "2c3b5391178d2a94a66af9744ba051042dea706244ac684482a1c0a70a5e68bc",
+    "overrides": [
+      {
+        "field": "summary",
+        "type": "source_corruption",
+        "reason": "The sole GLM objection is that 2026 is a future/nonexistent publication date. Actual session date is 2026-10-07. The official revised AAP primary article was read directly and displays JANUARY 20 2026, Pediatrics (2026) 157 (2): e2025075320, DOI 10.1542/peds.2025-075320. https://publications.aap.org/pediatrics/article/157/2/e2025075320/206129/Digital-Ecosystems-Children-and-Adolescents-Policy . Set time boundaries and Relationship-building supply the quoted guidance; cyb-aap-digital-ecosystems-2026 and ops/reports/SCREEN_GUIDANCE_REVISED_AAP_OCT7.md preserve the dated evidence. The DOI suffix 2025 is not the publication year. Replacing the correct date with 2016 would falsify current-source provenance. Both reviewers actually reviewed this unchanged hash; this override rejects only this source-date hallucination, not translation defects.",
+        "by": "openai:codex (native primary-source verification; author disclosed, not an additional independent model reviewer)",
+        "on": "2026-10-07"
+      }
+    ]
+  },
+  "story:sarah_basil_sprout": {
+    "content_sha256": "d56f7c84ed2c156c36a08209876cffb72a4f6b3ee7107a7bdabc7c2e9cf0b11d",
+    "overrides": [
+      {
+        "field": "islamicValue",
+        "type": "source_corruption",
+        "reason": "«ويميط الأذى عن الطريق صدقة» is verbatim Sahih al-Bukhari 2989 (Book 56, Hadith 198: «وَيُمِيطُ الأَذَى عَنِ الطَّرِيقِ صَدَقَةٌ», third person like يعدل/يعين/يخطوها in that narration); «وتميط» is the wording of Sahih Muslim 1009. The reviewer's suggestion would put Muslim's wording under Bukhari's number, which the scripture gate rejects. Evidence: ops/data/en_parity_pending/review-2026-10-07-held/sarah-evidence.json (two text sources + the project corpus); both reviewer families, given the texts without the agent's conclusion, answered quote_verbatim_in_cited_hadith=true, finding_correct=false, english_faithful=true (sarah-evidence-consult.json).",
+        "by": "agent adjudication (claude-opus-5.5, automated) backed by a dual-family evidence check (deepseek-v4-pro + glm-5.2) — NOT a human or scholar approval",
+        "on": "2026-10-07",
+        "evidence": {
+          "file": "ops/data/en_parity_pending/review-2026-10-07-held/sarah-evidence.json",
+          "sha256": "2b128ea71b6d037c12bc28adf715524ad48e992733909efd6ea305083d30f91a",
+          "consult": "ops/data/en_parity_pending/review-2026-10-07-held/sarah-evidence-consult.json",
+          "consult_sha256": "7a6fed336536cbe4732d74518eb8d8d33415489e9cc0e6ee2b50e54f79147531"
+        },
+        "note_2026_10_15": "Re-bound to the new text fingerprint in PR #126 (pause guidance added; the hadith line is unchanged)."
+      }
+    ]
+  },
+  "lesson_0-3_medical_infant_sleep_02": {
+    "content_sha256": "f656c66a82abedd8f78b8bd803a8a063b1848e4cde54829495b3cb1db4d1aa30",
+    "overrides": [
+      {
+        "field": "summary",
+        "type": "omission",
+        "reason": "deepseek says the English drops «ولا تنتظر موعدًا مع الطبيب»; the English it quotes contains it verbatim: \"Call an ambulance immediately, without waiting for a doctor's appointment, …\". Its own suggested fix is identical to the current text.",
+        "by": "claude-opus-5-5 (GPT-review fixes, branch content/gpt-review-fixes)",
+        "on": "2026-10-08"
+      }
+    ]
+  },
+  "lesson_0-3_medical_infant_sleep_03": {
+    "content_sha256": "dc5118ecbed0f23171355f7dcf3281fb65a2f5fc2d2fba3167adb6b2883bfaca",
+    "overrides": [
+      {
+        "field": "summary",
+        "type": "omission",
+        "reason": "deepseek says the English drops «كيف تساعده على الرضاعة»; the English reads \"ask the doctor or nurse how to help them feed\" — the same instruction (رضاعة covers breast and bottle; 'feed' is the lesson's consistent rendering). Nothing omitted.",
+        "by": "claude-opus-5-5 (GPT-review fixes, branch content/gpt-review-fixes)",
+        "on": "2026-10-08"
+      }
+    ]
+  },
+  "lesson_0-3_medical_infant_sleep_09": {
+    "content_sha256": "a3f1013be05f17f7aad86ddf807d3bd22302c70e0fe6f699de451966fecf789c",
+    "overrides": [
+      {
+        "field": "summary",
+        "type": "omission",
+        "reason": "«الأريكة أو الكرسي الوثير» ↔ 'sofa or armchair' is the path's fixed rendering of the NHS wording 'sofa or armchair' (same pair in lesson_0-3_medical_infant_sleep_05, stamped); the danger is any armchair, so adding 'soft' would narrow it. Text unchanged from the hash both families passed in the lesson review.",
+        "by": "claude-opus-5-5 (GPT-review fixes, branch content/gpt-review-fixes)",
+        "on": "2026-10-08"
+      }
+    ]
+  },
+  "lesson_7-9_islamic_parenting_worship_02": {
+    "content_sha256": "767b0d2a133f31fe6a14a6efe1d76197902a8909ac398dcf45622945494581eb",
+    "overrides": [
+      {
+        "field": "summary",
+        "type": "omission",
+        "reason": "The English summary contains the clause it is said to omit, word for word: «When his practice ends, serve him his food and complete your own fast until sunset» renders «فإذا انتهت تجربته فقدّم له طعامه، وأكمل أنت صيامك إلى غروب الشمس»; the reviewer's own suggestion is identical to the current text. glm-5.2 found nothing here.",
+        "by": "claude-opus-5.5 (worship-review fixes R02, oct8)",
+        "on": "2026-10-08"
+      }
+    ]
+  },
+  "story:saleh_bird": {
+    "content_sha256": "fa786fda904cc79f18c35fc39aed3ee45f148b5ea9688f522c633fed1d426bb0",
+    "overrides": [
+      {
+        "field": "pages[0].text",
+        "type": "source_corruption",
+        "reason": "«يلعب بكرته» is بِـ + كُرَتِه — 'with his ball', exactly as the English has it. It is not بَكَرَة (pulley); unvocalised Arabic reads it as the ball from context.",
+        "by": "claude-opus-5.5 (stories PR #126)",
+        "on": "2026-10-15"
+      }
+    ]
+  },
+  "story:layla_star": {
+    "content_sha256": "d767cd06f1d4363c29fd700a153836cb71488dd7a0e0c1a0730bdfdd4098c2f8",
+    "overrides": [
+      {
+        "field": "pages[4].text",
+        "type": "source_corruption",
+        "reason": "After the colon Layla counts her blessings in her own voice (قطتي/جدي/أمي) — a direct listing, standard in children's narrative. The English renders the same list in the narrator's voice; the meaning is identical.",
+        "by": "claude-opus-5.5 (stories PR #126)",
+        "on": "2026-10-15"
+      }
+    ]
+  },
+  "story:anbiya_nuh_young": {
+    "content_sha256": "0a77f661401d28a55fe84a309a513ae7de4c2b6fde40d130512f1b7512a25957",
+    "overrides": [
+      {
+        "field": "pages[3].text",
+        "type": "source_corruption",
+        "reason": "Every flagged word is verbatim from mobile/assets/data/quran.json (Hafs, Uthmani script — the mushaf every scripture guard here checks against, word for word: scripture_scan + check_anbiya_stories). In that script a shadda after a tanween or nun marks idgham (مَّعَنَا، مُّبِينٌ، رَّحِيمٞ، نِّعۡمَ، رَّحِمَ) and مَجۡرٜىٰهَا / مُرۡسَىٰهَا is the Uthmani spelling with imala in Hafs. The reviewer compared it with imla'i spelling. Nothing to fix.",
+        "by": "claude-opus-5.5 (anbiya season 1, PR #172)",
+        "on": "2026-10-26"
+      },
+      {
+        "field": "islamicValue",
+        "type": "source_corruption",
+        "reason": "Every flagged word is verbatim from mobile/assets/data/quran.json (Hafs, Uthmani script — the mushaf every scripture guard here checks against, word for word: scripture_scan + check_anbiya_stories). In that script a shadda after a tanween or nun marks idgham (مَّعَنَا، مُّبِينٌ، رَّحِيمٞ، نِّعۡمَ، رَّحِمَ) and مَجۡرٜىٰهَا / مُرۡسَىٰهَا is the Uthmani spelling with imala in Hafs. The reviewer compared it with imla'i spelling. Nothing to fix.",
+        "by": "claude-opus-5.5 (anbiya season 1, PR #172)",
+        "on": "2026-10-26"
+      }
+    ]
+  },
+  "story:anbiya_nuh_older": {
+    "content_sha256": "f614a96aa19ecaf376cf92a11e93ee9c30c8c3ad631c4ecfbd40ca3a0d68bba7",
+    "overrides": [
+      {
+        "field": "pages[0].text",
+        "type": "source_corruption",
+        "reason": "Every flagged word is verbatim from mobile/assets/data/quran.json (Hafs, Uthmani script — the mushaf every scripture guard here checks against, word for word: scripture_scan + check_anbiya_stories). In that script a shadda after a tanween or nun marks idgham (مَّعَنَا، مُّبِينٌ، رَّحِيمٞ، نِّعۡمَ، رَّحِمَ) and مَجۡرٜىٰهَا / مُرۡسَىٰهَا is the Uthmani spelling with imala in Hafs. The reviewer compared it with imla'i spelling. Nothing to fix.",
+        "by": "claude-opus-5.5 (anbiya season 1, PR #172)",
+        "on": "2026-10-26"
+      },
+      {
+        "field": "pages[3].text",
+        "type": "source_corruption",
+        "reason": "Every flagged word is verbatim from mobile/assets/data/quran.json (Hafs, Uthmani script — the mushaf every scripture guard here checks against, word for word: scripture_scan + check_anbiya_stories). In that script a shadda after a tanween or nun marks idgham (مَّعَنَا، مُّبِينٌ، رَّحِيمٞ، نِّعۡمَ، رَّحِمَ) and مَجۡرٜىٰهَا / مُرۡسَىٰهَا is the Uthmani spelling with imala in Hafs. The reviewer compared it with imla'i spelling. Nothing to fix.",
+        "by": "claude-opus-5.5 (anbiya season 1, PR #172)",
+        "on": "2026-10-26"
+      },
+      {
+        "field": "pages[4].text",
+        "type": "source_corruption",
+        "reason": "Every flagged word is verbatim from mobile/assets/data/quran.json (Hafs, Uthmani script — the mushaf every scripture guard here checks against, word for word: scripture_scan + check_anbiya_stories). In that script a shadda after a tanween or nun marks idgham (مَّعَنَا، مُّبِينٌ، رَّحِيمٞ، نِّعۡمَ، رَّحِمَ) and مَجۡرٜىٰهَا / مُرۡسَىٰهَا is the Uthmani spelling with imala in Hafs. The reviewer compared it with imla'i spelling. Nothing to fix.",
+        "by": "claude-opus-5.5 (anbiya season 1, PR #172)",
+        "on": "2026-10-26"
+      },
+      {
+        "field": "islamicValue",
+        "type": "source_corruption",
+        "reason": "Every flagged word is verbatim from mobile/assets/data/quran.json (Hafs, Uthmani script — the mushaf every scripture guard here checks against, word for word: scripture_scan + check_anbiya_stories). In that script a shadda after a tanween or nun marks idgham (مَّعَنَا، مُّبِينٌ، رَّحِيمٞ، نِّعۡمَ، رَّحِمَ) and مَجۡرٜىٰهَا / مُرۡسَىٰهَا is the Uthmani spelling with imala in Hafs. The reviewer compared it with imla'i spelling. Nothing to fix.",
+        "by": "claude-opus-5.5 (anbiya season 1, PR #172)",
+        "on": "2026-10-26"
+      }
+    ]
+  },
+  "story:anbiya_ayyub_older": {
+    "content_sha256": "bbb7834d4522b6637f474e5019f8642607bc9477e87417437100b0954d4b4e53",
+    "overrides": [
+      {
+        "field": "pages[5].text",
+        "type": "source_corruption",
+        "reason": "Every flagged word is verbatim from mobile/assets/data/quran.json (Hafs, Uthmani script — the mushaf every scripture guard here checks against, word for word: scripture_scan + check_anbiya_stories). In that script a shadda after a tanween or nun marks idgham (مَّعَنَا، مُّبِينٌ، رَّحِيمٞ، نِّعۡمَ، رَّحِمَ) and مَجۡرٜىٰهَا / مُرۡسَىٰهَا is the Uthmani spelling with imala in Hafs. The reviewer compared it with imla'i spelling. Nothing to fix.",
+        "by": "claude-opus-5.5 (anbiya season 1, PR #172)",
+        "on": "2026-10-26"
+      },
+      {
+        "field": "islamicValue",
+        "type": "source_corruption",
+        "reason": "Every flagged word is verbatim from mobile/assets/data/quran.json (Hafs, Uthmani script — the mushaf every scripture guard here checks against, word for word: scripture_scan + check_anbiya_stories). In that script a shadda after a tanween or nun marks idgham (مَّعَنَا، مُّبِينٌ، رَّحِيمٞ، نِّعۡمَ، رَّحِمَ) and مَجۡرٜىٰهَا / مُرۡسَىٰهَا is the Uthmani spelling with imala in Hafs. The reviewer compared it with imla'i spelling. Nothing to fix.",
+        "by": "claude-opus-5.5 (anbiya season 1, PR #172)",
+        "on": "2026-10-26"
+      }
+    ]
+  }
+}

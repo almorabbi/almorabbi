@@ -1,0 +1,66 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/anbiya_sulayman_naml_young_p1.m4a",
+      "text": "Allah gave His Prophet Sulayman (peace be upon him) knowledge and taught him the speech of the birds. And his soldiers were gathered for Sulayman, from the jinn, mankind and the birds.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 101,
+          "start": 0.0,
+          "end": 5.68
+        },
+        {
+          "from": 102,
+          "to": 184,
+          "start": 6.13,
+          "end": 11.184
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_sulayman_naml_young_p2.m4a",
+      "text": "And they all marched in good order, until they reached the valley of the ants.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 78,
+          "start": 0.0,
+          "end": 4.08
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_sulayman_naml_young_p3.m4a",
+      "text": "Then an ant warned the ants: ﴿يَـٰٓأَيُّهَا ٱلنَّمۡلُ ٱدۡخُلُواْ مَسَٰكِنَكُمۡ لَا يَحۡطِمَنَّكُمۡ سُلَيۡمَٰنُ وَجُنُودُهُۥ وَهُمۡ لَا يَشۡعُرُونَ﴾ — interpretation of the meaning: 'O ants, go into your homes, so that Sulayman and his soldiers do not crush you without knowing it.'",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 281,
+          "start": 0.0,
+          "end": 34.886
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_sulayman_naml_young_p4.m4a",
+      "text": "Sulayman smiled, laughing at her words, because she understood and warned the ants. And he felt Allah's blessing upon him, and turned to his Lord in du'a.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 83,
+          "start": 0.0,
+          "end": 5.84
+        },
+        {
+          "from": 84,
+          "to": 154,
+          "start": 6.29,
+          "end": 10.37
+        }
+      ]
+    }
+  ]
+}

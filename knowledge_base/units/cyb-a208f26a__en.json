@@ -1,0 +1,80 @@
+{
+  "id": "cyb-a208f26a__en",
+  "domain": "cyber",
+  "source_file": "Cyberbullying_Guide.pdf",
+  "title": "Change in Aggressive Behaviour at School",
+  "language": "en",
+  "age_group": "10-12",
+  "behavior_type": "تهجم",
+  "intervention_type": "إرشادي",
+  "severity": "متوسط",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "WHO/Common Sense Media",
+  "text_original": "studies, the C o Cyberbullying Research Center, in 2016, as estimated that, on average, about 24% of Dis pioneering bullying researcher Dan Olweus C reported that, among 440,000 US students surveyed (grades 3-12), 4.5% had been In-person bullying is also on the decline. A 2017 study published in Journal of the cyberbullied. Like other experts, Olweus American Academic of Pediatrics reviewed the prevalence of bullying and related reported that in-person bullying is a far behaviors between 2005 and 2014 and found that “Prevalence of bullying and related bigger problem than cyberbullying, which behaviors generally decreased over this 10-year period with the most recent years “has not increased over time,” and “claims showing the greatest improvements in school climate and reductions in bullying.” about cyberbullying made in the media” are “often greatly exaggerated.” Though Of course, both online and in-person bullying remains a serious problem affecting a numbers certainly don’t ease the problem significant number of young people and the news that the prevalence is declining is of for anyone who has experienced no solace to any child who is experiencing bullying or any parent or educator cyberbullying, they provide the sense of supporting that child. Every child deserves to be safe and comfortable online, in perspective that helps adults handle school or wherever they happen to be. incidents calmly and appropriately. Dr. Olweus wrote that “a distorted portrayal of reality will probably generate a lot of unnecessary anxiety and tension among parents and maybe teachers and students.” You may see",
+  "text_simplified": "Title: Change in Aggressive Behaviour at School. A global study indicates that the rate of exposure to physical aggression has decreased, while the issue of cyberbullying remains ongoing.",
+  "labels": [
+    "تهجم",
+    "صحية",
+    "تعليم",
+    "حماية"
+  ],
+  "created_at": "2026-06-07T08:01:44Z",
+  "updated_at": "2026-06-07T08:01:44Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Cyberbullying_Guide",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "cyb-a208f26a",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "source_corruption",
+        "why": "The verb should be feminine 'تشير' to agree with 'دراسة'."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "source_corruption",
+        "why": "The verb 'يشير' is masculine but should agree with the feminine noun 'دراسة' as 'تشير'."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "e373341800bd9fde356347e172f3c526fd471cc9875b58a23aff6a7a73a5b023",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "source_corruption",
+          "why": "The verb should be feminine 'تشير' to agree with 'دراسة'."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "source_corruption",
+          "why": "The verb 'يشير' is masculine but should agree with the feminine noun 'دراسة' as 'تشير'."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

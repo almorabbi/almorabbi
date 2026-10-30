@@ -1,0 +1,301 @@
+{
+	"_about": "Voice-over lines: reel -> lines. `at` = the frame the line is cued at (source frames, 30 fps); it starts there, or a breath after the previous line. `until` = the frame its scene must not end before the line does; if it would, the window [from, until] is played slower (scripts/gen_vo.py). Spoken in simple neutral Arabic.",
+	"_voice": "ElevenLabs Hakim (wisdom, fun & confidence), eleven_multilingual_v2 — the maintainer's pick from the 2026-10-17 samples; one voice for every reel and the teaser, replacing Gemini Achird. `name` is the ElevenLabs voice ID; the engine follows the model (eleven_* = ElevenLabs, scripts/gen_vo.py).",
+	"voice": {
+		"model": "eleven_multilingual_v2",
+		"name": "EzoxNTKsg4JNN7wxAgut"
+	},
+	"reels": {
+		"v1": [
+			{
+				"at": 4,
+				"until": 88,
+				"text": "نصيحة سمعتَها… ثم نسيتَها؟",
+				"from": 0
+			},
+			{
+				"at": 92,
+				"until": 212,
+				"text": "في المربّي، تقرأ خطوة اليوم…",
+				"from": 88
+			},
+			{
+				"at": 150,
+				"until": 212,
+				"text": "ثم يسألك نور: متى ستجرّبها؟",
+				"from": 88
+			},
+			{
+				"at": 216,
+				"until": 272,
+				"text": "وفي اليوم التالي…",
+				"from": 206
+			},
+			{
+				"at": 274,
+				"until": 346,
+				"text": "يعود ليسألك: كيف جرت؟",
+				"from": 256
+			},
+			{
+				"at": 352,
+				"until": 420,
+				"text": "مربٍّ يتذكّر معك.",
+				"from": 340
+			},
+			{
+				"at": 432,
+				"until": 560,
+				"text": "المربّي… مجاني، وبلا إعلانات، على غوغل بلاي.",
+				"from": 420
+			}
+		],
+		"v2": [
+			{
+				"at": 4,
+				"until": 66,
+				"text": "لا تعرف من أين تبدأ؟",
+				"from": 0
+			},
+			{
+				"at": 72,
+				"until": 150,
+				"text": "في المربّي… لأسرتكم درب.",
+				"from": 66
+			},
+			{
+				"at": 104,
+				"until": 196,
+				"text": "كل خطوة تربوية… تضيء فيه قنديلًا.",
+				"from": 92
+			},
+			{
+				"at": 152,
+				"until": 200,
+				"text": "ونور يريك: أنتم هنا.",
+				"from": 148
+			},
+			{
+				"at": 206,
+				"until": 290,
+				"text": "وعلى الأفق… ما ينتظركم.",
+				"from": 196
+			},
+			{
+				"at": 296,
+				"until": 446,
+				"text": "وفي رجب، وشعبان، وذي الحجة… تتزيّن سماء دربكم.",
+				"from": 290
+			},
+			{
+				"at": 462,
+				"until": 590,
+				"text": "المربّي… مجاني، وبلا إعلانات، على غوغل بلاي.",
+				"from": 450
+			}
+		],
+		"v3": [
+			{
+				"at": 6,
+				"until": 122,
+				"text": "طفلي يعاند وقت النوم… ماذا أفعل؟",
+				"from": 0
+			},
+			{
+				"at": 126,
+				"until": 262,
+				"text": "يجيبك المربّي بخطوات هادئة تناسب عمره:",
+				"from": 122
+			},
+			{
+				"at": 208,
+				"until": 300,
+				"text": "روتين ثابت، وتنبيه قبل النوم، وخيار صغير له.",
+				"from": 122
+			},
+			{
+				"at": 304,
+				"until": 420,
+				"text": "إجابة تعرف عمر طفلك.",
+				"from": 292
+			},
+			{
+				"at": 432,
+				"until": 560,
+				"text": "المربّي… مجاني، وبلا إعلانات، على غوغل بلاي.",
+				"from": 420
+			}
+		],
+		"v4": [
+			{
+				"at": 6,
+				"until": 64,
+				"text": "الشاشة… لكن بنيّة.",
+				"from": 0
+			},
+			{
+				"at": 64,
+				"until": 130,
+				"text": "تُدخِل رمزَك… وتُسلِّم الجهاز.",
+				"from": 40
+			},
+			{
+				"at": 132,
+				"until": 204,
+				"text": "يا عمر، هذا ركنك!",
+				"from": 112
+			},
+			{
+				"at": 206,
+				"until": 266,
+				"text": "حكاية قصيرة… وشمعة بدل العدّاد.",
+				"from": 190
+			},
+			{
+				"at": 270,
+				"until": 352,
+				"text": "ثم مهمة صغيرة… بعيدًا عن الشاشة.",
+				"from": 266
+			},
+			{
+				"at": 356,
+				"until": 436,
+				"text": "والخروج من ركنه… برمزك أنت.",
+				"from": 352
+			},
+			{
+				"at": 492,
+				"until": 620,
+				"text": "المربّي… مجاني، وبلا إعلانات، على غوغل بلاي.",
+				"from": 480
+			}
+		],
+		"v5": [
+			{
+				"at": 6,
+				"until": 92,
+				"text": "رمضان هذا العام… مختلف.",
+				"from": 0
+			},
+			{
+				"at": 94,
+				"until": 212,
+				"text": "كل شيء تفعلونه معًا…",
+				"from": 88
+			},
+			{
+				"at": 152,
+				"until": 212,
+				"text": "يُضيء قنديلًا في شارعكم.",
+				"from": 88
+			},
+			{
+				"at": 212,
+				"until": 330,
+				"text": "بلا عدّادات… ولا لوم.",
+				"from": 206
+			},
+			{
+				"at": 334,
+				"until": 400,
+				"text": "ويومًا بعد يوم…",
+				"from": 328
+			},
+			{
+				"at": 402,
+				"until": 465,
+				"text": "رمضان عائلي… خطوة بخطوة.",
+				"from": 396
+			},
+			{
+				"at": 476,
+				"until": 605,
+				"text": "المربّي… مجاني، وبلا إعلانات، على غوغل بلاي.",
+				"from": 465
+			}
+		],
+		"teaser": [
+			{
+				"at": 40,
+				"until": 98,
+				"text": "في ليلة هادئة…",
+				"from": 0
+			},
+			{
+				"at": 100,
+				"until": 214,
+				"text": "يطلّ نور… رفيقك في تربية طفلك.",
+				"from": 96
+			},
+			{
+				"at": 222,
+				"until": 374,
+				"text": "كل خطوة صغيرة مع طفلك… قنديل يضيء.",
+				"from": 214
+			},
+			{
+				"at": 380,
+				"until": 488,
+				"text": "ونور يسألك: جرّبتها؟ كيف جرت؟",
+				"from": 374
+			},
+			{
+				"at": 496,
+				"until": 593,
+				"text": "ودربٌ لأسرتكم… فيه ما أضأتم، وما ينتظركم.",
+				"from": 488
+			},
+			{
+				"at": 600,
+				"until": 681,
+				"text": "ولطفلك ركنه: حكاية، ثم مهمة بعيدًا عن الشاشة.",
+				"from": 593
+			},
+			{
+				"at": 717,
+				"until": 883,
+				"text": "المربّي… مربٍّ يعرف طفلك، خطوة بخطوة. مجاني، وبلا إعلانات.",
+				"from": 683
+			}
+		],
+		"v6": [
+			{
+				"at": 6,
+				"until": 84,
+				"text": "حكاية قبل النوم… يرويها نور.",
+				"from": 0
+			},
+			{
+				"at": 140,
+				"until": 256,
+				"text": "صفحات مرسومة… يقرؤها معكم، صفحةً بعد صفحة.",
+				"from": 126
+			},
+			{
+				"at": 300,
+				"until": 336,
+				"text": "وفي منتصفها… يتوقّف ليسأل طفلك:",
+				"from": 276
+			},
+			{
+				"at": 338,
+				"until": 404,
+				"text": "لو كنت مكان يوسف… ماذا ستفعل؟",
+				"from": 324
+			},
+			{
+				"at": 480,
+				"until": 540,
+				"text": "سؤال صغير… يفتح بينكما حديثًا.",
+				"from": 470
+			},
+			{
+				"at": 552,
+				"until": 690,
+				"text": "المربّي… مجاني، وبلا إعلانات، على غوغل بلاي.",
+				"from": 540
+			}
+		]
+	},
+	"_teaser": "The teaser's frames are those of TeaserWorld (the teaser with the two glimpses of the new world cut in at frame 488): lines 5-6 speak over the glimpses, line 7 is the old closing line moved by their length."
+}

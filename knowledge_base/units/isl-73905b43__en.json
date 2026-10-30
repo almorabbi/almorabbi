@@ -1,0 +1,61 @@
+{
+  "id": "isl-73905b43__en",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "Disciplining Children without Violence",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "تأديب الأبناء",
+  "intervention_type": "إرشادي",
+  "severity": "متوسط",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين - عماد عبدالعظيم (الألوكة)",
+  "text_original": "دبط ابأ نإ :ؾبـح لاقو ,ارشط غؾب اذإ :لاق ,؟ةلاصلا .)2(اػقػخ ابرض برضيو :اٗدٚش ٠سطبح ٘تٓبلا بلأا بٜدأتب عأب لاٚ ﷺ للها لقسر ماقلف اهدؼط عاض اؿل ﭭ ةشئاط عم رؽب قبأ ؾعف اؿك : ةُ شَ ئاطَ تْ لَا قَ ,رؽب قبأ ؿؾعف ءام ؿفعم سقلو دؼعلا نقسؿتؾي فعم ساـلاو ص ِ اخَ ل ِ ف ه ِ د ِ قَ ِ ب ل ِ ـُـعُ طْ يَ ؾَ عَ جَ وَ , لَ قؼُ يَ نْ أَ لله لَ اقَ وَ , ر ٍ ؽْ بَ قبُ أَ ل ِ ـبَ تَ اعَ فَ .)3(»يذ ِ خ ِ فَ كؾَ طَ ﷺ ِ للها ل ِ قس حَ تَ لا ـْ ِ م ل ِ ـعُ َـؿ ءابٔا ةػقضو بيدلتلا ذإ جوزلا فكرت نإو جوزلا ةرضحب بٕا بيدلت فقفو« .)4(»ءاسـؾل جاوزٕا ـم عورشم ػطعلاو ىرت اؿك للقح ـه :ﭬ رؿعل لاق ﷺ لبـلا نأ )1478( ؿؾسم دـطو لجي ةصػح كلإ رؿط ماؼف ,افؼـط لجي ةشئاط كلإ رؽب قبأ ماؼف ,ةؼػـلا لــللسي بيرمى ـمس ؽمٚمعا دبمق لالح ـسمط دامٜمؾم٢مس )848( »فمٚهأو ملامٙمًا مذ« مذ يورلها فمضرمظأ (1) .)61/2( »ةمٞمقمنمًا بادٔا« (2) .)334( يراخبمًا فمضرمظأ (3) .)442/2( »يرابمًا حتمو« (4) ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ نيدلاىلا ىلع دلاولأا قىقح ــــــــــــــــــــ للسك ٓ للهاو :ـؾؼف ,هدـط سقل ام ﷺ للها لقسر ـللست :لقؼي اؿهلاك ,افؼـط .»هدـط سقل ادبأ ائقش ﷺ للها لقسر .)1(» للها دودح ـم دح في ٓإ طاقسأ ةرشط ققف دؾجي ٓ« :ﷺ :ٟشٛتدا ٔبا ٍاق دلقلا برضك بدأ كرت كؾط برض :فـؿف برضأ كؾط برضلا نأ ؿؾطا« :رؿط ـبا ناك دقو بجاقلا",
+  "text_simplified": "The text discusses disciplining children and the question of hitting, mentioning the story of Abu Bakr and his daughter Aisha, may Allah be pleased with them both, and that the jurists restricted discipline to being light, non-injurious and limited in number. Almorabbi never recommends hitting, but gentle and wise methods of tarbiyah instead of violence.",
+  "labels": [
+    "تربية",
+    "تأديب",
+    "ضرب",
+    "عنف",
+    "أساليب تربوية"
+  ],
+  "created_at": "2026-06-21T10:20:44Z",
+  "updated_at": "2026-06-21T10:20:44Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Alukah_Rights_of_Children",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-73905b43",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+    "manual_fix_note": "2026-10-04 PR #27 review: no claims the source text does not make; app stance in its own sentence",
+    "fixed_at": "2026-10-04T12:34:44.900780+00:00",
+    "fixer_model": "claude-opus-5.5",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "2ecd5fa763ba952fa4acce235da165f90b09f5ab2a29779ca3bf743434defbdc",
+      "reviewed_at": "2026-10-07T07:24:20+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-07T07:24:20+00:00",
+    "english_authors": [
+      "claude-opus-5.5"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "isl-f6bbab53__en",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "The Author's Criticism of Some Phone and Computer Games",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "تنظيم وقت اللعب",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين - عماد عبدالعظيم (الألوكة)",
+  "text_original": "صياغة تحريرية للفقرة الأولى في صفحة ١٢٧ المطبوعة من الكتاب: يعترض المؤلف على ألعاب الهاتف والكمبيوتر التي يذكرها لما يراه فيها من تضييع الوقت والانشغال عن العبادة، ومن صور للإنسان أو الحيوان وموسيقى وأغان. هذه إعادة صياغة لموقف المؤلف وليست نقلا حرفيا أو حكما جديدا.",
+  "text_simplified": "The book's author criticizes the phone and computer games discussed in this passage as wasting time and distracting from worship. He also objects to their depictions of people or animals, music, and songs.",
+  "labels": [
+    "ألعاب الهاتف",
+    "ألعاب الكمبيوتر",
+    "موقف المؤلف",
+    "وقت اللعب"
+  ],
+  "created_at": "2026-06-21T10:27:20Z",
+  "updated_at": "2026-10-07T14:46:18.417566+00:00",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "حقوق الأولاد على الوالدين",
+    "source_author": "عماد بن أحمد بن عبدالعظيم"
+  },
+  "source_language": "ar",
+  "translated_from": "isl-f6bbab53",
+  "translation": {
+    "translator_model": "openai:codex",
+    "fixer_model": "openai:codex",
+    "english_authors": [
+      "mistral-large-3:675b",
+      "openai:codex"
+    ],
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+    "draft_status": "draft",
+    "source_recovery_note": "Primary source recovered and checked; exact English parity reviewed by DeepSeek and GLM on 2026-10-07. Auto parity is not source or scholar approval; draft status and human Sharia review remain pending. Raw verdicts: ops/data/kb_fidelity/source_recovery/last-six-canonical-review-2026-10-07.json.",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "6082e5993de0398cf854dd611d530f7ed455ab6a41d238a26e690f64c6d8c236",
+      "reviewed_at": "2026-10-07T15:04:50+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "revalidated_at": "2026-10-07T15:04:50+00:00"
+  },
+  "source_url": "https://www.alukah.net/Books/Files/Book_17337/BookFile/brotherandboys.pdf#page=128",
+  "source_note": "Primary-source recovery 2026-10-07. Immutable raw OCR locator, exact primary PDF and excerpt proof: ops/data/kb_fidelity/source_recovery/isl-f6bbab53.json. Source-specific historical attribution and scope limits retained. Fresh DeepSeek+GLM English parity recorded separately; no scholar/human/publication approval.",
+  "needs_ocr": false
+}

@@ -1,0 +1,55 @@
+{
+  "id": "isl-ded5466d__en",
+  "domain": "islamic_parenting",
+  "source_file": "Rakaiz_Tarbiya.pdf",
+  "title": "The Best Gift for a Child: Good Adab and Justice",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "تربية الأبناء",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "تربية البنات",
+  "text_original": "ا ﻮﻘ ـ ﺗ ﱠﺎﻓ» : ل ﺎﻗ ، ﻻ :ل ﺎﻗ ، « ؟ ا ﺬـ ﻫ ﻞﹶ ﺜـ ﻣ كﹶ ﺪـ ﻟ ﹶوﹶ (cid:3)  . « ﻢ ﻛﹸ د ﻻ وأ ﲔ ﹶ ﺑ  .ﺔـﱠﻴﻄﻌﻟاو ﺔُ ـ َﺒـﻬِ ﻟا ﻲﻫ :ﺔﻠَﺤْ ﱢﻨﻟا (١) .(٢٥٨٧) « ﻪﺤﻴﺤﺻ» ﰲ يﱡ رﺎﺨﺒﹸﻟا ﻪﺟﺮﺧأ (٢)  ن ْ أ كَ ﺮﱡـﺴُ ﻳأ َ » :ﻪ ﻟ ل ﺎﻗ  ﻲﱠ ﺒﻨﻟا ن أ ﻢ ﹴ ﻠﺴﻣ ﺪ ﻨﻋ ﺔ ﻳاور ﰲ و  (cid:3) . « ا ذﹰ إ ﻼ ﻓ» :ل ﺎﻗ ، ﲆﺑ :ل ﺎﻗ ، « ؟ ء ً اﻮَ ﺳَ ﺮﱢﺒﻟا ﰲ ﻚَ ﻴﻟإ اﻮﻧﻮﻜﻳ (cid:3)  . ( ٢) « ر ﹴ ﻮ ﺟﹶ ﲆ ﻋ ﺪ ﹸ ﻬ ﺷ أ ﹶ ﻻ » :ﺔ ﹴ ـ ﻳ اور ﰲ و  (cid:3) هﺬﻫو ، ( ٣) « ي ﺮـ ﻴ ﻏ اﺬﻫ ﻰﻠﻋ ﺪﻬ ِ ﺷْ ﺄ َ ﻓ» :ىﺮﺧأ ﺔ ٍ ـﻳاور ﻲـ ﻓ و  ﻦ ﹶ ﻣ ﹺ ﻪ ﹸ ﺒ ﹸﻠﻗ ﺐ ﹸ ﻴﻄ ﹺ ﻳ ﹶ يﺬﻟا ﻦ ﹺ ﻤ ﹶ ﻓ ﹶ ﻻإو ، ﻪ ﻟ اﺪﹰ ﻳﺪﲥ»  ﻲ ﱡ ﺒﻨﱠﻟا ﺎﳍﺎﻗ ﺔ ﹸﻤ ﻠﻜﻟا  ﻪُ ﱠﻧأو ،رٌ ﻮْ ﺟَ ﻪﻧﺄﺑ ﻲﺒﱠﻨﻟا ﻢَ ﻜَ ﺣَ ﺎﻣ ﻰﻠﻋ ﺪَ ﻬَ ﺸْ ﻳَ نأ ﻦﻴﻤﻠﺴﻤﻟا ( ٤) ِ ِ (cid:3)  . « ! ؟ ل ﺪْ ﻌَ ﻟا ف ُ ﻼ ﺧ ﻪ ﻧﱠ أَو ،ﷲا ىﻮﻘﺗ ف ُ ﻼ ﺧ ﻪ ﻧﱠ أَو ، ﺢ ُ",
+  "text_simplified": "The text discusses a noble hadith that clarifies the best gift a parent can give their child is good adab (manners) and sound tarbiyah (upbringing). It also highlights the importance of justice among children and not favoring one over another. It urges taqwa (God-consciousness) in dealing with one’s children.",
+  "labels": [
+    "تربية",
+    "عدل",
+    "هدية",
+    "تأديب",
+    "تقوى"
+  ],
+  "created_at": "2026-06-20T11:34:28Z",
+  "updated_at": "2026-06-20T11:34:28Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Rakaiz_Tarbiya",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-ded5466d",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "252db9050edf231bb7112befc3d28ecb3415d35f03f3dcb632eca0853aaad7ff",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

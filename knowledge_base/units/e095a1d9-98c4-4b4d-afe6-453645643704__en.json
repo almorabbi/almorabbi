@@ -1,0 +1,79 @@
+{
+  "id": "e095a1d9-98c4-4b4d-afe6-453645643704__en",
+  "domain": "medical",
+  "source_file": "",
+  "source_url": "",
+  "title": "Parental Concern Over Children’s Companionship: Influence Over Prohibition",
+  "language": "en",
+  "age_group": "10-12",
+  "behavior_type": "اختيار الأصدقاء",
+  "intervention_type": "إرشادي",
+  "severity": "متوسط",
+  "reference_type": "مقال_تربوي",
+  "reference_info": "محتوى تحريري كُتب للتطبيق استجابةً لفجوات مقيسة في أسئلة الآباء (2026-08-13). إرشادي عام لا يُغني عن استشارة مختص.",
+  "text_original": "قلق الوالد من أصدقاء ابنه مشروع، لكن المنع المباشر غالبًا يأتي بعكس المقصود: يرفع قيمة الصديق الممنوع، ويدفع الابن لإخفاء علاقاته بدل إنهائها — فتفقد المعلومة والتأثير معًا.\n\nما ينفع أكثر:\n• اجعل بيتك هو مكان اللقاء. أن يجتمعوا عندك يعطيك رؤية مباشرة بلا استجواب، ويجعلك جزءًا من دائرته لا خصمًا لها.\n• انتقد السلوك لا الشخص: «التصرّف ده مش عاجبني» أنفع من «الولد ده وحش». نقد الشخص يستدعي دفاع ابنك عنه ويحوّل الحوار إلى ولاء.\n• درّبه على الرفض بجُمل جاهزة يتدرّب عليها معك: كثير من المراهقين ينساقون لا اقتناعًا بل لعجزهم عن قول «لا» في اللحظة.\n• قوِّ البدائل: نشاط رياضي أو علمي أو حلقة يجد فيها انتماءً. الفراغ والوحدة أكبر بابين لرفقة لا تناسبه.\n• اسأل عن رأيه في مواقف أصدقائه بدل الحكم عليهم؛ ستعرف أكثر، وسيفكّر أكثر.\n• حافظ على قناة مفتوحة مهما سمعت: الابن الذي يخاف ردّ فعلك يخفي عنك أولًا، ويطلب مساعدتك أخيرًا حين تتعقّد الأمور.\n\nوتدخّل بحزم وبلا تردّد عند وجود خطر حقيقي — مواد مخدّرة، عنف، استغلال — واطلب مساعدة مختصة؛ هذا موقف لا يُدار بالحوار وحده.",
+  "text_simplified": "A parent’s worry about their child’s friends is valid, but direct prohibition often backfires: it elevates the forbidden friend’s value and pushes the child to conceal their relationships instead of ending them—so you lose both information and influence.\n\nWhat works better:\n• Make your home the meeting place. When they gather at yours, you gain direct insight without interrogation, and you become part of their circle, not an adversary.\n• Criticize the behavior, not the person: “This action is not pleasing to me” is more effective than “That boy is bad.” Criticizing the person provokes your child to defend them and turns the conversation into a loyalty test.\n• Train them to refuse with ready-made phrases they practice with you: many teenagers go along not out of conviction but because they can’t say “no” in the moment.\n• Strengthen alternatives: a sports or academic activity, or a halaqah (study circle) where they find belonging. Emptiness and loneliness are the biggest doors to unsuitable companionship.\n• Ask for their opinion on their friends’ situations instead of passing judgment; you’ll learn more, and they’ll think more.\n• Keep the channel open no matter what you hear: the child who fears your reaction hides from you first and seeks your help last when things get complicated.\n\nIntervene firmly and without hesitation when real danger exists—drugs, violence, exploitation—and seek professional help; this is a situation that cannot be managed by dialogue alone.",
+  "labels": [],
+  "keywords": [
+    "Friends",
+    "Bad companionship",
+    "Peer pressure",
+    "Prohibition",
+    "Dialogue"
+  ],
+  "created_at": "2026-08-13T16:32:22.728492+00:00",
+  "updated_at": "2026-08-13T16:32:22.728492+00:00",
+  "version": "1.0.0",
+  "source_language": "ar",
+  "translated_from": "e095a1d9-98c4-4b4d-afe6-453645643704",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "The Arabic says the dialogue becomes about loyalty, not that it becomes a test of loyalty."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "«علمي» means scientific, not academic («أكاديمي»); the English narrows the meaning slightly."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "b96deea30224aafff0f1b9960ef3e63d421677b9c09270470aae3e0dee8251bf",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "The Arabic says the dialogue becomes about loyalty, not that it becomes a test of loyalty."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "«علمي» means scientific, not academic («أكاديمي»); the English narrows the meaning slightly."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

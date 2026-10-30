@@ -1,0 +1,78 @@
+{
+  "id": "isl-bfbe3bbe__en",
+  "domain": "islamic_parenting",
+  "source_file": "Al_Hady_Al_Nabawi.pdf",
+  "title": "Unity of Leadership in the Family and Its Impact on the Discipline of Children",
+  "language": "en",
+  "age_group": "4-6",
+  "behavior_type": "الانضباط_الأسري",
+  "intervention_type": "إرشادي",
+  "severity": "متوسط",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "كتاب إسلامي",
+  "text_original": "ةفلامخ دلاولأا ،ًامع وأ ًلااخ وأ ًايربك ًاخأ وأ ناك ًابأ ،لجرلل ةرسلأا ةدايق ةأرلما ملست نأ دب لاو نإو عيطت نأ اهيلعف ًائيش َعَنَم نإو ،ةعاطلا ىلع دلاولأا بىرتيل هرملأ داقّنت نأ اهيلعو ثدتح تافارنحلاا نم ًايرثك نلأ هيلع رتستت لاو بلأا برتخ نأ بجيف اهدلاوأ ضعب هفلاخ .ملأا رُتست ببسب لاو عرشلا هعنيم لا ًائيش دلاولأا بلطي نأك ،ةيرح في ملأا حبصت لاوحلأا ضعب فيو عانقإ دلاولأا لواحيف ،همتكي دقو هنع حصفي دق هاري يأرل عنايم بلأا نكلو ،عقاولا .2 4 ص :بطق دممح :ةيملاسلإا ةيبرتلا جهنم :رظنا ) ( .69 -6 ص :قباسلا عجرلما :رظنا )2( . 4 ص :ليوبناتسلاا دوممح :انلافطأ بيرن فيك :رظنا )3( .69 ص :تونتشلا دلاخ ،تانبلا ةيبرت :رظنا )4( مله ينبتو اهدلاوأ سفن بيّطتو ،ةأرلما عيطت نأ دب لا لالحا هذه يفف ،عنتقّي لاف بلأا ًاساسحإ نيدلاولل نأ دهشت ثادحأ نم ةايلحا في ابم مهيزعتو ،هلقّع ةحاجرو مهدلاو لضف ءاقدصلأا رفاسي ثم ،ًلاثم هدلو رفس ضفري ًانايحأ دلاولا لعيج ساسحلإا اذهو ،بييخ لا .هساسحإ ببسب كلذو ًايرخ دلاولا ضفر نوكيف ىذأب نوباصيف ةيوستلا نوبحتسي اوناك تىح ،مهدلاوأ ينب لدعلا في ةوسأ يرخ فلسلا ناك دقو المو هرجح ىلع هعضوو هلبَقو بيصلا ذخأ ًلاجر بينلا بتاعو لبَُقّلا في مهنيب امف { :ةياور فيو } امهَنيب تيَوس لاأ { :هل لاقّف ،هبنج لىإ اهسلجأ هتنب تءاج . } امهنيب تلدع زييتم زويج لاو ،لبَُقّلاو ةبعلالماو ةَبلهاو ةقّفنلاو ةبوقّعلاو ةلماعلما في ٌبولطم لدعلاو هل لاقّف ،هتوخإ نود هبهي نأ هوبأ دارأ ثيح روهشلما نامَعنلا ثيدلح ءاطعب دلاولأا دحأ زييتم حيبت ًابابسأ كانه نأ لاإ }",
+  "text_simplified": "The text emphasizes the importance of clear leadership within the family and the agreement of adults on guidance, so that children are raised upon *tarbiyah* (upbringing) with obedience and discipline. The difference in directives and their contradiction in front of the children opens the door to many behavioral deviations.",
+  "labels": [
+    "إرشاد",
+    "سلوك في المدرسة"
+  ],
+  "created_at": "2026-06-07T08:26:23Z",
+  "updated_at": "2026-07-30",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Al_Hady_Al_Nabawi",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-bfbe3bbe",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "addition",
+        "why": "The English inserts the term 'tarbiyah' not present in the Arabic, though the meaning is preserved."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "addition",
+        "why": "The Arabic says children are raised upon obedience and discipline; the English inserts 'tarbiyah (upbringing)' which is not present as a noun in the Arabic."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "f2fd197a8c19c6bf69004cf92e3b4d32837e08b0405b00d626637edf0dacba2f",
+      "reviewed_at": "2026-10-04T11:26:06+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "addition",
+          "why": "The English inserts the term 'tarbiyah' not present in the Arabic, though the meaning is preserved."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "addition",
+          "why": "The Arabic says children are raised upon obedience and discipline; the English inserts 'tarbiyah (upbringing)' which is not present as a noun in the Arabic."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:26:06+00:00"
+  }
+}

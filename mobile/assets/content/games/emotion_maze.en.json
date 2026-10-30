@@ -1,0 +1,1507 @@
+{
+  "schema": "tg.game_pack/1",
+  "game": "emotion_maze",
+  "locale": "en",
+  "levels": [
+    {
+      "level": 1,
+      "questions": [
+        {
+          "id": "emotion_maze.q_0",
+          "question": "Your child is crying hard because their toy fell and broke. What first response helps them most?",
+          "emoji": "🧸",
+          "category": "Empathy",
+          "context": "Empathy gives a child emotional safety.",
+          "options": [
+            {
+              "key": "b",
+              "text": "'Stop crying, it is just a toy'",
+              "rationale": "❌ Minimizing their feelings teaches them to bottle emotions up."
+            },
+            {
+              "key": "d",
+              "text": "'Why are you crying? You are too big for this'",
+              "rationale": "❌ Shaming a child for feeling sad is unhealthy."
+            },
+            {
+              "key": "c",
+              "text": "'I will buy you a new one tomorrow so stop crying'",
+              "rationale": "❌ Rushing to replace it skips helping them process disappointment."
+            },
+            {
+              "key": "a",
+              "text": "'I see how upset you are. Let's take a breath together and see if we can fix it or find another activity'",
+              "rationale": "✅ Empathy + emotional regulation + problem-solving."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_1",
+          "question": "A friend snatches a toy from your daughter's hand without asking. How do you help her respond?",
+          "emoji": "🙋‍♀️",
+          "category": "Boundaries",
+          "context": "Teaching children to express boundaries respectfully builds confidence.",
+          "options": [
+            {
+              "key": "d",
+              "text": "'Never speak to that friend again'",
+              "rationale": "❌ Cutting off friendships over everyday moments misses a chance to teach communication."
+            },
+            {
+              "key": "a",
+              "text": "'You can say: I am still playing with this right now, and we can take turns in a few minutes'",
+              "rationale": "✅ Clear, polite boundary-setting."
+            },
+            {
+              "key": "b",
+              "text": "'Just let her have it, you do not need it'",
+              "rationale": "❌ That teaches her that her boundaries do not matter."
+            },
+            {
+              "key": "c",
+              "text": "'Grab it back by force'",
+              "rationale": "❌ Aggression escalates conflict."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_2",
+          "question": "Your child says, 'I get too nervous to speak in front of people.' What is a supportive response?",
+          "emoji": "🗣️",
+          "category": "Anxiety",
+          "context": "Social nervousness is common in childhood and responds well to gentle practice.",
+          "options": [
+            {
+              "key": "c",
+              "text": "'If you stay like this, you will never succeed'",
+              "rationale": "❌ Harsh predictions increase anxiety."
+            },
+            {
+              "key": "b",
+              "text": "'You have to speak up, do not be scared'",
+              "rationale": "❌ Commanding confidence without practice adds pressure."
+            },
+            {
+              "key": "a",
+              "text": "'I understand how that feels. Let's practice together at home first, step by step'",
+              "rationale": "✅ Gradual practice with warm support builds confidence."
+            },
+            {
+              "key": "d",
+              "text": "'Fine, never speak in front of anyone then'",
+              "rationale": "❌ Total avoidance reinforces anxiety."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_3",
+          "question": "Your child got a low quiz grade and hid the paper. How should you respond?",
+          "emoji": "📄",
+          "category": "Trust",
+          "context": "Fear of harsh reactions often drives children to hide mistakes.",
+          "options": [
+            {
+              "key": "b",
+              "text": "'Why did you hide it? You are a failure!'",
+              "rationale": "❌ Harsh labels damage self-worth and trust."
+            },
+            {
+              "key": "d",
+              "text": "'Hide it so no one else knows'",
+              "rationale": "❌ Covering up struggles prevents learning."
+            },
+            {
+              "key": "c",
+              "text": "'You are grounded until your grades are perfect'",
+              "rationale": "❌ Punishment without support does not teach study skills."
+            },
+            {
+              "key": "a",
+              "text": "'Thank you for showing me. Let's look at it calmly together and see how we can improve'",
+              "rationale": "✅ Psychological safety helps children face and learn from mistakes."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_4",
+          "question": "Your child gets angry every time they lose a game. How can you help?",
+          "emoji": "🏆",
+          "category": "Losing Gracefully",
+          "context": "Handling loss is an important social and emotional skill.",
+          "options": [
+            {
+              "key": "d",
+              "text": "'The other players must have cheated'",
+              "rationale": "❌ Blaming others unfairly teaches poor sportsmanship."
+            },
+            {
+              "key": "a",
+              "text": "'It is okay to feel disappointed, and having fun together matters more than winning. Let's congratulate the winner'",
+              "rationale": "✅ Validates feelings while modeling good sportsmanship."
+            },
+            {
+              "key": "b",
+              "text": "'You must always win to prove yourself'",
+              "rationale": "❌ Tying self-worth to winning creates intense pressure."
+            },
+            {
+              "key": "c",
+              "text": "'Never play games again if you get upset'",
+              "rationale": "❌ Avoidance prevents them from practicing emotional regulation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "questions": [
+        {
+          "id": "emotion_maze.q_5",
+          "question": "A friend tells your child, 'If you do not play my way, I will not be your friend.' What is the right guidance?",
+          "emoji": "🎲",
+          "category": "Peer Pressure",
+          "context": "Children need tools to recognize and resist emotional manipulation.",
+          "options": [
+            {
+              "key": "d",
+              "text": "'You are weak if you let them say that'",
+              "rationale": "❌ Insulting your child hurts their confidence."
+            },
+            {
+              "key": "c",
+              "text": "'Take their toys and shout at them'",
+              "rationale": "❌ Escalating with aggression does not teach healthy boundaries."
+            },
+            {
+              "key": "a",
+              "text": "'That is not a fair way to talk. You can say: I like playing with you, but I do not accept threats'",
+              "rationale": "✅ Teaches calm self-respect and clear boundaries."
+            },
+            {
+              "key": "b",
+              "text": "'Do whatever they ask so they do not get mad'",
+              "rationale": "❌ Giving in teaches the child to accept manipulation."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_6",
+          "question": "Your child tells you someone at school is bullying them. What should you do?",
+          "emoji": "😢",
+          "category": "Bullying",
+          "context": "Bullying requires calm listening and organized follow-up.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Confront the other children angrily myself",
+              "rationale": "❌ Direct adult confrontation with children escalates conflict; work through the school."
+            },
+            {
+              "key": "c",
+              "text": "'Forget about it, it is no big deal'",
+              "rationale": "❌ Ignoring bullying leaves the child feeling alone and unsafe."
+            },
+            {
+              "key": "b",
+              "text": "'Bully them back the exact same way'",
+              "rationale": "❌ Retaliating with violence puts the child in greater danger."
+            },
+            {
+              "key": "a",
+              "text": "Reassure my child, listen to the details, practice safe responses, and follow up with the school",
+              "rationale": "✅ Supportive listening paired with structured action protects the child."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_7",
+          "question": "Your daughter refuses to wear a new outfit because classmates said it was not cool. How do you respond?",
+          "emoji": "👗",
+          "category": "Self-Confidence",
+          "context": "Peer opinions can shake a child's confidence.",
+          "options": [
+            {
+              "key": "c",
+              "text": "'You are not allowed to care what anyone thinks ever'",
+              "rationale": "❌ Dismissing her social feelings feels invalidating."
+            },
+            {
+              "key": "b",
+              "text": "'Your friends are right, go change immediately'",
+              "rationale": "❌ Reinforces insecurity and peer dependence."
+            },
+            {
+              "key": "a",
+              "text": "'Friends' opinions can feel big, but how you feel about yourself matters most. Do you like how it feels?'",
+              "rationale": "✅ Acknowledges her feelings while strengthening inner confidence."
+            },
+            {
+              "key": "d",
+              "text": "'I will forbid you from talking to your classmates'",
+              "rationale": "❌ Overreacting does not build self-esteem."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_8",
+          "question": "Your child is avoiding a close friend after a small disagreement. How can you help them repair the friendship?",
+          "emoji": "🤝",
+          "category": "Conflict Resolution",
+          "context": "Repairing disagreements is a key social skill.",
+          "options": [
+            {
+              "key": "d",
+              "text": "'Never speak to them again'",
+              "rationale": "❌ Ending a good friendship over a minor spat is an overreaction."
+            },
+            {
+              "key": "c",
+              "text": "'Just replace them with new friends right away'",
+              "rationale": "❌ Running from every disagreement prevents learning how to resolve conflict."
+            },
+            {
+              "key": "b",
+              "text": "'Never apologize, they are 100% wrong'",
+              "rationale": "❌ Stubborn pride makes small disagreements fester."
+            },
+            {
+              "key": "a",
+              "text": "'You could say: I am sorry we argued — can we talk and be friends again?'",
+              "rationale": "✅ Models sincere repair and initiative."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_9",
+          "question": "Your child says, 'I am not as smart as my friend.' How do you respond?",
+          "emoji": "🧠",
+          "category": "Comparison",
+          "context": "Unhealthy comparison erodes self-confidence.",
+          "options": [
+            {
+              "key": "a",
+              "text": "'Everyone has different strengths, and you are growing every day in your own wonderful ways'",
+              "rationale": "✅ Focuses on individual strengths and a growth mindset."
+            },
+            {
+              "key": "c",
+              "text": "'That is true, they are smarter than you'",
+              "rationale": "❌ Deepens feelings of inadequacy."
+            },
+            {
+              "key": "b",
+              "text": "'Yes, you need to work much harder to catch up to them'",
+              "rationale": "❌ Reinforces painful comparison."
+            },
+            {
+              "key": "d",
+              "text": "'School does not matter at all anyway'",
+              "rationale": "❌ Dismissing learning is not the answer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "questions": [
+        {
+          "id": "emotion_maze.q_10",
+          "question": "Your child has a new baby sibling and is showing signs of jealousy. How do you handle it?",
+          "emoji": "👶",
+          "category": "Sibling Jealousy",
+          "context": "Sibling jealousy is natural and calls for reassurance and connection.",
+          "options": [
+            {
+              "key": "d",
+              "text": "'I will punish you whenever you look upset about your sibling'",
+              "rationale": "❌ Punishing feelings deepens sibling rivalry."
+            },
+            {
+              "key": "b",
+              "text": "'You are the big kid now, stop acting jealous'",
+              "rationale": "❌ Dismissing their feelings increases resentment."
+            },
+            {
+              "key": "a",
+              "text": "'I know things feel different right now, and you are so special to me. Let's have our own daily one-on-one time'",
+              "rationale": "✅ Reassurance and dedicated connection ease jealousy."
+            },
+            {
+              "key": "c",
+              "text": "'If you get upset, we will send the baby away'",
+              "rationale": "❌ Empty threats create anxiety and guilt."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_11",
+          "question": "Your child feels too shy to ask the teacher when they do not understand a lesson. How do you guide them?",
+          "emoji": "🙋",
+          "category": "Asking for Help",
+          "context": "Asking questions is a sign of curiosity and strength.",
+          "options": [
+            {
+              "key": "c",
+              "text": "'If you ask, classmates might laugh at you'",
+              "rationale": "❌ Feeds their fear of embarrassment."
+            },
+            {
+              "key": "b",
+              "text": "'You should figure everything out by yourself'",
+              "rationale": "❌ Children need to know it is okay to ask for help."
+            },
+            {
+              "key": "d",
+              "text": "'Whisper to your neighbor during class instead'",
+              "rationale": "❌ Disrupts class and may give wrong answers."
+            },
+            {
+              "key": "a",
+              "text": "'Asking questions is brave and smart — teachers are happy to help when you ask'",
+              "rationale": "✅ Reframes asking questions as a strength."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_12",
+          "question": "Your child said something hurtful to a friend while angry. What should they do once calm?",
+          "emoji": "💔",
+          "category": "Apologizing",
+          "context": "A sincere apology repairs relationships and builds accountability.",
+          "options": [
+            {
+              "key": "a",
+              "text": "'I am sorry I hurt your feelings. What I said was wrong'",
+              "rationale": "✅ Models a clear, sincere apology without excuses."
+            },
+            {
+              "key": "c",
+              "text": "'Let's just pretend nothing happened'",
+              "rationale": "❌ Acknowledging hurt is important for real repair."
+            },
+            {
+              "key": "d",
+              "text": "'Well, you said mean things last week too'",
+              "rationale": "❌ Scorekeeping undermines an apology."
+            },
+            {
+              "key": "b",
+              "text": "'You started it, so it is your fault'",
+              "rationale": "❌ Blaming does not repair the hurt caused."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_13",
+          "question": "Your child starts copying unkind behavior from peers just to fit in. How do you respond?",
+          "emoji": "🎭",
+          "category": "Peer Pressure",
+          "context": "Children need grounding in their values when facing peer pressure.",
+          "options": [
+            {
+              "key": "d",
+              "text": "'I will lock you in your room'",
+              "rationale": "❌ Harsh punishment misses the chance to guide their values."
+            },
+            {
+              "key": "b",
+              "text": "'Do whatever they do so you fit in'",
+              "rationale": "❌ Encourages losing one's values for approval."
+            },
+            {
+              "key": "a",
+              "text": "'Real friends accept you for who you are — you never need to be unkind to belong'",
+              "rationale": "✅ Reinforces healthy identity and values."
+            },
+            {
+              "key": "c",
+              "text": "'You do not need any friends at all'",
+              "rationale": "❌ Isolation is not a healthy solution."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_14",
+          "question": "Your child suddenly resists going to school and says, 'I do not want to go.' What is the best first step?",
+          "emoji": "🏫",
+          "category": "School Refusal",
+          "context": "Sudden reluctance often signals an underlying worry or difficulty.",
+          "options": [
+            {
+              "key": "a",
+              "text": "'Let's sit together and talk: what is making school feel hard right now?'",
+              "rationale": "✅ Understanding the root cause comes before jumping to conclusions."
+            },
+            {
+              "key": "b",
+              "text": "'You are going and I do not want to hear a word'",
+              "rationale": "❌ Dismissing their distress ignores potential problems at school."
+            },
+            {
+              "key": "c",
+              "text": "'Okay, stay home whenever you feel like it'",
+              "rationale": "❌ Avoiding school without understanding the issue can make anxiety grow."
+            },
+            {
+              "key": "d",
+              "text": "'I will punish you if you say that again'",
+              "rationale": "❌ Punishment silences communication."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "questions": [
+        {
+          "id": "emotion_maze.q_15",
+          "question": "Your child says quietly, 'I feel like nobody loves me.' How should you respond?",
+          "emoji": "❤️",
+          "category": "Unconditional Love",
+          "context": "Feeling loved and secure is a core emotional need.",
+          "options": [
+            {
+              "key": "b",
+              "text": "'You are loved when you behave well'",
+              "rationale": "❌ Conditional love creates deep insecurity."
+            },
+            {
+              "key": "d",
+              "text": "'Everyone loves you, you are just not paying attention'",
+              "rationale": "❌ Arguing with their feelings instead of listening misses the need."
+            },
+            {
+              "key": "c",
+              "text": "'Stop being dramatic'",
+              "rationale": "❌ Invalidating their feelings makes them feel even more alone."
+            },
+            {
+              "key": "a",
+              "text": "'I love you deeply, always, no matter what happens — tell me what made you feel this way today'",
+              "rationale": "✅ Affirms unconditional love and opens space to listen."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_16",
+          "question": "Your child is feeling anxious before a school exam. How can you help them?",
+          "emoji": "😰",
+          "category": "Test Anxiety",
+          "context": "Test anxiety is common and eases with calm preparation and reassurance.",
+          "options": [
+            {
+              "key": "d",
+              "text": "'If you feel nervous, you will be punished'",
+              "rationale": "❌ Threatening a nervous child makes anxiety worse."
+            },
+            {
+              "key": "a",
+              "text": "'Let's take a few slow breaths together and review one small step at a time — your effort is what matters'",
+              "rationale": "✅ Calming breaths and manageable steps reduce anxiety."
+            },
+            {
+              "key": "c",
+              "text": "'Tests are completely pointless, do not study'",
+              "rationale": "❌ Dismissing preparation leaves them feeling unprepared."
+            },
+            {
+              "key": "b",
+              "text": "'You better get full marks or else'",
+              "rationale": "❌ High pressure intensifies test anxiety."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_17",
+          "question": "A friend constantly belittles or bosses your child around. How can you coach your child?",
+          "emoji": "😤",
+          "category": "Healthy Relationships",
+          "context": "One-sided or disrespectful friendships hurt a child's self-esteem.",
+          "options": [
+            {
+              "key": "b",
+              "text": "'Stay quiet and put up with it so you do not lose a friend'",
+              "rationale": "❌ Accepting mistreatment harms self-respect."
+            },
+            {
+              "key": "c",
+              "text": "'Maybe they really are better than you'",
+              "rationale": "❌ Damages your child's confidence."
+            },
+            {
+              "key": "a",
+              "text": "'You can say calmly: I do not like being spoken to that way. If it continues, I will play with someone else'",
+              "rationale": "✅ Teaches clear, self-respecting boundaries."
+            },
+            {
+              "key": "d",
+              "text": "'Hit them next time they brag'",
+              "rationale": "❌ Physical aggression is never the right answer."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_18",
+          "question": "Your child is afraid of sleeping alone in the dark. What is a reassuring response?",
+          "emoji": "🌙",
+          "category": "Nighttime Fears",
+          "context": "Fear of the dark is a normal childhood stage.",
+          "options": [
+            {
+              "key": "b",
+              "text": "'You are too old to be scared, go to sleep'",
+              "rationale": "❌ Dismissing fear does not make it go away."
+            },
+            {
+              "key": "d",
+              "text": "'There is nothing in the dark, stop imagining things'",
+              "rationale": "❌ Logic alone rarely calms a frightened child without warmth."
+            },
+            {
+              "key": "c",
+              "text": "'You can stay up watching TV all night'",
+              "rationale": "❌ Disrupts healthy sleep habits."
+            },
+            {
+              "key": "a",
+              "text": "'I am right nearby. Let's turn on a soft nightlight and read a calm bedtime story together'",
+              "rationale": "✅ Soothing routine and a gentle nightlight build security."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_19",
+          "question": "Your child experienced an embarrassing moment in front of classmates. How do you help restore their confidence?",
+          "emoji": "😳",
+          "category": "Embarrassment",
+          "context": "Reframing awkward moments helps children bounce back from embarrassment.",
+          "options": [
+            {
+              "key": "c",
+              "text": "'Stay home from school for the rest of the month'",
+              "rationale": "❌ Avoidance makes returning much harder."
+            },
+            {
+              "key": "a",
+              "text": "'Awkward moments happen to everyone — even adults! People move on quickly, and you handled it'",
+              "rationale": "✅ Normalizes the experience and reduces catastrophizing."
+            },
+            {
+              "key": "d",
+              "text": "'Blame your classmates and yell at them tomorrow'",
+              "rationale": "❌ Picking fights does not heal embarrassment."
+            },
+            {
+              "key": "b",
+              "text": "'That was a huge disaster, how could you do that?'",
+              "rationale": "❌ Magnifying the embarrassment increases shame."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "questions": [
+        {
+          "id": "emotion_maze.q_20",
+          "question": "Your child feels envious of a friend's brand-new game. How do you handle that feeling?",
+          "emoji": "🎮",
+          "category": "Envy & Goals",
+          "context": "Feelings of envy can be gently guided into gratitude and goal-setting.",
+          "options": [
+            {
+              "key": "b",
+              "text": "'You are a jealous, bad kid'",
+              "rationale": "❌ Shaming labels make children hide their feelings."
+            },
+            {
+              "key": "c",
+              "text": "'Go break your friend's game'",
+              "rationale": "❌ Harmful and unacceptable behavior."
+            },
+            {
+              "key": "a",
+              "text": "'It is natural to wish you had one too. We can be happy for your friend and set a savings goal together'",
+              "rationale": "✅ Acknowledges the feeling and turns it into a positive goal."
+            },
+            {
+              "key": "d",
+              "text": "'Never talk about what you want'",
+              "rationale": "❌ Suppressing feelings misses a teaching moment."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_21",
+          "question": "Your child quickly loses their temper with their younger sibling. How do you help them manage anger?",
+          "emoji": "🌋",
+          "category": "Anger Management",
+          "context": "Managing anger is a skill learned through practice.",
+          "options": [
+            {
+              "key": "a",
+              "text": "'Let's pause and breathe: slow breath in through the nose, out through the mouth — then tell me what you need'",
+              "rationale": "✅ Gives a concrete calming tool before problem-solving."
+            },
+            {
+              "key": "d",
+              "text": "'Just let your sibling do whatever they want to your things'",
+              "rationale": "❌ Both children need fair boundaries."
+            },
+            {
+              "key": "c",
+              "text": "'I will shout at you every time you shout'",
+              "rationale": "❌ Modeling shouting undermines anger management."
+            },
+            {
+              "key": "b",
+              "text": "'You are the older one, never get angry'",
+              "rationale": "❌ Expecting a child never to feel frustrated is unrealistic."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_22",
+          "question": "Your child wants to join the school play but feels nervous about performing. How do you support them?",
+          "emoji": "🎤",
+          "category": "Courage",
+          "context": "Stage fright is normal and eases with encouragement and rehearsal.",
+          "options": [
+            {
+              "key": "c",
+              "text": "'Quit right now if you feel nervous'",
+              "rationale": "❌ Quitting at the first sign of nerves shrinks confidence."
+            },
+            {
+              "key": "a",
+              "text": "'Feeling nervous is completely normal — courage means trying even when we feel butterflies. Let's practice together!'",
+              "rationale": "✅ Normalizes nerves and builds confidence through practice."
+            },
+            {
+              "key": "b",
+              "text": "'You must do it perfectly or do not bother'",
+              "rationale": "❌ Perfectionism increases fear."
+            },
+            {
+              "key": "d",
+              "text": "'Everyone will laugh at you if you forget a line'",
+              "rationale": "❌ Fuels stage fright."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_23",
+          "question": "A classmate keeps borrowing your child's supplies and not returning them. How do you guide your child?",
+          "emoji": "🔄",
+          "category": "Boundaries",
+          "context": "Kindness works best alongside clear boundaries.",
+          "options": [
+            {
+              "key": "d",
+              "text": "'Never share anything with anyone ever again'",
+              "rationale": "❌ Communicating a clear boundary comes first."
+            },
+            {
+              "key": "b",
+              "text": "'Stay silent because they are your friend'",
+              "rationale": "❌ Friendship does not mean giving up your boundaries."
+            },
+            {
+              "key": "c",
+              "text": "'Snatch their bag and take it by force'",
+              "rationale": "❌ Aggression creates bigger problems."
+            },
+            {
+              "key": "a",
+              "text": "'You can say politely: I need my pen back by the end of class so I can do my work'",
+              "rationale": "✅ Teaches clear, respectful communication."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_24",
+          "question": "Your child is being left out by a group at school. How can you help them cope?",
+          "emoji": "👥",
+          "category": "Social Exclusion",
+          "context": "Being excluded hurts and calls for empathy and wider social circles.",
+          "options": [
+            {
+              "key": "c",
+              "text": "'You do not need friends anyway'",
+              "rationale": "❌ Dismisses a child's natural need for belonging."
+            },
+            {
+              "key": "b",
+              "text": "'Beg them every day until they let you in'",
+              "rationale": "❌ Chasing approval from unkind peers hurts self-respect."
+            },
+            {
+              "key": "a",
+              "text": "'I know being left out hurts. Let's also build friendships with other kind kids who enjoy what you love'",
+              "rationale": "✅ Combines empathy with building healthy new connections."
+            },
+            {
+              "key": "d",
+              "text": "'I will go yell at those kids on the playground'",
+              "rationale": "❌ Direct confrontation with peers often backfires socially."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "questions": [
+        {
+          "id": "emotion_maze.q_25",
+          "question": "Your young child clings tightly to you and cries at school drop-off. What helps most?",
+          "emoji": "👋",
+          "category": "Separation Anxiety",
+          "context": "Predictable, warm, and brief goodbyes help ease separation anxiety.",
+          "options": [
+            {
+              "key": "d",
+              "text": "'Big kids never miss their parents'",
+              "rationale": "❌ Shaming normal feelings makes anxiety worse."
+            },
+            {
+              "key": "a",
+              "text": "'I love you, and I will pick you up right after school. Let's do our special hug and wave goodbye'",
+              "rationale": "✅ Reassurance plus a calm, consistent goodbye ritual builds security."
+            },
+            {
+              "key": "b",
+              "text": "'Stop crying and go inside right now!'",
+              "rationale": "❌ Harshness increases separation distress."
+            },
+            {
+              "key": "c",
+              "text": "'Okay, I will sit in your classroom all day every day'",
+              "rationale": "❌ Prevents the child from adjusting to the school routine."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_26",
+          "question": "Your older child tells you a peer pressured them to try smoking or vaping. How do you respond?",
+          "emoji": "🚬",
+          "category": "Peer Pressure",
+          "context": "Praising honesty keeps communication open when peers push harmful habits.",
+          "options": [
+            {
+              "key": "a",
+              "text": "'I am proud of you for telling me. Let's practice confident ways to say: No thanks, that is not for me'",
+              "rationale": "✅ Praises honesty and equips them with refusal skills."
+            },
+            {
+              "key": "c",
+              "text": "'Try it just once so they do not tease you'",
+              "rationale": "❌ Dangerous and harmful advice."
+            },
+            {
+              "key": "b",
+              "text": "'Never leave the house again'",
+              "rationale": "❌ Extreme isolation is not a practical long-term skill."
+            },
+            {
+              "key": "d",
+              "text": "'Get angry at my child for even mentioning it'",
+              "rationale": "❌ Punishing honesty makes them hide future peer pressure."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_27",
+          "question": "Your child has a big meltdown when you say 'No' to a request. How do you hold the boundary?",
+          "emoji": "🛑",
+          "category": "Boundaries",
+          "context": "Boundaries work best when held with calm empathy.",
+          "options": [
+            {
+              "key": "c",
+              "text": "'Fine, take whatever you want just stop screaming'",
+              "rationale": "❌ Giving in teaches that meltdowns change a 'no' into a 'yes'."
+            },
+            {
+              "key": "b",
+              "text": "'Keep crying and I will punish you all week!'",
+              "rationale": "❌ Escalating threats in the heat of the moment fuels the meltdown."
+            },
+            {
+              "key": "a",
+              "text": "'I know you are upset that the answer is no, and I am here while you calm down — the limit stays'",
+              "rationale": "✅ Combines empathy for the feeling with a firm boundary on behavior."
+            },
+            {
+              "key": "d",
+              "text": "'You are not allowed to feel disappointed'",
+              "rationale": "❌ Feelings are valid even when the limit stays firm."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_28",
+          "question": "Your child procrastinates on tidying their room because it feels overwhelming. How do you motivate them?",
+          "emoji": "🧹",
+          "category": "Responsibility",
+          "context": "Breaking big tasks into small collaborative steps builds momentum.",
+          "options": [
+            {
+              "key": "b",
+              "text": "'You are so messy and lazy!'",
+              "rationale": "❌ Criticism drains motivation."
+            },
+            {
+              "key": "d",
+              "text": "'You are grounded without explanation'",
+              "rationale": "❌ Punishment without guidance does not teach organization."
+            },
+            {
+              "key": "c",
+              "text": "'I will just clean it all myself every time'",
+              "rationale": "❌ Builds dependency instead of responsibility."
+            },
+            {
+              "key": "a",
+              "text": "'Let's put on a 10-minute timer and tidy the books together first, then take a play break'",
+              "rationale": "✅ Small steps and teamwork make the task manageable."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_29",
+          "question": "Your child calls themselves 'stupid' because a new skill is taking time to learn. What do you say?",
+          "emoji": "🐢",
+          "category": "Growth Mindset",
+          "context": "Self-talk shapes how children approach challenges.",
+          "options": [
+            {
+              "key": "a",
+              "text": "'Everyone learns at their own pace. You haven't mastered it yet, and practice will get you there'",
+              "rationale": "✅ Reframes struggle as part of learning ('not yet')."
+            },
+            {
+              "key": "b",
+              "text": "'Yes, you really should know this by now'",
+              "rationale": "❌ Reinforces negative self-talk."
+            },
+            {
+              "key": "c",
+              "text": "'You really are slow at this'",
+              "rationale": "❌ Harmful labeling."
+            },
+            {
+              "key": "d",
+              "text": "'Just give up and never try it again'",
+              "rationale": "❌ Discourages perseverance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "questions": [
+        {
+          "id": "emotion_maze.q_30",
+          "question": "Your child feels overwhelmed with guilt after accidentally breaking a dish. How do you respond?",
+          "emoji": "🥺",
+          "category": "Healthy Accountability",
+          "context": "Focusing on repair rather than shame teaches healthy responsibility.",
+          "options": [
+            {
+              "key": "d",
+              "text": "'Walk away and leave broken glass for the child to handle alone'",
+              "rationale": "❌ Safety and guidance come first."
+            },
+            {
+              "key": "b",
+              "text": "'You always ruin everything!'",
+              "rationale": "❌ Sweeping blame deepens shame."
+            },
+            {
+              "key": "a",
+              "text": "'Accidents happen to all of us. Are you okay? Let's safely clean it up together'",
+              "rationale": "✅ Reassures safety and focuses on constructive repair."
+            },
+            {
+              "key": "c",
+              "text": "'Punish them harshly for an accident'",
+              "rationale": "❌ Punishing honest accidents creates fear."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_31",
+          "question": "Your child has a habit of saying 'I can't' before even trying. How do you encourage them?",
+          "emoji": "💪",
+          "category": "Motivation",
+          "context": "Inner language shapes effort and confidence.",
+          "options": [
+            {
+              "key": "b",
+              "text": "'Stop saying that right now!'",
+              "rationale": "❌ Scolding does not build confidence."
+            },
+            {
+              "key": "a",
+              "text": "'Let's try saying: I will give it a try, and I can ask for a hint if I get stuck'",
+              "rationale": "✅ Reshapes self-talk while offering a safety net."
+            },
+            {
+              "key": "c",
+              "text": "'Fine, do not try anything then'",
+              "rationale": "❌ Reinforces helplessness."
+            },
+            {
+              "key": "d",
+              "text": "'I will punish you if you do not finish it immediately'",
+              "rationale": "❌ Threats increase fear of failure."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_32",
+          "question": "Your child is worried about being 'popular' at school above everything else. How do you guide them?",
+          "emoji": "⭐",
+          "category": "Belonging & Values",
+          "context": "True friendship is built on kindness and authenticity, not popularity contests.",
+          "options": [
+            {
+              "key": "d",
+              "text": "'Friendships do not matter at all'",
+              "rationale": "❌ Dismisses the real need for healthy friendships."
+            },
+            {
+              "key": "b",
+              "text": "'Copy whatever the popular kids do, even if it is wrong'",
+              "rationale": "❌ Encourages compromising values."
+            },
+            {
+              "key": "a",
+              "text": "'True friends value you for who you are — staying kind and true to your values matters more than popularity'",
+              "rationale": "✅ Grounds the child in authentic self-worth."
+            },
+            {
+              "key": "c",
+              "text": "'Being popular is the only thing that matters in school'",
+              "rationale": "❌ Places unhealthy pressure on social status."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_33",
+          "question": "Your child says they feel hurt when compared to their sibling. What is the healthiest change?",
+          "emoji": "⚖️",
+          "category": "Sibling Comparison",
+          "context": "Comparing siblings breeds resentment and insecurity.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Acknowledge their feelings and appreciate each child's unique strengths without comparing",
+              "rationale": "✅ Celebrating individuality strengthens both self-esteem and sibling bonds."
+            },
+            {
+              "key": "c",
+              "text": "'You are just way too sensitive'",
+              "rationale": "❌ Dismisses valid feelings."
+            },
+            {
+              "key": "b",
+              "text": "'Well, your sibling really does behave better'",
+              "rationale": "❌ Deepens the hurt and rivalry."
+            },
+            {
+              "key": "d",
+              "text": "'Keep comparing them anyway to motivate them'",
+              "rationale": "❌ Comparison demotivates and damages relationships."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_34",
+          "question": "Your child hesitates to share their opinion during family discussions. How do you encourage them?",
+          "emoji": "💬",
+          "category": "Self-Expression",
+          "context": "Healthy self-expression starts in a respectful home environment.",
+          "options": [
+            {
+              "key": "b",
+              "text": "'Kids are too young to have opinions'",
+              "rationale": "❌ Silences the child's voice."
+            },
+            {
+              "key": "c",
+              "text": "'Only say what agrees with me'",
+              "rationale": "❌ That is not genuine expression."
+            },
+            {
+              "key": "a",
+              "text": "'Your thoughts matter to us — share what you think politely, and we are listening'",
+              "rationale": "✅ Creates a safe, respectful space for expression."
+            },
+            {
+              "key": "d",
+              "text": "'Never speak if anyone might disagree'",
+              "rationale": "❌ Teaches fear of polite disagreement."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "questions": [
+        {
+          "id": "emotion_maze.q_35",
+          "question": "Your child is swayed by ads and wants everything they see. How do you help them think critically?",
+          "emoji": "📺",
+          "category": "Mindful Choices",
+          "context": "Advertising is designed to trigger impulse wants.",
+          "options": [
+            {
+              "key": "a",
+              "text": "'Let's ask together: Is this a need or a passing want, and how do ads try to make things look exciting?'",
+              "rationale": "✅ Builds critical thinking and impulse control."
+            },
+            {
+              "key": "c",
+              "text": "'Scold them for ever liking anything in an ad'",
+              "rationale": "❌ Shaming normal desires misses the teaching moment."
+            },
+            {
+              "key": "d",
+              "text": "'Never explain how advertising works'",
+              "rationale": "❌ Media literacy helps children make wiser choices."
+            },
+            {
+              "key": "b",
+              "text": "'Buy everything they see immediately'",
+              "rationale": "❌ Encourages impulsive consumption."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_36",
+          "question": "Your child feels discouraged by frequent criticism at school. How do you support them?",
+          "emoji": "👩‍🏫",
+          "category": "Constructive Feedback",
+          "context": "Children need help separating their personal worth from areas where they can grow.",
+          "options": [
+            {
+              "key": "c",
+              "text": "'You must be a bad student if you got criticized'",
+              "rationale": "❌ Attacks the child's identity."
+            },
+            {
+              "key": "a",
+              "text": "'Your worth is never in question — let's see what helpful step we can take and talk with your teacher constructively'",
+              "rationale": "✅ Protects self-worth while addressing growth constructively."
+            },
+            {
+              "key": "d",
+              "text": "'Drop out of school'",
+              "rationale": "❌ Avoidance is not a solution."
+            },
+            {
+              "key": "b",
+              "text": "'Insult the teacher in front of the child'",
+              "rationale": "❌ Undermines respect instead of solving the issue constructively."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_37",
+          "question": "Your child is grieving the loss of a beloved grandparent. How can you comfort them?",
+          "emoji": "🕯️",
+          "category": "Grief & Loss",
+          "context": "Children process grief better when allowed to feel and remember openly.",
+          "options": [
+            {
+              "key": "c",
+              "text": "'Never mention their name again'",
+              "rationale": "❌ Silence can make grief feel taboo and lonely."
+            },
+            {
+              "key": "d",
+              "text": "'Buy a toy so you forget all about them'",
+              "rationale": "❌ Distraction cannot replace healthy grieving."
+            },
+            {
+              "key": "b",
+              "text": "'Be strong and never cry'",
+              "rationale": "❌ Suppressing grief makes it harder to heal."
+            },
+            {
+              "key": "a",
+              "text": "'Feeling sad and missing them is completely natural. Would you like to share your favorite memory together?'",
+              "rationale": "✅ Normalizes grief and honors comforting memories."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_38",
+          "question": "Your child has been unusually withdrawn and acting out of character lately. What should you do?",
+          "emoji": "🌊",
+          "category": "Emotional Changes",
+          "context": "Sudden behavioral changes are often a quiet signal that a child needs support.",
+          "options": [
+            {
+              "key": "a",
+              "text": "'I noticed you seem quieter lately. I am here whenever you want to talk, with no judgment'",
+              "rationale": "✅ Gentle observation and warm availability invite the child to open up."
+            },
+            {
+              "key": "d",
+              "text": "'Demand an answer immediately under pressure'",
+              "rationale": "❌ High pressure often makes a withdrawn child shut down more."
+            },
+            {
+              "key": "b",
+              "text": "'Pretend nothing is different and ignore it'",
+              "rationale": "❌ Misses an important signal that your child may be struggling."
+            },
+            {
+              "key": "c",
+              "text": "'Punish them for being quiet'",
+              "rationale": "❌ Punishing emotional distress pushes the child further away."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_39",
+          "question": "Your child sets big goals for themselves but gets discouraged quickly. How do you support them?",
+          "emoji": "🎯",
+          "category": "Perseverance",
+          "context": "Breaking big dreams into small milestones keeps motivation alive.",
+          "options": [
+            {
+              "key": "b",
+              "text": "'Your goals are way too big for you'",
+              "rationale": "❌ Discourages ambition."
+            },
+            {
+              "key": "d",
+              "text": "'Your goals do not matter'",
+              "rationale": "❌ Dismisses what the child cares about."
+            },
+            {
+              "key": "c",
+              "text": "'Give up whenever something feels hard'",
+              "rationale": "❌ Undermines resilience."
+            },
+            {
+              "key": "a",
+              "text": "'Let's break your big goal into small steps and celebrate each step you finish!'",
+              "rationale": "✅ Small milestones build steady confidence and perseverance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "questions": [
+        {
+          "id": "emotion_maze.q_40",
+          "question": "Your child enjoys helping others. How do you nurture that kindness?",
+          "emoji": "🌟",
+          "category": "Kindness",
+          "context": "Recognizing kindness helps it become a lifelong value.",
+          "options": [
+            {
+              "key": "c",
+              "text": "'Helping others is a waste of energy'",
+              "rationale": "❌ Promotes selfishness."
+            },
+            {
+              "key": "b",
+              "text": "'Stop helping people, only look out for yourself'",
+              "rationale": "❌ Discourages empathy."
+            },
+            {
+              "key": "a",
+              "text": "'I am so proud of your kind heart — helping others truly makes a difference'",
+              "rationale": "✅ Warm encouragement reinforces empathy and generosity."
+            },
+            {
+              "key": "d",
+              "text": "'Only help someone if they pay you back'",
+              "rationale": "❌ Turns kindness into a transaction."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_41",
+          "question": "How do you make your home an emotionally safe place for your child?",
+          "emoji": "🏠",
+          "category": "Emotional Climate",
+          "context": "An emotionally safe home is the foundation of healthy development.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Listen with empathy, respect their feelings, and model calm emotional regulation ourselves",
+              "rationale": "✅ Active listening and adult modeling create lasting emotional security."
+            },
+            {
+              "key": "c",
+              "text": "Give empty praise even when boundaries are crossed",
+              "rationale": "❌ Children need both warmth and honest, loving boundaries."
+            },
+            {
+              "key": "b",
+              "text": "Forbid anyone from ever feeling sad or frustrated",
+              "rationale": "❌ Difficult emotions are a natural part of life."
+            },
+            {
+              "key": "d",
+              "text": "Never talk about feelings at home",
+              "rationale": "❌ Emotional silence leaves children without tools to cope."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_42",
+          "question": "What is the most important emotional intelligence lesson a child can learn?",
+          "emoji": "🧠",
+          "category": "Emotional Intelligence",
+          "context": "Separating feelings from actions is at the heart of emotional regulation.",
+          "options": [
+            {
+              "key": "c",
+              "text": "'Act on every impulse the moment you feel it'",
+              "rationale": "❌ Emotions need healthy guidance and boundaries."
+            },
+            {
+              "key": "a",
+              "text": "'All your feelings are okay to feel, and we choose safe, respectful ways to act on them'",
+              "rationale": "✅ Validates all emotions while holding clear boundaries on behavior."
+            },
+            {
+              "key": "d",
+              "text": "'Try not to feel anything at all'",
+              "rationale": "❌ Emotional suppression is unhealthy."
+            },
+            {
+              "key": "b",
+              "text": "'Feeling angry or sad is bad'",
+              "rationale": "❌ Shaming emotions creates guilt rather than regulation."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_43",
+          "question": "As your child grows older and wants more independence, how do you find the right balance?",
+          "emoji": "🕊️",
+          "category": "Independence",
+          "context": "Growing independence needs gradual trust and supportive boundaries.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Give age-appropriate responsibilities and expand trust step by step while staying connected",
+              "rationale": "✅ Gradual autonomy builds capable, confident young people."
+            },
+            {
+              "key": "b",
+              "text": "'Treat them like a toddler forever'",
+              "rationale": "❌ Blocks healthy growth and breeds frustration."
+            },
+            {
+              "key": "d",
+              "text": "'Tell them they cannot do anything without you'",
+              "rationale": "❌ Undermines self-confidence."
+            },
+            {
+              "key": "c",
+              "text": "'Remove all family boundaries overnight'",
+              "rationale": "❌ Even growing kids need clear, supportive boundaries."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_44",
+          "question": "Your child asks: 'What makes a person truly happy?' How do you answer?",
+          "emoji": "😊",
+          "category": "Well-Being",
+          "context": "Lasting happiness grows from gratitude, purpose, and caring relationships.",
+          "options": [
+            {
+              "key": "d",
+              "text": "'Only winning competitions against others'",
+              "rationale": "❌ Tying happiness only to beating others creates constant stress."
+            },
+            {
+              "key": "a",
+              "text": "'Gratitude, warm relationships, and doing good for others'",
+              "rationale": "✅ Connects happiness to meaning, gratitude, and connection."
+            },
+            {
+              "key": "b",
+              "text": "'Buying everything you ever see'",
+              "rationale": "❌ Material things alone do not create lasting happiness."
+            },
+            {
+              "key": "c",
+              "text": "'Never feeling sad for a single moment'",
+              "rationale": "❌ A full life includes all emotions, not the absence of sadness."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "questions": [
+        {
+          "id": "emotion_maze.q_45",
+          "question": "What is the most important foundation in your relationship with your child?",
+          "emoji": "💖",
+          "category": "Connection",
+          "context": "A secure parent-child bond is the anchor for all guidance.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Expecting them never to make a mistake",
+              "rationale": "❌ Mistakes are how children learn and grow."
+            },
+            {
+              "key": "b",
+              "text": "Instant obedience out of fear",
+              "rationale": "❌ Fear-based compliance damages trust."
+            },
+            {
+              "key": "a",
+              "text": "That my child knows they are heard, valued, and loved unconditionally",
+              "rationale": "✅ Unconditional love and active listening build lifelong trust."
+            },
+            {
+              "key": "c",
+              "text": "Only praising them when they come first in class",
+              "rationale": "❌ Conditional approval creates anxiety."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_46",
+          "question": "When a family disagreement makes everyone tense, what is the healthiest way to handle emotions?",
+          "emoji": "💬",
+          "category": "Emotions",
+          "context": "Empathy and calm dialogue de-escalate family tension.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Shout to end the discussion",
+              "rationale": "❌ Shouting creates fear and distance."
+            },
+            {
+              "key": "d",
+              "text": "Punish without listening first",
+              "rationale": "❌ Punishing without understanding breaks trust."
+            },
+            {
+              "key": "c",
+              "text": "Ignore the child's feelings completely",
+              "rationale": "❌ Neglecting feelings makes the problem grow."
+            },
+            {
+              "key": "a",
+              "text": "Talk with the child calmly and listen with empathy",
+              "rationale": "✅ Calm dialogue builds understanding and emotional safety."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_47",
+          "question": "When your child comes home overwhelmed after a tough day, what helps them open up?",
+          "emoji": "💬",
+          "category": "Emotions",
+          "context": "Empathy and calm conversation help children process hard days.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Brush them off and ignore them",
+              "rationale": "❌ Ignoring their distress makes it worse."
+            },
+            {
+              "key": "a",
+              "text": "Sit with the child calmly and invite them to share",
+              "rationale": "✅ Calm conversation is the best way to connect."
+            },
+            {
+              "key": "b",
+              "text": "Raise your voice at them",
+              "rationale": "❌ Harshness pushes the child away."
+            },
+            {
+              "key": "d",
+              "text": "Punish them for being in a bad mood",
+              "rationale": "❌ Punishing without understanding is unfair."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_48",
+          "question": "When two siblings are upset at each other, how should a parent step in?",
+          "emoji": "💬",
+          "category": "Emotions",
+          "context": "Calm mediation teaches children how to resolve feelings peacefully.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Ignore the hurt feelings completely",
+              "rationale": "❌ Unresolved hurt keeps escalating."
+            },
+            {
+              "key": "d",
+              "text": "Punish everyone without asking what happened",
+              "rationale": "❌ Punishing without understanding breeds resentment."
+            },
+            {
+              "key": "a",
+              "text": "Speak calmly with both children and help them express how they feel",
+              "rationale": "✅ Calm dialogue models healthy conflict resolution."
+            },
+            {
+              "key": "b",
+              "text": "Yell at both of them",
+              "rationale": "❌ Yelling increases tension."
+            }
+          ]
+        },
+        {
+          "id": "emotion_maze.q_49",
+          "question": "What is the best habit to remember whenever your child experiences big emotions?",
+          "emoji": "💬",
+          "category": "Emotions",
+          "context": "Empathy and calm conversation guide children through big feelings.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Jump straight to punishment",
+              "rationale": "❌ Punishing without understanding misses the root need."
+            },
+            {
+              "key": "b",
+              "text": "React with shouting",
+              "rationale": "❌ Shouting creates distance."
+            },
+            {
+              "key": "c",
+              "text": "Respond with neglect",
+              "rationale": "❌ Neglect deepens emotional struggles."
+            },
+            {
+              "key": "a",
+              "text": "Connect and talk with the child calmly",
+              "rationale": "✅ Calm, empathetic dialogue is always the healthiest path."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

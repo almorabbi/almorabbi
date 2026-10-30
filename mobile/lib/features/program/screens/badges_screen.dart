@@ -1,0 +1,167 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../l10n/app_localizations.dart';
+import '../../../theme/app_theme.dart';
+import '../../../theme/design_tokens.dart';
+import '../../../widgets/ui/empty_state.dart';
+import '../../../widgets/ui/two_column_rows.dart';
+import '../../share/share_service.dart';
+import '../../share/shareable_moment_card.dart';
+import '../data/badges.dart';
+import '../providers/progress_providers.dart';
+import 'package:almorabbi/widgets/ui/loading_view.dart';
+
+/// Achievements screen (P1 #4) — shows earned + locked badges derived
+/// from the active child's progress. Calm, non-competitive encouragement.
+class BadgesScreen extends ConsumerWidget {
+  const BadgesScreen({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final childId = ref.watch(activeChildIdProvider);
+    return Scaffold(
+      appBar: AppBar(title: Text(AppLocalizations.of(context).settingsAchievements)),
+      body: childId == null
+          ? EmptyState(
+              emoji: '🏅',
+              title: AppLocalizations.of(context).chooseYourChild,
+              subtitle: AppLocalizations.of(context).settingsChildCount(0, 5),
+            )
+          : ref.watch(childProgressProvider(childId)).when(
+                loading: () => const SingleChildScrollView(
+                  physics: NeverScrollableScrollPhysics(),
+                  child: LoadingView(count: 3, itemHeight: 150),
+                ),
+                // Badges are encouragement — on error just show them all locked.
+                error: (_, _) => _BadgesGrid(badges: computeBadges(null)),
+                data: (bundle) =>
+                    _BadgesGrid(badges: computeBadges(bundle)),
+              ),
+    );
+  }
+}
+
+class _BadgesGrid extends StatelessWidget {
+  final List<AchievementBadge> badges;
+  const _BadgesGrid({required this.badges});
+
+  @override
+  Widget build(BuildContext context) {
+    final earned = earnedCount(badges);
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+          child: Semantics(
+            label: AppLocalizations.of(context).badgesEarnedOf(earned, badges.length),
+            child: Text(
+              AppLocalizations.of(context).badgesEarnedOfShort(earned, badges.length),
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w700,
+                    color: AppTheme.primary,
+                  ),
+            ),
+          ),
+        ),
+        Expanded(
+          // Not GridView.count — see TwoColumnRows. Its fixed aspect ratio
+          // clipped these tiles on a 360dp phone, and by far more at 200% text.
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16),
+            child: TwoColumnRows(
+              spacing: 12,
+              children: [
+                for (var i = 0; i < badges.length; i++)
+                  // "Unlock pop" — earned badges spring in, staggered.
+                  _BadgeTile(badge: badges[i])
+                      .animate(delay: (80 * (i % Dt.maxStaggeredItems)).ms)
+                      .scale(
+                        begin: const Offset(.5, .5),
+                        duration: Dt.base,
+                        curve: Curves.easeOutBack,
+                      )
+                      .fadeIn(duration: Dt.fast),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _BadgeTile extends StatelessWidget {
+  final AchievementBadge badge;
+  const _BadgeTile({required this.badge});
+
+  Future<void> _share(AppLocalizations l10n) async {
+    await ShareService.shareMomentCard(
+      fileTag: 'badge_${badge.id}',
+      message: badge.shareMessage(l10n),
+      card: ShareableMomentCard(
+        emoji: badge.emoji,
+        eyebrow: l10n.badgeShareEyebrow,
+        headline: badge.title(l10n),
+        body: badge.description(l10n),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final earned = badge.earned;
+    final title = badge.title(l10n);
+    final description = badge.description(l10n);
+    return Semantics(
+      button: earned,
+      label: '$title. $description. '
+          '${earned ? l10n.badgeEarnedTapShare : l10n.badgeLockedYet}',
+      child: GestureDetector(
+        onTap: earned ? () => _share(l10n) : null,
+        child: Container(
+        decoration: BoxDecoration(
+          gradient: earned ? Dt.accentGradient : null,
+          color: earned ? null : AppTheme.surfaceAlt,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: earned ? Dt.softShadow(Dt.accent) : null,
+        ),
+        padding: const EdgeInsets.all(14),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Opacity(
+              opacity: earned ? 1.0 : 0.4,
+              child: Text(earned ? badge.emoji : '🔒',
+                  style: const TextStyle(fontSize: 40)),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.w800,
+                color: earned ? Colors.white : AppTheme.textSecondary,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              description,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 12,
+                color: earned
+                    ? Colors.white.withValues(alpha: .9)
+                    : AppTheme.textMuted,
+              ),
+            ),
+          ],
+        ),
+      ),
+      ),
+    );
+  }
+}
+

@@ -1,0 +1,1396 @@
+{
+  "id": "anbiya_nuh_older",
+  "series": "anbiya_quran",
+  "about": "مصادر القصة: الآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/anbiya_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py.",
+  "tafsir_source": "moyassar",
+  "content_sha256": "4c47732a6bea42e7be994ec07abb8ee27c2c230145e1af46616484c82f7e9ef8",
+  "refs": [
+    "11:25",
+    "11:26",
+    "11:27",
+    "11:36",
+    "11:37",
+    "11:38",
+    "11:40",
+    "11:41",
+    "11:42",
+    "11:43",
+    "11:44"
+  ],
+  "verses": {
+    "11:25": "وَلَقَدۡ أَرۡسَلۡنَا نُوحًا إِلَىٰ قَوۡمِهِۦٓ إِنِّي لَكُمۡ نَذِيرٞ مُّبِينٌ",
+    "11:26": "أَن لَّا تَعۡبُدُوٓاْ إِلَّا ٱللَّهَۖ إِنِّيٓ أَخَافُ عَلَيۡكُمۡ عَذَابَ يَوۡمٍ أَلِيمٖ",
+    "11:27": "فَقَالَ ٱلۡمَلَأُ ٱلَّذِينَ كَفَرُواْ مِن قَوۡمِهِۦ مَا نَرَىٰكَ إِلَّا بَشَرٗا مِّثۡلَنَا وَمَا نَرَىٰكَ ٱتَّبَعَكَ إِلَّا ٱلَّذِينَ هُمۡ أَرَاذِلُنَا بَادِيَ ٱلرَّأۡيِ وَمَا نَرَىٰ لَكُمۡ عَلَيۡنَا مِن فَضۡلِۭ بَلۡ نَظُنُّكُمۡ كَٰذِبِينَ",
+    "11:36": "وَأُوحِيَ إِلَىٰ نُوحٍ أَنَّهُۥ لَن يُؤۡمِنَ مِن قَوۡمِكَ إِلَّا مَن قَدۡ ءَامَنَ فَلَا تَبۡتَئِسۡ بِمَا كَانُواْ يَفۡعَلُونَ",
+    "11:37": "وَٱصۡنَعِ ٱلۡفُلۡكَ بِأَعۡيُنِنَا وَوَحۡيِنَا وَلَا تُخَٰطِبۡنِي فِي ٱلَّذِينَ ظَلَمُوٓاْ إِنَّهُم مُّغۡرَقُونَ",
+    "11:38": "وَيَصۡنَعُ ٱلۡفُلۡكَ وَكُلَّمَا مَرَّ عَلَيۡهِ مَلَأٞ مِّن قَوۡمِهِۦ سَخِرُواْ مِنۡهُۚ قَالَ إِن تَسۡخَرُواْ مِنَّا فَإِنَّا نَسۡخَرُ مِنكُمۡ كَمَا تَسۡخَرُونَ",
+    "11:40": "حَتَّىٰٓ إِذَا جَآءَ أَمۡرُنَا وَفَارَ ٱلتَّنُّورُ قُلۡنَا ٱحۡمِلۡ فِيهَا مِن كُلّٖ زَوۡجَيۡنِ ٱثۡنَيۡنِ وَأَهۡلَكَ إِلَّا مَن سَبَقَ عَلَيۡهِ ٱلۡقَوۡلُ وَمَنۡ ءَامَنَۚ وَمَآ ءَامَنَ مَعَهُۥٓ إِلَّا قَلِيلٞ",
+    "11:41": "۞وَقَالَ ٱرۡكَبُواْ فِيهَا بِسۡمِ ٱللَّهِ مَجۡرٜىٰهَا وَمُرۡسَىٰهَآۚ إِنَّ رَبِّي لَغَفُورٞ رَّحِيمٞ",
+    "11:42": "وَهِيَ تَجۡرِي بِهِمۡ فِي مَوۡجٖ كَٱلۡجِبَالِ وَنَادَىٰ نُوحٌ ٱبۡنَهُۥ وَكَانَ فِي مَعۡزِلٖ يَٰبُنَيَّ ٱرۡكَب مَّعَنَا وَلَا تَكُن مَّعَ ٱلۡكَٰفِرِينَ",
+    "11:43": "قَالَ سَـَٔاوِيٓ إِلَىٰ جَبَلٖ يَعۡصِمُنِي مِنَ ٱلۡمَآءِۚ قَالَ لَا عَاصِمَ ٱلۡيَوۡمَ مِنۡ أَمۡرِ ٱللَّهِ إِلَّا مَن رَّحِمَۚ وَحَالَ بَيۡنَهُمَا ٱلۡمَوۡجُ فَكَانَ مِنَ ٱلۡمُغۡرَقِينَ",
+    "11:44": "وَقِيلَ يَـٰٓأَرۡضُ ٱبۡلَعِي مَآءَكِ وَيَٰسَمَآءُ أَقۡلِعِي وَغِيضَ ٱلۡمَآءُ وَقُضِيَ ٱلۡأَمۡرُ وَٱسۡتَوَتۡ عَلَى ٱلۡجُودِيِّۖ وَقِيلَ بُعۡدٗا لِّلۡقَوۡمِ ٱلظَّـٰلِمِينَ"
+  },
+  "tafsir": {
+    "11:25": "ولقد أرسلنا نوحًا إلى قومه فقال لهم: إني نذير لكم من عذاب الله، مبيِّن لكم ما أُرسلت به إليكم من أمر الله ونهيه.",
+    "11:26": "آمركم ألا تعبدوا إلا الله، إني أخاف عليكم -إن لم تفردوا الله وحده بالعبادة- عذاب يوم موجع.",
+    "11:27": "فقال رؤساء الكفر من قومه: إنك لست بمَلَك ولكنك بشر، فكيف أُوحي إليك مِن دوننا؟ وما نراك اتبعك إلا الذين هم أسافلنا وإنما اتبعوك من غير تفكر ولا رويَّة، وما نرى لكم علينا من فضل في رزق ولا مال لمَّا دخلتم في دينكم هذا، بل نعتقد أنكم كاذبون فيما تدَّعون.",
+    "11:36": "وأوحى الله سبحانه وتعالى إلى نوح -عليه السلام- لمَّا حق على قومه العذاب، أنه لن يؤمن بالله إلا مَن قد آمن مِن قبل، فلا تحزن يا نوح على ما كانوا يفعلون.",
+    "11:37": "واصنع السفينة بمرأى منَّا وبأمرنا لك ومعونتنا، وأنت في حفظنا وكلاءتنا، ولا تطلب مني إمهال هؤلاء الذين ظلموا أنفسهم من قومك بكفرهم، فإنهم مغرقون بالطوفان. وفي الآية إثبات صفة العين لله تعالى على ما يليق به سبحانه.",
+    "11:38": "ويصنع نوح السفينة، وكلَّما مر عليه جماعة من كبراء قومه سخروا منه، قال لهم نوح: إن تسخروا منا اليوم لجهلكم بصدق وعد الله، فإنا نسخر منكم غدًا عند الغرق كما تسخرون منا.",
+    "11:40": "حتى إذا جاء أمرنا بإهلاكهم كما وَعدْنا نوحًا بذلك، ونبع الماء بقوة من التنور -وهو المكان الذي يخبز فيه- علامة على مجيء العذاب، قلنا لنوح: احمل في السفينة من كل نوع من أنواع الحيوانات ذكرًا وأنثى، واحمل فيها أهل بيتك، إلا مَن سبق عليهم القول ممن لم يؤمن بالله كابنه وامرأته، واحمل فيها من آمن معك من قومك، وما آمن معه إلا قليل مع طول المدة والمقام فيهم.",
+    "11:41": "وقال نوح لمن آمن معه: اركبوا في السفينة، باسم الله يكون جريها على وجه الماء، وباسم الله يكون منتهى سيرها ورُسوُّها. إن ربي لَغفور ذنوب من تاب وأناب إليه من عباده، رحيم بهم أن يعذبهم بعد التوبة.",
+    "11:42": "وهي تجري بهم في موج يعلو ويرتفع حتى يصير كالجبال في علوها، ونادى نوح ابنه -وكان في مكانٍ عَزَل فيه نفسه عن المؤمنين- فقال له: يا بني اركب معنا في السفينة، ولا تكن مع الكافرين بالله فتغرق.",
+    "11:43": "قال ابن نوح: سألجأ إلى جبل أتحصَّن به من الماء، فيمنعني من الغرق، فأجابه نوح: لا مانع اليوم من أمر الله وقضائه الذي قد نزل بالخلق من الغرق والهلاك إلا مَن رحمه الله تعالى، فآمِنْ واركب في السفينة معنا، وحال الموج المرتفع بين نوح وابنه، فكان من المغرقين الهالكين.",
+    "11:44": "وقال الله للأرض -بعد هلاك قوم نوح-: يا أرض اشربي ماءك، ويا سماء أمسكي عن المطر، ونقص الماء ونضب، وقُضي أمر الله بهلاك قوم نوح، ورست السفينة على جبل الجوديِّ، وقيل: هلاكًا وبعدًا للقوم الظالمين الذين تجاوزوا حدود الله، ولم يؤمنوا به."
+  },
+  "tafsir_meta": {
+    "11:25": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:38+00:00"
+    },
+    "11:26": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:38+00:00"
+    },
+    "11:27": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:39+00:00"
+    },
+    "11:36": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:39+00:00"
+    },
+    "11:37": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:40+00:00"
+    },
+    "11:38": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:41+00:00"
+    },
+    "11:40": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:42+00:00"
+    },
+    "11:41": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:42+00:00"
+    },
+    "11:42": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:43+00:00"
+    },
+    "11:43": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:43+00:00"
+    },
+    "11:44": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:44+00:00"
+    }
+  },
+  "fields": [
+    {
+      "path": "title",
+      "refs": [
+        "11:25",
+        "11:26",
+        "11:27",
+        "11:36",
+        "11:37",
+        "11:38",
+        "11:40",
+        "11:41",
+        "11:42",
+        "11:43",
+        "11:44"
+      ],
+      "sentences": [
+        {
+          "text": "نوح عليه السلام وسفينة النجاة",
+          "refs": [
+            "11:25",
+            "11:26",
+            "11:27",
+            "11:36",
+            "11:37",
+            "11:38",
+            "11:40",
+            "11:41",
+            "11:42",
+            "11:43",
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The title uses an honorific and describes the ship as a means of salvation, which is directly entailed by the cited verses where believers boarded it and were saved from drowning.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The title mentions Noah and the ship of salvation, both of which are directly supported by the cited verses and tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "80dd7e4e89278659e904b82e71e66fa117ce33f4b994bc333635299e25ad9b1d",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "refs": [
+        "11:25",
+        "11:26",
+        "11:27",
+        "11:36",
+        "11:37",
+        "11:38",
+        "11:40",
+        "11:41",
+        "11:42",
+        "11:43",
+        "11:44"
+      ],
+      "sentences": [
+        {
+          "text": "قصة نبيّ الله نوح عليه السلام مع قومه والسفينة كما ذكرها القرآن الكريم، مكتوبة من التفسير الميسّر لآياتها.",
+          "refs": [
+            "11:25",
+            "11:26",
+            "11:27",
+            "11:36",
+            "11:37",
+            "11:38",
+            "11:40",
+            "11:41",
+            "11:42",
+            "11:43",
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a general description of the story's source and subject, all of which are supported by the provided Qur'anic verses and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a meta-description of the story itself, mentioning only elements (Noah, his people, the ship) that are present in the cited verses, with an allowed honorific.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "90c782e9ed2add4c9c7b299434d3fe88b2c993d391892d4faba91a76e7eff68f",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[0].text",
+      "refs": [
+        "11:25",
+        "11:26"
+      ],
+      "sentences": [
+        {
+          "text": "قال الله تعالى: ﴿وَلَقَدۡ أَرۡسَلۡنَا نُوحًا إِلَىٰ قَوۡمِهِۦٓ إِنِّي لَكُمۡ نَذِيرٞ مُّبِينٌ﴾.",
+          "refs": [
+            "11:25"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the given Qur'anic verse verbatim inside ﴿﴾ and attributes it to Allah with a supported honorific.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is the verbatim Qur'anic verse [11:25] inside ﴿﴾, prefaced only by an honorific attribution to Allah.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "8844bfa6b5cfdf42ce8a2c3b3e1aa3e8f7e91520de02b40d7c688da903f885f2",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فدعاهم إلى أن يعبدوا الله وحده، وأنذرهم عذابَ يومٍ موجع.",
+          "refs": [
+            "11:26"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence accurately reflects the verse and tafsir: calling to worship Allah alone and warning of a painful day's punishment.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence accurately paraphrases the verse: calling to worship Allah alone matches 'أن لا تعبدوا إلا الله', and warning of a painful punishment matches 'إني أخاف عليكم عذاب يوم أليم'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "c1e43d60662d3a88ae02c28c7ee4f1ae6cfcccf85797d7900f1567493a0c3146",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[1].text",
+      "refs": [
+        "11:27",
+        "11:36",
+        "11:37",
+        "11:38"
+      ],
+      "sentences": [
+        {
+          "text": "فكذّبه رؤساءُ الكفر من قومه، واتّهموه بالكذب.",
+          "refs": [
+            "11:27"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The verse and tafsir state that the leaders of disbelief among his people accused him of lying.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse and tafsir state that the leaders of disbelief among his people said they believed him to be a liar, which directly supports the sentence.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "168dacc74a85dbe7d57dfbdae9b9d909aa068bf0025dd299a71e0089b6ab9232",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وأوحى اللهُ إليه أنه لن يؤمن من قومه إلا من قد آمن، وأمره أن يصنع السفينة، وهو في حفظ الله ورعايته.",
+          "refs": [
+            "11:36",
+            "11:37"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence accurately reflects the cited verses and tafsir about the revelation, the command to build the ship, and Noah being under Allah's protection.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Every clause matches the cited verses and tafsir: the revelation about belief (11:36), the command to build the ship (11:37), and being in Allah's protection and care (tafsir of 11:37).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a414e4110bb9604f3656fb217b4895b9328101a0c2b1c512269b606e4fbb7296",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فكان نوحٌ يصنع السفينة، وكلّما مرّ عليه جماعةٌ من كبراء قومه سخروا منه.",
+          "refs": [
+            "11:38"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited tafsir of 11:38, which states Noah was making the ship and whenever a group of the leaders of his people passed by him they mocked him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly paraphrases verse 11:38 and its tafsir, which state that Noah was making the ship and whenever a group of his people's leaders passed by they mocked him.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "e0f7df34be9b527e13f6d6f3da45189ba0da05cf52fc059a6b9c9e0e84c13244",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[2].text",
+      "refs": [
+        "11:40"
+      ],
+      "sentences": [
+        {
+          "text": "حتى إذا جاء أمرُ الله، نبع الماءُ بقوةٍ من التنّور، علامةً على مجيء العذاب.",
+          "refs": [
+            "11:40"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited tafsir for 11:40, which states water gushed from the oven as a sign of the coming punishment.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence closely paraphrases the cited tafsir الميسّر for [11:40], which states that when God's command came, water gushed forth from the oven as a sign of the coming punishment.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "911a33a5985715273cfc7b52726dbb5639d4de564205c4a62c79a66c65050022",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وأمر اللهُ نوحًا أن يحمل في السفينة من كل نوعٍ من الحيوانات ذكرًا وأنثى، وأهلَ بيته إلا من سبق عليه القولُ ممّن لم يؤمن، ومن آمن معه.",
+          "refs": [
+            "11:40"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence accurately paraphrases the verse and tafsir about God commanding Noah to carry pairs of animals, his family except those already condemned, and the believers with him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence faithfully paraphrases [11:40] and its tafsir, covering the command to carry pairs of animals, household except those decreed for punishment, and the believers.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "451a8861ba1af5a19c2638726b12049388fc6814379b3cad2431e762dea15b59",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وما آمن معه إلا قليل.",
+          "refs": [
+            "11:40"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is verbatim from the cited verse 11:40 and its tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is verbatim Qur'an from 11:40 and is confirmed by the cited tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "052d22731a18f54e1c0843e0a03eeab5adf533830e6228d4840578663a05f445",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[3].text",
+      "refs": [
+        "11:41",
+        "11:42"
+      ],
+      "sentences": [
+        {
+          "text": "وقال نوحٌ لمن آمن معه: ﴿ٱرۡكَبُواْ فِيهَا بِسۡمِ ٱللَّهِ مَجۡرٜىٰهَا وَمُرۡسَىٰهَآۚ إِنَّ رَبِّي لَغَفُورٞ رَّحِيمٞ﴾.",
+          "refs": [
+            "11:41"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The narration matches the cited verse and tafsir exactly, including that Noah said this to those who believed with him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence matches the tafsir's framing and quotes the verse verbatim.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "18e77c24eb42738e35e5598aeb1f2b721217ebb69de9e62558e10e9d54815442",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وجرت السفينةُ بهم في موجٍ يعلو حتى يصير كالجبال.",
+          "refs": [
+            "11:42"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited verse and tafsir, which state the ship sailed with them amid waves like mountains.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly paraphrases the verse [11:42] and its tafsir, which describe the ship sailing with them in waves rising like mountains.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "0dd0f8bf2c4e6082d97caad89b3d62d65d7ce77fbc6ecc94d4669c0f136fc011",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[4].text",
+      "refs": [
+        "11:42",
+        "11:43"
+      ],
+      "sentences": [
+        {
+          "text": "قال الله تعالى: ﴿وَنَادَىٰ نُوحٌ ٱبۡنَهُۥ وَكَانَ فِي مَعۡزِلٖ يَٰبُنَيَّ ٱرۡكَب مَّعَنَا وَلَا تَكُن مَّعَ ٱلۡكَٰفِرِينَ﴾.",
+          "refs": [
+            "11:42"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the given Qur'anic verse verbatim inside ﴿﴾, which is always supported.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic verse inside ﴿﴾ prefaced by an honorific, which is always supported.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "8000c4bd07402668755e1f046474e8e070cf38b67c96c6ed727d7a23d8680f96",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وكان ابنُه في مكانٍ عزل فيه نفسه عن المؤمنين.",
+          "refs": [
+            "11:42"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the given tafsir of 11:42 exactly.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is directly taken from the cited tafsir الميسّر.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "373d17f700a62b77465b5923cde1c0eb28d12fc1362484e51755eeb171f2391c",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فأبى ابنُه أن يركب، وحال الموجُ بينهما، فكان من المُغرَقين.",
+          "refs": [
+            "11:43"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The son's statement that he would go to a mountain entails his refusal to board, and the wave and drowning are directly in the sources.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The son's refusal to board is directly entailed by his seeking refuge on a mountain instead, and Noah's call to ride in the ship per the tafsir; the rest is verbatim from the verse.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "d03da81ae2a45e7d1f3f1f31cb822f8ffaa08dbc67ccc8715cbe7e13aa9880cb",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[5].text",
+      "refs": [
+        "11:37",
+        "11:38",
+        "11:41",
+        "11:43",
+        "11:44"
+      ],
+      "sentences": [
+        {
+          "text": "ونقص الماءُ، ورست السفينةُ على جبل الجوديّ.",
+          "refs": [
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence directly matches the Qur'anic verse and tafsir stating the water decreased and the ship rested on Mount Judi.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Both facts match the cited tafsir of 11:44: 'ونقص الماء' and 'رست السفينة على جبل الجوديّ'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "6367f2d1eda2da12ea8ea046a7a06cbcd2556a6f1bf90daa0d0c59f66b5a1aa2",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ومن عِبَر هذه الآيات أن نوحًا عليه السلام صنع السفينة كما أمره الله، وإن سخر منه كبراءُ قومه.",
+          "refs": [
+            "11:37",
+            "11:38"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited verses and tafsir: Noah built the ship by God's command, and the leaders of his people mocked him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Both claims are directly supported by the cited verses and tafsir: Allah commanded the building of the ship (11:37), and the elders of his people mocked him (11:38 tafsir).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a8995f2dd97adf3ef62e035331c68ff7cd9ac6572002d9e29ea176ed41d481bb",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ومنها أنه لا مانع اليوم من أمر الله إلا مَن رحمه الله.",
+          "refs": [
+            "11:43"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence paraphrases the tafsir's explanation of Noah's statement, using a synonym and omitting details, which is allowed.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a direct shortening of the cited tafsir's wording of Noah's reply to his son.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "4f5e2ccb078f2c39e47a6c49a5c52d302b063a31dc914b0b7e300ad235050472",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ومنها أن يكون أمرُنا كلُّه باسم الله، كما جرت السفينةُ ورست باسم الله.",
+          "refs": [
+            "11:41"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence draws a general lesson from the verse, and the statement that the ship sailed and anchored in Allah's name is directly supported by the cited verse and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse and tafsir explicitly state the ship sailed and anchored in the name of Allah, and the general lesson to do all things in Allah's name is a permissible moral application.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "5e91135d15ffc3c81d06381017a41eb32311158c5263a92987d41cd2be313a86",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.question",
+      "refs": [
+        "11:25",
+        "11:26",
+        "11:27",
+        "11:36",
+        "11:37",
+        "11:38",
+        "11:40",
+        "11:41",
+        "11:42",
+        "11:43",
+        "11:44"
+      ],
+      "sentences": [
+        {
+          "text": "سخر الكبراءُ من نوحٍ عليه السلام وهو يصنع السفينة.",
+          "refs": [
+            "11:25",
+            "11:26",
+            "11:27",
+            "11:36",
+            "11:37",
+            "11:38",
+            "11:40",
+            "11:41",
+            "11:42",
+            "11:43",
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state that leaders/chiefs of his people mocked Noah while he was making the ship.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse [11:38] and its tafsir state that whenever a group of the leaders (كبراء) of his people passed by Noah while he was making the ship, they mocked him.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "8afb17c35cc2a2ada64e2daace42474c809e6e0d857cfd67211545aea41f62f2",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ماذا تفعل إذا سخر منك أحدٌ وأنت تعمل عملًا طيبًا؟",
+          "refs": [
+            "11:25",
+            "11:26",
+            "11:27",
+            "11:36",
+            "11:37",
+            "11:38",
+            "11:40",
+            "11:41",
+            "11:42",
+            "11:43",
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question is addressed to the child and does not assert any unsupported fact about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a question to the child about their own life, drawing a general lesson from the mockery mentioned in 11:38 without asserting anything unsupported about the prophet.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "6dc342e949cff6ea3cbb6615c713f785dc04d1645285a87a98e72bc66b9194ff",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.affirm",
+      "refs": [
+        "11:25",
+        "11:26",
+        "11:27",
+        "11:36",
+        "11:37",
+        "11:38",
+        "11:40",
+        "11:41",
+        "11:42",
+        "11:43",
+        "11:44"
+      ],
+      "sentences": [
+        {
+          "text": "أحسنت!",
+          "refs": [
+            "11:25",
+            "11:26",
+            "11:27",
+            "11:36",
+            "11:37",
+            "11:38",
+            "11:40",
+            "11:41",
+            "11:42",
+            "11:43",
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is only praise and does not assert anything about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general expression of praise to the child and makes no claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "20b9b092a178fc16f0733dab21eae38107a3d88168c817c72633e6a9ec2955ed",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "نوح عليه السلام كان يصنع السفينة كما أمره الله، وإن سخروا منه.",
+          "refs": [
+            "11:25",
+            "11:26",
+            "11:27",
+            "11:36",
+            "11:37",
+            "11:38",
+            "11:40",
+            "11:41",
+            "11:42",
+            "11:43",
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state that Noah built the ship by God's command and that his people mocked him while he built it.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Both facts—Noah building the ship by Allah's command (11:37) and people mocking him (11:38)—are directly stated in the cited verses and tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "2ba309b1867c8c845bd5c47adf4f4a4e254f731e5c225498322b6711d0a8309f",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.nudge",
+      "refs": [
+        "11:25",
+        "11:26",
+        "11:27",
+        "11:36",
+        "11:37",
+        "11:38",
+        "11:40",
+        "11:41",
+        "11:42",
+        "11:43",
+        "11:44"
+      ],
+      "sentences": [
+        {
+          "text": "أفهم أن السخرية تُحزن…",
+          "refs": [
+            "11:25",
+            "11:26",
+            "11:27",
+            "11:36",
+            "11:37",
+            "11:38",
+            "11:40",
+            "11:41",
+            "11:42",
+            "11:43",
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "This is a general empathetic statement by Noor to the child, not a claim about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is Noor's general moral reflection addressed to the child, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "2ebb21886696246c3c3f7a318cc42be728f874f11ff097c98fdf1230cc24084e",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ماذا فعل نوح عليه السلام حين سخروا منه؟",
+          "refs": [
+            "11:25",
+            "11:26",
+            "11:27",
+            "11:36",
+            "11:37",
+            "11:38",
+            "11:40",
+            "11:41",
+            "11:42",
+            "11:43",
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question only presupposes that the people mocked Noah, which is stated in the sources, and asks what he did without adding unsupported details.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a question to the child about an event explicitly described in the sources (11:38), where Noah's people mocked him and he responded.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "c7111d03c9a0b75bef893d3ba404ab582234c2cee4a616d5febf2d4521a6e5fa",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[0]",
+      "refs": [
+        "11:25",
+        "11:26",
+        "11:27",
+        "11:36",
+        "11:37",
+        "11:38",
+        "11:40",
+        "11:41",
+        "11:42",
+        "11:43",
+        "11:44"
+      ],
+      "sentences": [
+        {
+          "text": "أكمل عملي بهدوء",
+          "refs": [
+            "11:25",
+            "11:26",
+            "11:27",
+            "11:36",
+            "11:37",
+            "11:38",
+            "11:40",
+            "11:41",
+            "11:42",
+            "11:43",
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is the child's own possible choice in today's life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a child's own life choice about completing work calmly, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "109791ca43d17d8c81e18e7b42f9eff2b7a97fa88eda68806eb71934a65a245c",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[1]",
+      "refs": [
+        "11:25",
+        "11:26",
+        "11:27",
+        "11:36",
+        "11:37",
+        "11:38",
+        "11:40",
+        "11:41",
+        "11:42",
+        "11:43",
+        "11:44"
+      ],
+      "sentences": [
+        {
+          "text": "أترك عملي وأغضب",
+          "refs": [
+            "11:25",
+            "11:26",
+            "11:27",
+            "11:36",
+            "11:37",
+            "11:38",
+            "11:40",
+            "11:41",
+            "11:42",
+            "11:43",
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is the child's own possible choice in today's life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a child's own possible life choice, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "f3077a1c3e7de0494c1f071ebdf785af7a780a2f6a62f50b8c9432f80f23844e",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[0]",
+      "refs": [
+        "11:25",
+        "11:26",
+        "11:27",
+        "11:36",
+        "11:37",
+        "11:38",
+        "11:40",
+        "11:41",
+        "11:42",
+        "11:43",
+        "11:44"
+      ],
+      "sentences": [
+        {
+          "text": "إلى ماذا دعا نوحٌ عليه السلام قومه، وكيف قابلوه؟",
+          "refs": [
+            "11:25",
+            "11:26",
+            "11:27",
+            "11:36",
+            "11:37",
+            "11:38",
+            "11:40",
+            "11:41",
+            "11:42",
+            "11:43",
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about Noah's call and his people's response, both of which are stated in the provided verses and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks about Noah's call and his people's response, both of which are directly covered in the cited verses (11:25-27).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "0759d8a6df97ff11a72e51fe986b75056c062bfe919145d480d43edf6a22d30e",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[1]",
+      "refs": [
+        "11:25",
+        "11:26",
+        "11:27",
+        "11:36",
+        "11:37",
+        "11:38",
+        "11:40",
+        "11:41",
+        "11:42",
+        "11:43",
+        "11:44"
+      ],
+      "sentences": [
+        {
+          "text": "بماذا نادى نوحٌ ابنَه وهو في مكانٍ معزول؟",
+          "refs": [
+            "11:25",
+            "11:26",
+            "11:27",
+            "11:36",
+            "11:37",
+            "11:38",
+            "11:40",
+            "11:41",
+            "11:42",
+            "11:43",
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question reflects the Qur'anic account that Noah called his son while the son was in an isolated place, without adding unsupported details.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks what Noah called his son while he was in an isolated place, which matches [11:42] where Noah calls his son who was في معزل.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "4aa5e757e95a949ce215b483313d6a603e4d9a39d14fe1893b46120fd62e896e",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[2]",
+      "refs": [
+        "11:25",
+        "11:26",
+        "11:27",
+        "11:36",
+        "11:37",
+        "11:38",
+        "11:40",
+        "11:41",
+        "11:42",
+        "11:43",
+        "11:44"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا قال نوحٌ لمن آمن معه حين ركبوا السفينة؟",
+          "refs": [
+            "11:25",
+            "11:26",
+            "11:27",
+            "11:36",
+            "11:37",
+            "11:38",
+            "11:40",
+            "11:41",
+            "11:42",
+            "11:43",
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about what Noah said to the believers when boarding, which is directly stated in 11:41 and its tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks what Noah said to the believers when they boarded the ship, which is directly answered by verse [11:41].",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "f726882eb7e1748a55db60cc2fc8399b0c7b960dd5a1ddffdb88f2956877adab",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "islamicValue",
+      "refs": [
+        "11:43"
+      ],
+      "sentences": [
+        {
+          "text": "﴿لَا عَاصِمَ ٱلۡيَوۡمَ مِنۡ أَمۡرِ ٱللَّهِ إِلَّا مَن رَّحِمَۚ﴾ [هود: ٤٣].",
+          "refs": [
+            "11:43"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is verbatim Qur'an from the cited verse, which is always supported.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic verse inside ﴿﴾, which is always supported.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "dd0267ba013431e96791082731ecab0c8e41f9c32b403b9335fba5e21a68d260",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "actionChallenge",
+      "refs": [
+        "11:25",
+        "11:26",
+        "11:27",
+        "11:36",
+        "11:37",
+        "11:38",
+        "11:40",
+        "11:41",
+        "11:42",
+        "11:43",
+        "11:44"
+      ],
+      "sentences": [
+        {
+          "text": "قل: بسم الله، قبل أن تبدأ دراستك أو تركب السيارة اليوم، وتذكّر أن السفينة جرت ورست باسم الله.",
+          "refs": [
+            "11:25",
+            "11:26",
+            "11:27",
+            "11:36",
+            "11:37",
+            "11:38",
+            "11:40",
+            "11:41",
+            "11:42",
+            "11:43",
+            "11:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The instruction applies the Qur'anic fact that the ship ran and anchored by Allah's name to the child's daily life without adding unsupported story details.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The practical instruction to say bismillah is general good manners, and the reminder that the ship sailed and anchored by the name of Allah is directly supported by verse 11:41 and its tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "81aed67494e0c0d4f6ed7691d67f6b9db89a4d25d321f46079bbd1bf7d5a84f8",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    }
+  ]
+}

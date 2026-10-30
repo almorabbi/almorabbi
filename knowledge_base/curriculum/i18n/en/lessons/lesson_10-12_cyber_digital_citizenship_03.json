@@ -1,0 +1,58 @@
+{
+  "id": "lesson_10-12_cyber_digital_citizenship_03",
+  "path_id": "path_10-12_cyber_digital_citizenship",
+  "title": "Critical Thinking: Not Everything on the Internet is True",
+  "age_group": "10-12",
+  "domain": "cyber",
+  "unit_ids": [
+    "cyb-a208f26a",
+    "cyb-a688fcbe",
+    "cyb-a75c4112",
+    "cyb-c231a76a",
+    "de291c19-4443-464b-806e-81d9ed0c01ad"
+  ],
+  "summary": "Algorithms feed you what you like, not what benefits you. Teach him: (1) Who is the source? (2) Is there another source that confirms it? (3) Does it provoke anger/fear? (4) Search on trusted sites. Activate SafeSearch and reliable sources for him.",
+  "try_this": "Choose a trending news item—search together: the primary source, expert opinions, facts vs. opinions. Teach him: \"If it’s too unbelievable to be true, it’s most likely false.\"",
+  "order": 3,
+  "estimated_minutes": 23,
+  "reflection_prompts": [
+    "What was the last news item you both verified together?",
+    "Which trusted sites did you rely on?"
+  ],
+  "warning_flags": [],
+  "needs_professional_followup": false,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "b8bba02b81e79e8fc597e44a630562bd3dc5cf1b6bf2d8bb6260489961ee383f",
+      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

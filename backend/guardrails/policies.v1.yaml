@@ -1,0 +1,206 @@
+version: "1.0.0"
+description: >
+  سياسات مبدئية لحوكمة مخرجات المساعد التربوي الذكي، مبنية على الحقول:
+  domain, severity, intervention_type. الهدف هو الفصل بين الأدوار الطبية
+  والشرعية والتربوية والسيبرانية وتقليل النصائح الخطرة.
+
+global:
+  # أنواع الأسئلة أو النوايا المحظورة تمامًا (ستحتاج لاحقًا لاكتشافها بنماذج تصنيف أو قواعد).
+  banned_intents:
+    - self_harm
+    - suicide
+    - explicit_medication_dose
+    - illegal_activity
+
+  # العقاب البدني — «المربّي» لا يوصي به أبدًا (2026-10-04). السياسة في تعليمات
+  # النموذج (llm_service.py)، وbackend/app/services/discipline_guard.py يجيب
+  # **الحالات الواضحة فقط** برد ثابت: سؤال إذن أو حكم صريح (الوالد فاعل والطفل
+  # مفعول)، أو اعتراف بصيغة المتكلم، أو أذى بدني موصوف (أداة/دم/إصابة/إغماء)،
+  # أو خوف الوالد من أن يؤذي طفله (قبل فحص المحظورات). وكل ما عدا ذلك يذهب إلى
+  # النموذج — الخطأ في الرد الثابت أضرّ من تفويته. الاختبارات:
+  # backend/tests/test_discipline_guard.py (جدول المراجعة ٩٥ صفًا) و
+  # test_no_hitting_endorsement.py (لا نصّ معروض يأمر بالضرب أو يبيحه).
+
+  # رسالة افتراضية آمنة في الحالات عالية الخطورة.
+  high_risk_fallback_message: >
+    هذا المساعد لا يقدّم تشخيصًا طبيًا أو فتوى ملزِمة. في ضوء المعطيات
+    التي ذكرتها، من الضروري التواصل مباشرة مع مختص بشري (طبيب/مستشار/شيخ)
+    لعرض الحالة بالتفصيل واتخاذ القرار المناسب.
+
+  # رسالة الطوارئ الفورية عند الحالات الحرجة والطارئة
+  emergency_fallback_message: >
+    هذا المساعد لا يقدّم تشخيصًا طبيًا أو تدخلاً في الأزمات الطارئة. في ضوء المعطيات
+    التي ذكرتها، يُرجى التوجه فورًا لأقرب قسم طوارئ بمستشفى أو الاتصال فورًا بأرقام الطوارئ في بلدك:
+    - مصر: الإسعاف (123) | خط نجدة الطفل (16000)
+    - السعودية: الهلال الأحمر / الإسعاف (997) | الطوارئ الموحد (911) | خط مساندة الطفل (116111)
+    - عام ودولي: رقم الطوارئ المحلي الموحد (112 أو 911) أو التوجه لأقرب نقطة إسعاف فورًا.
+
+domains:
+  medical:
+    description: "مجال سلوك ونفسية الأطفال والجوانب الطبية/النمائية."
+    default_policy:
+      allow_diagnosis: false
+      allow_medication_names: false
+      allow_lifestyle_advice: true
+      require_human_review: true
+    severity_overrides:
+      خفيف:
+        require_human_review: false
+      متوسط:
+        require_human_review: true
+      شديد:
+        require_human_review: true
+        escalate_to: "pediatrician"
+      طارئ:
+        require_human_review: true
+        escalate_to: "emergency_services"
+    intervention_overrides:
+      إحالة_لطبيب:
+        force_fallback_message: true
+
+  development:
+    description: >-
+      "النمو الجسدي والحركي واللغوي ومراحل الطفولة الطبيعية والتأخر النمائي.
+      مجال يُرجعه المصنّف (VALID_DOMAINS) ولا يجوز تركه بلا سياسة، وإلا مرّت
+      أسئلة التأخر النمائي الشديدة بلا مراجعة بشرية ولا جهة تصعيد."
+    default_policy:
+      allow_diagnosis: false
+      allow_medication_names: false
+      allow_lifestyle_advice: true
+      require_human_review: true
+    severity_overrides:
+      خفيف:
+        require_human_review: false
+      متوسط:
+        require_human_review: true
+      شديد:
+        require_human_review: true
+        escalate_to: "developmental_pediatrician"
+      طارئ:
+        require_human_review: true
+        escalate_to: "emergency_services"
+    intervention_overrides:
+      إحالة_لطبيب:
+        force_fallback_message: true
+
+  aqeedah:
+    description: >-
+      "أسئلة الاعتقاد: من هو الله، ما بعد الموت، الجنة والنار، أركان الإيمان،
+      القضاء والقدر، والشبهات. مجال يُرجعه المصنّف ولا يجوز تركه بلا سياسة —
+      وحداته العشر كانت غير قابلة للوصول قبل 2026-07-30، فلما وُصلت لزم أن
+      تُحكَم مثل بقية المجالات لا أن تمرّ بسياسة فارغة."
+    default_policy:
+      allow_strict_rulings: false
+      require_human_review: true
+    severity_overrides:
+      # سؤال عقدي عادي لا يستدعي مراجعة بشرية. بلا هذا السطر كان كل سؤال في
+      # المجال يُعلَّم، لأن severity تُحسم «خفيف» في كل الحالات إلا ما تلتقطه
+      # كلمات الطوارئ — فصارت العلامة تصف المجال لا الخطورة، وامتلأ الطابور
+      # بـ983 رسالة (61%) لم يقرأها أحد. علامةٌ لا تُقرأ وهمُ سلامة لا سلامة.
+      # النمط هنا هو نمط medical/development نفسه، لا نمطًا جديدًا.
+      خفيف:
+        require_human_review: false
+      متوسط:
+        require_human_review: true
+      شديد:
+        require_human_review: true
+        escalate_to: "scholar"
+      طارئ:
+        require_human_review: true
+        escalate_to: "emergency_services"
+    notes: >-
+      "تُصاغ الإجابة كتعليم عقدي مبسّط مناسب لعمر الطفل ومأخوذ من المتون
+      المعتمدة، لا كفتوى ولا كجدل كلامي. عند الشك أو الشبهة المركّبة يُشجَّع
+      الوالد على الرجوع لعالم موثوق."
+
+  fiqh:
+    description: "فتاوى وضوابط شرعية عامة (لن تُستخدم لإصدار فتاوى شخصية ملزِمة)."
+    default_policy:
+      allow_strict_rulings: false
+      require_human_review: true
+    severity_overrides:
+      # نفس علّة aqeedah: سؤال فقهي عادي كان يُعلَّم للمراجعة لمجرد مجاله.
+      # النوازل تصل هنا بـ«شديد» وتُصعَّد لعالِم كما كانت.
+      خفيف:
+        require_human_review: false
+      متوسط:
+        require_human_review: true
+      شديد:
+        require_human_review: true
+        escalate_to: "scholar"
+      طارئ:
+        require_human_review: true
+        escalate_to: "emergency_services"
+    notes: >
+      "إجابات هذا المجال يجب أن تُصاغ على أنها (معلومات شرعية عامة) مع
+      تشجيع السائل على الرجوع لعالِم موثوق في النوازل المعقدة."
+
+  tarbiyah:
+    description: "توجيهات تربوية ونفسية عامة مبنية على النصوص الشرعية والخبرة التربوية."
+    default_policy:
+      allow_practical_tips: true
+      require_human_review: false
+    severity_overrides:
+      # كان المجال بلا overrides إطلاقًا، فحالة «شديد» أو «طارئ» فيه تسقط على
+      # default_policy وتمرّ بلا مراجعة ولا جهة تصعيد. المسار الحيّ يعترض
+      # الطوارئ قبل الحرّاس (is_emergency في assistant.py) فلم يظهر الأثر،
+      # لكن ترك المجال بلا سياسة عالية الخطورة اعتماد على حاجزٍ واحد.
+      شديد:
+        require_human_review: true
+        escalate_to: "counselor"
+      طارئ:
+        require_human_review: true
+        escalate_to: "emergency_services"
+
+  islamic_parenting:
+    description: "تربية الأطفال وفقاً للتعاليم الإسلامية والآداب الشرعية."
+    default_policy:
+      allow_strict_rulings: false
+      require_human_review: true
+    severity_overrides:
+      # المجال الأكثر ورودًا في أسئلة الآباء — وكان يُعلَّم بالكامل. نفس علّة
+      # aqeedah/fiqh: العلامة كانت تصف المجال لا الخطورة.
+      خفيف:
+        require_human_review: false
+      متوسط:
+        require_human_review: true
+      شديد:
+        require_human_review: true
+        escalate_to: "scholar"
+      طارئ:
+        require_human_review: true
+        escalate_to: "emergency_services"
+    notes: >-
+      "إجابات هذا المجال تُعتبر معلومات شرعية عامة مأخوذة من كبار العلماء،
+      ويُشجع السائل على الرجوع لعالم موثوق في النوازل المعقدة."
+
+  cyber:
+    description: "حماية الطفل رقميًا وإدارة استخدام الأجهزة والألعاب."
+    default_policy:
+      allow_technical_instructions: true
+      require_human_review: false
+    severity_overrides:
+      شديد:
+        require_human_review: true
+        escalate_to: "cybersecurity_specialist"
+      # نفس ثغرة tarbiyah: «طارئ» كان يسقط على default_policy (بلا مراجعة).
+      # ابتزاز أو استدراج طفل يصل هنا، وهو أحقّ حالات التصعيد لا أقلّها.
+      طارئ:
+        require_human_review: true
+        escalate_to: "emergency_services"
+
+  app_help:
+    description: >-
+      "كيف يعمل تطبيق «المربّي» نفسه: إضافة الأطفال، وشاشة «اليوم»، ووضع الطفل،
+      والذاكرة، وحذف الحساب، ومجانية التطبيق. ليس محتوى تربويًا، ولا يصل إليه إلا
+      سؤال عن التطبيق (قاعدة app_help في domain_classifier). مجال يمكن الوصول إليه
+      فلا يُترك بلا سياسة، كما تقرّر لـaqeedah وdevelopment."
+    default_policy:
+      require_human_review: false
+    severity_overrides:
+      طارئ:
+        require_human_review: true
+        escalate_to: "emergency_services"
+    notes: >-
+      "يُجاب من وحدات دليل التطبيق وحدها، بخطواتها وأسماء أزرارها كما في التطبيق.
+      وما ليس فيها لا يُخترع: يُدعى الوالد إلى إرساله من «شاركنا رأيك»."

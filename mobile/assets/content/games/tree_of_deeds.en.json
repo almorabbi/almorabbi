@@ -1,0 +1,1507 @@
+{
+  "schema": "tg.game_pack/1",
+  "game": "tree_of_deeds",
+  "locale": "en",
+  "levels": [
+    {
+      "level": 1,
+      "questions": [
+        {
+          "id": "tree_of_deeds.q_0",
+          "question": "Your child finds a lost wallet with money on the ground. What is the right thing to do?",
+          "emoji": "💵",
+          "category": "Honesty & Trust",
+          "context": "Trustworthiness and returning lost items are core Islamic values.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Look for its owner or hand it over to a trusted adult or person in charge",
+              "rationale": "✅ Returning lost belongings is an act of honesty and trustworthiness."
+            },
+            {
+              "key": "c",
+              "text": "Kick it aside and leave it in the street",
+              "rationale": "❌ Handing it to a responsible person helps ensure it reaches its owner safely."
+            },
+            {
+              "key": "d",
+              "text": "Spend the money right away since the owner does not know who found it",
+              "rationale": "❌ Taking someone else's property is wrong."
+            },
+            {
+              "key": "b",
+              "text": "Keep the money because nobody saw them pick it up",
+              "rationale": "❌ True honesty means doing what is right even when no person is watching, because Allah sees us."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_1",
+          "question": "Your child scored high on a test while their friend scored lower. How do you nurture humility?",
+          "emoji": "📚",
+          "category": "Humility",
+          "context": "Gratitude and humility beautify success, while arrogance hurts hearts.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Compare them to their friend so they feel superior",
+              "rationale": "❌ Comparison breeds arrogance or envy."
+            },
+            {
+              "key": "d",
+              "text": "Let them brag about their grade in front of their friend",
+              "rationale": "❌ Boasting hurts others and goes against good character."
+            },
+            {
+              "key": "c",
+              "text": "Tell them 'You are better than everyone else in class'",
+              "rationale": "❌ Encourages pride and looking down on peers."
+            },
+            {
+              "key": "a",
+              "text": "Celebrate their effort with gratitude and encourage them to support and study with their friend",
+              "rationale": "✅ Humility, gratitude, and helping others reflect noble character."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_2",
+          "question": "Your daughter hears that a friend spoke unkindly about her behind her back. How do you guide her?",
+          "emoji": "🗣️",
+          "category": "Avoiding Backbiting",
+          "context": "Backbiting and gossip harm friendships and go against Islamic ethics.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Tell her to gossip about the friend in return",
+              "rationale": "❌ Answering a wrong with the same wrong only spreads harm."
+            },
+            {
+              "key": "a",
+              "text": "Teach her that backbiting is wrong and guide her to speak calmly and directly with her friend",
+              "rationale": "✅ Honest, respectful communication is far better than answering gossip with more gossip."
+            },
+            {
+              "key": "d",
+              "text": "Ignore her hurt feelings completely",
+              "rationale": "❌ Children need both emotional support and ethical guidance."
+            },
+            {
+              "key": "c",
+              "text": "Spread rumors about the friend to the whole class",
+              "rationale": "❌ Spreading gossip deepens conflict and is wrong."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_3",
+          "question": "Your child sees an elderly neighbor struggling to carry groceries. What do we teach them?",
+          "emoji": "🤝",
+          "category": "Kindness",
+          "context": "Kindness to others and respecting elders are cherished values.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Walk past and ignore them because it is not our problem",
+              "rationale": "❌ Caring for neighbors and elders is part of good character."
+            },
+            {
+              "key": "c",
+              "text": "Demand money before helping",
+              "rationale": "❌ Kindness is given sincerely, not sold."
+            },
+            {
+              "key": "a",
+              "text": "Offer help in a safe way or ask a nearby parent to help together",
+              "rationale": "✅ Combines kindness and helpfulness with age-appropriate safety."
+            },
+            {
+              "key": "d",
+              "text": "Laugh at them",
+              "rationale": "❌ Mocking anyone goes against basic decency and faith."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_4",
+          "question": "Your child got angry and broke a friend's toy. What should you do together?",
+          "emoji": "😠",
+          "category": "Self-Control & Repair",
+          "context": "Taking responsibility for damage and learning self-control build integrity.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Tell your child 'Your friend deserved it'",
+              "rationale": "❌ Excusing wrong behavior prevents moral growth."
+            },
+            {
+              "key": "c",
+              "text": "Refuse to apologize out of pride",
+              "rationale": "❌ Apologizing when wrong is a sign of strength, not weakness."
+            },
+            {
+              "key": "d",
+              "text": "Hit the child in anger",
+              "rationale": "❌ Violence does not teach self-control."
+            },
+            {
+              "key": "a",
+              "text": "Apologize sincerely, repair or replace the toy, and practice calming down when angry",
+              "rationale": "✅ Accountability, sincere apology, and repair are marks of strong character."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "questions": [
+        {
+          "id": "tree_of_deeds.q_5",
+          "question": "During Ramadan, peers tease your fasting child and dare them to break their fast to look 'cool'. How do you guide them?",
+          "emoji": "🌙",
+          "category": "Fasting & Integrity",
+          "context": "True strength lies in staying true to one's values and worship.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Shout at the child harshly",
+              "rationale": "❌ Warm encouragement builds love for worship, while harshness pushes children away."
+            },
+            {
+              "key": "a",
+              "text": "Explain that fasting is a special act of worship for Allah and true strength is staying true to your values",
+              "rationale": "✅ Connects worship to inner confidence and sincere purpose."
+            },
+            {
+              "key": "b",
+              "text": "Tell them to break their fast just to please the kids teasing them",
+              "rationale": "❌ Giving up values for peer approval weakens confidence."
+            },
+            {
+              "key": "d",
+              "text": "Brush off their question without guidance",
+              "rationale": "❌ Children need supportive guidance when facing peer pressure."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_6",
+          "question": "Your child sees someone shoplifting in a store. What is the right lesson?",
+          "emoji": "🛒",
+          "category": "Honesty",
+          "context": "Respecting others' property and reporting wrongdoing safely are important values.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Quietly and safely tell a parent or store staff member",
+              "rationale": "✅ Addresses wrongdoing safely and responsibly."
+            },
+            {
+              "key": "c",
+              "text": "Join in and take something too",
+              "rationale": "❌ Participating in theft is wrong."
+            },
+            {
+              "key": "b",
+              "text": "Say that stealing is fine as long as the store is big",
+              "rationale": "❌ Taking others' property is always wrong."
+            },
+            {
+              "key": "d",
+              "text": "Film the person and post it on social media",
+              "rationale": "❌ Publicly posting videos can be unsafe for a child; telling a trusted adult is right."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_7",
+          "question": "How do you nurture a deep habit of truthfulness in your child?",
+          "emoji": "🤥",
+          "category": "Truthfulness",
+          "context": "Truthfulness grows through adult role modeling and a safe home environment.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Use harsh physical punishment whenever they make a mistake",
+              "rationale": "❌ Fear of harsh punishment often drives children to lie to protect themselves."
+            },
+            {
+              "key": "c",
+              "text": "Make false promises to trick the child into behaving",
+              "rationale": "❌ Breaking promises teaches children that dishonesty is acceptable."
+            },
+            {
+              "key": "a",
+              "text": "Model honesty ourselves and appreciate our child's courage when they admit a mistake",
+              "rationale": "✅ Role modeling and safe encouragement make honesty the natural choice."
+            },
+            {
+              "key": "d",
+              "text": "Tell them lying is fine whenever it is convenient",
+              "rationale": "❌ Undermines the value of truthfulness."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_8",
+          "question": "Your child has many toys and a visiting friend has very few. How can you nurture generosity?",
+          "emoji": "🎁",
+          "category": "Generosity",
+          "context": "Sharing and generosity bring warmth and closeness between hearts.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Say 'Tell your friend to go buy their own toys'",
+              "rationale": "❌ Teaches selfishness and insensitivity."
+            },
+            {
+              "key": "d",
+              "text": "Say 'Helping others is none of our business'",
+              "rationale": "❌ Generosity starts in our everyday relationships."
+            },
+            {
+              "key": "c",
+              "text": "Refuse to let them play together because the friend has less",
+              "rationale": "❌ Kindness and inclusion are core moral values."
+            },
+            {
+              "key": "a",
+              "text": "Encourage sharing warmly while playing and let them choose a nice toy they would love to gift",
+              "rationale": "✅ Voluntary, warm generosity builds empathy and joy in giving."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_9",
+          "question": "Your child repeats a bad word they heard on TV. How should you respond?",
+          "emoji": "📺",
+          "category": "Good Speech",
+          "context": "Children often repeat words without fully realizing their weight.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Explain calmly that we choose kind, respectful words, and suggest a better phrase to use",
+              "rationale": "✅ Calm guidance teaches respectful speech far better than overreacting."
+            },
+            {
+              "key": "b",
+              "text": "Hit the child immediately",
+              "rationale": "❌ Harshness does not model the gentleness we want to teach."
+            },
+            {
+              "key": "c",
+              "text": "Laugh and clap because it sounded funny",
+              "rationale": "❌ Laughing encourages them to repeat the word for attention."
+            },
+            {
+              "key": "d",
+              "text": "Say nothing because it came from TV",
+              "rationale": "❌ Children need gentle guidance on what words are respectful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "questions": [
+        {
+          "id": "tree_of_deeds.q_10",
+          "question": "Your child wants to donate a small coin from their allowance to someone in need. How do you respond?",
+          "emoji": "🤲",
+          "category": "Charity",
+          "context": "Even the smallest sincere charity nurtures a generous heart.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Stop them because the amount is too small to matter",
+              "rationale": "❌ Sincere small deeds carry great value."
+            },
+            {
+              "key": "d",
+              "text": "Mock their small coin",
+              "rationale": "❌ Belittling good deeds extinguishes a child's enthusiasm for giving."
+            },
+            {
+              "key": "c",
+              "text": "Take their money away",
+              "rationale": "❌ Discourages their initiative to do good."
+            },
+            {
+              "key": "a",
+              "text": "Encourage them warmly and affirm that even a small sincere gift matters greatly",
+              "rationale": "✅ Nurtures generosity and sincerity from a young age."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_11",
+          "question": "Your child asks: 'Why do we pray?' What is a meaningful, age-appropriate answer?",
+          "emoji": "🕌",
+          "category": "Prayer",
+          "context": "Children connect with prayer when they understand it as a loving link with Allah.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Because prayer is our direct connection with Allah — thanking Him, finding peace, and bringing rhythm to our day",
+              "rationale": "✅ Connects prayer to love, gratitude, and daily peace."
+            },
+            {
+              "key": "d",
+              "text": "Rely only on scaring the child without mentioning Allah's love and mercy",
+              "rationale": "❌ Balanced spiritual upbringing begins with love, gratitude, and hope."
+            },
+            {
+              "key": "c",
+              "text": "'So people will praise you and say you are good'",
+              "rationale": "❌ Worship is for Allah, not for showing off to people."
+            },
+            {
+              "key": "b",
+              "text": "'Just because I said so, do not ask questions'",
+              "rationale": "❌ Thoughtful answers build genuine understanding and love for worship."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_12",
+          "question": "Your child gets absorbed in play and delays prayer time. How do you help them build the habit?",
+          "emoji": "⏰",
+          "category": "Prayer",
+          "context": "Warm reminders and praying together make prayer a beloved family anchor.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Never remind or invite them to pray at all",
+              "rationale": "❌ Steady, loving encouragement helps habits take root early."
+            },
+            {
+              "key": "d",
+              "text": "Humiliate them in front of guests",
+              "rationale": "❌ Public shaming alienates children."
+            },
+            {
+              "key": "a",
+              "text": "Give a gentle heads-up before prayer time and invite them to pray together warmly",
+              "rationale": "✅ Gentle transition warnings and praying together build a loving habit."
+            },
+            {
+              "key": "b",
+              "text": "Hit them to force them to pray",
+              "rationale": "❌ Harshness creates negative associations with worship."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_13",
+          "question": "How do you teach your child respect for elders?",
+          "emoji": "👴",
+          "category": "Respect & Manners",
+          "context": "Children learn respect primarily by watching how their parents treat elders.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Let them insult elders without any guidance",
+              "rationale": "❌ Children need clear, loving guidance on respectful manners."
+            },
+            {
+              "key": "a",
+              "text": "Model respect toward our own elders and practice warm greetings and polite speaking together",
+              "rationale": "✅ Living the example at home is the most powerful lesson."
+            },
+            {
+              "key": "b",
+              "text": "Lecture them about respect while speaking rudely to elders ourselves",
+              "rationale": "❌ Actions speak louder than lectures."
+            },
+            {
+              "key": "c",
+              "text": "Hit them whenever their voice gets excited",
+              "rationale": "❌ Gentleness teaches manners better than harshness."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_14",
+          "question": "Your child sees classmates picking on a quieter student. What should they do?",
+          "emoji": "🛑",
+          "category": "Standing for Fairness",
+          "context": "Supporting someone being mistreated — safely and kindly — is a noble value.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Start a fistfight in the hallway",
+              "rationale": "❌ Physical fighting escalates danger; getting adult help and using kind words is safer."
+            },
+            {
+              "key": "b",
+              "text": "Laugh along with the bullies so they do not target you",
+              "rationale": "❌ Joining in adds to the harm."
+            },
+            {
+              "key": "a",
+              "text": "Speak up kindly for the classmate or get a teacher/trusted adult right away, and befriend the child",
+              "rationale": "✅ Standing up for fairness safely and showing kindness helps end bullying."
+            },
+            {
+              "key": "c",
+              "text": "Pretend not to see anything and never tell an adult",
+              "rationale": "❌ Getting help from a teacher can protect the child being bullied."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "questions": [
+        {
+          "id": "tree_of_deeds.q_15",
+          "question": "How do you nurture gratitude for blessings in your child's daily life?",
+          "emoji": "🙏",
+          "category": "Gratitude",
+          "context": "Gratitude shifts focus toward appreciation and contentment.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Buy excessive luxuries nonstop without ever pausing to appreciate them",
+              "rationale": "❌ Mindful appreciation builds gratitude."
+            },
+            {
+              "key": "b",
+              "text": "Tell them they should feel guilty for having anything",
+              "rationale": "❌ Gratitude is joyful appreciation, not guilt."
+            },
+            {
+              "key": "c",
+              "text": "Forbid them from ever expressing a wish",
+              "rationale": "❌ Having wishes is normal; gratitude helps balance them."
+            },
+            {
+              "key": "a",
+              "text": "Model saying 'Alhamdulillah' (Praise be to Allah) and share three things we are grateful for each day",
+              "rationale": "✅ Daily gratitude habits build a thankful, content heart."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_16",
+          "question": "Your young child is eager to try fasting for the first time. What is the wisest approach?",
+          "emoji": "🌅",
+          "category": "Gradual Practice",
+          "context": "Gradual, encouraging steps help young children love worship safely.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Shame them if they get hungry and need to eat",
+              "rationale": "❌ Young children learning to fast deserve praise for whatever hours they try."
+            },
+            {
+              "key": "c",
+              "text": "Dismiss their excitement completely",
+              "rationale": "❌ Welcoming their enthusiasm with age-appropriate steps nurtures love for worship."
+            },
+            {
+              "key": "a",
+              "text": "Encourage their enthusiasm by starting with a few hours or half a day suited to their age and health",
+              "rationale": "✅ Gradual practice builds capability and fond memories."
+            },
+            {
+              "key": "b",
+              "text": "Force a very young child to fast a full day even if they feel unwell",
+              "rationale": "❌ Overstraining a young child is unsafe and discouraging."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_17",
+          "question": "Your child sees someone drop a valuable item from their pocket without noticing. What is the right action?",
+          "emoji": "👛",
+          "category": "Honesty & Trust",
+          "context": "Returning dropped items right away is a direct practice of honesty.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Step over it and say nothing",
+              "rationale": "❌ Speaking up right away saves the owner from losing their item."
+            },
+            {
+              "key": "c",
+              "text": "Sell it and buy treats",
+              "rationale": "❌ Taking someone else's property is dishonest."
+            },
+            {
+              "key": "b",
+              "text": "Pocket it because 'finders keepers'",
+              "rationale": "❌ Something dropped still belongs to its owner."
+            },
+            {
+              "key": "a",
+              "text": "Call out politely or hand it back to the person (or to security if they walked away)",
+              "rationale": "✅ Honesty and promptness return the item to its rightful owner."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_18",
+          "question": "How do you teach your child the value of forgiveness after a friend apologizes?",
+          "emoji": "🕊️",
+          "category": "Forgiveness",
+          "context": "Forgiveness frees the heart from bitterness and repairs friendships.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Explain that forgiving someone who apologizes shows inner strength and brings peace to the heart",
+              "rationale": "✅ Forgiveness is a noble strength that heals relationships."
+            },
+            {
+              "key": "d",
+              "text": "Tell them to hold a grudge for the rest of the school year",
+              "rationale": "❌ Learning to accept sincere apologies helps friendships grow."
+            },
+            {
+              "key": "c",
+              "text": "Encourage taking physical revenge",
+              "rationale": "❌ Revenge creates a cycle of harm."
+            },
+            {
+              "key": "b",
+              "text": "Tell them 'Never forgive anyone ever'",
+              "rationale": "❌ Holding endless grudges weighs down the child's heart."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_19",
+          "question": "Your child says, 'Why should I help someone who is not in my family?' How do you respond?",
+          "emoji": "🤲",
+          "category": "Universal Kindness",
+          "context": "Kindness and compassion extend to all people and creatures.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Agree that we should never care about anyone outside our house",
+              "rationale": "❌ Narrows empathy and promotes selfishness."
+            },
+            {
+              "key": "a",
+              "text": "Explain that kindness is for everyone, and Allah loves those who do good to others",
+              "rationale": "✅ Broadens empathy and compassion beyond one's immediate circle."
+            },
+            {
+              "key": "c",
+              "text": "Say we only help people if they pay us",
+              "rationale": "❌ Sincere kindness is not mercenary."
+            },
+            {
+              "key": "d",
+              "text": "Shrug and ignore the question",
+              "rationale": "❌ Thoughtful questions are great moments to share values."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "questions": [
+        {
+          "id": "tree_of_deeds.q_20",
+          "question": "How do you teach your child the comforting habit of seeking forgiveness (Istighfar) when they slip up?",
+          "emoji": "🌧️",
+          "category": "Seeking Forgiveness",
+          "context": "Turning back to Allah with hope and making amends keeps the heart hopeful and accountable.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Teach them that mistakes never need apologies",
+              "rationale": "❌ Acknowledging mistakes is how we grow."
+            },
+            {
+              "key": "d",
+              "text": "Make them feel that Allah never forgives mistakes",
+              "rationale": "❌ Despair is the opposite of healthy spiritual guidance."
+            },
+            {
+              "key": "b",
+              "text": "Tell them 'You are a bad person forever' when they make a mistake",
+              "rationale": "❌ Shaming destroys hope and self-worth."
+            },
+            {
+              "key": "a",
+              "text": "Teach them to say 'Astaghfirullah' (I seek Allah's forgiveness), make amends, and remember that Allah is Oft-Forgiving",
+              "rationale": "✅ Combines humility, accountability, and hope in Allah's mercy."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_21",
+          "question": "Your child wants to spend their entire allowance the minute they get it. How do you guide them?",
+          "emoji": "💰",
+          "category": "Wise Stewardship",
+          "context": "Moderation and planning teach wise stewardship of blessings.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Help them divide their allowance into three parts: spending, saving, and giving",
+              "rationale": "✅ A simple spend-save-give habit builds lifelong balance and generosity."
+            },
+            {
+              "key": "c",
+              "text": "Take back their allowance so they never touch it",
+              "rationale": "❌ Children learn stewardship by practicing with small amounts."
+            },
+            {
+              "key": "d",
+              "text": "Forbid them from ever enjoying a small treat",
+              "rationale": "❌ Balance — not deprivation — is the goal."
+            },
+            {
+              "key": "b",
+              "text": "Encourage impulse spending on everything right away",
+              "rationale": "❌ Misses the chance to learn moderation."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_22",
+          "question": "Your child asks: 'Why is Ramadan so special?' How do you explain it?",
+          "emoji": "🌙",
+          "category": "Ramadan",
+          "context": "Ramadan is a season of spiritual renewal, family warmth, and generosity.",
+          "options": [
+            {
+              "key": "c",
+              "text": "'It is only about buying new clothes'",
+              "rationale": "❌ Misses the core spiritual and moral meaning."
+            },
+            {
+              "key": "b",
+              "text": "'It is only about eating huge feasts all night'",
+              "rationale": "❌ Reduces a spiritual month to overeating."
+            },
+            {
+              "key": "d",
+              "text": "'It is a month for being grumpy with everyone'",
+              "rationale": "❌ Ramadan teaches patience and good character."
+            },
+            {
+              "key": "a",
+              "text": "It is the month of the Quran, fasting, drawing closer to Allah, and showing extra kindness and charity",
+              "rationale": "✅ Captures both the spiritual heart and the generous character of Ramadan."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_23",
+          "question": "How do you teach your child the value of guarding their tongue?",
+          "emoji": "👅",
+          "category": "Good Speech",
+          "context": "Kind, truthful speech heals hearts and builds trust.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Hit them whenever they misspeak",
+              "rationale": "❌ Gentle correction and modeling work best."
+            },
+            {
+              "key": "d",
+              "text": "Use harsh language at home and expect the child to speak politely",
+              "rationale": "❌ Children learn speech habits first from their parents."
+            },
+            {
+              "key": "a",
+              "text": "Practice the rule: speak good, kind words or pause thoughtfully, avoiding lies and hurtful talk",
+              "rationale": "✅ Gives a clear, memorable standard for everyday speech."
+            },
+            {
+              "key": "b",
+              "text": "Tell them to blurt out every mean thought they have",
+              "rationale": "❌ Unfiltered insults hurt others."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_24",
+          "question": "Your child hears someone using foul language on the playground. What should they do?",
+          "emoji": "🚫",
+          "category": "Good Character",
+          "context": "Choosing not to imitate harmful speech shows maturity.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Memorize and repeat the bad words to look tough",
+              "rationale": "❌ Imitating foul language harms character."
+            },
+            {
+              "key": "c",
+              "text": "Shout worse insults back at them",
+              "rationale": "❌ Escalates conflict and copies the bad behavior."
+            },
+            {
+              "key": "d",
+              "text": "Mock and taunt the person",
+              "rationale": "❌ Taunting fuels fights."
+            },
+            {
+              "key": "a",
+              "text": "Step away calmly, do not copy the words, and tell a trusted adult if someone is being harassed",
+              "rationale": "✅ Protects their own speech and handles harassment safely."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "questions": [
+        {
+          "id": "tree_of_deeds.q_25",
+          "question": "Your child wants to gift one of their favorite toys to a neighbor's child in need. How do you respond?",
+          "emoji": "🧸",
+          "category": "Altruism",
+          "context": "Sharing something we genuinely like is a high form of generosity.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Forbid them from ever sharing with neighbors",
+              "rationale": "❌ Discourages neighborly kindness."
+            },
+            {
+              "key": "a",
+              "text": "Praise their generous heart and support their kind gift",
+              "rationale": "✅ Encourages empathy and the joy of giving."
+            },
+            {
+              "key": "d",
+              "text": "Tell them to demand payment from the neighbor",
+              "rationale": "❌ Turns a sincere gift into a sale."
+            },
+            {
+              "key": "b",
+              "text": "Tell them 'Never give away anything nice, only give broken things'",
+              "rationale": "❌ True generosity gives what is good and useful."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_26",
+          "question": "How do you help your child build a loving, steady connection with the Quran?",
+          "emoji": "📖",
+          "category": "Quran",
+          "context": "Small, joyful daily moments with the Quran build lifelong love.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Use punishment and shouting during Quran practice",
+              "rationale": "❌ Harshness creates fear instead of love for the Quran."
+            },
+            {
+              "key": "d",
+              "text": "Say the Quran is only for one month a year",
+              "rationale": "❌ A small daily connection keeps its light in our lives year-round."
+            },
+            {
+              "key": "a",
+              "text": "Make a short, warm daily time for reading and reflecting together — even a few verses",
+              "rationale": "✅ Consistency and warmth make Quran time a beloved daily habit."
+            },
+            {
+              "key": "c",
+              "text": "Never open the Quran at home until adulthood",
+              "rationale": "❌ Early, gentle familiarity builds comfort and love."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_27",
+          "question": "Your child is putting off their schoolwork. How do you connect diligence with good character?",
+          "emoji": "📝",
+          "category": "Diligence",
+          "context": "Doing our work conscientiously is part of trustworthiness and excellence.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Lock them in a room all evening without guidance",
+              "rationale": "❌ Isolation without structure breeds resentment."
+            },
+            {
+              "key": "b",
+              "text": "Do the homework for them so they get full marks",
+              "rationale": "❌ Dishonest and prevents the child from learning."
+            },
+            {
+              "key": "d",
+              "text": "Tell them schoolwork does not matter at all",
+              "rationale": "❌ Learning and diligence are important responsibilities."
+            },
+            {
+              "key": "a",
+              "text": "Remind them that doing our best in learning is a trust, and help them plan manageable study blocks",
+              "rationale": "✅ Connects purposeful values with practical support."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_28",
+          "question": "Your child looks down on a classmate whose family has less money. How do you correct this attitude?",
+          "emoji": "🦚",
+          "category": "Humility",
+          "context": "A person's true worth lies in their character and kindness, never their wealth.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Ignore arrogant comments",
+              "rationale": "❌ Arrogance needs gentle, clear correction early on."
+            },
+            {
+              "key": "a",
+              "text": "Teach them that Allah honors people by their character and piety, never by money or clothes",
+              "rationale": "✅ Grounds the child in humility, fairness, and respect for all people."
+            },
+            {
+              "key": "b",
+              "text": "Agree that wealthy people are better than others",
+              "rationale": "❌ Feeds arrogance and prejudice."
+            },
+            {
+              "key": "c",
+              "text": "Tell them to avoid classmates who have less money",
+              "rationale": "❌ Teaches snobbery instead of brotherhood and kindness."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_29",
+          "question": "How do you nurture patience in your child when something disappointing happens?",
+          "emoji": "⏳",
+          "category": "Patience",
+          "context": "Patience grows when parents model calm resilience and comforting remembrance.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Buy them whatever they want immediately so they never feel disappointment",
+              "rationale": "❌ Prevents them from building resilience."
+            },
+            {
+              "key": "d",
+              "text": "Lose our own temper while lecturing them about patience",
+              "rationale": "❌ Children learn patience by seeing us practice it."
+            },
+            {
+              "key": "a",
+              "text": "Comfort them, take calming breaths together, model patience ourselves, and look for the next constructive step",
+              "rationale": "✅ Models emotional and spiritual resilience in a practical way."
+            },
+            {
+              "key": "c",
+              "text": "Snap 'Stop feeling sad right now!'",
+              "rationale": "❌ Patience does not mean suppressing natural feelings."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "questions": [
+        {
+          "id": "tree_of_deeds.q_30",
+          "question": "You notice your child starting a habit of telling small lies. How do you address it effectively?",
+          "emoji": "🔄",
+          "category": "Character Growth",
+          "context": "Understanding why a child lies helps address the root cause while reinforcing honesty.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Call them a 'liar' in front of the family",
+              "rationale": "❌ Negative labels make children feel stuck in the behavior."
+            },
+            {
+              "key": "d",
+              "text": "Ignore it completely and hope it vanishes",
+              "rationale": "❌ Gentle, consistent guidance is needed."
+            },
+            {
+              "key": "c",
+              "text": "React with harsh physical punishment every time",
+              "rationale": "❌ Fear drives children to become more secretive."
+            },
+            {
+              "key": "a",
+              "text": "Notice what triggers the lies, make it safe to tell the truth, and praise honest moments",
+              "rationale": "✅ Addresses the root cause and builds a positive habit of honesty."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_31",
+          "question": "Your child asks: 'How do we show our love for Allah?' What is a warm, clear answer?",
+          "emoji": "❤️",
+          "category": "Loving Allah",
+          "context": "Love for Allah shines through gratitude, remembrance, and kindness to His creation.",
+          "options": [
+            {
+              "key": "a",
+              "text": "By thanking Him for His blessings, remembering Him, following what pleases Him, and being kind to others",
+              "rationale": "✅ Connects love for Allah to gratitude, worship, and everyday kindness."
+            },
+            {
+              "key": "d",
+              "text": "Focus only on fear and never mention Allah's mercy and kindness",
+              "rationale": "❌ Children thrive when introduced to Allah's love, mercy, and wisdom."
+            },
+            {
+              "key": "b",
+              "text": "'We only love Allah when we get every toy we ask for'",
+              "rationale": "❌ Faith is built on trust and gratitude, not transactions."
+            },
+            {
+              "key": "c",
+              "text": "'Actions and kindness do not matter at all'",
+              "rationale": "❌ Sincere love shows in our character and deeds."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_32",
+          "question": "How do you teach your child to be a considerate neighbor?",
+          "emoji": "🏠",
+          "category": "Neighborly Rights",
+          "context": "Caring for neighbors and avoiding disturbing them is a core moral teaching.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Tell them neighbors do not matter",
+              "rationale": "❌ Respecting neighbors is an essential part of good character."
+            },
+            {
+              "key": "d",
+              "text": "Forbid ever saying hello to neighbors",
+              "rationale": "❌ Warm, polite greetings build community kindness."
+            },
+            {
+              "key": "b",
+              "text": "Let them kick balls against the neighbor's door late at night",
+              "rationale": "❌ Disturbs neighbors and shows disregard for their comfort."
+            },
+            {
+              "key": "a",
+              "text": "Greet neighbors warmly, respect their rest hours, and avoid making loud noise near their home",
+              "rationale": "✅ Practical kindness and consideration toward neighbors."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_33",
+          "question": "Your child wants to help people in need wisely. How do you guide their charitable spirit?",
+          "emoji": "🪙",
+          "category": "Thoughtful Charity",
+          "context": "Combining a generous heart with wise, safe ways of giving teaches lifelong stewardship.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Encourage their compassion and involve them in giving through trusted charities, food drives, or family giving",
+              "rationale": "✅ Nurtures generosity safely and thoughtfully."
+            },
+            {
+              "key": "c",
+              "text": "Forbid them from ever giving charity",
+              "rationale": "❌ Charity is a core virtue to nurture."
+            },
+            {
+              "key": "d",
+              "text": "Let a young child approach strangers alone in the street with cash",
+              "rationale": "❌ Giving with a parent present or through trusted channels keeps the child safe."
+            },
+            {
+              "key": "b",
+              "text": "Tell them 'Everyone asking for help is a fraud, never help anyone'",
+              "rationale": "❌ Cynicism hardens the heart against charity."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_34",
+          "question": "How do you teach your child to value and use their time well?",
+          "emoji": "⏰",
+          "category": "Valuing Time",
+          "context": "Time is a precious blessing best honored through balance.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Let the whole day disappear into aimless scrolling without structure",
+              "rationale": "❌ Leaves children tired and unfulfilled."
+            },
+            {
+              "key": "a",
+              "text": "Help them build a balanced daily rhythm for prayer, learning, active play, family time, and rest",
+              "rationale": "✅ A balanced rhythm teaches children how to honor their time joyfully."
+            },
+            {
+              "key": "c",
+              "text": "Schedule every minute with study and zero playtime",
+              "rationale": "❌ Children need play and rest for healthy growth."
+            },
+            {
+              "key": "d",
+              "text": "Say time management only matters for adults",
+              "rationale": "❌ Gentle daily routines build time skills early."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "questions": [
+        {
+          "id": "tree_of_deeds.q_35",
+          "question": "Your child had a misunderstanding with a close friend. How do you guide them toward reconciliation?",
+          "emoji": "🕊️",
+          "category": "Reconciliation",
+          "context": "Making peace between friends is a deeply rewarded virtue.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Tell them to cut off every friend after one misunderstanding",
+              "rationale": "❌ No friendship survives without forgiveness and communication."
+            },
+            {
+              "key": "c",
+              "text": "Yell at the friend myself",
+              "rationale": "❌ Escalates a childhood misunderstanding."
+            },
+            {
+              "key": "d",
+              "text": "Encourage them to spread rumors about the friend",
+              "rationale": "❌ Deepens hurt and division."
+            },
+            {
+              "key": "a",
+              "text": "Encourage them to listen to their friend's perspective, apologize for their part, and make peace warmly",
+              "rationale": "✅ Empathy and humility restore friendships."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_36",
+          "question": "Your child sees someone mistreating a stray cat. What should they do?",
+          "emoji": "🐈",
+          "category": "Mercy to Animals",
+          "context": "Mercy toward animals is a central teaching of Islam.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Speak up kindly if safe or call a trusted adult right away to protect the animal",
+              "rationale": "✅ Shows mercy to animals while keeping the child safe."
+            },
+            {
+              "key": "d",
+              "text": "Get into a physical fight",
+              "rationale": "❌ Calling an adult is the safe way for a child to stop cruelty."
+            },
+            {
+              "key": "c",
+              "text": "Say animals have no feelings so it does not matter",
+              "rationale": "❌ Caring for animals is a moral duty."
+            },
+            {
+              "key": "b",
+              "text": "Laugh and watch the animal suffer",
+              "rationale": "❌ Cruelty to animals hardens the heart."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_37",
+          "question": "How do you nurture kindness and respect toward parents (Birr al-Walidayn) in your child?",
+          "emoji": "👨‍👩‍👧",
+          "category": "Honoring Parents",
+          "context": "Children learn to honor parents through mutual warmth, gratitude, and praying for one another.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Never thank our child when they help us",
+              "rationale": "❌ Expressing appreciation reinforces helpfulness."
+            },
+            {
+              "key": "b",
+              "text": "Tell them kindness to family does not matter",
+              "rationale": "❌ Honoring parents is a foundational virtue."
+            },
+            {
+              "key": "a",
+              "text": "Treat them with warmth, appreciate their helpfulness, and teach them to pray for their parents' well-being",
+              "rationale": "✅ Warmth, gratitude, and prayer nurture genuine love and respect."
+            },
+            {
+              "key": "c",
+              "text": "Use constant guilt and harshness whenever we speak",
+              "rationale": "❌ Love and respect grow best in a warm home."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_38",
+          "question": "Your child wants to express their creativity in school activities. How do you guide them constructively?",
+          "emoji": "🎭",
+          "category": "Constructive Creativity",
+          "context": "Channeling talents into uplifting, respectful activities helps children shine with confidence.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Tell them values never matter in entertainment",
+              "rationale": "❌ Mindful choices help children stay grounded."
+            },
+            {
+              "key": "d",
+              "text": "Focus only on what neighbors might gossip about",
+              "rationale": "❌ Sound values, not fear of gossip, should guide family choices."
+            },
+            {
+              "key": "c",
+              "text": "Ban all creativity, art, and storytelling completely",
+              "rationale": "❌ Positive creativity is a wonderful avenue for growth."
+            },
+            {
+              "key": "a",
+              "text": "Encourage creative talents and activities that are positive, respectful, and uplifting",
+              "rationale": "✅ Supports their gifts while staying true to wholesome values."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_39",
+          "question": "How do you explain the importance of sincere intention (Niyyah) to your child?",
+          "emoji": "🎯",
+          "category": "Sincere Intention",
+          "context": "Good intentions turn everyday helpful actions into meaningful deeds.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Say 'Only do good deeds when someone is taking a photo of you'",
+              "rationale": "❌ Encourages showing off instead of sincerity."
+            },
+            {
+              "key": "a",
+              "text": "Explain that Allah looks at the sincerity in our hearts — doing good to please Him and help others",
+              "rationale": "✅ Teaches inner sincerity rather than showing off."
+            },
+            {
+              "key": "c",
+              "text": "Say 'Intentions do not matter at all'",
+              "rationale": "❌ Sincere intention is the heart of every good deed."
+            },
+            {
+              "key": "d",
+              "text": "Only praise results and never value sincere effort",
+              "rationale": "❌ Valuing sincere effort builds resilience and integrity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "questions": [
+        {
+          "id": "tree_of_deeds.q_40",
+          "question": "Your child wants to spend all their savings on an impulse item they will forget tomorrow. How do you guide them?",
+          "emoji": "🛍️",
+          "category": "Mindful Spending",
+          "context": "Pausing before buying teaches wisdom and avoids wastefulness.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Buy two of the impulse items right away",
+              "rationale": "❌ Reinforces impulsive habits."
+            },
+            {
+              "key": "b",
+              "text": "Encourage wasting money on things that go straight to the trash",
+              "rationale": "❌ Wastefulness goes against wise stewardship."
+            },
+            {
+              "key": "c",
+              "text": "Confiscate their savings without discussion",
+              "rationale": "❌ Guided conversation teaches financial wisdom."
+            },
+            {
+              "key": "a",
+              "text": "Discuss together whether it is a real need or a passing whim, and try waiting a couple of days before deciding",
+              "rationale": "✅ A short cooling-off pause builds wise decision-making."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_41",
+          "question": "Your older child finds it hard to wake up for morning prayer (Fajr). What practical steps help most?",
+          "emoji": "🌅",
+          "category": "Prayer & Routine",
+          "context": "Practical sleep habits and warm family teamwork make waking up much easier.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Sleep early at night, set an alarm, and wake one another gently with encouragement",
+              "rationale": "✅ Early sleep and gentle teamwork build a sustainable morning habit."
+            },
+            {
+              "key": "c",
+              "text": "Give up on morning routines entirely",
+              "rationale": "❌ Steady, gentle habits build consistency over time."
+            },
+            {
+              "key": "b",
+              "text": "Let them stay up until midnight and then yell at them at dawn",
+              "rationale": "❌ Lack of sleep sets them up to struggle."
+            },
+            {
+              "key": "d",
+              "text": "Use harsh punishment first thing in the morning",
+              "rationale": "❌ Gentle encouragement makes morning worship beloved."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_42",
+          "question": "How do you teach your child the etiquette of knocking and asking permission before entering a closed room?",
+          "emoji": "🚪",
+          "category": "Privacy & Manners",
+          "context": "Asking permission before entering respects privacy at home and everywhere.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Scream at them without ever modeling how to knock",
+              "rationale": "❌ Modeling and clear practice work best."
+            },
+            {
+              "key": "a",
+              "text": "Practice knocking and waiting for permission — and model knocking on their door too",
+              "rationale": "✅ Mutual practice and role modeling make respectful privacy a natural habit."
+            },
+            {
+              "key": "d",
+              "text": "Say manners only apply outside the house, not at home",
+              "rationale": "❌ Good manners begin with our own family at home."
+            },
+            {
+              "key": "b",
+              "text": "Let everyone barge into closed rooms without knocking",
+              "rationale": "❌ Disregards family privacy."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_43",
+          "question": "Your child asks why classmates from other backgrounds celebrate different holidays. How do you answer?",
+          "emoji": "🎄",
+          "category": "Identity & Respect",
+          "context": "Clear, warm pride in our own traditions goes hand in hand with kindness toward others.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Never celebrate or make our own Eids joyful at home",
+              "rationale": "❌ Making Eid warm and joyful strengthens a child's love for their heritage."
+            },
+            {
+              "key": "b",
+              "text": "Snap 'Stop asking questions!'",
+              "rationale": "❌ Honest questions deserve calm, clear answers."
+            },
+            {
+              "key": "d",
+              "text": "Teach hostility toward neighbors",
+              "rationale": "❌ Good character calls for kindness and fairness toward all neighbors."
+            },
+            {
+              "key": "a",
+              "text": "Explain kindly that different faiths have their own holidays, while we joyfully celebrate our Islamic Eids and treat everyone with respect",
+              "rationale": "✅ Nurtures confident identity alongside kindness and respect."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_44",
+          "question": "How do you teach your child the importance of academic honesty during school tests?",
+          "emoji": "✏️",
+          "category": "Honesty",
+          "context": "Integrity in learning means valuing honest effort over shortcuts.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Punish them for any grade under 100% so they fear honest mistakes",
+              "rationale": "❌ Extreme grade pressure can push children toward dishonesty."
+            },
+            {
+              "key": "a",
+              "text": "Teach that honest effort is what truly counts and that cheating breaks trust, while praising their real hard work",
+              "rationale": "✅ Connects academic honesty to integrity and values effort over perfection."
+            },
+            {
+              "key": "b",
+              "text": "Say 'Cheating is fine as long as the teacher does not catch you'",
+              "rationale": "❌ Undermines integrity and self-respect."
+            },
+            {
+              "key": "c",
+              "text": "Refuse to help them study before the test",
+              "rationale": "❌ Good preparation reduces the temptation to take shortcuts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "questions": [
+        {
+          "id": "tree_of_deeds.q_45",
+          "question": "How do you nurture a balanced, confident moral character in your child?",
+          "emoji": "🌳",
+          "category": "Holistic Upbringing",
+          "context": "Balanced upbringing weaves together faith, good character, learning, and emotional warmth.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Nurturing worship, ethics, curiosity, and emotional security together through love and role modeling",
+              "rationale": "✅ Holistic upbringing grows confident, compassionate young people."
+            },
+            {
+              "key": "c",
+              "text": "Relying on harsh rules without warmth or dialogue",
+              "rationale": "❌ Harshness without love pushes hearts away."
+            },
+            {
+              "key": "d",
+              "text": "Offering no moral guidance at all",
+              "rationale": "❌ Children need loving signposts as they grow."
+            },
+            {
+              "key": "b",
+              "text": "Focusing on rituals while ignoring kindness and honesty",
+              "rationale": "❌ Worship and good character belong together."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_46",
+          "question": "Your child asks: 'What does Taqwa (mindfulness of Allah) mean?' How do you explain it simply?",
+          "emoji": "🛡️",
+          "category": "Mindfulness of Allah",
+          "context": "Mindfulness of Allah inspires doing good in private and in public.",
+          "options": [
+            {
+              "key": "c",
+              "text": "'It means never smiling or enjoying life'",
+              "rationale": "❌ Joy, gratitude, and kindness are part of a faithful life."
+            },
+            {
+              "key": "a",
+              "text": "Being mindful of Allah whether we are alone or with people — choosing what is good and avoiding what harms",
+              "rationale": "✅ A clear, inspiring explanation of inner integrity."
+            },
+            {
+              "key": "b",
+              "text": "'It only means wearing a specific color of clothes'",
+              "rationale": "❌ Taqwa lives in the heart and shows in our deeds."
+            },
+            {
+              "key": "d",
+              "text": "'It means never leaving the house'",
+              "rationale": "❌ Mindfulness of Allah guides us wherever we are in daily life."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_47",
+          "question": "Your child set aside coins in a charity box, then felt tempted to spend them on candy instead. How do you guide them?",
+          "emoji": "💝",
+          "category": "Sincere Intention",
+          "context": "Keeping our promises of generosity strengthens willpower and sincerity.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Remind them warmly of the joy their gift will bring to someone in need and deliver the charity together",
+              "rationale": "✅ Reinforces following through on good intentions."
+            },
+            {
+              "key": "b",
+              "text": "Tell them charity never matters",
+              "rationale": "❌ Misses a moment to nurture generosity."
+            },
+            {
+              "key": "c",
+              "text": "Scream at them for feeling tempted",
+              "rationale": "❌ Calm encouragement works much better than anger."
+            },
+            {
+              "key": "d",
+              "text": "Throw away the charity box",
+              "rationale": "❌ Delivering the charity together turns intention into joyful action."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_48",
+          "question": "How do you teach your child healthy reliance on Allah (Tawakkul)?",
+          "emoji": "🤲",
+          "category": "Reliance on Allah",
+          "context": "True Tawakkul combines doing our very best effort with trusting Allah.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Tell them not to study or try at all and expect results magically",
+              "rationale": "❌ True reliance includes taking practical steps."
+            },
+            {
+              "key": "c",
+              "text": "Tell them everything depends 100% on worry and stress",
+              "rationale": "❌ Prayer and trust bring peace after we do our best."
+            },
+            {
+              "key": "a",
+              "text": "Encourage them to do their best preparation and effort, and then pray and trust Allah with the outcome",
+              "rationale": "✅ Balances practical effort with peaceful trust in Allah."
+            },
+            {
+              "key": "d",
+              "text": "Make them terrified of ever trying anything new",
+              "rationale": "❌ Trust in Allah gives courage, not fear."
+            }
+          ]
+        },
+        {
+          "id": "tree_of_deeds.q_49",
+          "question": "What is the most important takeaway from the Tree of Character?",
+          "emoji": "🧠",
+          "category": "Review",
+          "context": "Sincerity, honesty, and kindness are the roots and fruits of good character.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Kindness, honesty, and mindfulness of Allah are the heart of everyday good character",
+              "rationale": "✅ Captures the core values that grow a beautiful character."
+            },
+            {
+              "key": "b",
+              "text": "Good manners do not matter as long as nobody catches you",
+              "rationale": "❌ True character is who we are both in public and in private."
+            },
+            {
+              "key": "c",
+              "text": "Assume everyone around us is bad",
+              "rationale": "❌ Good character looks for ways to do good and treat people fairly."
+            },
+            {
+              "key": "d",
+              "text": "Character cannot be learned or practiced",
+              "rationale": "❌ Good character grows stronger with every thoughtful choice we make."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

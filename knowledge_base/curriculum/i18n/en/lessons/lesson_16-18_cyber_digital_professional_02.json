@@ -1,0 +1,60 @@
+{
+  "id": "lesson_16-18_cyber_digital_professional_02",
+  "path_id": "path_16-18_cyber_digital_professional",
+  "title": "Ethics of Artificial Intelligence, Information Security, and Responsible Digital Citizenship",
+  "age_group": "16-18",
+  "domain": "cyber",
+  "unit_ids": [
+    "cyb-db2bb48f",
+    "cyb-26236b19"
+  ],
+  "summary": "Entering university/work = higher digital responsibility: (1) Ethics of AI: Do not cheat with AI chat tools in assignments/research — use it as a thinking tool, not a substitute for effort. Cite the source, verify the information. (2) Information security: Strong/unique passwords, password manager, two-factor authentication (2FA) on all important accounts, device encryption, backups. (3) Privacy of others: Do not share others' photos/information without permission, respect data protection laws. (4) Citizenship: Report harmful content, support victims of bullying, use technology for good. A digital citizen = an ethical professional.",
+  "try_this": "This week: Enable 2FA on your top 5 accounts, install a password manager, review app permissions on your phone.",
+  "order": 2,
+  "estimated_minutes": 7,
+  "reflection_prompts": [
+    "Which accounts have you enabled 2FA on?",
+    "What new security habit will you start?"
+  ],
+  "warning_flags": [],
+  "needs_professional_followup": false,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+    "revalidated_at": "2026-10-07T07:43:58+00:00",
+    "fixed_at": "2026-08-13T18:08:10.731024+00:00",
+    "fixer_model": "mistral-large-3:675b",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "d55c2125566db52da040a82c6c6960f73344602bb96c7f0eff81fa6b468e4ccb",
+      "reviewed_at": "2026-10-07T07:43:58+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "english_authors": [
+      "claude-opus-5.5"
+    ]
+  }
+}

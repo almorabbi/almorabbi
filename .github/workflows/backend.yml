@@ -1,0 +1,240 @@
+name: Backend tests
+
+on:
+  push:
+    branches: [main]
+    # THE DEPLOY GATE. deploy.yml will not touch production until this
+    # workflow's pytest, KB integrity and ruff jobs passed for the same commit
+    # (ops/tools/deploy_gate.py). So this list must cover every path in
+    # deploy.yml's own filter — a deploy path missing here would leave a merge
+    # with no tests to wait for, and its deploy would fail closed.
+    # backend/tests/test_deploy_gate.py enforces the superset.
+    paths:
+      - 'backend/**'
+      - 'backend/Dockerfile'
+      - 'knowledge_base/**'
+      - 'ops/tools/**'
+      - 'ops/scripts/**'
+      - 'ops/data/campaign_*'
+      - 'ops/data/kb_fidelity/**'
+      - 'ops/data/en_unpublished/**'
+      - 'pytest.ini'
+      - 'ops/tests/test_golden_ci.py'
+      - 'ops/eval/**'
+      - '.github/workflows/backend.yml'
+      - '.github/workflows/release-play.yml'
+      - 'scripts/tests/test_release_play_workflow.py'
+      - 'docs/release_notes/**'
+      - 'mobile/pubspec.yaml'
+      - '.github/actions/backend-env/**'
+      - '.github/ci/constraints-prod.txt'
+      - '.github/ci/requirements-prod.lock'
+      - '.github/ci/requirements-dev.lock'
+      - 'frontend/**'
+      - 'docs/lesson_index.json'
+      - 'docs/lesson_assets/**'
+      - 'docker-compose.production.yml'
+      - 'requirements*.txt'
+      - '.github/workflows/deploy.yml'
+      - '.dockerignore'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - 'knowledge_base/**'
+      # Every surface the scripture guard reads (ops/tools/content_surfaces.py)
+      # and the suite's content tests (test_no_hitting_endorsement reads the
+      # stories, adhkar and games). App-bundled content never reaches the
+      # backend, so the push list above leaves it out; a PR that only touches
+      # it must still be checked here — the pre-commit hook can be skipped.
+      - 'mobile/lib/**'
+      - 'mobile/assets/**'
+      - 'docs/stories*.json'
+      - 'docs/lesson_index.json'
+      - 'docs/lesson_assets/**'
+      - 'frontend/**'
+      - 'ops/scripts/**'
+      - 'ops/data/campaign_*'
+      - 'ops/data/hadith_*.json.gz'
+      # The English gate's queue and adjudications (ops/tools/review_en_parity.py).
+      - 'ops/data/en_parity_*.json'
+      # KB fidelity verdicts and the archive of withdrawn units (check_kb_fidelity.py).
+      - 'ops/data/kb_fidelity/**'
+      - 'ops/data/en_unpublished/**'
+      - 'ops/tools/**'
+      - 'pytest.ini'
+      - 'ops/tests/test_golden_ci.py'
+      - 'ops/eval/**'
+      - '.github/workflows/backend.yml'
+      - '.github/workflows/release-play.yml'
+      - 'scripts/tests/test_release_play_workflow.py'
+      - 'docs/release_notes/**'
+      - 'mobile/pubspec.yaml'
+      - '.github/actions/backend-env/**'
+      - '.github/ci/constraints-prod.txt'
+      - '.github/ci/requirements-prod.lock'
+      - '.github/ci/requirements-dev.lock'
+  workflow_dispatch:
+
+# A newer push to a PR cancels the older run. On main nothing is cancelled:
+# every main commit's run is the verdict its deploy is waiting for, and a
+# cancelled one would fail that deploy instead of letting it finish.
+concurrency:
+  group: backend-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+# Read-only token: none of these jobs writes to the repository.
+permissions:
+  contents: read
+
+# Every job runs on GitHub-hosted runners — main included. These jobs used to
+# run on the one self-hosted runner on the production VPS: a ~2 h queue with
+# ~6 open PRs, and on main the same suite ran there twice per merge (here and
+# inside the deploy's candidate image) while the host was CPU-throttled and the
+# live sites crawled (2026-10-04). The repository is public, so hosted runners
+# are free and parallel. They run production's Python and exact package set,
+# with cached models and a cached knowledge index (.github/actions/backend-env);
+# main's own runs keep the main-scope caches every PR restores.
+
+jobs:
+  # ── 1. Fast unit tests (no docker, no real LLM) ───────────────────────
+  pytest:
+    # deploy.yml's gate requires this job BY NAME (ops/tools/deploy_gate.py).
+    name: pytest
+    # C3 (AUDIT_AND_ROADMAP.md): fork PRs are skipped. Nothing in this workflow
+    # runs on the VPS any more, so the guard no longer protects it — it only
+    # keeps fork PRs without CI; left as it was until that is decided.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    # ~3-5 min on a hosted runner (cold cache ~5); the cap dates from the VPS,
+    # where one pass took 15-28 min.
+    timeout-minutes: 40
+    env:
+      # Force tests to skip the network-bound RAG smoke test.
+      SKIP_API_SMOKE: '1'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Production's Python + exact package set (CPU-only torch), both models
+      # and the knowledge index — see .github/actions/backend-env/action.yml.
+      - name: Production environment, models and knowledge index
+        uses: ./.github/actions/backend-env
+
+      - name: Release workflow shell tests (no build or upload)
+        working-directory: ${{ github.workspace }}
+        run: python -m unittest discover -s scripts/tests -p test_release_play_workflow.py
+
+      - name: Run pytest (full suite; the smoke test honours SKIP_API_SMOKE)
+        # One pass over everything. There used to be two: `--ignore` of the
+        # smoke test, then the full suite "so a misconfigured ignore doesn't
+        # mask regressions". The second pass was a strict superset of the
+        # first, so the first bought nothing but doubled the time — and that
+        # pushed the job past its timeout.
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          # ops/tests/test_golden_ci.py: its backend_env cases need this job's
+          # package set; the light step in candidate-image.yml runs the rest.
+          pytest -v backend/tests ops/tests/test_golden_ci.py
+
+  # ── 2. Knowledge-base integrity (catches schema drift) ───────────────
+  kb-integrity:
+    # deploy.yml's gate requires this job BY NAME (ops/tools/deploy_gate.py).
+    name: KB integrity
+    # C3 (AUDIT_AND_ROADMAP.md): fork PRs are skipped. Nothing in this workflow
+    # runs on the VPS any more, so the guard no longer protects it — it only
+    # keeps fork PRs without CI; left as it was until that is decided.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install KB integrity deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install jsonschema pyyaml
+
+      - name: Run check_kb_integrity.py
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          python ops/tools/check_kb_integrity.py
+
+      # Scripture guards — until 2026-10-04 they ran only in the local pre-commit
+      # hook, so a --no-verify commit or a machine without the hook shipped
+      # unchecked verses and hadith. Stdlib only; the indexes are in ops/data.
+      - name: Run scripture guards (Qur'an, Sahihayn, every surface)
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          python ops/tools/check_quran_citations.py
+          python ops/tools/check_hadith_citations.py
+          python ops/tools/check_scripture_coverage.py
+
+      # Prophets' stories (series anbiya_quran) against their sources — the verses
+      # and al-Muyassar snapshot in ops/data/anbiya, no «» dialogue, no name or number
+      # the sources lack, every sentence judged "supported" by two other model
+      # families. Stdlib only, no network; exit 2 = its self-tests broke.
+      - name: Run prophets' stories guard (check_anbiya_stories.py)
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          python ops/tools/check_anbiya_stories.py
+
+      # English parity gate — the full check, not --staged. Until 2026-10-04 it ran
+      # only in pre-commit, so a GitHub merge (or a merge commit that never ran the
+      # hook) could land English without a stamp, or a stamp gone stale under an
+      # edit. Every published English unit must carry a stamp whose fingerprint
+      # matches its Arabic + English, or an entry in ops/data/en_parity_queue.json
+      # bound to that exact text. Stdlib only, no network, under a second. Being in
+      # this job, it also gates main's deploy (deploy_gate.py) — as the hook already
+      # refuses such commits, a red step here means one got past the hook.
+      - name: Run English parity gate (review_en_parity.py check)
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          python ops/tools/review_en_parity.py check
+
+      # KB fidelity — the assistant cites text_simplified as evidence, and nothing
+      # compared it with the unit's own source until 2026-10-04, when 210 units were
+      # withdrawn for summaries written over reversed-letter PDF text (topic, chain
+      # or figure invented). Fails if a withdrawn unit is live again — by path, by
+      # id under another file name, or by translation (the b1100ae2 regression) —
+      # or if a unit the detector flags is live without a verdict recorded on its
+      # current text. Stdlib only, a few seconds; exit 2 = its self-tests broke.
+      - name: Run KB fidelity guard (check_kb_fidelity.py check)
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          python ops/tools/check_kb_fidelity.py check
+
+  lint:
+    # deploy.yml's gate requires this job BY NAME (ops/tools/deploy_gate.py).
+    name: ruff
+    # C3 (AUDIT_AND_ROADMAP.md): fork PRs are skipped. Nothing in this workflow
+    # runs on the VPS any more, so the guard no longer protects it — it only
+    # keeps fork PRs without CI; left as it was until that is decided.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install ruff
+        run: pip install ruff
+
+      # Narrow on purpose — see the rule list and reasoning in pyproject.toml.
+      # The same invocation runs in .githooks/pre-commit for an instant local
+      # answer; this one catches whatever a --no-verify or another machine
+      # skipped. Keep the two in step.
+      - name: Run ruff
+        run: ruff check backend/ ops/ scripts/

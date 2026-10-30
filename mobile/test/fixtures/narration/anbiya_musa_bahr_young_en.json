@@ -1,0 +1,78 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/anbiya_musa_bahr_young_p1.m4a",
+      "text": "Allah revealed to His Prophet Musa (peace be upon him) that he should travel by night with those who believed with him, because Pharaoh and his soldiers would follow them.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 171,
+          "start": 0.0,
+          "end": 8.8
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_musa_bahr_young_p2.m4a",
+      "text": "So Musa and those with him travelled by night. When the companions of Musa saw Pharaoh's host, Musa said to them: ﴿كَلَّآۖ إِنَّ مَعِيَ رَبِّي سَيَهۡدِينِ﴾ — interpretation of the meaning: 'Never! My Lord is with me; He will guide me.'",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 46,
+          "start": 0.0,
+          "end": 2.64
+        },
+        {
+          "from": 47,
+          "to": 197,
+          "start": 3.09,
+          "end": 21.848
+        },
+        {
+          "from": 198,
+          "to": 236,
+          "start": 22.298,
+          "end": 24.698
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_musa_bahr_young_p3.m4a",
+      "text": "Then Allah revealed to Musa that he should strike the sea with his staff; he struck it, and it split. Each part of the sea was like a great mountain.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 101,
+          "start": 0.0,
+          "end": 6.48
+        },
+        {
+          "from": 102,
+          "to": 149,
+          "start": 6.93,
+          "end": 9.41
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_musa_bahr_young_p4.m4a",
+      "text": "The sea stayed split until Musa and those with him had crossed to the shore. So Allah saved Musa and all those with him.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 76,
+          "start": 0.0,
+          "end": 4.444
+        },
+        {
+          "from": 77,
+          "to": 120,
+          "start": 4.894,
+          "end": 7.774
+        }
+      ]
+    }
+  ]
+}

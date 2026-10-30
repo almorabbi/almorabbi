@@ -1,0 +1,307 @@
+"""
+Tutor Guardian – FastAPI Application
+"""
+import asyncio
+import logging
+import os
+import secrets
+from contextlib import asynccontextmanager
+from pathlib import Path
+
+import httpx
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.exception_handlers import request_validation_exception_handler
+from fastapi.exceptions import RequestValidationError
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
+from fastapi.staticfiles import StaticFiles
+
+from app.config.guardrails_loader import load_child_surface_policy, load_guardrails_config
+from app.config.llm_config import LLM, DEFAULT_HOME_OLLAMA_URL
+from app.core.log_safety import describe_rejected_id
+from app.db.init_db import init_db
+from app.middleware.rate_limit import RateLimitMiddleware
+from app.middleware.auth import AuthMiddleware
+from app.middleware.client_ip import ClientIPMiddleware
+from app.routers import (
+    health, assistant, chat, feedback, privacy, program, children, referral, push, identity,
+    web, stats, daily_routine, value_tracking, habit_templates, child_mode, child_mode_web, sync,
+    insights, methodology, seo, tafsir, quranic_linguistics, support, child_memory, device_proof,
+    family_programs, family, story_events,
+)
+from app.services import (
+    ai_gateway, child_token, device_alerts, followup_push, milestone_push, mission_digest,
+)
+from app.services.push_sender import send_to_device
+from app import curriculum_loader as curriculum
+
+logger = logging.getLogger(__name__)
+
+# Project root (…/tutor-guardian), overridable for containers.
+PROJECT_ROOT = Path(os.environ.get("PROJECT_ROOT", Path(__file__).resolve().parents[2]))
+FRONTEND_DIR = PROJECT_ROOT / "frontend"
+
+# CORS origins from env (comma-separated); defaults to local dev.
+_origins = os.environ.get(
+    "CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000"
+).split(",")
+
+
+# The pushes whose moment is a device's local hour, not a UTC one. Each runs
+# on every tick and decides per device; a crontab cannot read the hour.
+_LOCAL_HOUR_JOBS = (
+    ("Mission digest", mission_digest.run_due_digests),
+    # «جرّبت النصيحة؟» at 19:00 the family's time — every time zone, never at
+    # night (PR #26 review F7: the 17 UTC cron could not reach UTC+4…+8).
+    ("Follow-up push", followup_push.run_due_followups),
+    # The notice to a phone that lost the account's push token (round 3):
+    # daytime on the family's clock, at most one a day.
+    ("Account alert", device_alerts.run_due_alerts),
+    # «ابنك هيكمّل ٧ سنين الشهر الجاي» at 20:00 the family's time, a month
+    # ahead of the milestone (v34). Off until MILESTONES_MIN_BUILD is set.
+    ("Milestone push", milestone_push.run_due_milestones),
+)
+
+
+async def _digest_loop() -> None:
+    """Wake every few minutes and push to the devices whose hour it is.
+
+    Runs the blocking sweeps in a worker thread: they open SQLite connections
+    and call FCM, and doing that on the event loop would stall every request
+    for the duration of the sweep.
+
+    Every job of every iteration is wrapped on its own, because a loop that
+    dies on one bad night stays dead until the next deploy — and its death is
+    silent, which is how the digest came to be unscheduled in the first place.
+    """
+    while True:
+        await asyncio.sleep(mission_digest.DIGEST_TICK_SECONDS)
+        for name, job in _LOCAL_HOUR_JOBS:
+            try:
+                result = await asyncio.to_thread(job)
+                if result.get("sent") or result.get("expired") or result.get("failed"):
+                    logger.info("%s: %s", name, result)
+            except asyncio.CancelledError:
+                raise
+            except Exception as exc:  # noqa: BLE001 — a tick must not kill the loop
+                logger.warning("%s tick failed: %s", name, exc)
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Startup / shutdown lifecycle."""
+
+    # ── Base startup ─────────────────────────────────────────────────────
+    child_token.assert_configured()  # fail fast: no CHILD_MODE_SECRET → no boot
+    app.state.guardrails_config = load_guardrails_config()
+    # Deliberately unguarded, like the line above it: an unreadable age gate
+    # must stop the boot, not start a server that quietly enforces nothing.
+    app.state.child_surface_policy = load_child_surface_policy()
+    init_db()
+    curriculum.load_curriculum()
+
+    # ── Warm-up: eager-load embeddings + ChromaDB index ──────────────────
+    # Eliminates the 30-60s cold load on the first user request.
+    try:
+        if os.environ.get("SKIP_WARMUP"):
+            logger.info("⚡ SKIP_WARMUP set: skipping heavy embedding & ChromaDB warm-up for fast dev boot.")
+        else:
+            # Indented under `else` on purpose: this block used to sit one level
+            # out, so with SKIP_WARMUP set it still ran — and died on a
+            # NameError (the imports above it were skipped), logged as a
+            # misleading "Warm-up (embeddings/reranker)" warning on every boot.
+            from app.services.retrieval import _ensure_index
+            from app.services.retrieval import _embedder as _warmup_embedder
+            from app.services.knowledge_loader import load_default_knowledge_units
+
+            logger.info("🔥 Warm-up: loading ONNX embedder...")
+            _warmup_embedder()  # trigger eager-load before _ensure_index uses it
+            logger.info("🔥 Warm-up: ensuring ChromaDB index...")
+            _ensure_index()
+            logger.info("🔥 Warm-up: ChromaDB index ready (%s units loaded)",
+                        len(load_default_knowledge_units()))
+
+            # Warm-up the Cross-Encoder Reranker
+            from app.services.reranker import eager_load_model as _warmup_reranker
+            logger.info("🔥 Warm-up: loading Cross-Encoder reranker...")
+            _warmup_reranker()
+    except Exception as e:
+        logger.warning("Warm-up (embeddings/reranker): %s", e)
+
+    # ── Warm-up: pre-load Ollama models ──────────────────────────────────
+    # Sends a tiny request to each model to get them into GPU memory.
+    #
+    # Only worth doing when Ollama actually serves traffic. With a cloud
+    # primary the local models are a cold fallback, and warming them costs
+    # every start — including every rollback — the full timeout below when
+    # the host is unreachable, which is exactly when a rollback is urgent.
+    if os.environ.get("SKIP_WARMUP"):
+        # Same switch as the embedder warm-up above. Without it every test that
+        # enters the app's lifespan waited out the 5 s timeout below against an
+        # unreachable home host — 1,180 tests' worth of boots on the CI runner.
+        logger.info("⚡ SKIP_WARMUP set: skipping Ollama warm-up.")
+    elif LLM.primary_provider != "ollama":
+        logger.info("Warm-up: skipping Ollama (primary provider is %s)", LLM.primary_provider)
+    else:
+        _local_base = os.environ.get("OLLAMA_LOCAL_BASE_URL") or os.environ.get("OLLAMA_BASE_URL", DEFAULT_HOME_OLLAMA_URL)
+        ollama_url = f"{_local_base.rstrip('/')}/api/generate"
+        fast_model = os.environ.get("OLLAMA_LOCAL_FAST_MODEL", "qwen2.5:3b")
+
+        warmup_payload = {
+            "model": fast_model,
+            "prompt": "مرحباً",
+            "stream": False,
+            "options": {"num_predict": 1},
+        }
+        try:
+            # Short timeout on purpose: an unreachable host must not hold the
+            # app's startup — and therefore the container's health — hostage.
+            async with httpx.AsyncClient(timeout=5) as client:
+                r = await client.post(ollama_url, json=warmup_payload)
+                logger.info("🔥 Warm-up: Ollama %s ready (%s)", fast_model, r.status_code)
+        except Exception as e:
+            logger.warning("Warm-up (Ollama %s): %s", fast_model, e)
+
+    # ── Evening mission digest ───────────────────────────────────────────
+    # The digest logic shipped written and tested with nothing calling it, so
+    # a parent who was waiting on a confirmation was never told. This is that
+    # caller. It lives in-process rather than in cron because the send has to
+    # be decided per-device local hour, which needs a DB read the crontab
+    # cannot do — see mission_digest.run_due_digests.
+    digest_task = asyncio.create_task(_digest_loop())
+
+    try:
+        yield
+    finally:
+        # Uvicorn finishes in-flight HTTP requests before lifespan shutdown.
+        # Drain off the event loop, before the interpreter stops daemon threads.
+        try:
+            await asyncio.to_thread(ai_gateway.shutdown_cloud_budget)
+        finally:
+            digest_task.cancel()
+            try:
+                await digest_task
+            except asyncio.CancelledError:
+                pass
+
+
+app = FastAPI(
+    title="Tutor Guardian API",
+    description="مساعد تربوي ذكي للأهل – واجهة API لنظام RAG مع Guardrails",
+    version="0.1.0",
+    lifespan=lifespan)
+
+
+@app.exception_handler(RequestValidationError)
+async def _count_rejected_device_ids(request: Request, exc: RequestValidationError):
+    """Same 422 as FastAPI's own, plus one countable line when a session mint
+    is refused for its device id — an install whose keystore hands back
+    garbage is refused on every mint, forever, and nothing else records it.
+    The id itself never reaches the log (log_safety.describe_rejected_id)."""
+    if request.method == "POST" and request.url.path == "/api/chat/sessions":
+        for err in exc.errors():
+            loc = err.get("loc") or ()
+            if loc and loc[-1] == "device_id":
+                logger.warning("session mint rejected device_id (%s): %s",
+                               err.get("type", "?"), describe_rejected_id(err.get("input")))
+    return await request_validation_exception_handler(request, exc)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[o.strip() for o in _origins if o.strip()],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Auth middleware — validates Bearer tokens on protected endpoints.
+app.add_middleware(AuthMiddleware)
+
+# Lightweight rate limiting. Registered LAST so it runs FIRST (add_middleware
+# prepends) — an unauthenticated flood must be throttled before it can reach
+# AuthMiddleware's token lookup. It therefore cannot rely on request.state and
+# resolves its own identity from the Authorization header; see rate_limit.py.
+app.add_middleware(RateLimitMiddleware)
+
+# Client IP + scheme from the local proxy (tg_cloudflared's tunnel, or
+# analytics_nginx for /seo and /methodology). Registered LAST so it
+# runs FIRST: the rate limiter above keys anonymous callers on the client IP,
+# and it used to read the nginx container's address because the old
+# ProxyHeadersMiddleware(trusted_hosts="*") was registered first (innermost)
+# and trusted forged X-Forwarded-For entries. See middleware/client_ip.py.
+app.add_middleware(ClientIPMiddleware)
+
+app.include_router(health.router)
+app.include_router(assistant.router, prefix="/api")
+app.include_router(chat.router, prefix="/api")
+app.include_router(feedback.router, prefix="/api")
+app.include_router(program.router, prefix="/api")  # curriculum: paths/lessons/daily-tip
+app.include_router(privacy.router)  # /privacy-policy (no /api prefix; public)
+app.include_router(privacy.api_router, prefix="/api")  # /api/privacy/memory delete-all (auth)
+app.include_router(methodology.router)  # /methodology (public — methodology & sources page)
+app.include_router(seo.router, prefix="/seo")  # /seo/{slug} (public — SEO pages for pain-point questions)
+app.include_router(web.router)  # public SEO pages + share landing (/go, /l, /p; Phase 2)
+app.include_router(children.router, prefix="/api")  # child profiles + progress (auth)
+app.include_router(child_memory.router, prefix="/api")  # child memory, follow-ups, weekly plan (auth; v30)
+app.include_router(device_proof.router, prefix="/api")  # FCM challenge behind the protected routes (auth; v30)
+app.include_router(family_programs.router, prefix="/api")  # Ramadan, prayer journey, milestones (auth; v34)
+app.include_router(family.router, prefix="/api")  # «قناديل الأسبوع» /family/week (auth; نور والقناديل P3)
+app.include_router(referral.router, prefix="/api")  # referral codes + attribution (auth)
+app.include_router(support.router, prefix="/api")  # «ادعم المربّي»: transparency (public) + verify (auth)
+app.include_router(stats.router, prefix="/api")  # community social-proof (public; Phase 3)
+app.include_router(push.router, prefix="/api")  # FCM token storage (auth)
+app.include_router(identity.router, prefix="/api")  # optional Google Sign-In (auth)
+app.include_router(sync.router, prefix="/api")  # Zero-Knowledge user backups/sync (auth)
+app.include_router(daily_routine.router, prefix="/api")  # حساب اليوم routine tracker (auth)
+app.include_router(value_tracking.router, prefix="/api")  # ميزان العادات habit tracker (auth)
+app.include_router(story_events.router, prefix="/api")  # «صورة حيّة» experiment events (auth)
+app.include_router(habit_templates.router, prefix="/api")  # قوالب العادات المخصصة (auth)
+app.include_router(child_mode.router, prefix="/api")  # وضع الطفل للتقرير الذاتي (child auth)
+app.include_router(child_mode_web.router, prefix="/api")  # QR Web App للمراهقين (child auth)
+app.include_router(insights.router, prefix="/api")  # AI parenting insights (auth)
+app.include_router(tafsir.router, prefix="/api")  # Tafsir MCP — تفسير موثّق (public)
+app.include_router(quranic_linguistics.router, prefix="/api")  # Bahouth MCP — تحليل لغوي قرآني (public)
+
+# ── Phase 4: static teen web UI served directly by the backend. ─────────
+_CHILD_WEB_DIR = PROJECT_ROOT / "backend" / "static" / "child_mode"
+if _CHILD_WEB_DIR.is_dir():
+    app.mount("/child-mode/web", StaticFiles(directory=str(_CHILD_WEB_DIR), html=True), name="child_mode_web")
+
+# ── Phase 1.1: admin push endpoint (for manual/cron sends) ─────────
+
+@app.post("/api/admin/send-push")
+def admin_send_push(request: Request, payload: dict) -> dict:
+    """Manual push sender. Body: {device_id, title, body, data?}."""
+    # Basic auth: require a configured admin key in header.
+    expected = os.environ.get("TG_ADMIN_KEY", "")
+    provided = request.headers.get("x-admin-key", "")
+    if not expected or not secrets.compare_digest(provided, expected):
+        raise HTTPException(status_code=403, detail="forbidden")
+
+    result = send_to_device(
+        device_id=payload.get("device_id", ""),
+        title=payload.get("title", "المربّي"),
+        body=payload.get("body", ""),
+        data=payload.get("data"),
+    )
+    return result
+
+
+DOCS_DIR = PROJECT_ROOT / "docs"
+if DOCS_DIR.is_dir():
+    app.mount("/docs", StaticFiles(directory=str(DOCS_DIR)), name="docs")
+
+if FRONTEND_DIR.is_dir():
+    app.mount("/ui", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="static")
+
+# Make mobile marketing assets (logo, icons) available to public landing pages.
+_MOBILE_ASSETS = PROJECT_ROOT / "mobile" / "assets"
+if _MOBILE_ASSETS.is_dir():
+    app.mount("/assets", StaticFiles(directory=str(_MOBILE_ASSETS)), name="mobile_assets")
+
+# ── Android App Links verification ─────────────────────────────────────
+# Google Play verifies the domain tg-api.alsaba.cloud by fetching
+# https://tg-api.alsaba.cloud/.well-known/assetlinks.json
+_WELL_KNOWN = PROJECT_ROOT / ".well-known"
+if _WELL_KNOWN.is_dir():
+    app.mount("/.well-known", StaticFiles(directory=str(_WELL_KNOWN)), name="well_known")

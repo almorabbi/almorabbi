@@ -1,0 +1,983 @@
+{
+  "id": "anbiya_yunus_young",
+  "series": "anbiya_quran",
+  "about": "مصادر القصة: الآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/anbiya_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py.",
+  "tafsir_source": "moyassar",
+  "content_sha256": "55180f046c6578a126e3eeecf542b6595790b186f4be570c59e4b308f596ef02",
+  "refs": [
+    "21:87",
+    "21:88",
+    "37:140",
+    "37:141",
+    "37:142",
+    "37:145",
+    "37:146"
+  ],
+  "verses": {
+    "21:87": "وَذَا ٱلنُّونِ إِذ ذَّهَبَ مُغَٰضِبٗا فَظَنَّ أَن لَّن نَّقۡدِرَ عَلَيۡهِ فَنَادَىٰ فِي ٱلظُّلُمَٰتِ أَن لَّآ إِلَٰهَ إِلَّآ أَنتَ سُبۡحَٰنَكَ إِنِّي كُنتُ مِنَ ٱلظَّـٰلِمِينَ",
+    "21:88": "فَٱسۡتَجَبۡنَا لَهُۥ وَنَجَّيۡنَٰهُ مِنَ ٱلۡغَمِّۚ وَكَذَٰلِكَ نُـۨجِي ٱلۡمُؤۡمِنِينَ",
+    "37:140": "إِذۡ أَبَقَ إِلَى ٱلۡفُلۡكِ ٱلۡمَشۡحُونِ",
+    "37:141": "فَسَاهَمَ فَكَانَ مِنَ ٱلۡمُدۡحَضِينَ",
+    "37:142": "فَٱلۡتَقَمَهُ ٱلۡحُوتُ وَهُوَ مُلِيمٞ",
+    "37:145": "۞فَنَبَذۡنَٰهُ بِٱلۡعَرَآءِ وَهُوَ سَقِيمٞ",
+    "37:146": "وَأَنۢبَتۡنَا عَلَيۡهِ شَجَرَةٗ مِّن يَقۡطِينٖ"
+  },
+  "tafsir": {
+    "21:87": "واذكر قصة صاحب الحوت، وهو يونس بن مَتَّى عليه السلام، أرسله الله إلى قومه فدعاهم فلم يؤمنوا، فتوعَّدهم بالعذاب فلم ينيبوا، ولم يصبر عليهم كما أمره الله، وخرج مِن بينهم غاضبًا عليهم، ضائقًا صدره بعصيانهم، وظن أن الله لن يضيِّق عليه ويؤاخذه بهذه المخالفة، فابتلاه الله بشدة الضيق والحبس، والتقمه الحوت في البحر، فنادى ربه في ظلمات الليل والبحر وبطن الحوت تائبًا معترفًا بظلمه; لتركه الصبر على قومه، قائلا: لا إله إلا أنت سبحانك، إني كنت من الظالمين.",
+    "21:88": "فاستجبنا له دعاءه، وخلَّصناه مِن غَم هذه الشدة، وكذلك ننجي المصدِّقين العاملين بشرعنا.",
+    "37:140": "وإن عبدنا يونس اصطفيناه وجعلناه من المرسلين، إذ هرب من بلده غاضبًا على قومه، وركب سفينة مملوءة ركابًا وأمتعة.",
+    "37:141": "وأحاطت بها الأمواج العظيمة، فاقترع ركاب السفينة لتخفيف الحمولة خوف الغرق، فكان يونس من المغلوبين.",
+    "37:142": "فأُلقي في البحر، فابتلعه الحوت، ويونس عليه السلام آتٍ بما يُلام عليه.",
+    "37:145": "فطرحناه من بطن الحوت، وألقيناه في أرض خالية عارية من الشجر والبناء، وهو ضعيف البدن.",
+    "37:146": "وأنبتنا عليه شجرة من القَرْع تظلُّه، وينتفع بها."
+  },
+  "tafsir_meta": {
+    "21:87": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T09:55:03+00:00"
+    },
+    "21:88": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T09:55:03+00:00"
+    },
+    "37:140": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T09:55:04+00:00"
+    },
+    "37:141": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T09:55:04+00:00"
+    },
+    "37:142": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T09:55:05+00:00"
+    },
+    "37:145": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T09:55:05+00:00"
+    },
+    "37:146": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T09:55:06+00:00"
+    }
+  },
+  "fields": [
+    {
+      "path": "title",
+      "refs": [
+        "21:87",
+        "21:88",
+        "37:140",
+        "37:141",
+        "37:142",
+        "37:145",
+        "37:146"
+      ],
+      "sentences": [
+        {
+          "text": "يونس عليه السلام والحوت",
+          "refs": [
+            "21:87",
+            "21:88",
+            "37:140",
+            "37:141",
+            "37:142",
+            "37:145",
+            "37:146"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The title only names Yunus with an honorific and the whale, both mentioned in the sources.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The title names Yunus (peace be upon him) and the whale, both of which are explicitly mentioned in the cited verses and tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "3f4b00bb77e6e45145a897ad4749bba2356cce4c3441ed4c27c45aa4907dce94",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "refs": [
+        "21:87",
+        "21:88",
+        "37:140",
+        "37:141",
+        "37:142",
+        "37:145",
+        "37:146"
+      ],
+      "sentences": [
+        {
+          "text": "قصة نبيّ الله يونس عليه السلام كما ذكرها القرآن الكريم، مكتوبة من التفسير الميسّر لآياتها.",
+          "refs": [
+            "21:87",
+            "21:88",
+            "37:140",
+            "37:141",
+            "37:142",
+            "37:145",
+            "37:146"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a description of the source material and does not assert any unsupported story detail.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a general description of the story's sourcing and does not assert any unsupported fact about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "68627b59564159c2f8bd91ed24052e894e362064c899694e71e7d44aa03d8d90",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[0].text",
+      "refs": [
+        "21:87",
+        "37:140"
+      ],
+      "sentences": [
+        {
+          "text": "أرسل اللهُ نبيَّه يونسَ عليه السلام إلى قومه، فدعاهم فلم يؤمنوا.",
+          "refs": [
+            "21:87"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the tafsir of 21:87, which states that Allah sent Yunus to his people, he called them, and they did not believe.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence matches the tafsir of 21:87 which states 'أرسله الله إلى قومه فدعاهم فلم يؤمنوا'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "0518d68a0bd2fd2f7bd54a4e52163f87ac577d29de52e7582cf36d3489a09d15",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فخرج من بينهم غاضبًا، وركب سفينةً مملوءةً بالرّكّاب والأمتعة.",
+          "refs": [
+            "21:87",
+            "37:140"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited tafsir for 21:87 and 37:140: he left his people angry and boarded a ship full of passengers and goods.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Both clauses are directly stated in the cited tafsir of 21:87 and 37:140.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "988f9bd54c1ad905c64dd42f146c05c0a1b4ff39a4d163c213701e4af55f72d1",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[1].text",
+      "refs": [
+        "37:141",
+        "37:142"
+      ],
+      "sentences": [
+        {
+          "text": "وأحاطت بالسفينة أمواجٌ عظيمة، فخاف الرّكّابُ الغرق.",
+          "refs": [
+            "37:141"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir states that great waves surrounded the ship and the passengers cast lots out of fear of drowning.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir states that great waves surrounded the ship and mentions 'خوف الغرق' (fear of drowning) as the reason the passengers cast lots.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "7dc6a3b29a2ac6a62fe683c7c22b9faa0f76a1fbc6ba7836495fea7e36e2a56f",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "واقترعوا فيما بينهم، فأُلقي يونسُ في البحر، فابتلعه الحوت.",
+          "refs": [
+            "37:141",
+            "37:142"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited verses and tafsir: they cast lots, Yunus was thrown into the sea, and the whale swallowed him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly matches the cited tafsir: the passengers drew lots, Yunus was cast into the sea, and the whale swallowed him.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "775a6cf5abb7880cdbfdc530c9aa694944025f3764c388b1b31ce96fb89a7735",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[2].text",
+      "refs": [
+        "21:87"
+      ],
+      "sentences": [
+        {
+          "text": "وكان يونسُ في ظلمات الليل والبحر وبطن الحوت.",
+          "refs": [
+            "21:87"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir explicitly states that Yunus called his Lord in the darknesses of night, sea, and the whale's belly.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir explicitly states Yunus was in the darkness of night, the sea, and the belly of the whale.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "1ee3a2c9c9717d3b1328d780e413ffc095d7042512df0e1971c97dc95e1c9dfb",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فنادى ربَّه تائبًا: ﴿لَّآ إِلَٰهَ إِلَّآ أَنتَ سُبۡحَٰنَكَ إِنِّي كُنتُ مِنَ ٱلظَّـٰلِمِينَ﴾.",
+          "refs": [
+            "21:87"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir states that Yunus called his Lord repentant and said these exact words.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir states he called his Lord repenting, and the quoted words are the verbatim verse from 21:87.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a5a7f4d450deb2f3c02db41904bdab36ec8ecdf1f875a5b70a78edc473b20e23",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[3].text",
+      "refs": [
+        "21:88",
+        "37:145",
+        "37:146"
+      ],
+      "sentences": [
+        {
+          "text": "فاستجاب اللهُ له، ونجّاه من الغمّ، وأخرجه من بطن الحوت إلى أرضٍ خالية.",
+          "refs": [
+            "21:88",
+            "37:145"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence directly reflects the cited verses and tafsir: Allah responded, saved him from distress, and brought him out of the whale's belly to an empty land.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Each clause directly matches the cited verses and tafsir: God answered him, saved him from distress, and cast him from the belly of the fish onto an empty land.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "d4cb12994c92d789dadb080b120b49930858ed076b464d5ee489bdc7900a7714",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وأنبت اللهُ عليه شجرةً من يقطين، وهو القَرْع، تُظلّه.",
+          "refs": [
+            "37:146"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited verse and tafsir, which state that God caused a gourd tree to grow over him to shade him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence faithfully paraphrases the verse and the cited tafsir, which both state that Allah caused a yaqṭīn (qarʿ) tree to grow over him and shade him.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "7ecf01a4553a9fb6af95c3d69e4b5a710ed8dec7851f767a7ed4e39fe167af02",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.question",
+      "refs": [
+        "21:87",
+        "21:88",
+        "37:140",
+        "37:141",
+        "37:142",
+        "37:145",
+        "37:146"
+      ],
+      "sentences": [
+        {
+          "text": "يونس عليه السلام نادى ربَّه في الظلمات.",
+          "refs": [
+            "21:87",
+            "21:88",
+            "37:140",
+            "37:141",
+            "37:142",
+            "37:145",
+            "37:146"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state that Yunus called upon his Lord in the darknesses.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse [21:87] states ﴿فَنَادَىٰ فِي ٱلظُّلُمَٰتِ﴾ and the tafsir confirms he called his Lord in the darknesses.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "540f5d1e12f64ba56c446f2e3aed63e1feda60b72241f59879b14d93b0a8738c",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وأنت، إلى مَن تلجأ حين تخاف أو تحزن؟",
+          "refs": [
+            "21:87",
+            "21:88",
+            "37:140",
+            "37:141",
+            "37:142",
+            "37:145",
+            "37:146"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks the child about their own feelings and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general question to the child about their own life, making no claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "b30b962b3ca093f17bef809beee5fa1dcb265887a1071e4593bb091898409f26",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.affirm",
+      "refs": [
+        "21:87",
+        "21:88",
+        "37:140",
+        "37:141",
+        "37:142",
+        "37:145",
+        "37:146"
+      ],
+      "sentences": [
+        {
+          "text": "أحسنت!",
+          "refs": [
+            "21:87",
+            "21:88",
+            "37:140",
+            "37:141",
+            "37:142",
+            "37:145",
+            "37:146"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is only a warm praise with no claim about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general word of praise for the child's choice, making no claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "40d57611b38d3551c936bd5b09f5e9f012beded62d2dfae265f9be3e72146868",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "يونس عليه السلام نادى ربَّه في الظلمات، فاستجاب الله له.",
+          "refs": [
+            "21:87",
+            "21:88",
+            "37:140",
+            "37:141",
+            "37:142",
+            "37:145",
+            "37:146"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence directly reflects the Qur'anic verses and tafsir that Yunus called in the darkness and Allah responded to him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly reflects 21:87 (he called his Lord in the darknesses) and 21:88 (Allah answered him).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "b5f2ec128fc52b5908c582d4c549b302978e87adb511bfd7222d8738e3902b78",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.nudge",
+      "refs": [
+        "21:87",
+        "21:88",
+        "37:140",
+        "37:141",
+        "37:142",
+        "37:145",
+        "37:146"
+      ],
+      "sentences": [
+        {
+          "text": "أفهم أن الحزن صعب…",
+          "refs": [
+            "21:87",
+            "21:88",
+            "37:140",
+            "37:141",
+            "37:142",
+            "37:145",
+            "37:146"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "This is an empathetic statement to the child and does not assert anything about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general empathetic statement to the child, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "d781bcd3a002ed8d69bd72afb832b324035a4f92a4fbf7183d953c3e5d9d6779",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ماذا فعل يونس عليه السلام وهو في بطن الحوت؟",
+          "refs": [
+            "21:87",
+            "21:88",
+            "37:140",
+            "37:141",
+            "37:142",
+            "37:145",
+            "37:146"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question only asks about Yunus being in the whale's belly, which the sources state, and does not assert any unsupported detail.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a question about what Yunus did inside the whale, and the sources state he was swallowed by the whale and called upon his Lord there.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a90e675a436778fabf571887eaa1a797ed29398e4884c65a9b3064cdb0c86ce3",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[0]",
+      "refs": [
+        "21:87",
+        "21:88",
+        "37:140",
+        "37:141",
+        "37:142",
+        "37:145",
+        "37:146"
+      ],
+      "sentences": [
+        {
+          "text": "أدعو الله",
+          "refs": [
+            "21:87",
+            "21:88",
+            "37:140",
+            "37:141",
+            "37:142",
+            "37:145",
+            "37:146"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is the child's own possible choice in today's life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is the child's own possible choice in today's life, and calling upon Allah is a general good action not claiming anything unsupported about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "479e877d9c93a479c2f95cbb262b3379a17957d151d6080d60fbfebc230b2215",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[1]",
+      "refs": [
+        "21:87",
+        "21:88",
+        "37:140",
+        "37:141",
+        "37:142",
+        "37:145",
+        "37:146"
+      ],
+      "sentences": [
+        {
+          "text": "أسكت وأبقى حزينًا",
+          "refs": [
+            "21:87",
+            "21:88",
+            "37:140",
+            "37:141",
+            "37:142",
+            "37:145",
+            "37:146"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is the child's own possible choice in today's life and makes no claim about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a child's own possible life choice, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "6491e2d72cd47d46f8ccae2c9e059f86833beb0c16a232f1a5846ff0cba0e16c",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[0]",
+      "refs": [
+        "21:87",
+        "21:88",
+        "37:140",
+        "37:141",
+        "37:142",
+        "37:145",
+        "37:146"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا ابتلع يونسَ عليه السلام في البحر؟",
+          "refs": [
+            "21:87",
+            "21:88",
+            "37:140",
+            "37:141",
+            "37:142",
+            "37:145",
+            "37:146"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks what swallowed Yunus in the sea, which is directly supported by the cited verses and tafsir stating the whale swallowed him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks what swallowed Yunus in the sea, which is directly supported by the sources stating the whale swallowed him in the sea.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "7121ddf76dd8b70525cb2bc08688743da54123d1f8e8e8979aad4a5909761ce8",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[1]",
+      "refs": [
+        "21:87",
+        "21:88",
+        "37:140",
+        "37:141",
+        "37:142",
+        "37:145",
+        "37:146"
+      ],
+      "sentences": [
+        {
+          "text": "بماذا نادى يونسُ ربَّه وهو في بطن الحوت؟",
+          "refs": [
+            "21:87",
+            "21:88",
+            "37:140",
+            "37:141",
+            "37:142",
+            "37:145",
+            "37:146"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks what Yunus called out, which is directly stated in the cited verse and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks what Yunus called his Lord with inside the whale, which is directly supported by [21:87] and its tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "dc9a3def26016691d94d8b6e8856f85ce1cdef7880997be7982d17b80865495b",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[2]",
+      "refs": [
+        "21:87",
+        "21:88",
+        "37:140",
+        "37:141",
+        "37:142",
+        "37:145",
+        "37:146"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا أنبت اللهُ على يونس عليه السلام ليُظلّه؟",
+          "refs": [
+            "21:87",
+            "21:88",
+            "37:140",
+            "37:141",
+            "37:142",
+            "37:145",
+            "37:146"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question reflects the Qur'anic statement that God caused a gourd tree to grow over Yunus to shade him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks about the plant Allah caused to grow over Yunus to shade him, which is directly stated in [37:146] and its tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "60b5f6b1e33a845b5e948ee217463713ac19c72c01f34a87e62af5f7ebcb0b19",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "islamicValue",
+      "refs": [
+        "21:88"
+      ],
+      "sentences": [
+        {
+          "text": "قال الله تعالى: ﴿فَٱسۡتَجَبۡنَا لَهُۥ وَنَجَّيۡنَٰهُ مِنَ ٱلۡغَمِّۚ﴾ [الأنبياء: ٨٨].",
+          "refs": [
+            "21:88"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the given Qur'anic verse verbatim and attributes it to God.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic verse inside ﴿﴾ with proper attribution, which is always supported.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "50b1a2ae814a2e4c5a6dfbc49c8f4739191e81930fdaa3a619bc301c912642db",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "actionChallenge",
+      "refs": [
+        "21:87"
+      ],
+      "sentences": [
+        {
+          "text": "احفظ مع والديك دعاءَ يونس عليه السلام: ﴿لَّآ إِلَٰهَ إِلَّآ أَنتَ سُبۡحَٰنَكَ إِنِّي كُنتُ مِنَ ٱلظَّـٰلِمِينَ﴾ [الأنبياء: ٨٧].",
+          "refs": [
+            "21:87"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The quoted supplication is verbatim from the cited verse and the tafsir identifies it as Yunus's call to his Lord.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a practical instruction to the child to memorize the verbatim Qur'anic prayer of Yunus, which is directly from the cited verse [21:87].",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "f31a7207da8788de2e5ebb5fdacf6c6529a589523f0c70510241fc61a026ddfb",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    }
+  ]
+}

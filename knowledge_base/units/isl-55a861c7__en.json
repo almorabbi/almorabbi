@@ -1,0 +1,55 @@
+{
+  "id": "isl-55a861c7__en",
+  "domain": "islamic_parenting",
+  "source_file": "Kayfa_Turabbi_Waladak.pdf",
+  "title": "The Balance between Firmness and Gentleness in the Tarbiyah of Children",
+  "language": "en",
+  "age_group": "4-6",
+  "behavior_type": "تربية الأطفال",
+  "intervention_type": "إرشادي",
+  "severity": "متوسط",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "كيف تربي ولدك",
+  "text_original": "ام ينبو هنيب لويح نأو ،هلامو هندبو هلقّعو هنيد ظفيح ابم هدلو مزلُي نأ :مزلحا طباضو .عرشلا ضراعت لم ام هدلب في ةَيعرلما ةيعامتجلاا ديلاقّتلا همزلي نأو ،هايندو هنيد في هرضي كنكيم لمو ،هماطف ىلع ردقّت لم هءاكب تحمر نإ كنإف\" :-للها هحمر - يزولجا نبا لاق . \"ًايرقّف ًلاهاج ْغلبيف ،هبيدأت كرتيو ،هبئاغر عيجم ذفنيو ،هللّديف ،دلولل هبح يرسأ عقّي هنإف مزاح يرغ بيرلما ناك اذإو ةضورفلما قوقّلحاب ثرتكم يرغ ،ىوهلل ًاداقّنم ةدارلإا فيعض أشنيف ،أطلخا دنع هتبقاعم وأ ةوفه لك دنع بقاعيو ،ةملكو ةسهمو ةكرح لك بقري ناك نم ًامزاح سيلو . انايحأ حماستي نأ يغبني نكلو ،ةّلز هنأ امك ،دسفم فرت اهضعب نإف ؛دلولا تابلط ةيبلت مدع كلذك مزلحا رهاظم نمو لا حايصلاو بضغلا نأ لفطلا كرديل بضغ وأ ىكب اذإ لفطلل بيرلما داقّني نأ يغبني لا بدأو ءودبه ناك اذإ ةباجلإا لىإ برقأ بلطلا نأ َملعتيلو هتابغر قيقّتح ىلع هدعاسي مونلا تاقوأ ىلع ظفاحيف ،لينزلما ماظنلا نادلاولا هيف مزيح نأ بيج ام مهأ نمو ءاش تىم لكأي دلاولأا ضعبو\" ،لافطلأا تايقلاخأ طبض لهسي اذبهو ،جورلخاو لكلأاو هذهو ،ماعطلا ىلع ماعطلا لاخدإو تقولا ةعيضمو رهسلا في ببستيو ءاش تىم مانيو . 4 ص :يولاحنلا نحمرلا دبع ،ةيملاسلإا ةيبرتلا لوصأ :رظنا ) ( . 44 ص :يزولجا نبا :رطالخا ديص )2( .63 ص :ليوبناتسلاا دوممح ،انلافطأ بيرن فيك :رظنا )3( . ص :يولاحنلا نحمرلا دبع ،ةيملاسلإا ةيبرتلا لوصأ :رظنا )4( . 44 ص :ليوبناتسلاا دوممح ،انلافطأ بيرن فيك :رظنا ) ( طابضنلاا مدع يمنتو ،تاقولأاو دوهلجا كلاهتساو طباورلا ككفت في ببستت ةيوضوفلا ناذئتسلااو لنزلما لىإ عوجرلا ديعاوم طبض",
+  "text_simplified": "This text explains the importance of balance in the tarbiyah (upbringing) of children between firmness and gentleness, as excess in either firmness or leniency leads to behavioral problems. It emphasizes the necessity of setting clear rules for sleep, food, and outings, while avoiding excessive response to a child’s crying or anger. It also points out that overly lenient tarbiyah weakens a child’s personality and leaves them unable to control themselves.",
+  "labels": [
+    "تربية",
+    "حزم",
+    "تساهل",
+    "قواعد",
+    "سلوك"
+  ],
+  "created_at": "2026-06-20T14:32:49Z",
+  "updated_at": "2026-06-20T14:32:49Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Kayfa_Turabbi_Waladak",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-55a861c7",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "52c843aad371460747857fbf27fcfc8d03207790b29b01f8bc7272612c1c4504",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

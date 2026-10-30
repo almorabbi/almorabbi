@@ -1,0 +1,72 @@
+{
+  "voice": "gemini-3.8-flash-tts/Algieba",
+  "language": "ar",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/ar/anbiya_sulayman_naml_young_p1.m4a",
+      "text": "آتى اللهُ نبيَّه سليمانَ عليه السلام علمًا، وعلّمه منطقَ الطير. وجُمع لسليمان جنودُه من الجنّ والإنس والطير.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 63,
+          "start": 0.0,
+          "end": 7.776
+        },
+        {
+          "from": 64,
+          "to": 108,
+          "start": 8.226,
+          "end": 15.043
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_sulayman_naml_young_p2.m4a",
+      "text": "وساروا جميعًا منتظمين. حتى بلغوا واديَ النمل.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 22,
+          "start": 0.0,
+          "end": 2.967
+        },
+        {
+          "from": 23,
+          "to": 45,
+          "start": 3.417,
+          "end": 6.978
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_sulayman_naml_young_p3.m4a",
+      "text": "فقالت نملةٌ تحذّر النمل: ﴿يَـٰٓأَيُّهَا ٱلنَّمۡلُ ٱدۡخُلُواْ مَسَٰكِنَكُمۡ لَا يَحۡطِمَنَّكُمۡ سُلَيۡمَٰنُ وَجُنُودُهُۥ وَهُمۡ لَا يَشۡعُرُونَ﴾.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 144,
+          "start": 0.0,
+          "end": 28.028
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_sulayman_naml_young_p4.m4a",
+      "text": "فتبسّم سليمانُ ضاحكًا من قولها، لفهمها وتحذيرها النمل. واستشعر نعمةَ الله عليه، فتوجّه إلى ربّه داعيًا.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 54,
+          "start": 0.0,
+          "end": 8.864
+        },
+        {
+          "from": 55,
+          "to": 103,
+          "start": 9.314,
+          "end": 15.613
+        }
+      ]
+    }
+  ]
+}

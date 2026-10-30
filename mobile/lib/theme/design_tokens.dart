@@ -1,0 +1,145 @@
+import 'package:flutter/material.dart';
+
+import 'app_palette.dart';
+
+/// Design tokens for the playful (Duolingo-style) redesign.
+///
+/// Everything here is code-only: gradients, radii, shadows and motion
+/// constants. No asset files. Colours come from [AppPalette.current].
+abstract final class Dt {
+  // ── Core palette ───────────────────────────────────────────────────────
+  //
+  // Getters, not constants. These were `static const Color`, which meant every
+  // one of ~512 references resolved at compile time — the single reason dark
+  // mode was estimated at a week. The spelling at each call site is unchanged;
+  // only the definitions moved behind [AppPalette.current].
+  static Color get primary => AppPalette.current.primary;
+  static Color get onPrimary => AppPalette.current.onPrimary;
+  static Color get primaryDeep => AppPalette.current.primaryDeep;
+  static Color get accent => AppPalette.current.accent;
+  static Color get onAccent => AppPalette.current.onAccent;
+  static Color get accentDeep => AppPalette.current.accentDeep;
+  static Color get background => AppPalette.current.background;
+  static Color get surface => AppPalette.current.surface;
+  static Color get ink => AppPalette.current.ink;
+  static Color get inkSoft => AppPalette.current.inkSoft;
+  static Color get success => AppPalette.current.success;
+  static Color get track => AppPalette.current.track;
+
+  static LinearGradient get primaryGradient => LinearGradient(
+        begin: AlignmentDirectional.topStart,
+        end: AlignmentDirectional.bottomEnd,
+        colors: [primary, primaryDeep],
+      );
+
+  static LinearGradient get accentGradient => LinearGradient(
+        begin: AlignmentDirectional.topStart,
+        end: AlignmentDirectional.bottomEnd,
+        colors: [accent, accentDeep],
+      );
+
+  // ── Radii ──────────────────────────────────────────────────────────────
+  static const double rCard = 24;
+  static const double rButton = 18;
+  static const double rChip = 999; // pill
+  static const double rSheet = 28;
+
+  // ── Shadows ────────────────────────────────────────────────────────────
+  /// Soft colored shadow — replaces grey borders on cards.
+  static List<BoxShadow> softShadow(Color color, {double alpha = .25}) => [
+        BoxShadow(
+          color: color.withValues(alpha: alpha),
+          blurRadius: 16,
+          offset: const Offset(0, 6),
+        ),
+      ];
+
+  /// Neutral shadow for cards on the warm background.
+  static List<BoxShadow> get cardShadow => [
+        BoxShadow(
+          color: AppPalette.current.isDark
+              ? Colors.black.withValues(alpha: .35)
+              : const Color(0xFF0F766E).withValues(alpha: .06),
+          blurRadius: 16,
+          offset: const Offset(0, 4),
+        ),
+        BoxShadow(
+          color: AppPalette.current.isDark
+              ? Colors.black.withValues(alpha: .2)
+              : const Color(0xFF475569).withValues(alpha: .04),
+          blurRadius: 6,
+          offset: const Offset(0, 1),
+        ),
+      ];
+
+  // ── Motion ─────────────────────────────────────────────────────────────
+  static const Duration fast = Duration(milliseconds: 200);
+  static const Duration base = Duration(milliseconds: 350);
+  static const Duration slow = Duration(milliseconds: 600);
+  static const Duration stagger = Duration(milliseconds: 60);
+
+  // ── Spacing ──────────────────────────────────────────────────────────────
+  static const double pad = 16;
+
+  /// 4-pt spacing scale. New code picks from here instead of a literal; the
+  /// existing literals migrate screen by screen (UX_UI_ROADMAP.md, UX-1).
+  static const double s4 = 4;
+  static const double s8 = 8;
+  static const double s12 = 12;
+  static const double s16 = 16;
+  static const double s24 = 24;
+  static const double s32 = 32;
+
+  /// Minimum interactive target (Material / WCAG 2.5.8). Surfaces a child
+  /// operates use [minTouchChild].
+  static const double minTouch = 48;
+  static const double minTouchChild = 56;
+
+  /// Items beyond this index appear without an entrance animation —
+  /// they're off-screen anyway and animating them wastes frames.
+  static const int maxStaggeredItems = 10;
+}
+
+/// Per-domain visual identity: gradient pair + emoji mascot.
+class DomainStyle {
+  final Color base;
+  final Color dark;
+  final String emoji;
+
+  const DomainStyle(this.base, this.dark, this.emoji);
+
+  LinearGradient get gradient => LinearGradient(
+        begin: AlignmentDirectional.topStart,
+        end: AlignmentDirectional.bottomEnd,
+        colors: [base, dark],
+      );
+
+  /// Very light tint of the domain color for section backgrounds.
+  Color get tint => Color.lerp(base, AppPalette.current.surface, .9)!;
+}
+
+// Cards put WHITE text on these gradients (Today card, paths list), so the
+// text-bearing `base` stop must reach 4.5:1 against white. The previous
+// stops read 1.7:1 (medical amber), 2.5:1 (islamic emerald), 3.7:1 (cyber,
+// infant) and 4.2:1 (development) — same hues, one or two steps deeper now.
+// Pinned by design_system_contrast_test.dart.
+const _domainStyles = <String, DomainStyle>{
+  'islamic_parenting':
+      DomainStyle(Color(0xFF047857), Color(0xFF065F46), '🕌'),
+  'aqeedah':
+      DomainStyle(Color(0xFF01696F), Color(0xFF014F55), '☪️'),
+  'development': DomainStyle(Color(0xFF7C3AED), Color(0xFF6D28D9), '🌱'),
+  'medical': DomainStyle(Color(0xFFB45309), Color(0xFF92400E), '🧩'),
+  'cyber': DomainStyle(Color(0xFF2563EB), Color(0xFF1D4ED8), '🛡️'),
+  'infant_pregnancy': DomainStyle(Color(0xFF0F766E), Color(0xFF115E59), '🍼'),
+};
+
+/// Domain keys with a dedicated style — exposed for the contrast test.
+Iterable<String> get styledDomains => _domainStyles.keys;
+
+// Not const: it reads brand colours, which now follow the live palette.
+DomainStyle get _fallbackDomainStyle =>
+    DomainStyle(Dt.primary, Dt.primaryDeep, '📚');
+
+DomainStyle styleFor(String? domain) =>
+    _domainStyles[domain] ?? _fallbackDomainStyle;

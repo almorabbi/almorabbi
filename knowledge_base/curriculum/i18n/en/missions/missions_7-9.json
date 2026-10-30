@@ -1,0 +1,220 @@
+{
+  "age_band": "7-9",
+  "version": "1.0.0",
+  "is_published": true,
+  "description": "Bank of daily missions — every mission happens off-screen, and its estimated time is never less than five times the card's minutes (the card is three minutes, so the floor is fifteen).",
+  "missions": [
+    {
+      "id": "mission_7-9_green_hunt",
+      "domain": "development",
+      "title_ar": "Green Hunter",
+      "instruction_ar": "Go out to the balcony or the yard and look for five things that are green, then come back and tell your dad or mom.",
+      "estimated_minutes": 15,
+      "needs_parent": false,
+      "needs_outdoors": true,
+      "materials": [],
+      "skill": "Observation",
+      "is_published": true
+    },
+    {
+      "id": "mission_7-9_table_set",
+      "domain": "islamic_parenting",
+      "title_ar": "The Table Is My Job",
+      "instruction_ar": "Set the table by yourself today, and say «بسم الله» before you all eat.",
+      "estimated_minutes": 15,
+      "needs_parent": false,
+      "needs_outdoors": false,
+      "materials": [],
+      "skill": "Responsibility",
+      "is_published": true
+    },
+    {
+      "id": "mission_7-9_call_grandparent",
+      "domain": "islamic_parenting",
+      "title_ar": "Your Voice Makes Them Happy",
+      "instruction_ar": "Call your grandpa or grandma and ask how they're doing, then tell them something that happened to you today.",
+      "estimated_minutes": 20,
+      "needs_parent": true,
+      "needs_outdoors": false,
+      "materials": [],
+      "skill": "Family ties",
+      "is_published": true
+    },
+    {
+      "id": "mission_7-9_water_plant",
+      "domain": "development",
+      "title_ar": "Something Alive Is Counting on You",
+      "instruction_ar": "Water a plant at home or at a neighbor's, and check on it every day for a week.",
+      "estimated_minutes": 15,
+      "needs_parent": false,
+      "needs_outdoors": false,
+      "materials": [
+        "a plant",
+        "water"
+      ],
+      "skill": "Consistency",
+      "is_published": true
+    },
+    {
+      "id": "mission_7-9_secret_good_deed",
+      "domain": "islamic_parenting",
+      "title_ar": "A Good Deed Nobody Knows About",
+      "instruction_ar": "Do something kind for someone at home without telling them and without telling anyone else, and tell only your dad that you did it.",
+      "estimated_minutes": 15,
+      "needs_parent": false,
+      "needs_outdoors": false,
+      "materials": [],
+      "skill": "Sincerity",
+      "is_published": true
+    },
+    {
+      "id": "mission_7-9_draw_the_sky",
+      "domain": "aqeedah",
+      "title_ar": "Look Up",
+      "instruction_ar": "Sit and look at the sky for ten minutes, then draw what you saw and tell your dad about it.",
+      "estimated_minutes": 20,
+      "needs_parent": false,
+      "needs_outdoors": true,
+      "materials": [
+        "paper",
+        "colouring pencils"
+      ],
+      "skill": "Reflection",
+      "is_published": true
+    },
+    {
+      "id": "mission_7-9_tidy_own_shelf",
+      "domain": "development",
+      "title_ar": "My Shelf, My Job",
+      "instruction_ar": "Tidy your shelf or your drawer by yourself, and take out one thing you don't use anymore and give it to someone.",
+      "estimated_minutes": 20,
+      "needs_parent": false,
+      "needs_outdoors": false,
+      "materials": [],
+      "skill": "Order",
+      "is_published": true
+    },
+    {
+      "id": "mission_7-9_ask_and_listen",
+      "domain": "islamic_parenting",
+      "title_ar": "Ask, Then Listen",
+      "instruction_ar": "Ask your dad or mom: \"What's the hardest thing you ever did when you were little?\" Then listen all the way to the end of the story without interrupting.",
+      "estimated_minutes": 15,
+      "needs_parent": true,
+      "needs_outdoors": false,
+      "materials": [],
+      "skill": "Listening",
+      "is_published": true
+    },
+    {
+      "id": "mission_7-9_walk_and_count",
+      "domain": "medical",
+      "title_ar": "Walk and Count",
+      "instruction_ar": "Go out for a walk with someone from home, and count how many trees the two of you saw along the way.",
+      "estimated_minutes": 25,
+      "needs_parent": true,
+      "needs_outdoors": true,
+      "materials": [],
+      "skill": "Movement",
+      "is_published": true
+    },
+    {
+      "id": "mission_7-9_say_sorry",
+      "domain": "islamic_parenting",
+      "title_ar": "The Two Hardest Words",
+      "instruction_ar": "Think of someone you made sad without meaning to, then go and say \"I'm sorry\" while looking them in the eye.",
+      "estimated_minutes": 15,
+      "needs_parent": false,
+      "needs_outdoors": false,
+      "materials": [],
+      "skill": "Apologising",
+      "is_published": true
+    },
+    {
+      "id": "mission_7-9_memorise_one_line",
+      "domain": "aqeedah",
+      "title_ar": "Just One Line",
+      "instruction_ar": "Memorize a short verse of the Qur'an with your dad or mom, and say it back to them before bed without looking.",
+      "estimated_minutes": 15,
+      "needs_parent": true,
+      "needs_outdoors": false,
+      "materials": [],
+      "skill": "Memorisation",
+      "is_published": true
+    },
+    {
+      "id": "mission_7-9_build_something",
+      "domain": "development",
+      "title_ar": "Build Something With Your Own Hands",
+      "instruction_ar": "Build anything out of the cardboard boxes or the blocks you have, then show it to someone at home and explain how you made it.",
+      "estimated_minutes": 30,
+      "needs_parent": false,
+      "needs_outdoors": false,
+      "materials": [
+        "boxes or blocks"
+      ],
+      "skill": "Making",
+      "is_published": true
+    }
+  ],
+  "translation": {
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "45110218eb8d308be1c09ec11d51b472e1e93010a56a8db5ef0c8cfa01eb06e8",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "missions[2].title_ar",
+          "type": "addition",
+          "why": "English adds an object 'Them' not present in the Arabic, which simply says 'Your voice brings joy'."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "missions[5].materials[1]",
+          "type": "meaning",
+          "why": "Arabic 'ألوان' is generic colours/crayons; English narrows it to colouring pencils."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "missions[11].materials[0]",
+          "type": "omission",
+          "why": "Arabic specifies cardboard boxes (كراتين); English drops 'cardboard'."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "missions[2].title_ar",
+        "type": "addition",
+        "why": "English adds an object 'Them' not present in the Arabic, which simply says 'Your voice brings joy'."
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "field": "missions[5].materials[1]",
+        "type": "meaning",
+        "why": "Arabic 'ألوان' is generic colours/crayons; English narrows it to colouring pencils."
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "field": "missions[11].materials[0]",
+        "type": "omission",
+        "why": "Arabic specifies cardboard boxes (كراتين); English drops 'cardboard'."
+      }
+    ],
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

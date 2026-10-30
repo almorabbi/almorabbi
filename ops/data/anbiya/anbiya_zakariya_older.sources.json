@@ -1,0 +1,1440 @@
+{
+  "id": "anbiya_zakariya_older",
+  "series": "anbiya_quran",
+  "about": "مصادر القصة: الآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/anbiya_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py.",
+  "tafsir_source": "moyassar",
+  "content_sha256": "bb1d2c8711727d056fc15ad45ebe3224d2963c7cac5fb6b3f53e50edbab4b11d",
+  "refs": [
+    "19:2",
+    "19:3",
+    "19:4",
+    "19:5",
+    "19:6",
+    "19:7",
+    "19:8",
+    "19:9",
+    "19:10",
+    "19:11",
+    "19:12",
+    "19:13",
+    "19:14",
+    "19:15"
+  ],
+  "verses": {
+    "19:2": "ذِكۡرُ رَحۡمَتِ رَبِّكَ عَبۡدَهُۥ زَكَرِيَّآ",
+    "19:3": "إِذۡ نَادَىٰ رَبَّهُۥ نِدَآءً خَفِيّٗا",
+    "19:4": "قَالَ رَبِّ إِنِّي وَهَنَ ٱلۡعَظۡمُ مِنِّي وَٱشۡتَعَلَ ٱلرَّأۡسُ شَيۡبٗا وَلَمۡ أَكُنۢ بِدُعَآئِكَ رَبِّ شَقِيّٗا",
+    "19:5": "وَإِنِّي خِفۡتُ ٱلۡمَوَٰلِيَ مِن وَرَآءِي وَكَانَتِ ٱمۡرَأَتِي عَاقِرٗا فَهَبۡ لِي مِن لَّدُنكَ وَلِيّٗا",
+    "19:6": "يَرِثُنِي وَيَرِثُ مِنۡ ءَالِ يَعۡقُوبَۖ وَٱجۡعَلۡهُ رَبِّ رَضِيّٗا",
+    "19:7": "يَٰزَكَرِيَّآ إِنَّا نُبَشِّرُكَ بِغُلَٰمٍ ٱسۡمُهُۥ يَحۡيَىٰ لَمۡ نَجۡعَل لَّهُۥ مِن قَبۡلُ سَمِيّٗا",
+    "19:8": "قَالَ رَبِّ أَنَّىٰ يَكُونُ لِي غُلَٰمٞ وَكَانَتِ ٱمۡرَأَتِي عَاقِرٗا وَقَدۡ بَلَغۡتُ مِنَ ٱلۡكِبَرِ عِتِيّٗا",
+    "19:9": "قَالَ كَذَٰلِكَ قَالَ رَبُّكَ هُوَ عَلَيَّ هَيِّنٞ وَقَدۡ خَلَقۡتُكَ مِن قَبۡلُ وَلَمۡ تَكُ شَيۡـٔٗا",
+    "19:10": "قَالَ رَبِّ ٱجۡعَل لِّيٓ ءَايَةٗۖ قَالَ ءَايَتُكَ أَلَّا تُكَلِّمَ ٱلنَّاسَ ثَلَٰثَ لَيَالٖ سَوِيّٗا",
+    "19:11": "فَخَرَجَ عَلَىٰ قَوۡمِهِۦ مِنَ ٱلۡمِحۡرَابِ فَأَوۡحَىٰٓ إِلَيۡهِمۡ أَن سَبِّحُواْ بُكۡرَةٗ وَعَشِيّٗا",
+    "19:12": "يَٰيَحۡيَىٰ خُذِ ٱلۡكِتَٰبَ بِقُوَّةٖۖ وَءَاتَيۡنَٰهُ ٱلۡحُكۡمَ صَبِيّٗا",
+    "19:13": "وَحَنَانٗا مِّن لَّدُنَّا وَزَكَوٰةٗۖ وَكَانَ تَقِيّٗا",
+    "19:14": "وَبَرَّۢا بِوَٰلِدَيۡهِ وَلَمۡ يَكُن جَبَّارًا عَصِيّٗا",
+    "19:15": "وَسَلَٰمٌ عَلَيۡهِ يَوۡمَ وُلِدَ وَيَوۡمَ يَمُوتُ وَيَوۡمَ يُبۡعَثُ حَيّٗا"
+  },
+  "tafsir": {
+    "19:2": "هذا ذِكْر رحمة ربك عبده زكريا، سنقصه عليك، فإن في ذلك عبرة للمعتبرين.",
+    "19:3": "إذ دعا ربه سرًا; ليكون أكمل وأتم إخلاصًا لله، وأرجى للإجابة.",
+    "19:4": "قال: رب إني كَبِرْتُ، وضعف عظمي، وانتشر الشيب في رأسي، ولم أكن من قبل محرومًا من إجابة الدعاء.",
+    "19:5": "وإني خفت أقاربي وعصبتي مِن بعد موتي أن لا يقوموا بدينك حق القيام، ولا يدعوا عبادك إليك، وكانت زوجتي عاقرًا لا تلد، فارزقني مِن عندك ولدًا وارثًا ومعينًا.",
+    "19:6": "يرث نبوَّتي ونبوة آل يعقوب، واجعل هذا الولد مرضيًا منك ومن عبادك.",
+    "19:7": "يا زكريا إنَّا نبشرك بإجابة دعائك، قد وهبنا لك غلامًا اسمه يحيى، لم نُسَمِّ أحدًا قبله بهذا الاسم.",
+    "19:8": "قال زكريا متعجبًا: ربِّ كيف يكون لي غلام، وكانت امرأتي عاقرًا لا تلد، وأنا قد بلغت النهاية في الكبر ورقة العظم؟",
+    "19:9": "قال المَلَك مجيبًا زكريا عمَّا تعجَّب منه: هكذا الأمر كما تقول مِن كون امرأتك عاقرًا، وبلوغك من الكبر عتيًا، ولكنَّ ربك قال: خَلْقُ يحيى على هذه الكيفية أمر سهل هيِّن عليَّ، ثم ذكر الله سبحانه لزكريا ما هو أعجب مما سأل عنه فقال: وقد خلقتك أنت من قبل يحيى، ولم تكُ شيئًا مذكورًا ولا موجودًا.",
+    "19:10": "قال زكريا زيادة في اطمئنانه: ربِّ اجعل لي علامة على تحقُّق ما بَشَّرَتْني به الملائكة، قال: علامتك أن لا تقدر على كلام الناس مدة ثلاث ليال وأيامها، وأنت صحيح معافى.",
+    "19:11": "فخرج زكريا على قومه مِن مصلاه، وهو المكان الذي بُشِّر فيه بالولد، فأشار إليهم: أن سَبِّحوا الله صباحًا ومساءً شكرًا له تعالى.",
+    "19:12": "فلما ولد يحيى، وبلغ مبلغًا يفهم فيه الخطاب، أمره الله أن يأخذ التوراة بجدٍّ واجتهاد بقوله: يا يحيى خذ التوراة بجد واجتهاد بحفظ ألفاظها، وفهم معانيها، والعمل بها، وأعطيناه الحكمة وحسن الفهم، وهو صغير السن.",
+    "19:13": "وآتيناه رحمة ومحبة من عندنا وطهارة من الذنوب، وكان خائفًا مطيعًا لله تعالى، مؤديًا فرائضه، مجتنبًا محارمه.",
+    "19:14": "وكان بارًّا بوالديه مطيعًا لهما، ولم يكن متكبرًا عن طاعة ربه، ولا عن طاعة والديه، ولا عاصيًا لربه، ولا لوالديه.",
+    "19:15": "وسلام من الله على يحيى وأمان له يوم وُلِد، ويوم يموت، ويوم يُبعث مِن قبره حيًا."
+  },
+  "tafsir_meta": {
+    "19:2": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:36+00:00"
+    },
+    "19:3": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:37+00:00"
+    },
+    "19:4": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:37+00:00"
+    },
+    "19:5": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:38+00:00"
+    },
+    "19:6": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:38+00:00"
+    },
+    "19:7": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:39+00:00"
+    },
+    "19:8": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:39+00:00"
+    },
+    "19:9": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:40+00:00"
+    },
+    "19:10": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:40+00:00"
+    },
+    "19:11": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:41+00:00"
+    },
+    "19:12": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:41+00:00"
+    },
+    "19:13": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:42+00:00"
+    },
+    "19:14": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:42+00:00"
+    },
+    "19:15": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:43+00:00"
+    }
+  },
+  "fields": [
+    {
+      "path": "title",
+      "refs": [
+        "19:2",
+        "19:3",
+        "19:4",
+        "19:5",
+        "19:6",
+        "19:7",
+        "19:8",
+        "19:9",
+        "19:10",
+        "19:11",
+        "19:12",
+        "19:13",
+        "19:14",
+        "19:15"
+      ],
+      "sentences": [
+        {
+          "text": "زكريا عليه السلام ودعاءٌ في السرّ",
+          "refs": [
+            "19:2",
+            "19:3",
+            "19:4",
+            "19:5",
+            "19:6",
+            "19:7",
+            "19:8",
+            "19:9",
+            "19:10",
+            "19:11",
+            "19:12",
+            "19:13",
+            "19:14",
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The title reflects the Qur'anic mention of Zakariyya calling his Lord in secret, and the honorific is allowed.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The title states Zakariya made a supplication in secret, which directly matches 19:3 and its tafsir ('إذ دعا ربه سرًا').",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "16a3a6ccb695fabb01a7f65e409a58ea2b5b7b6e55129a67e87852fba263f411",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "refs": [
+        "19:2",
+        "19:3",
+        "19:4",
+        "19:5",
+        "19:6",
+        "19:7",
+        "19:8",
+        "19:9",
+        "19:10",
+        "19:11",
+        "19:12",
+        "19:13",
+        "19:14",
+        "19:15"
+      ],
+      "sentences": [
+        {
+          "text": "قصة نبيّ الله زكريا وابنه يحيى عليهما السلام كما ذكرها القرآن الكريم، مكتوبة من التفسير الميسّر لآياتها.",
+          "refs": [
+            "19:2",
+            "19:3",
+            "19:4",
+            "19:5",
+            "19:6",
+            "19:7",
+            "19:8",
+            "19:9",
+            "19:10",
+            "19:11",
+            "19:12",
+            "19:13",
+            "19:14",
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The description accurately states that the story of Zakariyya and his son Yahya is from the Qur'an and its Muyassar tafsir, both of which are the provided sources.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a meta-description identifying the story's source and protagonists, both named in the cited verses, with an allowed honorific.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "8e85881455628ca73fad1b7ad8f5bbd570c142800269e24806705de3746a3227",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[0].text",
+      "refs": [
+        "19:2",
+        "19:3"
+      ],
+      "sentences": [
+        {
+          "text": "هذه قصةُ رحمةِ الله بعبده زكريا عليه السلام، وفيها عبرةٌ للمعتبرين.",
+          "refs": [
+            "19:2"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence closely matches the given verse and tafsir, which mention God's mercy to His servant Zakariyya and a lesson for those who take heed.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a close paraphrase of the cited verse and tafsir, with only minor child-friendly simplification and an allowed honorific.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "5e61e36a8f6db9926508cc3d2c000cde13718d24d4c7f5232c99080eb70f6686",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "دعا زكريا ربَّه سرًّا؛ ليكون أكملَ في الإخلاص لله، وأرجى للإجابة.",
+          "refs": [
+            "19:3"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the given tafsir of 19:3, including the stated purpose of the secret supplication.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence closely follows the cited tafsir of 19:3, and the name Zakariya is established by the verse's context in Surah Maryam.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "d3af9dfb06ab83acedc7cb299d7e4b07234940377a5a1b8e7cef8355b580db01",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[1].text",
+      "refs": [
+        "19:4",
+        "19:5",
+        "19:6"
+      ],
+      "sentences": [
+        {
+          "text": "فقال في دعائه: ﴿رَبِّ إِنِّي وَهَنَ ٱلۡعَظۡمُ مِنِّي وَٱشۡتَعَلَ ٱلرَّأۡسُ شَيۡبٗا وَلَمۡ أَكُنۢ بِدُعَآئِكَ رَبِّ شَقِيّٗا﴾.",
+          "refs": [
+            "19:4"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the exact Qur'anic verse 19:4, which is among the allowed sources.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence reports that he said this prayer, which matches the verse and tafsir, and the quoted text is verbatim Qur'an.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a8ea0ca6488693d92f9efdd6d6cdde67da285220649240cf41ad156ad2984fd4",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وكانت امرأته عاقرًا لا تلد، فسأل ربَّه أن يهب له من عنده ولدًا يرث النبوّة، ويكون مرضيًّا.",
+          "refs": [
+            "19:5",
+            "19:6"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence accurately reflects the cited verses and tafsir about Zechariah's barren wife and his request for a pleasing child who inherits prophethood.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Every clause matches the cited verses and tafsir: the barren wife, the request for a child from God, inheriting prophethood, and being pleasing/accepted.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "7dd8b13f42672569d79eedd166b5a78450d64a214746ccdb67d004fc72eb7283",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[2].text",
+      "refs": [
+        "19:7",
+        "19:8",
+        "19:9",
+        "19:10"
+      ],
+      "sentences": [
+        {
+          "text": "فبشّره اللهُ بغلامٍ اسمه يحيى، لم يُسمَّ أحدٌ قبله بهذا الاسم.",
+          "refs": [
+            "19:7"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence accurately reflects the verse and tafsir about the glad tidings of a boy named Yahya with no previous namesake.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a direct paraphrase of verse 19:7 and its tafsir, matching all stated facts.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "c1f5e1c76f3bb0469d379179a8560d447e3ed7b722ecbd1eb539dab03041d976",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فتعجّب زكريا كيف يكون له غلامٌ وقد بلغ النهاية في الكبر، فأخبره ربُّه أن ذلك هيّنٌ عليه، وقد خلقه من قبلُ ولم يكُ شيئًا.",
+          "refs": [
+            "19:8",
+            "19:9"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence accurately summarizes the cited verses and tafsir about Zakariyya's wonder, his old age, and God's reply that creating Yahya is easy and that He created Zakariyya before from nothing.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Every clause matches the cited verses and tafsir: Zakariya's wonder at having a son in old age, God's reply that it is easy, and the reminder that He created him before when he was nothing.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "56a79043bbe18c0bb2dfe97dcfd77e6fdfceb0c7bc1c77f4e6c60a01453fdc83",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وجعل اللهُ له علامةً: ألّا يقدر على كلام الناس ثلاثَ ليالٍ وأيامها، وهو صحيحٌ معافى.",
+          "refs": [
+            "19:10"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited verse and tafsir, which state the sign was inability to speak to people for three nights and their days while healthy.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a faithful paraphrase of the verse and tafsir, which state that the sign given was inability to speak to people for three nights and their days while healthy.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a69bbf98b23714977592049f8f8f317d396fcf78d0c30230e69a1f79b0c9f218",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[3].text",
+      "refs": [
+        "19:11"
+      ],
+      "sentences": [
+        {
+          "text": "فخرج زكريا على قومه من مصلّاه، فأشار إليهم أن سبّحوا اللهَ صباحًا ومساءً شكرًا له.",
+          "refs": [
+            "19:11"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence closely follows the provided tafsir of verse 19:11.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence closely follows the cited tafsir الميسّر, merely omitting the parenthetical clause about the place and the word 'تعالى'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "f77d591f2e0a98e2f845172ad460f4928ffcb962d7a6501989ac4d24f3a5510d",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[4].text",
+      "refs": [
+        "19:12",
+        "19:13"
+      ],
+      "sentences": [
+        {
+          "text": "ووُلد يحيى، فلما بلغ أن يفهم الخطاب قال الله له: ﴿يَٰيَحۡيَىٰ خُذِ ٱلۡكِتَٰبَ بِقُوَّةٖۖ﴾.",
+          "refs": [
+            "19:12"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the given tafsir: Yahya was born, reached understanding of speech, and God commanded him with the quoted verse.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence closely follows the cited tafsir, which states Yahya was born, reached an age to understand speech, and Allah addressed him with the cited verse.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "991de37fc8064206b9713d15ed3bf7a5610ef2e76afccee7d95f5886aef5d2cc",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وأمره أن يأخذ التوراة بجدٍّ واجتهاد: يحفظ ألفاظها، ويفهم معانيها، ويعمل بها.",
+          "refs": [
+            "19:12"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the given tafsir exactly.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly matches the cited tafsir of 19:12, including the command to take the Torah with diligence, memorizing its words, understanding its meanings, and acting upon it.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "d2bd3e9441d8eb1a36ba632d4e6c6b3b34eb2eb3bacc38212f2a3c8ada89a280",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وأعطاه اللهُ الحكمةَ وحسنَ الفهم وهو صغير، ورحمةً ومحبةً من عنده.",
+          "refs": [
+            "19:12",
+            "19:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence accurately reflects the given tafsir for verses 19:12 and 19:13.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly paraphrases the cited tafsir of 19:12 and 19:13.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "1e09ee4b4f2266739ef7149d7413522272a2344c6ba365fb157e6470880f2708",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[5].text",
+      "refs": [
+        "19:2",
+        "19:7",
+        "19:12",
+        "19:14",
+        "19:15"
+      ],
+      "sentences": [
+        {
+          "text": "ومن عِبَر هذه الآيات أن الله رحم عبدَه زكريا، واستجاب دعاءه.",
+          "refs": [
+            "19:2",
+            "19:7"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state that Allah showed mercy to His servant Zakariyya and answered his supplication.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Allah's mercy on Zakariya is stated in 19:2, and answering his prayer is stated in the tafsir of 19:7 ('إجابة دعائك').",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "61a866851d1a9bcaae81a7b7c574ecd6ff4d9d6369c12d539bdcc4080425e4df",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "والعبرة أيضًا في قوله تعالى عن يحيى: ﴿وَبَرَّۢا بِوَٰلِدَيۡهِ وَلَمۡ يَكُن جَبَّارًا عَصِيّٗا﴾.",
+          "refs": [
+            "19:12",
+            "19:14"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the given Qur'anic verse verbatim and attributes it to God's saying about Yahya, which the sources support.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the verbatim Qur'anic verse from [19:14] and introduces it with a general framing that adds no unsupported claims.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "c3076c616514518d38fa9db8a1c60c7b2e30a0a9fc9fbf5110a0b1300b8db2a9",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فكان بارًّا بوالديه مطيعًا لهما، غيرَ متكبّر، ولا عاصٍ لربه ولا لوالديه.",
+          "refs": [
+            "19:14"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence closely matches the given tafsir of verse 19:14 without adding unsupported details.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a faithful paraphrase of the cited tafsir for 19:14, with only minor simplification.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "f8bf817d3ed34d1adba164b443ba097c7c8e05b9cc95fb3fd724a57115e521f0",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وسلامٌ من الله عليه يوم وُلد، ويوم يموت، ويوم يُبعث حيًّا.",
+          "refs": [
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a faithful simplification of the cited verse and tafsir, omitting only minor details.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is nearly verbatim from Qur'an 19:15, with 'من الله' directly supported by the cited tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "02a4e55547a4e2b38495bfb865f96b5359ffbf9a68dfbba2d0847b2f9dc51c18",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.question",
+      "refs": [
+        "19:2",
+        "19:3",
+        "19:4",
+        "19:5",
+        "19:6",
+        "19:7",
+        "19:8",
+        "19:9",
+        "19:10",
+        "19:11",
+        "19:12",
+        "19:13",
+        "19:14",
+        "19:15"
+      ],
+      "sentences": [
+        {
+          "text": "زكريا عليه السلام دعا ربَّه سرًّا وقد كبر، فاستجاب الله له.",
+          "refs": [
+            "19:2",
+            "19:3",
+            "19:4",
+            "19:5",
+            "19:6",
+            "19:7",
+            "19:8",
+            "19:9",
+            "19:10",
+            "19:11",
+            "19:12",
+            "19:13",
+            "19:14",
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence reflects the cited verses and tafsir: Zakariyya called his Lord secretly in old age, and Allah answered his supplication with the good news of Yahya.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence states Zakariya called his Lord secretly (19:3), had grown old (19:4), and Allah answered him (19:7), all directly supported by the cited verses and tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "0f7c6df2ef9b97588ee275cb4bee6c970a85450cfad43423931a369d0684d164",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ماذا تفعل حين تتمنّى شيئًا من الخير؟",
+          "refs": [
+            "19:2",
+            "19:3",
+            "19:4",
+            "19:5",
+            "19:6",
+            "19:7",
+            "19:8",
+            "19:9",
+            "19:10",
+            "19:11",
+            "19:12",
+            "19:13",
+            "19:14",
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a question addressed to the child about their own behavior and does not assert anything about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general question addressed to the child about their own life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "3342f729547d63664c99af60ccf97d64c48db318b6716dc2c75e36ada2b46fa4",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.affirm",
+      "refs": [
+        "19:2",
+        "19:3",
+        "19:4",
+        "19:5",
+        "19:6",
+        "19:7",
+        "19:8",
+        "19:9",
+        "19:10",
+        "19:11",
+        "19:12",
+        "19:13",
+        "19:14",
+        "19:15"
+      ],
+      "sentences": [
+        {
+          "text": "أحسنت!",
+          "refs": [
+            "19:2",
+            "19:3",
+            "19:4",
+            "19:5",
+            "19:6",
+            "19:7",
+            "19:8",
+            "19:9",
+            "19:10",
+            "19:11",
+            "19:12",
+            "19:13",
+            "19:14",
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is only a warm praise with no claim about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general expression of praise to the child and makes no claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "e123b499a85071353b0de150d5aa688d1656e031bed5db7b1b850e5d3deeea7b",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "زكريا عليه السلام دعا ربَّه، فاستجاب الله دعاءه.",
+          "refs": [
+            "19:2",
+            "19:3",
+            "19:4",
+            "19:5",
+            "19:6",
+            "19:7",
+            "19:8",
+            "19:9",
+            "19:10",
+            "19:11",
+            "19:12",
+            "19:13",
+            "19:14",
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state that Zakariyya called his Lord and that God answered his supplication by giving him Yahya.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The Qur'an states Zakariya called his Lord (19:3) and the angel announces the answering of his prayer (19:7).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "d456704d5273bced382753e54dd1dbac451edfed9ca68a2f42ce4c63fe4740b6",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.nudge",
+      "refs": [
+        "19:2",
+        "19:3",
+        "19:4",
+        "19:5",
+        "19:6",
+        "19:7",
+        "19:8",
+        "19:9",
+        "19:10",
+        "19:11",
+        "19:12",
+        "19:13",
+        "19:14",
+        "19:15"
+      ],
+      "sentences": [
+        {
+          "text": "أفهم أن الانتظار صعب…",
+          "refs": [
+            "19:2",
+            "19:3",
+            "19:4",
+            "19:5",
+            "19:6",
+            "19:7",
+            "19:8",
+            "19:9",
+            "19:10",
+            "19:11",
+            "19:12",
+            "19:13",
+            "19:14",
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general empathetic remark to the child and does not assert anything about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is Noor's empathetic reply to the child expressing a general feeling about waiting, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "6a76dfca2c57f6ee3aa76f925660ba35ab4dac78123b3c660f4c372bbfddc532",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ماذا فعل زكريا عليه السلام وقد كبر؟",
+          "refs": [
+            "19:2",
+            "19:3",
+            "19:4",
+            "19:5",
+            "19:6",
+            "19:7",
+            "19:8",
+            "19:9",
+            "19:10",
+            "19:11",
+            "19:12",
+            "19:13",
+            "19:14",
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question only implies that Zakariyya grew old, which is directly supported by the cited verses and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a question to the child that correctly references Zakariya's old age, which is stated in 19:4 and its tafsir, and invites the child to recall what he did.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "b285aa994f3e31254f6479ce00012b5cfcacd564cb0be5a7d8ba5d77ca35d90d",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[0]",
+      "refs": [
+        "19:2",
+        "19:3",
+        "19:4",
+        "19:5",
+        "19:6",
+        "19:7",
+        "19:8",
+        "19:9",
+        "19:10",
+        "19:11",
+        "19:12",
+        "19:13",
+        "19:14",
+        "19:15"
+      ],
+      "sentences": [
+        {
+          "text": "أدعو الله وأرجو إجابته",
+          "refs": [
+            "19:2",
+            "19:3",
+            "19:4",
+            "19:5",
+            "19:6",
+            "19:7",
+            "19:8",
+            "19:9",
+            "19:10",
+            "19:11",
+            "19:12",
+            "19:13",
+            "19:14",
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is the child's own possible choice in today's life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is the child's own possible choice in daily life, expressing a general good practice of praying to Allah and hoping for an answer, which aligns with the story's theme.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "9ad83def2bf8af172c6a4914bd7e989baaf46e141a7a80a3559631034ed7a730",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[1]",
+      "refs": [
+        "19:2",
+        "19:3",
+        "19:4",
+        "19:5",
+        "19:6",
+        "19:7",
+        "19:8",
+        "19:9",
+        "19:10",
+        "19:11",
+        "19:12",
+        "19:13",
+        "19:14",
+        "19:15"
+      ],
+      "sentences": [
+        {
+          "text": "أيأس ولا أدعو",
+          "refs": [
+            "19:2",
+            "19:3",
+            "19:4",
+            "19:5",
+            "19:6",
+            "19:7",
+            "19:8",
+            "19:9",
+            "19:10",
+            "19:11",
+            "19:12",
+            "19:13",
+            "19:14",
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is the child's own possible choice in today's life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a child's own possible life choice, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "0c76be03e8dca223905161e43e5a910561efbe3702d67102d69f915a372436da",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[0]",
+      "refs": [
+        "19:2",
+        "19:3",
+        "19:4",
+        "19:5",
+        "19:6",
+        "19:7",
+        "19:8",
+        "19:9",
+        "19:10",
+        "19:11",
+        "19:12",
+        "19:13",
+        "19:14",
+        "19:15"
+      ],
+      "sentences": [
+        {
+          "text": "لماذا دعا زكريا عليه السلام ربَّه سرًّا كما في التفسير؟",
+          "refs": [
+            "19:2",
+            "19:3",
+            "19:4",
+            "19:5",
+            "19:6",
+            "19:7",
+            "19:8",
+            "19:9",
+            "19:10",
+            "19:11",
+            "19:12",
+            "19:13",
+            "19:14",
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about the reason given in the provided tafsir, which states he called secretly for greater sincerity and hope of answer.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks why Zakariya prayed secretly, and the cited tafsir for 19:3 explicitly states the reason (liyakuna akmal wa-atmam ikhlasan lillah wa-arja lil-ijaba).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "ff67e8e12d57d5ed0b19d713efbc98981f39dad63ad29a6907e2af7a044dc577",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[1]",
+      "refs": [
+        "19:2",
+        "19:3",
+        "19:4",
+        "19:5",
+        "19:6",
+        "19:7",
+        "19:8",
+        "19:9",
+        "19:10",
+        "19:11",
+        "19:12",
+        "19:13",
+        "19:14",
+        "19:15"
+      ],
+      "sentences": [
+        {
+          "text": "ما العلامة التي جعلها اللهُ لزكريا عليه السلام؟",
+          "refs": [
+            "19:2",
+            "19:3",
+            "19:4",
+            "19:5",
+            "19:6",
+            "19:7",
+            "19:8",
+            "19:9",
+            "19:10",
+            "19:11",
+            "19:12",
+            "19:13",
+            "19:14",
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about the sign given to Zakariyya, which is directly mentioned in the cited verses and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks about the sign Allah gave Zakariya, which is explicitly stated in [19:10] and its tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "616a6d5e2344679612b72a0e815437e27d1943b9ffd086a25e3498b7b6582483",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[2]",
+      "refs": [
+        "19:2",
+        "19:3",
+        "19:4",
+        "19:5",
+        "19:6",
+        "19:7",
+        "19:8",
+        "19:9",
+        "19:10",
+        "19:11",
+        "19:12",
+        "19:13",
+        "19:14",
+        "19:15"
+      ],
+      "sentences": [
+        {
+          "text": "كيف وصف اللهُ يحيى عليه السلام، وكيف تكون بارًّا بوالديك؟",
+          "refs": [
+            "19:2",
+            "19:3",
+            "19:4",
+            "19:5",
+            "19:6",
+            "19:7",
+            "19:8",
+            "19:9",
+            "19:10",
+            "19:11",
+            "19:12",
+            "19:13",
+            "19:14",
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about descriptions of Yahya found in the cited verses and about general dutifulness to parents, without adding unsupported claims.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks the child to recall Yahya's description from the verses and to reflect on being dutiful to parents, which is a general good-manners question.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "100d56436c9f5c9a462e90256427c1266c6dc3ce3e71aed6d4b490225f061716",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "islamicValue",
+      "refs": [
+        "19:14"
+      ],
+      "sentences": [
+        {
+          "text": "﴿وَبَرَّۢا بِوَٰلِدَيۡهِ وَلَمۡ يَكُن جَبَّارًا عَصِيّٗا﴾ [مريم: ١٤].",
+          "refs": [
+            "19:14"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic verse from the provided sources.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic verse inside ﴿﴾, which is always supported.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "d5d22d9a44b52ab44f1bf4093d4d1e9b99e4de0b3e798e1bd9994783ca89c1e8",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "actionChallenge",
+      "refs": [
+        "19:2",
+        "19:3",
+        "19:4",
+        "19:5",
+        "19:6",
+        "19:7",
+        "19:8",
+        "19:9",
+        "19:10",
+        "19:11",
+        "19:12",
+        "19:13",
+        "19:14",
+        "19:15"
+      ],
+      "sentences": [
+        {
+          "text": "سبّح الله اليوم صباحًا ومساءً، واختر عملًا تبرّ به والديك.",
+          "refs": [
+            "19:2",
+            "19:3",
+            "19:4",
+            "19:5",
+            "19:6",
+            "19:7",
+            "19:8",
+            "19:9",
+            "19:10",
+            "19:11",
+            "19:12",
+            "19:13",
+            "19:14",
+            "19:15"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a practical instruction to the child that echoes the supported themes of glorifying God morning and evening and being dutiful to parents without adding unsupported story details.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a practical challenge to the child drawing on themes present in the cited verses (tasbeeh morning and evening in 19:11, and kindness to parents in 19:14), not a claim about the prophet.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "be1603862b383d64d4fc66523fd9f1e4070a328b18a6fcbc9ecf17c4dc251468",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    }
+  ]
+}

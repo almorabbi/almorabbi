@@ -1,0 +1,897 @@
+{
+  "id": "anbiya_yusuf_young",
+  "series": "anbiya_quran",
+  "about": "مصادر القصة: الآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/anbiya_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py.",
+  "tafsir_source": "moyassar",
+  "content_sha256": "02db86228226d4776cbdc284aaa4b2864e16a4206343c1838a742f409ad1208a",
+  "refs": [
+    "12:4",
+    "12:5",
+    "12:6",
+    "12:100"
+  ],
+  "verses": {
+    "12:4": "إِذۡ قَالَ يُوسُفُ لِأَبِيهِ يَـٰٓأَبَتِ إِنِّي رَأَيۡتُ أَحَدَ عَشَرَ كَوۡكَبٗا وَٱلشَّمۡسَ وَٱلۡقَمَرَ رَأَيۡتُهُمۡ لِي سَٰجِدِينَ",
+    "12:5": "قَالَ يَٰبُنَيَّ لَا تَقۡصُصۡ رُءۡيَاكَ عَلَىٰٓ إِخۡوَتِكَ فَيَكِيدُواْ لَكَ كَيۡدًاۖ إِنَّ ٱلشَّيۡطَٰنَ لِلۡإِنسَٰنِ عَدُوّٞ مُّبِينٞ",
+    "12:6": "وَكَذَٰلِكَ يَجۡتَبِيكَ رَبُّكَ وَيُعَلِّمُكَ مِن تَأۡوِيلِ ٱلۡأَحَادِيثِ وَيُتِمُّ نِعۡمَتَهُۥ عَلَيۡكَ وَعَلَىٰٓ ءَالِ يَعۡقُوبَ كَمَآ أَتَمَّهَا عَلَىٰٓ أَبَوَيۡكَ مِن قَبۡلُ إِبۡرَٰهِيمَ وَإِسۡحَٰقَۚ إِنَّ رَبَّكَ عَلِيمٌ حَكِيمٞ",
+    "12:100": "وَرَفَعَ أَبَوَيۡهِ عَلَى ٱلۡعَرۡشِ وَخَرُّواْ لَهُۥ سُجَّدٗاۖ وَقَالَ يَـٰٓأَبَتِ هَٰذَا تَأۡوِيلُ رُءۡيَٰيَ مِن قَبۡلُ قَدۡ جَعَلَهَا رَبِّي حَقّٗاۖ وَقَدۡ أَحۡسَنَ بِيٓ إِذۡ أَخۡرَجَنِي مِنَ ٱلسِّجۡنِ وَجَآءَ بِكُم مِّنَ ٱلۡبَدۡوِ مِنۢ بَعۡدِ أَن نَّزَغَ ٱلشَّيۡطَٰنُ بَيۡنِي وَبَيۡنَ إِخۡوَتِيٓۚ إِنَّ رَبِّي لَطِيفٞ لِّمَا يَشَآءُۚ إِنَّهُۥ هُوَ ٱلۡعَلِيمُ ٱلۡحَكِيمُ"
+  },
+  "tafsir": {
+    "12:4": "اذكر -أيها الرسول- لقومك قول يوسف لأبيه: إني رأيت في المنام أحد عشر كوكبًا، والشمس والقمر رأيتهم لي ساجدين. فكانت هذه الرؤيا بشرى لِمَا وصل إليه يوسف عليه السلام من علوِّ المنزلة في الدنيا والآخرة.",
+    "12:5": "قال يعقوب لابنه يوسف: يا بني لا تذكر لإخوتك هذه الرؤيا فيحسدوك، ويعادوك، ويحتالوا في إهلاكك، إن الشيطان للإنسان عدو ظاهر العداوة.",
+    "12:6": "وكما أراك ربك هذه الرؤيا فكذلك يصطفيك ويعلمك تفسير ما يراه الناس في منامهم من الرؤى مما تؤول إليه واقعًا، ويتم نعمته عليك وعلى آل يعقوب بالنبوة والرسالة، كما أتمها من قبل على أبويك إبراهيم وإسحاق بالنبوة والرسالة. إن ربك عليم بمن يصطفيه من عباده، حكيم في تدبير أمور خلقه.",
+    "12:100": "وأجْلَسَ أباه وأمه على سرير ملكه بجانبه; إكرامًا لهما، وحيَّاه أبواه وإخوته الأحد عشر بالسجود له تحية وتكريمًا، لا عبادة وخضوعًا، وكان ذلك جائزًا في شريعتهم، وقد حَرُم في شريعتنا; سدًا لذريعة الشرك بالله. وقال يوسف لأبيه: هذا السجود هو تفسير رؤياي التي قصصتها عليك من قبل في صغري، قد جعلها ربي صدقًا، وقد تفضَّل عليَّ حين أخرجني من السجن، وجاء بكم إليَّ من البادية، من بعد أن أفسد الشيطان رابطة الأخوة بيني وبين إخوتي. إن ربي لطيف التدبير لما يشاء، إنه هو العليم بمصالح عباده، الحكيم في أقواله وأفعاله."
+  },
+  "tafsir_meta": {
+    "12:4": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:19+00:00"
+    },
+    "12:5": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:20+00:00"
+    },
+    "12:6": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:21+00:00"
+    },
+    "12:100": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:21+00:00"
+    }
+  },
+  "fields": [
+    {
+      "path": "title",
+      "refs": [
+        "12:4",
+        "12:5",
+        "12:6",
+        "12:100"
+      ],
+      "sentences": [
+        {
+          "text": "رؤيا يوسف عليه السلام",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:6",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The title simply names the story topic found in the cited verses, with an allowed honorific.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The title refers to Yusuf's dream, which is directly described in the cited verses [12:4] and [12:100].",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "28a55998ae9f8ef2a523cf846286c5eb68141c4c73ce170730002422fececf61",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "refs": [
+        "12:4",
+        "12:5",
+        "12:6",
+        "12:100"
+      ],
+      "sentences": [
+        {
+          "text": "قصة رؤيا نبيّ الله يوسف عليه السلام كما ذكرها القرآن الكريم في سورة يوسف، مكتوبة من التفسير الميسّر لآياتها.",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:6",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a description of the source and content, accurately stating that the story is from Surah Yusuf and based on the provided tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a meta-description of the story's sources, not a claim about the prophet or events; it accurately references Surah Yusuf and the Tafsir Al-Muyassar.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "f1766c59db8a282c2187d00d36ea26f638e70ccaf1a3d10faca4879f4ea3c535",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[0].text",
+      "refs": [
+        "12:4",
+        "12:5",
+        "12:100"
+      ],
+      "sentences": [
+        {
+          "text": "رأى يوسفُ عليه السلام رؤيا في منامه، فقصّها على أبيه يعقوبَ عليه السلام.",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state that Yusuf saw a vision in his sleep and told his father Ya'qub about it.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse [12:4] states Yusuf told his father about his dream, the tafsir specifies it was in sleep (المنام), and [12:5] tafsir identifies the father as Yaqub.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "5ac7d282a331c5bff596291f0e0cc459b04430e72da3cdc9a903a07b9bb1aa9b",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[1].text",
+      "refs": [
+        "12:4"
+      ],
+      "sentences": [
+        {
+          "text": "قال يوسفُ لأبيه: ﴿يَـٰٓأَبَتِ إِنِّي رَأَيۡتُ أَحَدَ عَشَرَ كَوۡكَبٗا وَٱلشَّمۡسَ وَٱلۡقَمَرَ رَأَيۡتُهُمۡ لِي سَٰجِدِينَ﴾.",
+          "refs": [
+            "12:4"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence directly reports that Yusuf said to his father the exact Qur'anic words given in the source.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence reports that Yusuf said to his father the verbatim Qur'anic verse, exactly as stated in [12:4].",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "fa93108ed696fc09f3001b3fbe36e9e84d7c16626d2fbedb267eea2aca5adbc3",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وكانت هذه الرؤيا بُشرى له.",
+          "refs": [
+            "12:4"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir states this vision was good tidings for Yusuf.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir explicitly states the vision was a بشرى for Yusuf, and the sentence is a minor simplification of that.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "8f1a11a4990cbc66509c6a3a947951e852283aa8eecc5d336b8d81ef20eda90f",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[2].text",
+      "refs": [
+        "12:5",
+        "12:6"
+      ],
+      "sentences": [
+        {
+          "text": "فنصحه أبوه ألّا يقصّ رؤياه على إخوته.",
+          "refs": [
+            "12:5"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The verse and tafsir state that Ya'qub told Yusuf not to relate his vision to his brothers, which is advice from his father.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence faithfully summarizes [12:5] and its tafsir, where Jacob tells his son not to recount his dream to his brothers.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "321c294ddd53c8a54a21c802054129bb315a2923ebefe34f670461d77a14e5bc",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وأخبره أنّ ربَّه سيصطفيه، ويعلّمه تفسيرَ الرؤى.",
+          "refs": [
+            "12:6"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence paraphrases the direct speech in verse 12:6 and its tafsir, which state that his Lord will choose him and teach him interpretation of dreams.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly reflects [12:6] and its tafsir, which state that God will choose (يصطفي) Yusuf and teach him the interpretation of visions (تفسير الرؤى).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "39962d5aa407bf6ebbccab158e6130b47d2b4209b2eff07a47ff495254fe19d9",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[3].text",
+      "refs": [
+        "12:100"
+      ],
+      "sentences": [
+        {
+          "text": "وجاء اللهُ بأبويه وإخوتِه إليه، فرفع أبويه على العرش، وخرّوا له سُجّدًا تحيةً وتكريمًا لا عبادة.",
+          "refs": [
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence paraphrases the verse and tafsir: God brought his family to him, he raised his parents on the throne, and they prostrated in greeting and honor, not worship.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Every element is directly stated in [12:100] and its tafsir: God brought them, Yusuf raised his parents on the throne, and they prostrated as a greeting and honor, not worship.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "3560ed3298b609e1edd7715d1821e763927da2225d7532ef6b4ff76c6596f0ba",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وكان ذلك جائزًا في شريعتهم، وقد حُرِّم في شريعتنا.",
+          "refs": [
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is directly stated in the provided tafsir of verse 12:100.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is taken directly from the cited tafsir of 12:100.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "c885a68e23fa3fc3d0018ee61416cfee6a2b856bab86c0e83fa72ba79d4ff9f7",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فكان هذا تفسيرَ رؤياه التي رآها من قبل، وقد جعلها اللهُ حقًّا.",
+          "refs": [
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the verse and tafsir stating that this was the interpretation of his previous dream and that God made it true.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly paraphrases [12:100] and its tafsir, which state that this was the interpretation of Yusuf's earlier dream and that his Lord made it true.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "c293bdcfb168fe55b365710257efe0b65bff35245f416498cd5a8797d4681c1e",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.question",
+      "refs": [
+        "12:4",
+        "12:5",
+        "12:6",
+        "12:100"
+      ],
+      "sentences": [
+        {
+          "text": "نصح يعقوبُ ابنَه يوسف.",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:6",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state that Ya'qub told his son Yusuf not to relate his vision, which is advice.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sources show Yaqub advising Yusuf in 12:5, and 'نصح' is a fair summary of that counsel.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "7ddf741518959dafc1bb979692aaaf8acb787fd40c05404cc14d36fe3d3aeed0",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ماذا تفعل حين ينصحك والداك؟",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:6",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks the child about their own response to parental advice and does not assert anything unsupported about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general question to the child about their own life, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "2c1b876e8d691d8c9add1ff56ae0fc8fa0741c2bdfa1f51fd7dbdc8d9a7d19b9",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.affirm",
+      "refs": [
+        "12:4",
+        "12:5",
+        "12:6",
+        "12:100"
+      ],
+      "sentences": [
+        {
+          "text": "أحسنت!",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:6",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is only a warm praise to the child and asserts nothing about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is general praise addressed to the child and makes no claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "30513f8909533f1e7f050f409d3b1a0550e9670de9d7b989cd5eeb9b0db3b7bf",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "نصيحة الوالدين نافعة لنا.",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:6",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general statement of good advice and does not assert any unsupported detail about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general life-lesson statement reflecting the father's beneficial advice shown in the sources, not an unsupported claim about the prophet.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "3ff74eb595ed9f30311356a0c066ee378d6b81b575f6086a458083def941a06c",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.nudge",
+      "refs": [
+        "12:4",
+        "12:5",
+        "12:6",
+        "12:100"
+      ],
+      "sentences": [
+        {
+          "text": "أفهم أنك تحب أن تفعل ما تريد…",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:6",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a general empathetic reply to the child and does not assert anything about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is Noor's conversational reply to the child about the child's own choice, making no claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "3752183cf043b3d6661e316906d8542947dfce92ff8c9ef851e108d1237fbf92",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "بماذا أوصى يعقوبُ ابنَه يوسف؟",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:6",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question only asks about Yaqub's advice to Yusuf, which is directly mentioned in the cited verses.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks what Yaqub advised Yusuf, which is directly supported by 12:5 where Yaqub tells Yusuf not to relate his dream to his brothers.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "55fd5db73796bf47ec497f56ebe04571ac52d0136f12fd74cb2afe7608c1aa6f",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[0]",
+      "refs": [
+        "12:4",
+        "12:5",
+        "12:6",
+        "12:100"
+      ],
+      "sentences": [
+        {
+          "text": "أسمع نصيحتهما",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:6",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general good-manners choice by the child in today's life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a child's own life choice about listening to advice, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "e22a918ddc10897718285c92e45d9c8a149be5cfbd66053e2ec72ae43d8189e9",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[1]",
+      "refs": [
+        "12:4",
+        "12:5",
+        "12:6",
+        "12:100"
+      ],
+      "sentences": [
+        {
+          "text": "لا أهتم بكلامهما",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:6",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is the child's own possible answer about today's life and makes no claim about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a child's possible life-choice answer option, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a6153eeabfe9c9eca9b040775a370e148f3f95aa48bd95eb4e4dbfc2fd16bd8e",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[0]",
+      "refs": [
+        "12:4",
+        "12:5",
+        "12:6",
+        "12:100"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا رأى يوسف عليه السلام في منامه؟",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:6",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about Yusuf's dream, which the cited verses and tafsir explicitly mention.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks what Yusuf saw in his dream, which is directly based on [12:4] where Yusuf tells his father about his dream.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "eb9a57ddaf2a88eeea60dbd22edb0245e83d75206f98a187b3f0b5d275f60e16",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[1]",
+      "refs": [
+        "12:4",
+        "12:5",
+        "12:6",
+        "12:100"
+      ],
+      "sentences": [
+        {
+          "text": "بماذا نصح يعقوبُ ابنَه يوسف؟",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:6",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about Yaqub's advice to Yusuf, which is stated in verse 12:5.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks what Ya'qub advised Yusuf, and 12:5 explicitly records his advice not to tell his brothers about the dream.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "61a3ea2b2e629b2f079b1cc41eac72378d10105c2db1c5953ba86ab6c5b92d8a",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[2]",
+      "refs": [
+        "12:4",
+        "12:5",
+        "12:6",
+        "12:100"
+      ],
+      "sentences": [
+        {
+          "text": "كيف صارت رؤيا يوسف عليه السلام حقًّا؟",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:6",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question only asks how the dream came true, which the sources state happened in 12:100.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks the child to reflect on how the dream came true, which is directly supported by 12:100 where Yusuf says his dream was made true by his Lord.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "7ae103afc450e74c40d2cd565af5b487f42b4d892e2847afbeb4dfaa8aab8aba",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "islamicValue",
+      "refs": [
+        "12:100"
+      ],
+      "sentences": [
+        {
+          "text": "﴿إِنَّ رَبِّي لَطِيفٞ لِّمَا يَشَآءُۚ إِنَّهُۥ هُوَ ٱلۡعَلِيمُ ٱلۡحَكِيمُ﴾ [يوسف: ١٠٠].",
+          "refs": [
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is verbatim Qur'an from the cited verse and is always supported.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic verse from 12:100 enclosed in ﴿﴾, which is always supported.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "92786d019a85c7fb9232063b664644fc829ad3674a876133dfae4337f25bdb7b",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "actionChallenge",
+      "refs": [
+        "12:4",
+        "12:5",
+        "12:6",
+        "12:100"
+      ],
+      "sentences": [
+        {
+          "text": "اسمع اليوم نصيحةً من والديك، وتحدّثوا معًا عن نصيحة يعقوب لابنه يوسف عليهما السلام.",
+          "refs": [
+            "12:4",
+            "12:5",
+            "12:6",
+            "12:100"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a practical instruction to the child and only refers to Yaqub's advice to Yusuf, which is present in the given sources.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The instruction to the child is general good manners, and the reference to Yaqub's advice to Yusuf is directly supported by 12:5.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "41d73fbf94cb31f16963be6941c73efbe18dbd1358b49c84402829d9e737be5f",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    }
+  ]
+}

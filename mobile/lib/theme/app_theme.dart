@@ -1,0 +1,414 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'app_colors.dart';
+import 'app_palette.dart';
+import 'design_tokens.dart';
+
+/// Theme + colour tokens for المربي الذكي.
+///
+/// Redesigned 2026-06 to a playful, vibrant (Duolingo-style) identity:
+/// vivid teal + amber, warm cream background, chunky rounded components,
+/// soft colored shadows instead of grey borders. Constant names are kept
+/// stable — many screens reference `AppTheme.primary` etc. directly.
+class AppTheme {
+  // ── Brand palette ──────────────────────────────────────────────────────
+  //
+  // Getters over [AppPalette.current] — see app_palette.dart for why these
+  // stopped being `const`. Names are unchanged; 424 references depend on them.
+  static Color get primary => AppPalette.current.primary; // vivid teal
+  static Color get primaryDark => AppPalette.current.primaryDeep;
+  static Color get accent => AppPalette.current.accent; // amber
+  static Color get onPrimary => AppPalette.current.onPrimary;
+  static Color get onAccent => AppPalette.current.onAccent;
+
+  // Surfaces
+  static Color get background => AppPalette.current.background;
+  static Color get surface => AppPalette.current.surface;
+  static Color get surfaceAlt => AppPalette.current.surfaceAlt;
+
+  // Text
+  static Color get textPrimary => AppPalette.current.ink;
+  static Color get textSecondary => AppPalette.current.textSecondary;
+  static Color get textMuted => AppPalette.current.inkSoft;
+
+  // Semantic / safety — these keep their MEANING in both palettes: the safety
+  // banner and the emergency cards are where colour is load-bearing, not
+  // decorative. Only lightness flips, so warning stays yellow and danger stays
+  // red on a dark ground too.
+  static Color get success => AppPalette.current.success;
+  static Color get successText => AppPalette.current.successText;
+  static Color get warningBg => AppPalette.current.warningBg;
+  static Color get warningFg => AppPalette.current.warningFg;
+  static Color get dangerBg => AppPalette.current.dangerBg;
+  static Color get dangerFg => AppPalette.current.dangerFg;
+
+  /// The light theme. Kept as its own entry point — `main.dart` and a number
+  /// of tests call it by name.
+  static ThemeData light() => _build(AppPalette.light);
+
+  /// The dark theme, requested in production feedback (#fb_e7402eaa, 15 Aug
+  /// 2026) and absent until now: `design_tokens.dart` said "light mode only".
+  static ThemeData dark() => _build(AppPalette.dark);
+
+  /// The child surface (UX_UI_ROADMAP §4.3): the same brand hues, type +2 sp,
+  /// 56 dp targets ([Dt.minTouchChild]) and rounder cards, so a handed-over
+  /// device looks and feels unlike the parent's app at a glance.
+  static ThemeData child(Brightness brightness) {
+    final base = _build(
+        brightness == Brightness.dark ? AppPalette.dark : AppPalette.light);
+    TextStyle? up(TextStyle? s) =>
+        s?.copyWith(fontSize: (s.fontSize ?? 14) + 2);
+    // The theme's text styles carry no sizes: Theme.of fills them from the
+    // typography geometry at read time. Merge that geometry in first, so +2
+    // is added to the real size rather than to a missing one.
+    final t = Typography.material2021().englishLike.merge(base.textTheme);
+    final text = t.copyWith(
+      displayLarge: up(t.displayLarge),
+      displayMedium: up(t.displayMedium),
+      displaySmall: up(t.displaySmall),
+      headlineLarge: up(t.headlineLarge),
+      headlineMedium: up(t.headlineMedium),
+      headlineSmall: up(t.headlineSmall),
+      titleLarge: up(t.titleLarge),
+      titleMedium: up(t.titleMedium),
+      titleSmall: up(t.titleSmall),
+      bodyLarge: up(t.bodyLarge),
+      bodyMedium: up(t.bodyMedium),
+      bodySmall: up(t.bodySmall),
+      labelLarge: up(t.labelLarge),
+      labelMedium: up(t.labelMedium),
+      labelSmall: up(t.labelSmall),
+    );
+    const tall = WidgetStatePropertyAll(Size(Dt.minTouchChild, Dt.minTouchChild));
+    final cardShape = base.cardTheme.shape;
+    return base.copyWith(
+      textTheme: text,
+      materialTapTargetSize: MaterialTapTargetSize.padded,
+      cardTheme: base.cardTheme.copyWith(
+        shape: cardShape is RoundedRectangleBorder
+            ? cardShape.copyWith(
+                borderRadius: BorderRadius.circular(Dt.rCard + 8))
+            : cardShape,
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: base.elevatedButtonTheme.style?.copyWith(minimumSize: tall)),
+      filledButtonTheme: FilledButtonThemeData(
+          style: base.filledButtonTheme.style?.copyWith(minimumSize: tall)),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+          style: base.outlinedButtonTheme.style?.copyWith(minimumSize: tall)),
+      textButtonTheme: TextButtonThemeData(
+          style: base.textButtonTheme.style?.copyWith(minimumSize: tall)),
+      iconButtonTheme: IconButtonThemeData(
+          style: IconButton.styleFrom(
+              minimumSize: const Size(Dt.minTouchChild, Dt.minTouchChild))),
+    );
+  }
+
+  /// One builder, two palettes. Reading colours from [p] rather than from the
+  /// `AppTheme.*` getters matters: this runs while building a `ThemeData` that
+  /// may not be the one currently live, so the globals would answer for the
+  /// wrong palette.
+  static ThemeData _build(AppPalette p) {
+    final primary = p.primary;
+    final accent = p.accent;
+    final surface = p.surface;
+    final background = p.background;
+    final textPrimary = p.ink;
+    // Cairo is a modern, well-hinted Arabic-Latin pair that ships via
+    // google_fonts; falls back gracefully when offline.
+    final base = GoogleFonts.cairoTextTheme().apply(
+      bodyColor: textPrimary,
+      displayColor: textPrimary,
+    );
+    // Refined Cairo: balanced, dignified weights and comfortable line-heights.
+    final textTheme = base.copyWith(
+      headlineLarge: base.headlineLarge?.copyWith(
+        fontWeight: FontWeight.w800,
+        height: 1.3,
+        letterSpacing: -0.3,
+      ),
+      headlineMedium: base.headlineMedium?.copyWith(
+        fontWeight: FontWeight.w800,
+        height: 1.35,
+      ),
+      headlineSmall: base.headlineSmall?.copyWith(
+        fontWeight: FontWeight.w700,
+        height: 1.35,
+      ),
+      titleLarge: base.titleLarge?.copyWith(
+        fontWeight: FontWeight.w700,
+        height: 1.4,
+      ),
+      titleMedium: base.titleMedium?.copyWith(
+        fontWeight: FontWeight.w600,
+        height: 1.4,
+      ),
+      titleSmall: base.titleSmall?.copyWith(
+        fontWeight: FontWeight.w600,
+        height: 1.4,
+      ),
+      bodyLarge: base.bodyLarge?.copyWith(
+        fontWeight: FontWeight.w500,
+        height: 1.5,
+      ),
+      bodyMedium: base.bodyMedium?.copyWith(
+        fontWeight: FontWeight.w400,
+        height: 1.5,
+      ),
+      labelLarge: base.labelLarge?.copyWith(
+        fontWeight: FontWeight.w700,
+        height: 1.3,
+      ),
+      labelMedium: base.labelMedium?.copyWith(
+        fontWeight: FontWeight.w600,
+        height: 1.3,
+      ),
+    );
+
+    final colorScheme = ColorScheme.fromSeed(
+      seedColor: primary,
+      brightness: p.brightness,
+      primary: primary,
+      onPrimary: p.onPrimary,
+      secondary: accent,
+      onSecondary: p.onAccent,
+      surface: surface,
+      error: p.dangerFg,
+    );
+    final inputRadius = BorderRadius.circular(Dt.rButton);
+
+    return ThemeData(
+      useMaterial3: true,
+      brightness: p.brightness,
+      extensions: <ThemeExtension<dynamic>>[AppColors(p)],
+      colorScheme: colorScheme,
+      scaffoldBackgroundColor: background,
+      textTheme: textTheme,
+      pageTransitionsTheme: const PageTransitionsTheme(
+        builders: {
+          // Y-axis slide is RTL-safe (no horizontal direction to mirror).
+          TargetPlatform.android: _FadeSlideUpTransitionsBuilder(),
+          TargetPlatform.iOS: _FadeSlideUpTransitionsBuilder(),
+        },
+      ),
+      appBarTheme: AppBarTheme(
+        backgroundColor: background,
+        foregroundColor: textPrimary,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        centerTitle: false,
+        titleTextStyle: GoogleFonts.cairo(
+          fontSize: 22,
+          fontWeight: FontWeight.w800,
+          color: textPrimary,
+        ),
+      ),
+      cardTheme: CardThemeData(
+        elevation: 0,
+        color: surface,
+        margin: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(Dt.rCard),
+          side: BorderSide(
+            color: p.isDark
+                ? Colors.white.withValues(alpha: 0.08)
+                : const Color(0xFF0F766E).withValues(alpha: 0.06),
+            width: 1,
+          ),
+        ),
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: primary,
+          foregroundColor: p.onPrimary,
+          elevation: 0,
+          minimumSize: const Size(0, 54),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(Dt.rButton),
+          ),
+          textStyle:
+              GoogleFonts.cairo(fontSize: 16, fontWeight: FontWeight.w800),
+        ),
+      ),
+      filledButtonTheme: FilledButtonThemeData(
+        style: FilledButton.styleFrom(
+          backgroundColor: accent,
+          foregroundColor: p.onAccent,
+          minimumSize: const Size(0, 54),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(Dt.rButton),
+          ),
+          textStyle:
+              GoogleFonts.cairo(fontSize: 16, fontWeight: FontWeight.w800),
+        ),
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          foregroundColor: primary,
+          minimumSize: const Size(0, 50),
+          side: BorderSide(color: primary, width: 2),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(Dt.rButton),
+          ),
+          textStyle: GoogleFonts.cairo(fontWeight: FontWeight.w700),
+        ),
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          foregroundColor: primary,
+          minimumSize: const Size(Dt.minTouch, Dt.minTouch),
+          textStyle: GoogleFonts.cairo(fontWeight: FontWeight.w700),
+        ),
+      ),
+      // Components below were hand-styled screen by screen (or left on raw
+      // Material defaults); these give every un-styled instance one look.
+      // Explicit per-widget styles still win.
+      chipTheme: ChipThemeData(
+        shape: const StadiumBorder(),
+        side: BorderSide(color: primary.withValues(alpha: .3)),
+        backgroundColor: primary.withValues(alpha: .08),
+        selectedColor: primary,
+        checkmarkColor: p.onPrimary,
+        labelStyle: GoogleFonts.cairo(
+          color: textPrimary,
+          fontWeight: FontWeight.w600,
+          fontSize: 13,
+        ),
+        secondaryLabelStyle: GoogleFonts.cairo(
+          color: p.onPrimary,
+          fontWeight: FontWeight.w700,
+          fontSize: 13,
+        ),
+      ),
+      dialogTheme: DialogThemeData(
+        backgroundColor: surface,
+        surfaceTintColor: Colors.transparent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(Dt.rSheet),
+        ),
+        titleTextStyle: GoogleFonts.cairo(
+          fontSize: 19,
+          fontWeight: FontWeight.w800,
+          color: textPrimary,
+        ),
+        contentTextStyle: GoogleFonts.cairo(
+          fontSize: 15,
+          height: 1.6,
+          color: p.textSecondary,
+        ),
+      ),
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: surface,
+        surfaceTintColor: Colors.transparent,
+        showDragHandle: true,
+        dragHandleColor: p.track,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(Dt.rSheet)),
+        ),
+      ),
+      listTileTheme: ListTileThemeData(
+        iconColor: p.inkSoft,
+        textColor: textPrimary,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      ),
+      dividerTheme: DividerThemeData(color: p.track, thickness: 1, space: 1),
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: surface,
+        elevation: 3,
+        shadowColor: Colors.black.withValues(alpha: 0.06),
+        height: 74,
+        indicatorColor: primary.withValues(alpha: .15),
+        indicatorShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        surfaceTintColor: Colors.transparent,
+        labelTextStyle: WidgetStatePropertyAll(
+          GoogleFonts.cairo(fontSize: 12, fontWeight: FontWeight.w700),
+        ),
+      ),
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: primary,
+        linearTrackColor: p.track,
+      ),
+      snackBarTheme: SnackBarThemeData(
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: textPrimary,
+        contentTextStyle:
+            GoogleFonts.cairo(color: surface, fontWeight: FontWeight.w600),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: surface,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 14,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(Dt.rButton),
+          borderSide: BorderSide.none,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(Dt.rButton),
+          borderSide: BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(Dt.rButton),
+          borderSide: BorderSide(color: primary, width: 2),
+        ),
+        // Without these, an invalid field fell back to `border` — which is
+        // BorderSide.none — so a validation error showed no outline at all,
+        // only small red helper text. Focused-and-invalid showed the green
+        // focus ring, i.e. the opposite signal.
+        errorBorder: OutlineInputBorder(
+          borderRadius: inputRadius,
+          borderSide: BorderSide(color: p.dangerFg, width: 1.5),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: inputRadius,
+          borderSide: BorderSide(color: p.dangerFg, width: 2),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderRadius: inputRadius,
+          borderSide: BorderSide(color: p.track),
+        ),
+        errorStyle: GoogleFonts.cairo(
+          color: p.dangerFg,
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+}
+
+/// Fade + slight upward slide for every pushed route. Y-axis only so the
+/// motion reads identically in RTL and LTR.
+class _FadeSlideUpTransitionsBuilder extends PageTransitionsBuilder {
+  const _FadeSlideUpTransitionsBuilder();
+
+  @override
+  Widget buildTransitions<T>(
+    PageRoute<T> route,
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    final curved =
+        CurvedAnimation(parent: animation, curve: Curves.easeOutCubic);
+    return FadeTransition(
+      opacity: curved,
+      child: SlideTransition(
+        position: Tween<Offset>(
+          begin: const Offset(0, .04),
+          end: Offset.zero,
+        ).animate(curved),
+        child: child,
+      ),
+    );
+  }
+}

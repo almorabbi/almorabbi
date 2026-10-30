@@ -1,0 +1,180 @@
+/// Update splash screen — «إيه الجديد؟» shown once after each version bump.
+///
+/// Shows the welcome hero — the «ورق مقصوص» scene with a proud «نور» in
+/// its sky (it looped an mp4 of the old Recraft art until 2026-10-14) — and
+/// lists what's new. The user taps «ابدأ» to proceed. The version is recorded so this screen doesn't show again
+/// until the next update.
+library;
+
+import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../l10n/app_localizations.dart';
+import '../../../theme/app_theme.dart';
+import '../../../theme/design_tokens.dart';
+import '../../../widgets/ui/bouncy_button.dart';
+import '../../companion/widgets/noor_presence.dart';
+import '../data/onboarding_storage.dart';
+import '../widgets/welcome_hero.dart';
+
+/// The app version tag displayed in the what's-new list.
+/// Bump this whenever a new update-splash is warranted.
+const updateSplashVersion = '1.0.40';
+
+/// Simple state — when set to true, [_AppBootstrapper] knows the update
+/// splash has been dismissed and will render [RootScaffold] instead.
+final updateSplashDismissedProvider = StateProvider<bool>((ref) => false);
+
+class UpdateSplashScreen extends ConsumerStatefulWidget {
+  const UpdateSplashScreen({super.key});
+
+  @override
+  ConsumerState<UpdateSplashScreen> createState() => _UpdateSplashScreenState();
+}
+
+class _UpdateSplashScreenState extends ConsumerState<UpdateSplashScreen> {
+
+  static List<(String, String, String)> _features(BuildContext context) => [
+    ('📖', AppLocalizations.of(context).updateSplashFeature1,
+        AppLocalizations.of(context).updateSplashFeature1Desc),
+    ('📱', AppLocalizations.of(context).updateSplashFeature2,
+        AppLocalizations.of(context).updateSplashFeature2Desc),
+    ('👦', AppLocalizations.of(context).updateSplashFeature3,
+        AppLocalizations.of(context).updateSplashFeature3Desc),
+    ('🔗', AppLocalizations.of(context).updateSplashFeature4,
+        AppLocalizations.of(context).updateSplashFeature4Desc),
+  ];
+
+  Future<void> _dismiss() async {
+    // Record this version in SharedPreferences.
+    final prefs = await SharedPreferences.getInstance();
+    final storage = OnboardingStorage(prefs);
+    await storage.markUpdateSeen(updateSplashVersion);
+
+    // Flip the provider — [_AppBootstrapper] watches it and will
+    // rebuild showing [RootScaffold] instead of this screen.
+    if (!mounted) return;
+    ref.read(updateSplashDismissedProvider.notifier).state = true;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(24, 32, 24, 24),
+          child: Column(
+            children: [
+              // ── Hero ──
+              // A one-shot entrance: under remove-animations Flutter runs it
+              // at 5% and it lands in a frame; Noor's own breath and halo
+              // rest there (syncLoop).
+              const WelcomeHero(mood: NoorMood.proud)
+                  .animate()
+                  .scale(
+                    begin: const Offset(.85, .85),
+                    duration: Dt.slow,
+                    curve: Curves.easeOutBack,
+                  )
+                  .fadeIn(duration: Dt.base),
+              const SizedBox(height: 24),
+
+              // ── Title ──
+              Text(
+                AppLocalizations.of(context).updateSplashTitle,
+                textAlign: TextAlign.center,
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineSmall
+                    ?.copyWith(fontWeight: FontWeight.w800),
+              )
+                  .animate(delay: 150.ms)
+                  .fadeIn(duration: Dt.base)
+                  .slideY(begin: .2),
+              const SizedBox(height: 8),
+              Text(
+                AppLocalizations.of(context).updateSplashVersion(updateSplashVersion),
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: AppTheme.primary,
+                      fontWeight: FontWeight.w600,
+                    ),
+              )
+                  .animate(delay: 250.ms)
+                  .fadeIn(duration: Dt.base),
+              const SizedBox(height: 24),
+
+              // ── Feature list ──
+              for (var i = 0; i < _features(context).length; i++) ...[
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: AppTheme.surface,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: Dt.cardShadow,
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(_features(context)[i].$1,
+                          style: const TextStyle(fontSize: 32)),
+                      const SizedBox(width: 14),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              _features(context)[i].$2,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w800,
+                                fontSize: 16,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              _features(context)[i].$3,
+                              style: TextStyle(
+                                color: AppTheme.textSecondary,
+                                fontSize: 13,
+                                height: 1.5,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+                    .animate(delay: (300 + 100 * i).ms)
+                    .fadeIn(duration: Dt.base)
+                    .slideY(begin: .15, curve: Curves.easeOutCubic),
+                if (i < _features(context).length - 1) const SizedBox(height: 12),
+              ],
+
+              const SizedBox(height: 32),
+
+              // ── CTA ──
+              BouncyButton(
+                label: AppLocalizations.of(context).updateSplashStart,
+                icon: const Icon(Icons.arrow_forward, color: Colors.white),
+                onTap: _dismiss,
+              )
+                  .animate(delay: 800.ms)
+                  .fadeIn(duration: Dt.base),
+              const SizedBox(height: 12),
+              Text(
+                AppLocalizations.of(context).updateSplashOnce,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: AppTheme.textMuted,
+                    ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

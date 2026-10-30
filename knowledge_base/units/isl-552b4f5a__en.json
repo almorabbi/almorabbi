@@ -1,0 +1,61 @@
+{
+  "id": "isl-552b4f5a__en",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "Learning and Teaching the Quran in Uthman’s Hadith",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "تربية دينية",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين — عماد بن أحمد بن عبدالعظيم (الألوكة)، PDF 79 / المطبوعة 78. صحيح البخاري — حديث ٥٠٢٧",
+  "text_original": "عن عثمان قال: قال رسول الله ﷺ: «خيركم من تعلم القرآن وعلمه».",
+  "text_simplified": "In Uthman’s narration, the Prophet ﷺ says: “The best of you are those who learn the Quran and teach it” (Sahih al-Bukhari, hadith 5027). The book includes this hadith in its section on teaching the Quran to children.",
+  "labels": [
+    "تعلم القرآن",
+    "حديث عثمان"
+  ],
+  "created_at": "2026-06-21T10:22:29Z",
+  "updated_at": "2026-10-07T10:17:56.040541+00:00",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "حقوق الأولاد على الوالدين",
+    "source_author": "عماد بن أحمد بن عبدالعظيم"
+  },
+  "source_language": "ar",
+  "translated_from": "isl-552b4f5a",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+    "draft_status": "draft",
+    "source_recovery_note": "English parity independently approved by DeepSeek and GLM at this exact content hash; scholar/source-content and human approval remain pending.",
+    "english_authors": [
+      "mistral-large-3:675b",
+      "openai:codex"
+    ],
+    "fixer_model": "openai:codex",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "09672e0ea924d75a0a991ac0ebd2115fe48b9117ca2d128cfd28a5c570ee971f",
+      "reviewed_at": "2026-10-07T14:34:13+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-07T14:34:13+00:00"
+  },
+  "source_url": "https://www.alukah.net/Books/Files/Book_17337/BookFile/brotherandboys.pdf#page=79",
+  "source_note": "Primary-source historical draft; exact page/quotation evidence: ops/data/kb_fidelity/source_recovery/isl-552b4f5a.json. Actual canonical English parity review is retained in ops/reports/SOURCE_FOUR_B_EN_REVIEW_OCT7.json. Scholar/source-content and human approval remain pending."
+}

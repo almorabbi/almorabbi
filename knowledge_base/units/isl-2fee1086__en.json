@@ -1,0 +1,61 @@
+{
+  "id": "isl-2fee1086__en",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "The Prophet’s ﷺ Supplication for Healing in Aisha’s Narration",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "تربية الأطفال",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين — عماد بن أحمد بن عبدالعظيم (الألوكة)، PDF 134 / المطبوعة 133. صحيح البخاري — حديث ٥٧٤٣",
+  "text_original": "عن عائشة أن النبي ﷺ كان يعوذ بعض أهله، يمسح بيده اليمنى، ويقول: «اللهم رب الناس أذهب البأس اشفه وأنت الشافي لا شفاء إلا شفاؤك شفاء لا يغادر سقما».",
+  "text_simplified": "Aisha relates that the Prophet ﷺ would recite a supplication for some members of his family, wipe with his right hand, and ask Allah to heal them. The supplication asks for healing that leaves no illness.",
+  "labels": [
+    "دعاء",
+    "رواية عائشة"
+  ],
+  "created_at": "2026-06-21T10:28:02Z",
+  "updated_at": "2026-10-07T10:17:56.040541+00:00",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "حقوق الأولاد على الوالدين",
+    "source_author": "عماد بن أحمد بن عبدالعظيم"
+  },
+  "source_language": "ar",
+  "translated_from": "isl-2fee1086",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+    "draft_status": "draft",
+    "source_recovery_note": "English parity independently approved by DeepSeek and GLM at this exact content hash; scholar/source-content and human approval remain pending.",
+    "english_authors": [
+      "mistral-large-3:675b",
+      "openai:codex"
+    ],
+    "fixer_model": "openai:codex",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "5bf1065f6281df926fe785a8b477fd34a23b72f01f22a935c644546c1bab4f62",
+      "reviewed_at": "2026-10-07T14:34:13+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-07T14:34:13+00:00"
+  },
+  "source_url": "https://www.alukah.net/Books/Files/Book_17337/BookFile/brotherandboys.pdf#page=134",
+  "source_note": "Primary-source historical draft; exact page/quotation evidence: ops/data/kb_fidelity/source_recovery/isl-2fee1086.json. Actual canonical English parity review is retained in ops/reports/SOURCE_FOUR_B_EN_REVIEW_OCT7.json. Scholar/source-content and human approval remain pending."
+}

@@ -1,0 +1,126 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/anbiya_ayyub_older_p1.m4a",
+      "text": "Allah commanded His Messenger to remember His servant Ayyub (peace be upon him). Allah tested him with harm that touched him, and he lost his family, his wealth and his children.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 80,
+          "start": 0.0,
+          "end": 4.72
+        },
+        {
+          "from": 81,
+          "to": 178,
+          "start": 5.17,
+          "end": 10.85
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_ayyub_older_p2.m4a",
+      "text": "Tiredness and hardship came upon him, and pain in his body, his wealth and his family. And he was patient with the trial.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 86,
+          "start": 0.0,
+          "end": 5.511
+        },
+        {
+          "from": 87,
+          "to": 121,
+          "start": 5.961,
+          "end": 7.945
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_ayyub_older_p3.m4a",
+      "text": "Ayyub called out to his Lord: ﴿أَنِّي مَسَّنِيَ ٱلضُّرُّ وَأَنتَ أَرۡحَمُ ٱلرَّـٰحِمِينَ﴾ — interpretation of the meaning: 'Harm has touched me, and You are the Most Merciful of the merciful.' And he was patient with the trial, hoping for his Lord's mercy.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 192,
+          "start": 0.0,
+          "end": 18.956
+        },
+        {
+          "from": 193,
+          "to": 256,
+          "start": 19.407,
+          "end": 22.846
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_ayyub_older_p4.m4a",
+      "text": "Allah answered him and said to him: ﴿ٱرۡكُضۡ بِرِجۡلِكَۖ هَٰذَا مُغۡتَسَلُۢ بَارِدٞ وَشَرَابٞ﴾ — interpretation of the meaning: 'Strike the ground with your foot: here is cool water to wash in and to drink.' Cool water sprang up for him from the ground, to drink and to wash in, so that the harm and the hurt would leave him.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 207,
+          "start": 0.0,
+          "end": 23.24
+        },
+        {
+          "from": 208,
+          "to": 325,
+          "start": 23.69,
+          "end": 30.559
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_ayyub_older_p5.m4a",
+      "text": "Allah removed his harm from him and honoured him. He gave him back what he had lost of family, children and wealth, twice over: his family, and as many again with them.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 49,
+          "start": 0.0,
+          "end": 2.64
+        },
+        {
+          "from": 50,
+          "to": 168,
+          "start": 3.09,
+          "end": 10.53
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_ayyub_older_p6.m4a",
+      "text": "The lesson is in the words of Allah the Exalted: ﴿إِنَّا وَجَدۡنَٰهُ صَابِرٗاۚ نِّعۡمَ ٱلۡعَبۡدُ إِنَّهُۥٓ أَوَّابٞ﴾ — interpretation of the meaning: 'We found him patient; what an excellent servant! He always turned back to Allah.' Allah found him patient with the trial, always turning back to obey Allah. And what Allah gave him was a mercy from Him, and a reminder for people of sound minds.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 199,
+          "start": 0.0,
+          "end": 26.683
+        },
+        {
+          "from": 200,
+          "to": 232,
+          "start": 27.133,
+          "end": 28.893
+        },
+        {
+          "from": 233,
+          "to": 307,
+          "start": 29.343,
+          "end": 34.042
+        },
+        {
+          "from": 308,
+          "to": 395,
+          "start": 34.492,
+          "end": 39.692
+        }
+      ]
+    }
+  ]
+}

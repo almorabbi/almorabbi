@@ -1,0 +1,442 @@
+#!/usr/bin/env python3
+"""
+trigger_and_download_podcasts.py
+Trigger audio generation for all lessons that have source_id but no podcast,
+then poll and download. Skips upload phase entirely.
+
+Rate-limit aware:
+  - Writes a small state file so we do not hammer NotebookLM after a rate limit.
+  - If we hit a rate limit, we stop immediately and skip the next N hours.
+  - Exponential backoff between trigger requests to spread load.
+"""
+
+import argparse
+import json
+import os
+import subprocess
+import time
+import re
+from pathlib import Path
+from datetime import datetime, timezone
+
+BASE_DIR = Path(__file__).resolve().parents[1]
+DOCS_DIR = BASE_DIR / "docs"
+INDEX_FILE = DOCS_DIR / "lesson_index.json"
+NOTEBOOKLM = str(BASE_DIR / "notebooklm_env/bin/notebooklm")
+STATE_FILE = BASE_DIR / "logs" / "notebooklm_state.json"
+
+# Cooldown after a rate-limit event (seconds). NotebookLM audio quota regenerates ~daily.
+RATE_LIMIT_COOLDOWN_HOURS = float(os.environ.get("NOTEBOOKLM_COOLDOWN_HOURS", "3"))
+MAX_TRIGGER_PER_RUN = int(os.environ.get("PODCAST_MAX_TRIGGER_PER_RUN", "0"))  # 0 = unlimited
+MIN_DELAY = float(os.environ.get("PODCAST_MIN_DELAY", "1.0"))
+MAX_DELAY = float(os.environ.get("PODCAST_MAX_DELAY", "30.0"))
+VPS_HOST = os.environ.get("TG_VPS_HOST", "72.62.44.131")
+
+
+def _now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def load_state() -> dict:
+    if STATE_FILE.exists():
+        try:
+            return json.loads(STATE_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return {
+        "last_rate_limit_at": None,
+        "pending_podcast_tasks": {},
+        "last_run_at": None,
+        "last_run_triggered": 0,
+        "last_run_downloaded": 0,
+    }
+
+
+def save_state(state: dict) -> None:
+    STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def run(cmd, timeout=60):
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+    return r.stdout.strip() + r.stderr.strip(), r.returncode
+
+
+def looks_like_rate_limit(out: str) -> bool:
+    lower = out.lower()
+    return any(x in lower for x in ["ratelimit", "rate limit", "quota", "try again later", "too many requests"])
+
+
+def trigger_podcast(source_id, lesson_id, notebook_id=None):
+    cmd = [NOTEBOOKLM, "generate", "audio", "-n", notebook_id, "--language", "ar_001", "-s", source_id]
+    out, rc = run(cmd, timeout=60)
+
+    if looks_like_rate_limit(out):
+        return "RATELIMIT"
+
+    m = re.search(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", out)
+    if m:
+        task_id = m.group()
+        print(f"  ✅ {lesson_id} -> {task_id}")
+        return task_id
+    print(f"  ❌ {lesson_id} -> FAILED: {out[:160]}")
+    return None
+
+
+def poll_task(task_id, notebook_id=""):
+    try:
+        out, rc = run([NOTEBOOKLM, "artifact", "poll", "-n", notebook_id, task_id, "--json"], timeout=30)
+    except Exception as e:
+        print(f"    poll_task exception for {task_id}: {e}")
+        return None, None
+    try:
+        d = json.loads(out)
+        return d.get("status"), d.get("url")
+    except Exception:
+        # Non-JSON usually means an auth/transport error from the CLI, not a
+        # task still cooking — surface it so the real cause is visible in logs.
+        print(f"    poll_task non-JSON output for {task_id}: {out[:120]}")
+        return None, None
+
+
+def download_podcast(source_id, lesson_id, task_id, notebook_id=""):
+    """Download by artifact task id (the UUID returned by generate) to {lesson_id}_podcast.mp3."""
+    out_path = DOCS_DIR / f"{lesson_id}_podcast.mp3"
+    cmd = [NOTEBOOKLM, "download", "audio", "-n", notebook_id, "-a", task_id, str(out_path), "--force"]
+    out, rc = run(cmd, timeout=120)
+    if rc == 0 and out_path.exists() and out_path.stat().st_size > 10000:
+        size_kb = out_path.stat().st_size // 1024
+        print(f"    -> Downloaded! ({size_kb} KB)")
+        return f"docs/{out_path.name}"
+    # Fallback: try by source_id (old style)
+    cmd2 = [NOTEBOOKLM, "download", "audio", "-n", notebook_id, "-a", source_id, str(out_path), "--force"]
+    out2, rc2 = run(cmd2, timeout=120)
+    if rc2 == 0 and out_path.exists() and out_path.stat().st_size > 10000:
+        size_kb = out_path.stat().st_size // 1024
+        print(f"    -> Downloaded! (source fallback, {size_kb} KB)")
+        return f"docs/{out_path.name}"
+    return None
+
+
+def update_index(lesson_id, file_path):
+    with open(INDEX_FILE) as f:
+        data = json.load(f)
+    base_url = "https://tg-api.alsaba.cloud/docs"
+    filename = Path(file_path).name
+    for lesson in data["lessons"]:
+        if lesson.get("lesson_id") == lesson_id:
+            lesson.setdefault("assets", {})["podcasts"] = [{
+                "id": f"{lesson_id}_podcast",
+                "url": f"{base_url}/{filename}",
+                "file": f"docs/{filename}",
+                "language": "ar",
+                "duration_estimate": "medium"
+            }]
+            break
+    with open(INDEX_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def podcast_exists_on_disk(lesson_id: str, min_bytes: int = 10000) -> Path | None:
+    """Return the existing MP3 path if it is already on disk and looks valid."""
+    candidate = DOCS_DIR / f"{lesson_id}_podcast.mp3"
+    if candidate.exists() and candidate.stat().st_size >= min_bytes:
+        return candidate
+    # Some historical files use underscores instead of hyphens.
+    alt = DOCS_DIR / f"{lesson_id.replace('-', '_')}_podcast.mp3"
+    if alt.exists() and alt.stat().st_size >= min_bytes:
+        return alt
+    return None
+
+
+def commit_and_sync(downloaded, index_updated=False, push=False, sync=False):
+    """Publish this run's results — only when explicitly asked to.
+
+    A push to main triggers a production deploy, and the rsync writes into the
+    live docs mount as root. Both used to happen unconditionally, so a content
+    run that nobody was watching could deploy the backend. They are opt-in now.
+    """
+    if downloaded == 0 and not index_updated:
+        return
+
+    if push:
+        print("\nCommitting updates to git...")
+        subprocess.run(["git", "add", "docs/lesson_index.json"], cwd=BASE_DIR, check=True)
+        subprocess.run(
+            ["git", "commit", "-q", "-m", f"feat: add podcasts for {downloaded} lessons"],
+            cwd=BASE_DIR,
+            check=True,
+        )
+        subprocess.run(["git", "push", "origin", "main"], cwd=BASE_DIR, check=True)
+    else:
+        print("\nSkipping git commit/push (pass --push to publish; it deploys prod).")
+
+    if downloaded == 0:
+        return
+
+    if sync:
+        print("\nSyncing MP3 files to VPS...")
+        subprocess.run(
+            [
+                "rsync",
+                "-a",
+                # NotebookLM writes downloads 0600; the container runs as uid
+                # 10001 against a bind mount, so 0600 arrives unreadable. That
+                # is the 2026-07-27 outage.
+                "--chmod=F644",
+                "--include=*.mp3",
+                "--exclude=*",
+                f"{BASE_DIR}/docs/",
+                f"root@{VPS_HOST}:/root/tutor-guardian/docs/",
+            ],
+            check=True,
+        )
+    else:
+        print("Skipping VPS sync (pass --sync to upload the new MP3s).")
+
+
+def exponential_delay(consecutive_rate_limits: int) -> float:
+    """Return a delay that grows quickly after repeated rate limits."""
+    return min(MIN_DELAY * (2 ** consecutive_rate_limits), MAX_DELAY)
+
+
+def main(push=False, sync=False):
+    state = load_state()
+    state["last_run_at"] = _now()
+    state["last_run_triggered"] = 0
+    state["last_run_downloaded"] = 0
+
+    # Cooldown gates the TRIGGER phase only: generate consumes the daily audio
+    # quota, but polling/downloading already-generated artifacts does not —
+    # skipping the whole run left 16 finished podcasts sitting undownloaded.
+    in_cooldown = False
+    now = datetime.now(timezone.utc)
+    last_rl = state.get("last_rate_limit_at")
+    if last_rl:
+        try:
+            last_rl_dt = datetime.fromisoformat(last_rl)
+            elapsed = (now - last_rl_dt).total_seconds()
+            cooldown = RATE_LIMIT_COOLDOWN_HOURS * 3600
+            if elapsed < cooldown:
+                remaining = int(cooldown - elapsed)
+                in_cooldown = True
+                print(
+                    f"⏳ NotebookLM rate-limit cooldown active "
+                    f"({remaining // 3600}h {(remaining % 3600) // 60}m left) — "
+                    f"skipping triggers, still polling pending tasks."
+                )
+        except Exception:
+            pass
+
+    with open(INDEX_FILE) as f:
+        data = json.load(f)
+
+    notebook_id = data.get("metadata", {}).get("notebook_id")
+
+    # Lessons that already have a live pending task must NOT be re-triggered —
+    # re-triggering burns quota and the old task id used to clobber the new one.
+    already_pending = set(state.get("pending_podcast_tasks", {}))
+
+    # Find lessons with source_id but no podcast
+    # Also sync index for any MP3 on disk that hasn't been registered yet.
+    to_process = []
+    index_dirty = False
+    for l in data["lessons"]:
+        lid = l.get("lesson_id", "")
+        source_id = l.get("source_id", "")
+        podcasts = l.get("assets", {}).get("podcasts", [])
+        if source_id and podcasts:
+            continue
+        if lid in already_pending:
+            continue
+        existing = podcast_exists_on_disk(lid)
+        if existing:
+            print(f"  ⏭ {lid} already exists on disk ({existing.stat().st_size // 1024} KB); syncing index.")
+            base_url = "https://tg-api.alsaba.cloud/docs"
+            l.setdefault("assets", {})["podcasts"] = [{
+                "id": f"{lid}_podcast",
+                "url": f"{base_url}/{existing.name}",
+                "file": f"docs/{existing.name}",
+                "language": "ar",
+                "duration_estimate": "medium"
+            }]
+            index_dirty = True
+            continue
+        if source_id:
+            to_process.append({"id": lid, "source_id": source_id})
+
+    if index_dirty:
+        with open(INDEX_FILE, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+
+    print(f"Found {len(to_process)} lessons ready for generation (have source_id, no podcast)")
+
+    if in_cooldown:
+        to_process = []
+
+    if MAX_TRIGGER_PER_RUN and len(to_process) > MAX_TRIGGER_PER_RUN:
+        print(f"  (limiting this run to first {MAX_TRIGGER_PER_RUN} lessons)")
+        to_process = to_process[:MAX_TRIGGER_PER_RUN]
+
+    # Phase 1: Trigger with backoff and immediate stop on rate limit
+    print(f"\n=== Triggering {len(to_process)} podcasts ===")
+    tasks = {}
+    consecutive_rl = 0
+    rate_limited_now = False
+
+    for i, lesson in enumerate(to_process, 1):
+        lid = lesson["id"]
+        source_id = lesson["source_id"]
+        print(f"  [{i}/{len(to_process)}] {lid}")
+        task_id = trigger_podcast(source_id, lid, notebook_id)
+
+        if task_id == "RATELIMIT":
+            consecutive_rl += 1
+            state["last_rate_limit_at"] = _now()
+            print(
+                f"  [!] Rate limit hit ({consecutive_rl}x). "
+                f"Stopping trigger phase to prevent error spam."
+            )
+            if consecutive_rl >= 2:
+                rate_limited_now = True
+                break
+        elif task_id:
+            tasks[lid] = {"task_id": task_id, "source_id": source_id}
+            consecutive_rl = max(0, consecutive_rl - 1)
+        else:
+            # Other failure; keep going but cool down a bit.
+            pass
+
+        # Backoff: longer after rate limits, short otherwise.
+        delay = exponential_delay(consecutive_rl)
+        time.sleep(delay)
+
+    print(f"\nTriggered: {len(tasks)}/{len(to_process)}")
+    state["last_run_triggered"] = len(tasks)
+
+    # Resume any previously pending tasks from state
+    pending = state.get("pending_podcast_tasks", {})
+    # Drop pending tasks whose podcast already exists on disk or in the index.
+    clean_pending = {}
+    for lid, info in pending.items():
+        lesson = next((l for l in data["lessons"] if l.get("lesson_id") == lid), None)
+        has_index_podcast = bool(lesson and lesson.get("assets", {}).get("podcasts"))
+        if has_index_podcast or podcast_exists_on_disk(lid):
+            print(f"  ⏭ dropping stale pending task {lid} (already has podcast)")
+            continue
+        clean_pending[lid] = info
+    pending = clean_pending
+    state["pending_podcast_tasks"] = pending
+    if pending:
+        # Poll pending even right after a rate limit — polling doesn't spend
+        # generate quota, and finished artifacts must still get downloaded.
+        print(f"  (also polling {len(pending)} tasks from a previous run)")
+        # A freshly-triggered task always wins over a stale one from state.
+        for lid, info in pending.items():
+            tasks.setdefault(lid, info)
+
+    if not tasks:
+        print("No tasks triggered — quota may still be limited. Try again later.")
+        save_state(state)
+        return
+
+    # Phase 2: Poll and download
+    print(f"\n=== Polling {len(tasks)} tasks ===")
+    remaining = dict(tasks)
+    downloaded = 0
+    failed = []
+    max_polls = 40
+
+    for poll_count in range(1, max_polls + 1):
+        wait = 10 if poll_count == 1 else 60
+        print(f"\nWaiting {wait}s... (round {poll_count}, {len(remaining)} remaining)")
+        time.sleep(wait)
+
+        done_this_round = []
+        for lid, info in list(remaining.items()):
+            task_id = info["task_id"]
+            source_id = info["source_id"]
+            status, url = poll_task(task_id, notebook_id)
+            # The CLI reports "completed" (not "complete" — the old comparison
+            # left finished artifacts undownloaded forever). A present URL is
+            # the real readiness gate.
+            if status in ("pending", "complete", "completed") and url:
+                print(f"  [{lid}] Ready! Downloading...")
+                file_path = download_podcast(source_id, lid, task_id, notebook_id)
+                if file_path:
+                    update_index(lid, file_path)
+                    downloaded += 1
+                    done_this_round.append(lid)
+                else:
+                    failed.append(lid)
+                    done_this_round.append(lid)
+            elif status == "failed":
+                print(f"  [{lid}] FAILED")
+                failed.append(lid)
+                done_this_round.append(lid)
+            elif status is None:
+                # None = poll returned no parseable state (dead task / auth error).
+                # These never resolve on their own — drop after 5 rounds instead of
+                # re-polling forever until the wrapper timeout kills the run.
+                info["none_polls"] = info.get("none_polls", 0) + 1
+                if info["none_polls"] >= 5:
+                    print(f"  [{lid}] dropped — {info['none_polls']} unreadable polls (dead task, will re-trigger next run)")
+                    failed.append(lid)
+                    done_this_round.append(lid)
+                else:
+                    print(f"  [{lid}] status=None ({info['none_polls']}/5 before drop)")
+            else:
+                print(f"  [{lid}] status={status} (waiting...)")
+
+        for lid in done_this_round:
+            remaining.pop(lid, None)
+
+        # Persist remaining pending tasks so we can resume after a crash/reboot.
+        state["pending_podcast_tasks"] = remaining
+        save_state(state)
+
+        if not remaining:
+            break
+
+    print(f"\n=== Final Summary ===")
+    print(f"Downloaded: {downloaded}")
+    print(f"Failed: {len(failed)}: {failed}")
+    print(f"Still pending: {list(remaining.keys())}")
+
+    state["last_run_downloaded"] = downloaded
+    state["pending_podcast_tasks"] = remaining
+    save_state(state)
+
+    commit_and_sync(downloaded, index_dirty, push=push, sync=sync)
+
+    # Self-retire: when every sourced lesson has a podcast and nothing is in
+    # flight, this agent's mission is complete — disable via PCC (records the
+    # reason) instead of looping as a no-op scanner every hour forever.
+    if downloaded and not remaining:
+        with open(INDEX_FILE) as f:
+            final = json.load(f)
+        left = [l for l in final["lessons"]
+                if l.get("source_id") and not l.get("assets", {}).get("podcasts")]
+        if not left:
+            subprocess.run([
+                os.path.expanduser("~/projects/publishing-center/bin/pcc"),
+                "disable", "tutor_podcasts", "--reason",
+                f"mission complete {datetime.now(timezone.utc).date()}: every sourced lesson has a podcast; re-enable when new lessons get source_ids",
+            ], timeout=30)
+            print("🎓 backlog empty — agent disabled itself via PCC")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--push",
+        action="store_true",
+        help="commit lesson_index.json and push to main (this deploys production)",
+    )
+    parser.add_argument(
+        "--sync",
+        action="store_true",
+        help="rsync the downloaded MP3s to the production docs mount",
+    )
+    args = parser.parse_args()
+    main(push=args.push, sync=args.sync)

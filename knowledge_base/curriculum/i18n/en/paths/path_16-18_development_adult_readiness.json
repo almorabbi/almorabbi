@@ -1,0 +1,56 @@
+{
+  "id": "path_16-18_development_adult_readiness",
+  "title": "Maturity and Independence: Preparing Your Young Man for Adult Life (16-18 Years)",
+  "age_group": "16-18",
+  "domain": "development",
+  "description": "A path to help parents prepare their son for adult life: understanding the maturity of the adolescent brain and managing impulsivity, mastering independent life skills, nurturing his psychological health under the pressure of the future, and building mature relationships with healthy boundaries.",
+  "lesson_ids": [
+    "lesson_16-18_development_adult_readiness_01",
+    "lesson_16-18_development_adult_readiness_02",
+    "lesson_16-18_development_adult_readiness_03",
+    "lesson_16-18_development_adult_readiness_04"
+  ],
+  "estimated_days": 4,
+  "pedagogical_framework": "prophetic_7_7_7",
+  "primary_reference": {
+    "type": "مرجع_علمي",
+    "info": "Late-adolescence development guidance — AAP + developmental psychology"
+  },
+  "prerequisites": [],
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T11:18:19+00:00",
+    "fixed_at": "2026-08-13T19:07:10.462977+00:00",
+    "fixer_model": "mistral-large-3:675b",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "5b652c7fa62c7a057d51b2f7f93f199d3a38c2cabbfe17f222aaca52cf2abf86",
+      "reviewed_at": "2026-10-04T11:18:19+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

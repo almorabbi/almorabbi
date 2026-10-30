@@ -1,0 +1,80 @@
+{
+  "id": "lesson_7-9_aqeedah_fundamentals_08",
+  "path_id": "path_7-9_aqeedah_fundamentals",
+  "title": "The Angels, the Books, and the Messengers",
+  "age_group": "7-9",
+  "domain": "aqeedah",
+  "unit_ids": [
+    "aqe-e3092aff"
+  ],
+  "summary": "Teach your child iman (faith) in the ghayb (unseen)—what we do not see but Allah and His Messenger ﷺ have informed us of, so we believe in it. Among this is the angels: noble, luminous creations whom Allah created for His obedience. Among them is Jibril, who brought down the wahy (revelation), and others who protect us, and the two recording angels who write down our deeds. And the Books: Allah sent them as guidance for mankind, the greatest and most complete of which is the Qur’an, the speech of Allah, whose preservation Allah has taken upon Himself. And the Messengers: Allah sent them to teach people their din (religion), the first of whom was Nuh and the last, Muhammad ﷺ. Connect this to behavior: because an angel writes our deeds, we strive to dictate good to him, and because the Qur’an is the speech of our Lord, we love it and learn it.",
+  "try_this": "This week: Remind your child in the morning, 'The angel is writing your good deeds today—what shall we dictate to him?' And set aside a short time daily to listen to or memorize a verse from the Qur’an.",
+  "order": 8,
+  "estimated_minutes": 8,
+  "reflection_prompts": [
+    "How can you teach your child to revere and love the Qur’an without it feeling like a heavy obligation?",
+    "What is the effect on a child’s behavior when they feel that a noble angel is recording their deeds?"
+  ],
+  "warning_flags": [],
+  "needs_professional_followup": false,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": true,
+      "quoted_arabic": true,
+      "reviewer_model": true
+    },
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "try_this",
+        "type": "meaning",
+        "why": "The Arabic asks what to fill the child's record with; the English shifts the image to dictating to the angel."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "fields.try_this.arabic",
+        "type": "source_corruption",
+        "why": "The imperative verb should be «وخصّصْ» without the trailing alif; «وخصّصا» is grammatically incorrect in MSA."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "1fd8a0d2e5328d6c69976cdbb7793dc0406f1abcc34065a7f76a48764b1dfa45",
+      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "try_this",
+          "type": "meaning",
+          "why": "The Arabic asks what to fill the child's record with; the English shifts the image to dictating to the angel."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "fields.try_this.arabic",
+          "type": "source_corruption",
+          "why": "The imperative verb should be «وخصّصْ» without the trailing alif; «وخصّصا» is grammatically incorrect in MSA."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

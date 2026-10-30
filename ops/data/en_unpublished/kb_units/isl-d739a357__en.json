@@ -1,0 +1,55 @@
+{
+  "id": "isl-d739a357__en",
+  "domain": "islamic_parenting",
+  "source_file": "Kayfa_Turabbi_Waladak.pdf",
+  "title": "Foundations of Reward and Discipline in the Tarbiyah of the Child",
+  "language": "en",
+  "age_group": "4-6",
+  "behavior_type": "تربية سلوكية",
+  "intervention_type": "إرشادي",
+  "severity": "متوسط",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "كيف تربي ولدك",
+  "text_original": "طرش لىإ ةأفاكلما لوحتت لا نأ * حيحصلا ديدلجا كولسلا ىلع ةأفاكلما رصتقّت لب ،هتفرغ هبيترت وأ هماعطو هلكأك بجاو مايقّلل ًاطرش حبصأ رثك اذإ قبسلما دعولا نلأ ،قبسم دعو نود ةأفاكلما نوكت نأو لا تىح دعولا زانجإو ،ةركبلما ةلوفطلا ةلحرم في ةرشابم لمعلا دعب نوكت نأ * هدعو دعب ةأفاكلما رخؤن نأ نسيح ةرخأتلما ةلحرلما فيو ،دعولا فلاخإو بذكلا ملعتي .ةأفاكلماب حرفيف لمعلا بعت ىسني هنلأو ةرخلآل لمعلا ملعتيل .6 -62 ص ،يويدب يلع دحمأ ،باقّعلاو باوثلا :رظنا ) ( .64 ص ،وللحا ناسح مأ ،ةعئاش ءاطخأ :رظنا )2( .3 -3 ص :بطق دممح ،ةيملاسلإا ةيبرتلا جهنم :رظنا )3( .62 -6 ص ،يويدب يلع دحمأ ،باقّعلاو باوثلا :رظنا )4( . 3 ص هبرغلا هيبن ،ةيكولسلا تلاكشلماو ،6 ص ،وللحا ناسح مأ ،ةعئاش ةيوبرت ءاطخأ :رظنا ) ( بيهرتلا نياثلا ثحبلما هعم حماستي يذلا لفطلا نأو ،بيهرتلا لىإ بيرلما ةجاح ةثيدلحا تاساردلا تتبثأ تاجرد هل بيهرتلاو ،قلاخلأاو كولسلا ححصي باقّعلاو امهجاعزإ في رمتسي هدلاو نامرلحاو سبلحاو رجلهاو ةعطاقّلما لىإ دتتمو باتعلاو بضغلا ةرظنو هجولا بيطقّتب أدبت .اتهاجرد رخأ وهو برضلاو يدالما نامرلحا وأ ةعاملجا نم نسلا يفف هنم دب لا ناك نإو ،ناكملإا ردق لفطلا برض بنجتي نأ بيرلماب رديجو . هببسو باقّعلا ىزغم فرعيو اهيف زييم تيلا :اهنم طباوض بيهرتللو * . هجويو ملعي لب لفطلا بقاعي لاف ةرم لوأ ثدح اذإ أطلخا نأ * ،هكولس أطخ لفطلا ماهفإو اهببس نايب عم ةرشابم أطلخا دعب ةبوقّعلا عاقّيإ بيج * . ةبوقّعلا ترخأت اذإ لعف ام ىسني ابمر هنلأ نلأ ،مهمامأ هتبقاعم نوكتف تيبلا لهأو هناوخإ مامأ رهاظ لفطلا أطخ",
+  "text_simplified": "Rewards should be tied to a specific positive behavior, not made a condition for fulfilling obligations. It is better to delay the reward in early childhood to teach the child to work toward a goal. Physical discipline, such as hitting, is not effective and should be avoided. Preferable tarbiyah methods include guidance and temporary deprivation. Discipline should be immediate and direct after the mistake, with an explanation of the reason given to the child.",
+  "labels": [
+    "مكافأة",
+    "عقاب",
+    "تربية",
+    "سلوك",
+    "طفل"
+  ],
+  "created_at": "2026-06-20T14:36:19Z",
+  "updated_at": "2026-06-20T14:36:19Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Kayfa_Turabbi_Waladak",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-d739a357",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "f7395240694cedd527bb2aafcc7b508a9cfd876abbbcfaf975b748e538319c8a",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "isl-ec65b64c__en",
+  "domain": "islamic_parenting",
+  "source_file": "Kayfa_Turabbi_Waladak.pdf",
+  "title": "The Impact of Consanguineous Marriage on the Child’s Health and Tarbiyah",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "تربية إسلامية",
+  "intervention_type": "إرشادي",
+  "severity": "متوسط",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "كيف تربي ولدك",
+  "text_original": "فعضلا لىإ يدؤي براقلأا جاوز نأ ررق ءابطلأا .رخلآل امهنم لك ةيحلاص ىدم ينبي ينجوزلا ىلع يحصلا فشكلا هذه نم فيفختلا وأ يموقّتلاو هيجوتلاب ةيبلسلا ةثارولا راثآ كرادت بيرلما عيطتسيو لىإ لوحتت نأ نكيم ةحاقولاف ،نسح قلخ لىإ ةئيسلا ةعيبطلا ليوتح عيطتسيو لب راثلآا .كلذ يرغو ،قلحا في ةأرج لفطلا أشني نأ اندرأ اذإو ،هلك عمتلمجاو عراشلاو ةسردلماو تيبلا لمشتف ةئيبلا امأ يهنلا درو اذلو ؛ نيدلا رئاعش رهظت تيلا ةلحاصلا ةئيبلا هل ئينه نأ انيلعف ةيملاسإ ةأشن نكسي نأ رفكلا دلاب في ةساردلا وأ لمعلاب يلتبا نم حصننو ،ينكرشلما ينب ةماقلإا نع ةمشلحا ىلع اهيف ظفايحو ملاسلإا رئاعش اهيف رهظت ،ةملسم ةينكس تاعمتج نمض .ةيبرتلا في هتلاسر ءادأ ىلع تيبلا دعاسي اذهو ،ءايلحاو ةيرطفلا عفاودلا نم ةدافلإا اسماخ نزاوتلا اهيف ىعارو اهمادختسا بيرلما نسحأ اذإ لفطلا ةيبرت في ةيرطفلا عفاودلا مهست :اهنمو لادتعلااو ًانابج هلعيج ابم بيرلما هيلإ يحوي لاف لفطلا لحاصل نوكي نأ طرتشيو :ءاوهتسلاا :)1( ،هيرغل ًاعبات هلعتج لفطلل ءايحلإا ةرثك نلأ لادتعلاا عم ،اهيرغو حابشلأاو شوحولاك نأو قدصلا نم دب لا ءايحلإا في بيرلما حجني يكلو هتيللاقّتسا ىلع يضقّيو ،ًاداقّنم .44/ ،ناولع حصان للها دبع ،ملاسلإا في دلاولأا ةيبرت :رظنا ) ( دبع نيدلا يمح ،ايملاسإ اندلاوأ بيرن فيكو ،94 ص ،يولوم ديعس دممح ،هدلو ملسلما بيري فيك :رظنا )2( .326 ص ،بطق دممح ،ةيملاسلإا ةيبرتلا جهنم :رظنا )3( .334 قباسلا عجرلما :رظنا )4( . 4 - 4 ص ،ليوبناتسلاا دوممح ،انلافطأ بيرن فيك :رظنا ) ( نأو ةركفلا ضرع في ًارهام نوكي نأو ،برصلا وأ ةعاجشلاك هيلإ وعدي ابم ًافصتم نوكي نع قسفلا ةلظم تتح",
+  "text_simplified": "Consanguineous marriage affects children’s health and may cause health problems. Parents can reduce these risks through medical screening and guidance. A wholesome environment and Islamic tarbiyah (upbringing) help in raising the child with good akhlaq (character). The child should be guided towards virtues such as truthfulness, courage, and staying away from deviation.",
+  "labels": [
+    "زواج الأقارب",
+    "صحة الطفل",
+    "تربية إسلامية",
+    "البيئة الصالحة",
+    "الأخلاق"
+  ],
+  "created_at": "2026-06-20T14:37:20Z",
+  "updated_at": "2026-06-20T14:37:20Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Kayfa_Turabbi_Waladak",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-ec65b64c",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "bc7b442687a008356c21781515f5219c8b3ce37573c77cce999e5f32662071d4",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

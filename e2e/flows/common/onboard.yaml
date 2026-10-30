@@ -1,0 +1,79 @@
+# First run, as a new parent sees it: language → child's age band → start.
+# Ends on the root scaffold with the first-run coach-mark tour skipped.
+# Env: UI_LANG (ar|en). Selectors come from l10n.js (generated from the ARB files).
+appId: com.alsaba.almorabbi
+---
+- launchApp:
+    clearState: true
+- runFlow: system_dialogs.yaml
+# A system ANR dialog can come back after it was answered. On 2026-10-08
+# "System UI isn't responding" was answered 5 s after launch, came back, and
+# covered the language page for the rest of the 60 s wait (the page was right
+# behind it). Keep answering it while waiting; the page is still required below.
+- repeat:
+    times: 6
+    while:
+      notVisible: '${output.t.lit_langTitle}'
+    commands:
+      - runFlow: system_dialogs.yaml
+      - extendedWaitUntil:
+          visible: '${output.t.lit_langTitle}'
+          timeout: 10000
+          optional: true
+- extendedWaitUntil:
+    visible: '${output.t.lit_langTitle}'
+    timeout: 10000
+- takeScreenshot: onboarding_1_language
+- runFlow:
+    when:
+      true: "${UI_LANG == 'en'}"
+    commands:
+      - tapOn: '${output.t.lit_langEnglish}'
+- runFlow:
+    when:
+      true: "${UI_LANG != 'en'}"
+    commands:
+      - tapOn: '${output.t.lit_langArabic}'
+- extendedWaitUntil:
+    visible: '${output.t.onbAgeQuestion}'
+    timeout: 20000
+# 7-9: the youngest band that has habits, missions and child mode.
+- tapOn: '${output.t.ageGroup7to9}'
+- extendedWaitUntil:
+    visible: '${output.t.onbStartJourney}'
+    timeout: 20000
+- takeScreenshot: onboarding_2_first_tip
+# Creates the child on the production API (POST /api/children).
+- tapOn: '${output.t.onbStartJourney}'
+# Run 6: the tap went through but no request ever reached the server (a lost
+# tap or a transient network error; the app's error snackbar lasts seconds).
+# Retry once, as a parent would — but only after the app's own 45 s create
+# timeout, when an attempt has surely resolved: success has replaced the page,
+# failure has left it idle. Never while the busy overlay shows (a second child):
+# the baseline's overlay says onbPreparing; the head's says onbPreparingStep1
+# and asks the child's name (onbNameQuestion, noor phase 2). A key the build
+# lacks never matches, so each lineage is guarded by its own text.
+#
+# The name field is left alone on purpose: ignoring it is the path that must
+# never cost a parent a step — the head goes to Today as soon as the child
+# exists, exactly like the baseline. Typing in it would race the create
+# (the field leaves with the overlay) and could land a tap on Today.
+- extendedWaitUntil:
+    visible: '${output.lead.navToday}'
+    timeout: 50000
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow:
+    when:
+      visible: '${output.t.onbStartJourney}'
+      notVisible: '(?:${output.c.onbPreparing}|${output.c.onbPreparingStep1}|${output.c.onbNameQuestion})'
+    commands:
+      - takeScreenshot: onboarding_2b_cta_retry
+      - tapOn:
+          text: '${output.t.onbStartJourney}'
+          optional: true
+- extendedWaitUntil:
+    visible: '${output.lead.navToday}'
+    timeout: 90000
+- runFlow: skip_tour.yaml

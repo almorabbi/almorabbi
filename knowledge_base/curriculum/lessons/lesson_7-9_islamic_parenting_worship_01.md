@@ -1,0 +1,60 @@
+# lesson_7-9_islamic_parenting_worship_01
+
+## Metadata
+
+| Field | Value |
+| --- | --- |
+| **Age Group** | 7-9 |
+| **Approved By** |  |
+| **Domain** | islamic_parenting |
+| **Estimated Minutes** | 7 |
+| **Is Published** | Yes |
+| **Needs Professional Followup** | No |
+| **Order** | 1 |
+| **Path Id** | path_7-9_islamic_parenting_worship |
+| **Reflection Prompts** | `كيف كان رد فعل طفلك عندما صليت معه؟`, `ما الذي أعجب طفلك أكثر حين صلّيتما معًا؟` |
+| **Unit Ids** | `6730e1c6-ddca-4ff4-8343-b07df6fa6abb`, `8e884b98-41a4-4c29-92c5-aa71e62d7d51`, `b1bd26fc-3144-4928-9bb4-ce2b30f95876` |
+| **Version** | 1.0.0 |
+| **Warning Flags** |  |
+
+## Summary
+
+> في سن 7-9 سنوات يبدأ الطفل يفهم معنى الصلاة لكن قد يراها ثقيلة. المفتاح: القدوة الصالحة، التشجيع لا الإكراه، وربط قلبه بالله عبر القصص والحب.
+
+## Try This
+
+> اليوم: صلّ مع طفلك صلاة المغرب أو العشاء، واجهر بالقراءة في ركعتيها الأوليين، ثم اسأله بعد السلام: كم ركعةً صلّينا؟
+
+## Raw JSON
+
+<details>
+<summary>Click to view raw JSON</summary>
+
+```json
+{
+  "id": "lesson_7-9_islamic_parenting_worship_01",
+  "path_id": "path_7-9_islamic_parenting_worship",
+  "title": "الصلاة: حبٌّ يمهّد للواجب",
+  "age_group": "7-9",
+  "domain": "islamic_parenting",
+  "unit_ids": [
+    "6730e1c6-ddca-4ff4-8343-b07df6fa6abb",
+    "8e884b98-41a4-4c29-92c5-aa71e62d7d51",
+    "b1bd26fc-3144-4928-9bb4-ce2b30f95876"
+  ],
+  "summary": "في سن 7-9 سنوات يبدأ الطفل يفهم معنى الصلاة لكن قد يراها ثقيلة. المفتاح: القدوة الصالحة، التشجيع لا الإكراه، وربط قلبه بالله عبر القصص والحب.",
+  "try_this": "اليوم: صلّ مع طفلك صلاة المغرب أو العشاء، واجهر بالقراءة في ركعتيها الأوليين، ثم اسأله بعد السلام: كم ركعةً صلّينا؟",
+  "order": 1,
+  "estimated_minutes": 7,
+  "reflection_prompts": [
+    "كيف كان رد فعل طفلك عندما صليت معه؟",
+    "ما الذي أعجب طفلك أكثر حين صلّيتما معًا؟"
+  ],
+  "warning_flags": [],
+  "needs_professional_followup": false,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": null
+}
+```
+</details>

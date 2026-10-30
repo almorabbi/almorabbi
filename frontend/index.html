@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>المربّي</title>
+<!--
+  Not the landing page. /ui/ is rendered by backend/app/routers/web.py from
+  cinematic.html, so its buttons carry ?ref= and utm_* through to the Play
+  install referrer — edit cinematic.html, not this file.
+
+  This file used to be a static copy of that page whose buttons pointed at
+  #cta, never at Play, and that copy is how the August ad traffic hit a dead
+  end. Now it is only reached if the /ui/ route is missing (for the minute of
+  a deploy between the new checkout and the new container), and it forwards
+  to /go with the query string intact so an ad click still reaches the store.
+-->
+<link rel="canonical" href="https://tg-api.alsaba.cloud/go">
+<meta name="robots" content="noindex">
+<script>location.replace("/go" + location.search);</script>
+<meta http-equiv="refresh" content="0; url=/go">
+</head>
+<body>
+<p><a href="/go">المربّي — حمّل التطبيق مجانًا</a></p>
+</body>
+</html>

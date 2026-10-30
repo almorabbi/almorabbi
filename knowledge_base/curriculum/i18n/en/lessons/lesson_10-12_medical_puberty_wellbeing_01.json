@@ -1,0 +1,61 @@
+{
+  "id": "lesson_10-12_medical_puberty_wellbeing_01",
+  "path_id": "path_10-12_medical_puberty_wellbeing",
+  "title": "Puberty: Physical Changes and Open Dialogue",
+  "age_group": "10-12",
+  "domain": "medical",
+  "unit_ids": [
+    "dev-40436851",
+    "gap-med-puberty-hayd-01",
+    "gap-med-vaginal-spotting-01",
+    "med-88c1469a",
+    "dev-eb83fae6"
+  ],
+  "summary": "Puberty begins early (ages 9-12). Changes include growth in height, voice deepening, body hair, and menstruation/wet dreams. Parents: initiate dialogue before school or the internet does. Father with son, mother with daughter. Use scientific language—no shame, no mockery. A trusted book should be the reference.",
+  "try_this": "This week: Read together a chapter from a reliable puberty book (such as \"My Body is Changing\" or its equivalent). Discuss: What surprises you? What scares you?",
+  "order": 1,
+  "estimated_minutes": 30,
+  "reflection_prompts": [
+    "What question did your child ask that surprised you?",
+    "Did they feel at ease after the conversation?"
+  ],
+  "warning_flags": [
+    "علامات بلوغ مبكرة جداً (<9 سنوات) أو متأخرة جداً (>14 سنة)",
+    "ألم شديد، نزيف غير طبيعي"
+  ],
+  "needs_professional_followup": true,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": true,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "26b40e02ea589e0c0a522cef6955f76afc80989385cadb99a50841f9b4742475",
+      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

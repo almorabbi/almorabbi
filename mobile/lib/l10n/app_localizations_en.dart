@@ -1,0 +1,6717 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for English (`en`).
+class AppLocalizationsEn extends AppLocalizations {
+  AppLocalizationsEn([String locale = 'en']) : super(locale);
+
+  @override
+  String get appTitle => 'Al-Murabbi';
+
+  @override
+  String get appName => 'Al-Murabbi';
+
+  @override
+  String get navToday => 'Today';
+
+  @override
+  String get navMyPaths => 'My Paths';
+
+  @override
+  String get navAdhkar => 'Adhkar';
+
+  @override
+  String get navAssistant => 'Assistant';
+
+  @override
+  String get navLearn => 'Learn';
+
+  @override
+  String get navMore => 'More';
+
+  @override
+  String get hubTitle => 'More';
+
+  @override
+  String get hubGroupChild => 'My child';
+
+  @override
+  String get hubGroupAchievements => 'Achievements';
+
+  @override
+  String get hubGroupLibrary => 'Library';
+
+  @override
+  String get hubGroupGames => 'Games';
+
+  @override
+  String get hubGroupHelp => 'Settings & help';
+
+  @override
+  String get hubMyChildren => 'My children';
+
+  @override
+  String get hubCustomizeHabits => 'Customize habits';
+
+  @override
+  String get hubInsights => 'Parenting insights';
+
+  @override
+  String get hubParentDay => 'Child’s day & missions';
+
+  @override
+  String get hubCreateStory => 'Create a story';
+
+  @override
+  String get hubAccount => 'My account';
+
+  @override
+  String get helpTitle => 'Where do I find…?';
+
+  @override
+  String get helpSubtitle => 'Tap your question and we will take you there';
+
+  @override
+  String get helpWhereGames => 'Where are my child’s games?';
+
+  @override
+  String get helpWhoAreLessonsFor =>
+      'Who are these lessons for — me or my child?';
+
+  @override
+  String get helpWhereToStart => 'Where do I start?';
+
+  @override
+  String get helpWhereStories => 'Where are the bedtime stories?';
+
+  @override
+  String get helpHowAddChild => 'How do I add another child?';
+
+  @override
+  String get helpWhereQuran => 'Where is the Quran and daily wird?';
+
+  @override
+  String get helpWhereProgress => 'Where is my child’s daily tracking?';
+
+  @override
+  String get helpWhereBadges => 'Where are the badges and achievements?';
+
+  @override
+  String get helpHowBackup => 'How do I back up my progress?';
+
+  @override
+  String get helpHowContact => 'How do I contact you?';
+
+  @override
+  String get helpTooltip => 'Help';
+
+  @override
+  String get navDailyTracker => 'Daily Tracker';
+
+  @override
+  String get navHabitBalance => 'Habit Balance';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get confirm => 'Confirm';
+
+  @override
+  String get yes => 'Yes';
+
+  @override
+  String get no => 'No';
+
+  @override
+  String get back => 'Back';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get skip => 'Skip';
+
+  @override
+  String get retry => 'Retry';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get share => 'Share';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get done => 'Done';
+
+  @override
+  String get loading => 'Loading...';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get privacy => 'Privacy';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get version => 'Version';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get settingsTheme => 'Appearance';
+
+  @override
+  String get settingsThemeLight => 'Light';
+
+  @override
+  String get settingsThemeDark => 'Dark';
+
+  @override
+  String get settingsThemeSystem => 'Follow system';
+
+  @override
+  String get arabic => 'Arabic';
+
+  @override
+  String get english => 'English';
+
+  @override
+  String get welcomeToAlMurabbi => 'Welcome to Al-Murabbi';
+
+  @override
+  String get startYourJourney => 'Start Your Journey';
+
+  @override
+  String get chooseYourChild => 'Choose Your Child';
+
+  @override
+  String get addChild => 'Add Your Child';
+
+  @override
+  String get childName => 'Child Name';
+
+  @override
+  String get childAge => 'Child Age';
+
+  @override
+  String get dateOfBirth => 'Date of Birth';
+
+  @override
+  String get nextStep => 'Next';
+
+  @override
+  String get previousStep => 'Previous';
+
+  @override
+  String get welcome => 'Welcome';
+
+  @override
+  String get whatsNewToday => 'What\'s new today?';
+
+  @override
+  String get suggestionsForYou => 'Suggestions for you';
+
+  @override
+  String get startLearning => 'Start Learning';
+
+  @override
+  String get trackYourProgress => 'Track Your Progress';
+
+  @override
+  String get goodMorning => 'Good Morning';
+
+  @override
+  String get goodEvening => 'Good Evening';
+
+  @override
+  String get askAlMurabbi => 'Ask Al-Murabbi';
+
+  @override
+  String get typeYourQuestion => 'Type your question here...';
+
+  @override
+  String get thinking => 'Thinking...';
+
+  @override
+  String get errorRetryMessage => 'An error occurred. Try again.';
+
+  @override
+  String get dailyLimitReached =>
+      'You\'ve reached today\'s limit — we\'ll continue tomorrow, insha\'Allah 🌙';
+
+  @override
+  String get send => 'Send';
+
+  @override
+  String get noActiveSession => 'No active session. Start one first.';
+
+  @override
+  String get educationalPaths => 'Educational Paths';
+
+  @override
+  String get startPath => 'Start Path';
+
+  @override
+  String get completed => 'Completed';
+
+  @override
+  String get lessons => 'Lessons';
+
+  @override
+  String get podcasts => 'Podcasts';
+
+  @override
+  String get videos => 'Videos';
+
+  @override
+  String get quizzes => 'Quizzes';
+
+  @override
+  String get flashcards => 'Flashcards';
+
+  @override
+  String get holyQuran => 'The Holy Quran';
+
+  @override
+  String get surah => 'Surah';
+
+  @override
+  String get verse => 'Verse';
+
+  @override
+  String get recitation => 'Recitation';
+
+  @override
+  String get memorization => 'Memorization';
+
+  @override
+  String get childJourney => 'Child\'s Journey';
+
+  @override
+  String get faithMilestones => 'Faith Milestones';
+
+  @override
+  String get firstPrayer => 'First Prayer';
+
+  @override
+  String get firstFast => 'First Fast';
+
+  @override
+  String get quranMemorization => 'Quran Memorization';
+
+  @override
+  String get educationalGames => 'Educational Games';
+
+  @override
+  String get healthyHero => 'Smart Habits Hero';
+
+  @override
+  String get treeOfDeeds => 'Tree of Character';
+
+  @override
+  String get emotionMaze => 'Emotion Maze';
+
+  @override
+  String get dataDefender => 'Data Defender';
+
+  @override
+  String get childMode => 'Child Mode';
+
+  @override
+  String get darkMode => 'Dark Mode';
+
+  @override
+  String get logout => 'Logout';
+
+  @override
+  String get deleteAccount => 'Delete Account';
+
+  @override
+  String get privacyPolicy => 'Privacy Policy';
+
+  @override
+  String get rateApp => 'Rate App';
+
+  @override
+  String get shareApp => 'Share App';
+
+  @override
+  String get contactUs => 'Contact Us';
+
+  @override
+  String get coins => 'Coins';
+
+  @override
+  String get store => 'Store';
+
+  @override
+  String get stories => 'Stories';
+
+  @override
+  String get badges => 'Badges';
+
+  @override
+  String get covenant => 'Covenant';
+
+  @override
+  String get sendFeedback => 'Send Feedback';
+
+  @override
+  String get howWasExperience => 'How was your experience?';
+
+  @override
+  String get inviteFriend => 'Invite a Friend';
+
+  @override
+  String get shareTheApp => 'Share the App';
+
+  @override
+  String get getCoins => 'Get Coins';
+
+  @override
+  String get noInternetConnection => 'No Internet Connection';
+
+  @override
+  String get checkConnection => 'Check your connection and try again';
+
+  @override
+  String get unexpectedError => 'An unexpected error occurred';
+
+  @override
+  String get noResultsFound => 'No Results Found';
+
+  @override
+  String get agePregnancyTo1Year => 'Pregnancy - 1 Year';
+
+  @override
+  String get age2to3 => '2 - 3 Years';
+
+  @override
+  String get age4to6 => '4 - 6 Years';
+
+  @override
+  String get age7to9 => '7 - 9 Years';
+
+  @override
+  String get age10to12 => '10 - 12 Years';
+
+  @override
+  String get age13to15 => '13 - 15 Years';
+
+  @override
+  String get age16to18 => '16 - 18 Years';
+
+  @override
+  String get islamicEducation => 'Islamic Education';
+
+  @override
+  String get childDevelopment => 'Child Development';
+
+  @override
+  String get digitalSafety => 'Digital Safety';
+
+  @override
+  String get childHealth => 'Child Health';
+
+  @override
+  String get freeCompletely => 'Completely Free — No Ads, No Subscriptions';
+
+  @override
+  String get noAds => 'No Ads';
+
+  @override
+  String get noSubscriptions => 'No Subscriptions';
+
+  @override
+  String get forSakeOfAllah => 'For the Sake of Allah';
+
+  @override
+  String get today => 'Today';
+
+  @override
+  String get yesterday => 'Yesterday';
+
+  @override
+  String get thisWeek => 'This Week';
+
+  @override
+  String get thisMonth => 'This Month';
+
+  @override
+  String get forceUpdateTitle => 'Important Update Available!';
+
+  @override
+  String get forceUpdateMessage =>
+      'We\'ve added great features and important fixes to improve your experience and ensure app stability. Please update to continue.';
+
+  @override
+  String get forceUpdateButton => 'Update Now';
+
+  @override
+  String get bootError => 'Failed to start the app.';
+
+  @override
+  String get sessionExpired => 'Session expired.';
+
+  @override
+  String get serverError => 'A server error occurred.';
+
+  @override
+  String get connectionTimeout => 'Connection timed out.';
+
+  @override
+  String get incompleteResponse => 'Incomplete server response.';
+
+  @override
+  String get continuePath => 'Continue';
+
+  @override
+  String get todaySun => 'Today';
+
+  @override
+  String get todaySunDay => 'Today';
+
+  @override
+  String get todaySunNight => 'Today';
+
+  @override
+  String get shareOpinion => 'Share your opinion';
+
+  @override
+  String get searchTooltip => 'Search';
+
+  @override
+  String get settingsTooltip => 'Settings';
+
+  @override
+  String get greetingPeace => 'Peace be upon you';
+
+  @override
+  String greetingWithName(Object name) {
+    return 'Peace be upon you\n$name\'s journey continues';
+  }
+
+  @override
+  String greetingMorningName(Object name) {
+    return 'Good morning\n$name\'s journey continues';
+  }
+
+  @override
+  String greetingEveningName(Object name) {
+    return 'Good evening\n$name\'s journey continues';
+  }
+
+  @override
+  String greetingMorningFirst(Object name) {
+    return 'Good morning\nToday is day one of $name\'s journey';
+  }
+
+  @override
+  String greetingEveningFirst(Object name) {
+    return 'Good evening\nToday is day one of $name\'s journey';
+  }
+
+  @override
+  String dailyGiftLine(Object n) {
+    return 'Today\'s gift: $n 🪙';
+  }
+
+  @override
+  String get dailyGiftLabel => 'Today\'s gift';
+
+  @override
+  String get feedbackMessage =>
+      'Your opinion matters! Share any feedback or issue — written or voice.';
+
+  @override
+  String get bedtimeStories => 'Bedtime Stories';
+
+  @override
+  String get bedtimeStoriesDesc =>
+      'Short, calm stories to share before sleep 🌙';
+
+  @override
+  String get consecutiveDays => 'Consecutive Days';
+
+  @override
+  String get completedLesson => 'Completed Lesson';
+
+  @override
+  String get achievements => 'Achievements';
+
+  @override
+  String get startFirstPath => 'Start Your First Path';
+
+  @override
+  String get startFirstPathDesc =>
+      'Short lessons for you to read, chosen for your child’s age. Start today.';
+
+  @override
+  String get browsePaths => 'Browse Paths';
+
+  @override
+  String get startThisLesson => 'Start This Lesson';
+
+  @override
+  String get startFirstLessonDesc =>
+      'A short lesson picked for your child\'s age — it starts here.';
+
+  @override
+  String get focusPathDoneTitle => 'MashaAllah — you finished this path';
+
+  @override
+  String get focusPathDoneDesc =>
+      'Step by step, you reached its end — choose your child\'s next path.';
+
+  @override
+  String get continueJourney => 'Continue your path';
+
+  @override
+  String get lessonsRemaining_one => '🏆 1 lesson remaining!';
+
+  @override
+  String lessonsRemaining_other(Object count) {
+    return '🏆 $count lessons remaining';
+  }
+
+  @override
+  String get continueBtn => 'Continue';
+
+  @override
+  String get focusViewPath => 'View path';
+
+  @override
+  String get quizTitle => 'Test Your Knowledge';
+
+  @override
+  String get quizDesc => '10 quick questions • Learn while you play';
+
+  @override
+  String get askQuestion => 'Have a parenting question?';
+
+  @override
+  String get askAlMurabbiNow => 'Ask Al-Murabbi Now';
+
+  @override
+  String get insightsTitle => 'Today\'s Tip';
+
+  @override
+  String get insightsDesc => 'View your child\'s habit and activity analysis';
+
+  @override
+  String get chatPreviousChats => 'Previous Chats';
+
+  @override
+  String get chatAlMurabbiTitle => '🛡️ Al-Murabbi AI';
+
+  @override
+  String get chatStartNew => 'Start New Chat';
+
+  @override
+  String get chatStartNewConfirm => 'Start a new chat?';
+
+  @override
+  String get chatStartNewDesc =>
+      'This will end the current conversation and start a new session on the server.';
+
+  @override
+  String get chatBehaviorType => 'Behavior type (optional)';
+
+  @override
+  String get chatRetry => 'Retry';
+
+  @override
+  String get chatInitSession => 'Initializing session…';
+
+  @override
+  String get chatOffline => 'Not connected to the internet';
+
+  @override
+  String get chatQ_sleep =>
+      'My child refuses to sleep and wakes up a lot at night';
+
+  @override
+  String get chatQ_stubborn => 'My son is very stubborn and has anger tantrums';
+
+  @override
+  String get chatQ_eating => 'My child refuses to eat — what should I do?';
+
+  @override
+  String get chatQ_speech =>
+      'My child has delayed speech — when should I worry?';
+
+  @override
+  String get chatQ_pray5 =>
+      'My 5-year-old son refuses to pray, what should I do?';
+
+  @override
+  String get chatQ_tantrums => 'How do I deal with anger tantrums?';
+
+  @override
+  String get chatQ_screens =>
+      'My child won\'t let go of the tablet and screens';
+
+  @override
+  String get chatQ_study => 'My child doesn\'t like studying';
+
+  @override
+  String get chatQ_prayRegular => 'How do I get my child to pray regularly?';
+
+  @override
+  String get chatQ_lying => 'My son lies sometimes — how should I handle it?';
+
+  @override
+  String get chatQ_gaming => 'My son is occupied with video games all day';
+
+  @override
+  String get chatQ_online => 'How do I protect my child on the internet?';
+
+  @override
+  String get chatQ_homework => 'My son procrastinates on his homework';
+
+  @override
+  String get chatQ_teenDefiant => 'My teenage son is defiant and won\'t listen';
+
+  @override
+  String get chatQ_socialMedia =>
+      'My daughter is occupied with social media and comparisons';
+
+  @override
+  String get chatQ_teenPray => 'How do I maintain my teenage son\'s prayer?';
+
+  @override
+  String get chatQ_talkOlder =>
+      'How do I talk to my older son without conflict?';
+
+  @override
+  String get chatQ_university => 'My son is neglecting his university studies';
+
+  @override
+  String get chatQ_friends => 'How do I discuss my son\'s choice of friends?';
+
+  @override
+  String get chatQ_fears =>
+      'My child is very fearful — of the dark or sleeping alone';
+
+  @override
+  String get chatQ_siblings =>
+      'My son is jealous of his baby brother and hurts him';
+
+  @override
+  String get chatQ_bodyChanges =>
+      'How do I talk to my child about body changes and privacy?';
+
+  @override
+  String get chatWelcome =>
+      'Welcome — ask about any parenting challenge you face';
+
+  @override
+  String get chatHint =>
+      'Choose the age group and severity from the bar above, then type your question.';
+
+  @override
+  String get chatMyChats => '💬 My Chats';
+
+  @override
+  String get chatNewChat => 'New Chat';
+
+  @override
+  String get chatNoChats => 'No previous chats yet';
+
+  @override
+  String get chatAskAny => 'Ask about any parenting challenge';
+
+  @override
+  String get chatTypeQ => 'Type your question…';
+
+  @override
+  String get chatQuestion => 'question';
+
+  @override
+  String get chatMessage => 'message';
+
+  @override
+  String chatTurns(Object count) {
+    return '$count questions';
+  }
+
+  @override
+  String get chatOfflineBanner => 'No Internet Connection';
+
+  @override
+  String get chatInit => 'Initializing session…';
+
+  @override
+  String get chatOfflineMsg =>
+      'Offline — questions require internet connection';
+
+  @override
+  String get chatError => 'An error occurred. Try again.';
+
+  @override
+  String get chatTypeHint => 'Type your question…';
+
+  @override
+  String get chatBehaviorOptional => 'Behavior type (optional)';
+
+  @override
+  String get chatNewConfirmTitle => 'Start a new chat?';
+
+  @override
+  String get chatNewConfirmDesc =>
+      'This will end the current conversation and start a new session.';
+
+  @override
+  String get chatCancel => 'Cancel';
+
+  @override
+  String get chatContinue => 'Continue';
+
+  @override
+  String get chatPrevChats => 'Previous Chats';
+
+  @override
+  String get chatTitle => '🛡️ Al-Murabbi AI';
+
+  @override
+  String chatTurnsCount(Object count) {
+    return '$count questions';
+  }
+
+  @override
+  String get chatNewConversation => 'Start New Chat';
+
+  @override
+  String get chatNoChatsYet => 'No previous chats yet';
+
+  @override
+  String get chatNewChatBtn => 'New Chat';
+
+  @override
+  String chatSessionMessages(Object count) {
+    return '$count messages';
+  }
+
+  @override
+  String get chatEmptyWelcome => 'Welcome — ask about any parenting challenge';
+
+  @override
+  String get chatEmptyHint =>
+      'Type your question. You can add the behaviour type from the context button next to the input.';
+
+  @override
+  String get onbSelectAge => 'Please select an age group.';
+
+  @override
+  String get onbServerSlow =>
+      'The server is taking longer than usual. Check your connection and try again.';
+
+  @override
+  String onbChildError(Object error) {
+    return 'Failed to create child profile: $error';
+  }
+
+  @override
+  String get onbSaving => 'Saving...';
+
+  @override
+  String get onbStartJourney => 'Start Journey';
+
+  @override
+  String get onbEditLater =>
+      'You can edit this information later from Settings.';
+
+  @override
+  String get onbPreparing => 'Preparing your child\'s profile…';
+
+  @override
+  String get onbWelcome => 'Welcome 🌙';
+
+  @override
+  String get onbTagline1 =>
+      '\"Al-Murabbi\" is a complete parenting journey that accompanies your child step by step —';
+
+  @override
+  String get onbTagline2 =>
+      'not fleeting tips, but a curriculum you live with them throughout their journey.';
+
+  @override
+  String get onbFreeTitle => '🤍 Completely free, for the sake of Allah';
+
+  @override
+  String get onbFreeDesc => 'No ads, no subscriptions';
+
+  @override
+  String get onbFeature1Title => 'Step-by-Step Daily Paths';
+
+  @override
+  String get onbFeature1Desc =>
+      'Progressive educational journeys for each age group — followed day by day';
+
+  @override
+  String get onbFeature2Title => 'Lessons, Podcasts & Video';
+
+  @override
+  String get onbFeature2Desc =>
+      'Rich content you experience in multiple ways, not just text to read';
+
+  @override
+  String get onbFeature3Title => 'Child\'s Journey';
+
+  @override
+  String get onbFeature3Desc =>
+      'Record their faith milestones and track their progress over time';
+
+  @override
+  String get onbFeature4Title => 'Smart Assistant';
+
+  @override
+  String get onbFeature4Desc =>
+      'Trusted answers to your parenting challenges when you need them';
+
+  @override
+  String get onbMoreThanReading => 'More Than Just Reading';
+
+  @override
+  String get onbCurriculumDesc =>
+      'A complete educational curriculum you live with your child step by step — not read in minutes:';
+
+  @override
+  String get onbTellUs => 'Tell us about your child';
+
+  @override
+  String get onbPersonalize =>
+      'We\'ll personalize their educational experience.';
+
+  @override
+  String get onbChildName => 'Your child\'s name';
+
+  @override
+  String get onbNameRequired => 'Name is required';
+
+  @override
+  String get onbAgeGroup => 'Age Group';
+
+  @override
+  String get onbChildAvatar => 'Child avatar (optional)';
+
+  @override
+  String get onbTapEmoji => 'Tap to choose emoji';
+
+  @override
+  String get onbTapChangeEmoji => 'Tap to change emoji';
+
+  @override
+  String get onbGender => 'Gender (optional)';
+
+  @override
+  String get onbBoy => 'Boy';
+
+  @override
+  String get onbGirl => 'Girl';
+
+  @override
+  String get onbClear => 'Clear';
+
+  @override
+  String get onbAgeQuestion => 'How old is your child?';
+
+  @override
+  String get onbAgeQuestionSub =>
+      'Just one question — and we\'ll tailor the experience for you right away.';
+
+  @override
+  String get onbFirstTipTitle => 'Your first personalized tip';
+
+  @override
+  String onbTipForAge(String ageLabel) {
+    return 'For ages $ageLabel';
+  }
+
+  @override
+  String get onbTip_prenatal =>
+      'Your voice is your child\'s first school: let adhkar and Quran be the calm soundtrack of their day — the serenity they hear today becomes their safety tomorrow.';
+
+  @override
+  String get onbTip_2to3 =>
+      'At this age, “no” isn\'t defiance — it\'s self-discovery. Offer two choices you\'re happy with either way: they feel in control, and you get what you need.';
+
+  @override
+  String get onbTip_4to6 =>
+      'Make your child love prayer before you ask it of them: let them lay their mat beside yours and copy you with no commands — at this age, example beats a hundred instructions.';
+
+  @override
+  String get onbTip_7to9 =>
+      'This is the age the Sunnah sets for teaching prayer — start with encouragement, not punishment, and anchor one daily prayer together before expecting all five.';
+
+  @override
+  String get onbTip_10to12 =>
+      'These are the trust-building years before adolescence: give your child 10 minutes a day of listening with no interruptions and no advice — a child who finds an ear at home won\'t go looking for one outside.';
+
+  @override
+  String get onbTip_13to15 =>
+      'Teenagers don\'t hear lectures, but they watch actions. Treat them as a partner: ask their opinion and discuss instead of command — respect opens what orders shut.';
+
+  @override
+  String get onbTip_16to18 =>
+      'Your child is on the doorstep of independence: shift from “supervisor” to “advisor”, and start big decisions with “what do you think?” before “do this”.';
+
+  @override
+  String get onbReadyForYou => 'Waiting for you inside the app:';
+
+  @override
+  String get onbReadyPath =>
+      'A step-by-step parenting path tailored to this stage';
+
+  @override
+  String get onbReadyChat =>
+      'A smart mentor that answers your questions, like:';
+
+  @override
+  String get onbDefaultChildName => 'My child';
+
+  @override
+  String get onbDeferredHint =>
+      'You can add your child\'s name and photo later from Settings.';
+
+  @override
+  String get onbChangeAge => 'Change age';
+
+  @override
+  String get onbPreparingStep1 => 'Preparing your child\'s profile…';
+
+  @override
+  String get onbPreparingStep2 => 'Picking the first lesson for you…';
+
+  @override
+  String get onbAskSampleHint =>
+      'Tap the question and the mentor will ask it for you after sign-up';
+
+  @override
+  String get onbAskSampleArmed =>
+      'The mentor will open on your question after sign-up ✓';
+
+  @override
+  String get noorName => 'Noor, your mentor';
+
+  @override
+  String prideStreakTitle(int days) {
+    return 'MashaAllah — $days days in a row! 🔥';
+  }
+
+  @override
+  String get prideStreakBody =>
+      'This consistency is a blessing worth sharing. Know a family who would love the same? Guiding others to good is an ongoing charity.';
+
+  @override
+  String get prideInviteCta => 'Invite a friend';
+
+  @override
+  String get prideLater => 'Later';
+
+  @override
+  String get prideStoryInvite =>
+      'Did the story delight your child? Share it with another family 🤍';
+
+  @override
+  String get quranDailyWird => 'Daily Portion';
+
+  @override
+  String get quranCompleteReading => 'Complete Reading';
+
+  @override
+  String quranSurahVerse(Object surah, Object verse) {
+    return 'Surah $surah - Verse $verse';
+  }
+
+  @override
+  String quranVerseCount(Object count) {
+    return 'Verses: $count';
+  }
+
+  @override
+  String quranLoadError(Object error) {
+    return 'Error loading Quran: $error';
+  }
+
+  @override
+  String get quranChooseReciter => 'Choose Reciter';
+
+  @override
+  String get quranPlayError =>
+      'Failed to play recitation. Check your internet connection.';
+
+  @override
+  String get quranReciter => 'Reciter';
+
+  @override
+  String get quranStopRecitation => 'Stop Recitation';
+
+  @override
+  String get quranListen => 'Listen';
+
+  @override
+  String get quranLoading => 'Loading...';
+
+  @override
+  String get quranDailyComplete =>
+      'You\'ve completed today\'s portion, may Allah bless you!';
+
+  @override
+  String quranDailyProgress(Object current, Object total) {
+    return 'Daily portion: $current / $total verses';
+  }
+
+  @override
+  String get quranNextSurah => 'Next Surah';
+
+  @override
+  String get quranPrevSurah => 'Previous Surah';
+
+  @override
+  String get quranStop => 'Stop';
+
+  @override
+  String get quranBismillah =>
+      'In the name of Allah, the Most Gracious, the Most Merciful';
+
+  @override
+  String get routineTitle => 'Habit Balance';
+
+  @override
+  String get routineDailyTracker => 'Daily Tracker';
+
+  @override
+  String get routineNewEvent => 'New Event';
+
+  @override
+  String get routineUnder9 =>
+      'Daily tracking is available for children up to 9 years old';
+
+  @override
+  String get routineAddChildFirst =>
+      'Add your child first from the Today screen';
+
+  @override
+  String routineSummary(Object days) {
+    return '$days-day summary';
+  }
+
+  @override
+  String get routineSleep => 'Sleep';
+
+  @override
+  String get routineFeeds => 'Feeds';
+
+  @override
+  String get routineDiapers => 'Diapers';
+
+  @override
+  String get routineNoEvents => 'No events today';
+
+  @override
+  String get routineTapPlus => 'Tap + to add your first event';
+
+  @override
+  String get routineDeleteConfirm => 'Delete event?';
+
+  @override
+  String get routineCancel => 'Cancel';
+
+  @override
+  String get routineDelete => 'Delete';
+
+  @override
+  String routineAddEvent(Object type) {
+    return 'Add $type event';
+  }
+
+  @override
+  String get routineNoteOptional => 'Note (optional)';
+
+  @override
+  String get routineNoMedNote => 'Don\'t write medications or medical symptoms';
+
+  @override
+  String get routineSave => 'Save';
+
+  @override
+  String get routineBreast => 'Breast';
+
+  @override
+  String get routineBottle => 'Bottle';
+
+  @override
+  String get routineSolidFood => 'Solid food';
+
+  @override
+  String get routineLeft => 'Left';
+
+  @override
+  String get routineRight => 'Right';
+
+  @override
+  String get routineBoth => 'Both';
+
+  @override
+  String get routineQuantityMl => 'Quantity approximately (ml)';
+
+  @override
+  String get routineWet => 'Wet';
+
+  @override
+  String get routineSolid => 'Solid';
+
+  @override
+  String get routineEndTime => 'End:';
+
+  @override
+  String get routineWakeTime => 'Choose wake time';
+
+  @override
+  String get routineMedicalWarning =>
+      'The note contains medical terminology/medication. Please write a routine note only.';
+
+  @override
+  String get routineError => 'An error occurred';
+
+  @override
+  String routineQrError(Object error) {
+    return 'Failed to create QR code: $error';
+  }
+
+  @override
+  String get routineShareBalance => 'Share the balance with the teen';
+
+  @override
+  String get routineQrInstructions =>
+      'Scan the code from your son\'s phone, or copy the link and send it via WhatsApp.';
+
+  @override
+  String get routineClose => 'Close';
+
+  @override
+  String get routineLinkCopied => 'Link copied';
+
+  @override
+  String get routineCopyLink => 'Copy link';
+
+  @override
+  String get routineCustomize => 'Customize Habits';
+
+  @override
+  String get routineChild => 'Child';
+
+  @override
+  String get routineShareWeb => 'Share balance via Web 🔗';
+
+  @override
+  String get routineChildMode => 'Hand device to child (Child Mode)';
+
+  @override
+  String get parentDayTitle => 'Their day';
+
+  @override
+  String get agreementTitle => 'Family agreement';
+
+  @override
+  String get routineTodayPoints => 'Today\'s Points';
+
+  @override
+  String get routineNoHabits => 'No habits in this section';
+
+  @override
+  String routineRecordFailed(Object error) {
+    return 'Failed to record: $error';
+  }
+
+  @override
+  String routineDeleteFailed(Object error) {
+    return 'Failed to delete: $error';
+  }
+
+  @override
+  String get settingsMediaLangChanged => 'Media language changed to Arabic';
+
+  @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get settingsNoChild => 'No active child profile.';
+
+  @override
+  String get settingsSwitchChild => 'Switch active child';
+
+  @override
+  String settingsChildCount(Object count, Object max) {
+    return 'You have $count of $max children';
+  }
+
+  @override
+  String get settingsEditChild => 'Edit child info';
+
+  @override
+  String get settingsEditChildDesc => 'Name, age group, avatar, gender';
+
+  @override
+  String get settingsInviteFriend => 'Invite a friend 🤍';
+
+  @override
+  String get settingsInviteDesc =>
+      'Your guidance is charity — both of you earn a reward';
+
+  @override
+  String get settingsBackup => 'Save your progress 🤍';
+
+  @override
+  String get settingsBackupDesc =>
+      'Optional login — saves your data if you change devices';
+
+  @override
+  String get settingsShareFeedback => 'Share your feedback';
+
+  @override
+  String get settingsShareFeedbackDesc =>
+      'A suggestion or issue — written or voice, reaches us directly';
+
+  @override
+  String get settingsResetProgress => 'Reset progress';
+
+  @override
+  String get settingsResetDesc =>
+      'All completed lessons will be cleared and streak reset to 0';
+
+  @override
+  String get settingsMediaLang => 'Educational media language';
+
+  @override
+  String get settingsArabicMedia => 'Arabic (Arabic podcasts and video)';
+
+  @override
+  String get settingsRate => 'Rate the app';
+
+  @override
+  String get settingsRateDesc =>
+      'Your review helps other parents find Al-Murabbi';
+
+  @override
+  String get settingsPrivacy => 'Privacy Policy';
+
+  @override
+  String get settingsPrivacyDesc => 'How we handle your data';
+
+  @override
+  String get settingsFavorites => 'Favorites';
+
+  @override
+  String get settingsFavoritesDesc => 'Lessons and tips you\'ve saved';
+
+  @override
+  String get settingsAchievements => 'My Achievements';
+
+  @override
+  String get settingsAchievementsDesc => 'Badges you\'ve earned';
+
+  @override
+  String get settingsExport => 'Export my data';
+
+  @override
+  String get settingsExportDesc => 'Export favorites and notes as JSON file';
+
+  @override
+  String get settingsImport => 'Import my data';
+
+  @override
+  String get settingsImportDesc => 'Import backup from JSON file';
+
+  @override
+  String settingsVersion(Object version) {
+    return 'Version $version';
+  }
+
+  @override
+  String get settingsPreparingBackup => 'Preparing backup...';
+
+  @override
+  String get settingsBackupTitle => 'Al-Murabbi Data Backup';
+
+  @override
+  String get settingsBackupName => 'Backup - Al-Murabbi';
+
+  @override
+  String get settingsExportSuccess => 'Data exported successfully';
+
+  @override
+  String settingsExportFailed(Object error) {
+    return 'Export failed: $error';
+  }
+
+  @override
+  String get settingsImportFile => 'Choose backup file';
+
+  @override
+  String get settingsImportConfirm => 'Import data?';
+
+  @override
+  String get settingsImportDesc1 =>
+      'Imported data will be merged with your current data.';
+
+  @override
+  String get settingsImportDesc2 => 'This action cannot be easily undone.';
+
+  @override
+  String get settingsImportBtn => 'Import';
+
+  @override
+  String get settingsImporting => 'Importing data...';
+
+  @override
+  String settingsImportSuccess(Object favorites, Object reflections) {
+    return 'Imported successfully: $reflections notes, $favorites favorites';
+  }
+
+  @override
+  String settingsImportFailed(Object error) {
+    return 'Import failed: $error';
+  }
+
+  @override
+  String get settingsResetConfirm => 'Reset progress?';
+
+  @override
+  String settingsResetDesc1(Object name) {
+    return 'All completed lessons for $name will be cleared and streak reset to zero.';
+  }
+
+  @override
+  String get settingsResetDesc2 => 'This action cannot be undone.';
+
+  @override
+  String get settingsResetBtn => 'Reset';
+
+  @override
+  String get settingsNoProgress => 'No progress to reset.';
+
+  @override
+  String settingsResetDone(Object count) {
+    return '$count lessons cleared. Streak is now 0.';
+  }
+
+  @override
+  String settingsResetFailed(Object error) {
+    return 'Reset failed: $error';
+  }
+
+  @override
+  String get settingsFamilyAdhkar => 'Family Adhkar Notifications';
+
+  @override
+  String get settingsFamilyAdhkarDesc =>
+      'One verse, hadith or tip each morning';
+
+  @override
+  String get settingsEnglishMedia => 'English (English audio/video)';
+
+  @override
+  String get settingsMediaLangChangedEn => 'Media language changed to English';
+
+  @override
+  String settingsLoadFailed(Object error) {
+    return 'Failed to load settings.\n$error';
+  }
+
+  @override
+  String get settingsMethodologyLink => 'Our Methodology & Sources';
+
+  @override
+  String get settingsMethodologyDesc =>
+      'How we choose our content and its scholarly sources';
+
+  @override
+  String get settingsFollowUs => 'Follow us';
+
+  @override
+  String get settingsFollowUsDesc => 'Short clips and tips, as they go out';
+
+  @override
+  String get genderOther => 'Other';
+
+  @override
+  String get lessonTitle => 'Lesson';
+
+  @override
+  String get lessonCompleted => 'Completed ✓';
+
+  @override
+  String get lessonMarking => 'Recording…';
+
+  @override
+  String get lessonMarkComplete => 'I finished this lesson';
+
+  @override
+  String get lessonSummary => 'Lesson Summary';
+
+  @override
+  String get lessonTryThis => 'Try This';
+
+  @override
+  String get lessonReflections => 'Reflection Questions';
+
+  @override
+  String lessonUnitRefs(Object count) {
+    return 'Linked to $count knowledge base units';
+  }
+
+  @override
+  String get lessonWarningFollowup =>
+      'This lesson contains guidance worth following up with a specialist. Don\'t hesitate to consult a doctor or developmental specialist if needed.';
+
+  @override
+  String get lessonErrorLoading => 'Failed to load lesson';
+
+  @override
+  String lessonErrorMarking(Object error) {
+    return 'Failed to record completion: $error';
+  }
+
+  @override
+  String get lessonCelebrationTitle => 'MashaAllah!';
+
+  @override
+  String lessonCelebrationMsg(int n, int total, String path) {
+    return 'You finished lesson $n of $total in \"$path\"';
+  }
+
+  @override
+  String get lessonNextStepTitle => 'Your step with your child tonight';
+
+  @override
+  String get lessonNextStepIntro =>
+      'A lesson you never act on stays a fact. Here is one small step to start with today.';
+
+  @override
+  String get lessonNextStepConfirm => 'Got it — I’ll do it 🤍';
+
+  @override
+  String get lessonFavAdd => 'Add to favorites';
+
+  @override
+  String get lessonFavRemove => 'Remove from favorites';
+
+  @override
+  String get lessonStatusCompleted => 'Completed';
+
+  @override
+  String get lessonStatusInProgress => 'In Progress';
+
+  @override
+  String get lessonStatusNotStarted => 'Not Started';
+
+  @override
+  String get lessonStartInteractive => 'Start with interactive content';
+
+  @override
+  String get lessonListenPodcast => '🎧 Listen to the podcast';
+
+  @override
+  String get lessonWatchVideo => '🎥 Educational Video';
+
+  @override
+  String lessonFlashcards(Object count) {
+    return '📇 Flashcards ($count cards)';
+  }
+
+  @override
+  String lessonQuiz(Object count) {
+    return '❓ Test yourself ($count questions)';
+  }
+
+  @override
+  String get lessonInfographic => '📊 Lesson Infographic';
+
+  @override
+  String get lessonReport => '📄 Lesson Report';
+
+  @override
+  String get lessonDataTable => '📋 Data Table';
+
+  @override
+  String get lessonPlayCyber => '🎮 Play & Learn (Data Defender)';
+
+  @override
+  String get lessonPlayMedical => '🎮 Play & Learn';
+
+  @override
+  String get lessonPlayIslamic => '🎮 Play & Learn (Tree of Character)';
+
+  @override
+  String get lessonPlayDev => '🎮 Play & Learn (Emotion Maze)';
+
+  @override
+  String get lessonVideoTitle => '🎥 Watch the Educational Video';
+
+  @override
+  String get lessonPodcastTitle => '🎧 Podcast';
+
+  @override
+  String lessonVideoUnitTitle(Object title) {
+    return '🎥 Unit Video: $title';
+  }
+
+  @override
+  String get lessonInteractiveHint =>
+      'Listen, watch, and play — then read the summary below';
+
+  @override
+  String get lessonMediaOtherLanguage =>
+      'ℹ️ The lesson text is in your language; some media (audio/video) is still in Arabic — we are working on it.';
+
+  @override
+  String journeyTitle(Object name) {
+    return '$name\'s Journey';
+  }
+
+  @override
+  String get journeyLoading => 'Failed to load the journey.';
+
+  @override
+  String get journeyStartFirst =>
+      'Start by logging the first milestone in their journey';
+
+  @override
+  String journeyCount(Object count) {
+    return 'You\'ve logged $count milestones — log ones you\'re proud of 💛';
+  }
+
+  @override
+  String get journeyMilestoneLog => 'Log a custom milestone';
+
+  @override
+  String get journeyDeleteMilestone => 'Delete milestone';
+
+  @override
+  String journeyDeleteConfirm(Object name, Object title) {
+    return 'Delete \"$title\" from $name\'s journey?';
+  }
+
+  @override
+  String get journeyFaithMilestones => 'Faith Milestones 🕌';
+
+  @override
+  String get journeyDevMilestones => 'Developmental Milestones 📈 (by age)';
+
+  @override
+  String get journeyEmpty =>
+      'Every child\'s journey is unique. Log the first milestone from the suggestions below.';
+
+  @override
+  String get journeyNewMilestone => 'New milestone';
+
+  @override
+  String get journeyMilestoneTitle => 'Milestone title';
+
+  @override
+  String get journeyMilestoneHint => 'e.g. Said their first kind word';
+
+  @override
+  String get journeyMilestoneNote => 'Note (optional)';
+
+  @override
+  String get journeyMilestoneNoteHint => 'Write a moment you\'ll remember…';
+
+  @override
+  String get journeyMilestoneSave => 'Log milestone';
+
+  @override
+  String journeyChallengeTitle(Object name) {
+    return '$name\'s current challenge';
+  }
+
+  @override
+  String get journeyChallengeDone => 'Solved ✓';
+
+  @override
+  String get journeyChallengeDesc =>
+      'Pick a challenge to focus on — the coach will prioritize daily tips for it.';
+
+  @override
+  String get journeyChallengeActive =>
+      'The coach is focusing on this challenge in daily tips.';
+
+  @override
+  String get journeySaveError => 'Failed to save — check your connection.';
+
+  @override
+  String get journeyQuranTitle => 'Quran Memorization';
+
+  @override
+  String get journeyQuranTrack =>
+      'Track what they memorize — and celebrate the first surah';
+
+  @override
+  String journeyQuranCount(Object count) {
+    return '$count surahs memorized';
+  }
+
+  @override
+  String get pathDetailTitle => 'Path Details';
+
+  @override
+  String pathDetailLessons(Object count) {
+    return 'Lessons ($count)';
+  }
+
+  @override
+  String get pathDetailEmpty => 'No lessons in this path yet';
+
+  @override
+  String get pathDetailStart => 'Start Path';
+
+  @override
+  String get pathDetailContinue => 'Continue Path';
+
+  @override
+  String get pathDetailShare => 'Share Path Completion 🤍';
+
+  @override
+  String pathDetailVideoUnit(Object title) {
+    return '🎥 Unit Video: $title';
+  }
+
+  @override
+  String get pathDetailVideoIntro => '🎥 Intro Video';
+
+  @override
+  String pathDetailVideoIntroTitle(Object title) {
+    return '🎥 Intro video for $title';
+  }
+
+  @override
+  String pathDetailDays(Object count) {
+    return '⏱️ $count days';
+  }
+
+  @override
+  String pathDetailLessonsCount(Object count) {
+    return '📚 $count lessons';
+  }
+
+  @override
+  String get pathDetailStreakStart => '🔥 Start your streak today';
+
+  @override
+  String pathDetailStreakDays(Object count) {
+    return '🔥 $count day streak';
+  }
+
+  @override
+  String get pathDetailRefMain => 'Primary Reference';
+
+  @override
+  String get pathDetailRefHadith => 'Hadith';
+
+  @override
+  String get pathDetailRefResearch => 'Research';
+
+  @override
+  String get pathDetailRefDevArticle => 'Developmental Article';
+
+  @override
+  String pathDetailTrailLesson(Object order, Object status, Object title) {
+    return 'Lesson $order: $title. $status';
+  }
+
+  @override
+  String pathDetailMinutes(Object count) {
+    return '⏱️ $count min';
+  }
+
+  @override
+  String get pathDetailFollowup => 'Specialist Follow-up';
+
+  @override
+  String get quizTitleAppBar => '🧠 Test Your Knowledge';
+
+  @override
+  String get quizErrorLoading => 'Error loading questions';
+
+  @override
+  String get quizErrorConnection => 'Could not connect to server';
+
+  @override
+  String get quizExcellent => 'Excellent! You\'re a mindful parent';
+
+  @override
+  String get quizGood => 'Good! Keep learning';
+
+  @override
+  String get quizKeepLearning => 'No worries, every day is a chance to learn';
+
+  @override
+  String get quizPoints => 'points';
+
+  @override
+  String get quizShareResult => 'Share Your Result 🤍';
+
+  @override
+  String get quizPlayAgain => 'Play Again';
+
+  @override
+  String get quizBack => 'Back';
+
+  @override
+  String get quizNext => 'Next Question';
+
+  @override
+  String get quizShowResults => 'Show Results';
+
+  @override
+  String get quizExcellentShare => 'Excellent! 🏆';
+
+  @override
+  String get quizGoodShare => 'Good! 👏';
+
+  @override
+  String get quizKeepShare => 'Keep Learning 💪';
+
+  @override
+  String get quizResultTitle => 'Quiz Result';
+
+  @override
+  String get quizPraiseExcellent =>
+      'Excellent! — Keep learning daily with Al-Murabbi.';
+
+  @override
+  String get quizPraiseGood => 'Good! — Keep learning daily with Al-Murabbi.';
+
+  @override
+  String get quizPraiseKeep =>
+      'Keep learning — every day is a chance with Al-Murabbi.';
+
+  @override
+  String get covenantTitle => 'Real Rewards Covenant 📜';
+
+  @override
+  String get covenantTabRedeem => 'Redeem Coins 🪙';
+
+  @override
+  String get covenantTabParent => 'Parent Gateway 🔑';
+
+  @override
+  String get covenantBalanceLabel => 'Your Current Coin Balance';
+
+  @override
+  String get covenantBalanceHint =>
+      'Redeem coins for real rewards agreed upon with your parents.';
+
+  @override
+  String get covenantEmpty =>
+      'No rewards available yet. Ask your parents to add some!';
+
+  @override
+  String covenantCost(Object count) {
+    return 'Cost: $count coins 🪙';
+  }
+
+  @override
+  String get covenantRedeem => 'Redeem';
+
+  @override
+  String covenantRemaining(Object count) {
+    return '$count remaining';
+  }
+
+  @override
+  String get covenantInsufficient => 'Sorry, you don\'t have enough coins! 🪙';
+
+  @override
+  String get covenantSuccess => '🎉 Redeemed Successfully!';
+
+  @override
+  String covenantSuccessMsg(Object cost, Object title) {
+    return 'You requested: \"$title\" for $cost coins. Tell your parents to deliver it in real life!';
+  }
+
+  @override
+  String get covenantDelivered => 'Reward delivery recorded! ✅';
+
+  @override
+  String get covenantOverdueTitle => 'A reward is still waiting';
+
+  @override
+  String covenantOverdueBody(int count) {
+    return '$count reward(s) redeemed over a week ago still haven\'t arrived. A promise not kept teaches more than one never made.';
+  }
+
+  @override
+  String get covenantParentWelcome =>
+      'Parent Gateway: Add real rewards parents commit to (like trips or gifts), and track your child\'s redemption requests.';
+
+  @override
+  String get covenantAddNew => 'Add New Reward ➕';
+
+  @override
+  String get covenantPending => 'Pending Real-World Deliveries ⏳';
+
+  @override
+  String get covenantPendingEmpty => 'No pending requests.';
+
+  @override
+  String covenantPendingRedeemed(Object cost) {
+    return 'Your child redeemed it for $cost coins 🪙';
+  }
+
+  @override
+  String get covenantDeliver => 'Delivered ✅';
+
+  @override
+  String get covenantManage => 'Available Rewards & Management ⚙️';
+
+  @override
+  String get covenantManageEmpty => 'No rewards added yet.';
+
+  @override
+  String get covenantHistory => 'Previously Delivered Rewards ✅';
+
+  @override
+  String get covenantHistoryEmpty => 'No delivered rewards yet.';
+
+  @override
+  String covenantHistoryRedeemed(Object cost) {
+    return 'Redeemed for $cost coins';
+  }
+
+  @override
+  String get covenantAddTitle => 'Add New Real Reward';
+
+  @override
+  String get covenantAddNameLabel =>
+      'Reward name in real life (e.g. Family trip 🍦)';
+
+  @override
+  String get covenantAddCostLabel => 'Coin cost 🪙';
+
+  @override
+  String get inviteDesc =>
+      'Sharing Al-Murabbi with a friend opens a door of good for their child 🌿';
+
+  @override
+  String get inviteSharePreparing => 'Preparing…';
+
+  @override
+  String get inviteShareBtn => 'Share the Invitation';
+
+  @override
+  String get inviteHaveCode => 'Have a friend\'s code?';
+
+  @override
+  String get inviteActivate => 'Activate';
+
+  @override
+  String get inviteCodeCopied => 'Code copied';
+
+  @override
+  String get inviteYourCode => 'Your Referral Code';
+
+  @override
+  String get inviteSuccess =>
+      'Code added — may Allah reward your friend 🤍 (+reward)';
+
+  @override
+  String get inviteAlreadyClaimed =>
+      'A referral code was already used on this device.';
+
+  @override
+  String get inviteInvalidCode => 'Invalid code, please check it.';
+
+  @override
+  String get inviteError => 'Connection failed, try again later.';
+
+  @override
+  String get childrenTitle => 'Manage Children';
+
+  @override
+  String get childrenEmpty =>
+      'No children on this device. Start by adding your first child.';
+
+  @override
+  String get childrenAddNew => 'Add New Child';
+
+  @override
+  String childrenMaxReached(Object count) {
+    return 'Maximum reached ($count children). Delete a child to add a new one.';
+  }
+
+  @override
+  String childrenCount(Object count, Object max) {
+    return 'You have $count of $max children';
+  }
+
+  @override
+  String childrenSwitchTo(Object name) {
+    return 'Switched to $name.';
+  }
+
+  @override
+  String childrenSwitchError(Object error) {
+    return 'Switch failed: $error';
+  }
+
+  @override
+  String get childrenActive => 'Active';
+
+  @override
+  String get childrenJourney => 'Child\'s Journey';
+
+  @override
+  String get childrenDelete => 'Delete Child';
+
+  @override
+  String childrenDeleteConfirm(Object name) {
+    return 'Are you sure you want to delete \"$name\"? Their profile will be permanently removed.';
+  }
+
+  @override
+  String childrenDeleted(Object name) {
+    return '$name deleted.';
+  }
+
+  @override
+  String childrenDeleteError(Object error) {
+    return 'Delete failed: $error';
+  }
+
+  @override
+  String get childrenErrorLoading => 'Failed to load children list.';
+
+  @override
+  String get childrenAgePrenatal => 'Pregnancy – 1 year';
+
+  @override
+  String get parentingInsightsTitle => 'Parenting Insights 🧠';
+
+  @override
+  String get parentingInsightsLoading =>
+      'Analyzing your child\'s activity and generating recommendations...';
+
+  @override
+  String get parentingInsightsNoChild => 'Please select a child first.';
+
+  @override
+  String get parentingInsightsError =>
+      'Failed to load data. Check your internet connection.';
+
+  @override
+  String parentingInsightsWelcome(Object name) {
+    return 'Welcome to Parenting Insights! We analyze the weekly routine and chat messages to provide personalized guidance for $name\'s upbringing.';
+  }
+
+  @override
+  String get parentingInsightsWeekly => 'Recent Weekly Activity 📊';
+
+  @override
+  String get parentingInsightsSleep => 'Sleep';
+
+  @override
+  String get parentingInsightsFeeds => 'Feeds';
+
+  @override
+  String get parentingInsightsDiapers => 'Diapers';
+
+  @override
+  String get parentingInsightsRecommendations =>
+      'Smart Coach Recommendations ✨';
+
+  @override
+  String get parentingInsightsNoData =>
+      'Not enough recommendations yet. Keep logging routines and chatting with the assistant for personalized tips.';
+
+  @override
+  String get habitChildModeTitle => 'Habit Tracker';
+
+  @override
+  String get habitChildModeExit => 'Exit';
+
+  @override
+  String get habitChildModeExitTitle => 'Exit Child Mode';
+
+  @override
+  String get habitChildModeExitConfirm =>
+      'Exit child mode and return to the parent account?';
+
+  @override
+  String get habitChildModeLogged => 'Recorded';
+
+  @override
+  String get habitChildModeDone => 'Done';
+
+  @override
+  String get habitChildModePartial => 'Partial';
+
+  @override
+  String get habitChildModeMissed => 'Missed';
+
+  @override
+  String get habitChildModeConfirmTitle => 'Confirm Recording';
+
+  @override
+  String habitChildModeConfirmMsg(Object label, Object name) {
+    return 'Record \"$name\" as \"$label\"? This can only be changed from the parent account.';
+  }
+
+  @override
+  String get habitChildModeFailed => 'Recording failed. Try again.';
+
+  @override
+  String get habitChildModeExpired =>
+      'Session expired. Please return the device to the parent.';
+
+  @override
+  String get storyTitle => 'Custom Story 📖';
+
+  @override
+  String get storyThemeIntro =>
+      'Choose a value, and we\'ll write a short story starring your child 🌟';
+
+  @override
+  String get storyGenerating => 'Writing your story…';
+
+  @override
+  String get storyGenerateFree => 'Write me a story ✨';
+
+  @override
+  String get storyLoading => 'This may take a moment…';
+
+  @override
+  String get storyAnother => 'Another Story';
+
+  @override
+  String get storyRecordInYourVoice => 'Record it in your voice 🎙️';
+
+  @override
+  String get storyListenScreenOff => 'Listen with the screen off 🌙';
+
+  @override
+  String storyError(Object error) {
+    return 'Story generation failed: $error';
+  }
+
+  @override
+  String get pathsTitle => 'Learn 🛤️';
+
+  @override
+  String get pathsReaderBanner =>
+      '📖 These lessons are for you to read — then put into practice with your child.';
+
+  @override
+  String pathAudienceMeta(Object age, Object domain) {
+    return 'About your child aged $age · $domain';
+  }
+
+  @override
+  String pathAudienceAge(Object age) {
+    return 'For your child aged $age';
+  }
+
+  @override
+  String get pathsFilterAll => 'All';
+
+  @override
+  String get pathsEmpty => 'No paths yet';
+
+  @override
+  String get pathsEmptyDesc => 'No paths available for this age group yet.';
+
+  @override
+  String get pathsError => 'Failed to load paths';
+
+  @override
+  String get coinsTitle => 'My Coins 🪙';
+
+  @override
+  String get coinsUnit => 'coins';
+
+  @override
+  String coinsStreak(Object count) {
+    return '🔥 $count-day login streak';
+  }
+
+  @override
+  String get coinsDailyClaim => 'Claim Today\'s Reward 🎁';
+
+  @override
+  String coinsRewardSnack(Object reward) {
+    return '+$reward coins! 🪙';
+  }
+
+  @override
+  String get coinsDailyDone => 'Today\'s reward claimed — come back tomorrow!';
+
+  @override
+  String get coinsEarnHow => 'How to earn coins?';
+
+  @override
+  String get coinsEarnDaily => 'Daily Login';
+
+  @override
+  String coinsEarnDailyDesc(Object count) {
+    return '+$count coins every day, more with streaks';
+  }
+
+  @override
+  String get coinsEarnBadge => 'Unlock a Badge';
+
+  @override
+  String coinsEarnBadgeDesc(Object count) {
+    return '+$count coins per badge';
+  }
+
+  @override
+  String get coinsEarnInvite => 'Invite a Friend';
+
+  @override
+  String coinsEarnInviteDesc(Object count) {
+    return '+$count coins for each family that joins through your invite';
+  }
+
+  @override
+  String get coinsRedeemTitle => 'Spend your coins 🎁';
+
+  @override
+  String get agreementShareTooltip => 'Share or print';
+
+  @override
+  String get agreementYourChild => 'your child';
+
+  @override
+  String get agreementPickChildFirst => 'Choose a child first.';
+
+  @override
+  String get agreementKeepOneClause =>
+      'You removed every clause. Keep at least one.';
+
+  @override
+  String get agreementParentSigned =>
+      'You signed. Your child signs next, in child mode.';
+
+  @override
+  String get agreementUnavailable =>
+      'The family agreement is available now for ages 7–9 and 13–15.\n\nClauses are written for each age: a clause for a seven-year-old is not one for a twelve-year-old, and an agreement in words that don\'t fit the child\'s age is signed and then forgotten.';
+
+  @override
+  String get agreementIntro =>
+      'Every clause for your child has one for you. That is what makes it an agreement, not a list of orders — and your child will hold you to it from the first day.';
+
+  @override
+  String agreementOf(String name) {
+    return '$name\'s agreement';
+  }
+
+  @override
+  String get agreementWaitingChild =>
+      'You signed — waiting for your child\'s signature';
+
+  @override
+  String get agreementSignedBoth => 'Signed by both ✍️';
+
+  @override
+  String get agreementSignHere => 'Sign here';
+
+  @override
+  String get agreementSaveAndSign => 'Save and sign';
+
+  @override
+  String get agreementAfterSign =>
+      'After you sign, open child mode so your child can read the clauses and sign. The agreement only works with both signatures.';
+
+  @override
+  String get coinsAlsoFreeTitle => 'Also in the app — no coins needed';
+
+  @override
+  String get coinsRedeemStory => 'Custom Story for Your Child';
+
+  @override
+  String get coinsRedeemStoryDesc =>
+      'A short story starring your child, teaching a value you choose — free';
+
+  @override
+  String get coinsRedeemCovenant => 'Real Rewards Covenant';
+
+  @override
+  String get coinsRedeemCovenantDesc =>
+      'Redeem coins for real rewards agreed with your parents';
+
+  @override
+  String get coinsRedeemBadges => 'Exclusive Badges';
+
+  @override
+  String get coinsRedeemBadgesDesc =>
+      'Badges you unlock by doing, not with coins';
+
+  @override
+  String get favoritesTitle => 'Favorites';
+
+  @override
+  String get favoritesClearAll => 'Clear All Favorites?';
+
+  @override
+  String get favoritesClearAllMsg =>
+      'All saved lessons and tips will be removed. This cannot be undone.';
+
+  @override
+  String get favoritesCleared => 'All favorites cleared';
+
+  @override
+  String get favoritesSavedLessons => 'Saved Lessons';
+
+  @override
+  String get favoritesSavedTips => 'Saved Tips';
+
+  @override
+  String get favoritesEmpty => 'No favorites yet';
+
+  @override
+  String get favoritesEmptyHint =>
+      'Tap the heart icon ♡ on any lesson or tip\nto add it here for quick access.';
+
+  @override
+  String get favoritesErrorLoad => 'Failed to load this saved item';
+
+  @override
+  String get favoritesTipSaved => 'Saved daily tip';
+
+  @override
+  String get editChildTitle => 'Edit Child Profile';
+
+  @override
+  String get editChildSaving => 'Saving…';
+
+  @override
+  String get editChildSaveBtn => 'Save Changes';
+
+  @override
+  String get editChildSaved => 'Changes saved.';
+
+  @override
+  String editChildSaveError(Object error) {
+    return 'Failed to save: $error';
+  }
+
+  @override
+  String get editChildName => 'Child\'s Name';
+
+  @override
+  String get editChildAge => 'Age Group';
+
+  @override
+  String get editChildAvatar => 'Child\'s Avatar';
+
+  @override
+  String get editChildGender => 'Gender';
+
+  @override
+  String get addChildTitle => 'Add Child';
+
+  @override
+  String get addChildAdding => 'Adding…';
+
+  @override
+  String get addChildBtn => 'Add Child';
+
+  @override
+  String addChildAdded(Object name) {
+    return '$name added successfully.';
+  }
+
+  @override
+  String addChildError(Object error) {
+    return 'Failed to add child: $error';
+  }
+
+  @override
+  String get addChildNameHint => 'e.g. Yusuf, Maryam, Ziyad';
+
+  @override
+  String get addChildAgeRequired => 'Please select an age group.';
+
+  @override
+  String get updateSplashTitle => 'Major Update 🎉';
+
+  @override
+  String updateSplashVersion(Object version) {
+    return 'Version $version — What\'s New?';
+  }
+
+  @override
+  String get updateSplashStart => 'Get Started';
+
+  @override
+  String get updateSplashOnce =>
+      'One-time only — this screen won\'t appear again.';
+
+  @override
+  String get updateSplashFeature1 => 'Your Answer No Longer Disappears';
+
+  @override
+  String get updateSplashFeature1Desc =>
+      'If you close the screen or lose connection mid-reply, what you received is kept in the conversation instead of vanishing and leaving your question unanswered.';
+
+  @override
+  String get updateSplashFeature2 => 'Suggestions Closer to Your Questions';
+
+  @override
+  String get updateSplashFeature2Desc =>
+      'We swapped the suggested questions based on what parents actually ask about: fears, sibling jealousy, and body changes.';
+
+  @override
+  String get updateSplashFeature3 => 'Faster Replies';
+
+  @override
+  String get updateSplashFeature3Desc =>
+      'The knowledge-base search was running twice on every question for no reason — now it runs once.';
+
+  @override
+  String get updateSplashFeature4 => 'The Conversation Stays Coherent';
+
+  @override
+  String get updateSplashFeature4Desc =>
+      'When a reply fails, it no longer leaks into the context of your next question and muddles the answer.';
+
+  @override
+  String quranMemTitle(Object name) {
+    return 'Quran Memorization — $name';
+  }
+
+  @override
+  String quranMemCount(Object count) {
+    return '$count of 114 surahs memorized';
+  }
+
+  @override
+  String get quranMemHint => 'Mark completed surahs — we celebrate every step';
+
+  @override
+  String quranMemFirstSurah(Object surah) {
+    return 'First Surah Memorized — $surah';
+  }
+
+  @override
+  String get feedbackTitle => 'Share Your Feedback';
+
+  @override
+  String get feedbackRepliesTitle => 'Replies to you 💬';
+
+  @override
+  String get feedbackReplyFrom => 'The Almorabbi team';
+
+  @override
+  String get feedbackDesc =>
+      'Your opinion matters and goes straight to the Al-Murabbi team. Write your note or record it as a voice message.';
+
+  @override
+  String get feedbackMessageLabel => 'Your Feedback';
+
+  @override
+  String get feedbackMessageHint =>
+      'Write your suggestion or the issue you encountered…';
+
+  @override
+  String get feedbackRecording => 'Recording… Tap to stop';
+
+  @override
+  String get feedbackRecorded => 'Voice note recorded ✓';
+
+  @override
+  String get feedbackRecordOptional => 'Record a voice note (optional)';
+
+  @override
+  String get feedbackMicPermission =>
+      'Microphone permission is needed to record a voice note.';
+
+  @override
+  String get feedbackRecordError =>
+      'Voice recording failed on this device — you can write instead.';
+
+  @override
+  String get feedbackEmpty =>
+      'Write your note or record a voice message first.';
+
+  @override
+  String get feedbackAudioTooBig =>
+      'Audio file too large (over 2MB). Try recording shorter.';
+
+  @override
+  String get feedbackContactLabel => 'Contact Info (optional)';
+
+  @override
+  String get feedbackContactHint => 'Email or phone number for a reply';
+
+  @override
+  String get feedbackSending => 'Sending…';
+
+  @override
+  String feedbackSent(Object id) {
+    return 'Feedback received, thank you! 🌿 (ID: $id)';
+  }
+
+  @override
+  String feedbackSendError(Object error) {
+    return 'Failed to send: $error';
+  }
+
+  @override
+  String quizTurnsCount(Object count, Object total) {
+    return '$count / $total';
+  }
+
+  @override
+  String cardCount(Object current, Object total) {
+    return 'Card $current of $total';
+  }
+
+  @override
+  String get tapToContinue => 'Tap to flip · swipe for next';
+
+  @override
+  String get previousCard => 'Previous';
+
+  @override
+  String get nextCard => 'Next';
+
+  @override
+  String get finishedCards => 'You finished the cards! 🎉';
+
+  @override
+  String get habitCategoryWorship => 'Worship';
+
+  @override
+  String get habitCategorySelfBuilding => 'Self-building';
+
+  @override
+  String get habitCategoryStudy => 'Study';
+
+  @override
+  String get habitPrayerFajr => 'Fajr Salah';
+
+  @override
+  String get habitPrayerDhuhr => 'Dhuhr Salah';
+
+  @override
+  String get habitPrayerAsr => 'Asr Salah';
+
+  @override
+  String get habitPrayerMaghrib => 'Maghrib Salah';
+
+  @override
+  String get habitPrayerIsha => 'Isha Salah';
+
+  @override
+  String get habitQuranWerd => 'Quran Werd';
+
+  @override
+  String get habitQuranReading => 'Quran reading';
+
+  @override
+  String get habitHonoringParents => 'Honoring parents';
+
+  @override
+  String get habitHonesty => 'Honesty';
+
+  @override
+  String get habitRespectElders => 'Respecting elders';
+
+  @override
+  String get habitTidyRoom => 'Tidying the room';
+
+  @override
+  String get habitEarlySleep => 'Early bedtime';
+
+  @override
+  String get habitAngerControl => 'Managing anger';
+
+  @override
+  String get habitHomework => 'Doing homework';
+
+  @override
+  String get habitRevision => 'Revision';
+
+  @override
+  String get habitReading => 'Reading';
+
+  @override
+  String get routineEventSleep => 'Sleep';
+
+  @override
+  String get routineEventFeed => 'Feeding';
+
+  @override
+  String get routineEventDiaper => 'Diaper';
+
+  @override
+  String get routineStatFeeds => 'Feeds';
+
+  @override
+  String get routineStatDiapers => 'Diapers';
+
+  @override
+  String routineChildStage(Object name, Object stage) {
+    return '$name is in the $stage stage';
+  }
+
+  @override
+  String errorGeneric(Object error) {
+    return 'Error: $error';
+  }
+
+  @override
+  String routineSummaryDays(Object days) {
+    return '$days-day summary';
+  }
+
+  @override
+  String get routineFieldType => 'Type';
+
+  @override
+  String get routineFieldSide => 'Side';
+
+  @override
+  String get routineFieldDuration => 'Duration';
+
+  @override
+  String routineAddEventTitle(Object type) {
+    return 'Add $type event';
+  }
+
+  @override
+  String get routineFeedBreast => 'Breast';
+
+  @override
+  String get routineFeedBottle => 'Bottle';
+
+  @override
+  String get routineFeedSolid => 'Solid food';
+
+  @override
+  String get routineSideLeft => 'Left';
+
+  @override
+  String get routineSideRight => 'Right';
+
+  @override
+  String get routineAmountApprox => 'Approximate amount (ml)';
+
+  @override
+  String get routineDiaperWet => 'Wet';
+
+  @override
+  String get routineDiaperDirty => 'Soiled';
+
+  @override
+  String get routinePickWakeTime => 'Pick wake-up time';
+
+  @override
+  String get routineMedicalNoteBlocked =>
+      'The note contains a medical or medication term. Please keep notes routine-only.';
+
+  @override
+  String routineQrFailed(Object error) {
+    return 'Could not create QR code: $error';
+  }
+
+  @override
+  String get routineShareTeenTitle => 'Share the balance with your teen';
+
+  @override
+  String get routineShareScanHint =>
+      'Scan the code from your child\'s phone, or copy the link and send it via WhatsApp.';
+
+  @override
+  String get childFallbackName => 'Your child';
+
+  @override
+  String get childYourChild => 'your child';
+
+  @override
+  String get childModePinRequired => 'A PIN is required.';
+
+  @override
+  String get childModePinIncorrect => 'Incorrect PIN.';
+
+  @override
+  String get childModePinMismatch => 'The PINs do not match. Try again.';
+
+  @override
+  String get childModePinSetupSubtitle =>
+      'Choose a 4-digit PIN to protect child mode. You will need it to leave child mode.';
+
+  @override
+  String get childModePinConfirmSubtitle => 'Enter the PIN again to confirm.';
+
+  @override
+  String get childModePinEnterSubtitle =>
+      'Enter your child-mode PIN, then hand the phone to your child.';
+
+  @override
+  String get childModePinExitSubtitle => 'Enter your PIN to leave child mode.';
+
+  @override
+  String get childModeSessionExpired =>
+      'The secure session has ended. Please hand the phone back to the parent.';
+
+  @override
+  String get childModeBudgetSpent =>
+      'That\'s today\'s time. We\'ll carry on tomorrow 🌙';
+
+  @override
+  String get childModeOffline =>
+      'The connection dropped, so we closed the session. Back when you\'re online 🌙';
+
+  @override
+  String get childModeEnterFailed => 'Could not enter child mode.';
+
+  @override
+  String get habitCustomizeNameLabel => 'New habit name';
+
+  @override
+  String get habitCustomizeNameHint => 'e.g. Swimming practice';
+
+  @override
+  String get habitCustomizeNameLength =>
+      'The habit name must be between 2 and 60 characters';
+
+  @override
+  String get habitCustomizeAdded => 'Habit added';
+
+  @override
+  String habitCustomizeAddFailed(Object error) {
+    return 'Could not add: $error';
+  }
+
+  @override
+  String habitCustomizeUpdateFailed(Object error) {
+    return 'Update failed: $error';
+  }
+
+  @override
+  String insightHoursMinutes(Object h, Object m) {
+    return '$h h $m m';
+  }
+
+  @override
+  String insightMinutes(Object m) {
+    return '$m min';
+  }
+
+  @override
+  String insightTimesWithMl(Object count, Object ml) {
+    return '$count times\n($ml ml)';
+  }
+
+  @override
+  String insightTimes(Object count) {
+    return '$count times';
+  }
+
+  @override
+  String get insightBadgePositive => '✅ Positive';
+
+  @override
+  String get insightBadgeWarning => '⚠️ Alert';
+
+  @override
+  String get insightBadgeTip => '💡 Tip';
+
+  @override
+  String get ageGroupPrenatal => 'Pregnancy to one year';
+
+  @override
+  String get ageGroup2to3 => '2–3 years';
+
+  @override
+  String get ageGroup4to6 => '4–6 years';
+
+  @override
+  String get ageGroup7to9 => '7–9 years';
+
+  @override
+  String get ageGroup10to12 => '10–12 years';
+
+  @override
+  String get ageGroup13to15 => '13–15 years';
+
+  @override
+  String get ageGroup16to18 => '16–18 years';
+
+  @override
+  String get unspecified => 'Unspecified';
+
+  @override
+  String get severityLight => 'Mild';
+
+  @override
+  String get severityModerate => 'Moderate';
+
+  @override
+  String get severitySevere => 'Severe';
+
+  @override
+  String get severityEmergency => 'Emergency';
+
+  @override
+  String get domainMedical => 'Life habits & skills';
+
+  @override
+  String get domainCyber => 'Digital safety';
+
+  @override
+  String get domainIslamicParenting => 'Islamic upbringing';
+
+  @override
+  String get domainAqeedah => 'Aqeedah';
+
+  @override
+  String get domainDevelopment => 'Child development';
+
+  @override
+  String get replyModeRetrieval => 'Retrieval only';
+
+  @override
+  String get replyModeAi => 'AI-generated';
+
+  @override
+  String get replyModeBanned => 'Out of scope';
+
+  @override
+  String get replyModeEmergency => 'Emergency';
+
+  @override
+  String get escalationPediatrician => 'Pediatrician';
+
+  @override
+  String get escalationCyberSpecialist => 'Digital-safety specialist';
+
+  @override
+  String get escalationEmergencyServices => 'Emergency services';
+
+  @override
+  String get apiTimeout => 'The connection to the server timed out.';
+
+  @override
+  String get apiConnectionFailed =>
+      'Could not reach the server. Check your connection and try again.';
+
+  @override
+  String get apiNoSession => 'No active session.';
+
+  @override
+  String get apiSessionNotFound => 'The session was not found on the server.';
+
+  @override
+  String get apiSessionExpired => 'The session has expired.';
+
+  @override
+  String get apiGoogleLinkFailed => 'Failed to link the Google account';
+
+  @override
+  String get apiChildSessionExpired =>
+      'The child\'s secure session has ended. Please hand the phone back to the parent.';
+
+  @override
+  String get apiStreamStalled =>
+      'The reply stopped before it finished. Please try again.';
+
+  @override
+  String get apiIncompleteResponse => 'The server response was incomplete.';
+
+  @override
+  String get apiServerError => 'A server error occurred.';
+
+  @override
+  String apiHttpError(Object status) {
+    return 'HTTP error $status';
+  }
+
+  @override
+  String chatSessionStartFailed(Object error) {
+    return 'Could not start a session: $error';
+  }
+
+  @override
+  String chatNewChatFailed(Object error) {
+    return 'Could not start a new chat: $error';
+  }
+
+  @override
+  String get chatOfflineRetry =>
+      'You are offline. Check your connection and try again.';
+
+  @override
+  String chatUnexpectedError(Object error) {
+    return 'Unexpected error: $error';
+  }
+
+  @override
+  String get chatConnectionInterrupted =>
+      'The connection dropped before the reply finished.';
+
+  @override
+  String get chatAnswerStillComing =>
+      'The reply is still being written — it will appear here shortly.';
+
+  @override
+  String get chatResponseStopped => '⏹️ Reply stopped.';
+
+  @override
+  String get chatStop => 'Stop reply';
+
+  @override
+  String get chatThinkingSlow =>
+      'Checking the sources to give you a reliable answer…';
+
+  @override
+  String get chatFollowExample => 'Give me a practical example';
+
+  @override
+  String get chatFollowForAge => 'How do I apply this at my child\'s age?';
+
+  @override
+  String get chatFollowShort => 'Summarise the answer in bullet points';
+
+  @override
+  String get chatFollowUpsLabel => 'Suggested follow-up questions';
+
+  @override
+  String get chatJumpLatest => 'Latest reply';
+
+  @override
+  String chatRatingSaveFailed(Object error) {
+    return 'Could not save the rating: $error';
+  }
+
+  @override
+  String chatOpenFailed(Object error) {
+    return 'Could not open the conversation: $error';
+  }
+
+  @override
+  String get chatFallbackTitle => 'Conversation';
+
+  @override
+  String get safetyEmergencyText =>
+      'Emergency — please contact the relevant authorities immediately.';
+
+  @override
+  String get safetyEmergencyCta => 'Call emergency services';
+
+  @override
+  String get safetyBannedText =>
+      'This topic is outside what I can help you with.';
+
+  @override
+  String get safetyConsultPediatrician => 'Consult a pediatrician.';
+
+  @override
+  String get safetyConsultCyberSpecialist =>
+      'Consult a digital-safety specialist.';
+
+  @override
+  String get safetyConsultHuman => 'It is best to consult a human specialist.';
+
+  @override
+  String safetyGeneralGuidance(Object hint) {
+    return 'This guidance is general — $hint';
+  }
+
+  @override
+  String get feedbackThanks => 'Thanks for your feedback';
+
+  @override
+  String get feedbackHelpful => 'Helpful answer';
+
+  @override
+  String get feedbackNotHelpful => 'Unhelpful answer';
+
+  @override
+  String get sharePreparing => 'Preparing…';
+
+  @override
+  String get shareThisMoment => 'Share this moment 🤍';
+
+  @override
+  String communityProof(Object count) {
+    return '$count moms and dads raising kids confidently with Al-Murabbi — you are not alone on this journey';
+  }
+
+  @override
+  String get pathDomainIslamic => 'Islamic upbringing';
+
+  @override
+  String get pathDomainAqeedah => 'Aqeedah';
+
+  @override
+  String get pathDomainDevelopment => 'Development';
+
+  @override
+  String get pathDomainSkills => 'Life skills';
+
+  @override
+  String get pathDomainCyber => 'Digital safety';
+
+  @override
+  String get shareInstallLine => '📲 Al-Murabbi — free, for the sake of Allah:';
+
+  @override
+  String get shareCardBrandLine =>
+      'Al-Murabbi — a guide who knows your child, step by step';
+
+  @override
+  String get shareCardInstallHint =>
+      'Completely free — scan the code or search for “Al-Murabbi”';
+
+  @override
+  String get sharePathCompleteEyebrow => 'Path completed';
+
+  @override
+  String sharePathCompleteMessage(String title) {
+    return 'Masha\'Allah 🤍 I completed the “$title” path on Al-Murabbi!\nEvery step in raising your children is an ongoing charity:';
+  }
+
+  @override
+  String shareMilestoneEyebrow(String name) {
+    return 'A milestone in $name\'s journey';
+  }
+
+  @override
+  String shareMilestoneMessage(String name, String title) {
+    return 'Masha\'Allah 🤍 I recorded a new milestone in $name\'s journey:\n“$title”';
+  }
+
+  @override
+  String get shareMilestoneDua => '';
+
+  @override
+  String shareFirstSurahEyebrow(String name) {
+    return 'A Quran milestone for $name';
+  }
+
+  @override
+  String shareFirstSurahHeadline(String surah) {
+    return 'First Surah memorized — Surah $surah';
+  }
+
+  @override
+  String shareFirstSurahMessage(String name, String surah) {
+    return 'Masha\'Allah 📖 $name memorized their first Surah — Surah $surah 🌟';
+  }
+
+  @override
+  String get shareFirstSurahDua => '';
+
+  @override
+  String get shareCoachTipEyebrow => 'Today\'s tip';
+
+  @override
+  String get shareCoachTipHeadline =>
+      'A moment to reflect on raising our children';
+
+  @override
+  String shareCoachTipMessage(String tip) {
+    return 'Today\'s tip on raising our children 🌱\n\n$tip\n\nPass it on — an ongoing charity for every mother and father:';
+  }
+
+  @override
+  String get shareInfographicText =>
+      'An infographic from the Al-Murabbi app 🌿';
+
+  @override
+  String get eduGameChooseLevel => 'Choose a level';
+
+  @override
+  String get eduGameAttempts => 'Attempts';
+
+  @override
+  String get eduGamePoints => 'Points';
+
+  @override
+  String get eduGameStars => 'Stars';
+
+  @override
+  String eduGameBestScore(Object score) {
+    return 'Best: $score';
+  }
+
+  @override
+  String get eduGamePaused => '⏸️ Paused';
+
+  @override
+  String get eduGameResume => 'Resume';
+
+  @override
+  String get eduGameRestartLevel => 'Restart level';
+
+  @override
+  String get eduGameQuit => 'Quit';
+
+  @override
+  String get eduGameLevelComplete => 'Level complete! 🎉';
+
+  @override
+  String get eduGameOver => 'Game over';
+
+  @override
+  String eduGameCorrectAnswers(Object correct, Object total) {
+    return '$correct / $total correct answers';
+  }
+
+  @override
+  String eduGameScore(Object score) {
+    return 'Score: $score';
+  }
+
+  @override
+  String get eduGameTryAgain => 'Try again! Every attempt teaches you more.';
+
+  @override
+  String get eduGameNextLevel => 'Next level ▶';
+
+  @override
+  String get eduGameReplay => 'Replay';
+
+  @override
+  String eduGameLevelTitle(Object level, Object name) {
+    return '$name — Level $level';
+  }
+
+  @override
+  String get eduGameOptionLetters => 'A,B,C,D';
+
+  @override
+  String get flashcardAnswer => 'Answer';
+
+  @override
+  String journeyCardTitle(Object name) {
+    return '$name\'s journey';
+  }
+
+  @override
+  String get journeyCardEmpty => 'Record and keep his faith milestones';
+
+  @override
+  String journeyCardCount(Object count) {
+    return '$count milestones in their journey — add more';
+  }
+
+  @override
+  String get pathDetailStreakDay1 => 'day streak';
+
+  @override
+  String get pathDetailStreakDay2 => 'days streak';
+
+  @override
+  String get pathDetailStreakDaysFew => 'days streak';
+
+  @override
+  String get pathDetailStreakDaysMany => 'days streak';
+
+  @override
+  String get pathsRefreshTooltip => 'Refresh';
+
+  @override
+  String pathsFilterSemantics(Object label) {
+    return 'Filter: $label';
+  }
+
+  @override
+  String pathsPathSemantics(Object description, Object title) {
+    return 'Path: $title. $description';
+  }
+
+  @override
+  String get pathsFrameworkProphetic => 'Age-stage approach';
+
+  @override
+  String get pathsFrameworkGhazali => 'Ghazali Tazkiyah';
+
+  @override
+  String get pathsFrameworkAttachment => 'Attachment & Rahma';
+
+  @override
+  String get pathsFrameworkZpd => 'Zone of Proximal Development';
+
+  @override
+  String get pathsFrameworkAqeedahParentLed => 'Parent-led creed';
+
+  @override
+  String lessonNumberBadge(Object order) {
+    return 'Lesson $order';
+  }
+
+  @override
+  String lessonMinutesBadge(Object count) {
+    return '⏱️ $count min';
+  }
+
+  @override
+  String lessonTempScreen(Object title) {
+    return 'Placeholder screen for $title';
+  }
+
+  @override
+  String get quizDomainAqeedah => 'Aqeedah';
+
+  @override
+  String get quizDomainSkills => 'Skills';
+
+  @override
+  String get quizDomainDevelopment => 'Development';
+
+  @override
+  String quizShareMessage(Object praise, Object score, Object total) {
+    return 'I scored $score of $total points on the Al-Murabbi quiz 🤍\n$praise — try it yourself:';
+  }
+
+  @override
+  String quizScorePoints(Object score, Object total) {
+    return '$score / $total points';
+  }
+
+  @override
+  String quizTimeSeconds(Object seconds) {
+    return '${seconds}s';
+  }
+
+  @override
+  String quizPointsCount(Object score) {
+    return '$score points';
+  }
+
+  @override
+  String quizQuestionOf(Object current, Object total) {
+    return 'Question $current of $total';
+  }
+
+  @override
+  String get quizNextQuestion => 'Next question';
+
+  @override
+  String get quizShowResult => 'Show result';
+
+  @override
+  String get quizResultExcellent => 'Masha\'Allah! Excellent performance.';
+
+  @override
+  String get quizResultGood => 'Good. Review the lessons you missed.';
+
+  @override
+  String get quizResultReview =>
+      'That\'s okay — review beats regret. Read the lesson again.';
+
+  @override
+  String get quizYourResult => 'Your result';
+
+  @override
+  String get quizFallbackTitle => 'Quiz';
+
+  @override
+  String get reportScreenTitle => '📄 Lesson Report';
+
+  @override
+  String get reportLoadError => 'Failed to load the report';
+
+  @override
+  String get dataTableTitle => '📋 Data Table';
+
+  @override
+  String get dataTableLoadError => 'Failed to load the table';
+
+  @override
+  String get favoritesRemoveTooltip => 'Remove from favorites';
+
+  @override
+  String get searchClearTooltip => 'Clear';
+
+  @override
+  String get searchTypeLesson => 'Lesson';
+
+  @override
+  String get searchTypePath => 'Path';
+
+  @override
+  String get searchTypeTip => 'Tip';
+
+  @override
+  String get storyLoadError => 'Failed to load stories';
+
+  @override
+  String get storyEmpty => 'No stories yet';
+
+  @override
+  String get storyEmptyDesc => 'Stay tuned — new stories are coming soon!';
+
+  @override
+  String get storyTapToOpen => 'Tap to open the story';
+
+  @override
+  String get storyBedtimeTitle => 'Bedtime Stories 🌙';
+
+  @override
+  String get storyWellDone => 'Well done, hero!';
+
+  @override
+  String get storyRelaxNow =>
+      'Relax now and close your eyes — sweet dreams await.';
+
+  @override
+  String get storyClose => 'Close the story';
+
+  @override
+  String get videoMinimizeTooltip => 'Minimize';
+
+  @override
+  String get videoRotateTooltip => 'Rotate screen';
+
+  @override
+  String get videoCloseTooltip => 'Close';
+
+  @override
+  String get videoFullscreenTooltip => 'Fullscreen';
+
+  @override
+  String get infographicRotateTooltip => 'Rotate screen';
+
+  @override
+  String get infographicDownloadTooltip => 'Download';
+
+  @override
+  String get infographicLoadError => 'Failed to load the infographic';
+
+  @override
+  String get podcastUnavailable =>
+      'The podcast is not available yet. Coming soon, insha\'Allah.';
+
+  @override
+  String get podcastLoadError =>
+      'Failed to load the podcast. Check your internet connection.';
+
+  @override
+  String podcastSpeed(Object speed) {
+    return 'Speed: $speed×';
+  }
+
+  @override
+  String get activeChildLabel => 'Active child';
+
+  @override
+  String get coachAskAboutTip => 'Ask Al-Murabbi about this';
+
+  @override
+  String get onbChooseAvatar => 'Choose your child\'s photo';
+
+  @override
+  String get addChildNameRequired => 'Name is required';
+
+  @override
+  String get addChildNameTooLong => 'Name is too long (80 characters max)';
+
+  @override
+  String badgesEarnedOf(Object earned, Object total) {
+    return 'You earned $earned of $total achievements';
+  }
+
+  @override
+  String badgesEarnedOfShort(Object earned, Object total) {
+    return 'Earned $earned of $total';
+  }
+
+  @override
+  String get badgeEarnedTapShare => 'Earned — tap to share';
+
+  @override
+  String get badgeLockedYet => 'Not unlocked yet';
+
+  @override
+  String get badgeFirstStepTitle => 'First step';
+
+  @override
+  String get badgeFirstStepDesc =>
+      'You completed your first lesson — the start of the journey';
+
+  @override
+  String get badgeFiveLessonsTitle => 'Five lessons';
+
+  @override
+  String get badgeFiveLessonsDesc => 'You completed 5 lessons — keep going';
+
+  @override
+  String get badgeTenLessonsTitle => 'Ten lessons';
+
+  @override
+  String get badgeTenLessonsDesc => 'You completed 10 lessons — Masha\'Allah';
+
+  @override
+  String get badgeWeekStreakTitle => 'Week streak';
+
+  @override
+  String get badgeWeekStreakDesc => '7 days of learning in a row';
+
+  @override
+  String get badgeMonthStreakTitle => 'Month streak';
+
+  @override
+  String get badgeMonthStreakDesc => '30 days in a row — wonderful commitment';
+
+  @override
+  String get badgePathExplorerTitle => 'Path explorer';
+
+  @override
+  String get badgePathExplorerDesc => 'Completed lessons in 3 different paths';
+
+  @override
+  String get badgeShareEyebrow => 'New achievement';
+
+  @override
+  String badgeShareMessage(String title) {
+    return 'Masha\'Allah 🌟 I reached the “$title” achievement on my parenting journey with Al-Murabbi 🤍';
+  }
+
+  @override
+  String get identityLinkIncomplete =>
+      'Account linking didn\'t complete. Check your Google setup or try again.';
+
+  @override
+  String get identityServerUnreachable =>
+      'Couldn\'t reach the server. Check your internet connection.';
+
+  @override
+  String identityLinkFailed(Object error) {
+    return 'Account linking failed: $error';
+  }
+
+  @override
+  String get identityErrorNoGoogleAccount =>
+      'There\'s no Google account on this phone. Add one in your phone settings, then try again.';
+
+  @override
+  String get identityErrorGoogleUnavailable =>
+      'Google sign-in isn\'t available on this phone right now. Make sure Google Play services is up to date, then try again.';
+
+  @override
+  String get identityErrorAppMisconfigured =>
+      'Sign-in isn\'t set up in this version of the app. Update the app or try again later.';
+
+  @override
+  String get identityErrorGoogleUi =>
+      'Couldn\'t open Google sign-in. Please try again.';
+
+  @override
+  String get identityErrorGoogleGeneric =>
+      'Google sign-in didn\'t complete. Please try again in a moment.';
+
+  @override
+  String get identityLocalNote =>
+      'Data stays on this device unless you choose to sign in.';
+
+  @override
+  String get identitySignInWithGoogle => 'Sign in with Google';
+
+  @override
+  String get identityLinkSuccess => 'Account linked 🤍';
+
+  @override
+  String get exclusiveBadgeOwned => 'Owned ✓';
+
+  @override
+  String get gameClosingTitle => 'That\'s it for today 🌙';
+
+  @override
+  String gameClosingPraise(int score) {
+    return 'Well done. You scored $score.';
+  }
+
+  @override
+  String get gameClosingMission =>
+      'Now go do one thing away from the screen, and tell someone about it.';
+
+  @override
+  String get gameClosingLeave => 'Okay, I\'m going';
+
+  @override
+  String get exclusiveBadgesIntro =>
+      'These badges unlock through achievement, not purchase. Your coins buy one thing: a real reward from the covenant.';
+
+  @override
+  String get exclusiveBadgeLocked => 'Unlocked by achievement';
+
+  @override
+  String get exclusiveBadgesToCovenant => 'Open the covenant';
+
+  @override
+  String get reflectionNoteBadge => 'Note';
+
+  @override
+  String get reflectionMyNotes => 'My Notes';
+
+  @override
+  String get reflectionHint =>
+      'How was your experience with this lesson? What worked? What will you try tomorrow?';
+
+  @override
+  String get inviteCodeHint => 'e.g. SMDYVE';
+
+  @override
+  String get celebrationMashallah => 'Masha\'Allah!';
+
+  @override
+  String quranMemFirstSurahMsg(Object name, Object surah) {
+    return '$name memorized the first Surah — Surah $surah 🌟';
+  }
+
+  @override
+  String quranMemSurahTile(Object name) {
+    return 'Surah $name';
+  }
+
+  @override
+  String get progressCompleted => 'Completed';
+
+  @override
+  String get progressInProgress => 'In progress';
+
+  @override
+  String get progressNotStarted => 'Not started';
+
+  @override
+  String get backupInvalidFile =>
+      'Invalid backup file: missing \"version\" field.';
+
+  @override
+  String backupNewerVersion(Object appVersion, Object version) {
+    return 'Backup version ($version) is newer than the app version ($appVersion). Please update the app.';
+  }
+
+  @override
+  String backupInvalidJson(Object error) {
+    return 'Invalid JSON file: $error';
+  }
+
+  @override
+  String backupUnexpectedError(Object error) {
+    return 'An unexpected error occurred: $error';
+  }
+
+  @override
+  String get reviewPromptTitle => 'Enjoying Al-Murabbi? 🌟';
+
+  @override
+  String get reviewPromptBody =>
+      'Your store review helps other parents find the app.';
+
+  @override
+  String get reviewPromptLater => 'Later';
+
+  @override
+  String get reviewPromptNow => 'Rate now';
+
+  @override
+  String bedtimeAdhkarCounter(Object current, Object total) {
+    return 'Dhikr $current of $total';
+  }
+
+  @override
+  String bedtimeTapToRepeat(Object count) {
+    return 'Tap here to repeat: $count';
+  }
+
+  @override
+  String get tourNext => 'Next';
+
+  @override
+  String get tourSkip => 'Skip';
+
+  @override
+  String get tourDone => 'Done';
+
+  @override
+  String get tourReplay => 'Guided tour';
+
+  @override
+  String get tourReplayDesc =>
+      'Replay the tour when you return to the home screen';
+
+  @override
+  String get tourReplayQueued =>
+      'The tour will appear when you go back to the home screen.';
+
+  @override
+  String get errorOfflineTitle => 'No internet connection';
+
+  @override
+  String get errorOfflineBody => 'Check your connection and try again.';
+
+  @override
+  String get errorServerTitle => 'The service is not responding';
+
+  @override
+  String get errorServerBody =>
+      'This is on our side, not yours. Please try again shortly.';
+
+  @override
+  String get errorUnknownTitle => 'Could not load this';
+
+  @override
+  String get errorUnknownBody =>
+      'Try again — if it keeps happening, send us a note.';
+
+  @override
+  String get errorNotFoundTitle => 'This isn\'t available';
+
+  @override
+  String get errorNotFoundBody =>
+      'It may have been moved or removed. Go back and try again.';
+
+  @override
+  String get errorSessionTitle => 'Your session has ended';
+
+  @override
+  String get errorSessionBody => 'Tap “Retry” to start a new session.';
+
+  @override
+  String get errorRateLimitedTitle => 'Too many requests at once';
+
+  @override
+  String get errorRateLimitedBody => 'Please wait a moment, then try again.';
+
+  @override
+  String get missionTodayLabel => 'Today\'s mission';
+
+  @override
+  String get missionUnderstoodGoing => 'Got it — I\'m off';
+
+  @override
+  String get missionDone => 'I did it';
+
+  @override
+  String get missionAlreadyDone => 'You said you did it';
+
+  @override
+  String get missionClaimedNote => 'A parent will see it tonight.';
+
+  @override
+  String get missionOutdoorsHint => 'This one is outdoors.';
+
+  @override
+  String get missionNoneToday => 'No mission today. Good night 🌙';
+
+  @override
+  String get missionLeave => 'Okay, I\'m off';
+
+  @override
+  String get missionOpenForChild => 'Today\'s mission';
+
+  @override
+  String get missionsPendingTitle => 'Waiting on you';
+
+  @override
+  String get missionsPendingEmpty => 'Nothing is waiting on you right now.';
+
+  @override
+  String get missionMinutesShort => 'min';
+
+  @override
+  String get missionMarkNotYet => 'Not yet';
+
+  @override
+  String get missionMarkDone => 'Undo';
+
+  @override
+  String get missionConfirmAll => 'Confirm all';
+
+  @override
+  String missionConfirmRest(int count) {
+    return 'Confirm $count, leave the rest';
+  }
+
+  @override
+  String get gamesBudgetSpent =>
+      'Play time is done for today. The games will be here tomorrow 🌙';
+
+  @override
+  String get screenOffPickerTitle => 'Listen with the screen off';
+
+  @override
+  String get screenOffPickerIntro =>
+      'The screen stays dark. Audio only, and it does not count against screen time.';
+
+  @override
+  String get screenOffSectionParentVoice => 'In a parent\'s voice';
+
+  @override
+  String get screenOffSectionQuran => 'Qur\'an';
+
+  @override
+  String get screenOffQuranUnavailable =>
+      'The Qur\'an could not be loaded right now.';
+
+  @override
+  String get screenOffOpen => 'Listen with the screen off';
+
+  @override
+  String get storyListenInParentVoice => 'Listen in a parent\'s voice';
+
+  @override
+  String get storyNarrationSaved =>
+      'Recorded. You\'ll find it in the library marked 🎙️';
+
+  @override
+  String get offscreenTitle => 'Things to do without a screen';
+
+  @override
+  String get offscreenUnavailable => 'The activities could not be loaded.';
+
+  @override
+  String get offscreenMaterials => 'You\'ll need';
+
+  @override
+  String get offscreenOpen => 'Without a screen';
+
+  @override
+  String get offscreenBandUnder2 => 'Under 2';
+
+  @override
+  String get offscreenBand2to3 => '2 – 3';
+
+  @override
+  String get offscreenBand4to6 => '4 – 6';
+
+  @override
+  String get offscreenBand7to9 => '7 – 9';
+
+  @override
+  String get licenseAckTitle => 'Got it. This is worth talking about together.';
+
+  @override
+  String get licenseAckNext => 'Next';
+
+  @override
+  String get licenseDoneTitle =>
+      'You\'ve finished the situations. Sit with a parent and talk them through.';
+
+  @override
+  String get licenseLeave => 'Okay, I\'m off';
+
+  @override
+  String get licenseTitle => 'Internet licence';
+
+  @override
+  String get licenseOpenForChild => 'Internet licence';
+
+  @override
+  String get licenseOpenForParent => 'Talk it through';
+
+  @override
+  String get licenseNotASetting =>
+      'This licence is an agreement between you, not a setting on a device. The app cannot block or unblock anything on your child\'s phone — what changes is what you agreed on, and you are the ones who carry it out.';
+
+  @override
+  String get licenseAgreementPrefix => 'What you\'ll agree on';
+
+  @override
+  String get licenseNotReadyYet =>
+      'This level isn\'t ready yet — no situations written for it.';
+
+  @override
+  String licenseProgress(int done, int total) {
+    return '$done of $total situations';
+  }
+
+  @override
+  String get licenseTalkedButton => 'We talked about these';
+
+  @override
+  String get licenseUnfinished => 'Some situations are still left';
+
+  @override
+  String get licenseTalkedDone => 'You talked about them.';
+
+  @override
+  String get licenseGrantButton => 'Record that we agreed on this level';
+
+  @override
+  String get licenseGranted => 'Agreed.';
+
+  @override
+  String get licenseTooEarly =>
+      'Not yet. The situations must be finished, and you need to record that you talked.';
+
+  @override
+  String get licenseMetSituations => 'Situations they met';
+
+  @override
+  String get licenseMetSituationsHint =>
+      'Their answer isn\'t written here. What\'s written is how to open the conversation.';
+
+  @override
+  String get licensePickChildFirst => 'Pick a child first.';
+
+  @override
+  String get licenseLevelStranger => 'The stranger';
+
+  @override
+  String get licenseLevelSignal => 'Ads and news';
+
+  @override
+  String get licenseLevelContact => 'Messaging';
+
+  @override
+  String get licenseLevelFootprint => 'Digital footprint';
+
+  @override
+  String get licenseLevelPublic => 'Public';
+
+  @override
+  String get licenseAgreeStranger =>
+      'We watch in the same room, with the screen visible.';
+
+  @override
+  String get licenseAgreeSignal =>
+      'They search and browse, and tell us what they found.';
+
+  @override
+  String get licenseAgreeContact => 'They message people we know by name.';
+
+  @override
+  String get licenseAgreeFootprint => 'They join groups and multiplayer games.';
+
+  @override
+  String get licenseAgreePublic => 'A public account, reviewed monthly.';
+
+  @override
+  String parentDayWith(String name) {
+    return 'Today with $name';
+  }
+
+  @override
+  String parentDayScreenLine(int minutes, int budget) {
+    return '⏱  $minutes min of screen out of $budget';
+  }
+
+  @override
+  String parentDayAudioLine(int minutes) {
+    return '🎧  $minutes min of listening (screen off)';
+  }
+
+  @override
+  String parentDayMissionClaimed(String title) {
+    return '✅  $title — they say they did it';
+  }
+
+  @override
+  String parentDayMissionAssigned(String title) {
+    return '🧭  $title';
+  }
+
+  @override
+  String get licenseLoading => 'One moment…';
+
+  @override
+  String get notifHadithTitle => '🕌 Hadith — Al-Morabbi';
+
+  @override
+  String get notifVerseTitle => '📖 Qur\'an — Al-Morabbi';
+
+  @override
+  String get notifTipTitle => '💡 Tip of the day — Al-Morabbi';
+
+  @override
+  String get tafsirTitle => 'Tafsir of the ayah';
+
+  @override
+  String get tafsirNuzool => 'Reason for revelation';
+
+  @override
+  String get tafsirUnavailable => 'Tafsir needs an internet connection.';
+
+  @override
+  String get tafsirEmpty => 'No tafsir is available for this ayah right now.';
+
+  @override
+  String get tafsirHint => 'Long-press an ayah to read its tafsir';
+
+  @override
+  String get hubGroupTools => 'Tools';
+
+  @override
+  String get tasbeehTitle => 'Tasbeeh';
+
+  @override
+  String get tasbeehReset => 'Reset the counter';
+
+  @override
+  String get tasbeehFree => 'No target';
+
+  @override
+  String get tasbeehComplete => 'Count complete — may Allah accept it';
+
+  @override
+  String get tasbeehTapHint => 'Tap anywhere to count';
+
+  @override
+  String tasbeehProgress(String current, String total) {
+    return '$current of $total';
+  }
+
+  @override
+  String get hijriTitle => 'Date converter';
+
+  @override
+  String get hijriToHijri => 'Gregorian → Hijri';
+
+  @override
+  String get hijriToGregorian => 'Hijri → Gregorian';
+
+  @override
+  String get hijriResultHijri => 'Hijri date';
+
+  @override
+  String get hijriResultGregorian => 'Gregorian date';
+
+  @override
+  String get hijriDay => 'Day';
+
+  @override
+  String get hijriMonth => 'Month';
+
+  @override
+  String get hijriYear => 'Year';
+
+  @override
+  String get hijriApproximate =>
+      'Calculated, not moon-sighted — this can differ by a day from the Umm al-Qura calendar or from an announced sighting.';
+
+  @override
+  String get adhkarTitle => 'Adhkar & counsels';
+
+  @override
+  String get adhkarSearchHint => 'Search the text or the source';
+
+  @override
+  String get adhkarKindAll => 'All';
+
+  @override
+  String get adhkarKindVerse => 'Ayahs';
+
+  @override
+  String get adhkarKindHadith => 'Hadiths';
+
+  @override
+  String get adhkarKindTip => 'Tips';
+
+  @override
+  String adhkarCount(String count) {
+    return '$count items';
+  }
+
+  @override
+  String get adhkarNoResults => 'Nothing matches';
+
+  @override
+  String coachTipAskPrefill(String tip, String child) {
+    return 'About today\'s tip: “$tip”\n\nHow do I put it into practice with $child?';
+  }
+
+  @override
+  String get notifWirdTitle => '📗 Your Qur\'an portion — Al-Morabbi';
+
+  @override
+  String get notifWird0 =>
+      'One page is enough today. Carry on from where you stopped.';
+
+  @override
+  String get notifWird1 =>
+      '«The best of you are those who learn the Qur\'an and teach it» (Sahih al-Bukhari 5027) — start with yourself; your child is watching.';
+
+  @override
+  String get notifWird2 =>
+      'Your portion is waiting. Two minutes make a difference.';
+
+  @override
+  String get notifWird3 =>
+      'Read one ayah aloud — a child hears more than they listen to.';
+
+  @override
+  String get notifWird4 =>
+      'Don\'t break your streak today. Open the Qur\'an, even for two ayahs.';
+
+  @override
+  String get notifWird5 =>
+      '«And recite the Qur\'an with measured recitation» — unhurried, not rushed.';
+
+  @override
+  String get notifWird6 =>
+      'The best time for your portion is the time you can find. That\'s now.';
+
+  @override
+  String get settingsWird => 'Qur\'an portion reminder';
+
+  @override
+  String get settingsWirdDesc =>
+      'One reminder a day for your Qur\'an portion — can be switched off';
+
+  @override
+  String get whatsNewTitle => 'New in this update';
+
+  @override
+  String get whatsNew102Tafsir =>
+      'Tafsir: long-press any ayah in the Qur\'an to read its commentary, with its source named.';
+
+  @override
+  String get whatsNew102Adhkar =>
+      'An Adhkar & counsels screen — 281 items with their citations, plus a tasbeeh counter and a Hijri date converter under «More».';
+
+  @override
+  String get whatsNew102Wird =>
+      'The Qur\'an portion reminder is back, with varied wording, and it can be switched off on its own in Settings.';
+
+  @override
+  String get whatsNew102Timing =>
+      'Fixed when the daily reminder arrives — it was firing on GMT rather than on your device\'s time.';
+
+  @override
+  String get a11yPlay => 'Play';
+
+  @override
+  String get a11yPause => 'Pause';
+
+  @override
+  String get a11yFlipCard => 'Flip the card';
+
+  @override
+  String get a11yCopyCode => 'Copy the code';
+
+  @override
+  String get chatContextAdd => 'Add context to your question';
+
+  @override
+  String get chatContextTitle => 'Question context';
+
+  @override
+  String get chatContextHint =>
+      'e.g. tantrums, refusing food, jealousy of a sibling';
+
+  @override
+  String get chatContextClear => 'Remove context';
+
+  @override
+  String get chatContextDone => 'Done';
+
+  @override
+  String chatSources(Object count) {
+    return 'Sources ($count)';
+  }
+
+  @override
+  String get chatSourcesHint => 'The references this answer is based on';
+
+  @override
+  String habitWeekSemantics(int done, int part) {
+    return 'Last 7 days: $done done, $part partly';
+  }
+
+  @override
+  String habitStreakDays(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days-day streak',
+      one: '1-day streak',
+      zero: 'No streak yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get habitStreakShieldUsed => 'This week\'s grace day has been used';
+
+  @override
+  String get habitStreakShieldHint =>
+      'One day a week without a log does not break the streak';
+
+  @override
+  String habitChildModeLoggedName(String name) {
+    return 'Logged: $name';
+  }
+
+  @override
+  String get habitChildModeUndo => 'Undo';
+
+  @override
+  String habitMilestoneTitle(String milestone) {
+    String _temp0 = intl.Intl.selectLogic(milestone, {
+      'three': 'Three days in a row!',
+      'week': 'A whole week in a row!',
+      'month': 'A whole month in a row!',
+      'other': 'Wonderful consistency!',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get habitMilestoneMsg =>
+      '“The deeds most loved by Allah are the most consistent, even if small” (Sahih Muslim 2818). Keep going — a little, kept up, is a lot.';
+
+  @override
+  String get habitMilestoneButton => 'Alhamdulillah';
+
+  @override
+  String get habitRatesTitle => 'Last 4 weeks';
+
+  @override
+  String get habitRatesSubtitle =>
+      'Share of days each habit was done, most improved first';
+
+  @override
+  String get habitRatesEmpty =>
+      'Not enough records yet. Log habits for a few days and they will show here.';
+
+  @override
+  String habitRateSemantics(String name, int rate, int change) {
+    return '$name: $rate% of days, a change of $change points from the four weeks before';
+  }
+
+  @override
+  String get appOfflineBanner =>
+      'You\'re offline — some features need a connection';
+
+  @override
+  String appOfflineSavedCopy(Object when) {
+    return 'Offline — showing a saved copy ($when)';
+  }
+
+  @override
+  String appSavedCopy(Object when) {
+    return 'Couldn\'t refresh — showing a saved copy ($when)';
+  }
+
+  @override
+  String get loadingSlow => 'The connection is slow… still trying';
+
+  @override
+  String get loadingRetry => 'Try again';
+
+  @override
+  String get loadingCancel => 'Go back';
+
+  @override
+  String get settingsHaptics => 'Sounds & vibration';
+
+  @override
+  String get settingsHapticsDesc =>
+      'Soft sounds with no music, and a light vibration when you choose or complete something';
+
+  @override
+  String childModeHandoff(String name) {
+    return 'Hi $name! This is your time 🌟';
+  }
+
+  @override
+  String todayStepTitle(String name) {
+    return 'Today\'s step with $name';
+  }
+
+  @override
+  String get todayStepTitleNoName => 'Today\'s step with your child';
+
+  @override
+  String get todayAskTitle => 'Ask Al-Murabbi';
+
+  @override
+  String todayAskBody(String name) {
+    return 'Tell Al-Murabbi what\'s on your mind about raising $name.';
+  }
+
+  @override
+  String get todayAskBodyNoName =>
+      'Tell Al-Murabbi what\'s on your mind about raising your child.';
+
+  @override
+  String get todayAskCta => 'Ask your question';
+
+  @override
+  String todayMissionTitle(String name) {
+    return '$name\'s mission today';
+  }
+
+  @override
+  String get todayMissionTitleNoName => 'Your child\'s mission today';
+
+  @override
+  String todayMissionReady(String name) {
+    return 'Today\'s mission is ready: a short activity away from the screen. Hand the phone to $name to read it.';
+  }
+
+  @override
+  String get todayMissionOpen => 'Open today\'s mission';
+
+  @override
+  String todayDayTitle(String name) {
+    return '$name\'s day';
+  }
+
+  @override
+  String todayRoutineBody(String name) {
+    return 'Log sleep and meals in a minute, and follow $name\'s day.';
+  }
+
+  @override
+  String get todayRoutineCta => 'Log now';
+
+  @override
+  String get todayAddChildBody =>
+      'Add your child to get what fits their age, every day.';
+
+  @override
+  String get todayMoreTitle => 'More for today';
+
+  @override
+  String get todaySwitchChildHint => 'Tap to switch or add another child';
+
+  @override
+  String get todayPickChildHint =>
+      'Tap to choose or add a child and follow their path';
+
+  @override
+  String get inviteReachedTitle => 'Your invitation\'s reach';
+
+  @override
+  String inviteReachedCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count families reached through you',
+      one: '1 family reached through you',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get inviteReachedHint =>
+      'Whenever these families benefit from a lesson or a piece of advice, we hope you share in its reward 🤍';
+
+  @override
+  String get inviteReachedNone =>
+      'Your invitation hasn\'t reached a family yet. Share Al-Murabbi — we hope you share the reward of every family it helps.';
+
+  @override
+  String inviteCoinsNote(int coins) {
+    return 'And a small in-app thank-you: $coins coins for you per family that joins, and $coins for your friend — paid in full, a day later if you have reached the daily coin limit.';
+  }
+
+  @override
+  String get inviteShareMessage =>
+      'Try Al-Murabbi with me 🤍 — an Islamic parenting app, completely free with no ads.';
+
+  @override
+  String get inviteCardEyebrow => 'An invitation, for the sake of Allah';
+
+  @override
+  String get inviteCardHeadline => 'Try Al-Murabbi with me';
+
+  @override
+  String get inviteCardBody =>
+      'An Islamic parenting app that walks with you step by step — free, with no ads.';
+
+  @override
+  String get supportTitle => 'Support Al-Murabbi';
+
+  @override
+  String get supportIntro =>
+      'Al-Murabbi is free, for the sake of Allah — and it stays free whether you give or not. Running it does cost money every month: servers, and the AI models that answer your questions.';
+
+  @override
+  String supportMonthCost(String amount) {
+    return 'Al-Murabbi\'s cost this month: $amount';
+  }
+
+  @override
+  String supportCoveredPct(int pct) {
+    return 'Supporters covered $pct%';
+  }
+
+  @override
+  String supportCoveredAmount(String amount) {
+    return 'Supporters gave $amount this month';
+  }
+
+  @override
+  String get supportApproxNote =>
+      'Approximate figures: after Google\'s fee and taxes, converted to USD at rough rates.';
+
+  @override
+  String get supportCostServer => 'Servers';
+
+  @override
+  String get supportCostAi => 'AI';
+
+  @override
+  String get supportCostDomain => 'Domain & services';
+
+  @override
+  String get supportCostOther => 'Other';
+
+  @override
+  String get supportChooseAmount =>
+      'If you\'d like to help with that, choose an amount:';
+
+  @override
+  String get supportProductSmall => 'Small support';
+
+  @override
+  String get supportProductMedium => 'Medium support';
+
+  @override
+  String get supportProductLarge => 'Large support';
+
+  @override
+  String get supportNoPerks =>
+      'A gift unlocks nothing — everything is available to everyone. This is not a zakat channel. Payment is through Google Play, and you can give more than once.';
+
+  @override
+  String get supportThanks =>
+      'May Allah accept it from you 🤍 Your support arrived.';
+
+  @override
+  String get supportPending =>
+      'Your payment is processing; we\'ll confirm it once it completes.';
+
+  @override
+  String get supportRetryLater =>
+      'Payment received — we\'ll confirm it on your next visit.';
+
+  @override
+  String get supportError =>
+      'The payment couldn\'t be completed. Please try again.';
+
+  @override
+  String get supportStoreUnavailable =>
+      'Google Play isn\'t available on this device right now.';
+
+  @override
+  String get supportEntryDesc =>
+      'Free for the sake of Allah — help with its running costs if you\'d like';
+
+  @override
+  String supportCoveredPctApprox(int pct) {
+    return 'Supporters covered about $pct%';
+  }
+
+  @override
+  String supportCoveredAmountApprox(String amount) {
+    return 'Supporters gave about $amount this month';
+  }
+
+  @override
+  String supportUnpricedNote(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count contributions aren\'t priced by Google Play yet; they will be counted once they are.',
+      one:
+          '1 contribution isn\'t priced by Google Play yet; it will be counted once it is.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get birthMonthLabel => 'Birth month (optional)';
+
+  @override
+  String get birthMonthWhy =>
+      'The birth month lets Al-Murabbi remind you before important stages, at the right time — like starting to teach prayer at seven. The month and year are enough; we never ask for the day.';
+
+  @override
+  String get birthMonthNotSet => 'Not set';
+
+  @override
+  String get birthMonthChoose => 'Choose';
+
+  @override
+  String get birthMonthChange => 'Change';
+
+  @override
+  String get birthMonthClear => 'Remove';
+
+  @override
+  String get birthMonthPickerTitle => 'Birth month';
+
+  @override
+  String get birthMonthYear => 'Year';
+
+  @override
+  String birthMonthBandHint(String name, String band) {
+    return 'By the birth month, $name is in the $band group.';
+  }
+
+  @override
+  String get birthMonthUseBand => 'Use it';
+
+  @override
+  String get childPrayerTitle => 'My prayer today';
+
+  @override
+  String get childPrayerClaim => 'I did it';
+
+  @override
+  String get childPrayerDoneToday => 'Done for today ✓';
+
+  @override
+  String get childPrayerRecorded =>
+      'Recorded ✓ Mum or Dad will see it this evening.';
+
+  @override
+  String get fastingUrgentTitle => 'Urgent signs';
+
+  @override
+  String get fastingUrgentWhatToDo => 'What to do straight away';
+
+  @override
+  String get fastingStopTitle => 'When to break the fast straight away';
+
+  @override
+  String get fastingDoctorFirst =>
+      'See a doctor before starting if your child has';
+
+  @override
+  String fastingSteps(String name) {
+    return '$name\'s steps';
+  }
+
+  @override
+  String get fastingCurrent => 'Current step';
+
+  @override
+  String get fastingSetStep => 'Make this the step';
+
+  @override
+  String fastingFromAge(int age) {
+    return 'From age $age';
+  }
+
+  @override
+  String fastingHours(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other: 'About $hours hours',
+      one: 'About 1 hour',
+      zero: 'No fasting hours',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String fastingMaxDays(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'At most $days days a week',
+      one: 'At most 1 day a week',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get fastingAdvanceWhen => 'When to move up';
+
+  @override
+  String get fastingNotYetForAge => 'Not for their age yet';
+
+  @override
+  String fastingPuberty(String name) {
+    return '$name has reached puberty';
+  }
+
+  @override
+  String get fastingPubertyHint =>
+      'Puberty, not age, makes fasting obligatory. Turning this on moves your child to the 13–15 step, and the practice-day limit no longer applies. Ask people of knowledge about the rulings.';
+
+  @override
+  String get fastingClimbed => 'Moved up a step — well done!';
+
+  @override
+  String get fastingStepSaved => 'Step saved';
+
+  @override
+  String get fastingPrinciples => 'Principles';
+
+  @override
+  String get fastingTips => 'Tips';
+
+  @override
+  String get fastingErrorNotForAge => 'This step is for an older age.';
+
+  @override
+  String get fastingErrorNoStep => 'Choose their step first.';
+
+  @override
+  String milestonesTitle(String name) {
+    return '$name\'s stages';
+  }
+
+  @override
+  String get milestonesDue => 'Due now';
+
+  @override
+  String get milestonesUpcoming => 'Coming up';
+
+  @override
+  String milestonesLibrary(String name) {
+    return 'For $name\'s age';
+  }
+
+  @override
+  String get milestonesPast => 'Earlier';
+
+  @override
+  String milestonesDueOn(String date) {
+    return 'Due: $date';
+  }
+
+  @override
+  String milestonesNeedsBirthMonth(String name) {
+    return 'Add $name\'s birth month so we know when each stage comes and can remind you a month before. Until then, the cards follow their age group.';
+  }
+
+  @override
+  String milestonesNeedsGender(String name) {
+    return 'Set $name\'s gender to see the right guide to getting ready for puberty.';
+  }
+
+  @override
+  String get milestonesCompleteProfile => 'Complete the profile';
+
+  @override
+  String get milestonesEmpty => 'No stages to show right now.';
+
+  @override
+  String get milestonesRedFlags => 'When to see a professional';
+
+  @override
+  String get milestonesMedicalNote =>
+      'General information — not a substitute for a doctor.';
+
+  @override
+  String get milestonesLinks => 'Go deeper';
+
+  @override
+  String missionCoinsEarned(int coins) {
+    String _temp0 = intl.Intl.pluralLogic(
+      coins,
+      locale: localeName,
+      other: '$coins coins added',
+      one: '1 coin added',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get prayerAdvanceTitle => 'This stage\'s weeks are done';
+
+  @override
+  String prayerAdvanceBody(int next, String name) {
+    return 'Move on to stage $next when you feel $name is ready — it\'s your call.';
+  }
+
+  @override
+  String prayerAdvanceButton(int next) {
+    return 'Go to stage $next';
+  }
+
+  @override
+  String get prayerBackToStage => 'Go back to an earlier stage';
+
+  @override
+  String get prayerBackHint =>
+      'Going back is invisible to your child — they only see the day\'s tasks.';
+
+  @override
+  String get prayerBasis => 'What the journey is based on';
+
+  @override
+  String get prayerPrinciples => 'The journey\'s principles';
+
+  @override
+  String get prayerChooseStage => 'Which stage shall we start from?';
+
+  @override
+  String get prayerConfirmNow => 'Confirm now';
+
+  @override
+  String get prayerCovenantTitle => 'The covenant';
+
+  @override
+  String prayerCovenantProgress(int coins, int target) {
+    return '$coins coins this stage — the covenant is at $target.';
+  }
+
+  @override
+  String get prayerCovenantExamples => 'Covenant ideas';
+
+  @override
+  String get prayerSetCovenant => 'Agree on the covenant';
+
+  @override
+  String get prayerErrorAlreadyEnrolled => 'The journey has already started.';
+
+  @override
+  String get prayerErrorGraduationNotYet =>
+      'Graduation opens once the last stage\'s weeks are complete.';
+
+  @override
+  String get prayerErrorNotForAge => 'This track isn\'t for their age.';
+
+  @override
+  String get prayerErrorOneStage => 'You move on one stage at a time.';
+
+  @override
+  String get prayerGraduateButton => 'Celebrate the graduation';
+
+  @override
+  String prayerGraduatedOn(String date) {
+    return 'Completed the journey on $date';
+  }
+
+  @override
+  String get prayerGraduatedTitle => 'Prayer Journey complete!';
+
+  @override
+  String prayerHandOver(String name) {
+    return 'Hand the phone to $name to record their task';
+  }
+
+  @override
+  String get prayerHowToConfirm => 'How to confirm';
+
+  @override
+  String get prayerIfStruggling => 'If it\'s hard going';
+
+  @override
+  String get prayerJourneyInstead =>
+      'Not praying regularly yet? Start the journey from the right stage';
+
+  @override
+  String get prayerLessons => 'Lessons for this stage';
+
+  @override
+  String prayerNotForChild(String name) {
+    return 'The Prayer Journey isn\'t for $name\'s age right now.';
+  }
+
+  @override
+  String prayerRecordInJourney(String name) {
+    return 'Record this moment in $name\'s journey';
+  }
+
+  @override
+  String prayerSayToChild(String name) {
+    return 'Say to $name';
+  }
+
+  @override
+  String prayerStageN(int stage) {
+    return 'Stage $stage';
+  }
+
+  @override
+  String prayerStageOf(int stage, int total) {
+    return 'Stage $stage of $total';
+  }
+
+  @override
+  String prayerStageWeeks(int first, int last) {
+    return 'Weeks $first–$last';
+  }
+
+  @override
+  String get prayerStagesTitle => 'The stages';
+
+  @override
+  String prayerStartTrack(String title) {
+    return 'Start: $title';
+  }
+
+  @override
+  String get prayerStop => 'Stop the journey';
+
+  @override
+  String prayerStopConfirm(String name) {
+    return 'Stop the Prayer Journey with $name? You can start again whenever you like.';
+  }
+
+  @override
+  String prayerTaskGoal(int count) {
+    return 'Suggested: $count a week';
+  }
+
+  @override
+  String prayerTaskThisWeek(int count) {
+    return 'This week: $count';
+  }
+
+  @override
+  String prayerTaskToday(int count) {
+    return 'Today: $count';
+  }
+
+  @override
+  String prayerTasksTitle(String name) {
+    return '$name\'s tasks';
+  }
+
+  @override
+  String get prayerTrackJourney => 'The Prayer Journey';
+
+  @override
+  String get prayerTrackOwnership => 'My prayer, my responsibility';
+
+  @override
+  String get prayerTrackPreparation => 'Getting ready';
+
+  @override
+  String prayerWeekN(int week) {
+    return 'Week $week';
+  }
+
+  @override
+  String get prayerYourPart => 'Your part this stage';
+
+  @override
+  String get programsTitle => 'Family programs';
+
+  @override
+  String get programsIntro =>
+      'Short programs that walk with you step by step: Family Ramadan, the Prayer Journey, and the important stages of each child\'s life.';
+
+  @override
+  String get programsHomeIntro =>
+      'Family Ramadan, the Prayer Journey, and the important stages of your child\'s life.';
+
+  @override
+  String programsCoins(int coins) {
+    String _temp0 = intl.Intl.pluralLogic(
+      coins,
+      locale: localeName,
+      other: '$coins coins',
+      one: '1 coin',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get programsErrorNotInSeason =>
+      'This can be set before and during Ramadan.';
+
+  @override
+  String get programsEvidenceTitle => 'The evidence';
+
+  @override
+  String get programsVerses => 'Verses';
+
+  @override
+  String get programsLessonFallback => 'Lesson';
+
+  @override
+  String get programsPathFallback => 'Path';
+
+  @override
+  String get programsMeaningLabel => 'Meaning';
+
+  @override
+  String programsMilestonesAddBirthMonth(String name) {
+    return 'Add $name\'s birth month for reminders at the right time';
+  }
+
+  @override
+  String get programsMilestonesBrowse => 'What each age brings';
+
+  @override
+  String programsMilestonesDue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count stages are due now',
+      one: '1 stage is due now',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String programsMilestonesDueFor(int count, String name) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count stages in $name\'s life are due now',
+      one: 'A stage in $name\'s life is due now',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get programsMilestonesTitle => 'Important stages';
+
+  @override
+  String get programsNoChildren => 'Add your child to see their programs here.';
+
+  @override
+  String get programsOpenInQuran => 'Open in the Quran';
+
+  @override
+  String get programsOpenRamadan => 'Open the program';
+
+  @override
+  String get programsPrayerAdvance => 'Ready for the next stage when you are';
+
+  @override
+  String get programsPrayerCanGraduate => 'Ready to graduate';
+
+  @override
+  String programsPrayerNotStarted(String track) {
+    return 'Not started yet: $track';
+  }
+
+  @override
+  String programsPrayerPending(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tasks waiting for you to confirm',
+      one: '1 task waiting for you to confirm',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String programsPrayerStartWith(String name) {
+    return 'The Prayer Journey: start it with $name';
+  }
+
+  @override
+  String get programsPrayerTitle => 'The Prayer Journey';
+
+  @override
+  String get programsQuranArabicNote =>
+      'The Quran is shown in its Arabic text.';
+
+  @override
+  String programsRamadanAfterWeek(int week) {
+    return 'After Ramadan: week $week of keeping it going';
+  }
+
+  @override
+  String get programsRamadanEid =>
+      'Eid Mubarak — your «Our Family\'s Ramadan» card is ready';
+
+  @override
+  String get programsRamadanOffSeason =>
+      'The Ramadan program returns next season, God willing.';
+
+  @override
+  String programsRamadanRole(String name) {
+    return '$name\'s part in Ramadan';
+  }
+
+  @override
+  String get programsRamadanTitle => 'Family Ramadan';
+
+  @override
+  String get programsSaved => 'Saved';
+
+  @override
+  String programsSurahRange(String surah, String range) {
+    return 'Surah $surah ($range)';
+  }
+
+  @override
+  String get programsUnavailable =>
+      'These programs aren\'t available right now. Please try again later.';
+
+  @override
+  String get ramadanAfterHabits => 'Habits to keep';
+
+  @override
+  String get ramadanAfterLinks => 'Carry on from here';
+
+  @override
+  String get ramadanAfterThisWeek => 'This week';
+
+  @override
+  String get ramadanAfterWeeks => 'The weeks after';
+
+  @override
+  String get ramadanAtHome => 'At home';
+
+  @override
+  String ramadanChildPart(String name) {
+    return '$name\'s part';
+  }
+
+  @override
+  String get ramadanChooseStep => 'Choose their step';
+
+  @override
+  String get ramadanCostFree => 'Free';
+
+  @override
+  String get ramadanCostLow => 'Low cost';
+
+  @override
+  String ramadanCountdown(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days days until Ramadan',
+      one: '1 day until Ramadan',
+      zero: 'Ramadan starts today',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String ramadanDayN(int day) {
+    return 'Day $day';
+  }
+
+  @override
+  String ramadanDayOf(int day, int total) {
+    return 'Day $day of $total of Ramadan';
+  }
+
+  @override
+  String get ramadanDayPreviewNote =>
+      'This day hasn\'t come yet — you can tick it on the day.';
+
+  @override
+  String get ramadanDays29 => '29 days';
+
+  @override
+  String get ramadanDays30 => '30 days';
+
+  @override
+  String get ramadanDaysAuto => 'Follow the official announcement';
+
+  @override
+  String get ramadanEidTomorrowTitle => 'Is tomorrow Eid?';
+
+  @override
+  String get ramadanEidTomorrowBody =>
+      'If Eid was announced for tomorrow where you live, set the month to 29 days so the program reaches Eid with you on time.';
+
+  @override
+  String get ramadanErrorDayNotMarkable =>
+      'This day can be ticked once it comes.';
+
+  @override
+  String get ramadanFamilyChallenge => 'The family challenge';
+
+  @override
+  String get ramadanFamilyWordHint =>
+      'Pick one word for your Ramadan — it will appear on your «Our Family\'s Ramadan» card.';
+
+  @override
+  String get ramadanFamilyWordTitle => 'Our Ramadan word';
+
+  @override
+  String ramadanFastingNoStep(String name) {
+    return '$name\'s step isn\'t chosen yet.';
+  }
+
+  @override
+  String ramadanFastingStep(String name, String step) {
+    return '$name\'s step: $step';
+  }
+
+  @override
+  String get ramadanFastingTitle => 'The fasting ladder';
+
+  @override
+  String get ramadanMarkChallenge => 'The challenge';
+
+  @override
+  String get ramadanMarkJuz => 'The khatma juz';
+
+  @override
+  String get ramadanMarkNight => 'We gathered tonight';
+
+  @override
+  String get ramadanMarkStory => 'The story';
+
+  @override
+  String get ramadanMarkWird => 'The Quran portion';
+
+  @override
+  String get ramadanMarksNote =>
+      'Tick only what you did — anything else simply isn\'t recorded.';
+
+  @override
+  String get ramadanMarksTitle => 'What we did';
+
+  @override
+  String get ramadanMaterials => 'You\'ll need';
+
+  @override
+  String get ramadanMayNotOccur =>
+      'This day may not come if the month has 29 days.';
+
+  @override
+  String ramadanMinutes(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other: '$minutes min',
+      one: '1 min',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get ramadanNoFastingBeforeSeven =>
+      'No fasting before seven in this program — your child shares the spirit of Ramadan with you.';
+
+  @override
+  String get ramadanOddNight =>
+      'Tonight is one of the odd nights of the last ten.';
+
+  @override
+  String get ramadanOffSeasonBody =>
+      'This Ramadan season is over. See you next Ramadan, God willing.';
+
+  @override
+  String get ramadanOpenLadder => 'Open the fasting ladder';
+
+  @override
+  String get ramadanOtherDays => 'Days of the month';
+
+  @override
+  String ramadanParentJuz(int juz) {
+    return 'Parents\' khatma: juz $juz';
+  }
+
+  @override
+  String get ramadanParentNote => 'For you';
+
+  @override
+  String get ramadanPhaseFirstTen => 'The first ten days';
+
+  @override
+  String get ramadanPhaseMiddleTen => 'The middle ten days';
+
+  @override
+  String get ramadanPhaseLastTen => 'The last ten days';
+
+  @override
+  String ramadanPractisedThisWeek(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count times this week',
+      one: 'Once this week',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String ramadanPractisedToday(String name) {
+    return '$name practised their step today';
+  }
+
+  @override
+  String get ramadanReadStory => 'Read it together';
+
+  @override
+  String ramadanReadWithChild(String name) {
+    return 'This part speaks to $name — read it together.';
+  }
+
+  @override
+  String get ramadanRecapOpen => 'Open «Our Family\'s Ramadan»';
+
+  @override
+  String get ramadanRestSuggested =>
+      'That\'s enough for this week — let tomorrow be a rest day.';
+
+  @override
+  String ramadanSettingsCurrent(String date, int days) {
+    return 'Now: starts on $date, $days days';
+  }
+
+  @override
+  String get ramadanSettingsIntro =>
+      'Ramadan begins with the moon sighting, and the day can differ between countries. Set it to what was announced where you live.';
+
+  @override
+  String get ramadanSettingsLength => 'Days in the month';
+
+  @override
+  String get ramadanSettingsStart => 'The first day of Ramadan';
+
+  @override
+  String get ramadanSettingsTitle => 'Your moon sighting';
+
+  @override
+  String get ramadanShiftEarlier => 'A day earlier';
+
+  @override
+  String get ramadanShiftLater => 'A day later';
+
+  @override
+  String get ramadanShiftNone => 'On the announced day';
+
+  @override
+  String get ramadanSoFar => 'Our Ramadan so far';
+
+  @override
+  String ramadanStartsOn(String date) {
+    return 'Starts on $date';
+  }
+
+  @override
+  String ramadanStartsOnEstimate(String date) {
+    return 'Expected to start on $date — confirmed by the moon sighting';
+  }
+
+  @override
+  String ramadanStoryTonight(String title) {
+    return 'Tonight\'s story: $title';
+  }
+
+  @override
+  String get ramadanWhenAfterIftar => 'After iftar';
+
+  @override
+  String get ramadanWhenAnytime => 'Any time';
+
+  @override
+  String get ramadanWhenAtIftar => 'At iftar';
+
+  @override
+  String get ramadanWhenBeforeIftar => 'Before iftar';
+
+  @override
+  String get ramadanWhenNight => 'At night';
+
+  @override
+  String get ramadanWhenSuhoor => 'At suhoor';
+
+  @override
+  String get ramadanWhoSeesWhat => 'Who sees what';
+
+  @override
+  String get ramadanWirdTheme => 'Today\'s verses';
+
+  @override
+  String get ramadanWirdTitle => 'The family\'s Quran portion';
+
+  @override
+  String get ramadanWirdTogether => 'We read it together';
+
+  @override
+  String get recapEmpty =>
+      'No counts yet. Tick what you did under «What we did» on each day\'s card, and the counts will show up here.';
+
+  @override
+  String get recapFamilyOnly => 'For your family only';
+
+  @override
+  String get recapFamilyOnlyNote =>
+      'This never appears on the card or in the share — the children\'s fasting is the family\'s own business.';
+
+  @override
+  String get recapNoSeason => 'No Ramadan season is known yet.';
+
+  @override
+  String recapNotYet(String date) {
+    return 'The card will be ready on Eid ($date).';
+  }
+
+  @override
+  String get recapNotYetNoDate => 'The card will be ready on Eid.';
+
+  @override
+  String get recapPreview => 'This is what will be shared';
+
+  @override
+  String get recapShare => 'Share the card';
+
+  @override
+  String get recapShareFailed => 'Sharing didn\'t work. Please try again.';
+
+  @override
+  String get recapTitle => 'Our Family\'s Ramadan';
+
+  @override
+  String prayerHandOverNeedsBand(String name) {
+    return 'For $name to record tasks in child mode, update their age group in their profile to match their age.';
+  }
+
+  @override
+  String get ramadanRecapLastSeason =>
+      'Last Ramadan\'s «Our Family\'s Ramadan» card';
+
+  @override
+  String ramadanDayToday(int day) {
+    return 'Day $day, today';
+  }
+
+  @override
+  String memoryTitle(String name) {
+    return 'What Almorabbi knows about $name';
+  }
+
+  @override
+  String memoryIntro(String name) {
+    return 'Almorabbi remembers a few things you mention about $name in your questions, so its advice fits your child better. You decide what stays: correct or delete anything, any time.';
+  }
+
+  @override
+  String get memorySwitchTitle => 'Remember what I share';
+
+  @override
+  String get memorySwitchOn =>
+      'On for all your children: Almorabbi learns from your questions and uses what it knows in its answers.';
+
+  @override
+  String get memorySwitchOff =>
+      'Off for all your children: nothing new is learned and nothing here is used. Nothing is deleted.';
+
+  @override
+  String get memorySwitchFailed =>
+      'Couldn\'t change the switch. Please try again.';
+
+  @override
+  String get memoryPendingTitle => 'Is this right?';
+
+  @override
+  String get memoryPendingBody =>
+      'Almorabbi doesn\'t use health notes until you confirm them.';
+
+  @override
+  String get memoryConfirmFact => 'Yes, that\'s right';
+
+  @override
+  String get memoryRejectFact => 'Not right';
+
+  @override
+  String get memoryRejected => 'Almorabbi won\'t learn this again.';
+
+  @override
+  String get memoryCatTemperament => 'Temperament';
+
+  @override
+  String get memoryCatChallenge => 'Challenges';
+
+  @override
+  String get memoryCatGoal => 'Goals';
+
+  @override
+  String get memoryCatTried => 'Tried approaches';
+
+  @override
+  String get memoryCatOutcome => 'Results';
+
+  @override
+  String get memoryCatHealth => 'Health notes';
+
+  @override
+  String get memoryCatSchool => 'School';
+
+  @override
+  String get memoryCatWorship => 'Worship';
+
+  @override
+  String get memoryCatOther => 'Other';
+
+  @override
+  String get memorySourceChat => 'From a conversation';
+
+  @override
+  String get memorySourceFollowup => 'From a follow-up';
+
+  @override
+  String get memorySourceManual => 'Added by you';
+
+  @override
+  String get memoryFactOptions => 'Note options';
+
+  @override
+  String get memoryDeleteFactTitle => 'Delete this note?';
+
+  @override
+  String get memoryDeleteFactBody =>
+      'Almorabbi may learn it again if you mention it later.';
+
+  @override
+  String get memoryFactDeleted => 'Note deleted.';
+
+  @override
+  String memoryEmptyTitle(String name) {
+    return 'Almorabbi doesn\'t know anything about $name yet';
+  }
+
+  @override
+  String get memoryEmptyBody =>
+      'As you ask Almorabbi, it notes here what helps its advice. You can add things yourself too.';
+
+  @override
+  String get memoryAddFact => 'Add a note';
+
+  @override
+  String get memoryAddTitle => 'What should Almorabbi know?';
+
+  @override
+  String get memoryEditTitle => 'Edit note';
+
+  @override
+  String get memoryFactHint => 'e.g. Loves a story before bed';
+
+  @override
+  String get memoryCategoryLabel => 'Type';
+
+  @override
+  String memoryFactTooLong(int max) {
+    return 'Keep it under $max characters.';
+  }
+
+  @override
+  String get memoryFactInvalid =>
+      'Write a short note without links or contact details.';
+
+  @override
+  String get memorySensitive =>
+      'This is something Almorabbi never keeps, like medicines or sensitive matters, so it wasn\'t saved.';
+
+  @override
+  String memoryForgetChild(String name) {
+    return 'Delete everything Almorabbi knows about $name';
+  }
+
+  @override
+  String memoryForgetChildBody(String name) {
+    return 'This deletes everything Almorabbi remembers about $name: notes, follow-ups and weekly plans. It can\'t be undone, and the memory switch stays as it is.';
+  }
+
+  @override
+  String memoryForgotten(String name) {
+    return 'Everything Almorabbi remembered about $name was deleted.';
+  }
+
+  @override
+  String get memoryNeverTitle => 'What Almorabbi never keeps';
+
+  @override
+  String get memoryNeverBody =>
+      'Medicines, their names, doses and prescriptions; test results, doctors or hospitals; anything about self-harm, suicide, abuse, sexual matters or drugs; and the parents\' private life.';
+
+  @override
+  String get memoryWhereKept =>
+      'These notes are kept on Almorabbi\'s server without your child\'s name, until you delete them or your account.';
+
+  @override
+  String get memoryUnavailable =>
+      'This isn\'t available yet. It will appear here when it\'s ready.';
+
+  @override
+  String memoryChipFor(String name) {
+    return 'Personalised for $name';
+  }
+
+  @override
+  String get memoryChipGeneric => 'Personalised for your child';
+
+  @override
+  String get settingsMemoryDesc => 'Review and edit what it remembers';
+
+  @override
+  String get proofConfirmingTitle => 'Confirming this is your phone…';
+
+  @override
+  String get proofConfirmingBody =>
+      'Just a few seconds. We send a silent code to this phone — you won\'t see it — to make sure the request comes from it.';
+
+  @override
+  String get proofFailedTitle => 'We couldn\'t confirm your phone';
+
+  @override
+  String get proofFailedBody =>
+      'The verification code didn\'t reach your phone. Check your internet connection and try again.';
+
+  @override
+  String proofSupport(String email) {
+    return 'If it keeps happening, email us at $email.';
+  }
+
+  @override
+  String proofPausedTitle(String time) {
+    return 'Paused until $time';
+  }
+
+  @override
+  String get proofPausedMemoryBody =>
+      'To protect your family, memory is paused because your account started receiving notifications on a new phone or after a reinstall. If that was you, there\'s nothing to do — it reopens on its own at that time. You can switch memory off now if you like.';
+
+  @override
+  String get proofPausedDeletionBody =>
+      'To protect your family\'s data, deleting is paused for 72 hours when the account starts receiving notifications on a phone for the first time, or on a new phone, so no one can delete your data from a phone that isn\'t yours. Nothing is lost, and deleting opens on its own at that time.';
+
+  @override
+  String proofPausedEmail(String email) {
+    return 'If you need it sooner, email us at $email.';
+  }
+
+  @override
+  String get followupTitle => 'Follow-up';
+
+  @override
+  String followupTitleFor(String name) {
+    return 'Follow-up with $name';
+  }
+
+  @override
+  String followupQuestion(String strategy) {
+    return 'Did you try: $strategy?';
+  }
+
+  @override
+  String get followupWorked => 'Worked';
+
+  @override
+  String get followupPartly => 'Partly';
+
+  @override
+  String get followupDidntWork => 'Didn\'t work';
+
+  @override
+  String get followupDidntTry => 'Haven\'t tried yet';
+
+  @override
+  String get followupNoteHint => 'Optional note: what happened?';
+
+  @override
+  String get followupDismiss => 'Don\'t ask about this';
+
+  @override
+  String get followupDismissed => 'We won\'t ask about this again.';
+
+  @override
+  String get followupThanksTitle => 'Thank you 🤍';
+
+  @override
+  String get followupThanksWorked => 'Alhamdulillah — it helped!';
+
+  @override
+  String get followupThanksPartly =>
+      'A good step. Almorabbi will build on what worked.';
+
+  @override
+  String get followupThanksDidntWork =>
+      'Every child has their own key — ask for an alternative now; this advice won\'t be repeated.';
+
+  @override
+  String get followupThanksDidntTry =>
+      'No problem. Shall I remind you tomorrow?';
+
+  @override
+  String get followupRemindTomorrowBtn => 'Remind me tomorrow';
+
+  @override
+  String get followupAskAlternativeBtn => 'Ask for an alternative';
+
+  @override
+  String followupAskAlternativePrefill(String strategy, String name) {
+    return 'The advice \"$strategy\" didn\'t work with $name. What practical alternative can I try?';
+  }
+
+  @override
+  String get followupNoteDropped =>
+      'Your answer was saved. We didn\'t keep your note, because it\'s something Almorabbi doesn\'t store.';
+
+  @override
+  String followupAnsweredResult(String outcome) {
+    return 'You answered: $outcome';
+  }
+
+  @override
+  String get followupDismissedResult =>
+      'You asked us not to ask about this advice.';
+
+  @override
+  String get followupExpiredResult => 'This follow-up has expired.';
+
+  @override
+  String get followupNotFound => 'We couldn\'t find this follow-up.';
+
+  @override
+  String get followupClosed => 'This follow-up was already answered.';
+
+  @override
+  String planTitleFor(String name) {
+    return '$name\'s plan this week';
+  }
+
+  @override
+  String get planSteps => 'Three small steps';
+
+  @override
+  String get planWorship => 'Worship together';
+
+  @override
+  String get planLesson => 'This week\'s lesson';
+
+  @override
+  String get planLessonDone => 'Completed';
+
+  @override
+  String get planAdapted =>
+      'We swapped a step that didn\'t work for you before.';
+
+  @override
+  String get planShowAll => 'Show the full plan';
+
+  @override
+  String get planShowLess => 'Hide details';
+
+  @override
+  String get privacyDataTitle => 'Privacy & your data';
+
+  @override
+  String get privacyDataDesc =>
+      'Memory, deleting your data, the privacy policy';
+
+  @override
+  String get privacyMemorySection => 'Almorabbi\'s memory';
+
+  @override
+  String get privacyEraseMemory => 'Erase memory for all your children';
+
+  @override
+  String get privacyEraseMemoryDesc =>
+      'Notes, follow-ups and weekly plans. The switch stays as it is.';
+
+  @override
+  String get privacyEraseMemoryBody =>
+      'This deletes everything Almorabbi remembers about all your children: notes, follow-ups and weekly plans. It can\'t be undone.';
+
+  @override
+  String get privacyMemoryErased => 'Memory erased.';
+
+  @override
+  String get privacyAccountSection => 'Your account';
+
+  @override
+  String get privacyDeleteAccountDesc =>
+      'Deletes all your data from our servers';
+
+  @override
+  String get privacyDeleteWithoutApp => 'Ask for deletion without the app';
+
+  @override
+  String privacyDeleteWithoutAppDesc(String email) {
+    return 'A page on our site, or an email to $email';
+  }
+
+  @override
+  String get deleteAccountIntro =>
+      'Deleting your account immediately erases everything linked to this phone on our servers:';
+
+  @override
+  String get deleteAccountItemChildren =>
+      'Your children\'s profiles, progress and tools';
+
+  @override
+  String get deleteAccountItemChat =>
+      'Your questions, their answers and your ratings';
+
+  @override
+  String get deleteAccountItemMemory =>
+      'What Almorabbi remembers, follow-ups and weekly plans';
+
+  @override
+  String get deleteAccountItemOther =>
+      'Your notification token, invite code and backups';
+
+  @override
+  String get deleteAccountGoogle =>
+      'If this phone is signed in with Google, we confirm its link first; then the account record and its backups are deleted too, along with every other phone linked to it after it was verified.';
+
+  @override
+  String get deleteAccountPhone =>
+      'Then this phone is cleared, and the app starts over.';
+
+  @override
+  String get deleteAccountBackups =>
+      'Your data disappears from our server\'s backups within 14 days.';
+
+  @override
+  String get deleteAccountPermanent => 'This can\'t be undone.';
+
+  @override
+  String get deleteAccountProofNote =>
+      'Before deleting, we automatically confirm the request comes from your phone. It takes a few seconds.';
+
+  @override
+  String get deleteAccountUnderstand => 'I understand this is permanent';
+
+  @override
+  String get deleteAccountButton => 'Delete my account';
+
+  @override
+  String get deleteAccountConfirmTitle => 'Delete your account for good?';
+
+  @override
+  String get deleteAccountConfirmBody =>
+      'Everything will be deleted and can\'t be recovered.';
+
+  @override
+  String get deleteAccountDeleting => 'Deleting…';
+
+  @override
+  String get deleteAccountServerError =>
+      'Nothing was deleted. Please try again shortly.';
+
+  @override
+  String get deleteAccountUnavailable =>
+      'Deleting from inside the app isn\'t available right now. You can ask for it by email; we complete it within 30 days.';
+
+  @override
+  String get deleteAccountEmailUs => 'Email us';
+
+  @override
+  String get deleteAccountOpenPage => 'Open the deletion page';
+
+  @override
+  String get deleteAccountEmailSubject => 'Data deletion request';
+
+  @override
+  String get accountDeletedTitle => 'Your account has been deleted';
+
+  @override
+  String get accountDeletedBody =>
+      'We deleted everything linked to this phone from our servers and cleared this phone. Close the app — it will start fresh when you open it.';
+
+  @override
+  String accountDeletedOthers(int count) {
+    return 'Data from the other phones linked to your Google account was deleted too ($count).';
+  }
+
+  @override
+  String get accountDeletedClose => 'Close the app';
+
+  @override
+  String supportEmailCopied(String email) {
+    return 'Address copied: $email';
+  }
+
+  @override
+  String get memoryYourChild => 'your child';
+
+  @override
+  String get deleteAccountUnconfirmed =>
+      'We didn\'t get a clear answer from the server, so we don\'t know yet whether your account was deleted. We\'ll check once you\'re back online: tap \"Check again\", or the app checks by itself next time you open it.';
+
+  @override
+  String get deleteAccountCheckAgain => 'Check again';
+
+  @override
+  String accountDeletedGoogleKept(String email) {
+    return 'We kept your Google account record and its backups, because this phone\'s link to it wasn\'t verified. To remove them — and any other phone linked to it — email us at $email.';
+  }
+
+  @override
+  String accountDeletedGoogleUnknown(String email) {
+    return 'We couldn\'t confirm whether your Google account record was deleted with it. To check, or to remove it, email us at $email.';
+  }
+
+  @override
+  String get followupMemoryOff =>
+      'Memory is paused, so Almorabbi isn\'t keeping follow-up answers right now. Turn it on if you\'d like to answer.';
+
+  @override
+  String get followupNotSaved => 'Memory is off, so your answer wasn\'t saved.';
+
+  @override
+  String get memoryTurnOn => 'Turn memory on';
+
+  @override
+  String get memoryOffCannotAdd =>
+      'Memory is off, so nothing new is added to it. Turn it on to add notes.';
+
+  @override
+  String get deleteAccountStartOver => 'Start over on this phone';
+
+  @override
+  String get deleteAccountStartOverTitle => 'Start over on this phone?';
+
+  @override
+  String deleteAccountStartOverBody(String email) {
+    return 'Everything on this phone will be cleared, and the app will start as if just installed. We don\'t know yet whether your account was deleted from our servers; to make sure it is, email us at $email.';
+  }
+
+  @override
+  String get deleteAccountStartOverConfirm => 'Start over';
+
+  @override
+  String get accountStartedOverTitle =>
+      'The app has started over on this phone';
+
+  @override
+  String accountStartedOverBody(String email) {
+    return 'We cleared everything that was on this phone. We couldn\'t confirm whether your account was deleted from our servers; to make sure it is, email us at $email. Close the app — it will start fresh when you open it.';
+  }
+
+  @override
+  String get deleteAccountNotDeletedNotice =>
+      'Your account was not deleted. You can try again from Settings → Privacy & your data.';
+
+  @override
+  String get a11ySendQuestion => 'Send question';
+
+  @override
+  String get a11yExitChildMode => 'Exit child mode';
+
+  @override
+  String a11yCurrentChild(String name) {
+    return 'Current child: $name, tap to switch';
+  }
+
+  @override
+  String get a11yChooseAChild => 'Choose a child';
+
+  @override
+  String get praiseSectionTitle => 'A kind word with the confirmation';
+
+  @override
+  String get praiseChipAhsant => 'Well done';
+
+  @override
+  String get praiseChipBarakAllahuFik => 'May Allah bless you';
+
+  @override
+  String get praiseChipProud => 'We are proud of you';
+
+  @override
+  String get praiseOwnWordsHint => 'Or add a short word of your own';
+
+  @override
+  String get praiseFromFamily => 'Your family says to you';
+
+  @override
+  String get onbNameQuestion => 'What\'s your child\'s name?';
+
+  @override
+  String get onbNameHint => 'e.g. Sara, Ahmed, Layla';
+
+  @override
+  String get onbNameTitleDefault => 'Your child\'s path';
+
+  @override
+  String onbNameTitle(String name) {
+    return '$name\'s path';
+  }
+
+  @override
+  String get onbNameLater => 'Later';
+
+  @override
+  String get onbNameDone => 'Done';
+
+  @override
+  String get onbNameTooLong => 'Name is too long (30 characters max)';
+
+  @override
+  String get onbNameDigitsOnly => 'Type a name, not numbers';
+
+  @override
+  String get tourStartHereTitle => 'Start here';
+
+  @override
+  String get tourStartHereBody => 'A short lesson for your child\'s age';
+
+  @override
+  String get tourStartHereGo => 'Start';
+
+  @override
+  String get noorHelloDawn => 'Good early morning';
+
+  @override
+  String get noorHelloMorning => 'Good morning';
+
+  @override
+  String get noorHelloNoon => 'Good afternoon';
+
+  @override
+  String get noorHelloEvening => 'Good evening';
+
+  @override
+  String get noorHelloNight => 'Good night';
+
+  @override
+  String get noorYourChild => 'your child';
+
+  @override
+  String noorLineDawn1(String name) {
+    return 'A new day with $name — one small step is enough.';
+  }
+
+  @override
+  String noorLineDawn2(String name) {
+    return 'The early hour is quiet — a minute for you before $name wakes.';
+  }
+
+  @override
+  String get noorLineDawn3 => 'Start with a good intention; the rest follows.';
+
+  @override
+  String noorLineDawn4(String name) {
+    return 'A blessed morning to you and $name.';
+  }
+
+  @override
+  String noorLineMorning1(String name) {
+    return 'Start $name\'s day with a kind word — it stays.';
+  }
+
+  @override
+  String get noorLineMorning2 => 'A calm morning makes a calm day.';
+
+  @override
+  String noorLineMorning3(String name) {
+    return 'Your smile is the first thing $name sees today.';
+  }
+
+  @override
+  String noorLineMorning4(String name) {
+    return 'Today\'s step with $name is waiting below.';
+  }
+
+  @override
+  String noorLineNoon1(String name) {
+    return 'A short moment with $name now is worth a lot.';
+  }
+
+  @override
+  String noorLineNoon2(String name) {
+    return 'Ask $name: what was the best part of your day?';
+  }
+
+  @override
+  String get noorLineNoon3 => 'Two minutes of listening is enough at midday.';
+
+  @override
+  String get noorLineNoon4 =>
+      'How is your day going? Your small step is below.';
+
+  @override
+  String noorLineEvening1(String name) {
+    return 'Evening is for closeness — sit with $name a little.';
+  }
+
+  @override
+  String noorLineEvening2(String name) {
+    return 'Before bed, tell $name one thing they did well today.';
+  }
+
+  @override
+  String noorLineEvening3(String name) {
+    return 'A warm word at the end of the day stays with $name.';
+  }
+
+  @override
+  String noorLineEvening4(String name) {
+    return 'Tonight could be the night for one small step with $name.';
+  }
+
+  @override
+  String noorLineNight1(String name) {
+    return 'Good night — tomorrow brings a new step with $name.';
+  }
+
+  @override
+  String get noorLineNight2 => 'You gave enough today. See you tomorrow.';
+
+  @override
+  String get noorLineNight3 =>
+      'The quiet of the night is a time to ask: what worked today?';
+
+  @override
+  String noorLineNight4(String name) {
+    return 'A peaceful night to you and $name.';
+  }
+
+  @override
+  String noorFirstDay(String name) {
+    return 'Today is our first day with $name. I\'m Noor, and I\'ll walk with you step by step.';
+  }
+
+  @override
+  String noorMissionsOne(String name) {
+    return '$name\'s mission is done and waiting for your word.';
+  }
+
+  @override
+  String noorMissionsMany(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count missions are done and waiting for your word.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get noorChipConfirm => 'Confirm with a kind word';
+
+  @override
+  String noorPromiseDue(String name, String step) {
+    return 'It\'s time for your step with $name:\n“$step”\nHow did it go?';
+  }
+
+  @override
+  String noorFollowupDue(String name, String step) {
+    return 'A few days ago we talked about:\n“$step”\nDid you try it with $name?';
+  }
+
+  @override
+  String noorThanksWorked(String name) {
+    return 'Alhamdulillah, it worked! I\'ll remember this works with $name.';
+  }
+
+  @override
+  String get noorThanksDidntWork =>
+      'That\'s okay — every child has their own key. Let\'s find another way.';
+
+  @override
+  String get noorThanksDidntTry =>
+      'No problem — the step is here whenever you\'re ready.';
+
+  @override
+  String get noorChipAskAlternative => 'Ask for another way';
+
+  @override
+  String noorRamadan30(String name) {
+    return 'A month until Ramadan. Let\'s prepare $name with one small step a day.';
+  }
+
+  @override
+  String get noorRamadan14 =>
+      'Two weeks until Ramadan — the family programme is ready when you are.';
+
+  @override
+  String noorRamadan7(String name) {
+    return 'One week until Ramadan. Shall we start preparing $name?';
+  }
+
+  @override
+  String get noorRamadan1 =>
+      'Ramadan begins tomorrow — may Allah let us all reach it.';
+
+  @override
+  String get noorChipRamadan => 'Ramadan programme';
+
+  @override
+  String noorMondayPlan(String name) {
+    return 'This week\'s plan for $name is ready below: one challenge, three small steps.';
+  }
+
+  @override
+  String get noorChipStep => 'Today\'s step';
+
+  @override
+  String get noorDismiss => 'Hide for today';
+
+  @override
+  String get noorQuietMode => 'Quiet mode';
+
+  @override
+  String get noorQuietModeHint =>
+      'Noor only greets you and never asks about follow-ups.';
+
+  @override
+  String promiseWhenTitle(String name) {
+    return 'When will you try it with $name?';
+  }
+
+  @override
+  String get promiseTonight => 'Tonight';
+
+  @override
+  String get promiseTomorrow => 'Tomorrow';
+
+  @override
+  String get promiseThisWeek => 'This week';
+
+  @override
+  String get promiseSaved => 'I\'ll ask you how it went.';
+
+  @override
+  String get promiseReminderTitle => 'A gentle reminder from Noor';
+
+  @override
+  String get promiseReminderBody =>
+      'Your small step with your child is waiting.';
+
+  @override
+  String get ramadanStreetHint =>
+      'A day\'s lantern lights up when you tick anything on it. Tap any day to open it.';
+
+  @override
+  String get ramadanLanternLit => 'lantern lit';
+
+  @override
+  String get ramadanDayComplete => 'Alhamdulillah';
+
+  @override
+  String get handoverTitle => 'Hand over the phone';
+
+  @override
+  String handoverChoose(String name) {
+    return 'What will $name do now?';
+  }
+
+  @override
+  String get handoverHint =>
+      'Choose an activity, enter your PIN, then hand the phone over.';
+
+  @override
+  String get handoverNoSurface =>
+      'At this age we don\'t hand the phone to the child. Try an activity together, away from the screen.';
+
+  @override
+  String handoverYourTurn(String name) {
+    return '$name, it\'s your turn';
+  }
+
+  @override
+  String get handoverHabitBody => 'Logs the day\'s habits on their own';
+
+  @override
+  String get handoverMissionBody => 'A short task to read, then off to do it';
+
+  @override
+  String get handoverLicenseBody =>
+      'Short situations where they choose what to do';
+
+  @override
+  String get handoverScreenOffBody =>
+      'A story or recitation with the screen dark';
+
+  @override
+  String get childModeSurfaceNotAllowed =>
+      'This activity isn\'t for this age. Please choose another one.';
+
+  @override
+  String get childReturnDevice =>
+      'Please hand the phone back to your family — thank you';
+
+  @override
+  String noorPrayerAdvance(String name) {
+    return '$name seems ready for a new stage in the Prayer Journey.';
+  }
+
+  @override
+  String noorPrayerInvite(String name) {
+    return 'As $name nears seven, it may be a gentle time to begin the Prayer Journey, step by step.';
+  }
+
+  @override
+  String noorMilestoneDue(String name) {
+    return 'A new moment is waiting to be recorded in $name\'s journey.';
+  }
+
+  @override
+  String noorBirthMonthAsk(String name) {
+    return 'Tell me $name\'s birth month so I remember each stage on time.';
+  }
+
+  @override
+  String get noorChipPrayerJourney => 'Prayer Journey';
+
+  @override
+  String get noorChipChildJourney => 'My child\'s journey';
+
+  @override
+  String get noorChipAddBirthMonth => 'Add birth month';
+
+  @override
+  String chatTryWith(String name) {
+    return 'I\'ll try it with $name';
+  }
+
+  @override
+  String get chatTryWithMyChild => 'I\'ll try it with my child';
+
+  @override
+  String get chatTryTitle => 'Your step from this answer';
+
+  @override
+  String get chatTryIntro =>
+      'I picked one step from the answer for you to start with.';
+
+  @override
+  String get todayRoadReached => 'Reached today';
+
+  @override
+  String get pathFullMoonTitle => 'A full moon';
+
+  @override
+  String pathFullMoonBody(String title) {
+    return 'You\'ve finished “$title” in full, one lesson at a time.';
+  }
+
+  @override
+  String get pathFullMoonShare => 'Share the card';
+
+  @override
+  String prayerStageMomentChild(String gender, String name, String stage) {
+    String _temp0 = intl.Intl.selectLogic(gender, {
+      'female': '$name has moved on to “$stage”.',
+      'other': '$name has moved on to “$stage”.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String prayerStageMomentFamily(String stage) {
+    return 'You\'ve moved on to “$stage”.';
+  }
+
+  @override
+  String get prayerStageMomentDua =>
+      'May Allah help you, and accept it from you.';
+
+  @override
+  String prayerAdvanceBodyNamed(String stage, String name) {
+    return 'Move on to “$stage” when you feel $name is ready — it\'s your call.';
+  }
+
+  @override
+  String prayerAdvanceButtonNamed(String stage) {
+    return 'Go to “$stage”';
+  }
+
+  @override
+  String get weekLanternsTitle => 'Your week\'s lanterns';
+
+  @override
+  String get weekLanternsHint =>
+      'Every parenting step this week lights a lantern.';
+
+  @override
+  String weekLanternsLitDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count lit days',
+      one: '1 lit day',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get weekLanternsOpenHint => 'Show the week\'s steps';
+
+  @override
+  String get weekLanternNext => 'The next lantern';
+
+  @override
+  String get weekActsTitle => 'This week\'s steps';
+
+  @override
+  String get weekActsSubtitle => 'Each lantern is a parenting step you took.';
+
+  @override
+  String get litWeeks => 'Lit weeks';
+
+  @override
+  String litWeeksCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count lit weeks',
+      one: '1 lit week',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get actKindLesson => 'Lesson';
+
+  @override
+  String get actKindQuestion => 'Question';
+
+  @override
+  String get actKindFollowup => 'Follow-up';
+
+  @override
+  String get actKindMission => 'Mission';
+
+  @override
+  String get actKindPlanTick => 'Plan step';
+
+  @override
+  String get actKindHabit => 'Habit';
+
+  @override
+  String get actKindChallenge => 'Challenge';
+
+  @override
+  String get actKindOther => 'Parenting step';
+
+  @override
+  String harvestLessons(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count lessons',
+      one: '1 lesson',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String harvestQuestions(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count questions',
+      one: '1 question',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String harvestFollowups(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count follow-ups',
+      one: '1 follow-up',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String harvestMissions(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count missions',
+      one: '1 mission',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String harvestPlanTicks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count plan steps',
+      one: '1 plan step',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String harvestHabits(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count habits',
+      one: '1 habit',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String harvestChallenges(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count challenges',
+      one: '1 challenge',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String harvestOthers(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count other parenting steps',
+      one: '1 other parenting step',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get harvestListSeparator => ', ';
+
+  @override
+  String get harvestTitle => 'The week\'s harvest';
+
+  @override
+  String get harvestFromNoor => 'From Noor';
+
+  @override
+  String get harvestIntro =>
+      'Here are your week\'s lanterns, one after another.';
+
+  @override
+  String harvestSummary(String summary) {
+    return 'Your week: $summary';
+  }
+
+  @override
+  String get harvestDuaLead =>
+      'And we close the week with a du\'a from the Qur\'an:';
+
+  @override
+  String get harvestShare => 'Share the harvest';
+
+  @override
+  String get harvestShareEyebrow => 'Our week\'s harvest';
+
+  @override
+  String harvestShareMessage(String summary) {
+    return 'Our week\'s lanterns: $summary';
+  }
+
+  @override
+  String get noorFridayHarvest =>
+      'Jumu\'ah Mubarak. I gathered this week\'s lanterns into a small card for you.';
+
+  @override
+  String get noorChipHarvest => 'Open the card';
+
+  @override
+  String get planMarkDone => 'Step done. Well done!';
+
+  @override
+  String get planMarkUndo => 'Undo';
+
+  @override
+  String get planMarkHint => 'Tap to tick it';
+
+  @override
+  String planMarkedCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'You did $count steps this week',
+      one: 'You did 1 step this week',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String noorRamadanStart(String name) {
+    return 'Ramadan\'s crescent is here — Ramadan Mubarak to your family! Each day of it has a lantern to light with $name.';
+  }
+
+  @override
+  String get eidMomentTitle => 'Eid Mubarak';
+
+  @override
+  String get eidMomentBody => 'Wishing you and your family a joyful Eid.';
+
+  @override
+  String get storyNoorIntro => 'I\'m Noor, and here is our story tonight.';
+
+  @override
+  String get storyListenWithNoor => 'Listen with Noor';
+
+  @override
+  String get storyReadTogether => 'Read it together';
+
+  @override
+  String storyPageOf(int n, int total) {
+    return 'Page $n of $total';
+  }
+
+  @override
+  String get storyNextPage => 'Next page';
+
+  @override
+  String get storyPrevPage => 'Previous page';
+
+  @override
+  String get storyTextSize => 'Text size';
+
+  @override
+  String get storyListen => 'Listen';
+
+  @override
+  String get storyPauseListening => 'Pause';
+
+  @override
+  String get storyPauseTitle => 'A pause with Noor';
+
+  @override
+  String get storyPauseThanks =>
+      'That\'s worth thinking about! Let\'s see what happened next.';
+
+  @override
+  String get storyContinue => 'Continue the story';
+
+  @override
+  String get storyTheEnd => 'The end';
+
+  @override
+  String get storyValueTitle => 'From our faith';
+
+  @override
+  String get storyTalkTitle => 'Read it together: questions to talk about';
+
+  @override
+  String get storyMoreQuestion => 'Another question';
+
+  @override
+  String get storyChallengeTitle => 'Tomorrow\'s challenge';
+
+  @override
+  String get storyBedtimeAdhkar => 'Bedtime adhkar';
+
+  @override
+  String storyFilterAll(int count) {
+    return 'All ($count)';
+  }
+
+  @override
+  String get storyFilterYoung => 'Little ones';
+
+  @override
+  String get storyFilterOlder => 'Older children';
+
+  @override
+  String get storyProphetsTitle => 'Prophets\' stories from the Qur\'an';
+
+  @override
+  String get storyProphetsSubtitle =>
+      'From the verses of the Qur\'an and their Muyassar tafsir — no pictures of the prophets.';
+
+  @override
+  String get storyGoodNight => 'Good night';
+
+  @override
+  String get bedtimeOnce => 'Once';
+
+  @override
+  String get bedtimeThreeTimes => '3 times';
+
+  @override
+  String get storyPauseChooseAgain => 'Choose again';
+
+  @override
+  String familyRoadTitle(String name) {
+    return '$name\'s road';
+  }
+
+  @override
+  String get familyRoadTitleNoName => 'Your family\'s road';
+
+  @override
+  String get familyRoadHorizon => 'On the horizon';
+
+  @override
+  String get familyRoadHere => 'You are here';
+
+  @override
+  String familyRoadHereResume(String title, int done, int total) {
+    return 'In «$title»: $done of $total done';
+  }
+
+  @override
+  String get familyRoadHereHint =>
+      'Every parenting step lights a lantern on this road.';
+
+  @override
+  String get familyRoadContinue => 'Continue';
+
+  @override
+  String get familyRoadLit => 'What you have lit';
+
+  @override
+  String get familyRoadThisWeek => 'This week';
+
+  @override
+  String get familyRoadBefore => 'Before that';
+
+  @override
+  String familyRoadSinceStart(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count lit weeks since the start',
+      one: '1 lit week since the start',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String familyRoadFullMoon(String title) {
+    return 'Full moon: «$title»';
+  }
+
+  @override
+  String get familyRoadStart => 'Your road began here';
+
+  @override
+  String get familyRoadOpenWeek => 'See the week\'s steps';
+
+  @override
+  String familyRoadEntryTitle(String name) {
+    return '$name\'s road';
+  }
+
+  @override
+  String get familyRoadEntryBody =>
+      'What lies ahead, and what you have lit together.';
+
+  @override
+  String gateInDays(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'in $days days',
+      one: 'in 1 day',
+      zero: 'today',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String gateInMonths(int months) {
+    String _temp0 = intl.Intl.pluralLogic(
+      months,
+      locale: localeName,
+      other: 'in $months months',
+      one: 'in 1 month',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get gateNextPath => 'The next path';
+
+  @override
+  String get gateOpenPath => 'Open the path';
+
+  @override
+  String get gateMilestoneDue => 'is here';
+
+  @override
+  String gateMilestoneFallback(String name) {
+    return 'A new stage for $name';
+  }
+
+  @override
+  String get gateReadMilestone => 'Read about it';
+
+  @override
+  String get gateRamadan => 'Ramadan';
+
+  @override
+  String gateRamadanDay(int day) {
+    return 'day $day of the month';
+  }
+
+  @override
+  String get gateAgeSeven => 'Age seven';
+
+  @override
+  String get gateAgeSevenNote =>
+      'The prayer journey begins here, one step at a time.';
+
+  @override
+  String gateBirthMonth(String name) {
+    return '$name\'s coming dates';
+  }
+
+  @override
+  String get gateBirthMonthNote =>
+      'Add the birth month to place them on the road.';
+
+  @override
+  String get noorSeasonRajab =>
+      'The month of Rajab has begun. May every year find you well.';
+
+  @override
+  String get noorSeasonShaban =>
+      'The month of Sha\'ban has begun, and Ramadan is near.';
+
+  @override
+  String get noorSeasonDhulHijjah =>
+      'The days of Dhu al-Hijjah have begun. May every year find you well.';
+
+  @override
+  String get noorChipFamilyRoad => 'Open the road';
+
+  @override
+  String get horizonStripHint => 'Opens the family road';
+
+  @override
+  String get childCornerTileTitle => 'The child\'s corner';
+
+  @override
+  String get childCornerTileBody =>
+      'A short story or a game, then a task away from the screen';
+
+  @override
+  String get childCornerTileBodyNoGame =>
+      'A short story, then a task away from the screen';
+
+  @override
+  String childCornerGreeting(String name) {
+    return '$name, this is your corner';
+  }
+
+  @override
+  String get childCornerNoorLine =>
+      'Here\'s a short story and a game, then a small task away from the screen.';
+
+  @override
+  String get childCornerNoorLineNoGame =>
+      'Here\'s a short story, then a small task away from the screen.';
+
+  @override
+  String get childCornerNoorAfterStory => 'I loved reading with you.';
+
+  @override
+  String get childCornerNoorAfterGame => 'That was lovely, focused play.';
+
+  @override
+  String get childCornerStoryLabel => 'A story';
+
+  @override
+  String get childCornerStoryHint => 'Let\'s read it together';
+
+  @override
+  String get childCornerStoryDone => 'We read it together';
+
+  @override
+  String get childCornerGameLabel => 'A short game';
+
+  @override
+  String get childCornerGameHint => 'A few questions, then a rest';
+
+  @override
+  String get childCornerGameDone => 'We played it together';
+
+  @override
+  String get childCornerMissionLabel => 'Then your mission';
+
+  @override
+  String get childCornerToMission => 'To my mission';
+
+  @override
+  String get childCornerMissionNow => 'Your mission now';
+
+  @override
+  String get childCornerMissionGo => 'Got it — I\'m off to do it';
+
+  @override
+  String get childCornerMissionFallbackTitle =>
+      'I\'ll draw something I saw today';
+
+  @override
+  String get childCornerMissionFallbackBody =>
+      'With paper and a pencil, then I\'ll show my drawing to my family.';
+
+  @override
+  String get childCornerCandleLabel => 'Your candle';
+
+  @override
+  String get childCornerCandleBright => 'Still burning';
+
+  @override
+  String get childCornerCandleLow => 'Only a little left';
+
+  @override
+  String get childCornerCandleOut => 'Time for your mission';
+
+  @override
+  String get childCornerTimeUp =>
+      'Your candle is done — now off to your mission.';
+
+  @override
+  String get childCornerStoryNext => 'Next';
+
+  @override
+  String get childCornerStoryPrevious => 'Previous';
+
+  @override
+  String get childCornerStoryEnd => 'The end';
+
+  @override
+  String get childCornerBackToCorner => 'Back to my corner';
+
+  @override
+  String get childCornerStoryClose => 'Close the story';
+
+  @override
+  String childCornerStoryPage(int page, int count) {
+    return 'Page $page of $count';
+  }
+
+  @override
+  String childCornerDoneMission(String title) {
+    return 'Your mission: $title';
+  }
+
+  @override
+  String get storyRateQuestion => 'Did you like the story?';
+
+  @override
+  String get storyRateThanks => 'Thank you!';
+
+  @override
+  String get storyRateLoved => 'Loved it';
+
+  @override
+  String get storyRateLiked => 'Liked it';
+
+  @override
+  String get storyRateOkay => 'It was okay';
+}

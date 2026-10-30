@@ -1,0 +1,72 @@
+{
+  "id": "lesson_13-15_medical_mental_health_04",
+  "path_id": "path_13-15_medical_mental_health",
+  "title": "Weekly Mood Scale, Safety Plan, and When to Seek Emergency Help",
+  "age_group": "13-15",
+  "domain": "medical",
+  "unit_ids": [
+    "med-72806e5e",
+    "med-b88b7ad3",
+    "med-c974d9d8",
+    "med-e64897f2",
+    "med-f9bbdeb5",
+    "med-cd46475d",
+    "med-00fa7863",
+    "med-77626be2",
+    "med-b207a9dd",
+    "med-c974d9d8",
+    "med-ca2a9d86",
+    "med-ec6f874a"
+  ],
+  "summary": "A practical tool for parents: (1) Weekly mood scale (1-10 chart for mood/energy/sleep) — a decline for more than two weeks = visit a specialist. (2) Personal safety plan: their warning signs, calming strategies, people they trust, and your country's emergency number and mental-health helpline. (3) Emergency: suicidal thoughts, a specific plan, available means, previous self-harm — call your country's emergency number immediately or go to the nearest emergency department, and do not leave them alone.",
+  "try_this": "This week: Create a pocket-sized \"safety card\" together — write: 3 warning signs, 3 calming strategies, 3 people your child trusts, and your country's emergency number. Keep it in a wallet or on the phone.",
+  "order": 4,
+  "estimated_minutes": 10,
+  "reflection_prompts": [
+    "Was the card easy to understand?",
+    "Did your son feel safe having it?"
+  ],
+  "warning_flags": [
+    "خطة انتحار محددة + وسيلة متاحة",
+    "محاولة سابقة",
+    "كلمات وداع / توزيع ممتلكات"
+  ],
+  "needs_professional_followup": true,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "fixed_at": "2026-10-04T07:11:53.626353+00:00",
+    "fixer_model": "claude-opus-5.5",
+    "manual_fix_note": "Rewritten 2026-10-04 with the Arabic: Saudi-only 937 (and 112 as a universal number) replaced by country-neutral guidance; teen-directed wording re-addressed to the parent.",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "9d73c661013a44c12d08731e64b0eb1d57b38c9ec8b2a818698b30b4bdb42a54",
+      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

@@ -1,0 +1,958 @@
+"""Child-name redaction before any text leaves for a model or an outside service.
+
+What leaves is the parent's question, recent turns, and prompts built from them
+(assistant, coach tip, insights, memory extraction, the Qur'an search, the
+offline analyses). Every one goes through this module first: the names of the
+family's children are replaced by a placeholder.
+
+**Placeholders.** A family with one child: «طفلي». A family with several: each
+child keeps a stable letter by profile order — «الطفل أ», «الطفل ب»… — so a
+sibling question stays readable («سارة بتضرب أحمد» → «الطفل أ بتضرب الطفل ب»,
+not «طفلي بتضرب طفلي»). When the question is known to be about one child, that
+child is «طفلي» and the others keep their letters. Redaction with no family
+(logs, offline analyses with no device) uses «طفلي» for every name.
+
+**Matching, in both directions** (reviews of PR #26, #36, #39):
+* A name is found however it was typed: hamza/alef forms, ة/ه, ى/ي, the
+  Persian keyboard's ی/ک, tashkeel, shadda, tatweel and invisible characters
+  (zero-width, joiners, direction marks, soft hyphen), «عبدالرحمن» with or
+  without spaces, Latin case and accents (Inès = Ines), common Latin
+  transliterations (محمد ↔ Mohamed…), each token of a multi-word name, behind
+  و/ف/ب/ل/ك (also with a vowel or a tatweel: «لـأحمد»), and an «ال» name
+  behind «لل» («للحسن»).
+* A name is *not* found where it is an ordinary word: never with «ال»/«لل»
+  attached (أركان الإسلام، لصلاة الفجر، سورة النور), not inside a religious
+  reference (النبي محمد ﷺ، سورة يوسف — the title is anchored at a word start,
+  so «جنبي يوسف» is not «نبي يوسف»), not inside a placeholder, and «ف»/«ك»
+  are not read off a word that is an everyday word whole («فعلا» is not
+  «علا», «رمضان كريم» not «ريم» — but «فعمر» is عمر).
+* A default name is no name: «طفلي» / "My child" (what onboarding stores when
+  the parent types none — 3,380 of 4,375 children on production), the kinship
+  words, and function words nobody is named («من», «في»…). In a text «طفلي» is
+  the placeholder or the parent's own "my child", never the sibling carrying
+  it; such a child keeps its letter.
+* The family's names are resolved together: the longest mention wins, a whole
+  name before a token; a token several names carry is the child whose first
+  name it is, and a later word of several names that is nobody's first name (a
+  father's name, «محمد» in «أحمد محمد» and «سارة محمد») is nobody's.
+* A name that is also a word — دعاء، فجر، رمضان، أمل، إيمان، آية، نور… or,
+  once ى/ة are folded, a function word (علي، مني، منه، هنا) — is the child only
+  on positive evidence that a person is meant (_names_a_person): a kinship
+  word before it, a vocative, an age adjective after it, «مع» before it, or a
+  clause it opens with a verb or a person predicate. A construct, a «without»
+  phrase or a season phrase means the word whatever else is around (آية
+  الكرسي، دعاء النوم، من غير نور، يصوم رمضان). Once one mention of such a
+  noun-name has that evidence, its other mentions in the same text that OPEN
+  A CLAUSE are the child too («…ونور كمان بترفض») — not «أعلّمها دعاء قبل
+  النوم», not after «إن/أن/لأن» (PR #36 and #39 reviews).
+* Questions keep this evidence rule rather than the strict one below — a
+  decision measured on production (2026-10-04, read-only, counts only): of
+  2,203 parent questions, 89 came from the 47 children (of 4,353) whose name
+  is a word, and strict matching would have caught a mention the evidence
+  rule left in 6. Five of those six were a child already recognised elsewhere
+  in the same question — now caught by the rule above. The sixth is the price
+  of not turning «نور القرآن» or «دعاء النوم» into «طفلي القرآن» in a
+  question, where a garbled religious phrase means a wrong answer.
+
+**Strict matching — for memory facts** (review of PR #36, 2026-10-04). A fact
+is stored for months and goes into every prompt about the child, so for facts
+(services/child_memory.py, `strict=True`) every whole-word occurrence of a
+family name is the child: no evidence is asked for, and a construct, a
+«without» or a season phrase does not save the word. «أحمد يغار من نور» kept
+«نور» under the evidence rule; strictly it is the sibling. A name that is also
+a word is over-redacted in facts («نور القرآن» → «طفلي القرآن», «هنا» the
+adverb for a child «هنا») — accepted: the app swaps the name back on the
+device, so the parent still reads the original words. Strict matching also
+takes the accusative alif («محمدًا»), an «ال» name without its article («حسن»
+for «الحسن»), a final hamza added («سماء» for «سما») — or left off, for the
+names whose hamza-less form is no everyday word («دعا» for «دعاء», but never
+«ولا» for «ولاء»). What stays out even strictly: the name with «ال» attached
+(النور، الأمل), a religious reference (النبي محمد ﷺ، سورة يوسف), and a
+function word not spelled exactly as the name (على for علي).
+
+Best-effort and fail-open on a database error: returning the text unchanged is
+the failure mode of an optional enrichment; every caller sits in a path that
+must keep working.
+"""
+from __future__ import annotations
+
+import logging
+import os
+import re
+import sqlite3
+import unicodedata
+from dataclasses import dataclass
+from functools import lru_cache
+from typing import Iterable, Optional
+
+from app.db.init_db import db_path
+
+logger = logging.getLogger(__name__)
+
+_REPLACEMENT = "طفلي"
+# Public name for the same token: child memory (services/child_memory.py) writes
+# every stored fact with this placeholder for the fact's own child, so a fact
+# can go into any prompt as-is and the app can swap the child's name back in at
+# render time, on the device.
+CHILD_PLACEHOLDER = _REPLACEMENT
+_SIBLING_LETTERS = "أبجدهوزحطيكلمن"
+
+
+def sibling_placeholder(index: int) -> str:
+    """«الطفل أ», «الطفل ب», … for the index-th child of a family (0-based)."""
+    letter = _SIBLING_LETTERS[index] if index < len(_SIBLING_LETTERS) else str(index + 1)
+    return f"الطفل {letter}"
+
+
+# ── Normalisation ─────────────────────────────────────────────────────────
+
+_AR_LETTER = r"[ء-يٮ-ۓ]"
+# harakat, dagger alef, tatweel — and the invisible characters a keyboard or a
+# paste can leave inside a word: zero-width space and (non-)joiners, direction
+# marks, word joiner, soft hyphen, BOM. «مح\u200cمد» is محمد.
+_TASHKEEL = "[ً-ْٰـ\u200b\u200c\u200d\u200e\u200f\u061c\u2060\u00ad\ufeff]"
+_TASHKEEL_RE = re.compile(_TASHKEEL)
+
+
+def normalize_ar(text: str) -> str:
+    """Spelling-insensitive form of Arabic text (for comparison only)."""
+    t = _TASHKEEL_RE.sub("", text or "")
+    t = re.sub("[أإآٱ]", "ا", t)
+    return (t.replace("ة", "ه").replace("ى", "ي").replace("ی", "ي")
+             .replace("ئ", "ي").replace("ؤ", "و").replace("ک", "ك"))
+
+
+# One normalised letter → the spellings it stands for in the original text.
+# «ی» and «ک» are the Persian keyboard's yeh and kaf: «علی» is علي.
+_LETTER_CLASS = {"ا": "[اأإآٱ]", "ه": "[هة]", "ي": "[يىئی]", "و": "[وؤ]", "ك": "[كک]"}
+
+
+def _letters_pattern(norm: str) -> str:
+    parts = []
+    for ch in norm:
+        if ch == " ":
+            parts.append(r"\s+")
+            continue
+        parts.append(_LETTER_CLASS.get(ch, re.escape(ch)) + f"{_TASHKEEL}*")
+    return "".join(parts)
+
+
+# Attached particles: a conjunction, then a preposition — each may carry a
+# vowel or a tatweel («وَمحمد»، «لـأحمد»). Never the article — «ال»/«لل» + a
+# name is a word, not a child (الإسلام، النور، للنور) — except that a name
+# which itself begins with «ال» takes «ل» as «لل»: «للحسن» is «ل» + «الحسن».
+_PREFIX_CHAIN = rf"(?:[وف]{_TASHKEEL}*)?(?:[بلك]{_TASHKEEL}*)?"
+_LAM_PREFIX = rf"(?:[وف]{_TASHKEEL}*)?ل{_TASHKEEL}*"
+
+# Name tokens that are not names on their own.
+_STOP_TOKENS = frozenset({"بن", "ابن", "بنت", "ابو", "ام", "ال", "عبد"})
+
+# What the app names a child the parent did not name (onboarding's default:
+# «طفلي» / "My child" — 3,380 of 4,375 children on production, 2026-10-05),
+# the placeholders themselves, and kinship words. Never a name to look for: in
+# a text, «طفلي» is the placeholder or the parent's own "my child" — never
+# the sibling who carries it as a name (PR #39 review). Such a child keeps its
+# place in the family (its letter); only its "name" is never matched.
+_DEFAULT_NAMES = frozenset(
+    {normalize_ar(n) for n in ("طفلي", "طفلتي", "طفل", "طفلة", "الطفل", "الطفلة", "طفلك",
+                               "ابني", "ابنتي", "بنتي", "ولدي")}
+    | {"my child", "your child", "child", "my kid", "kid", "baby", "my baby",
+       "my son", "my daughter", "another child"})
+# Function words no child is named — a «name» like «من» (garbage, or a test)
+# is never looked for, never relabelled: strict matching would otherwise turn
+# every «من» of every fact into the child (PR #39 review).
+# None of them folds into a real name («منه» is «منة» folded, «ان» is «آن»:
+# those stay names).
+_NOT_NAMES = frozenset(normalize_ar(w) for w in (
+    "من", "في", "عن", "ما", "لا", "لم", "لن", "هل", "قد", "ثم", "أو", "لو", "كي", "مع",
+    "بل", "كل", "هو", "هي", "هم", "أنا", "نحن", "أنت", "هذا", "هذه", "ذلك", "تلك",
+    "التي", "الذي", "عند", "كان", "يا", "ماذا", "لماذا", "كيف", "أين", "بعد", "قبل",
+    "فوق", "تحت", "لكن", "بين", "غير", "ولا", "إلا", "بها", "به", "له", "لها", "منها",
+    "فيه", "فيها",
+))
+# Tokens of a Latin name that are words, not names ("Baby Adam", "My child 2").
+_LATIN_STOP_TOKENS = frozenset({
+    "my", "your", "our", "the", "another", "child", "kid", "baby", "son", "daughter",
+    "boy", "girl", "little", "big", "jr", "junior", "mr", "ms", "mrs"})
+
+# Cheap Latin ↔ Arabic variants for the commonest names (normalised Arabic).
+_LATIN_VARIANTS: dict[str, tuple[str, ...]] = {
+    "محمد": ("mohamed", "mohammed", "mohammad", "muhammad", "muhammed", "mohamad"),
+    "احمد": ("ahmed", "ahmad"),
+    "يوسف": ("youssef", "yousef", "yusuf", "yousif", "yussef"),
+    "مريم": ("mariam", "maryam", "meryem"),
+    "فاطمه": ("fatima", "fatma", "fatimah"),
+    "عمر": ("omar", "umar"),
+    "علي": ("ali",),
+    "ادم": ("adam",),
+    "ساره": ("sara", "sarah"),
+    "نور": ("nour", "noor"),
+    "ليلي": ("laila", "layla", "leila"),
+    "خالد": ("khaled", "khalid"),
+    "ابراهيم": ("ibrahim",),
+    "زياد": ("ziad", "ziyad"),
+    "حمزه": ("hamza", "hamzah"),
+    "عايشه": ("aisha", "aysha", "aicha"),
+    "هدي": ("huda", "hoda"),
+    "ياسين": ("yassin", "yasin", "yaseen"),
+    "مصطفي": ("mostafa", "mustafa", "moustafa"),
+    "محمود": ("mahmoud", "mahmud"),
+    "عبدالله": ("abdullah", "abdallah"),
+    "عبدالرحمن": ("abdelrahman", "abdulrahman", "abdalrahman"),
+    "جني": ("jana",),
+    "ملك": ("malak",),
+    "حسن": ("hassan", "hasan"),
+    "حسين": ("hussein", "hussain"),
+    "زينب": ("zainab", "zeinab"),
+    "سلمي": ("salma",),
+    "تميم": ("tamim", "tameem"),
+    "انس": ("anas",),
+    "معاذ": ("moaz", "muadh"),
+}
+_ARABIC_FOR_LATIN = {v: ar for ar, vs in _LATIN_VARIANTS.items() for v in vs}
+
+# Names that are also everyday or religious words. A construct («آية الكرسي»،
+# «دعاء النوم»), a «without» phrase («من غير نور») or a season phrase («يصوم
+# رمضان») means the word; anything else still needs evidence of a person.
+COMMON_NOUN_NAMES = frozenset(normalize_ar(n) for n in (
+    "إسلام", "إيمان", "آية", "نور", "هدى", "دعاء", "جنة", "رحمة", "أمل", "حياة",
+    "تقوى", "يقين", "سلام", "فرح", "هبة", "ضحى", "بشرى", "صلاح", "وعد", "منى",
+    "نصر", "عز", "فجر", "رمضان", "جمعة", "عيد", "بركة", "نعمة", "أمان", "إحسان",
+    "رضا", "وفاء", "صفاء", "شروق", "سعادة", "فرحة", "هداية", "بسمة", "نسمة",
+))
+_SEASON_NAMES = frozenset(normalize_ar(n) for n in ("رمضان", "جمعة", "عيد", "فجر"))
+_WITHOUT_BEFORE = re.compile(r"(?<![ء-ي])(?:غير|بدون|بلا|دون)\s*$")
+_SEASON_BEFORE = re.compile(
+    r"(?<![ء-ي])(?:[وف]?(?:شهر|صيام|صوم|يصوم|تصوم|نصوم|يصومون|يصوموا|"
+    r"في|قبل|بعد|خلال|طوال|اول|اخر|نهار|ليالي|ليله|يوم|صلاه|صلاة))\s*$"
+)
+
+
+# Everyday words that a name becomes once ى/ي and ة/ه are folded: «على»
+# (علي), «منه» (منة), «مني» (منى), «جني» (جنى)… They count as the child only
+# when spelled exactly as the name is — and, like the words above, only on
+# evidence of a person: Egyptian writes the preposition «علي» too.
+_FUNCTION_WORDS = frozenset({"علي", "مني", "الي", "حتي", "متي", "لدي", "عني",
+                             "اني", "منه", "جني", "هنا"})
+
+_AMBIGUOUS_NAMES = COMMON_NOUN_NAMES | _FUNCTION_WORDS
+
+
+# ── Evidence of a person (PR #26 review F5) ───────────────────────────────
+
+def _norm_set(*words: str) -> frozenset:
+    return frozenset(normalize_ar(w) for w in words)
+
+
+# Right before the name: «بنتي نور»، «ابني علي»، «أخوها إسلام».
+_KINSHIP_BEFORE = _norm_set(
+    "ابني", "ابنتي", "بنتي", "ولدي", "طفلي", "طفلتي", "بنوتي", "ابننا", "بنتنا",
+    "أخوه", "أخوها", "أخته", "أختها", "أخويا", "أختي", "أخي", "أخوي", "حفيدي",
+    "حفيدتي", "ابنه", "ابنها", "بنته", "بنتها", "الطفل", "الطفلة", "البنت", "الولد",
+    "الابن", "الابنة",
+)
+_VOCATIVE_BEFORE = _norm_set("يا")
+_WITH_BEFORE = _norm_set("مع", "ويا")
+# Right after the name: «آية الكبيرة»، «علي الصغير» — an «ال» word that is not a
+# construct.
+_PERSON_ADJECTIVE_AFTER = _norm_set(
+    "الكبير", "الكبيرة", "الصغير", "الصغيرة", "الصغنن", "الصغننة", "الوسطاني",
+    "الوسطانية", "الوسطى", "الأوسط", "الكبرى", "الصغرى", "الأكبر", "الأصغر", "الأولى",
+    "الأول", "الثاني", "الثانية", "التاني", "التانية", "التوأم",
+)
+# A clause opens here: the start, punctuation, or one of these words.
+_CLAUSE_OPENERS = _norm_set(
+    "و", "ف", "لما", "لمّا", "عندما", "حين", "حينما", "لكن", "بس", "إن", "أن", "لأن",
+    "عشان", "علشان", "إذا", "لو", "هل", "ثم", "كمان", "يعني", "أصل", "طيب", "وكمان",
+)
+# «إن/أن/لأن» open a clause, but «إن إيمان بالله…» is the word: no extension
+# there (PR #39 reviews).
+_EXTENSION_OPENERS = _CLAUSE_OPENERS - _norm_set("إن", "أن", "لأن")
+_CLAUSE_END = re.compile(r"[.!?؟،,:;…\n\-–—\"«»()]\s*$")
+# What a child does or is, right after its name: a present-tense verb (MSA or
+# Egyptian: يضرب، بيضرب، بتخاف، هيروح، مبيسمعش، سيذهب), or one of these
+# predicates. The gender is the predicate's when it shows one ('m'/'f').
+_VERB_RE = re.compile(r"^(?:س|م?ب|[هح])?([يت])[ء-ي]{2,}$")
+_NOT_VERBS = _norm_set(
+    "يوم", "يوميا", "يومين", "تحت", "تقريبا", "تماما", "تاني", "تانية", "تالت",
+    "تربية", "تعليم", "توبة", "تفسير", "تلاوة", "تسبيح", "تكبير", "تهليل", "تقوى",
+    "تاريخ", "ترتيب", "توقيت", "تمام", "يقين",
+)
+_PREDICATES: dict[str, Optional[str]] = {
+    **{w: "m" for w in _norm_set(
+        "عنده", "عمره", "كان", "صار", "أصبح", "بقى", "قال", "راح", "رجع", "ضرب",
+        "رفض", "بدأ", "بطل", "خاف", "نام", "وقع", "اتعلم", "اتخانق", "عايز", "عاوز",
+        "عنيد", "خايف", "خائف", "زعلان", "نايم", "نائم", "شاطر", "هادي", "هادئ",
+        "عصبي", "قاعد", "رافض", "غيور", "حساس", "كسول", "شقي", "مريض", "تعبان")},
+    **{w: "f" for w in _norm_set(
+        "عندها", "عمرها", "كانت", "صارت", "أصبحت", "بقت", "قالت", "راحت", "رجعت",
+        "ضربت", "رفضت", "بدأت", "بطلت", "خافت", "نامت", "وقعت", "اتعلمت", "اتخانقت",
+        "عايزة", "عاوزة", "عنيدة", "خايفة", "خائفة", "زعلانة", "نايمة", "نائمة",
+        "شاطرة", "هادية", "هادئة", "عصبية", "قاعدة", "رافضة", "غيورة", "حساسة",
+        "كسولة", "شقية", "مريضة", "تعبانة")},
+    **{w: None for w in _norm_set(
+        "مش", "مو", "لسه", "لسا", "مازال", "لازال", "دايما", "دائما", "أحيانا")},
+}
+_NEGATIONS = _norm_set("ما", "لا", "لم", "لن")
+_AR_WORD = re.compile(r"[ء-يٮ-ۓً-ْٰـ]+")
+
+
+def _visibly_feminine(original: Optional[str]) -> bool:
+    """A first name spelled with a feminine ending (ة، اء، ى). Only these may
+    turn a masculine verb into a counter-sign: نور، أمل، إيمان could be anyone."""
+    return bool(original) and original.endswith(("ة", "اء", "ى"))
+
+
+def _next_words(text: str, end: int, n: int = 2) -> list[str]:
+    """The next `n` Arabic words after `end`, normalised — stopping at the
+    clause's end (punctuation). One comma right after the name is read
+    through: «دعاء، عمرها ٦ سنين» introduces a child."""
+    out: list[str] = []
+    rest = text[end:end + 80]
+    pos = 0
+    while len(out) < n:
+        m = re.match(r"\s*[،,]?\s*" if not out else r"\s*", rest[pos:])
+        pos += m.end()
+        w = _AR_WORD.match(rest[pos:])
+        if w is None:
+            break
+        out.append(normalize_ar(w.group(0)))
+        pos += w.end()
+    return out
+
+
+def _previous_word(before: str) -> Optional[str]:
+    """The Arabic word right before, normalised; None at a clause end."""
+    stripped = before.rstrip()
+    if not stripped or _CLAUSE_END.search(stripped):
+        return None
+    words = _AR_WORD.findall(stripped[-40:])
+    return normalize_ar(words[-1]) if words else None
+
+
+def _is_predicate(word: str, feminine_name: bool) -> bool:
+    gender = _PREDICATES.get(word, "absent")
+    if gender != "absent":
+        return not (feminine_name and gender == "m")
+    m = _VERB_RE.match(word)
+    if m is None or word in _NOT_VERBS:
+        return False
+    return not (feminine_name and m.group(1) == "ي")
+
+
+def _opens_clause(text: str, start: int, prefix: str,
+                  openers: frozenset = _CLAUSE_OPENERS) -> bool:
+    """Does the mention at `start` (its particles included) open a clause?
+    A bare «و/ف» before it, the text's start, punctuation, or an opener."""
+    if _strip_tashkeel(prefix) in ("و", "ف"):
+        return True
+    prev = _previous_word(text[:start])
+    return prev is None or prev in openers
+
+
+def _names_a_person(text: str, start: int, end: int, prefix: str,
+                    variant: str, original: Optional[str]) -> bool:
+    """Is there positive evidence that this ambiguous name is a person here?"""
+    after = _next_words(text, end)
+    if after and after[0] in _PERSON_ADJECTIVE_AFTER:
+        return True                                        # «آية الكبيرة»
+    prev = _previous_word(text[:start])
+    if prev in _KINSHIP_BEFORE or prev in _VOCATIVE_BEFORE or prev in _WITH_BEFORE:
+        return True                                        # «بنتي نور»، «يا علي»، «مع علي»
+    if variant in _FUNCTION_WORDS and any(c in prefix for c in "بلك"):
+        return True                                        # «لعلي»: «ل»+«على» is not a word
+    if not _opens_clause(text, start, prefix) or not after:
+        return False
+    feminine = _visibly_feminine(original)
+    if after[0] in _NEGATIONS:                             # «علي ما بيسمعش»
+        return len(after) > 1 and _is_predicate(after[1], feminine)
+    return _is_predicate(after[0], feminine)
+
+
+def _strip_tashkeel(text: str) -> str:
+    return _TASHKEEL_RE.sub("", text or "")
+
+
+def _keyboard(text: str) -> str:
+    """The Persian keyboard's yeh and kaf are the Arabic ones: «علی» is «علي»
+    — but «ى» stays itself, which is what tells «على» from «علي»."""
+    return (text or "").replace("ی", "ي").replace("ک", "ك")
+
+
+# ── Religious references ──────────────────────────────────────────────────
+# A name a family gives its child is often also the name of a prophet, a surah
+# or a companion — محمد ﷺ, سورة يوسف, مريم عليها السلام. A name inside such a
+# reference is not the child: a title right before it (anchored at a word
+# start — «جنبي يوسف» is not «نبي يوسف»), or an honorific right after it.
+_TITLE_BEFORE = re.compile(
+    r"(?<![ء-ي])(?:[وفبلك])?(?:النبي|نبي|سيدنا|سيدتنا|السيده|الرسول|رسول|"
+    r"سوره|الصحابي|الصحابيه|ام المومنين)\s*$"
+)
+_HONORIFIC_AFTER = re.compile(
+    r"^\s*(?:ﷺ|صلي الله عليه وسلم|عليه السلام|عليها السلام|عليهما السلام"
+    r"|عليهم السلام|رضي الله عنه|رضي الله عنها|\(ص\))"
+)
+
+
+def _is_religious_reference(text: str, start: int, end: int) -> bool:
+    before = normalize_ar(text[max(0, start - 30):start])
+    after = normalize_ar(text[end:end + 40])
+    return bool(_TITLE_BEFORE.search(before) or _HONORIFIC_AFTER.match(after))
+
+
+def _is_common_word_use(norm_name: str, text: str, start: int, end: int) -> bool:
+    """A counter-sign: the word, not the child — a construct («آية الكرسي»), a
+    «without» phrase, or a season phrase. Checked before any evidence."""
+    if norm_name not in COMMON_NOUN_NAMES:
+        return False
+    before = normalize_ar(text[max(0, start - 20):start])
+    after = _next_words(text, end, 1)
+    if after and after[0].startswith("ال") and after[0] not in _PERSON_ADJECTIVE_AFTER \
+            and re.match(r"\s+ال", normalize_ar(text[end:end + 4])):
+        return True
+    if _WITHOUT_BEFORE.search(before):
+        return True
+    return norm_name in _SEASON_NAMES and bool(_SEASON_BEFORE.search(before))
+
+
+# ── Patterns for one name ─────────────────────────────────────────────────
+
+
+@lru_cache(maxsize=4096)
+def _name_variants(name: str) -> tuple[tuple[str, Optional[str], bool], ...]:
+    """(normalised spelling, original spelling or None, whole?) for every form
+    that means this child — longest first.
+
+    The whole name (whole=True, with its Latin ↔ Arabic transliteration), then
+    each other token of a multi-word name (whole=False). A «عبد» compound is
+    one token however it was spaced (عبد الله ≡ عبدالله); an «ال» word, «بن،
+    ابن، أبو…», a default name and, in Latin, a word like "my" or "baby" never
+    are. The original spelling (tashkeel stripped) is what a function-word
+    collision is checked against.
+
+    A child whose name IS a default or a placeholder («طفلي», "My child") has
+    no variants at all: there is nothing of its name to find (PR #39 review).
+    """
+    raw = (name or "").strip()
+    if not raw:
+        return ()
+    out: dict[str, tuple[Optional[str], bool]] = {}
+    if re.search(r"[A-Za-z]", raw):
+        low = re.sub(r"\s+", " ", _fold_latin_name(raw).lower()).strip()
+        if low in _DEFAULT_NAMES:
+            return ()
+        out[low] = (low, True)
+        for t in low.split():
+            if len(t) >= 2 and t not in _LATIN_STOP_TOKENS:
+                out.setdefault(t, (t, False))
+        ar = _ARABIC_FOR_LATIN.get(low)
+        if ar:
+            out.setdefault(ar, (None, True))
+    else:
+        plain = re.sub(r"\s+", " ", _strip_tashkeel(raw))
+        plain = re.sub(r"(^|\s)عبد\s+", r"\1عبد", plain)      # عبد الرحمن ≡ عبدالرحمن
+        whole = normalize_ar(plain)
+        if whole in _DEFAULT_NAMES or whole in _NOT_NAMES:
+            return ()
+        out[whole] = (plain, True)
+        tokens = plain.split()
+        if len(tokens) > 1:
+            for t in tokens:
+                nt = normalize_ar(t)
+                if len(nt) >= 2 and nt not in _STOP_TOKENS and nt not in _DEFAULT_NAMES \
+                        and nt not in _NOT_NAMES and not nt.startswith("ال"):
+                    out.setdefault(nt, (t, False))
+        for v, (_, is_whole) in list(out.items()):
+            for latin in _LATIN_VARIANTS.get(v, ()):
+                out.setdefault(latin, (latin, is_whole))
+    return tuple(sorted(((v, o, w) for v, (o, w) in out.items()),
+                        key=lambda x: len(x[0]), reverse=True))
+
+
+# The accusative alif a declinable name takes («محمدًا», «عليًّا», «خالدًا»).
+# Strict matching only: in a question it would turn «حسنًا» (okay) into a
+# child named حسن.
+_ACCUSATIVE = f"(?:ا{_TASHKEEL}*)?"
+
+
+# Names whose final hamza parents leave off — «دعا»، «اسما»، «سما» — and
+# whose hamza-less form is no everyday word. Strict matching only, and only
+# these: «ولاء» → «ولا», «آلاء» → «إلا», «بهاء» → «بها», «هناء» → «هنا»,
+# «علاء» → «علا» would swallow words every fact uses (PR #39 review: 147 of
+# 2,210 production questions carry one of them).
+_HAMZALESS_NAMES = frozenset(normalize_ar(n) for n in (
+    "دعاء", "أسماء", "سماء", "إسراء", "شيماء", "لمياء", "هيفاء", "زهراء", "نجلاء",
+    "حواء", "رجاء", "ضياء", "سناء", "صفاء", "وفاء", "علياء",
+))
+
+
+def _body(variant: str, strict: bool) -> str:
+    """One Arabic variant's letters, as a pattern."""
+    if strict and variant in _HAMZALESS_NAMES:
+        # The final hamza may be missing: «دعا» for «دعاء».
+        body = _letters_pattern(variant[:-1]) + f"(?:ء{_TASHKEEL}*)?"
+    elif strict and variant.endswith("ا") and len(variant) >= 3:
+        # …or added: «سماء» for a child named «سما».
+        body = _letters_pattern(variant) + f"(?:ء{_TASHKEEL}*)?"
+    else:
+        body = _letters_pattern(variant)
+    if variant.startswith("عبد"):               # عبد الله ≡ عبدالله ≡ «عبد  الله»
+        body = body.replace(_letters_pattern("عبد"), _letters_pattern("عبد") + r"\s*", 1)
+    return body
+
+
+def _arabic_pattern(prefix: str, body: str, suffix: str) -> "re.Pattern[str]":
+    # «ـ*»: a word may open with a tatweel («ـمحمد»); the look-behind still
+    # sees the letter before it, so «مـحمد» never yields a child «حمد».
+    return re.compile(rf"(?<!{_AR_LETTER})ـ*(?P<prefix>{prefix})(?P<name>{body}){suffix}"
+                      rf"(?!{_AR_LETTER})")
+
+
+@lru_cache(maxsize=4096)
+def _variant_patterns(variant: str, strict: bool = False) -> tuple["re.Pattern[str]", ...]:
+    if re.search(r"[a-z]", variant):
+        # Matched against the text with its accents taken off (_latin_fold):
+        # «Inès» and «Ines» are one name.
+        return (re.compile(rf"(?<![A-Za-z]){re.escape(variant)}(?![A-Za-z])", re.IGNORECASE),)
+    suffix = _ACCUSATIVE if strict and variant[-1] not in "اهءو" else ""
+    patterns = [_arabic_pattern(_PREFIX_CHAIN, _body(variant, strict), suffix)]
+    if variant.startswith("ال") and len(variant) > 3:
+        # «للحسن»: «ل» + «الحسن», the article's alif dropped.
+        patterns.append(_arabic_pattern(_LAM_PREFIX, _body("ل" + variant[2:], strict), suffix))
+        if strict and " " not in variant:
+            # …and in a fact, «حسن» for «الحسن» too (over-redaction accepted).
+            patterns.append(_arabic_pattern(_PREFIX_CHAIN, _body(variant[2:], strict), suffix))
+    return tuple(patterns)
+
+
+# Words that only LOOK like «ف/ك» + a short name: «فعلا» is not «ف» + «علا»,
+# «رمضان كريم» not «ك» + «ريم» (PR #39 review). Only these block the split;
+# «فعمر»، «فنور»، «كعمر» are the child.
+_PARTICLE_WORDS = frozenset(normalize_ar(w) for w in (
+    "فعلا", "فعلًا", "كريم", "كريمة", "كمان", "كمال", "فقط", "فلان", "فلانة", "كلام",
+    "كرام", "كريمات", "فعلي", "فعلية",
+))
+
+
+def _particle_split_ok(prefix: str, variant: str) -> bool:
+    """May «و/ف/ب/ل/ك» be read off the front of this word to leave the name?
+    Not when the word is an everyday one (_PARTICLE_WORDS)."""
+    p = normalize_ar(prefix)
+    if not p:
+        return True
+    words = {p + variant}
+    if p[0] in "وف" and len(p) > 1:
+        words.add(p[1:] + variant)                 # «و» + «كريم»
+    return not (words & _PARTICLE_WORDS)
+
+
+def _name_candidates(text: str, name: str, strict: bool) -> list[tuple]:
+    """Every place `text` may name this one child, before the family's other
+    names have their say (_spans): (start, end, prefix, variant, whole,
+    deferred).
+
+    `strict` (memory facts): every whole-word occurrence is the child — no
+    evidence of a person is needed and a construct is no counter-sign. The
+    article, religious references and function-word spellings still are.
+
+    Otherwise a name that is also a word (نور، أمل، دعاء…) needs evidence of
+    a person. A noun-name without it is `deferred`: it counts only when the
+    child is found elsewhere in the text AND this mention opens a clause —
+    «بنتي نور بتخاف… ونور كمان…» must not leave the second «نور» beside
+    «طفلي» (PR #36 review; 5 of the 6 prod mentions only strict matching
+    caught), while «أعلّمها دعاء قبل النوم» or «إن إيمان بالله…» stay words
+    (PR #39 review). Function words (علي، مني…) never extend: «علي طول».
+    """
+    out: list[tuple] = []
+    for variant, original, whole in _name_variants(name):
+        arabic = not re.search(r"[a-z]", variant)
+        if not arabic:
+            # Latin: searched with accents and invisible characters taken off
+            # the text, and mapped back — «Inès» is «Ines».
+            folded, where = _latin_fold(text)
+            for pattern in _variant_patterns(variant, strict):
+                for m in pattern.finditer(folded):
+                    s, e = where[m.start()], where[m.end() - 1] + 1
+                    if not _is_religious_reference(text, s, e):
+                        out.append((s, e, "", variant, whole, False))
+            continue
+        for pattern in _variant_patterns(variant, strict):
+            for m in pattern.finditer(text):
+                s, e = m.start(), m.end()
+                name_start = m.start("name")
+                if variant in _FUNCTION_WORDS and \
+                        _keyboard(_strip_tashkeel(m.group("name"))) != _keyboard(original):
+                    continue                               # «على» is not «علي»
+                prefix = m.group("prefix") or ""
+                if prefix and not _particle_split_ok(prefix, variant):
+                    continue
+                if _is_religious_reference(text, name_start, e):
+                    continue
+                deferred = False
+                if not strict:
+                    if _is_common_word_use(variant, text, name_start, e):
+                        continue                           # «آية الكرسي»، «من غير نور»
+                    if variant in _AMBIGUOUS_NAMES and not _names_a_person(
+                            text, s, e, prefix, variant, original):
+                        if (variant not in COMMON_NOUN_NAMES or variant in _FUNCTION_WORDS
+                                or not _opens_clause(text, s, prefix, _EXTENSION_OPENERS)):
+                            continue                       # «دعاء قبل النوم»، «عندي أمل»
+                        deferred = True
+                out.append((s, e, prefix, variant, whole, deferred))
+    return out
+
+
+@lru_cache(maxsize=256)
+def _latin_fold(text: str) -> tuple[str, tuple[int, ...]]:
+    """`text` without accents and invisible characters (NFKD, combining marks
+    and format characters dropped) — what a Latin name is searched in — and,
+    for each folded character, its index in `text`."""
+    out: list[str] = []
+    where: list[int] = []
+    for i, ch in enumerate(text):
+        if ch.isascii():
+            out.append(ch)
+            where.append(i)
+            continue
+        for d in unicodedata.normalize("NFKD", ch):
+            if unicodedata.category(d) not in ("Mn", "Cf"):
+                out.append(d)
+                where.append(i)
+    return "".join(out), tuple(where)
+
+
+def _fold_latin_name(name: str) -> str:
+    return _latin_fold(name)[0]
+
+
+def _with_prefix(prefix: str, placeholder: str) -> str:
+    """Re-attach «و/ف/ب/ل/ك» to the placeholder the way Arabic spells it."""
+    if not prefix:
+        return placeholder
+    if placeholder.startswith("ال") and prefix.endswith("ل"):
+        return prefix[:-1] + "لل" + placeholder[2:]        # ل + الطفل → للطفل
+    return prefix + placeholder
+
+
+# ── Families ──────────────────────────────────────────────────────────────
+
+
+@dataclass(frozen=True)
+class Family:
+    """A device's children in profile order: ((child_id, name), …)."""
+    members: tuple[tuple[int, str], ...] = ()
+
+    def placeholder(self, child_id: int, subject_id: Optional[int] = None) -> str:
+        if len(self.members) <= 1 or child_id == subject_id:
+            return CHILD_PLACEHOLDER
+        for i, (cid, _) in enumerate(self.members):
+            if cid == child_id:
+                return sibling_placeholder(i)
+        return CHILD_PLACEHOLDER
+
+    @property
+    def names(self) -> tuple[str, ...]:
+        return tuple(n for _, n in self.members)
+
+
+def family_from_conn(conn: sqlite3.Connection, device_id: str) -> Family:
+    """The device's family read on an open connection — inside the caller's
+    transaction, so it cannot change under a write that depends on it. The
+    order and the 2-character floor are what the placeholders (and the app,
+    which renders them back) are built on."""
+    rows = conn.execute(
+        "SELECT id, name FROM child_profiles WHERE device_id = ? ORDER BY id",
+        (device_id,),
+    ).fetchall()
+    return Family(tuple(
+        (int(r[0]), (r[1] or "").strip()) for r in rows
+        if r[1] and len(r[1].strip()) >= 2
+    ))
+
+
+def family_for_device(device_id: Optional[str]) -> Family:
+    if not device_id:
+        return Family()
+    try:
+        conn = sqlite3.connect(db_path())
+        try:
+            return family_from_conn(conn, device_id)
+        finally:
+            conn.close()
+    except Exception as exc:  # noqa: BLE001 — fail open, never break a request
+        logger.debug("privacy: family unavailable: %s", exc)
+        return Family()
+
+
+# ── When a child leaves the family (review of PR #36, 2026-10-04) ─────────
+#
+# Sibling letters are positions in profile order, and stored memory texts keep
+# them. Deleting a child shifts every later sibling's position: «الطفل ب» in a
+# fact written before the deletion would then name a different child (even
+# the fact's own: «عمر يغار من عمر»). So the deletion rewrites them, in its
+# own transaction (services/child_memory.forget_sibling): a sibling who is
+# still there gets its new letter, the deleted one becomes «طفل آخر» — a
+# neutral «another child», never a name.
+
+OTHER_CHILD = "طفل آخر"
+OTHER_CHILD_FEMININE = "طفلة أخرى"
+OTHER_CHILD_EN = "another child"
+
+# A stored sibling placeholder however Arabic attached it: «الطفل ب»،
+# «والطفل ب»، «بالطفل ب»، «للطفل ب»، «وللطفل ب» — and «الطفلة ب», should the
+# extraction model have inflected it.
+_STORED_SIBLING_RE = re.compile(
+    rf"(?<![ء-ي])(?P<conj>[وف]?)(?P<form>[بك]?ال|لل)طفل(?P<fem>ة)?"
+    rf" (?P<label>[{_SIBLING_LETTERS}]|\d+)(?![ء-ي0-9])"
+)
+
+
+def _latin_text(text: str) -> bool:
+    return len(re.findall(r"[A-Za-z]", text or "")) > len(re.findall(r"[؀-ۿ]", text or ""))
+
+
+def _labels(family: Family) -> dict[str, int]:
+    """sibling label («ب», «15») → child id, by profile order."""
+    return {sibling_placeholder(i).split(" ", 1)[1]: cid
+            for i, (cid, _) in enumerate(family.members)}
+
+
+def reletter_siblings(text: str, before: Family, after: Family,
+                      owner: Optional[int] = None) -> str:
+    """`text`'s sibling placeholders, written for the family `before`,
+    rewritten for the family `after`: the same child under its new letter, a
+    child no longer in the family as «طفل آخر». A letter `before` never had
+    is left alone. When one named child is left the family has no letters:
+    in that child's own texts (`owner`) a reference to it is «طفلي», in any
+    other child's (one whose name is too short to count) «طفل آخر»."""
+    if not text or "طفل" not in text:
+        return text
+    old = _labels(before)
+    new = {cid: label for label, cid in _labels(after).items()}
+    english = _latin_text(text)
+
+    def swap(m: re.Match) -> str:
+        cid = old.get(m.group("label"))
+        if cid is None:
+            return m.group(0)
+        prep = "ل" if m.group("form") == "لل" else m.group("form")[:-2]
+        if cid in new and len(after.members) >= 2:
+            return (f"{m.group('conj')}{m.group('form')}طفل{m.group('fem') or ''} "
+                    f"{new[cid]}")
+        if cid in new and owner in (None, cid):
+            return m.group("conj") + _with_prefix(prep, CHILD_PLACEHOLDER)
+        if english:
+            return OTHER_CHILD_EN
+        other = OTHER_CHILD_FEMININE if m.group("fem") else OTHER_CHILD
+        return f"{m.group('conj')}{prep}{other}"
+
+    return _STORED_SIBLING_RE.sub(swap, text)
+
+
+def relabel_name(text: str, name: str, label: str, keep: Iterable[str] = ()) -> str:
+    """Every whole-word mention of `name` (strict matching) → `label`. `keep`:
+    the family's other names — what they share with `name` (a father's
+    name) is theirs too, so it stays (see _spans)."""
+    if not text or not name:
+        return text
+    labelled = [(name, label)] + [(n, ("keep", i)) for i, n in enumerate(keep)]
+    return _replace(text, [s for s in _spans(text, labelled, strict=True) if s[3] == label])
+
+
+def scrub_child_name(text: str, name: str, keep: Iterable[str] = ()) -> str:
+    """A deleted child's name → «طفل آخر» ("another child" in English text):
+    for memory texts that mention it by name — written before it had a
+    profile, or a note as the parent typed it — which no redaction covers
+    once it is gone. `keep`: the names of the children who remain."""
+    return relabel_name(text, name, OTHER_CHILD_EN if _latin_text(text) else OTHER_CHILD,
+                        keep)
+
+
+# The placeholders this module writes, and a parent's own «طفلي»: no name is
+# ever found inside one (a child named «آخر», a Latin "Another"…).
+_PLACEHOLDER_SPAN_RE = re.compile(
+    rf"(?<![ء-ي])[وف]?(?:[بك]?ال|لل)?طفل(?:ة|ي|تي)?"
+    rf"(?: (?:[{_SIBLING_LETTERS}]|\d+)(?![ء-ي0-9])| (?:آخر|أخرى)(?![ء-ي]))?(?![ء-ي])"
+    r"|(?<![A-Za-z])(?:my|another) child(?![A-Za-z])",
+    re.IGNORECASE,
+)
+
+
+@lru_cache(maxsize=4096)
+def _first_token(name: str) -> frozenset:
+    """The first word of a multi-word name, in every form it is matched in
+    (normalised Arabic and its transliterations, or folded Latin)."""
+    raw = (name or "").strip()
+    if re.search(r"[A-Za-z]", raw):
+        tokens = _fold_latin_name(raw).lower().split()
+        return frozenset(tokens[:1]) if len(tokens) > 1 else frozenset()
+    plain = re.sub(r"(^|\s)عبد\s+", r"\1عبد", re.sub(r"\s+", " ", _strip_tashkeel(raw)))
+    tokens = plain.split()
+    if len(tokens) < 2:
+        return frozenset()
+    first = normalize_ar(tokens[0])
+    return frozenset({first, *_LATIN_VARIANTS.get(first, ())})
+
+
+_NOBODY = object()
+
+
+def _spans(text: str, labelled: Iterable[tuple[str, object]],
+           strict: bool = False) -> list[tuple[int, int, str, object]]:
+    """Non-overlapping (start, end, prefix, label) for every named mention,
+    resolved across ALL the names at once (PR #39 reviews):
+
+    * the longest mention wins; at equal length a whole name beats a token,
+      then the earlier name;
+    * a token several names carry is the child whose FIRST name it is
+      («محمد» in «محمد أحمد محمد» beside «سارة أحمد محمد») — if exactly one
+      child's; a token that is a later word of several names and no one's
+      first — a father's or grandfather's name, «محمد» in «أحمد محمد» and
+      «سارة محمد» — is nobody's: alone it is likelier that man than either
+      child. A whole name that loses to a longer mention keeps its own tokens;
+    * a deferred mention (_name_candidates) counts only for a name found
+      elsewhere in the text;
+    * nothing is found inside a placeholder.
+    """
+    entries = [(name, label) for name, label in labelled if name]
+    if not text or not entries:
+        return []
+    firsts: dict[str, set] = {}
+    laters: dict[str, set] = {}
+    cands: list[tuple] = []
+    for idx, (name, label) in enumerate(entries):
+        first = _first_token(name)
+        for variant, _original, whole in _name_variants(name):
+            if not whole:
+                (firsts if variant in first else laters).setdefault(variant, set()).add(label)
+        for s, e, prefix, variant, whole, deferred in _name_candidates(text, name, strict):
+            cands.append((s, e, prefix, label, idx, variant, whole, deferred))
+    if not cands:
+        return []
+
+    def owner(variant: str):
+        """Who a token belongs to: one label, _NOBODY, or None (its only name's)."""
+        first = firsts.get(variant, set())
+        if len(first) == 1:
+            return next(iter(first))
+        if len(first) > 1 or len(laters.get(variant, set())) > 1:
+            return _NOBODY
+        return None
+
+    taken = [m.span() for m in _PLACEHOLDER_SPAN_RE.finditer(text)]
+    found: list[tuple[int, int, str, object]] = []
+    named: set[int] = set()
+    # Deferred last (they need `named`), then longest, whole before token.
+    for s, e, prefix, label, idx, variant, whole, deferred in sorted(
+            cands, key=lambda c: (c[7], c[0] - c[1], not c[6], c[4], c[0])):
+        if not whole:
+            belongs = owner(variant)
+            if belongs is _NOBODY or (belongs is not None and belongs != label):
+                continue
+        if deferred and idx not in named:
+            continue
+        if any(s < te and ts < e for ts, te in taken):
+            continue
+        taken.append((s, e))
+        found.append((s, e, prefix, label))
+        named.add(idx)
+    return sorted(found, key=lambda f: f[0])
+
+
+def _child_matches(text: str, name: str, strict: bool = False) -> list[tuple[int, int, str]]:
+    """(start, end, prefix) of every place `text` names this one child."""
+    return [(s, e, p) for s, e, p, _ in _spans(text or "", [(name, 0)], strict)]
+
+
+def _replace(text: str, spans: list[tuple[int, int, str, object]]) -> str:
+    out, pos = [], 0
+    for s, e, prefix, label in spans:
+        out.append(text[pos:s])
+        out.append(_with_prefix(_strip_tashkeel(prefix), label))
+        pos = e
+    out.append(text[pos:])
+    return "".join(out)
+
+
+def redact_family(text: str, family: Family, subject_id: Optional[int] = None,
+                  *, strict: bool = False) -> str:
+    """Replace each child of `family` by its placeholder (see module doc).
+    `strict`: every whole-word occurrence of a name — for memory facts."""
+    if not text or not family.members:
+        return text
+    labelled = [(name, family.placeholder(cid, subject_id)) for cid, name in family.members]
+    return _replace(text, _spans(text, labelled, strict))
+
+
+def family_mentions(text: str, family: Family, *, strict: bool = False) -> list[int]:
+    """Child ids named in `text`, outside religious and common-word uses
+    (any whole-word use with `strict`) — resolved as redaction resolves them."""
+    if not text:
+        return []
+    return sorted({cid for *_, cid in _spans(
+        text, [(name, cid) for cid, name in family.members], strict)})
+
+
+# ── Generic API (kept for callers without a family) ───────────────────────
+
+
+@lru_cache(maxsize=1)
+def _known_names_cached(_epoch: tuple) -> tuple[str, ...]:
+    try:
+        conn = sqlite3.connect(db_path())
+        rows = conn.execute("SELECT name FROM child_profiles").fetchall()
+        conn.close()
+        names = sorted(
+            {(r[0] or "").strip() for r in rows if r[0] and len(r[0].strip()) >= 2},
+            key=len,
+            reverse=True,  # longest first so "عبد الرحمن" wins over "عبد"
+        )
+        return tuple(names)
+    except Exception as exc:  # noqa: BLE001 — fail open, never break a request
+        logger.debug("privacy: child names unavailable: %s", exc)
+        return ()
+
+
+def names_for_device(device_id: str | None) -> tuple[str, ...]:
+    """The CALLER's children's names (longest first), or () on any error."""
+    return tuple(sorted(family_for_device(device_id).names, key=len, reverse=True))
+
+
+def mentions_any(text: str, names: tuple[str, ...]) -> bool:
+    """True when `text` names one of `names` (same matcher as redaction)."""
+    return bool(_spans(text or "", [(n, i) for i, n in enumerate(names)]))
+
+
+def _store_epoch() -> tuple:
+    """A key that changes whenever the store's contents may have (audit M11)."""
+    key = []
+    for path in (db_path(), f"{db_path()}-wal"):
+        try:
+            st = os.stat(path)
+            key.append((st.st_mtime_ns, st.st_size))
+        except OSError:
+            key.append(None)
+    return tuple(key)
+
+
+def known_child_names() -> tuple[str, ...]:
+    """Child names from the local store, re-read whenever the store changes."""
+    return _known_names_cached(_store_epoch())
+
+
+def redact_with_names(text: str, names: tuple[str, ...], *, strict: bool = False) -> str:
+    """Every one of `names` → «طفلي». For callers with no family structure
+    (offline logs and analyses); a family prompt uses redact_family."""
+    if not text or not names:
+        return text
+    return _replace(text, _spans(text, [(n, CHILD_PLACEHOLDER) for n in names], strict))
+
+
+def redact_for_cloud(text: str, device_id: str | None = None) -> str:
+    """Redact before a cloud call. With a device: that family, distinct
+    placeholders; without one: every known name → «طفلي»."""
+    if not text:
+        return text
+    if device_id:
+        return redact_family(text, family_for_device(device_id))
+    return redact_with_names(text, known_child_names())

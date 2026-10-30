@@ -1,0 +1,280 @@
+/// What lives in the «المزيد» hub, and how it is grouped.
+///
+/// The app has ~40 screens but only four tabs. Everything that is not part of
+/// the daily loop lives here, grouped by what a parent is trying to *do*
+/// rather than by which feature folder it came from. Before this existed, a
+/// screen like the custom-story generator sat three levels deep (الرئيسية →
+/// العملات → القصة) and was effectively undiscoverable.
+///
+/// Keeping the structure as data — rather than as widgets in the screen — is
+/// what keeps `hub_screen.dart` small and makes it cheap to assert in tests
+/// that every entry resolves to a real route *and* a real translated label.
+///
+/// Only parameterless destinations belong here. Screens that need a specific
+/// child (child journey, edit child, Quran memorisation) stay reachable
+/// through «أطفالي», where a child has actually been chosen.
+library;
+
+import 'package:flutter/material.dart';
+
+import '../../../core/app_routes.dart';
+import '../../../l10n/app_localizations.dart';
+import '../../../widgets/ui/brand_glyph.dart';
+import '../../routine/screens/daily_routine_screen.dart' show habitTabLabel;
+
+/// A server capability a tile depends on. The hub shows such a tile only once
+/// the server has been seen to offer it — an older server answers 404, and a
+/// tile that opens onto "not available" is the dead end this hub exists to
+/// remove.
+enum HubRequirement {
+  /// `GET /api/programs` (backend schema v34).
+  programs,
+}
+
+/// One destination tile.
+class HubItem {
+  const HubItem({
+    required this.id,
+    this.glyph,
+    this.icon,
+    required this.label,
+    required this.route,
+    this.requires,
+  });
+
+  /// Null for tiles every server supports.
+  final HubRequirement? requires;
+
+  /// Stable analytics id — reported via `hub_item_tapped`. Never translated.
+  final String id;
+  final BrandIcon? glyph;
+  final IconData? icon;
+
+  /// [ageGroup] is the active child's, for the one label that legitimately
+  /// depends on it (the 0-6 routine tracker vs the 7-18 habit balance).
+  final String Function(AppLocalizations l10n, String ageGroup) label;
+
+  final Route<void> Function() route;
+}
+
+/// A titled section of the hub.
+class HubGroup {
+  const HubGroup({required this.id, required this.title, required this.items});
+
+  final String id;
+  final String Function(AppLocalizations l10n) title;
+  final List<HubItem> items;
+}
+
+/// Not `const`: the label/route callbacks are function literals, which Dart
+/// does not treat as compile-time constants.
+final List<HubGroup> kHubGroups = [
+  HubGroup(
+    id: 'child',
+    title: (l10n) => l10n.hubGroupChild,
+    items: [
+      HubItem(
+        id: 'children_list',
+        icon: Icons.people_outline,
+        label: (l10n, _) => l10n.hubMyChildren,
+        route: AppRoutes.childrenList,
+      ),
+      // Ramadan, the Prayer Journey and the milestones, per child. Hidden
+      // until the server answers `GET /api/programs`.
+      HubItem(
+        id: 'programs',
+        glyph: BrandIcon.star,
+        label: (l10n, _) => l10n.programsTitle,
+        route: AppRoutes.programs,
+        requires: HubRequirement.programs,
+      ),
+      HubItem(
+        id: 'daily_routine',
+        icon: Icons.today_outlined,
+        // The only age-dependent label in the app. It used to sit on a bottom
+        // nav tab, where switching child silently relabelled the tab under the
+        // user's thumb; here it is harmless.
+        label: (l10n, ageGroup) => habitTabLabel(ageGroup, l10n),
+        route: AppRoutes.dailyRoutine,
+      ),
+      HubItem(
+        id: 'habit_customize',
+        icon: Icons.tune_outlined,
+        label: (l10n, _) => l10n.hubCustomizeHabits,
+        route: AppRoutes.habitCustomize,
+      ),
+      HubItem(
+        id: 'parenting_insights',
+        glyph: BrandIcon.sprig,
+        label: (l10n, _) => l10n.hubInsights,
+        route: AppRoutes.parentingInsights,
+      ),
+      // The child surface shipped complete — screens, routes, tests, an
+      // evening digest — and production has assigned nine missions in total.
+      // A parent could reach it only from the routine screen, two taps and a
+      // scroll deep, or from a push notification; `ParentDayScreen` surfaced
+      // on the home screen only once the child had already claimed something.
+      // A feature nobody can find measures as a feature nobody wants.
+      HubItem(
+        id: 'parent_day',
+        icon: Icons.explore_outlined,
+        label: (l10n, _) => l10n.hubParentDay,
+        route: AppRoutes.parentDay,
+      ),
+    ],
+  ),
+  // Second, not fourth. Games are the smallest stock in the app and the most
+  // re-used thing in it, and they used to sit below `achievements` and
+  // `library` — about 550dp down a ~600dp viewport, so reaching them from here
+  // required scrolling past thirteen other tiles. A parent asked for
+  // "games for the child" in written feedback on 2026-08-01 while four were
+  // already shipping.
+  //
+  // If this moves the needle it should show up as a rising share of
+  // `hub_item_tapped` with group='games'; the pre-2026-08-13 baseline for that
+  // is the only one available, since `hub_opened` was removed as unreliable.
+  HubGroup(
+    id: 'games',
+    title: (l10n) => l10n.hubGroupGames,
+    items: [
+      HubItem(
+        id: 'games',
+        icon: Icons.sports_esports_outlined,
+        label: (l10n, _) => l10n.educationalGames,
+        route: AppRoutes.games,
+      ),
+      HubItem(
+        id: 'quiz_game',
+        icon: Icons.quiz_outlined,
+        label: (l10n, _) => l10n.quizzes,
+        route: AppRoutes.quizGame,
+      ),
+    ],
+  ),
+  HubGroup(
+    id: 'achievements',
+    title: (l10n) => l10n.hubGroupAchievements,
+    items: [
+      HubItem(
+        id: 'badges',
+        glyph: BrandIcon.medal,
+        label: (l10n, _) => l10n.badges,
+        route: AppRoutes.badges,
+      ),
+      HubItem(
+        id: 'coins',
+        glyph: BrandIcon.coin,
+        label: (l10n, _) => l10n.coins,
+        route: AppRoutes.coins,
+      ),
+      HubItem(
+        id: 'exclusive_badges',
+        glyph: BrandIcon.star,
+        label: (l10n, _) => l10n.coinsRedeemBadges,
+        route: AppRoutes.exclusiveBadges,
+      ),
+      HubItem(
+        id: 'covenant',
+        glyph: BrandIcon.openBook,
+        label: (l10n, _) => l10n.covenant,
+        route: AppRoutes.covenant,
+      ),
+      HubItem(
+        id: 'favorites',
+        glyph: BrandIcon.star,
+        label: (l10n, _) => l10n.favoritesTitle,
+        route: AppRoutes.favorites,
+      ),
+    ],
+  ),
+  HubGroup(
+    id: 'library',
+    title: (l10n) => l10n.hubGroupLibrary,
+    items: [
+      HubItem(
+        id: 'story_bookshelf',
+        glyph: BrandIcon.crescent,
+        label: (l10n, _) => l10n.bedtimeStories,
+        route: AppRoutes.storyBookshelf,
+      ),
+      HubItem(
+        id: 'story_generator',
+        glyph: BrandIcon.openBook,
+        label: (l10n, _) => l10n.hubCreateStory,
+        route: AppRoutes.storyGenerator,
+      ),
+      HubItem(
+        id: 'quran',
+        icon: Icons.menu_book_outlined,
+        label: (l10n, _) => l10n.holyQuran,
+        route: AppRoutes.quran,
+      ),
+      HubItem(
+        id: 'search',
+        icon: Icons.search_outlined,
+        label: (l10n, _) => l10n.search,
+        route: AppRoutes.search,
+      ),
+    ],
+  ),
+  // Small, offline, single-purpose worship tools. They sit next to the library
+  // rather than inside it: the library is things to read, these are things to
+  // use, and the adhkar pack had no surface at all before this group existed.
+  HubGroup(
+    id: 'tools',
+    title: (l10n) => l10n.hubGroupTools,
+    items: [
+      HubItem(
+        id: 'adhkar',
+        glyph: BrandIcon.lantern,
+        label: (l10n, _) => l10n.adhkarTitle,
+        route: AppRoutes.adhkar,
+      ),
+      HubItem(
+        id: 'tasbeeh',
+        glyph: BrandIcon.lightDot,
+        label: (l10n, _) => l10n.tasbeehTitle,
+        route: AppRoutes.tasbeeh,
+      ),
+      HubItem(
+        id: 'hijri_converter',
+        icon: Icons.calendar_today_outlined,
+        label: (l10n, _) => l10n.hijriTitle,
+        route: AppRoutes.hijriConverter,
+      ),
+    ],
+  ),
+  // The individual games live behind one entry rather than five tiles: the hub
+  // is an index, and five near-identical rows here crowded out everything else
+  // in it. GamesScreen is the index for the games themselves.
+  HubGroup(
+    id: 'help',
+    title: (l10n) => l10n.hubGroupHelp,
+    items: [
+      HubItem(
+        id: 'settings',
+        icon: Icons.settings_outlined,
+        label: (l10n, _) => l10n.settings,
+        route: AppRoutes.settings,
+      ),
+      HubItem(
+        id: 'identity',
+        icon: Icons.account_circle_outlined,
+        label: (l10n, _) => l10n.hubAccount,
+        route: AppRoutes.identity,
+      ),
+      HubItem(
+        id: 'invite',
+        icon: Icons.favorite_border_outlined,
+        label: (l10n, _) => l10n.inviteFriend,
+        route: AppRoutes.invite,
+      ),
+      HubItem(
+        id: 'feedback',
+        icon: Icons.chat_bubble_outline,
+        label: (l10n, _) => l10n.feedbackTitle,
+        route: AppRoutes.feedback,
+      ),
+    ],
+  ),
+];

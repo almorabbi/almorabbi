@@ -1,0 +1,54 @@
+{
+  "id": "path_10-12_development_pre_teen",
+  "title": "Pre-Adolescence: Growth and Responsibility (Ages 10-12)",
+  "age_group": "10-12",
+  "domain": "development",
+  "description": "A path to help parents accompany their child at the threshold of adolescence: discussing puberty with confidence, gradual independence and responsibility, friendship and peer pressure, and managing time between study, play, and screens.",
+  "lesson_ids": [
+    "lesson_10-12_development_pre_teen_01",
+    "lesson_10-12_development_pre_teen_02",
+    "lesson_10-12_development_pre_teen_03",
+    "lesson_10-12_development_pre_teen_04"
+  ],
+  "estimated_days": 4,
+  "pedagogical_framework": "prophetic_7_7_7",
+  "primary_reference": {
+    "type": "مرجع_علمي",
+    "info": "Pre-adolescent development — AAP + developmental psychology"
+  },
+  "prerequisites": [],
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "6bc3eb37f4c22cac06c52cb909be1d925553360143f27d6b01686c4acd4781f8",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

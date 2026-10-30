@@ -1,0 +1,1507 @@
+{
+  "schema": "tg.game_pack/1",
+  "game": "healthy_hero",
+  "locale": "en",
+  "levels": [
+    {
+      "level": 1,
+      "questions": [
+        {
+          "id": "healthy_hero.q_0",
+          "question": "Your child refuses to eat vegetables all morning. What is the best response?",
+          "emoji": "🥦",
+          "category": "Eating Habits",
+          "context": "Building a positive relationship with food matters more than forcing bites.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Serve them in a fun way or pair them with a favorite dish",
+              "rationale": "✅ Flexibility helps children gradually accept new foods."
+            },
+            {
+              "key": "d",
+              "text": "Give them candy instead of vegetables",
+              "rationale": "❌ Rewards refusal with a less healthy habit."
+            },
+            {
+              "key": "b",
+              "text": "Yell at them until they eat",
+              "rationale": "❌ Pressure creates an aversion to healthy foods."
+            },
+            {
+              "key": "c",
+              "text": "Stop offering vegetables altogether",
+              "rationale": "❌ Without gentle exposure, children rarely try new foods."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_1",
+          "question": "You want your child to build the habit of drinking enough water each day. What works best?",
+          "emoji": "💧",
+          "category": "Daily Habits",
+          "context": "Habits stick when they are easy to do and modeled by parents.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Give them candy every time they take a sip of water",
+              "rationale": "❌ Ties drinking water to sugar rather than a natural daily habit."
+            },
+            {
+              "key": "a",
+              "text": "Keep a water bottle within reach, offer gentle reminders, and drink water together",
+              "rationale": "✅ Making it easy and leading by example builds the habit."
+            },
+            {
+              "key": "c",
+              "text": "Never remind them until they complain of thirst",
+              "rationale": "❌ Busy kids often forget to drink until they are already dehydrated."
+            },
+            {
+              "key": "b",
+              "text": "Force them to drink a huge glass all at once",
+              "rationale": "❌ Forceful rules create resistance."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_2",
+          "question": "Toys are scattered across the floor after playtime. How do you build a tidying habit?",
+          "emoji": "🧸",
+          "category": "Responsibility",
+          "context": "Responsibility grows through shared practice, not scolding.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Tidy up together, turn it into a quick game, and keep a consistent daily tidy-up time",
+              "rationale": "✅ Teamwork and routine make tidying a natural habit."
+            },
+            {
+              "key": "b",
+              "text": "Pick up all the toys myself every single time",
+              "rationale": "❌ Prevents the child from learning responsibility."
+            },
+            {
+              "key": "c",
+              "text": "Shout at them whenever toys are on the floor",
+              "rationale": "❌ Scolding makes tidying feel like a dreaded punishment."
+            },
+            {
+              "key": "d",
+              "text": "Leave the mess forever and hope they figure it out alone",
+              "rationale": "❌ Young children need structure and guidance to start."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_3",
+          "question": "You want to establish a calm bedtime routine for your child. What works best?",
+          "emoji": "🛏️",
+          "category": "Routines",
+          "context": "A predictable wind-down routine helps the body and mind prepare for sleep.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Let them stay up until they collapse from exhaustion",
+              "rationale": "❌ Overtiredness makes sleep harder and affects the next day."
+            },
+            {
+              "key": "a",
+              "text": "A consistent bedtime + a calm story + turning screens off well before bed",
+              "rationale": "✅ Calm predictability prepares your child for restful sleep."
+            },
+            {
+              "key": "c",
+              "text": "Let them watch a phone in bed until they fall asleep",
+              "rationale": "❌ Screen light and stimulation delay sleep."
+            },
+            {
+              "key": "d",
+              "text": "Change bedtime to a different hour every night",
+              "rationale": "❌ Inconsistent schedules disrupt the body's sleep rhythm."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_4",
+          "question": "How do you help your child build the habit of using polite words ('please' and 'thank you')?",
+          "emoji": "🙏",
+          "category": "Social Skills",
+          "context": "Good manners are learned best through role modeling and warm encouragement.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Never model polite words at home",
+              "rationale": "❌ Children mirror how adults speak at home."
+            },
+            {
+              "key": "b",
+              "text": "Scold and shame them in front of others whenever they forget",
+              "rationale": "❌ Public embarrassment creates resentment rather than genuine manners."
+            },
+            {
+              "key": "a",
+              "text": "Use polite words consistently myself with them and praise them when they do",
+              "rationale": "✅ Role modeling and positive reinforcement are the strongest teachers."
+            },
+            {
+              "key": "d",
+              "text": "Compare them unfavorably to other children",
+              "rationale": "❌ Comparison hurts self-confidence."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "questions": [
+        {
+          "id": "healthy_hero.q_5",
+          "question": "Your child wants to stay on screens all day. What is the healthiest approach?",
+          "emoji": "📱",
+          "category": "Screen Time",
+          "context": "Healthy balance comes from clear limits paired with engaging offline activities.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Agree on a clear daily limit and offer fun offline activities",
+              "rationale": "✅ Clear limits plus enjoyable alternatives build healthy balance."
+            },
+            {
+              "key": "b",
+              "text": "Snatch the device away suddenly without warning",
+              "rationale": "❌ Abrupt transitions without warning spark power struggles."
+            },
+            {
+              "key": "d",
+              "text": "Hand them a screen every time they feel bored or upset",
+              "rationale": "❌ Prevents children from learning other ways to cope and play."
+            },
+            {
+              "key": "c",
+              "text": "Leave screen time completely unlimited",
+              "rationale": "❌ Lack of boundaries makes screen habits harder to manage."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_6",
+          "question": "Your child refuses to share toys with their sibling. How do you guide them?",
+          "emoji": "🤝",
+          "category": "Social Skills",
+          "context": "Sharing is a skill that develops through turn-taking and positive reinforcement.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Yell at them in front of their sibling",
+              "rationale": "❌ Shaming increases stubbornness and rivalry."
+            },
+            {
+              "key": "a",
+              "text": "Practice taking turns with a timer and praise moments of generosity",
+              "rationale": "✅ Turn-taking and warm praise make sharing feel fair and rewarding."
+            },
+            {
+              "key": "b",
+              "text": "Pull the toy from their hand by force and give it to their sibling",
+              "rationale": "❌ Creates feelings of unfairness and resentment."
+            },
+            {
+              "key": "d",
+              "text": "Take away all toys permanently",
+              "rationale": "❌ Over-punishing does not teach how to take turns."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_7",
+          "question": "You want your child to pack their own school bag each evening. What helps most?",
+          "emoji": "🎒",
+          "category": "Responsibility",
+          "context": "Independence grows through simple checklists and gradual practice.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Pack the bag myself every day while they watch TV",
+              "rationale": "❌ Keeps the child dependent on you."
+            },
+            {
+              "key": "d",
+              "text": "Yell whenever a pencil is missing",
+              "rationale": "❌ Harshness lowers confidence."
+            },
+            {
+              "key": "a",
+              "text": "Create a simple visual checklist together and let them pack while I review gently",
+              "rationale": "✅ A simple checklist plus supportive review builds independence."
+            },
+            {
+              "key": "c",
+              "text": "Give zero guidance and punish them when they forget books",
+              "rationale": "❌ Repeated frustration without tools does not teach organization."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_8",
+          "question": "How do you keep your child's sleep schedule steady and restorative?",
+          "emoji": "⏰",
+          "category": "Routines",
+          "context": "Consistent sleep and wake times support mood, growth, and focus.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Stay up four hours later every weekend",
+              "rationale": "❌ Large weekend shifts reset the body clock and make school mornings hard."
+            },
+            {
+              "key": "a",
+              "text": "Keep a consistent bedtime every day, including weekends as much as possible",
+              "rationale": "✅ Regularity makes falling asleep and waking up much easier."
+            },
+            {
+              "key": "d",
+              "text": "Have no bedtime routine at all",
+              "rationale": "❌ Children thrive on predictable routines."
+            },
+            {
+              "key": "b",
+              "text": "Pick a random bedtime each night depending on mood",
+              "rationale": "❌ Irregular sleep schedules leave children overtired and irritable."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_9",
+          "question": "How do you build a consistent tooth-brushing habit with your child?",
+          "emoji": "🪥",
+          "category": "Hygiene",
+          "context": "Daily hygiene habits stick through role modeling and consistency.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Brush once every few days",
+              "rationale": "❌ Too infrequent to protect teeth or form a daily habit."
+            },
+            {
+              "key": "b",
+              "text": "Do it for an older child forever without letting them practice",
+              "rationale": "❌ Children need guided practice to master the skill."
+            },
+            {
+              "key": "d",
+              "text": "Leave it completely optional whenever they feel like it",
+              "rationale": "❌ Health habits require steady adult guidance."
+            },
+            {
+              "key": "a",
+              "text": "Brush together as a role model, use a kid-friendly soft brush, and keep a fixed morning and night time",
+              "rationale": "✅ Modeling and fixed cues make brushing automatic."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "questions": [
+        {
+          "id": "healthy_hero.q_10",
+          "question": "Your child accidentally broke something and hid it. How do you encourage honesty?",
+          "emoji": "🫣",
+          "category": "Character",
+          "context": "Honesty flourishes when children feel safe telling the truth.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Reassure them that telling the truth is safe, thank their honesty, and focus on fixing it together",
+              "rationale": "✅ Emotional safety and problem-solving encourage truth-telling."
+            },
+            {
+              "key": "c",
+              "text": "Pretend nothing broke and never mention responsibility",
+              "rationale": "❌ Misses the chance to teach gentle accountability."
+            },
+            {
+              "key": "b",
+              "text": "Punish them severely even after they confess",
+              "rationale": "❌ Fear of harsh punishment teaches children to hide mistakes."
+            },
+            {
+              "key": "d",
+              "text": "Embarrass them in front of siblings and guests",
+              "rationale": "❌ Public shaming breaks trust."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_11",
+          "question": "Your child lost a board game and got very upset. How can you help?",
+          "emoji": "🎲",
+          "category": "Emotions",
+          "context": "Learning to handle disappointment is a key life skill.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Put away all games forever",
+              "rationale": "❌ Avoidance does not teach emotional regulation."
+            },
+            {
+              "key": "a",
+              "text": "Acknowledge their disappointment warmly and remind them that losing is a normal part of play",
+              "rationale": "✅ Emotional validation plus gentle reframing builds resilience."
+            },
+            {
+              "key": "c",
+              "text": "Let them win every single game on purpose",
+              "rationale": "❌ Prevents them from practicing how to cope with losing in real life."
+            },
+            {
+              "key": "b",
+              "text": "Tell them 'Stop acting silly, it is nothing'",
+              "rationale": "❌ Dismissing feelings often intensifies frustration."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_12",
+          "question": "You want to nurture a love of reading in your child. What works best?",
+          "emoji": "📚",
+          "category": "Learning",
+          "context": "Children fall in love with reading when it feels enjoyable and shared.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Force them to sit alone and read for an hour as punishment",
+              "rationale": "❌ Turning reading into a chore creates resistance."
+            },
+            {
+              "key": "d",
+              "text": "Leave all reading strictly to school hours",
+              "rationale": "❌ Reading at home is one of the strongest predictors of lifelong literacy."
+            },
+            {
+              "key": "a",
+              "text": "Share a cozy daily reading time and let them choose books on topics they love",
+              "rationale": "✅ Enjoyment and choice spark genuine interest in reading."
+            },
+            {
+              "key": "c",
+              "text": "Give them books far above their reading level",
+              "rationale": "❌ Constant frustration discourages young readers."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_13",
+          "question": "You want your child to listen and follow daily instructions more smoothly. What helps most?",
+          "emoji": "👂",
+          "category": "Communication Skills",
+          "context": "Children follow instructions best when we connect first and keep steps simple.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Punish immediately before checking if they understood",
+              "rationale": "❌ Clarity and connection must come first."
+            },
+            {
+              "key": "a",
+              "text": "Make eye contact, give one clear and simple instruction at a time, and acknowledge their effort",
+              "rationale": "✅ Connection, clarity, and encouragement improve cooperation."
+            },
+            {
+              "key": "b",
+              "text": "Shout instructions from another room repeatedly",
+              "rationale": "❌ Shouting from afar rarely gets focused attention."
+            },
+            {
+              "key": "c",
+              "text": "Give six complicated instructions all at once",
+              "rationale": "❌ Overwhelms a child's working memory."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_14",
+          "question": "What is the best way to encourage your child to be physically active?",
+          "emoji": "⚽",
+          "category": "Physical Activity",
+          "context": "Children love movement when it feels like fun play rather than a chore.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Order them to exercise alone for an hour while everyone else watches TV",
+              "rationale": "❌ Feels isolating and boring."
+            },
+            {
+              "key": "b",
+              "text": "Force them through exhausting drills they hate",
+              "rationale": "❌ Harsh pressure turns kids away from exercise."
+            },
+            {
+              "key": "a",
+              "text": "Play active outdoor games together that they genuinely enjoy",
+              "rationale": "✅ Fun and family participation make movement a joy."
+            },
+            {
+              "key": "d",
+              "text": "Discourage active play so the house stays quiet",
+              "rationale": "❌ Daily movement is essential for physical and emotional health."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "questions": [
+        {
+          "id": "healthy_hero.q_15",
+          "question": "Your child tries to do a task on their own, struggles, and gets frustrated. What is the best response?",
+          "emoji": "🧗",
+          "category": "Independence",
+          "context": "Confidence grows when parents scaffold rather than take over.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Say 'Leave it, you cannot do it right'",
+              "rationale": "❌ Crushes self-confidence."
+            },
+            {
+              "key": "d",
+              "text": "Scold them for feeling frustrated",
+              "rationale": "❌ Frustration during learning needs calm support, not scolding."
+            },
+            {
+              "key": "b",
+              "text": "Push them aside and do the whole thing myself immediately",
+              "rationale": "❌ Robs them of the chance to learn and feel capable."
+            },
+            {
+              "key": "a",
+              "text": "Encourage their effort and offer a small hint so they can finish it themselves",
+              "rationale": "✅ Gentle scaffolding builds capability and confidence."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_16",
+          "question": "Your child struggles to wait their turn and wants everything immediately. How do you teach patience?",
+          "emoji": "⏳",
+          "category": "Self-Regulation",
+          "context": "Patience is a muscle built through small, successful waiting experiences.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Ignore them completely without explaining when their turn will be",
+              "rationale": "❌ Clear expectations help children wait successfully."
+            },
+            {
+              "key": "b",
+              "text": "Give them everything the instant they demand it",
+              "rationale": "❌ Reinforces impatience."
+            },
+            {
+              "key": "a",
+              "text": "Practice turn-taking games and start with short waits that gradually grow, praising their patience",
+              "rationale": "✅ Gradual practice and warm feedback build patience."
+            },
+            {
+              "key": "c",
+              "text": "Yell at them to be patient",
+              "rationale": "❌ Impatient yelling does not model patience."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_17",
+          "question": "You want your child to clear their plate after meals. What is the best way to start?",
+          "emoji": "🍽️",
+          "category": "Responsibility",
+          "context": "Age-appropriate mealtime routines build lifelong responsibility.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Show the step clearly, do it together at first, and praise their effort",
+              "rationale": "✅ Modeling and encouragement turn a new step into a habit."
+            },
+            {
+              "key": "d",
+              "text": "Leave dirty dishes on the table all day",
+              "rationale": "❌ Children need clear guidance and routine cues."
+            },
+            {
+              "key": "b",
+              "text": "Clear everything myself every time without involving them",
+              "rationale": "❌ Misses an easy daily habit."
+            },
+            {
+              "key": "c",
+              "text": "Punish them harshly the first time they forget",
+              "rationale": "❌ Harshness creates resistance around family chores."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_18",
+          "question": "How do you involve your child in simple household chores?",
+          "emoji": "🧹",
+          "category": "Responsibility",
+          "context": "Contributing at home builds belonging and life skills.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Pay large cash rewards for every tiny everyday habit",
+              "rationale": "❌ Family contribution works best as a shared value, not just a paid transaction."
+            },
+            {
+              "key": "b",
+              "text": "Assign exhausting adult chores beyond their ability",
+              "rationale": "❌ Sets the child up for frustration."
+            },
+            {
+              "key": "c",
+              "text": "Exempt them from ever helping at home",
+              "rationale": "❌ Misses an important opportunity to build life skills."
+            },
+            {
+              "key": "a",
+              "text": "Give small, age-appropriate tasks and celebrate completing them together",
+              "rationale": "✅ Right-sized tasks and warm appreciation build helpfulness."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_19",
+          "question": "How do you make handwashing with soap a steady habit for your child?",
+          "emoji": "🧼",
+          "category": "Hygiene",
+          "context": "Linking a habit to daily anchors makes it automatic.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Rinse quickly with water only and skip soap",
+              "rationale": "❌ Soap is essential for effective handwashing."
+            },
+            {
+              "key": "d",
+              "text": "Shout at them every time instead of setting a calm routine",
+              "rationale": "❌ Calm cues work much better than shouting."
+            },
+            {
+              "key": "a",
+              "text": "Wash hands with soap together at fixed daily moments (before meals, after outdoor play, after the bathroom)",
+              "rationale": "✅ Tying handwashing to clear daily cues locks in the habit."
+            },
+            {
+              "key": "c",
+              "text": "Wash hands only once a day",
+              "rationale": "❌ Handwashing is needed before meals and after messy activities."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "questions": [
+        {
+          "id": "healthy_hero.q_20",
+          "question": "You want to teach your child how to cross the street safely. What is the best approach?",
+          "emoji": "🚦",
+          "category": "Safety",
+          "context": "Road safety habits are learned through repeated, hands-on practice with a parent.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Stop at the curb together, look left and right, hold hands, and explain each step out loud",
+              "rationale": "✅ Repeated practice and clear explanation build lifelong safety habits."
+            },
+            {
+              "key": "d",
+              "text": "Just pull their arm without ever explaining how to check for traffic",
+              "rationale": "❌ Explaining the steps helps them understand how to stay safe."
+            },
+            {
+              "key": "b",
+              "text": "Let them run ahead across the street",
+              "rationale": "❌ Extremely dangerous."
+            },
+            {
+              "key": "c",
+              "text": "Cross the street while looking down at my phone",
+              "rationale": "❌ Models distracted, unsafe behavior."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_21",
+          "question": "Your child asks for lots of sweets every day. How do you guide this habit?",
+          "emoji": "🍭",
+          "category": "Eating Habits",
+          "context": "Balanced boundaries and tasty healthy alternatives work better than extremes.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Let them eat unlimited sweets whenever they want",
+              "rationale": "❌ Hurts dental and overall health."
+            },
+            {
+              "key": "a",
+              "text": "Set a clear, moderate portion/time for treats and keep fresh fruit easily available",
+              "rationale": "✅ Clear limits plus healthy alternatives build balanced eating habits."
+            },
+            {
+              "key": "d",
+              "text": "Use candy as the reward for every single behavior",
+              "rationale": "❌ Makes sweets seem like the ultimate prize."
+            },
+            {
+              "key": "b",
+              "text": "Keep piles of candy out all day and scold them when they touch it",
+              "rationale": "❌ Mixed signals create constant frustration."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_22",
+          "question": "Your child is frustrated and screaming in anger. What is the healthiest response?",
+          "emoji": "😤",
+          "category": "Emotions",
+          "context": "A calm adult helps a dysregulated child learn to calm down.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Punish them simply for feeling frustrated",
+              "rationale": "❌ Feelings are normal; how we express them is what we guide."
+            },
+            {
+              "key": "b",
+              "text": "Scream back louder to make them stop",
+              "rationale": "❌ Escalates the meltdown."
+            },
+            {
+              "key": "a",
+              "text": "Stay calm myself, name their feeling, and help them take slow breaths before talking it through",
+              "rationale": "✅ Co-regulation and naming feelings teach healthy emotional control."
+            },
+            {
+              "key": "d",
+              "text": "Give in to every demand immediately whenever they scream",
+              "rationale": "❌ Teaches that screaming gets results."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_23",
+          "question": "Your child is shy and wants to make friends at the park. How can you help?",
+          "emoji": "👫",
+          "category": "Social Skills",
+          "context": "Social confidence grows in small, low-pressure steps.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Push them into a big group of strangers and walk away",
+              "rationale": "❌ Overwhelming pressure increases shyness."
+            },
+            {
+              "key": "c",
+              "text": "Call them 'scared' in front of other kids",
+              "rationale": "❌ Labeling hurts confidence."
+            },
+            {
+              "key": "d",
+              "text": "Keep them away from parks and peers altogether",
+              "rationale": "❌ Avoidance prevents social growth."
+            },
+            {
+              "key": "a",
+              "text": "Practice a simple greeting together, start with a shared game, and encourage small steps",
+              "rationale": "✅ Gentle practice and encouragement build social confidence."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_24",
+          "question": "You want your child to express needs with words instead of whining or crying. What helps most?",
+          "emoji": "🗣️",
+          "category": "Emotions",
+          "context": "Children use words when we model the phrases they need.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Help them name their feeling ('Are you feeling frustrated?') and model the calm words they can use",
+              "rationale": "✅ Naming feelings and modeling words builds verbal expression."
+            },
+            {
+              "key": "c",
+              "text": "Walk away without ever coaching them on how to ask",
+              "rationale": "❌ Misses a key teaching moment."
+            },
+            {
+              "key": "b",
+              "text": "Snap 'Stop crying right now!'",
+              "rationale": "❌ Shuts down communication without teaching words."
+            },
+            {
+              "key": "d",
+              "text": "Give them whatever they want only when they whine",
+              "rationale": "❌ Reinforces whining as the fastest way to get things."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "questions": [
+        {
+          "id": "healthy_hero.q_25",
+          "question": "You want to teach your child the value of money and saving. What is a great way to start?",
+          "emoji": "🐷",
+          "category": "Life Skills",
+          "context": "Hands-on saving toward a small goal makes money concepts concrete.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Buy everything they point at immediately",
+              "rationale": "❌ Prevents learning patience and the value of money."
+            },
+            {
+              "key": "d",
+              "text": "Tell them money is too stressful to talk about",
+              "rationale": "❌ Calm, age-appropriate lessons build healthy habits."
+            },
+            {
+              "key": "c",
+              "text": "Never let them see or practice with small amounts of money",
+              "rationale": "❌ Guided practice is how financial habits form."
+            },
+            {
+              "key": "a",
+              "text": "Use a simple savings jar with a small goal they care about and celebrate reaching it",
+              "rationale": "✅ A tangible goal makes saving rewarding and understandable."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_26",
+          "question": "Your child is visiting a friend's home where unfamiliar food may be served. How do you prepare them?",
+          "emoji": "🍱",
+          "category": "Social Skills",
+          "context": "Coaching kids ahead of social situations builds polite confidence.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Never allow them to visit friends",
+              "rationale": "❌ Misses social learning opportunities."
+            },
+            {
+              "key": "b",
+              "text": "Tell them to loudly complain if they do not like the food",
+              "rationale": "❌ Hurts the host's feelings."
+            },
+            {
+              "key": "a",
+              "text": "Practice saying 'Thank you,' trying a small bite politely, or declining kindly with 'No, thank you'",
+              "rationale": "✅ Advance coaching teaches kindness and good manners as a guest."
+            },
+            {
+              "key": "c",
+              "text": "Say 'Eww, this food looks weird' at the table",
+              "rationale": "❌ Disrespectful to the host."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_27",
+          "question": "Your child's bedroom is constantly messy. How do you make tidying easier to maintain?",
+          "emoji": "🧺",
+          "category": "Responsibility",
+          "context": "Simple organization systems make tidying achievable for children.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Have nowhere for toys to go and expect the room to stay neat",
+              "rationale": "❌ Kids need clear places to put things away."
+            },
+            {
+              "key": "b",
+              "text": "Clean the entire room myself every day",
+              "rationale": "❌ Does not build the child's own habit."
+            },
+            {
+              "key": "c",
+              "text": "Throw all their toys in the trash in anger",
+              "rationale": "❌ Harsh reactions damage trust."
+            },
+            {
+              "key": "a",
+              "text": "Use clearly labeled bins for each type of item and keep a short daily tidy routine",
+              "rationale": "✅ Simple systems + a short daily habit prevent big messes."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_28",
+          "question": "You want your child to buckle their seatbelt every single car ride. What works best?",
+          "emoji": "🚗",
+          "category": "Safety",
+          "context": "Non-negotiable safety habits rely on 100% consistency and adult role modeling.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Keep a firm rule: the car does not move until everyone's seatbelt is clicked — including mine",
+              "rationale": "✅ Consistency and modeling make seatbelts an automatic habit."
+            },
+            {
+              "key": "b",
+              "text": "Skip the seatbelt on short trips down the street",
+              "rationale": "❌ Exceptions weaken safety habits and put the child at risk."
+            },
+            {
+              "key": "d",
+              "text": "Tell the child to buckle up while I drive unbuckled",
+              "rationale": "❌ Children copy what parents actually do."
+            },
+            {
+              "key": "c",
+              "text": "Argue while already driving down the road",
+              "rationale": "❌ Waiting to drive until buckled is safer and clearer."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_29",
+          "question": "Your child and a friend argue over the same toy. How do you teach problem-solving?",
+          "emoji": "🧩",
+          "category": "Social Skills",
+          "context": "Guided conflict resolution teaches fairness and negotiation.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Tell my child to grab whatever they want first",
+              "rationale": "❌ Encourages selfishness."
+            },
+            {
+              "key": "b",
+              "text": "Automatically take my child's side without listening",
+              "rationale": "❌ Prevents learning fairness and empathy."
+            },
+            {
+              "key": "c",
+              "text": "End the playdate immediately at the first small disagreement",
+              "rationale": "❌ Kids need chances to practice working things out."
+            },
+            {
+              "key": "a",
+              "text": "Help both calm down, listen to both sides, and guide them to a fair solution like taking turns",
+              "rationale": "✅ Listening and fair compromise teach lifelong conflict resolution."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "questions": [
+        {
+          "id": "healthy_hero.q_30",
+          "question": "What role does getting enough sleep play in your child's day?",
+          "emoji": "😴",
+          "category": "Routines",
+          "context": "Adequate sleep is foundational for brain development, mood, and energy.",
+          "options": [
+            {
+              "key": "a",
+              "text": "It boosts mood, focus, memory, and energy for learning and play",
+              "rationale": "✅ Good sleep is the foundation of a healthy, happy day."
+            },
+            {
+              "key": "d",
+              "text": "Sleeping enough makes children lazy",
+              "rationale": "❌ Well-rested children are actually more active and focused."
+            },
+            {
+              "key": "b",
+              "text": "It only passes the time at night",
+              "rationale": "❌ Sleep actively restores the body and brain."
+            },
+            {
+              "key": "c",
+              "text": "Sleep does not matter as long as they eat breakfast",
+              "rationale": "❌ Both nutrition and sleep are essential."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_31",
+          "question": "Your child drinks sugary boxed juices every day. What is the healthiest shift?",
+          "emoji": "🧃",
+          "category": "Eating Habits",
+          "context": "Water and whole fruit are much healthier daily choices than sugary drinks.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Replace all water with soda and juice",
+              "rationale": "❌ Water is the best daily drink for hydration."
+            },
+            {
+              "key": "d",
+              "text": "Shame the child without offering healthy alternatives at home",
+              "rationale": "❌ Changing what is stocked at home works better than scolding."
+            },
+            {
+              "key": "a",
+              "text": "Gradually cut back on sugary juices while offering water and fresh whole fruit",
+              "rationale": "✅ Gradual replacement builds lasting healthy hydration habits."
+            },
+            {
+              "key": "b",
+              "text": "Keep giving several sugary boxes a day for energy",
+              "rationale": "❌ Excess sugar causes energy spikes and crashes and harms teeth."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_32",
+          "question": "Your child made a mistake. How do you teach them to take responsibility without crushing their confidence?",
+          "emoji": "🙋",
+          "category": "Character",
+          "context": "Constructive accountability focuses on making things right.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Blame someone else for my child's mistake",
+              "rationale": "❌ Excusing everything prevents accountability."
+            },
+            {
+              "key": "a",
+              "text": "Talk calmly about what happened and how to fix or make amends without insults",
+              "rationale": "✅ Focusing on repair teaches true responsibility."
+            },
+            {
+              "key": "d",
+              "text": "Bring up the mistake for months to embarrass them",
+              "rationale": "❌ Holding grudges damages trust and self-worth."
+            },
+            {
+              "key": "b",
+              "text": "Explode in anger immediately",
+              "rationale": "❌ Fear teaches children to hide mistakes."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_33",
+          "question": "You want your child to balance study time and playtime effectively. What helps most?",
+          "emoji": "⏱️",
+          "category": "Time Management",
+          "context": "Focused study blocks paired with real breaks keep energy and focus high.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Have no daily rhythm at all",
+              "rationale": "❌ Predictable routines reduce daily arguments."
+            },
+            {
+              "key": "b",
+              "text": "Force them to study for hours nonstop without any breaks",
+              "rationale": "❌ Exhaustion lowers comprehension and motivation."
+            },
+            {
+              "key": "a",
+              "text": "Set a simple routine with focused study blocks, short breaks, and dedicated playtime",
+              "rationale": "✅ Clear structure and breaks improve both focus and enjoyment."
+            },
+            {
+              "key": "c",
+              "text": "Wait until late at night when they are exhausted to start homework",
+              "rationale": "❌ Late-night fatigue makes homework frustrating."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_34",
+          "question": "How do you keep your home environment safe and accident-free for your child?",
+          "emoji": "🏠",
+          "category": "Safety",
+          "context": "A well-organized, childproofed environment prevents most home accidents.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Expect young children to recognize every hazard on their own",
+              "rationale": "❌ Young children rely on adults to secure their environment."
+            },
+            {
+              "key": "a",
+              "text": "Store hazardous items out of reach, keep walkways clear, and secure heavy furniture",
+              "rationale": "✅ Proactive home safety prevents avoidable accidents."
+            },
+            {
+              "key": "d",
+              "text": "Forbid the child from moving around the house instead of securing hazards",
+              "rationale": "❌ Safe exploration requires a childproofed space."
+            },
+            {
+              "key": "b",
+              "text": "Leave cleaning chemicals and sharp tools within reach",
+              "rationale": "❌ Creates a serious hazard for children."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "questions": [
+        {
+          "id": "healthy_hero.q_35",
+          "question": "How do you teach your child to stay safe around hot stoves and pans in the kitchen?",
+          "emoji": "🍳",
+          "category": "Safety",
+          "context": "Kitchen safety combines physical precautions with clear explanation.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Leave pot handles sticking out over the edge",
+              "rationale": "❌ Easy for a child to accidentally pull down."
+            },
+            {
+              "key": "d",
+              "text": "Shout 'Get out!' without ever explaining what is hot",
+              "rationale": "❌ Children stay safer when they understand why."
+            },
+            {
+              "key": "a",
+              "text": "Explain the heat danger calmly, turn pot handles inward, and set a safe zone away from the stove",
+              "rationale": "✅ Clear explanation plus physical safety habits prevent burns."
+            },
+            {
+              "key": "b",
+              "text": "Let them play right next to boiling pots",
+              "rationale": "❌ Immediate burn hazard."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_36",
+          "question": "How do you prepare your child to respond if a situation or person makes them feel uncomfortable?",
+          "emoji": "🛑",
+          "category": "Life Skills",
+          "context": "Empowering children to say 'No' and tell a trusted parent is vital for personal safety.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Tell them they must always obey every adult without question",
+              "rationale": "❌ Children need to know their safety boundaries come first."
+            },
+            {
+              "key": "c",
+              "text": "Brush them off when they try to tell me something felt weird",
+              "rationale": "❌ Listening seriously keeps protective communication open."
+            },
+            {
+              "key": "d",
+              "text": "Scold them for feeling uncomfortable",
+              "rationale": "❌ Teaches them to ignore their own safety instincts."
+            },
+            {
+              "key": "a",
+              "text": "Teach them they can say 'No,' leave the situation, and tell me anything without fear of blame",
+              "rationale": "✅ Clear boundaries and blame-free trust protect children."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_37",
+          "question": "How do you pack a balanced, energizing school lunchbox for your child?",
+          "emoji": "🥪",
+          "category": "Eating Habits",
+          "context": "A balanced mix of food groups keeps energy and concentration steady at school.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Pack fizzy energy drinks",
+              "rationale": "❌ Causes energy crashes and poor focus."
+            },
+            {
+              "key": "b",
+              "text": "Pack only chips and candy bars",
+              "rationale": "❌ High in sugar and salt with little lasting nutrition."
+            },
+            {
+              "key": "a",
+              "text": "Include a colorful mix of fruit, veggies, protein/cheese, whole grains, and water",
+              "rationale": "✅ Variety and balance provide steady energy for learning."
+            },
+            {
+              "key": "d",
+              "text": "Skip lunch altogether",
+              "rationale": "❌ Children need mid-day fuel to learn and grow."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_38",
+          "question": "You notice your child stepping on ants or bugs roughly while playing outside. How do you guide them?",
+          "emoji": "🐞",
+          "category": "Character",
+          "context": "Gentleness toward living creatures nurtures empathy and compassion.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Teach gentleness toward living creatures and show how to observe or step around them calmly",
+              "rationale": "✅ Guiding empathy toward small creatures builds a compassionate heart."
+            },
+            {
+              "key": "c",
+              "text": "Make them terrified of going outdoors",
+              "rationale": "❌ Calm respect for nature is the goal, not fear."
+            },
+            {
+              "key": "b",
+              "text": "Encourage hurting animals for fun",
+              "rationale": "❌ Harms empathy development."
+            },
+            {
+              "key": "d",
+              "text": "Scream harshly without explaining why kindness matters",
+              "rationale": "❌ Calm guidance teaches values more effectively."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_39",
+          "question": "Your child sits very close to the TV or tablet screen for long stretches. What is the best adjustment?",
+          "emoji": "📺",
+          "category": "Screen Time",
+          "context": "Healthy viewing distance and eye breaks protect vision and posture.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Unplug the TV in anger without explaining",
+              "rationale": "❌ Clear habits work better than sudden anger."
+            },
+            {
+              "key": "b",
+              "text": "Let them hold the screen an inch from their eyes for hours",
+              "rationale": "❌ Causes eye strain and fatigue."
+            },
+            {
+              "key": "d",
+              "text": "Ignore eye strain even if they squint",
+              "rationale": "❌ Healthy distance and eye checks if squinting continues are important."
+            },
+            {
+              "key": "a",
+              "text": "Set a comfortable viewing distance, agreed time limits, and regular eye breaks",
+              "rationale": "✅ Distance, time limits, and breaks protect eyes and posture."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "questions": [
+        {
+          "id": "healthy_hero.q_40",
+          "question": "How do you build balanced, healthy nutrition and energy habits for the whole family?",
+          "emoji": "🍎",
+          "category": "Eating Habits",
+          "context": "Family-wide habits make healthy eating natural for children.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Discourage drinking water during the day",
+              "rationale": "❌ Hydration is essential."
+            },
+            {
+              "key": "a",
+              "text": "Offer plenty of fruits, vegetables, and water at family meals and stay active together",
+              "rationale": "✅ Shared family habits make balanced nutrition and movement a way of life."
+            },
+            {
+              "key": "b",
+              "text": "Base daily meals mostly on sweets and processed snacks",
+              "rationale": "❌ Lacks essential nutrients for growth."
+            },
+            {
+              "key": "d",
+              "text": "Use harsh food restriction as punishment",
+              "rationale": "❌ Regular, nourishing meals are a basic need."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_41",
+          "question": "The weather is cold outside. How do you help your child learn to dress appropriately for the weather?",
+          "emoji": "🧥",
+          "category": "Life Skills",
+          "context": "Involving children in weather-appropriate choices builds practical independence.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Check the weather together, explain why warm layers help, and let them pick between two warm jackets",
+              "rationale": "✅ Explanation plus guided choice builds practical independence."
+            },
+            {
+              "key": "b",
+              "text": "Send them out in summer clothes in freezing weather",
+              "rationale": "❌ Leaves the child cold and uncomfortable."
+            },
+            {
+              "key": "d",
+              "text": "Turn getting dressed into a daily shouting match",
+              "rationale": "❌ Offering two weather-appropriate choices avoids power struggles."
+            },
+            {
+              "key": "c",
+              "text": "Dress an older child from head to toe without ever explaining why",
+              "rationale": "❌ Misses the chance to build self-care skills."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_42",
+          "question": "Your child seems bothered by something but is quiet about it. How do you help them express it?",
+          "emoji": "💬",
+          "category": "Emotions",
+          "context": "A calm, unhurried presence helps children put feelings into words.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Interrogate them angrily until they speak",
+              "rationale": "❌ Pressure causes children to shut down further."
+            },
+            {
+              "key": "c",
+              "text": "Give them the silent treatment",
+              "rationale": "❌ Deepens distance and loneliness."
+            },
+            {
+              "key": "d",
+              "text": "Tell them what they are allowed to feel",
+              "rationale": "❌ Listening comes before advising."
+            },
+            {
+              "key": "a",
+              "text": "Sit together quietly, ask gentle open questions, and reassure them I am listening",
+              "rationale": "✅ Warm, unhurried safety helps children open up."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_43",
+          "question": "How can you help your child reduce excess daily sugar without constant battles?",
+          "emoji": "🍬",
+          "category": "Eating Habits",
+          "context": "Gradual adjustments and naturally sweet whole foods work sustainably.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Offer naturally sweet fruits and gradually reduce sugary drinks and snacks at home",
+              "rationale": "✅ Gradual steps and tasty whole-food swaps change habits sustainably."
+            },
+            {
+              "key": "d",
+              "text": "Expect a young child to manage nutrition with zero guidance",
+              "rationale": "❌ Parents shape the home food environment."
+            },
+            {
+              "key": "c",
+              "text": "Replace meals with candy",
+              "rationale": "❌ Harms nutrition and energy."
+            },
+            {
+              "key": "b",
+              "text": "Keep buying sugary drinks and then scold the child for wanting them",
+              "rationale": "❌ Mixed messages create conflict."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_44",
+          "question": "What are the benefits of regular outdoor play for your child?",
+          "emoji": "🌳",
+          "category": "Physical Activity",
+          "context": "Outdoor play supports physical health, mood, and social growth.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Video games completely replace the need for fresh air and movement",
+              "rationale": "❌ Screen play cannot replace physical movement and nature."
+            },
+            {
+              "key": "d",
+              "text": "Outdoor play is just a waste of time",
+              "rationale": "❌ Active play actually sharpens focus for learning afterward."
+            },
+            {
+              "key": "a",
+              "text": "It boosts physical fitness, lifts mood, supports sleep, and builds social skills",
+              "rationale": "✅ Outdoor play nurtures body, mind, and friendships."
+            },
+            {
+              "key": "b",
+              "text": "It has no benefit at all",
+              "rationale": "❌ Outdoor movement is vital for healthy development."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "questions": [
+        {
+          "id": "healthy_hero.q_45",
+          "question": "How do you build positive habits that truly last for your child?",
+          "emoji": "🌱",
+          "category": "Habits",
+          "context": "Lasting habits grow from role modeling, steady routines, and celebrating small wins.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Leave all habit-building to peers",
+              "rationale": "❌ Home is the primary foundation for daily habits."
+            },
+            {
+              "key": "b",
+              "text": "Rely on fear and shouting for everything",
+              "rationale": "❌ Fear creates resistance, not internal habits."
+            },
+            {
+              "key": "c",
+              "text": "Expect perfection on day one and give up on day two",
+              "rationale": "❌ Habits take patience and gradual repetition."
+            },
+            {
+              "key": "a",
+              "text": "Lead by example, keep a simple daily routine, and celebrate small steps forward",
+              "rationale": "✅ Role modeling, routine, and encouragement are the pillars of lasting habits."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_46",
+          "question": "Your child has a persistent habit or behavior that is causing distress or harm. What is the wisest step?",
+          "emoji": "🔄",
+          "category": "Behavior Support",
+          "context": "Seeking timely guidance from a pediatric or parenting specialist is a sign of caring strength.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Ignore harmful behavior completely",
+              "rationale": "❌ Persistent distress deserves attentive support."
+            },
+            {
+              "key": "b",
+              "text": "Punish the child harsher and harsher",
+              "rationale": "❌ Punishment often worsens stress-related behaviors."
+            },
+            {
+              "key": "a",
+              "text": "Observe when it happens, stay supportive, and consult a qualified child specialist",
+              "rationale": "✅ Calm observation and professional guidance give your child the right support."
+            },
+            {
+              "key": "d",
+              "text": "Rely on random internet rumors instead of a specialist",
+              "rationale": "❌ Unverified advice cannot replace qualified evaluation."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_47",
+          "question": "Your child gets frustrated quickly and loses their temper. How do you teach self-control?",
+          "emoji": "🌬️",
+          "category": "Emotions",
+          "context": "Self-control grows when children practice simple calming tools during calm moments.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Shame them for having feelings",
+              "rationale": "❌ Feelings are normal; calming tools teach how to handle them."
+            },
+            {
+              "key": "d",
+              "text": "Reward tantrums with treats every time",
+              "rationale": "❌ Reinforces outbursts instead of calming skills."
+            },
+            {
+              "key": "b",
+              "text": "Yell at them to calm down immediately",
+              "rationale": "❌ Yelling adds fuel to emotional overwhelm."
+            },
+            {
+              "key": "a",
+              "text": "Practice deep breathing, counting slowly, and putting feelings into words together",
+              "rationale": "✅ Practical calming tools build lifelong self-regulation."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_48",
+          "question": "How can you help your child choose good friends and positive role models?",
+          "emoji": "🌟",
+          "category": "Social Skills",
+          "context": "Open conversations about what makes a good friend build wise social judgment.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Talk together about the qualities of a kind, trustworthy friend and encourage positive friendships",
+              "rationale": "✅ Warm dialogue helps children recognize and value healthy friendships."
+            },
+            {
+              "key": "d",
+              "text": "Criticize every friend without explaining what healthy friendship looks like",
+              "rationale": "❌ Teaching positive criteria helps children choose wisely."
+            },
+            {
+              "key": "c",
+              "text": "Isolate your child from ever having friends",
+              "rationale": "❌ Children need healthy friendships to grow."
+            },
+            {
+              "key": "b",
+              "text": "Never pay attention to how peers treat your child",
+              "rationale": "❌ Peer relationships strongly influence well-being."
+            }
+          ]
+        },
+        {
+          "id": "healthy_hero.q_49",
+          "question": "Why are your child's emotional security and self-confidence just as important as their practical skills?",
+          "emoji": "💛",
+          "category": "Emotions",
+          "context": "Emotional security is the launchpad for learning, habits, and healthy relationships.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Emotional needs take care of themselves without parental warmth",
+              "rationale": "❌ Parental warmth and guidance nurture lifelong confidence."
+            },
+            {
+              "key": "a",
+              "text": "Because an emotionally secure child learns, builds habits, and relates to others at their best",
+              "rationale": "✅ Emotional well-being and practical skills grow hand in hand."
+            },
+            {
+              "key": "b",
+              "text": "Emotions do not matter as long as chores get done",
+              "rationale": "❌ Emotional security is the foundation of healthy growth."
+            },
+            {
+              "key": "c",
+              "text": "Confidence only matters when they reach adulthood",
+              "rationale": "❌ Confidence starts forming in early childhood."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

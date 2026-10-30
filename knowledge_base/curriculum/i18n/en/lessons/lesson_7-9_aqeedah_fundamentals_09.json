@@ -1,0 +1,56 @@
+{
+  "id": "lesson_7-9_aqeedah_fundamentals_09",
+  "path_id": "path_7-9_aqeedah_fundamentals",
+  "title": "What Comes After Death?",
+  "age_group": "7-9",
+  "domain": "aqeedah",
+  "unit_ids": [
+    "aqe-d0f14b8c"
+  ],
+  "summary": "Belief in the Last Day gives the child a scale for life: that this world is a temporary abode of action, and that there is a day when every person will meet the recompense of their deeds. Speak about death with honesty and tranquility, not terror: a transition from this world to a more lasting abode, just as a traveler moves to a more beautiful home. Focus heavily on Paradise and its beloved descriptions—rivers, fruits, endless play, meeting the Prophet ﷺ, and seeing Allah, the greatest bliss—more than mentioning the Fire. Our goal is to make our child love Paradise and strive for it, not to fill their heart with fear. Instill in them that the gate of Paradise is obedience and good akhlaq (moral character), and that we are content with Allah’s decree if what we dislike befalls us.",
+  "try_this": "This week: When your child does something good, connect it to Paradise: \"This deed brings you closer to Paradise.\" If they ask about death, reassure them that whoever loves Allah moves to a more beautiful place with a Merciful Lord.",
+  "order": 9,
+  "estimated_minutes": 8,
+  "reflection_prompts": [
+    "Why do we emphasize encouraging the child with Paradise more than frightening them about the Fire?",
+    "How can you speak about death with honesty that builds tranquility, not nightmares?"
+  ],
+  "warning_flags": [],
+  "needs_professional_followup": false,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": true,
+      "quoted_arabic": true,
+      "reviewer_model": true
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "fixed_at": "2026-08-13T19:04:59.453692+00:00",
+    "fixer_model": "mistral-large-3:675b",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "1fc6d735f501c148c18b0bfd7ae87f982d0f22ff9e239ad1808b3dc025d14ad2",
+      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

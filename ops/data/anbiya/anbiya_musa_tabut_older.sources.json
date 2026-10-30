@@ -1,0 +1,1149 @@
+{
+  "id": "anbiya_musa_tabut_older",
+  "series": "anbiya_quran",
+  "about": "مصادر القصة: الآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/anbiya_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py.",
+  "tafsir_source": "moyassar",
+  "content_sha256": "737ded0c730a71b805fa43920b496489901c564a79875276a568332e531cecc6",
+  "refs": [
+    "28:7",
+    "28:8",
+    "28:9",
+    "28:10",
+    "28:11",
+    "28:12",
+    "28:13"
+  ],
+  "verses": {
+    "28:7": "وَأَوۡحَيۡنَآ إِلَىٰٓ أُمِّ مُوسَىٰٓ أَنۡ أَرۡضِعِيهِۖ فَإِذَا خِفۡتِ عَلَيۡهِ فَأَلۡقِيهِ فِي ٱلۡيَمِّ وَلَا تَخَافِي وَلَا تَحۡزَنِيٓۖ إِنَّا رَآدُّوهُ إِلَيۡكِ وَجَاعِلُوهُ مِنَ ٱلۡمُرۡسَلِينَ",
+    "28:8": "فَٱلۡتَقَطَهُۥٓ ءَالُ فِرۡعَوۡنَ لِيَكُونَ لَهُمۡ عَدُوّٗا وَحَزَنًاۗ إِنَّ فِرۡعَوۡنَ وَهَٰمَٰنَ وَجُنُودَهُمَا كَانُواْ خَٰطِـِٔينَ",
+    "28:9": "وَقَالَتِ ٱمۡرَأَتُ فِرۡعَوۡنَ قُرَّتُ عَيۡنٖ لِّي وَلَكَۖ لَا تَقۡتُلُوهُ عَسَىٰٓ أَن يَنفَعَنَآ أَوۡ نَتَّخِذَهُۥ وَلَدٗا وَهُمۡ لَا يَشۡعُرُونَ",
+    "28:10": "وَأَصۡبَحَ فُؤَادُ أُمِّ مُوسَىٰ فَٰرِغًاۖ إِن كَادَتۡ لَتُبۡدِي بِهِۦ لَوۡلَآ أَن رَّبَطۡنَا عَلَىٰ قَلۡبِهَا لِتَكُونَ مِنَ ٱلۡمُؤۡمِنِينَ",
+    "28:11": "وَقَالَتۡ لِأُخۡتِهِۦ قُصِّيهِۖ فَبَصُرَتۡ بِهِۦ عَن جُنُبٖ وَهُمۡ لَا يَشۡعُرُونَ",
+    "28:12": "۞وَحَرَّمۡنَا عَلَيۡهِ ٱلۡمَرَاضِعَ مِن قَبۡلُ فَقَالَتۡ هَلۡ أَدُلُّكُمۡ عَلَىٰٓ أَهۡلِ بَيۡتٖ يَكۡفُلُونَهُۥ لَكُمۡ وَهُمۡ لَهُۥ نَٰصِحُونَ",
+    "28:13": "فَرَدَدۡنَٰهُ إِلَىٰٓ أُمِّهِۦ كَيۡ تَقَرَّ عَيۡنُهَا وَلَا تَحۡزَنَ وَلِتَعۡلَمَ أَنَّ وَعۡدَ ٱللَّهِ حَقّٞ وَلَٰكِنَّ أَكۡثَرَهُمۡ لَا يَعۡلَمُونَ"
+  },
+  "tafsir": {
+    "28:7": "وألْهمنا أم موسى حين ولدته وخشيت عليه أن يذبحه فرعون كما يذبح أبناء بني إسرائيل: أن أرضعيه مطمئنة، فإذا خشيت أن يُعرف أمره فضعيه في صندوق وألقيه في النيل، دون خوف من فرعون وقومه أن يقتلوه، ودون حزن على فراقه، إنا رادُّو ولدك إليك وباعثوه رسولا. فوضعته في صندوق وألقته في النيل، فعثر عليه أعوان فرعون وأخذوه، فكانت عاقبةُ ذلك ما قدره الله بأن يكون موسى عدوا لهم بمخالفة دينهم، وموقعا لهم في الحزن بإغراقهم وزوال ملكهم على يده. إن فرعون وهامان وأعوانهما كانوا آثمين مشركين.",
+    "28:8": "وألْهمنا أم موسى حين ولدته وخشيت عليه أن يذبحه فرعون كما يذبح أبناء بني إسرائيل: أن أرضعيه مطمئنة، فإذا خشيت أن يُعرف أمره فضعيه في صندوق وألقيه في النيل، دون خوف من فرعون وقومه أن يقتلوه، ودون حزن على فراقه، إنا رادُّو ولدك إليك وباعثوه رسولا. فوضعته في صندوق وألقته في النيل، فعثر عليه أعوان فرعون وأخذوه، فكانت عاقبةُ ذلك أن جعله الله لهم عدوًّا وحزنًا، فكان إهلاكُهم على يده. إن فرعون وهامان وأعوانهما كانوا آثمين مشركين.",
+    "28:9": "ولمَّا شاهدته امرأة فرعون ألقى الله محبته في قلبها، وقالت لفرعون: هذا الطفل سيكون مصدر سرور لي ولك، لا تقتلوه; فقد نصيب منه خيرًا أو نتخذه ولدًا، وفرعون وآله لا يدركون أن هلاكهم على يديه.",
+    "28:10": "وأصبح فؤاد أم موسى خاليًا من كل شيء في الدنيا إلا من همِّ موسى وذكره، وقاربت أن تُظهِر أنه ابنها لولا أن ثبتناها، فصبرت ولم تُبْدِ به; لتكون من المؤمنين بوعد الله الموقنين به.",
+    "28:11": "وقالت أم موسى لأخته حين ألقته في اليم: اتَّبِعي أثر موسى كيف يُصْنَع به؟ فتتبعت أثره فأبصرته عن بُعْد، وقوم فرعون لا يعرفون أنها أخته، وأنها تتبع خبره.",
+    "28:12": "وحرمنا على موسى المراضع أن يرتضع منهن مِن قبل أن نردَّه إلى أمه، فقالت أخته: هل أدلكم على أهل بيت يحسنون تربيته وإرضاعه، وهم مشفقون عليه؟ فأجابوها إلى ذلك.",
+    "28:13": "فرددنا موسى إلى أمه; كي تقرَّ عينها به، ووفينا إليها بالوعد; إذ رجع إليها سليمًا مِن قتل فرعون، ولا تحزنَ على فراقه، ولتعلم أن وعد الله حق فيما وعدها مِن ردِّه إليها وجعله من المرسلين. إن الله لا يخلف وعده، ولكن أكثر المشركين لا يعلمون أن وعد الله حق."
+  },
+  "tafsir_meta": {
+    "28:7": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:04+00:00"
+    },
+    "28:8": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:04+00:00"
+    },
+    "28:9": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:05+00:00"
+    },
+    "28:10": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:05+00:00"
+    },
+    "28:11": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:06+00:00"
+    },
+    "28:12": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:06+00:00"
+    },
+    "28:13": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:07+00:00"
+    }
+  },
+  "fields": [
+    {
+      "path": "title",
+      "refs": [
+        "28:7",
+        "28:8",
+        "28:9",
+        "28:10",
+        "28:11",
+        "28:12",
+        "28:13"
+      ],
+      "sentences": [
+        {
+          "text": "موسى عليه السلام في اليمّ",
+          "refs": [
+            "28:7",
+            "28:8",
+            "28:9",
+            "28:10",
+            "28:11",
+            "28:12",
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state that Musa was placed in the yamm, and the honorific is allowed.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The title references Moses (with an allowed honorific) and the 'يمّ' (sea/river), both of which appear in the cited verses [28:7].",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "4534dabb408ee595afa2aa8fd6aa9071f4f6a9d716f39e73a4c45f408dea22d2",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "refs": [
+        "28:7",
+        "28:8",
+        "28:9",
+        "28:10",
+        "28:11",
+        "28:12",
+        "28:13"
+      ],
+      "sentences": [
+        {
+          "text": "قصة موسى عليه السلام وهو رضيع، كما ذكرها القرآن الكريم في سورة القصص، مكتوبة من التفسير الميسّر لآياتها.",
+          "refs": [
+            "28:7",
+            "28:8",
+            "28:9",
+            "28:10",
+            "28:11",
+            "28:12",
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a source description, not a factual claim about the prophet beyond what the provided Qur'anic verses and tafsir cover.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a meta-description of the story's source; 'رضيع' is supported by the breastfeeding context in the verses, and the verses cited are indeed from Surat Al-Qasas (chapter 28).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "cfcf9c2ead2698a024622f0c323655d0ace119f49bafeaa895913aab2ef55ea3",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[0].text",
+      "refs": [
+        "28:7"
+      ],
+      "sentences": [
+        {
+          "text": "ألهم اللهُ أمَّ موسى حين وَلَدته، وخافت عليه أن يذبحه فرعون كما يذبح أبناءَ بني إسرائيل.",
+          "refs": [
+            "28:7"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the given tafsir of 28:7, which states that God inspired Moses' mother when she gave birth and feared Pharaoh would slaughter him as he slaughtered the children of Israel.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence closely follows the cited tafsir, which states Allah inspired Musa's mother when she gave birth to him and feared Pharaoh would slaughter him as he did the sons of Israel.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "0bf3f9a8478b9d719fabfef7f2500a5b7625527db7172bb26dae00aafc6dd889",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فأوحى إليها: ﴿أَنۡ أَرۡضِعِيهِۖ فَإِذَا خِفۡتِ عَلَيۡهِ فَأَلۡقِيهِ فِي ٱلۡيَمِّ وَلَا تَخَافِي وَلَا تَحۡزَنِيٓۖ إِنَّا رَآدُّوهُ إِلَيۡكِ وَجَاعِلُوهُ مِنَ ٱلۡمُرۡسَلِينَ﴾.",
+          "refs": [
+            "28:7"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence reports that Allah revealed to Musa's mother the exact Qur'anic instruction, which matches the cited verse and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The framing 'فأوحى إليها' is a minor simplification of the verse's own 'وأوحينا إلى أم موسى', and the quoted text is verbatim Qur'an.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "9c620709613a82cc4617322c06a5722e5ddcff9672399cfc2aa072a74f8bf885",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[1].text",
+      "refs": [
+        "28:7",
+        "28:10"
+      ],
+      "sentences": [
+        {
+          "text": "فوضعته في صندوق، وألقته في اليمّ، وهو النيل.",
+          "refs": [
+            "28:7"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir explicitly states she placed him in a box and cast him into the Nile.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir states she placed him in a chest and cast him into the Nile, and equates اليمّ with النيل.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "bb5e2f76a5a53b6dd5fe5b707f5df017249327b65c3f0b93dbe7227738d25d95",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وأصبح قلبُها خاليًا من كل شيء إلا من همّ موسى وذكره، وكادت تُظهر أنه ابنها، لولا أن ثبّتها اللهُ فصبرت، لتكون من المؤمنين بوعد الله.",
+          "refs": [
+            "28:10"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a faithful paraphrase of the cited verse and tafsir, with only minor omissions and synonyms.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a faithful paraphrase of the cited tafsir الميسّر for 28:10, with only minor simplifications.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "ea0cbe4fd499d0d9712bfb2ea601ec629bf8142bca4bf379ceeedc4c42040f12",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[2].text",
+      "refs": [
+        "28:7",
+        "28:8"
+      ],
+      "sentences": [
+        {
+          "text": "ومضى الصندوقُ في اليمّ حتى عثر عليه أعوانُ فرعون، فأخذوه.",
+          "refs": [
+            "28:7",
+            "28:8"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir states she placed him in a box and cast it into the Nile, then Pharaoh's helpers found him and took him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir states she placed him in a chest and cast it in the Nile, then Pharaoh's attendants found him and took him, which directly matches this sentence.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "b14d764c42f0c53d0712592f636401bb9fde524f9ec82544ed69d41e1c8542c6",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وكان في ذلك تقديرُ الله: أن يكون موسى لهم عدوًّا وحزنًا، فكان هلاكُهم على يده.",
+          "refs": [
+            "28:8"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence directly reflects the tafsir: God made Musa an enemy and grief to them, and their destruction was at his hand.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence closely paraphrases the cited tafsir, which states God made Musa their enemy and sorrow, and their destruction came at his hand.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "b29c23c897f5ad91a50546972e46abbeefe41fcdc8feed74b0a90b5813ff6d68",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[3].text",
+      "refs": [
+        "28:9"
+      ],
+      "sentences": [
+        {
+          "text": "ولما رأته امرأةُ فرعون، ألقى اللهُ محبّته في قلبها، فقالت لفرعون: ﴿قُرَّتُ عَيۡنٖ لِّي وَلَكَۖ لَا تَقۡتُلُوهُ عَسَىٰٓ أَن يَنفَعَنَآ أَوۡ نَتَّخِذَهُۥ وَلَدٗا﴾.",
+          "refs": [
+            "28:9"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The narration matches the cited tafsir and quotes the verse verbatim.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The narration closely follows the cited tafsir and the quoted speech is verbatim Qur'an.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "76b640dae31d8785e7219ea8910e088a045ee0493d97588a49e85c72b9ea91ee",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وهم لا يدركون أن هلاكهم سيكون على يديه.",
+          "refs": [
+            "28:9"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir explicitly states that Pharaoh and his people do not realize their destruction will be at his hands.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence closely follows the cited tafsir which states that Pharaoh and his household do not realize their destruction will be at his hands.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "c81faf2babe81c869a01b458bbfb754959a9a9e28918d017a1ad51aaf6be9c08",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[4].text",
+      "refs": [
+        "28:11",
+        "28:12"
+      ],
+      "sentences": [
+        {
+          "text": "وأمرت أمُّ موسى أختَه أن تتبّع أثره، فأبصرته من بعيد، وقومُ فرعون لا يعرفون أنها أخته.",
+          "refs": [
+            "28:11"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the given verse and tafsir: the mother told Musa's sister to follow his trace, she saw him from afar, and Pharaoh's people did not know she was his sister.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence faithfully paraphrases the verse and tafsir: the mother told/commanded the sister to follow his trace, she saw him from afar, and Pharaoh's people did not know she was his sister.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "e588c1ca69246dc3d7cb93bbd1e7492acdf7dd31a41343f908e3f868b07a393a",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وحرّم اللهُ على موسى المراضع، فعرضت عليهم أختُه أن تدلّهم على أهل بيت يحسنون تربيته وإرضاعه، فأجابوها إلى ذلك.",
+          "refs": [
+            "28:12"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited tafsir's account of the sister's offer and their agreement.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence closely follows the cited tafsir, paraphrasing 'قالت' as 'عرضت' (a synonym) and omitting a detail, both of which are allowed.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "4f458d6ff48a04467b14761ee59da114f7556de3e9ce09030d91a779136744b8",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[5].text",
+      "refs": [
+        "28:10",
+        "28:13"
+      ],
+      "sentences": [
+        {
+          "text": "قال الله تعالى: ﴿فَرَدَدۡنَٰهُ إِلَىٰٓ أُمِّهِۦ كَيۡ تَقَرَّ عَيۡنُهَا وَلَا تَحۡزَنَ وَلِتَعۡلَمَ أَنَّ وَعۡدَ ٱللَّهِ حَقّٞ﴾.",
+          "refs": [
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the given Qur'anic verse verbatim inside ﴿﴾, which is always supported.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim quotation of Qur'an 28:13 (partial) with a standard framing phrase.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "ad8a001811df285b5aa5d13851d3c196bedeb57942132b5313c0b3d8c1e2e555",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "والعبرة أن اللهَ وفى لأمِّ موسى بوعده، فرجع إليها سليمًا، واللهُ لا يخلف وعده.",
+          "refs": [
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the tafsir: Allah fulfilled His promise, Musa returned to his mother safe, and Allah does not break His promise.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "All claims are directly stated in the tafsir: God fulfilled His promise to Moses's mother, he returned to her safe, and God does not break His promise.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "5ed318567985078d69d866beb182a3fd9733797b4c5dcd1a5b514dab8c3220ce",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وأن اللهَ ثبّت قلبها فصبرت، لتكون من المؤمنين بوعده.",
+          "refs": [
+            "28:10"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the verse and tafsir: Allah steadied her heart, she was patient, and she became of the believers in His promise.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly paraphrases the cited tafsir: God steadied her heart so she was patient, to be among the believers in His promise.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "191e234d662d5b93bb918736a09f361e75ab5bc7ccf1e488158e338c49dcbe03",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.question",
+      "refs": [
+        "28:7",
+        "28:8",
+        "28:9",
+        "28:10",
+        "28:11",
+        "28:12",
+        "28:13"
+      ],
+      "sentences": [
+        {
+          "text": "أمُّ موسى خافت على ابنها، فثبّت اللهُ قلبها فصبرت.",
+          "refs": [
+            "28:7",
+            "28:8",
+            "28:9",
+            "28:10",
+            "28:11",
+            "28:12",
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state she feared for him, God made her heart firm, and she was patient.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse [28:7] mentions her fear, and [28:10] with its tafsir states Allah steadied her heart and she was patient.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "959b56f1049557240d0212216ef7098f2b43da1fcf23ab3a8502597d26010165",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ماذا تفعل حين تخاف على شيء تحبه؟",
+          "refs": [
+            "28:7",
+            "28:8",
+            "28:9",
+            "28:10",
+            "28:11",
+            "28:12",
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question is addressed to the child and does not assert anything about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general question addressed to the child about their own life, making no claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "2460971625129d9190c9f15e70461c63a8f7f510a82a3f107e5ffbac4a0524f9",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.affirm",
+      "refs": [
+        "28:7",
+        "28:8",
+        "28:9",
+        "28:10",
+        "28:11",
+        "28:12",
+        "28:13"
+      ],
+      "sentences": [
+        {
+          "text": "أحسنت!",
+          "refs": [
+            "28:7",
+            "28:8",
+            "28:9",
+            "28:10",
+            "28:11",
+            "28:12",
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is only praise and does not assert anything about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general expression of praise to the child, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "276e26aea178fceb58707c1faf13e758c764d0f3cfcf4eccadb9d9b03a5b395c",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "أمُّ موسى صبرت، وكانت من المؤمنين بوعد الله.",
+          "refs": [
+            "28:7",
+            "28:8",
+            "28:9",
+            "28:10",
+            "28:11",
+            "28:12",
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir of 28:10 states she was patient and was among the believers in God's promise.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir of 28:10 explicitly states that she was steadfast (فصبرت) and was among the believers in Allah's promise (لتكون من المؤمنين بوعد الله).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "7b45c12b6241029364b38022f2105cd2a6d9ef2b6e772f5783072dc820dc19b8",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.nudge",
+      "refs": [
+        "28:7",
+        "28:8",
+        "28:9",
+        "28:10",
+        "28:11",
+        "28:12",
+        "28:13"
+      ],
+      "sentences": [
+        {
+          "text": "أفهم أن الخوف صعب…",
+          "refs": [
+            "28:7",
+            "28:8",
+            "28:9",
+            "28:10",
+            "28:11",
+            "28:12",
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general empathetic remark that does not assert anything about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general empathetic statement about fear being difficult, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "b900c059624681c13c13b4a6d323aa344d9a7b6388934031478dca1ca82e554c",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ماذا فعل اللهُ بقلب أمِّ موسى حين خافت؟",
+          "refs": [
+            "28:7",
+            "28:8",
+            "28:9",
+            "28:10",
+            "28:11",
+            "28:12",
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question only asks about what God did to her heart when she feared, which the sources address by saying He steadied/bound her heart.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question references Allah strengthening the heart of Musa's mother, which is directly stated in [28:10] and its tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "bcad22f71b75e413acf0cc5344a6346ee09d5d4d4309130e161a54d9836cf6a6",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[0]",
+      "refs": [
+        "28:7",
+        "28:8",
+        "28:9",
+        "28:10",
+        "28:11",
+        "28:12",
+        "28:13"
+      ],
+      "sentences": [
+        {
+          "text": "أصبر وأدعو الله",
+          "refs": [
+            "28:7",
+            "28:8",
+            "28:9",
+            "28:10",
+            "28:11",
+            "28:12",
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general personal choice of good behavior and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a child's own possible life choice expressing patience and prayer, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "8d9a12ec90d7646546862937bbfd86b3a94d3b997357d03eaac45f486772696a",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[1]",
+      "refs": [
+        "28:7",
+        "28:8",
+        "28:9",
+        "28:10",
+        "28:11",
+        "28:12",
+        "28:13"
+      ],
+      "sentences": [
+        {
+          "text": "أفقد صبري وأغضب",
+          "refs": [
+            "28:7",
+            "28:8",
+            "28:9",
+            "28:10",
+            "28:11",
+            "28:12",
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is the child's own possible choice in today's life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a child's own possible life choice, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "692106451d5a96ef275e4c32905e92945cb5d0e59d2708d3028a77e3641f2f2b",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[0]",
+      "refs": [
+        "28:7",
+        "28:8",
+        "28:9",
+        "28:10",
+        "28:11",
+        "28:12",
+        "28:13"
+      ],
+      "sentences": [
+        {
+          "text": "لماذا ألقت أمُّ موسى ابنَها في اليمّ؟",
+          "refs": [
+            "28:7",
+            "28:8",
+            "28:9",
+            "28:10",
+            "28:11",
+            "28:12",
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about an event and motive that are directly stated in the given verse and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks why Moses's mother cast him in the river, which is directly supported by the verse and tafsir stating she feared for him from Pharaoh and was inspired to do so.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "f6550e895a403ff7b4fa1ef1bbbe20d6b2bfe417dae3431fcfeab1aa2bb6600e",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[1]",
+      "refs": [
+        "28:7",
+        "28:8",
+        "28:9",
+        "28:10",
+        "28:11",
+        "28:12",
+        "28:13"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا قالت امرأةُ فرعون حين رأت موسى؟",
+          "refs": [
+            "28:7",
+            "28:8",
+            "28:9",
+            "28:10",
+            "28:11",
+            "28:12",
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about Pharaoh's wife's words, which are given in the cited verse and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks about what Pharaoh's wife said when she saw Moses, which is directly addressed in [28:9].",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "0aacf9ddbb828b64ad180f7031d51d72bf019a9b3851871e3911ff8347e4277b",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[2]",
+      "refs": [
+        "28:7",
+        "28:8",
+        "28:9",
+        "28:10",
+        "28:11",
+        "28:12",
+        "28:13"
+      ],
+      "sentences": [
+        {
+          "text": "كيف وفى اللهُ لأمِّ موسى بوعده؟",
+          "refs": [
+            "28:7",
+            "28:8",
+            "28:9",
+            "28:10",
+            "28:11",
+            "28:12",
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question presupposes only that God fulfilled His promise to Musa's mother, which the cited verses and tafsir explicitly state.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question references Allah's promise to Musa's mother and its fulfillment, both of which are explicitly stated in 28:7 and 28:13.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "d432e1110951487f9f7a748a4ce84188a1d31da8453803f06f1ac68644be79a4",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "islamicValue",
+      "refs": [
+        "28:13"
+      ],
+      "sentences": [
+        {
+          "text": "﴿وَلِتَعۡلَمَ أَنَّ وَعۡدَ ٱللَّهِ حَقّٞ﴾ [القصص: ١٣].",
+          "refs": [
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic quotation already marked as supported.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic verse inside ﴿﴾, which is always supported.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "29961bf0b821225970e9762c168095c34ce81cb8007d247c5a44dd861a4f5a59",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "actionChallenge",
+      "refs": [
+        "28:7",
+        "28:8",
+        "28:9",
+        "28:10",
+        "28:11",
+        "28:12",
+        "28:13"
+      ],
+      "sentences": [
+        {
+          "text": "تحدّث مع والديك عن وقتٍ خفتَ فيه، وكيف يطمئن قلبُك حين تتذكّر أن وعد الله حق.",
+          "refs": [
+            "28:7",
+            "28:8",
+            "28:9",
+            "28:10",
+            "28:11",
+            "28:12",
+            "28:13"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general reflective instruction to the child and does not assert unsupported details about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a practical challenge for the child using the Qur'anic phrase 'وعد الله حق' (28:13) as a general lesson, not a claim about the prophet.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "983173288b482f98abed674fbc435798703dceffe79965cb93b4604c6f341f24",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "isl-597a1018__en",
+  "domain": "islamic_parenting",
+  "source_file": "Al_Minhaj_Al_Nabawi.pdf",
+  "title": "The Importance of Taking Children to the Masjid for Salah",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "السلوك العائلي",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "كتاب إسلامي",
+  "text_original": "المبحث العاني : اصطحاب الطفل إلى المسجد\nكذلك الصلاة التي هي عماد الدين والتي ربا الرسول صلى الله عليه وسلم الأطفال عليها وعلى\nأدائها جماعة في المسجد ( فعن عبدالله بن شداد عن أبيه قال : خرج علينا رسول الله صلى الله\nعليه وسلم في إحدى صلاتي العشاء. وهو حامل حسنا أو ‎gud‏ فتقدم رسول الله صلى الله عليه\nوسلم فوضعه ثم كبر للصلاة فصلى وسجد بين ظهراني صلاته سجدة أطال فيهاء قال أبي فرفعت\nرأسي وإذا الصبي على ظهر رسول الله صلى الله عليه وسلم وهو ساجد فرجعت إلى سجودي, فلما\nقضى رسول الله صلى الله عليه وسلم الصلاة, قال الناس يا رسول الله! إنك سجدت بين ضهراني\nصلاتك سجدة أطلتها! حتى ضننا أنه قد حدث أمر, أو أنه يوحى إليك؟! قال : ‎IS)‏ ذلك لم يكن,\nولكن إبني أرتحلني, فكرهت أن أعجله, حتى يقضى حاجته! ) )\" .\nولعل هذا الحديث في نظري ‎amos‏ رسالة قوية إلى أولئك الذين يضربون الأطفال من أولياء الأمور\nويخرجونهم من المساجد بحجة أنهم يشغلونهم في صلاتهم.\nبينما نجد رسول الله صلى الله عليه ‎alg‏ وهو ‎alr‏ المسلمين في صلاتهم يآتي بالأطفال ويضعهم\nمعه في صلاته حتى ينشأون على حب ذلك الركن العظيم الذي هو أهم أركان الدين الإسلامي\nوبصلاحه تصلح شؤون المسلم كلها.",
+  "text_simplified": "Parents must take their children to the masjid for salah, especially the congregational salah in the masjid, which the Messenger ﷺ commanded.",
+  "labels": [
+    "أبناء",
+    "صلاة",
+    "تربية أسرية",
+    "مساجد"
+  ],
+  "created_at": "2026-06-07T08:30:08Z",
+  "updated_at": "2026-06-10T18:00:00Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Al_Minhaj_Al_Nabawi",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-597a1018",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "ca775fcf8284e0a1db31d49b982e6c9def0522572ce7051bec347abd267c3eac",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

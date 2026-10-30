@@ -1,0 +1,66 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/anbiya_bayt_young_p1.m4a",
+      "text": "Allah made the Kaaba a House for people: they come to it, then return to it again, and He made it a place of safety for them. Ibrahim and his son Isma'il (peace be upon them) raised its foundations.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 125,
+          "start": 0.0,
+          "end": 7.44
+        },
+        {
+          "from": 126,
+          "to": 198,
+          "start": 7.89,
+          "end": 13.73
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_bayt_young_p2.m4a",
+      "text": "Ibrahim prayed to his Lord to make this land safe, and to provide its people with fruits.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 89,
+          "start": 0.0,
+          "end": 5.184
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_bayt_young_p3.m4a",
+      "text": "Ibrahim and Isma'il raised the foundations of the House, praying to Allah with humility: ﴿رَبَّنَا تَقَبَّلۡ مِنَّآۖ إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلۡعَلِيمُ﴾ — interpretation of the meaning: 'Our Lord, accept from us; You are the All-Hearing, the All-Knowing.'",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 257,
+          "start": 0.0,
+          "end": 28.098
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_bayt_young_p4.m4a",
+      "text": "And Allah commanded Ibrahim and Isma'il to purify His House for those who circle it and those who pray. It is the House of Allah: people circle around it and pray in it.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 103,
+          "start": 0.0,
+          "end": 6.568
+        },
+        {
+          "from": 104,
+          "to": 169,
+          "start": 7.018,
+          "end": 11.15
+        }
+      ]
+    }
+  ]
+}

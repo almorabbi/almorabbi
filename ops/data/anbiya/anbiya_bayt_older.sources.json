@@ -1,0 +1,1077 @@
+{
+  "id": "anbiya_bayt_older",
+  "series": "anbiya_quran",
+  "about": "مصادر القصة: الآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/anbiya_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py.",
+  "tafsir_source": "moyassar",
+  "content_sha256": "0a92e057ebc0dac5349826e93f98d9c2d8641093421fed77fa723784d7fd7e70",
+  "refs": [
+    "2:125",
+    "2:126",
+    "2:127",
+    "2:128",
+    "2:129"
+  ],
+  "verses": {
+    "2:125": "وَإِذۡ جَعَلۡنَا ٱلۡبَيۡتَ مَثَابَةٗ لِّلنَّاسِ وَأَمۡنٗا وَٱتَّخِذُواْ مِن مَّقَامِ إِبۡرَٰهِـۧمَ مُصَلّٗىۖ وَعَهِدۡنَآ إِلَىٰٓ إِبۡرَٰهِـۧمَ وَإِسۡمَٰعِيلَ أَن طَهِّرَا بَيۡتِيَ لِلطَّآئِفِينَ وَٱلۡعَٰكِفِينَ وَٱلرُّكَّعِ ٱلسُّجُودِ",
+    "2:126": "وَإِذۡ قَالَ إِبۡرَٰهِـۧمُ رَبِّ ٱجۡعَلۡ هَٰذَا بَلَدًا ءَامِنٗا وَٱرۡزُقۡ أَهۡلَهُۥ مِنَ ٱلثَّمَرَٰتِ مَنۡ ءَامَنَ مِنۡهُم بِٱللَّهِ وَٱلۡيَوۡمِ ٱلۡأٓخِرِۚ قَالَ وَمَن كَفَرَ فَأُمَتِّعُهُۥ قَلِيلٗا ثُمَّ أَضۡطَرُّهُۥٓ إِلَىٰ عَذَابِ ٱلنَّارِۖ وَبِئۡسَ ٱلۡمَصِيرُ",
+    "2:127": "وَإِذۡ يَرۡفَعُ إِبۡرَٰهِـۧمُ ٱلۡقَوَاعِدَ مِنَ ٱلۡبَيۡتِ وَإِسۡمَٰعِيلُ رَبَّنَا تَقَبَّلۡ مِنَّآۖ إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلۡعَلِيمُ",
+    "2:128": "رَبَّنَا وَٱجۡعَلۡنَا مُسۡلِمَيۡنِ لَكَ وَمِن ذُرِّيَّتِنَآ أُمَّةٗ مُّسۡلِمَةٗ لَّكَ وَأَرِنَا مَنَاسِكَنَا وَتُبۡ عَلَيۡنَآۖ إِنَّكَ أَنتَ ٱلتَّوَّابُ ٱلرَّحِيمُ",
+    "2:129": "رَبَّنَا وَٱبۡعَثۡ فِيهِمۡ رَسُولٗا مِّنۡهُمۡ يَتۡلُواْ عَلَيۡهِمۡ ءَايَٰتِكَ وَيُعَلِّمُهُمُ ٱلۡكِتَٰبَ وَٱلۡحِكۡمَةَ وَيُزَكِّيهِمۡۖ إِنَّكَ أَنتَ ٱلۡعَزِيزُ ٱلۡحَكِيمُ"
+  },
+  "tafsir": {
+    "2:125": "واذكر -أيها النبي- حين جعلنا الكعبة مرجعًا للناس، يأتونه، ثم يرجعون إلى أهليهم، ثم يعودون إليه، ومجمعًا لهم في الحج والعمرة والطواف والصلاة، وأمنًا لهم، لا يُغِير عليهم عدو فيه. وقلنا: اتخِذوا من مقام إبراهيم مكانًا للصلاة فيه، وهو الحجر الذي وقف عليه إبراهيم عند بنائه الكعبة. وأوحينا إلى إبراهيم وابنه إسماعيل: أن طهِّرا بيتي من كل رجس ودنس; للمتعبدين فيه بالطواف حول الكعبة، أو الاعتكاف في المسجد، والصلاة فيه.",
+    "2:126": "واذكر -أيها النبي- حين قال إبراهيم داعيًا: ربِّ اجعل «مكة» بلدًا آمنًا من الخوف، وارزق أهله من أنواع الثمرات، وخُصَّ بهذا الرزق مَن آمن منهم بالله واليوم الآخر. قال الله: ومن كفر منهم فأرزقه في الدنيا وأُمتعه متاعًا قليلا ثم أُلجئُه مرغمًا إلى عذاب النار. وبئس المرجع والمقام هذا المصير.",
+    "2:127": "واذكر -أيها النبي- حين رفع إبراهيم وإسماعيل أسس الكعبة، وهما يدعوان الله في خشوع: ربنا تقبل منَّا صالح أعمالنا ودعاءنا، إنك أنت السميع لأقوال عبادك، العليم بأحوالهم.",
+    "2:128": "ربنا واجعلنا ثابتَيْن على الإسلام، منقادَيْن لأحكامك، واجعل من ذريتنا أمة منقادة لك، بالإيمان، وبصِّرْنا بمعالم عبادتنا لك، وتجاوز عن ذنوبنا. إنك أنت كثير التوبة على عبادك، واسع الرحمة بهم.",
+    "2:129": "ربنا وابعث في هذه الأمة رسولا من ذرية إسماعيل يتلو عليهم آياتك ويعلمهم القرآن والسنة، ويُطهرهم من الشرك وسوء الأخلاق. إنك أنت العزيز الذي لا يمتنع عليه شيء، الحكيم الذي يضع الأشياء في مواضعها."
+  },
+  "tafsir_meta": {
+    "2:125": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:00+00:00"
+    },
+    "2:126": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:00+00:00"
+    },
+    "2:127": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:01+00:00"
+    },
+    "2:128": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:01+00:00"
+    },
+    "2:129": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:01+00:00"
+    }
+  },
+  "fields": [
+    {
+      "path": "title",
+      "refs": [
+        "2:125",
+        "2:126",
+        "2:127",
+        "2:128",
+        "2:129"
+      ],
+      "sentences": [
+        {
+          "text": "إبراهيم وإسماعيل عليهما السلام يرفعان قواعد البيت",
+          "refs": [
+            "2:125",
+            "2:126",
+            "2:127",
+            "2:128",
+            "2:129"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The title matches the Qur'anic statement that Abraham and Ishmael raised the foundations of the House.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The title directly reflects verse [2:127] which states that Ibrahim and Isma'il raised the foundations of the House.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "7028a221962e52c16f3de600573f46b53295255fa2185f988e8343506bfeb6ba",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "refs": [
+        "2:125",
+        "2:126",
+        "2:127",
+        "2:128",
+        "2:129"
+      ],
+      "sentences": [
+        {
+          "text": "قصة رفع قواعد البيت كما ذكرها القرآن الكريم في سورة البقرة، مكتوبة من التفسير الميسّر لآياتها.",
+          "refs": [
+            "2:125",
+            "2:126",
+            "2:127",
+            "2:128",
+            "2:129"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The description accurately states that the story of raising the foundations of the House is mentioned in Surah Al-Baqarah and is based on its verses and Al-Muyassar tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a meta-description of the story's source, accurately noting it is from Surat Al-Baqarah and Tafsir Al-Muyassar, making no unsupported claims about the prophets or events.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "09df353369ff9e3a095043471b401dfe215bc3d46f64abb663a84ab4141c4444",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[0].text",
+      "refs": [
+        "2:125"
+      ],
+      "sentences": [
+        {
+          "text": "قال الله تعالى: ﴿وَإِذۡ جَعَلۡنَا ٱلۡبَيۡتَ مَثَابَةٗ لِّلنَّاسِ وَأَمۡنٗا﴾.",
+          "refs": [
+            "2:125"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence quotes verbatim Qur'an from the provided source.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic quotation inside ﴿﴾ with an honorific, both of which are always supported.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "aa34b99e008983a7269a66ead74bd1b71c04ee41b30e19ab59622301ac5c4ed3",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "أي: جعل اللهُ الكعبةَ مرجعًا للناس، يأتونها ثم يرجعون إلى أهليهم ثم يعودون إليها، وأمنًا لهم لا يُغير عليهم فيها عدو.",
+          "refs": [
+            "2:125"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence closely paraphrases the provided tafsir of 2:125 without adding unsupported details.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a close paraphrase of the cited tafsir الميسّر for 2:125, changing only pronoun gender to match الكعبة.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "8c4c062d7eb1333292f9cc3837bef4df3b2cfacfa80e82bbe6330c9a8bc337b7",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[1].text",
+      "refs": [
+        "2:126"
+      ],
+      "sentences": [
+        {
+          "text": "ودعا إبراهيمُ عليه السلام ربَّه أن يجعل هذا البلدَ آمنًا من الخوف، وأن يرزق أهلَه من أنواع الثمرات.",
+          "refs": [
+            "2:126"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence accurately paraphrases Ibrahim's supplication in 2:126 as explained by the given tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence accurately paraphrases Ibrahim's prayer in 2:126 and its tafsir for a secure town and provision of fruits.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "c21fb84c3779fb03d9f4ee053e3e22304a0c36b5ee9f9355874085790733e86d",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وخصَّ بهذا الرزق مَن آمن منهم بالله واليوم الآخر.",
+          "refs": [
+            "2:126"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is verbatim from the provided tafsir of verse 2:126.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited tafsir الميسّر for 2:126.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "3777b599c60aa45b365ed08490d766e5063abd6857af677b2a28481abe525c2f",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[2].text",
+      "refs": [
+        "2:125",
+        "2:127"
+      ],
+      "sentences": [
+        {
+          "text": "ورفع إبراهيمُ وإسماعيلُ أُسُسَ الكعبة، وهما يدعوان اللهَ في خشوع: ﴿رَبَّنَا تَقَبَّلۡ مِنَّآۖ إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلۡعَلِيمُ﴾.",
+          "refs": [
+            "2:127"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited tafsir and the verbatim Qur'anic supplication.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence closely follows the tafsir of 2:127, which states that Ibrahim and Ismail raised the foundations of the Ka'bah while supplicating to Allah in humility, and the quoted verse is verbatim Qur'an.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "99fc4000a7688e8043b74d7ee63fe2131115ea9ce76dfa03c0212c3242fc12bc",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وأمر اللهُ أن يُتَّخذ من مقام إبراهيم مكانٌ للصلاة، وهو الحجر الذي وقف عليه إبراهيمُ عند بنائه الكعبة.",
+          "refs": [
+            "2:125"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the given tafsir of 2:125, which states that Maqam Ibrahim is the stone on which Ibrahim stood while building the Kaaba and that it was commanded to be taken as a place of prayer.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly paraphrases the cited verse and tafsir, including the description of Maqam Ibrahim as the stone Ibrahim stood on while building the Ka'bah.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "b6b35cec59fa3c76ee3b9e698ac5323f9c700a86011e2d7fee2d7595aa6ce0cf",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[3].text",
+      "refs": [
+        "2:125"
+      ],
+      "sentences": [
+        {
+          "text": "وأوحى اللهُ إلى إبراهيمَ وابنِه إسماعيلَ أن يطهّرا بيته من كل رجس ودنس، للطائفين حوله والمعتكفين فيه والمصلّين.",
+          "refs": [
+            "2:125"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited verse and tafsir about God instructing Ibrahim and Ismail to purify His house for worshippers.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence closely follows the cited tafsir of 2:125, which states Allah revealed to Ibrahim and his son Ismail to purify His house from all filth and impurity for those who circumambulate, retreat, and pray.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "6d82b25914797e370adff4f65dc1b2621b94e4ba1ac22c1033cefc508ae037f7",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وهو بيتٌ يأتيه الناس للطواف والصلاة، ويجتمعون فيه للحج والعمرة.",
+          "refs": [
+            "2:125"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the tafsir's description of the House as a place people come to for tawaf, prayer, and gathering for Hajj and Umrah.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir of 2:125 explicitly states the House is a gathering place for Hajj, Umrah, Tawaf, and prayer.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "0eed310eba3662e644cd34628b715dddadeec82e75a66785695b1081d884085f",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[4].text",
+      "refs": [
+        "2:128"
+      ],
+      "sentences": [
+        {
+          "text": "ودعَوا ربَّهما: ﴿رَبَّنَا وَٱجۡعَلۡنَا مُسۡلِمَيۡنِ لَكَ وَمِن ذُرِّيَّتِنَآ أُمَّةٗ مُّسۡلِمَةٗ لَّكَ وَأَرِنَا مَنَاسِكَنَا وَتُبۡ عَلَيۡنَآۖ إِنَّكَ أَنتَ ٱلتَّوَّابُ ٱلرَّحِيمُ﴾.",
+          "refs": [
+            "2:128"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The quoted verse is itself a supplication addressed to the Lord, so reporting that they called upon their Lord is directly supported.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence reports that they called upon their Lord, which is directly entailed by the supplication in the verse and tafsir, and the quoted text is verbatim Qur'an.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "eee7eee2ef7765110041c1df7ae55a94c1ad51e8e76552f3ecb4910fc8d2f46e",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ومعناه كما في التفسير الميسّر: أن يثبّتهما اللهُ على الإسلام، وأن يجعل من ذريتهما أمةً منقادةً له، وأن يبصّرهما بمعالم عبادته، وأن يتجاوز عن ذنوبهما.",
+          "refs": [
+            "2:128"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence accurately paraphrases the cited tafsir of verse 2:128 without adding unsupported details.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence faithfully paraphrases the cited tafsir الميسّر for verse 2:128, adding no extraneous information.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "0fd6b4ef82981cab1901ed44a49a9ee9693d971d8beb277bd8c44c27ee83df1c",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[5].text",
+      "refs": [
+        "2:125",
+        "2:127",
+        "2:128",
+        "2:129"
+      ],
+      "sentences": [
+        {
+          "text": "ومن عِبَر هذه الآيات أن إبراهيمَ وإسماعيلَ كانا يعملان ويدعوان اللهَ أن يتقبّل منهما.",
+          "refs": [
+            "2:127"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state that Ibrahim and Ismail were raising the foundations and supplicating for acceptance.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse and tafsir state that Ibrahim and Ismail were raising the foundations (working) and supplicating Allah to accept from them.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "3b73dd145f68b84fa1f71f015a8108b098f9fac49665521711be4994d446fc1e",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ودعَوا لذريتهما، وسألا اللهَ أن يبعث فيهم رسولًا منهم يتلو عليهم آياته ويعلّمهم ويطهّرهم.",
+          "refs": [
+            "2:128",
+            "2:129"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence accurately summarizes the dua in 2:128-129 as explained by the given tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence faithfully paraphrases [2:129] and its tafsir, with only minor simplification (omitting 'الكتاب والحكمة') appropriate for children.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "e13d2d273d651c557ae2bf94691173e8b8cdf8b3d7d12750448aa6fd823916bd",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وأنّ البيتَ مكانُ أمنٍ وصلاة، جعله اللهُ مرجعًا للناس.",
+          "refs": [
+            "2:125"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the verse and tafsir that the House is a place of security, prayer, and a reference for people.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse and tafsir state that God made the House a refuge (مثابة/مرجعًا) for people and a place of security, and the tafsir mentions prayer among its purposes.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "e5ca5ebd876e6f0ae42235075885a7ea7543a847676c0992cc953b6a22a7e154",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.question",
+      "refs": [
+        "2:125",
+        "2:126",
+        "2:127",
+        "2:128",
+        "2:129"
+      ],
+      "sentences": [
+        {
+          "text": "إبراهيمُ وإسماعيلُ عملا معًا ودعَوا اللهَ أن يتقبّل منهما.",
+          "refs": [
+            "2:125",
+            "2:126",
+            "2:127",
+            "2:128",
+            "2:129"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The cited verse and tafsir state that Abraham and Ishmael raised the foundations together and prayed, 'Our Lord, accept from us.'",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse [2:127] and its tafsir state that Ibrahim and Ismail raised the foundations together and prayed 'ربنا تقبل منا'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "474031975dd3bc2dad5a5def5ef0d0d49ee7363b48054b885aae35c5b9b8e811",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "كيف تتعاون مع أسرتك في عمل جميل؟",
+          "refs": [
+            "2:125",
+            "2:126",
+            "2:127",
+            "2:128",
+            "2:129"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general question to the child and does not assert any unsupported claim about the prophets or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general question to the child about their own life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "950dce344b7e820edff2e23f7f8b33e69701637bf1b811b39f255fec372350ca",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.affirm",
+      "refs": [
+        "2:125",
+        "2:126",
+        "2:127",
+        "2:128",
+        "2:129"
+      ],
+      "sentences": [
+        {
+          "text": "أحسنت!",
+          "refs": [
+            "2:125",
+            "2:126",
+            "2:127",
+            "2:128",
+            "2:129"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is only praise to the child and asserts nothing about the story or prophets.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general expression of praise to the child, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "be2ba4dfa373150fb312c829fa8052342b2aa639f2c5b53556d6ceb569e80dec",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "إبراهيم وإسماعيل رفعا قواعد البيت معًا، ودعَوا ربَّهما أن يتقبّل منهما.",
+          "refs": [
+            "2:125",
+            "2:126",
+            "2:127",
+            "2:128",
+            "2:129"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited verse and tafsir stating that Abraham and Ishmael raised the foundations and prayed for acceptance.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly reflects [2:127] and its tafsir, which state that Ibrahim and Ismail raised the foundations of the House and prayed 'ربنا تقبل منّا'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "bc6c82d1affc454714ad25bc9de8a2d627e30d68cdb5d4cb3e92afa84abbbea9",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.nudge",
+      "refs": [
+        "2:125",
+        "2:126",
+        "2:127",
+        "2:128",
+        "2:129"
+      ],
+      "sentences": [
+        {
+          "text": "أفهم أن العمل متعب أحيانًا…",
+          "refs": [
+            "2:125",
+            "2:126",
+            "2:127",
+            "2:128",
+            "2:129"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a general empathetic remark to the child and does not assert anything about the prophets or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is Noor's empathetic reply to the child about everyday life, making no claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "8f5f506130910fbb3b16a4a576b6dfe34921da0d2bb38c9e59962c7c2242886f",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ماذا كان إبراهيم وإسماعيل يفعلان وهما يرفعان قواعد البيت؟",
+          "refs": [
+            "2:125",
+            "2:126",
+            "2:127",
+            "2:128",
+            "2:129"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question only refers to Ibrahim and Ismail raising the foundations of the House, which is directly stated in the cited verse and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks what Ibrahim and Ismail were doing while raising the foundations of the House, which is directly based on [2:127].",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "df03667689d7ecbd96eea85ee5154079419151fa87c246cd8245f4910bfae2f3",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[0]",
+      "refs": [
+        "2:125",
+        "2:126",
+        "2:127",
+        "2:128",
+        "2:129"
+      ],
+      "sentences": [
+        {
+          "text": "أساعدهم وأدعو الله أن يتقبّل منّا",
+          "refs": [
+            "2:125",
+            "2:126",
+            "2:127",
+            "2:128",
+            "2:129"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is the child's own possible choice in today's life, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is the child's own possible life choice and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "f35c9c860ebffc959d27d97c2d9a098c018633291dbc482534eb826e04be7c54",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[1]",
+      "refs": [
+        "2:125",
+        "2:126",
+        "2:127",
+        "2:128",
+        "2:129"
+      ],
+      "sentences": [
+        {
+          "text": "أتركهم يعملون وحدهم",
+          "refs": [
+            "2:125",
+            "2:126",
+            "2:127",
+            "2:128",
+            "2:129"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is the child's own possible choice in today's life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a child's own possible life choice, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "097cf30c448d0ffff13077bde9478209f3132cef6ad232caa60df3fd4a1345fb",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[0]",
+      "refs": [
+        "2:125",
+        "2:126",
+        "2:127",
+        "2:128",
+        "2:129"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا جعل اللهُ البيتَ للناس كما في الآية؟",
+          "refs": [
+            "2:125",
+            "2:126",
+            "2:127",
+            "2:128",
+            "2:129"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about what the verse states, and the verse says God made the House a place of return and security for people.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks what Allah made the House for people, directly referencing the verse [2:125] which states He made it a resort and a sanctuary.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "da8bc80c4b3fb9de19492fd180919a7ebafed1e1890fa1607b67af5989cd72ad",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[1]",
+      "refs": [
+        "2:125",
+        "2:126",
+        "2:127",
+        "2:128",
+        "2:129"
+      ],
+      "sentences": [
+        {
+          "text": "بماذا دعا إبراهيمُ وإسماعيلُ وهما يرفعان قواعد البيت؟",
+          "refs": [
+            "2:125",
+            "2:126",
+            "2:127",
+            "2:128",
+            "2:129"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about the supplication of Ibrahim and Ismail while raising the foundations, which is directly stated in the cited verses.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks what Ibrahim and Ismail prayed while raising the foundations of the House, which is directly based on 2:127.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "8760eb0b0cdbe653983942c15219220436749e7440c6d68f5b42ee633d4592af",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[2]",
+      "refs": [
+        "2:125",
+        "2:126",
+        "2:127",
+        "2:128",
+        "2:129"
+      ],
+      "sentences": [
+        {
+          "text": "ما الذي نتعلّمه من دعائهما لذريتهما؟",
+          "refs": [
+            "2:125",
+            "2:126",
+            "2:127",
+            "2:128",
+            "2:129"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question refers to their supplication for their descendants, which is directly stated in 2:128 and its tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a discussion question referencing the prophets' prayer for their descendants, which is explicitly in the cited verses (2:128), and it asserts no unsupported claim.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "ff76c203371ef7fc542826c8b8155bebe7951f2383656c968e28e736d36637ba",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "islamicValue",
+      "refs": [
+        "2:128"
+      ],
+      "sentences": [
+        {
+          "text": "﴿رَبَّنَا وَٱجۡعَلۡنَا مُسۡلِمَيۡنِ لَكَ وَمِن ذُرِّيَّتِنَآ أُمَّةٗ مُّسۡلِمَةٗ لَّكَ﴾ [البقرة: ١٢٨].",
+          "refs": [
+            "2:128"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is verbatim Qur'an inside ﴿﴾ and is always supported.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic verse inside ﴿﴾, which is always supported.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "684477ed0142101410a532d45817eb776c592a9e29fb8b8a54147fe9c920ae0a",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "actionChallenge",
+      "refs": [
+        "2:127"
+      ],
+      "sentences": [
+        {
+          "text": "احفظ مع أسرتك دعاءَ إبراهيم وإسماعيل عليهما السلام: ﴿رَبَّنَا تَقَبَّلۡ مِنَّآۖ إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلۡعَلِيمُ﴾ [البقرة: ١٢٧]، وادعوا به بعد أعمالكم الصالحة.",
+          "refs": [
+            "2:127"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the verbatim du'a from the sources and gives a practical instruction to the child without adding unsupported claims about the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the verbatim Qur'anic verse and invites the child to memorize and use it after good deeds, which is a practical application, not a claim about the prophets.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "587e36f6e94bc09b0726f63e9f03d21b0c3e6405616ad9ca40d665f9b588688f",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    }
+  ]
+}

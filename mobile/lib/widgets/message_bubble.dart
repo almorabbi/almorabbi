@@ -1,0 +1,690 @@
+/// One chat bubble. User bubbles are a teal gradient at the end (left in
+/// RTL); assistant bubbles are white cards at the start with Noor beside
+/// them (right in RTL). Assistant messages render their content as Markdown
+/// (light subset) and show streaming/typing states.
+library;
+
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
+
+// Domain enum is used implicitly via the .labelAr getters on AssistantReply
+// — keep the import live.
+import '../models/api_models.dart';
+import '../models/enums.dart';
+import '../state/chat_notifier.dart';
+import '../theme/app_theme.dart';
+import '../theme/design_tokens.dart';
+import 'safety_banner.dart';
+import '../l10n/app_localizations.dart';
+import '../core/motion.dart';
+import '../features/child_memory/widgets/personalised_chip.dart';
+import '../features/companion/widgets/noor_face.dart';
+import '../features/companion/widgets/noor_presence.dart';
+import '../theme/app_colors.dart';
+import 'ui/brand_glyph.dart';
+
+/// Noor's moon window beside an answer. The halo paints ×1.3 around it, so
+/// the avatar column is that footprint plus a hair of space.
+const double _kNoorWindow = 36;
+const double _kAvatarColumn = _kNoorWindow * 1.3 + 4;
+
+/// Where the text of a bubble starts: past the row padding and the avatar —
+/// what the chips under an answer line up with.
+const double _kUnderAnswerIndent = 12 + _kAvatarColumn;
+
+/// The answer text without its «📚 المصدر: …» lines.
+///
+/// The model is told to end with that line, and the retrieval-only fallback
+/// puts one under each passage. When the reply carries structured sources the
+/// "Sources (n)" row lists them, so the inline lines would say it twice.
+String stripSourceLines(String text) {
+  final kept = text
+      .split('\n')
+      .where((line) =>
+          !line.replaceFirst(RegExp(r'^[\s>*_-]+'), '').startsWith('📚'))
+      .join('\n');
+  return kept.trimRight();
+}
+
+class MessageBubble extends StatelessWidget {
+  final ChatMessageUI message;
+  final bool isFirstInGroup;
+  final bool isLastInGroup;
+  final ValueChanged<String>? onFeedback;
+
+  /// Shown on the inline error of this message (the one error surface for a
+  /// failed turn — the screen no longer repeats it in a top banner).
+  final VoidCallback? onRetry;
+
+  /// Follow-up questions to offer under this (finished) answer; tapping one
+  /// sends it. Only the chat's last answer gets them.
+  final List<String> followUps;
+  final ValueChanged<String>? onFollowUp;
+
+  /// «سأجرّبها مع …» under this (finished) answer: the chip's label, already
+  /// carrying the child's name. Null hides it — the chat gives it only to its
+  /// last answer, and only when the answer has a step to promise.
+  final String? tryLabel;
+
+  /// What tapping the chip does. Ignored once [tryKept].
+  final VoidCallback? onTry;
+
+  /// The promise was kept from this answer: the chip says so and no longer
+  /// taps, so one answer never makes two promises.
+  final bool tryKept;
+
+  const MessageBubble({
+    super.key,
+    required this.message,
+    this.isFirstInGroup = true,
+    this.isLastInGroup = true,
+    this.onFeedback,
+    this.onRetry,
+    this.followUps = const [],
+    this.onFollowUp,
+    this.tryLabel,
+    this.onTry,
+    this.tryKept = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final isUser = message.role == 'user';
+    final align =
+        isUser ? AlignmentDirectional.centerEnd : AlignmentDirectional.centerStart;
+
+    final radius = BorderRadiusDirectional.only(
+      topStart: const Radius.circular(20),
+      topEnd: const Radius.circular(20),
+      bottomStart: Radius.circular(isUser || isLastInGroup ? 20 : 6),
+      bottomEnd: Radius.circular(!isUser || isLastInGroup ? 20 : 6),
+    );
+
+    final bubble = Container(
+      constraints: BoxConstraints(
+        maxWidth: MediaQuery.of(context).size.width * 0.78,
+      ),
+      margin: const EdgeInsets.symmetric(vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      decoration: BoxDecoration(
+        gradient: isUser ? Dt.primaryGradient : null,
+        color: isUser ? null : Dt.surface,
+        borderRadius: radius,
+        boxShadow: isUser
+            ? Dt.softShadow(Dt.primary, alpha: .18)
+            : Dt.cardShadow,
+      ),
+      child: isUser
+          ? Text(
+              message.content,
+              style: const TextStyle(
+                  color: Colors.white, fontSize: 15, height: 1.5),
+            )
+          : _AssistantBody(
+              message: message,
+              onFeedback: onFeedback,
+            ),
+    );
+
+    // Assistant rows get Noor (only on the first bubble of a group);
+    // subsequent bubbles keep the indent so text aligns.
+    final body = isUser
+        ? Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: bubble,
+          )
+        : Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (isFirstInGroup)
+                  _NoorAvatar(thinking: message.isStreaming)
+                else
+                  const SizedBox(width: _kAvatarColumn),
+                Flexible(child: bubble),
+              ],
+            ),
+          );
+
+    return Align(
+      alignment: align,
+      child: Column(
+        crossAxisAlignment:
+            isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+        children: [
+          body,
+          if (message.error != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 14),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.error_outline,
+                      size: 14, color: AppTheme.dangerFg),
+                  const SizedBox(width: 4),
+                  Flexible(
+                    child: Text(
+                      message.error!,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: AppTheme.dangerFg,
+                      ),
+                    ),
+                  ),
+                  if (onRetry != null)
+                    TextButton.icon(
+                      onPressed: onRetry,
+                      icon: const Icon(Icons.refresh, size: 16),
+                      label: Text(AppLocalizations.of(context).chatRetry),
+                      style: TextButton.styleFrom(
+                          foregroundColor: AppTheme.dangerFg),
+                    ),
+                ],
+              ),
+            ),
+          if (!isUser &&
+              tryLabel != null &&
+              !message.isStreaming &&
+              message.error == null)
+            _TryChip(
+              label: tryLabel!,
+              kept: tryKept,
+              onTap: tryKept ? null : onTry,
+            ),
+          if (!isUser &&
+              followUps.isNotEmpty &&
+              onFollowUp != null &&
+              !message.isStreaming &&
+              message.error == null)
+            _FollowUps(questions: followUps, onTap: onFollowUp!),
+        ],
+      ),
+    );
+  }
+}
+
+class _AssistantBody extends StatelessWidget {
+  final ChatMessageUI message;
+  final ValueChanged<String>? onFeedback;
+  const _AssistantBody({required this.message, this.onFeedback});
+
+  @override
+  Widget build(BuildContext context) {
+    final r = message.reply;
+    final sources = (r != null && !message.isStreaming)
+        ? r.sources
+        : const <String>[];
+    final content = sources.isEmpty
+        ? message.content
+        : stripSourceLines(message.content);
+    // While nothing has arrived yet the typing dots below are the whole
+    // signal; a Markdown "…" above them said the same thing twice.
+    final showContent = content.isNotEmpty;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (r != null) SafetyBanner(reply: r),
+        if (showContent)
+          MarkdownBody(
+            data: content,
+            styleSheet: MarkdownStyleSheet.fromTheme(Theme.of(context))
+                .copyWith(
+              // 16/1.7 for long Arabic guidance: diacritics need the leading
+              // (UX_UI_ROADMAP §1.3 type ramp).
+              p: TextStyle(
+                color: AppTheme.textPrimary,
+                fontSize: 16,
+                height: 1.7,
+              ),
+              code: TextStyle(
+                fontFamily: 'monospace',
+                backgroundColor: AppTheme.surfaceAlt,
+              ),
+            ),
+          )
+        else
+          const SizedBox.shrink(),
+        if (message.isStreaming)
+          Padding(
+            padding: const EdgeInsets.only(top: 6),
+            // Before the first token: dots, then reassurance copy if the
+            // wait runs long. Once text flows, the text is the signal.
+            child: showContent
+                ? const _TypingIndicator()
+                : const _ThinkingIndicator(),
+          ),
+        if (r != null && !message.isStreaming) ...[
+          const SizedBox(height: 6),
+          _MetadataChips(reply: r),
+          // «مخصّص لأحمد» — the answer used what the parent told the assistant
+          // (MOBILE_API §9.1); it opens what is remembered, so the parent can
+          // see and correct what shaped it.
+          if (r.memoryFactsUsed > 0)
+            PersonalisedChip(childId: r.memoryChildId),
+          if (sources.isNotEmpty) _SourcesDisclosure(sources: sources),
+          const SizedBox(height: 4),
+          _FeedbackRow(
+            current: message.feedback,
+            onFeedback: (rating) => onFeedback?.call(rating),
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+/// "Thinking" state of the response lifecycle (UX_UI_ROADMAP §2.2): the
+/// typing dots, plus one line of reassurance once the first token is more
+/// than [_slowAfter] away — retrieval and a cold model can take that long,
+/// and silent dots past that point read as "stuck".
+class _ThinkingIndicator extends StatefulWidget {
+  const _ThinkingIndicator();
+
+  static const Duration _slowAfter = Duration(seconds: 3);
+
+  @override
+  State<_ThinkingIndicator> createState() => _ThinkingIndicatorState();
+}
+
+class _ThinkingIndicatorState extends State<_ThinkingIndicator> {
+  Timer? _timer;
+  bool _slow = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer(_ThinkingIndicator._slowAfter, () {
+      if (mounted) setState(() => _slow = true);
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      liveRegion: true,
+      label: _slow ? AppLocalizations.of(context).chatThinkingSlow : null,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const _TypingIndicator(),
+          AnimatedSize(
+            duration: Dt.fast,
+            child: _slow
+                ? Padding(
+                    padding: const EdgeInsets.only(top: 6),
+                    child: Text(
+                      AppLocalizations.of(context).chatThinkingSlow,
+                      style: TextStyle(
+                          fontSize: 13, color: AppTheme.textMuted),
+                    ),
+                  )
+                : const SizedBox.shrink(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Noor beside an answer: «thinking» while it is written, calm once done.
+///
+/// Only a thinking Noor moves. A finished answer's Noor rests on a still
+/// calm frame (its tickers muted), so a long conversation is not a column of
+/// blinking faces and nothing loops once the chat is idle. Reduced motion
+/// holds the thinking face still too — both loops go through `syncLoop`.
+/// Decorative: the answer itself is what a screen reader should read.
+class _NoorAvatar extends StatelessWidget {
+  const _NoorAvatar({required this.thinking});
+
+  final bool thinking;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(end: 4),
+      child: TickerMode(
+        enabled: thinking,
+        child: NoorPresence(
+          size: _kNoorWindow,
+          face: thinking ? NoorFaceState.thinking : NoorFaceState.calm,
+        ),
+      ),
+    );
+  }
+}
+
+/// «سأجرّبها مع …» — one step from the answer, kept as a promise (phase 4).
+/// Gold like the lesson's step card, so the two read as the same act.
+class _TryChip extends StatelessWidget {
+  const _TryChip({required this.label, required this.kept, this.onTap});
+
+  final String label;
+  final bool kept;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    final style = TextStyle(
+      color: AppTheme.primary,
+      fontWeight: FontWeight.w700,
+      fontSize: 13,
+    );
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(
+          start: _kUnderAnswerIndent, end: 12, top: 4),
+      child: kept
+          ? Chip(
+              avatar: Icon(Icons.check_rounded,
+                  size: 18, color: AppTheme.success),
+              label: Text(AppLocalizations.of(context).promiseSaved),
+              labelStyle: style,
+              backgroundColor: AppTheme.success.withValues(alpha: .10),
+              side: BorderSide(color: AppTheme.success.withValues(alpha: .35)),
+              shape: const StadiumBorder(),
+            )
+          : ActionChip(
+              avatar: BrandGlyph(BrandIcon.lantern,
+                  size: 18, color: colors.accent),
+              label: Text(label),
+              labelStyle: style,
+              backgroundColor: colors.accent.withValues(alpha: .12),
+              side: BorderSide(color: colors.accent.withValues(alpha: .45)),
+              shape: const StadiumBorder(),
+              onPressed: onTap,
+            ),
+    );
+  }
+}
+
+/// Suggested follow-up questions under the latest answer (UX_UI_ROADMAP §2.3).
+class _FollowUps extends StatelessWidget {
+  const _FollowUps({required this.questions, required this.onTap});
+
+  final List<String> questions;
+  final ValueChanged<String> onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      // Indented to line up with the bubble text, past the avatar column.
+      padding: const EdgeInsetsDirectional.only(
+          start: _kUnderAnswerIndent, end: 12, top: 4),
+      child: Semantics(
+        label: AppLocalizations.of(context).chatFollowUpsLabel,
+        container: true,
+        child: Wrap(
+          spacing: Dt.s8,
+          runSpacing: Dt.s8,
+          children: [
+            for (final q in questions)
+              ActionChip(
+                label: Text(q),
+                labelStyle: TextStyle(
+                  color: AppTheme.primary,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 13,
+                ),
+                backgroundColor: AppTheme.primary.withValues(alpha: .08),
+                side: BorderSide(color: AppTheme.primary.withValues(alpha: .3)),
+                shape: const StadiumBorder(),
+                onPressed: () => onTap(q),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _TypingIndicator extends StatefulWidget {
+  const _TypingIndicator();
+
+  @override
+  State<_TypingIndicator> createState() => _TypingIndicatorState();
+}
+
+class _TypingIndicatorState extends State<_TypingIndicator>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _ctrl;
+
+  @override
+  void initState() {
+    super.initState();
+    _ctrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 900),
+    );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Reduced motion: three steady dots instead of a pulse (UX_UI_ROADMAP §5).
+    syncLoop(context, _ctrl, restValue: 0.5);
+  }
+
+  @override
+  void dispose() {
+    _ctrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: _ctrl,
+      builder: (context, _) {
+        return Row(
+          mainAxisSize: MainAxisSize.min,
+          children: List.generate(3, (i) {
+            final t = ((_ctrl.value + i * 0.25) % 1.0);
+            final opacity = (t < 0.5 ? t * 2 : (1 - t) * 2).clamp(0.2, 1.0);
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 2),
+              child: Container(
+                width: 6,
+                height: 6,
+                decoration: BoxDecoration(
+                  color: AppTheme.textMuted.withValues(alpha: opacity),
+                  shape: BoxShape.circle,
+                ),
+              ),
+            );
+          }),
+        );
+      },
+    );
+  }
+}
+
+class _MetadataChips extends StatelessWidget {
+  final AssistantReply reply;
+  const _MetadataChips({required this.reply});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    // `mode` (retrieval_only / llm_generated) is pipeline jargon, not
+    // something a parent can act on — dropped from the visible chips.
+    final chips = <String>[
+      reply.domain.label(l10n),
+      // «خفيف» and «متوسط» change nothing a parent should do — and «متوسط» is
+      // also what a missing severity decodes to. Only the two that do are
+      // shown (NOOR_WAL_QANADIL_PLAN, phase 4).
+      if (reply.severity == Severity.severe ||
+          reply.severity == Severity.emergency)
+        reply.severity.label(l10n),
+    ];
+    return Wrap(
+      spacing: 6,
+      runSpacing: 4,
+      children: chips
+          .where((c) => c.isNotEmpty)
+          .map(
+            (c) => Container(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+              decoration: BoxDecoration(
+                color: AppTheme.surface,
+                border: Border.all(color: AppTheme.surfaceAlt),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(
+                c,
+                style: TextStyle(
+                  fontSize: 11,
+                  color: AppTheme.textSecondary,
+                ),
+              ),
+            ),
+          )
+          .toList(),
+    );
+  }
+}
+
+/// Collapsed "Sources (n)" row under a grounded answer (UX_UI_ROADMAP §2.2).
+/// Trust for religious and medical guidance without cluttering the answer.
+class _SourcesDisclosure extends StatefulWidget {
+  const _SourcesDisclosure({required this.sources});
+
+  final List<String> sources;
+
+  @override
+  State<_SourcesDisclosure> createState() => _SourcesDisclosureState();
+}
+
+class _SourcesDisclosureState extends State<_SourcesDisclosure> {
+  bool _open = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final muted = AppTheme.textSecondary;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Semantics(
+          button: true,
+          expanded: _open,
+          hint: l10n.chatSourcesHint,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(Dt.rChip),
+            onTap: () => setState(() => _open = !_open),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minHeight: Dt.minTouch),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.menu_book_rounded, size: 16, color: muted),
+                  const SizedBox(width: 6),
+                  Text(
+                    l10n.chatSources(widget.sources.length),
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      color: muted,
+                    ),
+                  ),
+                  Icon(
+                    _open
+                        ? Icons.expand_less_rounded
+                        : Icons.expand_more_rounded,
+                    size: 18,
+                    color: muted,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        AnimatedSize(
+          duration: Dt.fast,
+          alignment: AlignmentDirectional.topStart,
+          child: _open
+              ? Padding(
+                  padding: const EdgeInsetsDirectional.only(start: 22, bottom: 4),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      for (final s in widget.sources)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 4),
+                          child: Text(
+                            '• $s',
+                            style: TextStyle(
+                              fontSize: 13,
+                              height: 1.5,
+                              color: AppTheme.textPrimary,
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                )
+              : const SizedBox.shrink(),
+        ),
+      ],
+    );
+  }
+}
+
+class _FeedbackRow extends StatelessWidget {
+  final String? current;
+  final ValueChanged<String> onFeedback;
+  const _FeedbackRow({required this.current, required this.onFeedback});
+
+  @override
+  Widget build(BuildContext context) {
+    if (current != null) {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            current == 'up' ? Icons.thumb_up : Icons.thumb_down,
+            size: 14,
+            color: AppTheme.success,
+          ),
+          const SizedBox(width: 4),
+          Text(
+            AppLocalizations.of(context).feedbackThanks,
+            style: TextStyle(fontSize: 12, color: AppTheme.textMuted),
+          ),
+        ],
+      );
+    }
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        IconButton(
+          icon: const Icon(Icons.thumb_up_outlined, size: 18),
+          color: AppTheme.textMuted,
+          tooltip: AppLocalizations.of(context).feedbackHelpful,
+          onPressed: () => onFeedback('up'),
+        ),
+        IconButton(
+          icon: const Icon(Icons.thumb_down_outlined, size: 18),
+          color: AppTheme.textMuted,
+          tooltip: AppLocalizations.of(context).feedbackNotHelpful,
+          onPressed: () => onFeedback('down'),
+        ),
+      ],
+    );
+  }
+}
+
+// (No trailing helpers needed — AssistantReply and Domain are used
+// explicitly by the Assistant body and metadata chip widget above.)

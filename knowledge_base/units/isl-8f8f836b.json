@@ -1,0 +1,36 @@
+{
+  "id": "isl-8f8f836b",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "قيام أهل البيت في رمضان في أثر معتمر",
+  "language": "ar",
+  "age_group": "4-6",
+  "behavior_type": "تربية دينية وأخلاقية",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين — عماد بن أحمد بن عبدالعظيم (الألوكة)، PDF 173 / المطبوعة 172. أثر معتمر، التهجد وقيام الليل (180)، كما نقله الكتاب.",
+  "text_original": "قال معتمر: «كان أبي يوقظ كل من في الدار إذا دخل شهر رمضان، ويقول: قوموا فلعلكم لا تدركوه بعد عامكم هذه».",
+  "text_simplified": "يروي معتمر أن أباه كان يوقظ أهل الدار عند دخول رمضان، ويحثهم على القيام، مذكّرًا بأنهم قد لا يدركون رمضان في العام التالي.",
+  "labels": [
+    "رمضان",
+    "أثر معتمر"
+  ],
+  "created_at": "2026-06-21T10:32:29Z",
+  "updated_at": "2026-10-07T10:17:56.040541+00:00",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "حقوق الأولاد على الوالدين",
+    "source_author": "عماد بن أحمد بن عبدالعظيم"
+  },
+  "source_url": "https://www.alukah.net/Books/Files/Book_17337/BookFile/brotherandboys.pdf#page=173",
+  "source_note": "DRAFT native source recovery 2026-10-07. Raw OCR anchor, exact primary page, historical attribution and quote-budget proof: ops/data/kb_fidelity/source_recovery/isl-8f8f836b.json. App-authored summaries are narrow paraphrases, not broader rulings or promised outcomes. No model, scholar, human or publication approval.",
+  "translation": {
+    "needs_scholar_review": true,
+    "review_verdict": "pending",
+    "review_defects": [],
+    "approved_by": null,
+    "draft_status": "draft",
+    "source_recovery_note": "Source-verified draft, current content awaits genuine independent translation and scholar review."
+  }
+}

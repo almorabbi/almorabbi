@@ -1,0 +1,93 @@
+{
+  "id": "isl-624104ea__en",
+  "domain": "islamic_parenting",
+  "age_group": "7-9",
+  "behavior_type": "تقليد ألفاظ بذيئة من الشارع",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "title": "My son has started using foul language he learned from the street kids",
+  "language": "en",
+  "reference_type": "حديث",
+  "reference_info": "متفق عليه: صحيح البخاري حديث رقم 6018، وصحيح مسلم حديث رقم 47، عن أبي هريرة رضي الله عنه",
+  "text_original": "من كان يؤمن بالله واليوم الآخر فليقل خيرًا أو ليصمت. متفق عليه، رواه البخاري (6018) ومسلم (47) عن أبي هريرة رضي الله عنه.",
+  "text_simplified": "Your son, at the age of 7–9, now understands the difference between right and wrong, and this is the perfect time to teach him to guard his tongue—not just to forbid him. Teach him the hadith of the Prophet ﷺ: «مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ» (Sahih al-Bukhari 6018), and make it a rule he checks his words by: *Is what I’m about to say khayr (good)?* If it isn’t, silence is better than a word he heard from his friends.",
+  "labels": [
+    "الألفاظ البذيئة",
+    "ضبط اللسان",
+    "الطفولة المتوسطة",
+    "تقليد الأقران"
+  ],
+  "created_at": "2026-07-30T12:00:00Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "صحيح البخاري وصحيح مسلم",
+    "source_author": "الإمام البخاري والإمام مسلم"
+  },
+  "source_language": "ar",
+  "translated_from": "isl-624104ea",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "leakage",
+        "why": "The Arabic word 'khayr' is left transliterated with a gloss; it is not a technical Islamic term in the allowed list and can simply be translated as 'good'."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "leakage",
+        "why": "The Arabic word 'khayr' is left untranslated in the English; it is not among the allowed transliterated Islamic terms, though the parenthetical gloss mitigates it."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "'Perfect' slightly overstates 'وقت مناسب' (a suitable/appropriate time)."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "a71e9a3257e0ff04691ed14b6602b9d1c01b17cdbde97857d6f47fde0a6f04ac",
+      "reviewed_at": "2026-10-07T07:30:49+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "leakage",
+          "why": "The Arabic word 'khayr' is left transliterated with a gloss; it is not a technical Islamic term in the allowed list and can simply be translated as 'good'."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "leakage",
+          "why": "The Arabic word 'khayr' is left untranslated in the English; it is not among the allowed transliterated Islamic terms, though the parenthetical gloss mitigates it."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "'Perfect' slightly overstates 'وقت مناسب' (a suitable/appropriate time)."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-07T07:30:49+00:00",
+    "english_authors": [
+      "claude-opus-5.5"
+    ]
+  }
+}

@@ -1,0 +1,244 @@
+#!/usr/bin/env bash
+# pre-commit — يمنع commit فيه drift في قاعدة المعرفة.
+# تفعيل لمرة واحدة:  git config core.hooksPath .githooks
+#
+# يشغّل الفحص السريع فقط (schema/enum/taxonomy) عشان يفضل سريع.
+# فحص ChromaDB الكامل بيشتغل في الـ CI (وعبر ./check.sh --full).
+set -euo pipefail
+cd "$(git rev-parse --show-toplevel)"
+
+PY="backend/.venv/bin/python"
+[ -x "$PY" ] || PY=".venv/bin/python"
+[ -x "$PY" ] || PY="python3"
+
+echo ""
+echo "🔍 [pre-commit] Knowledge-base integrity check..."
+if "$PY" ops/tools/check_kb_integrity.py; then
+    echo "✅ [pre-commit] KB in sync."
+else
+    echo ""
+    echo "❌ [pre-commit] DRIFT DETECTED — commit blocked."
+    echo "   Fix: backend/.venv/bin/python ops/tools/normalize_units.py"
+    echo "        backend/.venv/bin/python ops/tools/build_vector_db.py"
+    echo "   Bypass (discouraged): git commit --no-verify"
+    echo ""
+    exit 1
+fi
+
+# القرآن — الأذكار بتخرج إشعارات يومية، فكلمة محرَّفة تعني آية مغلوطة تصل كل
+# مستخدم. أول تشغيلة مسكت «لِلَّذِينِ» مكان «لِلدِّينِ» في الروم ٣٠، وكانت شغّالة
+# في الإنتاج. ده الفحص الوحيد هنا اللي مايتخطّاش بـ--no-verify عن طيب خاطر.
+echo "🔍 [pre-commit] فحص مطابقة الآيات للمصحف..."
+if "$PY" ops/tools/check_quran_citations.py; then
+    :
+else
+    echo ""
+    echo "❌ [pre-commit] آية لا تطابق المصحف — commit متوقف."
+    echo "   صحّح النص في mobile/assets/content/adhkar/family_adhkar.ar.json"
+    echo ""
+    exit 1
+fi
+
+# القرآن بالإنجليزية — سؤال مختلف تمامًا عن اللي فوق. الفحص السابق بيسأل «هل
+# الآية مطابقة للمصحف؟»، وده بيسأل «هل فيه إنجليزية مقدَّمة على أنها قرآن؟».
+# القرآن لا يُترجَم: اللي يُكتب بالإنجليزية مقابل آية هو تفسير لمعناها لا القرآن،
+# وتقديمه على أنه القرآن خطأ شرعي لا خيار أسلوبي. المنهج الإنجليزي نضيف اليوم
+# (٤٢٤ ملفًا)، والفحص موضوع الآن عشان يفضل نضيف لما تُترجَم طبقة الأذكار
+# (١٤٢ آية) — لا بعد ما تنزل.
+echo "🔍 [pre-commit] فحص عرض القرآن في المحتوى الإنجليزي..."
+# `|| _qr=$?` لا `_qr=$?` على سطر تالٍ: السكربت تحت `set -e`، فأمرٌ يفشل بمفرده
+# يُنهي الهوك فورًا قبل أن يُسنَد الكود — فيتوقف الـcommit (وهو المطلوب) لكن بلا
+# الرسالة التي تقول للمطوّر ما العمل، ويضيع الفرق بين «مخالفة» و«الفحص نفسه معطّل».
+_qr=0
+"$PY" ops/tools/check_quran_rendering.py || _qr=$?
+if [ "$_qr" -eq 2 ]; then
+    echo ""
+    echo "⛔ [pre-commit] self-tests بتاعة فحص عرض القرآن فشلت — الفحص لاغٍ."
+    echo "   نجاح كاذب على نصّ شرعي أسوأ من غياب الفحص. صلّح الفحص لا تتخطّاه."
+    echo ""
+    exit 1
+elif [ "$_qr" -ne 0 ]; then
+    echo ""
+    echo "❌ [pre-commit] إنجليزية مقدَّمة على أنها قرآن — commit متوقف."
+    echo "   اترك الآية بالعربية، واكتب المعنى مُعلَنًا:"
+    echo "      \"interpretation of the meaning: …\"  أو  provenance: <ترجمة معتمدة>"
+    echo ""
+    exit 1
+fi
+
+# الإنجليزي المنشور — المخطّط يقول من أول يوم: approved_by=null يعني «غير مراجَع،
+# لا يُنشر للإنجليزية»، وكان ٤٢٤ ملفًا منشورًا بـnull لأن الختم انتظر مراجعًا
+# بشريًّا لا وجود له. البوابة دي بتحاسب الـcommit على اللي بيلمسه بس (ترجمةً أو
+# مصدرًا عربيًّا): أي إنجليزي منشور يمسّه لازم يكون مختومًا بمراجعة من عائلتين،
+# والختم مطابق لبصمة النص الحالي — تعديل العربي بعد المراجعة بيبطله برضه، لأن
+# المترجم بيغطّي تلف المصدر («سفينة» طلعت companionship).
+echo "🔍 [pre-commit] بوابة المحتوى الإنجليزي..."
+_en=0
+"$PY" ops/tools/review_en_parity.py check --staged || _en=$?
+if [ "$_en" -eq 2 ]; then
+    echo ""
+    echo "⛔ [pre-commit] self-tests بتاعة بوابة الإنجليزي فشلت — الفحص لاغٍ."
+    echo "   صلّح الفحص لا تتخطّاه."
+    echo ""
+    exit 1
+elif [ "$_en" -ne 0 ]; then
+    echo ""
+    echo "❌ [pre-commit] إنجليزي منشور بلا ختم أو بختم بائت — commit متوقف."
+    echo "   python3 ops/tools/review_en_parity.py run --only <key>   (يحتاج OLLAMA_API_KEY)"
+    echo ""
+    exit 1
+fi
+
+# حشو الأذكار — نفس الملف، عطب مختلف: نص واحد مكرر ٢٢٣ مرة بعدّاد ظاهر
+# وإسناد موحّد مختلَق. فحص القرآن فوق ما كانش هيشوفه لأن المكرر مش آية.
+echo "🔍 [pre-commit] فحص أصالة محتوى الإشعارات..."
+if "$PY" ops/tools/check_adhkar_integrity.py; then
+    :
+else
+    echo ""
+    echo "❌ [pre-commit] محتوى محشوّ أو منسوب بلا سند — commit متوقف."
+    echo ""
+    exit 1
+fi
+
+# الأحاديث — على الصحيحين وحدهما، فسؤال الدرجة يسقط ويبقى اللفظ والرقم، وهما آليّان.
+# مستخدمان بلّغا عن اللفظ المحرَّف يومي ٣ و٧ أغسطس ٢٠٢٦ ومحدش شاف بلاغهم.
+echo "🔍 [pre-commit] فحص الأحاديث على الصحيحين..."
+if "$PY" ops/tools/check_hadith_citations.py; then
+    :
+else
+    echo ""
+    echo "❌ [pre-commit] حديث لا يطابق الصحيحين — commit متوقف."
+    echo "   الصيغة المطلوبة: source: 'صحيح البخاري — حديث ٥٠٢٧'"
+    echo "   ومسلم بترقيم محمد فؤاد عبد الباقي: 'صحيح مسلم — حديث ١٦٣١' (لا الترقيم التسلسلي ٤٢٢٣)"
+    echo ""
+    exit 1
+fi
+
+# الآيات والأحاديث في كل سطح — لا في حزمة الإشعارات وحدها. أول مسح كامل
+# (٢٠٢٦-١٠-٠٤) لقي ١٠٦ مخالفات في الدروس والقصص والبطاقات والتقارير ونصوص
+# الواجهة، ولا اقتباسَ حديثٍ واحدًا في النص الحر يحمل كتابًا ورقمًا صحيحين.
+_sc=0
+"$PY" ops/tools/check_scripture_coverage.py || _sc=$?
+if [ "$_sc" -eq 2 ]; then
+    echo ""
+    echo "⛔ [pre-commit] فحص تغطية النصوص الشرعية معطّل (self-test أو سطح صار فارغًا) — الفحص لاغٍ."
+    echo "   صلّح الفحص لا تتخطّاه."
+    echo ""
+    exit 1
+elif [ "$_sc" -ne 0 ]; then
+    echo ""
+    echo "❌ [pre-commit] آية أو حديث في نصٍّ معروض بلا سند صحيح أو بغير لفظه — commit متوقف."
+    echo "   الحديث من الصحيحين بلفظه مع «(صحيح البخاري — حديث ٦٩٢٧)»، أو صِفْه بلا اقتباس."
+    echo ""
+    exit 1
+fi
+
+# قصص الأنبياء — «لا نقول عن نبيٍّ إلا ما قاله القرآن» (قرار المسؤول 2026-10-25).
+# الفحوص اللي فوق بتسأل «هل الاقتباس مطابق؟»؛ قصة نبي بتغلط من غير اقتباس: حوار
+# مؤلَّف، أو القرآن بصياغة تانية، أو تفصيلة إسرائيلية في جملة عادية. الفحص ده بيطلب
+# لكل قصة في السلسلة ملف مصادر (آيات + الميسّر) مطابق لنصّها، ومفيش «» ولا رقم أو
+# اسم مش في الآيات، وكل جملة حكمها «مدعومة» من عائلتين. exit 2 = الفحص نفسه اتعطّل.
+echo "🔍 [pre-commit] فحص قصص الأنبياء على مصادرها..."
+_an=0
+"$PY" ops/tools/check_anbiya_stories.py || _an=$?
+if [ "$_an" -eq 2 ]; then
+    echo ""
+    echo "⛔ [pre-commit] self-tests بتاعة فحص قصص الأنبياء فشلت — الفحص لاغٍ."
+    echo "   صلّح الفحص لا تتخطّاه."
+    echo ""
+    exit 1
+elif [ "$_an" -ne 0 ]; then
+    echo ""
+    echo "❌ [pre-commit] قصة نبي فيها ما لا تسنده آياتها وتفسيرها الميسّر — commit متوقف."
+    echo "   backend/.venv/bin/python ops/tools/anbiya_sources.py fetch <id>"
+    echo "   python3 ops/tools/anbiya_fidelity.py run <id>   (يحتاج OLLAMA_API_KEY)"
+    echo ""
+    exit 1
+fi
+
+# مخطّط المنهج — كان بيرفض بياناته هو في ستة مواضع، ومخطّط بيرفض ما يصفه
+# مايقدرش يبقى بوابة أبدًا: مايتشغّلش، فينحرف أكتر. اتوائم مع الواقع، والفحص ده
+# بيمنعه ينحرف تاني. وأول تشغيلة بعد المواءمة مسكت عيب بيانات لا مخطّط:
+# ٣ نصائح بـday_of_week=7 والأيام ٠..٦.
+echo "🔍 [pre-commit] فحص مطابقة المنهج لمخطّطه..."
+if "$PY" ops/tools/check_curriculum_schema.py; then
+    :
+else
+    echo ""
+    echo "❌ [pre-commit] المنهج خالف مخطّطه — commit متوقف."
+    echo "   لو المخطّط هو المتخلّف، صحّح المخطّط؛ لكن اتأكد الأول إن البيانات سليمة."
+    echo ""
+    exit 1
+fi
+
+# برامج الأسرة (رمضان · رحلة الصلاة · المراحل) — المخطّط فوق بيفحص الشكل؛ ده
+# بيفحص اللي المخطّط مايقدرش يشوفه: كل مرجع موجود (وحدة، قصة بالعربي والإنجليزي،
+# آية في حدود سورتها)، الإنجليزي هو العربي نفسه بنية، ولا قرآن ولا حديث مقتبس في
+# النص الحرّ، ولا إمساك تحت السابعة، ولا عامية. ونفس قاعدة الـself-tests: exit 2
+# يعني الفحص نفسه اتعطّل.
+echo "🔍 [pre-commit] فحص برامج الأسرة..."
+_pg=0
+"$PY" ops/tools/check_programs.py || _pg=$?
+if [ "$_pg" -eq 2 ]; then
+    echo ""
+    echo "⛔ [pre-commit] self-tests بتاعة فحص البرامج فشلت — الفحص لاغٍ."
+    echo "   صلّح الفحص لا تتخطّاه."
+    echo ""
+    exit 1
+elif [ "$_pg" -ne 0 ]; then
+    echo ""
+    echo "❌ [pre-commit] برنامج أسرة فيه مرجع مكسور أو نصّ مخالف — commit متوقف."
+    echo ""
+    exit 1
+fi
+
+# أمانة وحدات المعرفة لمصدرها — المساعد بيستشهد بالملخّص، والمراجعين مابيشوفوش
+# text_original. يوم 2026-10-04 اتسحبت ٢١٠ وحدة ملخّصها اتكتب فوق PDF مقلوب الحروف
+# فاخترع موضوعه أو نسبته أو رقمه. الفحص بيمنع رجوع أي وحدة مسحوبة (بالمسار، أو
+# بالمعرّف تحت اسم ملف تاني، أو بترجمتها — انحدار b1100ae2)، وبيطلب إن كل وحدة حيّة
+# عليها علامة من الكاشف تكون اتقرت واتسجّل حكمها على نصّها الحالي. exit 2 = الفحص اتعطّل.
+echo "🔍 [pre-commit] فحص أمانة وحدات المعرفة لمصدرها..."
+_kf=0
+"$PY" ops/tools/check_kb_fidelity.py check || _kf=$?
+if [ "$_kf" -eq 2 ]; then
+    echo ""
+    echo "⛔ [pre-commit] self-tests بتاعة فحص الأمانة فشلت — الفحص لاغٍ."
+    echo "   صلّح الفحص لا تتخطّاه."
+    echo ""
+    exit 1
+elif [ "$_kf" -ne 0 ]; then
+    echo ""
+    echo "❌ [pre-commit] وحدة مسحوبة رجعت، أو وحدة عليها علامة ماتقراش نصّها الحالي — commit متوقف."
+    echo "   اقرأها: python3 ops/tools/check_kb_fidelity.py show <id>"
+    echo "   ثم اسحبها (review_en_parity.py unpublish --with-source --reason …)"
+    echo "   أو سجّل حكمها في ops/data/kb_fidelity/judged_faithful.json ببصمة نصّها."
+    echo ""
+    exit 1
+fi
+
+# ruff — أربع قواعد بتمسك باج مش أسلوب (السبب مكتوب في pyproject.toml).
+# نفس الأمر بيشتغل في workflow «Backend tests»؛ هنا عشان الرد يبقى فوري وبلا
+# شبكة، وهناك عشان يمسك اللي اتخطّى بـ--no-verify أو اتدفع من جهاز تاني.
+# أول تشغيلة لـruff مسكت اسم غير معرّف ومفتاح مكرر في dict — الاتنين كانوا
+# في الطريق للإنتاج.
+RUFF=""
+for candidate in "$HOME/.local/bin/ruff" "$(command -v ruff || true)"; do
+    [ -x "$candidate" ] && RUFF="$candidate" && break
+done
+if [ -z "$RUFF" ]; then
+    echo "⚠️  [pre-commit] ruff غير مثبّت — تخطّي فحص اللينت (pip install --user ruff)."
+    echo "✅ [pre-commit] committing."
+else
+    echo "🔍 [pre-commit] ruff..."
+    if "$RUFF" check backend/ ops/ scripts/; then
+        echo "✅ [pre-commit] ruff نضيف — committing."
+    else
+        echo ""
+        echo "❌ [pre-commit] ruff رصد مشكلة — commit متوقف."
+        echo "   معظمها بتتصلح آليًا: ruff check --fix backend/ ops/ scripts/"
+        echo "   تخطّي (غير محبّذ): git commit --no-verify"
+        echo ""
+        exit 1
+    fi
+fi

@@ -1,0 +1,69 @@
+{
+  "id": "aqe-c28835f1__en",
+  "domain": "aqeedah",
+  "source_file": "aqidah_unified_manifest.md",
+  "title": "Allah Loves Us and Cares for Us",
+  "language": "en",
+  "age_group": "7-9",
+  "behavior_type": "تعليم_العقيدة",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_فقهي",
+  "reference_info": "مسار العقيدة — الله يحبنا ويرعانا. المصادر: العقيدة الطحاوية، القواعد الأربع، ثلاثة الأصول، أسئلة الأطفال الإيمانية (الركف)، العقيدة أولاً (الجريش).",
+  "text_original": "الله يحبنا ويرعانا\n\nالتركيز: غرس محبة الله والأمان قبل الخوف\n\nالدليل: وَلِلَّهِ الْأَسْمَاءُ الْحُسْنَىٰ فَادْعُوهُ بِهَا (الأعراف: 180). الرحمن، الرحيم.\n\nالتطبيق اليومي: قبل النوم، اطلب من الطفل أن يذكر نعمة واحدة شكر الله عليها.\n\nنصيحة للأب/الأم: ابدأ باسمي الرحمن والرحيم؛ لا تبدأ بالنار والعذاب في السن الصغيرة.",
+  "text_simplified": "Begin with your child by nurturing love for Allah and trust in Him before fear. Allah says: «وَلِلَّهِ الْأَسْمَاءُ الْحُسْنَىٰ فَادْعُوهُ بِهَا», and the names closest to a child’s heart are *Ar-Rahman* (The Most Merciful) and *Ar-Raheem* (The Especially Merciful). Before bedtime, ask him to recall one blessing he is grateful to Allah for. Do not introduce the concept of the Fire or punishment at a young age.",
+  "labels": [
+    "عقيدة",
+    "توحيد",
+    "تربية_إسلامية",
+    "نشء",
+    "allah_loves_us"
+  ],
+  "created_at": "2026-06-24T13:13:17Z",
+  "updated_at": "2026-07-30",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "aqidah_unified_manifest",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "aqe-c28835f1",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "quran",
+        "why": "The ayah is enclosed in «» instead of the required ﴿﴾."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "6edb90f356e4ff683fc042e0e6e3fbf2506fbb87e18ac428c30b82664968a2be",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "quran",
+          "why": "The ayah is enclosed in «» instead of the required ﴿﴾."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

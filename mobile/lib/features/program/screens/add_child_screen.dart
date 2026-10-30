@@ -1,0 +1,265 @@
+/// Add a new child to the device's roster.
+///
+/// Re-uses [AvatarPickerSheet] and the [AgeGroup] enum, but unlike
+/// [OnboardingScreen] it does NOT flip the `onboardingCompleted` flag
+/// (the user already finished onboarding — they're just adding a
+/// sibling). The new child becomes the active child on success.
+library;
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../l10n/app_localizations.dart';
+import '../../../models/enums.dart';
+import '../../../theme/app_theme.dart';
+import '../../../widgets/ui/bouncy_button.dart';
+import '../../onboarding/screens/avatar_picker_sheet.dart';
+import '../../programs/providers/programs_providers.dart';
+import '../../programs/widgets/birth_month_field.dart';
+import '../providers/progress_providers.dart';
+import '../data/child_name.dart';
+import '../../../theme/design_tokens.dart';
+import '../../../widgets/ui/error_retry_view.dart';
+
+class AddChildScreen extends ConsumerStatefulWidget {
+  const AddChildScreen({super.key});
+
+  @override
+  ConsumerState<AddChildScreen> createState() => _AddChildScreenState();
+}
+
+class _AddChildScreenState extends ConsumerState<AddChildScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
+  String? _ageGroup;
+  String? _gender;
+  String? _avatarEmoji;
+
+  /// "YYYY-MM" or null — optional, and offered only when the server can store
+  /// it (a server without the programs would silently drop it).
+  String? _birthMonth;
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _pickAvatar() async {
+    final picked = await showModalBottomSheet<String>(
+      context: context,
+      backgroundColor: AppTheme.surface,
+      isScrollControlled: true,
+      builder: (_) => AvatarPickerSheet(initial: _avatarEmoji),
+    );
+    if (picked != null) {
+      setState(() => _avatarEmoji = picked);
+    }
+  }
+
+  Future<void> _submit() async {
+    if (!_formKey.currentState!.validate()) return;
+    final ageGroup = _ageGroup;
+    if (ageGroup == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(AppLocalizations.of(context).addChildAgeRequired)),
+      );
+      return;
+    }
+    // Captured before the request: the summary refreshes even if the parent
+    // has left the screen by the time the server answers.
+    final container = programsContainerOf(context);
+    try {
+      final child = await ref.read(createChildProvider.notifier).create(
+            name: _nameController.text.trim(),
+            ageGroup: ageGroup,
+            gender: _gender,
+            avatarEmoji: _avatarEmoji,
+            birthMonth: ref.read(programsAvailableProvider) ? _birthMonth : null,
+          );
+      // The programs summarise every child; a new one changes the answer.
+      refreshProgramsSummary(container);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(AppLocalizations.of(context).addChildAdded(child.name))),
+        );
+        Navigator.of(context).pop(true);
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(AppLocalizations.of(context).addChildError(describeFailure(AppLocalizations.of(context), e))),
+            backgroundColor: AppTheme.dangerFg,
+          ),
+        );
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final createState = ref.watch(createChildProvider);
+    final busy = createState.isLoading;
+    final offerBirthMonth = ref.watch(programsAvailableProvider);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context).addChildTitle),
+        actions: [
+          TextButton(
+            onPressed: busy ? null : _submit,
+            child: Text(
+              AppLocalizations.of(context).add,
+              style: TextStyle(
+                color: busy ? AppTheme.textMuted : AppTheme.primary,
+                fontWeight: FontWeight.w800,
+                fontSize: 16,
+              ),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+          child: BouncyButton(
+            label: busy ? AppLocalizations.of(context).addChildAdding : AppLocalizations.of(context).addChildBtn,
+            icon: busy
+                ? SizedBox(
+                    width: 18,
+                    height: 18,
+                    child: CircularProgressIndicator(
+                        strokeWidth: 2, color: Dt.surface),
+                  )
+                : const Icon(Icons.person_add, color: Colors.white),
+            onTap: busy ? null : _submit,
+          ),
+        ),
+      ),
+      body: SafeArea(
+        child: Form(
+          key: _formKey,
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 32),
+            children: [
+              Text(
+                AppLocalizations.of(context).childName,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall
+                    ?.copyWith(fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 8),
+              TextFormField(
+                controller: _nameController,
+                decoration: InputDecoration(
+                  hintText: AppLocalizations.of(context).addChildNameHint,
+                  prefixIcon: const Icon(Icons.person_outline),
+                ),
+                validator: (v) =>
+                    childNameError(AppLocalizations.of(context), v),
+              ),
+              const SizedBox(height: 24),
+              Text(
+                AppLocalizations.of(context).onbAgeGroup,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall
+                    ?.copyWith(fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: AgeGroup.values
+                    .where((a) => a != AgeGroup.unspecified)
+                    .map((a) => ChoiceChip(
+                          label: Text(a.label(AppLocalizations.of(context))),
+                          selected: _ageGroup == a.wire,
+                          selectedColor: AppTheme.primary,
+                          labelStyle: TextStyle(
+                            color: _ageGroup == a.wire
+                                ? Colors.white
+                                : AppTheme.textPrimary,
+                            fontWeight: _ageGroup == a.wire
+                                ? FontWeight.w700
+                                : FontWeight.w500,
+                          ),
+                          onSelected: (_) =>
+                              setState(() => _ageGroup = a.wire),
+                        ))
+                    .toList(),
+              ),
+              const SizedBox(height: 24),
+              if (offerBirthMonth) ...[
+                BirthMonthField(
+                  value: _birthMonth,
+                  childName: _nameController.text,
+                  ageGroup: _ageGroup,
+                  onChanged: (v) => setState(() => _birthMonth = v),
+                  onUseBand: (band) => setState(() => _ageGroup = band),
+                ),
+                const SizedBox(height: 24),
+              ],
+              Text(
+                AppLocalizations.of(context).onbChildAvatar,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall
+                    ?.copyWith(fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 8),
+              InkWell(
+                borderRadius: BorderRadius.circular(12),
+                onTap: _pickAvatar,
+                child: Container(
+                  padding: const EdgeInsets.all(14),
+                  decoration: BoxDecoration(
+                    color: AppTheme.surface,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Dt.surface),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 48,
+                        height: 48,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: AppTheme.surfaceAlt,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Text(
+                          _avatarEmoji ?? '👶',
+                          style: const TextStyle(fontSize: 24),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          _avatarEmoji == null
+                              ? AppLocalizations.of(context).onbTapEmoji
+                              : AppLocalizations.of(context).onbTapChangeEmoji,
+                          style: TextStyle(
+                            color: _avatarEmoji == null
+                                ? AppTheme.textMuted
+                                : AppTheme.textPrimary,
+                          ),
+                        ),
+                      ),
+                      Icon(Icons.chevron_left,
+                          color: AppTheme.textMuted),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
+              if (busy) const Center(child: CircularProgressIndicator()),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

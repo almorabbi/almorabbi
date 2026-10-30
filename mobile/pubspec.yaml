@@ -1,0 +1,201 @@
+name: almorabbi
+description: "المربي الذكي — مساعد تربوي إسلامي آمن للأهل (Flutter / Android-first)."
+publish_to: 'none'
+version: 1.0.75+120
+
+environment:
+  sdk: ^3.12.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
+  # State management
+  flutter_riverpod: ^2.5.1
+
+  # HTTP + SSE streaming
+  http: ^1.2.2
+
+  # IDs + secure storage
+  uuid: ^4.5.1
+  flutter_secure_storage: ^9.2.2
+  crypto: ^3.0.3
+
+  # Markdown rendering of assistant replies
+  # flutter_markdown was discontinued upstream; flutter_markdown_plus is the
+  # maintained fork the pub listing points to, with the same API.
+  flutter_markdown_plus: ^1.0.1
+
+  # Arabic-friendly fonts
+  google_fonts: ^6.2.1
+
+  # Offline detection
+  connectivity_plus: ^6.0.5
+
+  # Persistent on-device flags (onboarding completion, last active child).
+  shared_preferences: ^2.3.2
+
+  # Open the privacy policy from the Settings screen.
+  url_launcher: ^6.3.0
+
+  # Share + screenshot for share cards
+  share_plus: ^11.0.0
+  screenshot: ^3.0.0
+  # Native in-app review (Phase 0.3 — ratings velocity for ASO)
+  in_app_review: ^2.0.10
+  # QR code on share cards (Phase 0.1 — deep-link install path)
+  qr_flutter: ^4.1.0
+  # Play Install Referrer — free referral attribution (Phase 0.2)
+  play_install_referrer: ^0.5.0
+  # Lottie animations for brand-aligned celebrations
+  lottie: ^3.3.0
+  # File picker for backup import/export
+  file_picker: ^8.0.0
+  package_info_plus: ^9.0.1
+
+  cupertino_icons: ^1.0.8
+  just_audio: ^0.10.5
+  # NO `just_audio_background` / `audio_service` here (removed 2026-10-04).
+  # Its init call was reverted on 2026-08-16 (features/screen_off/audio_tag.dart)
+  # but the dependency stayed, and that alone was harmful: audio_service's
+  # Android plugin, on every activity attach, creates a SECOND FlutterEngine
+  # and runs main() in it (AudioServicePlugin.getFlutterEngine →
+  # DartEntrypoint.createDefault) unless MainActivity is an AudioServiceActivity.
+  # Two isolates then ran the whole startup — and on a fresh install each
+  # minted its own device id: the "device twin" that lost families their child
+  # after a restart. test/single_dart_entrypoint_test.dart guards this.
+  record: ^5.1.2
+  path_provider: ^2.1.4
+  scrollable_positioned_list: ^0.3.8
+  video_player: ^2.8.2
+
+  # Visual redesign — code-only animation primitives (no asset files).
+  flutter_animate: ^4.5.2
+  confetti: ^0.8.0
+
+  # Local push notifications for daily adhkar
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.10.0
+
+  # Keep screen on during story reading.
+  wakelock_plus: ^1.2.11
+
+  # Firebase
+  flame: ^1.16.0
+  firebase_core: ^4.15.0
+  firebase_crashlytics: ^5.4.0
+  firebase_analytics: ^12.6.0
+  # Phase 1 — server-side push re-engagement
+  firebase_messaging: ^16.7.0
+  # Phase 1 — optional identity that survives reinstall
+  google_sign_in: ^7.2.0
+  # Phase 0/1 — deep links + whatsapp direct share
+  app_links: ^6.3.3
+  page_flip: ^0.2.5+1
+  animated_book_widget: ^1.0.1
+  flutter_timezone: ^5.1.0
+  in_app_purchase: ^3.3.1
+  in_app_purchase_android: ^0.5.3
+  # Interface sounds only (core/sound_fx.dart): low-latency SoundPool players
+  # that request no audio focus, so recitation on just_audio is never paused
+  # or ducked. Long-form audio stays on just_audio.
+  audioplayers: ^6.8.1
+  # «ورق مقصوص» art (2026-10-14): Noor, the BrandGlyph icon set and every
+  # in-app illustration are hand-written SVG under assets/svg/ — ~100 KB in
+  # place of ~15 MB of Recraft webp. test/svg_assets_test.dart parses every
+  # file through this package, so one it cannot read fails CI, not a screen.
+  flutter_svg: ^2.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  # Exercise the real Google Sign-In Dart client with a native-platform fake.
+  google_sign_in_platform_interface: ^3.1.0
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.1
+  flutter_native_splash: ^2.4.0
+  # Reads backend/guardrails/child_surface.v1.yaml in a test, so the app's copy
+  # of the age gate cannot drift from the server's (already in the lock as a
+  # transitive dependency).
+  yaml: ^3.1.3
+
+flutter:
+  generate: true
+  uses-material-design: true
+  assets:
+    - assets/data/
+    # Named on its own line even though `assets/data/` already sweeps it in.
+    # `storiesProvider` falls back to the bundle **silently** when the network
+    # fetch times out, so an English reader whose bundle is missing this file
+    # does not see an error — they see Arabic. Anything whose absence is
+    # invisible at runtime is worth making visible here.
+    - assets/data/stories_en.json
+    - assets/images/
+    # Still a PNG on purpose: the infographic watermark needs raw PNG bytes
+    # (infographic_screen.dart). Nothing else in the app paints it any more.
+    - assets/images/logo.png
+    - assets/images/stories/
+    # «ورق مقصوص» (2026-10-14) — the whole in-app art set, as SVG. Rules in
+    # assets/svg/STYLE.md; test/svg_assets_test.dart parses every file.
+    #   noor/  — «نور» in seven expressions (NoorFace, NoorPresence, NoorMascot)
+    #   icons/ — one file per BrandIcon value, named after it
+    #   art/   — milestones, badges, domains, empty states, onboarding hero,
+    #            the share-card ground and the logo mark
+    # assets/images/generated/ is no longer bundled: what is left in it is
+    # store/marketing art that ops tools read from disk (generate_tip_cards.py,
+    # gen_visuals.py), not anything the app paints.
+    - assets/svg/noor/
+    - assets/svg/icons/
+    - assets/svg/art/
+    - assets/svg/stories/
+    # Brand-aligned Lottie celebrations (generated via ops/tools/gen_lottie.py)
+    - assets/animations/
+    - assets/audio/
+    # Flutter does not recurse into subdirectories: `assets/audio/` above does
+    # not carry these. Five soft interface sounds, generated by
+    # ops/tools/gen_sfx.py (no instruments, no melody) — core/sound_fx.dart.
+    - assets/audio/sfx/
+    # App content, one pack per file, suffixed with its locale. These were Dart
+    # `const` literals until 2026-08-13; ops/tools/extract_app_content.py moved
+    # them and proves the move byte-for-byte
+    # (`extract_app_content.py verify --rev <commit-before>`). A translation is
+    # a sibling file — `*.en.json` — never an edit to the Arabic one.
+    - assets/content/games/
+    - assets/content/adhkar/
+    - assets/content/journey/
+    # Cairo, Amiri Quran and Tajawal — the exact files google_fonts would
+    # download, bundled so the first launch renders offline and no launch
+    # contacts fonts.gstatic.com (theme/bundled_fonts.dart). OFL licences
+    # alongside.
+    - assets/google_fonts/
+
+# Reuse the existing PWA shield icon — keeps mobile visually consistent
+# with the web client and saves us from designing a new asset. Source
+# files live at ../frontend/icons/icon-{192,512}.png and were designed
+# to match the brand colour #01696F (see frontend/manifest.json).
+flutter_launcher_icons:
+  image_path: "../frontend/icons/icon-512.png"
+  adaptive_icon_background: "#01696F"
+  adaptive_icon_foreground: "../frontend/icons/icon-512.png"
+  # Android's launcher icon is the paper-cut one now (ic_launcher_paper*),
+  # generated by docs/brand/tools/brand_build.py — see docs/VISUAL_ASSETS.md.
+  # Left on `true`, this tool rewrites android:icon back to @mipmap/ic_launcher
+  # without a word, silently undoing the new icon.
+  android: false
+  ios: true
+  remove_alpha_ios: true
+  min_sdk_android: 23
+
+flutter_native_splash:
+  color: "#01696F"
+  image: "../frontend/icons/icon-512.png"
+  android_12:
+    color: "#01696F"
+    image: "../frontend/icons/icon-512.png"
+  ios: false  # iOS in Phase 7
+
+dependency_overrides:
+  record_linux: ^1.1.0

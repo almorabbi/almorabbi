@@ -1,0 +1,76 @@
+{
+  "id": "isl-8aa15666__en",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "Kindness to Abu Umayr and His Play with a Bird",
+  "language": "en",
+  "age_group": "4-6",
+  "behavior_type": "حقوق الطفل واللعب",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين — عماد بن أحمد بن عبدالعظيم (الألوكة)، صفحة PDF 116 / المطبوعة 115. صحيح البخاري — حديث ٦١٢٩",
+  "text_original": "عن أنس أن النبي ﷺ كان إذا جاء قال: «يا أبا عمير ما فعل النغير؟» نغير كان يلعب به.\nقال ابن حجر: «وفيه جواز لعب الصغير بالطير، وجواز ترك الأبوين ولدهما الصغير يلعب بما أبيح اللعب به».",
+  "text_simplified": "Abu Umayr played with a small bird, and the Prophet ﷺ would ask him about it. The book quotes Ibn Hajar’s commentary on a young child playing with a bird and being allowed to play with what is permissible.",
+  "labels": [
+    "أبو عمير",
+    "ملاطفة الأطفال",
+    "اللعب"
+  ],
+  "created_at": "2026-06-21T10:26:11Z",
+  "updated_at": "2026-10-07T09:49:49.289633+00:00",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "حقوق الأولاد على الوالدين",
+    "source_author": "عماد بن أحمد بن عبدالعظيم"
+  },
+  "source_language": "ar",
+  "translated_from": "isl-8aa15666",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "The Arabic is active ('letting him play') but the English renders it passively ('being allowed to play'), slightly shifting the agency from the parent to the child."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+    "draft_status": "draft",
+    "source_recovery_note": "Primary-source-faithful recovery. English parity review is recorded separately at its exact current hash; Arabic source-content scholar review remains required.",
+    "english_authors": [
+      "mistral-large-3:675b",
+      "openai:codex"
+    ],
+    "fixer_model": "openai:codex",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "90365a62e08fdb8f04b728e2d320d0f30537176958885150cee0c6269f3b8209",
+      "reviewed_at": "2026-10-07T10:02:15+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "The Arabic is active ('letting him play') but the English renders it passively ('being allowed to play'), slightly shifting the agency from the parent to the child."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-07T10:02:15+00:00"
+  },
+  "source_url": "https://www.alukah.net/Books/Files/Book_17337/BookFile/brotherandboys.pdf#page=116",
+  "source_note": "Primary-source recovery 2026-10-07: actual original passage/page/ancient-attribution evidence is recorded in ops/data/kb_fidelity/source_recovery/isl-8aa15666.json. Summaries are app-authored paraphrases, not general legal rulings. English translation parity was genuinely reviewed separately by DeepSeek and GLM; its exact-hash record is in the English translation metadata. No scholar/human source-content approval or publication approval."
+}

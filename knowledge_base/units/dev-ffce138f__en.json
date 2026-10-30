@@ -1,0 +1,69 @@
+{
+  "id": "dev-ffce138f__en",
+  "domain": "development",
+  "source_file": "Alliance_Positive_Parenting_Guide_Arabic.pdf",
+  "title": "Guiding the Child’s Behaviour through Positive Reinforcement and Avoiding Criticism",
+  "language": "en",
+  "age_group": "4-6",
+  "behavior_type": "تعديل السلوك",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "دليل التربية الإيجابية - Alliance for Child Protection (NSPCC)",
+  "text_original": ".مكتايحل اطًمن نيقهارملا – ةسردملا ،مكلفط ربك املك ةرسلأا دعاوق اوعجار • لافطلأل ةفلتخملا تاجايتحلاا ىلع اوفرعتو لحم هنأ هل اورهظتُل اصً رف مكلفط اوحنما • ليبس ىلع .لزنملا يف نوشيعي نيذلا .كلذل نيدعتسمُ اونوكو ةقث ةرظتنملا مكتاعقوت نوكت لاأ بجي ،لاثملا هوعقوتت امل ةلثامم امًاع 1٢ هرمع لفط نم بكترا اذإ .نكمأ امثيح داقتنلاا اوبنجت • .ماوعأ ةعبرأ هرمع لفط نم ريغ مكنأ هل اوحرشا ،ائًطاخ ائًيش مكلفط .هنم سيلو هبكترا يذلا لعفلا نم ءادعس راكفأ يأ اوبرجو ،ءاقدصلأا نم معدلا اوقلت • .ةيدجم اهودجو ةديدج ،ةهفات تلاادج ىلإ رارجنلاا بنجت اولواح • !حبار دحأ اهنم جرخي ام ارًدانف نع جرخت روملأا نأو رثعتلاب مترعش اذإ • بيبطلا نم حصنلا اوسمتلاف ،ةرطيسلا ميدقت وأ ضوافتلل لبسُ يف اوركف • .مكلفط سردم وأ ،يحصلا رئازلا وأ ،ماعلا .مكلفط ربك املك تارايتخا NSPCC ةيعمج نم ةيساسأ تامولعم لوح ءابلآا فلتخم نيب اميف رظنلا تاهجو فلتخت .مهتايكولس رييغتل لافطلأا عيجشتل لبسُ لا لضفأ نوبيجتسي دق راغصلا لافطلأا ضعب نأ نيح يف انًس ربكلأا لافطلأا ضعبو باوثلا تاططخم ىلإ ادً يج لزنملا جراخ ءاقبلاب مهل حامسلا ىلإ نوبيجتسي دق لافطلأا ضعب نأ لاإ ،لاًيلق رخأتم تقو ىتح .كلذل نوبيجتسي لا ةيباجيلإا ةيبرتلا تآفاكملا صوصخب مكلفط عم اوثدحت • ةبسانملا روملأا مكاوس صخش يأ فرعي نل لبق ،مهتايكولس ىلع ةبترتملا جئاتنلاو ضعب يلي اميف مكيلع حرطن اننكلو ،مكلفطل .هدعب سيلو ام رمأب مايقلا .اهيف رظنلل ةديفملا طاقنلا ديجلا عامتسلال يفاكلا تقولا اوقرغتسا • روملأا ىلع ول ىتح لافطلأا اوحدما • ام مهل اوحرشاو مكل مكلافطأ هلوقي امل .اهب نوموقي يتلا ةطيسبلا .هلايح هب نورعشت",
+  "text_simplified": "As your child grows, review the family’s rules and understand their changing needs. Avoid criticism as much as possible, and explain to them that you reject their wrong behaviour, not their person. Support your child by praising good behaviour, and steer clear of unproductive arguments. If you feel concerned, consult a doctor or teacher.",
+  "labels": [
+    "تربية إيجابية",
+    "قواعد أسرية",
+    "تعزيز السلوك",
+    "تجنب النقد",
+    "دعم الطفل"
+  ],
+  "created_at": "2026-06-21T10:34:53Z",
+  "updated_at": "2026-06-21T10:34:53Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Alliance_Positive_Parenting_Guide_Arabic",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "dev-ffce138f",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "The Arabic «المختلفة» means different or various, not changing."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "e326af91de6579516c65276c1290b0fef803f71ab289a33a05a57c1275c42611",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "The Arabic «المختلفة» means different or various, not changing."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

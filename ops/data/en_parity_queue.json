@@ -1,0 +1,9 @@
+{
+  "_doc": [
+    "Published English that is live WITHOUT a review stamp, each bound to the exact text it was queued at (content_sha256 of the Arabic + English shown fields).",
+    "review_en_parity.py check passes such a unit only while its text still matches. Edit it and the entry no longer holds: review it, or re-queue it with a reason.",
+    "awaiting-review: waits for a reviewer from a family other than its English authors'. source-unverified: the Arabic is not verified against its own source — never stamped until the hold is released (unqueue) after re-extraction.",
+    "Written by `review_en_parity.py queue` / `unqueue`; stamping removes the entry."
+  ],
+  "units": {}
+}

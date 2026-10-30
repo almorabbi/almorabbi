@@ -1,0 +1,631 @@
+/// Central route registry.
+///
+/// The app navigates imperatively (`Navigator.push`) rather than through a
+/// declarative router — see the note below on why. The cost of that choice is
+/// that routes carry no identity, which makes it impossible to observe
+/// navigation centrally. This file buys the identity back: every screen gets a
+/// stable name in [Screens] and a single factory in [AppRoutes] that stamps
+/// it onto `RouteSettings.name`.
+///
+/// That one property is what lets `TgNavObserver` name all ~40 destinations
+/// without touching a single call site, which in turn is what makes the
+/// "where do users get lost?" instrumentation possible.
+///
+/// **Rules**
+///  * Never build a `MaterialPageRoute` inline in a screen — add a factory here.
+///  * Never pass a free-text screen name to analytics — use a [Screens]
+///    constant, or Firebase's event cardinality explodes and the funnels
+///    become unusable.
+///
+/// The [Screens] constants map 1:1 onto go_router path names, so adopting a
+/// declarative router later (web build, or more than a handful of deep-link
+/// patterns) is a migration of this file, not of the whole app.
+library;
+
+import 'package:flutter/material.dart';
+
+import '../features/coins/coins_screen.dart';
+import '../features/agreement/agreement_screen.dart';
+import '../features/missions/pending_missions_screen.dart';
+import '../features/handover/handover_gate_screen.dart';
+import '../features/license/parent_license_screen.dart';
+import '../features/offscreen/offscreen_activities_screen.dart';
+import '../features/screen_off/screen_off_picker_screen.dart';
+import '../features/parent_day/parent_day_screen.dart';
+import '../features/screen_off/record_narration_screen.dart';
+import '../features/screen_off/screen_off_player_screen.dart';
+import '../features/coins/covenant_screen.dart';
+import '../features/coins/exclusive_badges_screen.dart';
+import '../features/coins/story_screen.dart';
+import '../features/feedback/feedback_screen.dart';
+import '../features/games/data_defender/game_screen.dart';
+import '../features/games/emotion_maze/game_screen.dart';
+import '../features/games/healthy_hero/game_screen.dart';
+import '../features/games/shared/edu_game_models.dart';
+import '../features/games/screens/games_screen.dart';
+import '../features/games/shared/edu_game_shell.dart';
+import '../features/games/tree_of_deeds/game_screen.dart';
+import '../features/identity/identity_screen.dart';
+import '../features/journey/screens/child_journey_screen.dart';
+import '../features/journey/screens/quran_memorization_screen.dart';
+import '../features/child_memory/data/memory_models.dart';
+import '../features/child_memory/screens/account_deletion_screen.dart';
+import '../features/child_memory/screens/child_memory_screen.dart';
+import '../features/child_memory/screens/privacy_screen.dart';
+import '../features/program/data/progress_models.dart';
+import '../features/program/data/story_models.dart';
+import '../features/program/screens/add_child_screen.dart';
+import '../features/program/screens/badges_screen.dart';
+import '../features/program/screens/bedtime_routine_screen.dart';
+import '../features/program/screens/children_list_screen.dart';
+import '../features/program/screens/data_table_screen.dart';
+import '../features/program/screens/edit_child_screen.dart';
+import '../features/program/screens/favorites_screen.dart';
+import '../features/program/screens/flashcards_screen.dart';
+import '../features/program/screens/infographic_screen.dart';
+import '../features/program/screens/lesson_screen.dart';
+import '../features/program/screens/path_detail_screen.dart';
+import '../features/program/screens/paths_screen.dart';
+import '../features/program/screens/podcast_player_screen.dart';
+import '../features/program/screens/quiz_game_screen.dart';
+import '../features/program/screens/quiz_screen.dart';
+import '../features/program/screens/report_screen.dart';
+import '../features/program/screens/search_screen.dart';
+import '../features/program/screens/settings_screen.dart';
+import '../features/program/screens/story_bookshelf_screen.dart';
+import '../features/program/screens/story_reader_screen.dart';
+import '../features/program/screens/video_player_screen.dart';
+import '../features/family_road/screens/family_road_screen.dart';
+import '../features/programs/screens/fasting_ladder_screen.dart';
+import '../features/programs/screens/milestones_screen.dart';
+import '../features/programs/screens/prayer_journey_screen.dart';
+import '../features/programs/screens/programs_screen.dart';
+import '../features/programs/screens/ramadan_day_screen.dart';
+import '../features/programs/screens/ramadan_recap_screen.dart';
+import '../features/programs/screens/ramadan_screen.dart';
+import '../features/quran/screens/quran_screen.dart';
+import '../features/quran/screens/surah_reading_screen.dart';
+import '../features/tools/screens/tasbeeh_screen.dart';
+import '../features/tools/screens/hijri_converter_screen.dart';
+import '../features/adhkar/screens/adhkar_screen.dart';
+import '../features/referral/invite_screen.dart';
+import '../features/support/support_screen.dart';
+import '../features/routine/screens/child_mode_lock_screen.dart';
+import '../features/routine/screens/daily_routine_screen.dart';
+import '../features/routine/screens/habit_customize_screen.dart';
+import '../features/routine/screens/parenting_insights_screen.dart';
+
+/// Stable analytics identity for every navigable surface.
+///
+/// These strings are written to Firebase and compared across releases —
+/// **renaming one breaks historical continuity**, so treat them as a wire
+/// format, not as labels.
+abstract final class Screens {
+  // Shell — the root route created by MaterialApp's `home:`.
+  static const root = 'root';
+
+  // Bottom-navigation tabs (reported by the shell, not by the observer,
+  // because switching an IndexedStack index is not a route change).
+  static const tabToday = 'tab_today';
+  static const tabLearn = 'tab_learn';
+  static const tabAssistant = 'tab_assistant';
+  static const tabMore = 'tab_more';
+
+  // Program / curriculum
+  static const pathDetail = 'path_detail';
+  static const lesson = 'lesson';
+  static const search = 'search';
+  static const favorites = 'favorites';
+  static const quizGame = 'quiz_game';
+
+  // Lesson content types
+  static const video = 'video';
+  static const podcast = 'podcast';
+  static const flashcards = 'flashcards';
+  static const quiz = 'quiz';
+  static const infographic = 'infographic';
+  static const report = 'report';
+  static const dataTable = 'data_table';
+
+  // Games
+  static const gameDataDefender = 'game_data_defender';
+  static const gameHealthyHero = 'game_healthy_hero';
+  static const gameTreeOfDeeds = 'game_tree_of_deeds';
+  static const gameEmotionMaze = 'game_emotion_maze';
+  static const gameRunner = 'game_runner';
+  static const games = 'games';
+
+  // Stories
+  static const storyBookshelf = 'story_bookshelf';
+  static const bedtimeRoutine = 'bedtime_routine';
+  static const storyReader = 'story_reader';
+  static const storyGenerator = 'story_generator';
+
+  // Child management
+  static const childrenList = 'children_list';
+  static const addChild = 'add_child';
+  static const editChild = 'edit_child';
+  static const childJourney = 'child_journey';
+  static const childModeLock = 'child_mode_lock';
+  static const childModeExpired = 'child_mode_expired';
+  static const handoverGate = 'handover_gate';
+
+  // Routine & habits
+  static const dailyRoutine = 'daily_routine';
+  static const habitCustomize = 'habit_customize';
+  static const parentingInsights = 'parenting_insights';
+
+  // Quran
+  static const quran = 'quran';
+  static const surahReading = 'surah_reading';
+  static const quranMemorization = 'quran_memorization';
+
+  // Worship tools
+  static const tasbeeh = 'tasbeeh';
+  static const hijriConverter = 'hijri_converter';
+  static const adhkar = 'adhkar';
+
+  // Rewards
+  static const coins = 'coins';
+  static const badges = 'badges';
+  static const exclusiveBadges = 'exclusive_badges';
+  static const covenant = 'covenant';
+  static const agreement = 'agreement';
+  static const screenOffPlayer = 'screen_off_player';
+  static const screenOffPicker = 'screen_off_picker';
+  static const offscreenActivities = 'offscreen_activities';
+  static const recordNarration = 'record_narration';
+  static const parentDay = 'parent_day';
+  static const pendingMissions = 'pending_missions';
+  static const parentLicense = 'parent_license';
+
+  // Family programs (MOBILE_API §11)
+  static const programs = 'programs';
+  static const ramadan = 'ramadan';
+  static const ramadanDay = 'ramadan_day';
+  static const fastingLadder = 'fasting_ladder';
+  static const ramadanRecap = 'ramadan_recap';
+  static const prayerJourney = 'prayer_journey';
+  static const milestones = 'milestones';
+  static const milestoneDetail = 'milestone_detail';
+
+  // «عالم الأسرة»
+  static const familyRoad = 'family_road';
+
+  // Account & meta
+  static const settings = 'settings';
+  static const identity = 'identity';
+  static const privacyData = 'privacy_data';
+  static const accountDeletion = 'account_deletion';
+  static const accountDeleted = 'account_deleted';
+
+  // «المربّي يعرف ابنك» (MOBILE_API §9)
+  static const childMemory = 'child_memory';
+  static const followup = 'followup';
+
+  // «قناديل الأسبوع» (نور والقناديل, phase 3)
+  static const weekLanterns = 'week_lanterns';
+  static const fridayHarvest = 'friday_harvest';
+  static const invite = 'invite';
+  static const support = 'support';
+  static const feedback = 'feedback';
+  static const hub = 'hub';
+}
+
+/// Where a game was entered from, for the `entry_point` param on the game
+/// events. Lives here rather than in the games feature for the same reason
+/// [Screens] does: it is an analytics identifier, and the rule above says those
+/// are constants, never free text.
+///
+/// Only two real values exist. The home shortcut, the hub tile and the help
+/// sheet all route to the games index rather than to a game, so they are
+/// already separable one level up via `home_card_tapped`, `hub_item_tapped`
+/// and `help_intent_tapped`; the in-lesson button is the only path that
+/// bypasses the index. Add a value here when a fifth entry point does the same.
+abstract final class GameSources {
+  /// Tapped a card on the games index.
+  static const index = 'index';
+
+  /// The «العب وتعلم» button inside a lesson of the matching domain.
+  static const lesson = 'lesson';
+
+  /// A route was built without naming its source — a missing call-site update,
+  /// not a real entry point. If this shows up in GA4, something new pushes a
+  /// game route and did not say so.
+  static const unknown = 'unknown';
+}
+
+/// Builds every pushable route, tagged with its [Screens] name.
+abstract final class AppRoutes {
+  static Route<T> _r<T>(String name, WidgetBuilder builder,
+          {Object? arguments}) =>
+      MaterialPageRoute<T>(
+        builder: builder,
+        settings: RouteSettings(name: name, arguments: arguments),
+      );
+
+  // ── Program / curriculum ────────────────────────────────────────────────
+
+  /// The Learn screen as a pushed route.
+  ///
+  /// It is normally the second nav destination rather than a route. The help
+  /// sheet needs to *answer* «لمن هذه الدروس؟» and «من أين أبدأ؟», and the
+  /// answer is this screen — its first line now reads «هذه الدروس تقرؤها
+  /// أنت». Sending the parent there beats describing it to them.
+  static Route<void> paths() =>
+      _r(Screens.tabLearn, (_) => const PathsScreen());
+
+  static Route<void> pathDetail(String pathId, String ageGroup) => _r(
+        Screens.pathDetail,
+        (_) => PathDetailScreen(pathId: pathId, ageGroup: ageGroup),
+      );
+
+  static Route<void> lesson(String lessonId, String ageGroup, {int? childId}) =>
+      _r(
+        Screens.lesson,
+        (_) => LessonScreen(
+          lessonId: lessonId,
+          ageGroup: ageGroup,
+          childId: childId,
+        ),
+      );
+
+  static Route<void> search() => _r(Screens.search, (_) => const SearchScreen());
+
+  static Route<void> favorites() =>
+      _r(Screens.favorites, (_) => const FavoritesScreen());
+
+  static Route<void> quizGame() =>
+      _r(Screens.quizGame, (_) => const QuizGameScreen());
+
+  // ── Lesson content types ────────────────────────────────────────────────
+  // `url` is intentionally nullable: the player screens render their own
+  // "asset unavailable" state rather than making every caller null-check.
+  static Route<void> video(String? url, String title, {String? thumbnailUrl}) =>
+      _r(
+        Screens.video,
+        (_) => VideoPlayerScreen(
+          url: url,
+          title: title,
+          thumbnailUrl: thumbnailUrl,
+        ),
+      );
+
+  static Route<void> podcast(String? url, String title) => _r(
+        Screens.podcast,
+        (_) => PodcastPlayerScreen(url: url, title: title),
+      );
+
+  static Route<void> flashcards(List<String> deckIds) =>
+      _r(Screens.flashcards, (_) => FlashcardsScreen(deckIds: deckIds));
+
+  static Route<void> quiz(List<String> quizIds) =>
+      _r(Screens.quiz, (_) => QuizScreen(quizIds: quizIds));
+
+  static Route<void> infographic(String url) =>
+      _r(Screens.infographic, (_) => InfographicScreen(url: url));
+
+  static Route<void> report(String url) =>
+      _r(Screens.report, (_) => ReportScreen(url: url));
+
+  static Route<void> dataTable(String url) =>
+      _r(Screens.dataTable, (_) => DataTableScreen(url: url));
+
+  // ── Games ───────────────────────────────────────────────────────────────
+  /// The games index. They were previously reachable only from inside a lesson
+  /// of the matching domain, which made them invisible to a parent who just
+  /// wanted to hand their child something to play.
+  static Route<void> games() => _r(Screens.games, (_) => const GamesScreen());
+
+  // Each game route carries where it was entered from in RouteSettings.
+  // arguments, which EduGameShell reads back for `entry_point`. Passing it
+  // through the widget tree instead would mean threading a parameter through
+  // four const screens and four game subclasses to reach the one place that
+  // logs. The parameter is optional so these stay assignable to
+  // `Route<void> Function()` in GameEntry, and an entry point that forgets to
+  // name itself degrades to GameSources.unknown rather than to silence.
+  static Route<void> gameDataDefender({String source = GameSources.unknown}) =>
+      _r(Screens.gameDataDefender, (_) => const DataDefenderGameScreen(),
+          arguments: {'source': source});
+
+  static Route<void> gameHealthyHero({String source = GameSources.unknown}) =>
+      _r(Screens.gameHealthyHero, (_) => const HealthyHeroGameScreen(),
+          arguments: {'source': source});
+
+  static Route<void> gameTreeOfDeeds({String source = GameSources.unknown}) =>
+      _r(Screens.gameTreeOfDeeds, (_) => const TreeOfDeedsGameScreen(),
+          arguments: {'source': source});
+
+  static Route<void> gameEmotionMaze({String source = GameSources.unknown}) =>
+      _r(Screens.gameEmotionMaze, (_) => const EmotionMazeGameScreen(),
+          arguments: {'source': source});
+
+  static Route<void> gameRunner({
+    required EduGameTheme theme,
+    required int level,
+    required List<EduQuestion> questions,
+    required void Function(EduGameResult) onComplete,
+  }) =>
+      _r(
+        Screens.gameRunner,
+        (_) => EduGameRunner(
+          theme: theme,
+          level: level,
+          questions: questions,
+          onComplete: onComplete,
+        ),
+      );
+
+  // ── Stories ─────────────────────────────────────────────────────────────
+  static Route<void> storyBookshelf() =>
+      _r(Screens.storyBookshelf, (_) => const StoryBookshelfScreen());
+
+  /// The bedtime adhkar — offered at a story's end, never in front of it.
+  static Route<void> bedtimeAdhkar() =>
+      _r(Screens.bedtimeRoutine, (_) => const BedtimeRoutineScreen());
+
+  static Route<void> storyReader(Story story) =>
+      _r(Screens.storyReader, (_) => StoryReaderScreen(story: story));
+
+  static Route<void> storyGenerator() =>
+      _r(Screens.storyGenerator, (_) => const StoryScreen());
+
+  // ── Child management ────────────────────────────────────────────────────
+  static Route<void> childrenList() =>
+      _r(Screens.childrenList, (_) => const ChildrenListScreen());
+
+  /// Resolves to `true` when a child was actually added.
+  static Route<bool> addChild() =>
+      _r<bool>(Screens.addChild, (_) => const AddChildScreen());
+
+  /// Resolves to `true` when the profile was saved.
+  static Route<bool> editChild(ChildProfile child) =>
+      _r<bool>(Screens.editChild, (_) => EditChildScreen(child: child));
+
+  static Route<void> childJourney({
+    required int childId,
+    required String childName,
+    String? ageGroup,
+  }) =>
+      _r(
+        Screens.childJourney,
+        (_) => ChildJourneyScreen(
+          childId: childId,
+          childName: childName,
+          ageGroup: ageGroup,
+        ),
+      );
+
+  static Route<T> childModeLock<T>({
+    required int childId,
+    required String childName,
+    bool isExit = false,
+    String surface = 'habit',
+    bool verifyOnly = false,
+  }) =>
+      _r<T>(
+        Screens.childModeLock,
+        (_) => ChildModeLockScreen(
+          childId: childId,
+          childName: childName,
+          isExit: isExit,
+          surface: surface,
+          verifyOnly: verifyOnly,
+        ),
+      );
+
+  /// «باب التسليم»: where a parent hands the device to a child.
+  ///
+  /// Every way into a child surface comes through here. [surface] skips the
+  /// choice when the caller already knows it (today's mission, the prayer
+  /// card); [ageGroup] is the profile's, and filters what is offered.
+  static Route<void> handoverGate({
+    required int childId,
+    required String childName,
+    String? ageGroup,
+    String? surface,
+  }) =>
+      _r(
+        Screens.handoverGate,
+        (_) => HandoverGateScreen(
+          childId: childId,
+          childName: childName,
+          ageGroup: ageGroup,
+          surface: surface,
+        ),
+      );
+
+  /// Terminal state for a child-mode session that expired without a resolvable
+  /// child id — there is nothing to unlock, so we can only explain.
+  static Route<T> childModeExpired<T>(String message) => _r<T>(
+        Screens.childModeExpired,
+        (_) => Scaffold(body: Center(child: Text(message))),
+      );
+
+  // ── Routine & habits ────────────────────────────────────────────────────
+  static Route<void> dailyRoutine() =>
+      _r(Screens.dailyRoutine, (_) => const DailyRoutineScreen());
+
+  static Route<void> habitCustomize() =>
+      _r(Screens.habitCustomize, (_) => const HabitCustomizeScreen());
+
+  static Route<void> parentingInsights() =>
+      _r(Screens.parentingInsights, (_) => const ParentingInsightsScreen());
+
+  // ── Quran ───────────────────────────────────────────────────────────────
+  static Route<void> quran() => _r(Screens.quran, (_) => const QuranScreen());
+
+  // ── Worship tools ───────────────────────────────────────────────────────
+  static Route<void> tasbeeh() =>
+      _r(Screens.tasbeeh, (_) => const TasbeehScreen());
+
+  static Route<void> hijriConverter() =>
+      _r(Screens.hijriConverter, (_) => const HijriConverterScreen());
+
+  static Route<void> adhkar() =>
+      _r(Screens.adhkar, (_) => const AdhkarScreen());
+
+  static Route<void> surahReading({
+    required int chapterNumber,
+    required int initialVerse,
+    required Map<String, List<dynamic>> quranData,
+  }) =>
+      _r(
+        Screens.surahReading,
+        (_) => SurahReadingScreen(
+          chapterNumber: chapterNumber,
+          initialVerse: initialVerse,
+          quranData: quranData,
+        ),
+      );
+
+  static Route<void> quranMemorization({
+    required int childId,
+    required String childName,
+  }) =>
+      _r(
+        Screens.quranMemorization,
+        (_) => QuranMemorizationScreen(childId: childId, childName: childName),
+      );
+
+  // ── Rewards ─────────────────────────────────────────────────────────────
+  static Route<void> coins() => _r(Screens.coins, (_) => const CoinsScreen());
+
+  static Route<void> badges() =>
+      _r(Screens.badges, (_) => const BadgesScreen());
+
+  static Route<void> exclusiveBadges() =>
+      _r(Screens.exclusiveBadges, (_) => const ExclusiveBadgesScreen());
+
+  static Route<void> covenant() =>
+      _r(Screens.covenant, (_) => const CovenantScreen());
+
+  static Route<void> agreement({String? childName}) =>
+      _r(Screens.agreement, (_) => AgreementScreen(childName: childName));
+
+  /// Listening with the display dark — bills the audio ledger, not the screen.
+  static Route<void> screenOffPlayer(
+          {required String title,
+          required String source,
+          List<String>? playlist}) =>
+      _r(
+          Screens.screenOffPlayer,
+          (_) => ScreenOffPlayerScreen(
+              title: title, source: source, playlist: playlist));
+
+  /// Choosing what to listen to: a parent's recording, or a reciter.
+  static Route<void> screenOffPicker() =>
+      _r(Screens.screenOffPicker, (_) => const ScreenOffPickerScreen());
+
+  /// The internet licence, parent side: talking points, and a grant the
+  /// server refuses until the family has actually talked.
+  static Route<void> parentLicense() =>
+      _r(Screens.parentLicense, (_) => const ParentLicenseScreen());
+
+  /// Where the age gate sends a parent it just refused.
+  static Route<void> offscreenActivities({String? band}) =>
+      _r(Screens.offscreenActivities,
+          (_) => OffscreenActivitiesScreen(initialBand: band));
+
+  static Route<void> parentDay() =>
+      _r(Screens.parentDay, (_) => const ParentDayScreen());
+
+  /// Where the evening digest lands: every claimed mission, one confirm.
+  /// Returns true when the parent settled the batch.
+  static Route<bool> pendingMissions() =>
+      _r(Screens.pendingMissions, (_) => const PendingMissionsScreen());
+
+  static Route<bool> recordNarration(
+          {required String storyKey, required String storyText}) =>
+      _r(Screens.recordNarration,
+          (_) => RecordNarrationScreen(storyKey: storyKey, storyText: storyText));
+
+  // ── Family programs ─────────────────────────────────────────────────────
+  /// Every program, per child. Reached from Home and «المزيد» — both shown
+  /// only when the server answers `GET /api/programs`.
+  static Route<void> programs() =>
+      _r(Screens.programs, (_) => const ProgramsScreen());
+
+  /// «رمضان العائلة» for one child: the family's day plus that child's part.
+  static Route<void> ramadan(int childId) =>
+      _r(Screens.ramadan, (_) => RamadanScreen(childId: childId));
+
+  /// Any day 1–30: a preview, or a past day to tick.
+  static Route<void> ramadanDay(int childId, int day) =>
+      _r(Screens.ramadanDay, (_) => RamadanDayScreen(childId: childId, day: day));
+
+  static Route<void> fastingLadder(int childId) =>
+      _r(Screens.fastingLadder, (_) => FastingLadderScreen(childId: childId));
+
+  /// «رمضان عائلتنا» — the family's card and its in-app counters.
+  static Route<void> ramadanRecap() =>
+      _r(Screens.ramadanRecap, (_) => const RamadanRecapScreen());
+
+  static Route<void> prayerJourney(int childId) =>
+      _r(Screens.prayerJourney, (_) => PrayerJourneyScreen(childId: childId));
+
+  static Route<void> milestones(int childId) =>
+      _r(Screens.milestones, (_) => MilestonesScreen(childId: childId));
+
+  /// One milestone — also where the milestone push lands
+  /// (`/milestones/{child_id}/{key}`); falls back to the list on a 404.
+  static Route<void> milestoneDetail(int childId, String milestoneKey) => _r(
+        Screens.milestoneDetail,
+        (_) => MilestoneDetailScreen(childId: childId, milestoneKey: milestoneKey),
+      );
+
+  /// «درب {الاسم}» — the family road (عالم الأسرة). [from] is GA4's
+  /// `family_road_opened.from`: today_strip · learn_tab · noor.
+  static Route<void> familyRoad({String from = 'unknown'}) =>
+      _r(Screens.familyRoad, (_) => FamilyRoadScreen(from: from));
+
+  // ── Account & meta ──────────────────────────────────────────────────────
+  static Route<void> settings() =>
+      _r(Screens.settings, (_) => const SettingsScreen());
+
+  static Route<void> identity() =>
+      _r(Screens.identity, (_) => const IdentityScreen());
+
+  /// «الخصوصية وبياناتك»: memory, erasing it, deleting the account.
+  static Route<void> privacy() =>
+      _r(Screens.privacyData, (_) => const PrivacyScreen());
+
+  /// «حذف الحساب» (MOBILE_API §10).
+  static Route<void> accountDeletion() =>
+      _r(Screens.accountDeletion, (_) => const AccountDeletionScreen());
+
+  /// The end of a deletion; pushed with every other route removed.
+  static Route<void> accountDeleted({
+    required AccountDeletionResult result,
+    required bool wasLinkedToGoogle,
+  }) =>
+      _r(
+        Screens.accountDeleted,
+        (_) => AccountDeletedScreen(
+          result: result,
+          wasLinkedToGoogle: wasLinkedToGoogle,
+        ),
+      );
+
+  /// «ما يعرفه المربّي عن <اسم>» (MOBILE_API §9.3).
+  static Route<void> childMemory({
+    required int childId,
+    required String childName,
+  }) =>
+      _r(
+        Screens.childMemory,
+        (_) => ChildMemoryScreen(childId: childId, childName: childName),
+      );
+
+  static Route<void> invite() =>
+      _r(Screens.invite, (_) => const InviteScreen());
+
+  /// «ادعم المربّي», opened from its row in Settings. Only offered when the
+  /// server flag is on and the store returned the products — see
+  /// `supportVisibleProvider`.
+  static Route<void> support() =>
+      _r(Screens.support, (_) => const SupportScreen());
+
+  static Route<void> feedback() =>
+      _r(Screens.feedback, (_) => const FeedbackScreen());
+}

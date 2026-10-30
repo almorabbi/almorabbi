@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android 12+ (android:dataExtractionRules). Replaces backup_rules.xml on
+  these versions, which is why the same exclusions are written twice — a rule
+  present in only one of the two files protects only some of the users.
+
+  Two separate destinations, and both matter:
+    <cloud-backup>   Google Drive. The one the privacy screen is about.
+    <device-transfer> phone-to-phone during setup. Less obvious, equally a
+                      copy of a child's recordings onto new hardware.
+-->
+<data-extraction-rules>
+    <!-- NarrationStore's folder is <data dir>/app_flutter/narrations — the
+         "root" domain (see backup_rules.xml for why "file" alone missed it).
+         app_flutter/local_only holds feedback voice notes and agreement
+         images: what an account deletion clears must not come back with a
+         restore (backup_rules.xml says more). -->
+    <cloud-backup>
+        <exclude domain="root" path="app_flutter/narrations/" />
+        <exclude domain="file" path="narrations/" />
+        <exclude domain="root" path="app_flutter/local_only/" />
+        <exclude domain="sharedpref" path="FlutterSecureStorage.xml" />
+        <exclude domain="sharedpref" path="FlutterSecureKeyStorage.xml" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="root" path="app_flutter/narrations/" />
+        <exclude domain="file" path="narrations/" />
+        <exclude domain="root" path="app_flutter/local_only/" />
+        <exclude domain="sharedpref" path="FlutterSecureStorage.xml" />
+        <exclude domain="sharedpref" path="FlutterSecureKeyStorage.xml" />
+    </device-transfer>
+</data-extraction-rules>

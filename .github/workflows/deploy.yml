@@ -1,0 +1,500 @@
+name: Deploy
+
+# Auto-deploy the backend on push to main. The production VPS builds nothing
+# and tests nothing — it pulls an image that was built, smoked and published
+# on GitHub-hosted runners, and swaps it in. Four jobs, in order:
+#
+#   gate    GitHub-hosted. Waits for "Backend tests" (backend.yml: pytest, KB
+#           integrity, ruff — all GitHub-hosted) to pass for THIS commit, and
+#           fails closed otherwise (ops/tools/deploy_gate.py, which also says
+#           why this is an API check and not `on: workflow_run`).
+#   image   GitHub-hosted. Builds backend/Dockerfile (layer cache in GHCR),
+#           pushes a candidate, pulls it back, runs the in-image smoke and KB
+#           integrity check on those exact bytes, then tags them
+#           ghcr.io/almorabbi/almorabbi-backend:<sha> and :main
+#           (.github/actions/backend-image). Hands the manifest digest on.
+#   deploy  ON the VPS (self-hosted runner `vps-tg`, locally — no SSH). Pulls
+#           that digest anonymously (public package), checks it carries this
+#           commit, resets the host checkout to it (bind mounts: docs, crons
+#           in ops/scripts, ops/tools, frontend), checks served media, backs
+#           up the data, recreates the container, verifies /health,
+#           /privacy-policy and /api/app-config, and rolls back to the
+#           previous image if any of that fails.
+#   alert   ON the VPS (the Telegram credentials live in its .env). Fires when
+#           any job before it failed or was cancelled.
+#
+# Why: on 2026-10-04 the host was CPU-throttled (~95% steal). The full suite
+# inside a candidate image ran 16-28 min, then 75+; the first gated deploy
+# then spent 44 min in a cached image build (COPY layers alone took ~10 min
+# each) and was cancelled. A pull of the changed app layers is seconds of CPU.
+#
+# Manual run: Actions → Deploy → "Run workflow". Main only; gated the same way.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - 'knowledge_base/**'
+      - 'ops/tools/**'
+      - 'ops/scripts/**'
+      - 'frontend/**'
+      - 'docs/lesson_index.json'
+      - 'docs/lesson_assets/**'
+      - 'docker-compose.production.yml'
+      - 'backend/Dockerfile'
+      - '.github/workflows/deploy.yml'
+      - 'requirements*.txt'
+      - '.github/ci/constraints-prod.txt'
+      - '.github/ci/requirements-prod.lock'
+      - '.dockerignore'
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false # never cancel an in-flight deploy
+
+env:
+  IMAGE: ghcr.io/almorabbi/almorabbi-backend
+
+jobs:
+  gate:
+    name: Backend tests passed for this commit
+    # Cutover guard: this repository deploys nothing until the production
+    # runner has been moved here and the repository variable CUTOVER_DONE is
+    # set to 'true'. Skipping the gate skips image, deploy and alert with it.
+    if: ${{ github.repository == 'almorabbi/almorabbi' && vars.CUTOVER_DONE == 'true' }}
+    runs-on: ubuntu-latest
+    # Hosted tests take ~3-5 min; the script's own budget is 50 min.
+    timeout-minutes: 60
+    permissions:
+      actions: read
+      contents: read
+    steps:
+      - name: Checkout (the gate script only)
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: ops/tools
+
+      - name: Wait for pytest, KB integrity and ruff on ${{ github.sha }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 ops/tools/deploy_gate.py --sha "${{ github.sha }}"
+
+  image:
+    name: Build, smoke and publish the image
+    needs: gate
+    runs-on: ubuntu-latest
+    # ~3-5 min with the layer cache; a cold build (requirements changed) ~6.
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      digest: ${{ steps.image.outputs.digest }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Build, smoke, publish :${{ github.sha }} and :main
+        id: image
+        uses: ./.github/actions/backend-image
+        with:
+          mode: deploy
+
+  deploy:
+    name: Deploy to VPS (self-hosted)
+    needs: [gate, image]
+    runs-on: [self-hosted, production]
+    # A first pull of the whole image (~2 GB) on a throttled host is the slow
+    # case; after that only the changed app layers come down.
+    timeout-minutes: 90
+    # No checkout: everything runs from /root/tutor-guardian, reset below to
+    # the gated commit. The token is not used on this host.
+    permissions:
+      contents: read
+    environment:
+      name: production
+      url: https://tg-api.alsaba.cloud
+    env:
+      DIGEST: ${{ needs.image.outputs.digest }}
+    steps:
+
+      - name: Pull the published image (no build, no tests here)
+        run: |
+          set -euo pipefail
+          # Disk first. On 2026-09-27 a full disk killed a deploy mid-run, and
+          # this disk holds the live DB. A first pull needs ~6 GB (compressed
+          # layers + unpacked); later pulls only the changed app layers.
+          free_gb() { df -BG --output=avail / | tail -1 | tr -dc '0-9'; }
+          echo "=== Disk: $(free_gb) GB free ==="
+          if [ "$(free_gb)" -lt 15 ]; then
+            echo "::warning::low disk ($(free_gb) GB free) — pruning dangling images and old build cache"
+            docker image prune -f >/dev/null 2>&1 || true
+            docker builder prune -f --filter until=72h >/dev/null 2>&1 || true
+          fi
+          if [ "$(free_gb)" -lt 8 ]; then
+            echo "::error::only $(free_gb) GB free on the production host — not pulling. Free space (docker system df) and re-run."
+            exit 1
+          fi
+
+          # By digest: exactly the manifest the image job smoked, whatever any
+          # tag says now. Anonymous — the package is public. nice only lowers
+          # the client; unpacking runs in dockerd, but after the first deploy
+          # it is a few small layers.
+          echo "=== Pull $IMAGE@$DIGEST ==="
+          if ! nice -n 10 docker pull "$IMAGE@$DIGEST"; then
+            echo "::error::anonymous pull of $IMAGE failed. If the package is still private, make it public once: https://github.com/orgs/almorabbi/packages/container/almorabbi-backend/settings → Danger Zone → Change visibility → Public. Then re-run this deploy."
+            exit 1
+          fi
+
+          # Belt and braces: the image must say it was built from this commit.
+          REVISION=$(docker image inspect --format '{{ index .Config.Labels "org.opencontainers.image.revision" }}' "$IMAGE@$DIGEST")
+          if [ "$REVISION" != "$GITHUB_SHA" ]; then
+            echo "::error::$IMAGE@$DIGEST was built from '$REVISION', not $GITHUB_SHA — not deploying it"
+            exit 1
+          fi
+          # A local tag keeps it out of `docker image prune` (an image pulled
+          # by digest alone is untagged) and names it for the cleanup step.
+          docker tag "$IMAGE@$DIGEST" "$IMAGE:$GITHUB_SHA"
+          echo "pulled $IMAGE:$GITHUB_SHA ($DIGEST), built from $REVISION"
+
+      - name: Deploy backend locally on the VPS
+        run: |
+          set -euo pipefail
+          DEPLOY_PATH="/root/tutor-guardian"
+          DEPLOY_HEALTH_URL="https://tg-api.alsaba.cloud/health"
+
+          echo "=== Self-hosted deploy ==="
+          echo "Date:        $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "Deploy path: $DEPLOY_PATH"
+          echo "Health URL:  $DEPLOY_HEALTH_URL"
+          echo
+
+          cd "$DEPLOY_PATH"
+
+          # ── 1. Record previous SHA + image for rollback ──────────────
+          PREVIOUS_SHA=$(git rev-parse HEAD)
+          echo "Previous SHA: $PREVIOUS_SHA"
+
+          # The running container pins its image by ID. Capturing it lets
+          # rollback restore the exact image that was last verified healthy in
+          # production, with no pull and no build — see _rollback() below.
+          PREVIOUS_IMAGE=$(docker inspect tg_backend --format '{{.Image}}' 2>/dev/null || true)
+          echo "Previous image: ${PREVIOUS_IMAGE:-<none>}"
+
+          # ── 2. Check out exactly the commit the gate approved ────────
+          # Not origin/main: main may already be ahead, and the bind mounts
+          # below (docs, ops/scripts — the crons run from here — mobile/assets)
+          # must come from the tested commit, like the image does. The newer
+          # commit gets its own gated deploy.
+          echo "→ git fetch + reset --hard $GITHUB_SHA (the tested commit)"
+          git fetch origin main
+          # ── 1b. Cloud-budget switch preflight, with the gated commit's own
+          # checker, before the checkout or the container changes: a value
+          # the app does not recognise is read as ON (cloud fails closed).
+          GATE_PY=$(mktemp)
+          git show "$GITHUB_SHA:ops/tools/deploy_gate.py" > "$GATE_PY"
+          if ! python3 "$GATE_PY" --check-env "$DEPLOY_PATH/.env"; then
+            rm -f "$GATE_PY"
+            echo "::error::CLOUD_BUDGET_ENFORCE in $DEPLOY_PATH/.env is unrecognised — not deploying"
+            exit 1
+          fi
+          rm -f "$GATE_PY"
+          git reset --hard "$GITHUB_SHA"
+          DEPLOY_SHA=$(git rev-parse --short HEAD)
+          echo "Deploying SHA: $DEPLOY_SHA"
+
+          # ── 2b. Does this host actually hold what the index promises? ─
+          # Media is gitignored and arrives by rsync, so the candidate image
+          # cannot check it — .dockerignore strips docs/*.mp3 and *.mp4. This
+          # path is the only place both the index and the real files exist.
+          # It caught nothing before it was written, which is the point: on
+          # 2026-08-10 the index named 7 path videos that were never generated
+          # (18 lessons served dead links) and one MP3 that three different
+          # lessons played. Blocking since run 31396853692 came through clean
+          # ("every referenced file is on this host", "no podcast is shared").
+          # A failure here stops the deploy before the container is touched, so
+          # production keeps serving the last good index.
+          echo "→ checking served assets against docs/"
+          # nice: host-side work on a shared, CPU-starved box yields to the
+          # live sites.
+          nice -n 10 python3 ops/tools/check_served_assets.py
+
+          # ── 3. Verify the pulled image is present ────────────────────
+          # No build here: the previous step pulled the image the image job
+          # built and smoked. The checkout above still has to be current
+          # because the compose file bind-mounts ./docs, ./backend/secrets,
+          # ./ops/scripts, ./ops/tools, ./frontend and ./mobile from this dir.
+          echo "→ verifying $IMAGE:$GITHUB_SHA is present"
+          docker image inspect "$IMAGE:$GITHUB_SHA" >/dev/null
+
+          # ── 3b. Make the data volumes writable by the container user ──
+          # The image runs as `appuser` (uid 10001) but Docker creates volume
+          # contents as root, so SQLite could read the DB and not write it —
+          # `PRAGMA journal_mode = WAL` then fails and the container crashloops
+          # on startup. That took production down on 2026-07-25 and had already
+          # failed the 2026-07-19 deploy; prod had been surviving on a single
+          # container that could never be restarted. Idempotent, so it also
+          # covers any freshly created volume.
+          echo "→ ensuring volume ownership (uid 10001)"
+          for _vol in tutor-guardian_tg_sessions tutor-guardian_tg_chroma; do
+            _path=$(docker volume inspect "$_vol" --format '{{.Mountpoint}}' 2>/dev/null || true)
+            if [ -n "$_path" ] && [ -d "$_path" ]; then
+              chown -R 10001:10001 "$_path" || echo "::warning::chown failed for $_vol"
+            fi
+          done
+
+          # ── 3c. Make read-only bind mounts readable by the container user ──
+          # Same uid mismatch as 3b, other direction: these are host dirs, not
+          # volumes. docs/ is rsynced from the dev machine and arrives owned by
+          # uid 1000 mode 0600, which uid 10001 cannot read. On 2026-07-27 that
+          # left 421 of 1594 docs files unreadable, so /privacy-policy answered
+          # 200 with an empty body and Cloudflare turned it into a 520 — the
+          # deploy smoke test then rolled back with no usable diagnosis.
+          # These three mounts are public content, so a+rX is the right state;
+          # backend/secrets is deliberately excluded — it must stay 0600.
+          echo "→ ensuring bind-mount readability (docs, ops/scripts, ops/data, mobile/assets)"
+          for _dir in docs ops/scripts ops/data mobile/assets; do
+            [ -d "$_dir" ] && { chmod -R a+rX "$_dir" || echo "::warning::chmod failed for $_dir"; }
+          done
+
+          # Secrets get the opposite treatment: owned by the container user and
+          # readable by nobody else. Same 0600 root:root symptom as docs/ — it
+          # made _load_credentials() raise PermissionError, so push notifications
+          # were dead in production — but a+rX would be the wrong cure here.
+          if [ -d backend/secrets ]; then
+            echo "→ ensuring secrets are container-readable and private (0400, uid 10001)"
+            chown -R 10001:10001 backend/secrets || echo "::warning::chown failed for backend/secrets"
+            find backend/secrets -type f -exec chmod 400 {} + || echo "::warning::chmod failed for backend/secrets"
+          fi
+
+          # ── 3d. Verified backup of the user data BEFORE the new image ──
+          # The new image may migrate the schema on startup (v27 rebuilds
+          # child_challenges). _rollback() restores the previous IMAGE, not the
+          # data, so a verified copy has to exist first. Same script as the
+          # nightly cron (online backup API + integrity_check + gzip) — a
+          # failure here stops the deploy before the container is touched.
+          # Skipped only when there is no running container to back up.
+          if docker inspect -f '{{.State.Running}}' tg_backend 2>/dev/null | grep -q true; then
+            echo "→ pre-deploy backup of /app/ops/*.db"
+            BACKUP_ROOT=/root/tg-backups nice -n 10 ops/scripts/backup_user_data.sh
+            # Read-only schema preflight: integrity_check and no child with two
+            # active challenges (the v27 partial index would reject that).
+            nice -n 10 ops/scripts/migrate_schema_v27.sh preflight
+          else
+            echo "::warning::tg_backend not running — skipping pre-deploy backup"
+          fi
+
+          # ── Helper: rollback to previous SHA ─────────────────────────
+          _rollback() {
+            echo "::warning::Rolling back to SHA: $PREVIOUS_SHA ..."
+            git reset --hard "$PREVIOUS_SHA"
+            # Re-tag the image that was actually running and healthy before
+            # this deploy: no pull, no build. Without one (first-ever deploy on
+            # this host), the previous commit's published image if it exists —
+            # never a build here.
+            if [ -n "$PREVIOUS_IMAGE" ] && docker image inspect "$PREVIOUS_IMAGE" >/dev/null 2>&1; then
+              echo "::warning::Restoring previous image $PREVIOUS_IMAGE"
+              docker tag "$PREVIOUS_IMAGE" tutor-guardian-backend:latest
+              docker compose -f docker-compose.production.yml up -d --no-build --remove-orphans backend
+            elif nice -n 10 docker pull "$IMAGE:$PREVIOUS_SHA"; then
+              echo "::warning::Restoring $IMAGE:$PREVIOUS_SHA"
+              docker tag "$IMAGE:$PREVIOUS_SHA" tutor-guardian-backend:latest
+              docker compose -f docker-compose.production.yml up -d --no-build --remove-orphans backend
+            else
+              echo "::error::no previous image to roll back to — restore by hand"
+            fi
+            echo "::warning::Rollback complete."
+          }
+
+
+          # ── 4. Recreate the container ────────────────────────────────
+          # Compose resolves this service to tutor-guardian-backend:latest
+          # (`<project>-<service>`; it declares no `image:`), so the pulled
+          # image takes that tag only now — after the backup, right before
+          # the swap. A failure above leaves :latest where it was.
+          docker tag "$IMAGE:$GITHUB_SHA" tutor-guardian-backend:latest
+          echo "→ docker compose up -d --no-build backend"
+          # The swap itself can fail: on 2026-10-05, under a 20% CPU limit,
+          # Docker could not stop the old container ("PID … is zombie and can
+          # not be killed"), `set -e` ended the step right here — before any
+          # rollback — and production stayed down (502) until a hand-run
+          # `compose up` a few minutes later, once the old container had
+          # exited. So: retry while the old container winds down, then roll
+          # back rather than leave nothing running.
+          UP_OK=0
+          for _try in 1 2 3 4; do
+            if docker compose -f docker-compose.production.yml up -d --no-build --remove-orphans backend; then
+              UP_OK=1
+              break
+            fi
+            echo "::warning::compose up failed (attempt $_try/4) — waiting 45s for the old container to exit"
+            sleep 45
+          done
+          if [ "$UP_OK" != "1" ]; then
+            echo "::error::compose up kept failing — rolling back"
+            docker ps -a --filter name=tg_backend --format '{{.ID}} {{.Status}} {{.Image}}' || true
+            _rollback
+            exit 1
+          fi
+
+          # ── 5. Wait for the new container to be healthy ──────────────
+          # Cold start loads the embedding model weights + ChromaDB, which
+          # routinely takes >60s. 180s was enough until a boot that also has
+          # to REBUILD the index: on 2026-08-13 the HNSW bloat guard purged
+          # and re-embedded 864 units, the app logged "startup complete" and
+          # answered /health 200 — seconds after attempt 36 had already given
+          # up. The deploy rolled a healthy release back, and the units it
+          # carried never reached production while the logs showed a clean
+          # boot. A rebuild is exactly when a deploy most needs patience, so
+          # the ceiling has to clear it: 420s.
+          echo "→ waiting for container health (up to 420s)"
+          STATUS="missing"
+          for i in $(seq 1 84); do
+            sleep 5
+            STATUS=$(docker inspect --format='{{.State.Health.Status}}' tg_backend 2>/dev/null || echo "missing")
+            echo "  attempt $i: $STATUS"
+            [ "$STATUS" = "healthy" ] && break
+          done
+
+          if [ "$STATUS" != "healthy" ]; then
+            echo "::error::tg_backend is not healthy after 180s — triggering rollback"
+            docker logs --tail 50 tg_backend 2>&1 || true
+            _rollback
+            exit 1
+          fi
+
+          # ── 6. HTTP smoke test ───────────────────────────────────────
+          # No -f: it makes curl exit non-zero on an HTTP error, so the old
+          # `|| echo "fail"` *appended* to the code already on stdout and
+          # reported nonsense like "520fail". Without -f curl exits 0 and
+          # %{http_code} is the code on its own.
+          echo "→ HTTP smoke test: $DEPLOY_HEALTH_URL"
+          HTTP_CODE=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 30 "$DEPLOY_HEALTH_URL" || echo "000")
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::error::Health URL returned $HTTP_CODE (expected 200) — triggering rollback"
+            docker logs --tail 50 tg_backend 2>&1 || true
+            _rollback
+            exit 1
+          fi
+
+          # ── 7. Privacy endpoint (Phase 0 regression) ─────────────────
+          # -w also reports the body size: this endpoint once answered 200 with
+          # zero bytes (unreadable bind-mounted file), which Cloudflare masked
+          # as a 520, so an empty body is itself a failure worth naming.
+          PRIVACY_OUT=$(curl -sS -o /dev/null -w '%{http_code} %{size_download}' --max-time 30 "${DEPLOY_HEALTH_URL%/health}/privacy-policy" || echo "000 0")
+          PRIVACY_CODE=${PRIVACY_OUT%% *}
+          PRIVACY_BYTES=${PRIVACY_OUT##* }
+          if [ "$PRIVACY_CODE" != "200" ] || [ "$PRIVACY_BYTES" -eq 0 ]; then
+            echo "::error::privacy-policy returned $PRIVACY_CODE with $PRIVACY_BYTES bytes (expected 200, non-empty) — triggering rollback"
+            docker logs --tail 50 tg_backend 2>&1 || true
+            _rollback
+            exit 1
+          fi
+
+          # ── 8. /api/app-config — every installed build asks it, on launch,
+          # whether it must update; a release that breaks it strands them all.
+          CFG=$(curl -sS --max-time 30 "${DEPLOY_HEALTH_URL%/health}/api/app-config" || echo "")
+          if ! python3 -c 'import json, sys; assert isinstance(json.loads(sys.argv[1])["minimum_build_number"], int)' "$CFG" 2>/dev/null; then
+            echo "::error::/api/app-config did not return minimum_build_number (got: ${CFG:0:200}) — triggering rollback"
+            docker logs --tail 50 tg_backend 2>&1 || true
+            _rollback
+            exit 1
+          fi
+
+          echo
+          echo "=== Deploy complete ==="
+          echo "SHA:  $DEPLOY_SHA"
+          echo "Image: $IMAGE@$DIGEST"
+          echo "Time: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+      # Runs on cancellation and failure too. Keeps the three most recent
+      # pulled images (the running one and its rollback targets) and drops
+      # older ones; `docker rmi` refuses an image a container still uses.
+      - name: Prune old pulled images
+        if: always()
+        run: |
+          docker images "$IMAGE" --format '{{.CreatedAt}}\t{{.Repository}}:{{.Tag}}' \
+            | grep -v ':<none>$' | sort -r | tail -n +4 | cut -f2 \
+            | xargs -r docker rmi >/dev/null 2>&1 || true
+          docker image prune -f >/dev/null 2>&1 || true
+          docker images "$IMAGE" --format '  {{.Repository}}:{{.Tag}} {{.ID}} {{.Size}}'
+          docker images tutor-guardian-backend --format '  {{.Repository}}:{{.Tag}} {{.ID}} {{.Size}}'
+
+      - name: Post-deploy log tail
+        if: always()
+        run: |
+          echo "=== Last 30 lines of tg_backend (post-deploy) ==="
+          docker logs --tail 30 tg_backend 2>&1 || echo "(no logs available)"
+
+  # A failed deploy used to be silent. On 2026-08-14 two consecutive runs
+  # failed on the served-assets guard (702b723, f1f9453) and nobody found
+  # out for three hours — main simply stopped reaching production while
+  # every local signal said the work was pushed and done.
+  #
+  # Its own job since the gate exists: a red gate skips the deploy job, and a
+  # skipped job runs none of its steps. It runs on the VPS runner because the
+  # credentials come from the same .env the app uses (0600, root, and the
+  # runner is root) — no GitHub secret. The token is never echoed — it enters
+  # the URL from the environment at run time and does not appear in this file
+  # or in the log.
+  #
+  # ⚠️ Covers a *failed or cancelled run*. It cannot cover a run that never
+  # started — a dead runner, or a push whose paths all miss the filters
+  # above. The drift check in ops/tools/check_deploy_drift.py is what
+  # catches those, because it compares production against origin/main
+  # instead of watching this workflow.
+  alert:
+    name: Alert on failed deploy
+    needs: [gate, image, deploy]
+    if: ${{ always() && (contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')) }}
+    runs-on: [self-hosted, production]
+    timeout-minutes: 5
+    steps:
+      - name: Send the Telegram alert
+        run: |
+          set -eu
+          cd /root/tutor-guardian
+          set -a; . ./.env; set +a
+          : "${TELEGRAM_BOT_TOKEN:?missing}" "${TELEGRAM_CHAT_ID:?missing}"
+
+          RUNNING_SHA=$(git rev-parse --short HEAD 2>/dev/null || echo '?')
+          CONTAINER=$(docker ps --format '{{.Status}}' --filter name=tg_backend | head -1)
+          HEALTH=$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 \
+                   https://tg-api.alsaba.cloud/health || echo 'unreachable')
+
+          if [ "${{ needs.gate.result }}" != "success" ]; then
+            HINT1='البوابة: اختبارات Backend tests لم تنجح لهذا الكوميت،'
+            HINT2='فلم يُلمَس الإنتاج. السبب في رابط التشغيل أعلاه.'
+          elif [ "${{ needs.image.result }}" != "success" ]; then
+            HINT1='بناء الصورة أو فحصها على GitHub لم ينجح،'
+            HINT2='فلم يُلمَس الإنتاج. السبب في رابط التشغيل أعلاه.'
+          else
+            HINT1='الخطوة الفاشلة في اللوج. لو الحارس هو السبب،'
+            HINT2='الأرجح ملف ميديا في الفهرس ولم يصل بالـrsync.'
+          fi
+
+          TEXT=$(printf '%s\n' \
+            '🔴 نشر المربّي فشل — main لم يصل الإنتاج' \
+            '' \
+            "الحالة:    gate=${{ needs.gate.result }} · image=${{ needs.image.result }} · deploy=${{ needs.deploy.result }}" \
+            "الكوميت:   ${{ github.sha }}" \
+            "على الخادم: $RUNNING_SHA" \
+            "الحاوية:   ${CONTAINER:-<لا توجد>}" \
+            "‎/health:  $HEALTH" \
+            '' \
+            "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            '' \
+            "$HINT1" \
+            "$HINT2")
+
+          curl -sS --max-time 20 \
+            "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${TEXT}" \
+            -o /tmp/tg_alert_resp.json -w 'telegram HTTP %{http_code}\n'
+          # Telegram answers HTTP 200 with ok=false for a wrong chat_id, so the
+          # alert is confirmed by the response body — an alert that silently
+          # fails to send is the exact failure this whole step exists to end.
+          python3 -c 'import json,sys; d=json.load(open("/tmp/tg_alert_resp.json")); print("telegram ok=", d.get("ok"), "message_id=", (d.get("result") or {}).get("message_id")); sys.exit(0 if d.get("ok") else 1)'

@@ -1,0 +1,430 @@
+#!/usr/bin/env bash
+# Daily English media generation — harvest first, then each medium on its own
+# quota.
+#
+#   scripts/cron_gen_en_media.sh
+#
+# Why one driver and not two agents
+# ---------------------------------
+# 🚨 The quota is PER MEDIUM, not shared — but the two media do not share the
+# SAME ceiling, and one of the two numbers below was wrong for five days.
+#
+# Audio's ceiling is real and repeatedly confirmed: ~20 accepted, then a plain
+# `rate-limited` refusal. Measured cleanly more than once (08-16, 08-17).
+#
+# Infographics' ceiling was NOT measured the same way. On 08-17 the step
+# stopped after 21 — but the log says `Authentication expired`, not
+# `rate-limited`. That is a dead session, the same failure mode that lost 124
+# calls on 08-15, not a quota ceiling. It was misread as one and written down
+# as "infographics also gets ~20/day", and every schedule estimate after that
+# used it.
+#
+# The two clean `RATE LIMIT` stops actually seen since then:
+#
+#     2026-08-21   4 accepted, then RATE LIMIT
+#     2026-08-22   5 accepted, then RATE LIMIT
+#
+# Not a fluke of file size — infographic PNGs are steady at 4–5 MB across both
+# old and new ones, so it is not "images got heavier". Infographics simply
+# have a much lower ceiling than audio, on the order of 4–6 per run, not ~20.
+# 109 lessons were still missing their English infographic as of 08-22 — at
+# this rate that is ~3–4 weeks, not the ~1 week the old ~20/day figure implied.
+#
+# What generalizes: audio and infographics do NOT draw from one shared pool —
+# proven on 08-17, when infographics still accepted calls right after audio
+# had exhausted its own ceiling completely. A shared pool would have returned
+# zero. So running both regardless is still correct; only the size of
+# infographics' individual ceiling was wrong.
+#
+# Still not established: whether either ceiling is per-run or per-day. The
+# 08-16 attempt at that failed — the second run rode the session the first
+# run's ceiling had killed, so it measured nothing. Needs two runs of one
+# medium with a fresh login between them.
+#
+# So the reason for one driver is not a shared pool. It is that two agents on
+# the same Google account rotate each other's cookies out (see below), and one
+# driver makes the order deliberate rather than a race.
+#
+# Each generator stops itself on the first refusal — that is the design, not a
+# fault. Every step re-authenticates first, because the previous step's ceiling
+# kills the session.
+set -u
+umask 022
+REPO="$HOME/projects/tutor-guardian"
+LOG="/tmp/gen_en_media.log"
+VPS="root@72.62.44.131"
+VPS_DOCS="/root/tutor-guardian/docs/"
+NOTEBOOK_MAIN="94f191e6-cfbc-4655-a0d7-c8f7ad0f2287"
+export HOME="${HOME:-/home/$(id -un)}"
+export PYTHONUNBUFFERED=1
+cd "$REPO" || exit 1
+PY="$REPO/backend/.venv/bin/python"
+[ -x "$PY" ] || PY="/usr/bin/python3"
+
+say() { echo "$(date '+%Y-%m-%d %H:%M:%S') $*" | tee -a "$LOG"; }
+say "===== English media run ====="
+
+# Each generator authenticates its own profile (tg-video / tg-audio). One
+# profile shared by two processes rotates cookies out from under the other —
+# the session died three times on 2026-08-14 that way.
+# 🚨 Verified by EFFECT, not by the login command's exit code.
+#
+# On 2026-08-15 at 06:30 `login` exited 0 and printed "Cookies verified
+# successfully" for both profiles — and every generate call that followed
+# failed with "re-authenticate". The run produced nothing and PCC recorded it
+# "ok", because the guard trusted a success message instead of asking the API
+# a question. That is the failure this whole pipeline keeps producing, written
+# into the guard meant to catch it.
+#
+# So: log in, then make a real read. If the read comes back with data, the
+# session is alive. If not, stop — a run that cannot authenticate cannot
+# generate, and should say so rather than spend an hour proving it.
+# 🚨 And re-checked before EVERY step, not once at the top.
+#
+# Checking once was worth 124 failed calls on 2026-08-15 — every infographic
+# call in the run, 344 errors, read at the time as a quota ceiling because a
+# whole medium failing at once looks like one.
+#
+# ⚠️ CORRECTION to what e0fabcf's message says. That commit blamed session
+# *age*: video up to 45 min, audio up to 45 more, so tg-video reached the
+# infographic step ~80 minutes past a check it had passed. The fix is right and
+# the reason was wrong, and the difference matters for anyone reasoning about
+# this later.
+#
+# Measured directly on 2026-08-16, audio alone, nothing else running:
+#
+#   · session verified alive by a real read immediately before the run
+#   · 20 generations accepted, then `rate-limited` on the 21st
+#   · seconds later the same session was DEAD — a plain `source list` refused
+#   · a fresh `login` recovered it instantly
+#
+# Recovered by login means killed, not expired. **Hitting the quota ceiling
+# kills the session.** And because tg-video and tg-audio sit on the same Google
+# account, the audio step's refusal takes tg-video down with it — the
+# infographic step then finds a corpse, whatever its age. A run that never hit
+# the ceiling would have been fine at 80 minutes.
+#
+# This also re-reads an older symptom: `no task id` was diagnosed on 08-15 as a
+# dead session. True, but it is the second link in the chain, not the first —
+# ceiling → session killed → every later call returns `no task id`. The two
+# refusals are the same event seen before and after the kill, which is why the
+# same lesson id appears under both wordings in the 08-16 logs.
+#
+# So re-authenticating before each step is not hygiene against drift; it is
+# recovery from a kill that the previous step causes — and it is what makes
+# each medium's own ceiling reachable at all. On 2026-08-17 the infographic
+# step still accepted calls immediately after audio had exhausted its own
+# ceiling, because the session was rebuilt in between — proof the two do not
+# share one pool, independent of what either individual ceiling turns out to
+# be (see the header: infographics' true ceiling is ~4-6, not ~20). Without
+# the rebuild, a medium with quota to spare spends the whole run talking to a
+# corpse, which is exactly how 124 calls failed on 08-15 and were misread as a
+# ceiling.
+#
+# Separate profiles still prevent the cookie rotation that killed the session
+# three times on 08-14, but they do not help here: the profiles share one
+# Google account, so a refusal on either kills both.
+# 🚨 The read is retried, because one transient 502 is not a dead session.
+#
+# 2026-08-18 10:39: tg-video verified, tg-audio did not, the run aborted, and
+# the whole day's quota went unspent — both media, ~40 generations. Nineteen
+# minutes later the identical read returned the notebook fine. The log shows
+# why: `RPC GET_USER_SETTINGS (TransportServerError)`, HTTP 502, the CLI's own
+# backoff kicking in. Google hiccuped for a second and the guard read that as
+# "this session is dead, stop everything".
+#
+# The guard is still right to stop on a genuinely dead session — a run that
+# cannot authenticate should say so rather than spend an hour proving it. But
+# "cannot authenticate" has to mean three failures across a minute, not one
+# unlucky call. Same lesson as the twelve in-flight tasks written off as dead
+# on 08-17 that all downloaded once the harvest was simply run again:
+# persistence was the answer, not the diagnosis.
+# The session logic lives in scripts/lib/nblm_session.sh so it can be tested
+# against a stub CLI and a throwaway HOME. 🚨 2026-09-29: the Chrome fallback
+# there extracts into a CANDIDATE profile and only a candidate proven by a real
+# read ever replaces the live file (with a timestamped backup and a .lastgood
+# copy) — a dead extraction overwrote the only good session twice that day.
+# shellcheck source=scripts/lib/nblm_session.sh
+. "$REPO/scripts/lib/nblm_session.sh"
+
+# WiFi (Zain_H155-383_DC14_5G) drops before 06:30 some mornings:
+# 2026-08-25 06:19 ssid-not-found, then cron 06:30:02 → exit 1 at 06:31:04
+# 2026-08-29 06:08 same SSID, then cron 06:30:01 → DNS [Errno -2], exit 1 at 06:31:04
+# The laptop is awake so cron fires; PCC catch-up only covers missed-while-asleep,
+# not failed-while-offline. ensure_session then misreads DNS failure as a dead
+# NotebookLM session (three reads across ~63s). Wait for DNS first.
+wait_for_network() {
+    local attempt
+    for attempt in $(seq 1 60); do
+        if getent hosts google.com >/dev/null 2>&1; then
+            [ "$attempt" -gt 1 ] && say "network up after $(( (attempt-1)*30 ))s"
+            [ "$attempt" -eq 1 ] && say "network up"
+            return 0
+        fi
+        say "network down (DNS, attempt $attempt/60) — sleeping 30s"
+        sleep 30
+    done
+    say "FAIL: no DNS after 30 minutes — not a dead NotebookLM session"
+    return 1
+}
+
+if ! wait_for_network; then
+    exit 1
+fi
+if ! ensure_session tg-video || ! ensure_session tg-audio; then
+    say "FAIL: no usable session — nothing can be generated"
+    exit 1
+fi
+
+# 🚨 Defined HERE, before the first step that redirects into it.
+#
+# It used to be created just above the video step, which was fine while video
+# was first. Inserting the harvest ahead of it left `> "$RUN_OUT"` pointing at
+# an unset variable, and this script is `set -u` — so bash exited on that line,
+# silently, before a single generator ran. Two runs died exactly there
+# (2026-08-17 06:30 and 10:01): four log lines, three auth checks, nothing
+# else, and PCC recorded "failed" with no reason because the run never reached
+# the code that writes one.
+#
+# `set -u` did its job; the ordering was mine.
+RUN_OUT=$(mktemp)
+trap 'rm -f "$RUN_OUT"' EXIT
+
+# ── Harvest first — before anything can spend, or die ──
+#
+# 🚨 This runs FIRST, always, and it is not an optimisation.
+#
+# In-flight tasks are generations already charged against the quota, finished
+# on Google's servers, waiting to be downloaded. Collecting them costs nothing.
+# But polling shares a session with generating, and generating hits the ceiling,
+# and hitting the ceiling KILLS the session (measured 2026-08-16). So a run that
+# generates before it collects arrives at the download step with a dead session
+# and returns "error" on every poll — losing, for free, work that was already
+# paid for. That is exactly what happened this morning: 20 completed episodes,
+# zero downloaded, exit 0.
+#
+# 18 episodes were lost outright on 2026-08-15 the same way. Order is the fix.
+ensure_session tg-audio || say "WARN: tg-audio unusable before harvest"
+timeout 1800 "$PY" scripts/gen_podcasts_cron.py --lang en --harvest-only \
+    > "$RUN_OUT" 2>&1
+# Captured immediately. `$?` after the `cat` below reports the *cat*, which
+# succeeds whatever the harvest did — the same class of always-true signal
+# that made `git push … | tail -3; echo $?` report success on two failed
+# pushes (see ~/projects/CLAUDE.md rule 9).
+HARVEST_EXIT=$?
+cat "$RUN_OUT" >> "$LOG"
+say "harvest exit $HARVEST_EXIT · $(grep -c '✓ downloaded' "$RUN_OUT") downloaded, \
+$(grep -oE '[0-9]+ still in flight' "$RUN_OUT" | head -1)"
+
+# Infographic harvest, same reasoning, same slot — before video or audio can
+# spend and kill the tg-video session this needs. Without this, a day where
+# audio exhausts its ceiling before the infographics step re-authenticates
+# loses BOTH the day's new triggers AND whatever finished server-side from
+# yesterday, which is exactly what 2026-08-20 did. tg-video was just verified
+# alive above (ensure_session tg-video, before tg-audio), so harvest while it
+# is still fresh.
+#
+# 🚨 --budget-seconds, and it is smaller than the timeout on purpose. Until
+# 2026-09-29 this step was killed by `timeout 600` every day since 09-02 (exit
+# 124): ~35 dead tasks at ~33 s a poll, and the task list was only saved after
+# the LAST poll, so no "drop after 3 errors" decision ever survived and the same
+# dead tasks came back every morning. The script now saves after every poll and
+# stops itself cleanly once the budget is spent; the budget is checked between
+# tasks and one poll + download can take ~210 s, so 360 + 210 stays under 600.
+timeout 600 "$PY" scripts/generate_missing_infographics.py --lang en \
+    --harvest-only --budget-seconds 360 > "$RUN_OUT" 2>&1
+INFO_HARVEST_EXIT=$?
+cat "$RUN_OUT" >> "$LOG"
+say "infographic harvest exit $INFO_HARVEST_EXIT · $(grep -c '✓ downloaded' "$RUN_OUT") downloaded"
+
+# ── Video ──
+# 🚨 This run's output only, never "$LOG".
+# The log accumulates across runs, so `grep rate.limit "$LOG"` would match the
+# FIRST rate limit ever recorded and go on matching it forever — audio skipped
+# every day after, and the stall guard below permanently excused by a refusal
+# that happened weeks ago. Exactly the class of always-true signal this whole
+# pipeline kept tripping over.
+timeout 2700 "$PY" scripts/gen_path_videos_cron.py --lang en > "$RUN_OUT" 2>&1
+VID_EXIT=$?
+cat "$RUN_OUT" >> "$LOG"
+say "video exit $VID_EXIT"
+RATELIMITED=0
+grep -qi "rate.limit" "$RUN_OUT" && RATELIMITED=1
+
+# ── Audio — always attempted, even when video was refused ──
+#
+# Whether NotebookLM meters audio and video from one pool or from separate
+# ones is NOT established. It was inferred from co-occurrence (19 video + 5
+# audio on 2026-08-14, then a refusal) and never tested in isolation: a probe
+# with video already refused found audio refused too, which fits one exhausted
+# pool and two exhausted pools equally well.
+#
+# The design does not need that answer, because the costs are asymmetric:
+#   · an attempt that is refused costs nothing — a refusal is not a generation
+#   · skipping while capacity exists costs a whole day of that medium
+# So attempt audio regardless. Under one shared pool this adds one cheap
+# refused call; under separate pools it is the difference between finishing the
+# audio backlog and never touching it once video reaches its ceiling.
+#
+# To settle it: run audio alone on a fresh day and count how many it gets
+# before refusal. If it reaches roughly the video ceiling on its own, the
+# pools are separate.
+ensure_session tg-audio || say "WARN: tg-audio unusable — attempting anyway"
+timeout 2700 "$PY" scripts/gen_podcasts_cron.py --lang en > "$RUN_OUT" 2>&1
+AUD_EXIT=$?
+cat "$RUN_OUT" >> "$LOG"
+say "audio exit $AUD_EXIT (video refused: $RATELIMITED)"
+grep -qi "rate.limit" "$RUN_OUT" && RATELIMITED=1
+
+# ── Infographics ──
+# Also attempted regardless, for the same asymmetry: a refusal is free.
+#
+# `generate infographic` DOES take --language, unlike `generate quiz` and
+# `generate flashcards`, which take none and return English whatever the prompt
+# says (OPERATIONS_LOG 2026-08-14). NOTEBOOKLM_HL is set anyway because it
+# defaults to "en" only when unset — an inherited ar_001 from a shell that ran
+# the Arabic pipeline would quietly produce Arabic into `_en` filenames.
+# 🚨 tg-video has been idle through video AND audio by now — up to 80 minutes.
+# This is the step that lost 124 calls to an expired session on 2026-08-15.
+if ! ensure_session tg-video; then
+    say "SKIP infographics: tg-video session is dead and re-login did not fix it"
+    INFO_EXIT=99
+else
+    NOTEBOOKLM_HL=en timeout 2700 "$PY" scripts/generate_missing_infographics.py \
+        --lang en > "$RUN_OUT" 2>&1
+    INFO_EXIT=$?
+    cat "$RUN_OUT" >> "$LOG"
+    say "infographics [en] exit $INFO_EXIT"
+    grep -qi "rate.limit" "$RUN_OUT" && RATELIMITED=1
+
+    # The 14 Arabic gaps. The driver ran `--lang en` only, so these were never
+    # attempted by anything — and they do not show up as missing in any English
+    # count, which is why they sat unnoticed. Last, because English is the
+    # backlog this driver exists for; Arabic is 14 files, not 124.
+    if [ "$RATELIMITED" -eq 0 ]; then
+        NOTEBOOKLM_HL=ar timeout 1200 "$PY" scripts/generate_missing_infographics.py \
+            --lang ar > "$RUN_OUT" 2>&1
+        cat "$RUN_OUT" >> "$LOG"
+        say "infographics [ar] exit $?"
+        grep -qi "rate.limit" "$RUN_OUT" && RATELIMITED=1
+    fi
+fi
+
+# An infographic is text rendered into pixels: nothing in the filename, the
+# index or the exit code knows what language is actually drawn inside it. OCR
+# the new ones rather than let a wrong-language image reach review as if it
+# were fine. Reported, not blocking — the run already produced the files.
+timeout 900 "$PY" ops/tools/check_infographic_language.py --lang en >> "$LOG" 2>&1
+say "infographic language check exit $?"
+
+# ── Publish ──
+# Media never reaches production through the deploy; it is gitignored and
+# arrives only by rsync. --chmod=F644 is load-bearing: the CLI writes 0600 and
+# the container runs as uid 10001 against a host bind mount, which is the
+# 2026-07-27 outage.
+rsync -av --chmod=F644 --min-size=2097152 \
+    --include='*_podcast_en.mp3' --include='*/' --exclude='*' \
+    -e "ssh -o BatchMode=yes -o ConnectTimeout=15" \
+    docs/ "$VPS:$VPS_DOCS" >> "$LOG" 2>&1
+say "rsync audio exit $?"
+
+rsync -av --chmod=F644 --min-size=5242880 \
+    --include='*_en_us.mp4' --include='*/' --exclude='*' \
+    -e "ssh -o BatchMode=yes -o ConnectTimeout=15" \
+    docs/path_videos/ "$VPS:${VPS_DOCS}path_videos/" >> "$LOG" 2>&1
+say "rsync video exit $?"
+
+rsync -av --chmod=F644 \
+    --include='*_infographic_*_en.png' --include='*/' --exclude='*' \
+    -e "ssh -o BatchMode=yes -o ConnectTimeout=15" \
+    docs/lesson_assets/infographics/ \
+    "$VPS:${VPS_DOCS}lesson_assets/infographics/" >> "$LOG" 2>&1
+say "rsync infographics exit $?"
+
+# ── Report coverage, and retire when there is nothing left ──
+REMAIN=$("$PY" - <<'PYEOF' 2>/dev/null
+import json, os, sys
+sys.path.insert(0, "backend")
+from app.media_naming import (MIN_PODCAST_BYTES, MIN_VIDEO_BYTES,
+                              path_video_rel, podcast_rel)
+def have(rel, floor):
+    return os.path.exists(rel) and os.path.getsize(rel) > floor
+lids = [v[2] for v in json.load(open("source_to_lesson.json")).values()
+        if isinstance(v, list) and len(v) >= 3]
+pids = [t["path_id"] for t in json.load(open("scratch/path_source_mapping_new.json"))]
+a = sum(1 for x in lids if not have(podcast_rel(x, "en"), MIN_PODCAST_BYTES))
+v = sum(1 for x in pids if not have(path_video_rel(x, "en"), MIN_VIDEO_BYTES))
+# Count what is BUILDABLE, not what exists. Only 80 of 174 lessons have an
+# infographic prompt block in scripts/infographic_prompts.md; counting all of
+# them leaves 94 permanently "remaining", so the total never reaches zero, the
+# agent never self-retires, and the stall guard fires every day on work that
+# was never possible.
+from scripts.infographic_prompts_lib import buildable_targets
+i = len(buildable_targets("en")[0])
+print(f"{a+v+i} {a} {v} {i}")
+PYEOF
+)
+say "remaining: ${REMAIN:-?} (total audio video infographic)"
+
+# 🚨 exit 0 must not mean "ran"; it must mean "worked, or had a reason not to".
+#
+# This is the failure this whole pipeline kept producing: a cron calling a file
+# that no longer existed, a generator printing "no task id" on a stale source, a
+# duration gate that silently degraded to a size check. Every one exited 0 and
+# every one produced nothing for weeks. An agent whose success signal is its own
+# exit code inherits that.
+#
+# So: a run that generated nothing is fine when the quota refused it — that is
+# the design. A run that generated nothing for three consecutive runs with no
+# refusal to explain it is broken, and PCC should say so.
+#
+# 🚨 Only a real DECREASE resets the counter. Until 2026-09-29 it reset on any
+# change (`remaining != last`) and on any rate limit: a count that went UP
+# (new lessons, a deleted file), a coverage query that failed (empty TOTAL),
+# or a refusal on a run that delivered nothing all wiped the evidence of a
+# stall. A rate-limited run with no delivery now HOLDS the count — the refusal
+# explains that run, but it does not erase the ones before it.
+TOTAL="${REMAIN%% *}"
+STALL_FILE="$REPO/scratch/en_media_progress.json"
+"$PY" - "$TOTAL" "$RATELIMITED" "$STALL_FILE" <<'PYEOF'
+import json, os, sys
+total, ratelimited, path = sys.argv[1], sys.argv[2] == "1", sys.argv[3]
+state = {}
+if os.path.exists(path):
+    try:
+        state = json.load(open(path))
+    except Exception:
+        state = {}
+def as_int(v):
+    try:
+        return int(v)
+    except (TypeError, ValueError):
+        return None
+prev, cur = as_int(state.get("remaining")), as_int(total)
+stalled = as_int(state.get("stalled")) or 0
+if prev is None and cur is not None:
+    stalled = 0                      # first measurement: a baseline, not a stall
+elif cur is not None and cur < prev:
+    stalled = 0                      # real delivery
+elif not ratelimited:
+    stalled += 1                     # no delivery, and nothing to explain it
+tmp = f"{path}.tmp.{os.getpid()}"
+with open(tmp, "w") as fh:
+    json.dump({"remaining": cur if cur is not None else prev, "stalled": stalled}, fh)
+os.replace(tmp, path)
+sys.exit(1 if stalled >= 3 else 0)
+PYEOF
+STALLED=$?
+if [ "$STALLED" -ne 0 ]; then
+    say "FAIL: three runs with no progress and no rate limit — something is broken, not throttled"
+    exit 1
+fi
+
+# Self-retire the same way the Arabic agents did, but through PCC rather than
+# by editing the crontab — the crontab is PCC-managed and hand edits are
+# forbidden (see ~/projects/CLAUDE.md).
+if [ "${REMAIN%% *}" = "0" ]; then
+    say "all English media present — disabling agent"
+    $HOME/projects/publishing-center/bin/pcc disable tutor_en_media \
+        --reason "English media complete" >> "$LOG" 2>&1
+fi

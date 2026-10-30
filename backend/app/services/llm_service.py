@@ -1,0 +1,459 @@
+"""
+LLM service — calls Ollama to generate a final response from retrieved knowledge.
+Follows strict rules: no diagnosis, no fatwa, no invented info.
+"""
+import logging
+import re
+
+from app.services.ai_gateway import get_gateway
+from app.models.api import ConversationTurn
+
+logger = logging.getLogger(__name__)
+
+# Matches a trailing citation line (📚 …) or a bare "المصدر/المصادر: …" line.
+_PIVOT_CITATION_RE = re.compile(
+    r"\n*\s*(?:📚|المصدر[\s:：]|المصادر[\s:：]).*$"
+    # English/French source lines too — only at the start of a line, so the
+    # word "source" inside a sentence is left alone.
+    r"|(?:^|\n)[ \t>*_-]*(?:sources?|references?|références?)[ \t*_]*[:：].*$",
+    re.S | re.I,
+)
+
+# CJK / Japanese / Korean / fullwidth ranges. The local qwen model occasionally
+# leaks Chinese tokens mid-answer ("首先要认识到，…"); strip them deterministically.
+_CJK_RE = re.compile(
+    r"[　-〿぀-ヿㇰ-ㇿ㐀-䶿一-鿿"
+    r"가-힯＀-￯]+"
+)
+
+# ── Source-line hygiene ──────────────────────────────────────────────────────
+# 33 of the 1,122 knowledge units carry a reference_info that is not a source:
+# 26 hold a bare domain name ("medical"), 4 are empty, 1 holds leftover
+# generation instructions ("شرح عربي واضح للأهل في 3-5 جمل…"), and 2 are
+# placeholders. The value is rendered to the parent as «📚 المصدر», so left
+# alone the app answers a question about a five-month-old and attributes it to
+# "medical".
+#
+# Filtered here rather than repaired in the data, because repairing it is an
+# editorial job, not a mechanical one: one of these units describes normal 4-6
+# month development while its source_file says Autism_CDC.pdf. Deriving the
+# citation from that field would hand a worried parent a citation to an autism
+# document — worse than showing no source at all. The passages themselves stay
+# in the context; only the false attribution is withheld.
+_NON_SOURCE_DOMAIN_WORDS = frozenset({
+    "medical", "cyber", "fiqh", "development",
+    "islamic_parenting", "aqeedah", "tarbiyah", "general",
+})
+# Matched exactly, never as a substring: «Children and Mental Health — NIMH,
+# (غير محددة)» is a real citation that merely lacks a date, and a contains-check
+# on "غير محدد" would throw it away.
+_NON_SOURCE_EXACT = frozenset({
+    "أصل المصدر غير محدد",
+    "العنوان المفقود للنص الأصلي",
+    # This one is the app's OWN fallback string for "we have no source". A unit
+    # storing it as its reference would render «📚 المصدر: مصدر غير مذكور» —
+    # the absence of a source dressed up as one.
+    "غير مذكور",
+    "مصدر غير مذكور",
+})
+_PROMPT_LEFTOVER_RE = re.compile(
+    r"(شرح عربي واضح|يذكر الأعراض|للأهل في \d|\d\s*-\s*\d\s*جمل|بأسلوب مبسط|صياغة عربية)"
+)
+
+
+def usable_reference(ref: str | None) -> str | None:
+    """The citation to show a parent, or None when the stored value is not one."""
+    cleaned = (ref or "").strip()
+    if not cleaned:
+        return None
+    if cleaned.lower() in _NON_SOURCE_DOMAIN_WORDS:
+        return None
+    if cleaned in _NON_SOURCE_EXACT:
+        return None
+    if _PROMPT_LEFTOVER_RE.search(cleaned):
+        return None
+    return cleaned
+
+
+MAX_REPLY_SOURCES = 4
+
+
+def reply_sources(units: list[dict]) -> list[str]:
+    """The citations behind an answer: usable, de-duplicated, in retrieval order.
+
+    One list feeds both the «📚 المصدر» line the model is told to write and the
+    structured `metadata.sources` the app shows as a "Sources (n)" disclosure,
+    so the two can never disagree.
+    """
+    sources: list[str] = []
+    for unit in units:
+        ref = usable_reference(unit.get("metadata", {}).get("reference_info"))
+        if ref and ref not in sources:
+            sources.append(ref)
+    return sources[:MAX_REPLY_SOURCES]
+
+
+# Latin letters glued directly to an Arabic letter (no space), e.g. "بness".
+# Conservative: only strips Latin runs touching Arabic, so standalone source
+# names like "CDC" or "AAP" (which are space-separated) are preserved.
+_GLUED_LATIN_RE = re.compile(
+    r"(?<=[؀-ۿ])[A-Za-z]+|[A-Za-z]+(?=[؀-ۿ])"
+)
+
+
+def clean_model_output(text: str) -> str:
+    """Remove leaked CJK / glued-Latin characters and tidy the artifacts."""
+    if not text:
+        return text
+    t = _CJK_RE.sub("", text)
+    t = _GLUED_LATIN_RE.sub("", t)
+    t = re.sub(r"[ \t]{2,}", " ", t)
+    t = re.sub(r" *\n", "\n", t)
+    t = re.sub(r"\n{3,}", "\n\n", t)
+    return t.strip()
+
+
+_DOMAIN_LABELS = {
+    "fiqh": "🕌 شرعي/تربوي",
+    "tarbiyah": "🕌 تربوي",
+    "islamic_parenting": "🕌 تربية إسلامية",
+    "aqeedah": "☪️ عقيدة",
+    "medical": "🧠 نفسي/طبي",
+    "cyber": "💻 رقمي/سيبراني",
+    "development": "📈 تطور الطفل",
+    "app_help": "📱 دليل التطبيق",
+}
+
+# Length guidance by severity — replaces the old rigid «4-6 جمل» cap.
+_LENGTH_BY_SEVERITY = {
+    "خفيف": "أوجز — حوالي ٤ إلى ٦ جمل.",
+    "متوسط": "أجب بتفصيل عملي — حوالي ٨ إلى ١٢ جملة.",
+    "شديد": "أجب بتفصيل، واذكر بوضوح متى تلزم مراجعة المتخصص.",
+}
+
+# The local 3B model degrades with long instruction lists — variants:
+#   rich    → cloud quality tier (structured template + per-point citations)
+#   compact → local models (same template, ⅓ the instructions)
+#   legacy  → the pre-Phase-3 instruction block (revert knob)
+import os as _os
+
+PROMPT_VARIANT_LOCAL = _os.environ.get("PROMPT_VARIANT_LOCAL", "compact")
+
+
+def build_pivot_prompt(question_text: str, age_group: str) -> str:
+    """Full prompt for a general/off-topic question (e.g. a recipe): answer
+    briefly from general knowledge, then pivot it into a parenting activity.
+    No retrieved sources, no citations — keeps the app on its parenting
+    mission without refusing the user.
+
+    Rules added from the 👎 triage (2026-10-04) — each one a rated failure:
+    the model invented a question to answer when there was none («سلام» →
+    «نعم، النشاط البدني مهم…»), invented app menus («رواية ورش» → a settings
+    path that does not exist), and answered an English question in Arabic
+    (this prompt never carried the language rule the grounded prompt has).
+    """
+    age = age_group or "unspecified"
+    q = (question_text or "").strip() or "سؤال عام"
+    prompt = (
+        "أنت مساعد تربوي ذكي للأهل العرب المسلمين، ودود ومختصر.\n\n"
+        f"[رسالة من الوالد/الوالدة لم تُصنَّف ضمن مجالات التربية]\n{q}\n"
+        f"الفئة العمرية للطفل: {age}\n\n"
+        "تعليمات الرد (التزم بها):\n"
+        "1. إذا كان كلام المستخدم مجرد تحية أو شكر أو عبارة مجاملة (مثل: شكراً، مرحباً، سلام، كيف الحال): "
+        "رد بود واقتضاب فقط، ولا تقترح أي نشاط تربوي على الإطلاق.\n"
+        "2. إذا لم يكن في الرسالة سؤال واضح (مثل: «عندي سؤال»، أو كلمة واحدة، أو حروف غير مفهومة): "
+        "اطلب منه بلطف أن يكتب سؤاله كاملاً. لا تخترع سؤالاً ولا جواباً لم يُطلب.\n"
+        "3. إذا كان السؤال عن التطبيق أو طريقة استخدامه الفنية (إعداداته أو أزراره أو ميزاته): "
+        "لا تخترع خطوات ولا أسماء قوائم لا تعرفها يقيناً. قل باختصار إنك المساعد التربوي ولا ترى "
+        "إعدادات التطبيق، وادعُه إلى إرسال سؤاله من «شاركنا رأيك» في التطبيق ليصله الرد، دون نشاط تربوي.\n"
+        "4. إذا كانت الرسالة سؤالاً تربوياً أو أسرياً حقيقياً: أجب عنه إجابة عملية موجزة تناسب عمر الطفل، "
+        "بلا نشاط مُقحم، وبلا فتوى أو تشخيص طبي.\n"
+        "5. للأسئلة العامة الأخرى: أجب عن السؤال بإيجاز شديد (سطر أو سطرين) من معرفتك العامة، "
+        "ثم اربطه بنشاط ممتع يمكن للوالد أن يفعله مع طفله، ووضّح باختصار "
+        "ما الذي ينمّيه فيه (مهارة أو قيمة أو رابطة عاطفية).\n"
+        "6. لا تذكر أي مصادر أو اقتباسات أو أرقام مراجع، ولا تقل «بناءً على النص المرجعي».\n"
+        "7. بلغة الوالد نفسها (بالعربية الفصحى الميسّرة إن كتب بالعربية)، وبنبرة دافئة مشجّعة، "
+        "وتجنب تماماً ترك أي قوالب غير مكتملة أو نصوص بين أقواس تنتظر الملء.\n"
+    )
+    # Same first-line rule as the grounded prompt (_compose_system_prompt):
+    # an all-Arabic prompt is itself an instruction to answer in Arabic. The
+    # pivot's variant does not mention a sources line — rule 6 forbids one.
+    from app.services.retrieval import detect_query_language
+    if detect_query_language(question_text or "") == "en":
+        prompt = _NON_ARABIC_DIRECTIVE_PIVOT + prompt
+    return prompt
+
+
+def strip_pivot_citation(text: str) -> str:
+    """Weak local models ignore the 'no sources' instruction and still append
+    a (hallucinated) 📚 citation line to pivot answers. Strip it deterministically
+    so off-topic answers never carry a fabricated source."""
+    if not text:
+        return text
+    return _PIVOT_CITATION_RE.sub("", text).strip()
+
+
+async def generate_general_pivot(
+    question_text: str,
+    age_group: str,
+    tier: str = "local_fast",
+    route_reason: str = "off_topic_pivot",
+) -> str:
+    """Generate a brief general answer pivoted to a parenting activity.
+    Routed local-only by default (low-stakes, keeps the question on-device)."""
+    prompt = build_pivot_prompt(question_text, age_group)
+    result = await get_gateway().generate(
+        prompt, tier=tier, route_reason=route_reason
+    )
+    return clean_model_output(strip_pivot_citation(result.text))
+
+
+def _build_prompt(
+    domain: str,
+    behavior_type: str,
+    age_group: str,
+    severity: str,
+    retrieved_units: list[dict],
+    question_text: str = "",
+    conversation_history: list[ConversationTurn] | None = None,
+    variant: str = "compact",
+    child_context: str = "",
+) -> tuple[str, str]:
+    """Construct the generation prompt. Returns (user_prompt, source_line).
+
+    `child_context` is the labelled block of parent-reported facts from
+    child_memory.facts_block — already name-free and sanitised. It sits after
+    the question and before the sources: close enough to the question to be
+    used, and visibly separate from the documented sources so the model never
+    cites it as one.
+    """
+
+    parts: list[str] = []
+    for n, unit in enumerate(retrieved_units, 1):
+        doc = unit.get("document", "") or unit.get("metadata", {}).get("text_simplified", "")
+        doc = doc.removeprefix("passage: ")
+        ref = usable_reference(unit.get("metadata", {}).get("reference_info"))
+        src_domain = unit.get("source_domain") or unit.get("metadata", {}).get("domain", domain)
+        domain_label = _DOMAIN_LABELS.get(src_domain, src_domain)
+        # Say so in the context too, not just in the source line — otherwise the
+        # model invents an attribution for a passage it can see has none.
+        ref_line = ref or "غير موثّق — لا تنسب هذه الفقرة إلى أي مصدر"
+        parts.append(f"【{n}】 ({domain_label}) {doc}\nالمرجع: {ref_line}")
+
+    joined = "\n---\n".join(parts)
+    source_line = " · ".join(reply_sources(retrieved_units)) or "مصدر غير مذكور"
+    question_display = (question_text.strip() if question_text else "") or \
+        (behavior_type.strip() if behavior_type else "") or "سؤال تربوي"
+    length_rule = _LENGTH_BY_SEVERITY.get(severity, _LENGTH_BY_SEVERITY["خفيف"])
+
+    # Conversation history block (reference only)
+    history_block = ""
+    if conversation_history:
+        history_parts = []
+        for turn in conversation_history[-6:]:  # cap context size
+            role_ar = "الوالد" if turn.role == "user" else "المساعد"
+            history_parts.append(f"[{role_ar}]: {turn.content[:200]}")
+        history_block = "\n".join(history_parts) + "\n\n"
+
+    user_prompt = (
+        f"[سؤال الوالد/الوالدة الحالي — أجب على هذا فقط]\n"
+        f"{question_display}\n"
+        f"الفئة العمرية: {age_group} | شدة الحالة: {severity}\n\n"
+    )
+    if child_context:
+        user_prompt += f"{child_context.rstrip()}\n\n"
+    user_prompt += (
+        f"[مصادر ومعلومات موثقة — مرقّمة]\n"
+        f"{joined}\n\n"
+    )
+    if history_block:
+        user_prompt += (
+            f"[سياق المحادثة — للمرجعية فقط، لا تعد الإجابة عن أسئلة سابقة]\n"
+            f"{history_block}"
+        )
+
+    if variant == "rich":
+        user_prompt += (
+            f"تعليمات الرد (التزم بها كلها):\n"
+            f"1. ابدأ بالجواب المباشر على السؤال في جملة أو جملتين.\n"
+            f"2. ثم خطوات عملية مرقّمة يستطيع الوالد تنفيذها فعلاً.\n"
+            f"3. اجمع بين المصادر المرقّمة عند الحاجة، وانسب كل نقطة مهمة "
+            f"لمصدرها بالرقم 【n】.\n"
+            f"4. إن كان للموضوع جانب صحي أو شرعي دقيق، أضف فقرة قصيرة "
+            f"بعنوان «متى تراجع متخصصاً».\n"
+            f"5. {length_rule}\n"
+            f"6. لا تذكر أي حكم أو رقم أو دواء أو معلومة غير واردة في "
+            f"المصادر أعلاه. إن لم تكفِ المصادر للإجابة قل ذلك صراحة: "
+            f"«لا تتوفر لديّ معلومات موثقة حول هذا — يُنصح بمراجعة متخصص».\n"
+            f"7. لا تكرر أسئلة المحادثة السابقة ولا تجب عنها.\n"
+            f"8. اختم بسطر: 📚 المصادر: {source_line}\n"
+        )
+    elif variant == "legacy":
+        user_prompt += (
+            f"تعليمات الرد:\n"
+            f"- أجب على السؤال المذكور في [سؤال الوالد/الوالدة الحالي] فقط.\n"
+            f"- لا تكرر ولا تُجِب على أسئلة المحادثة السابقة.\n"
+            f"- استند إلى المصادر المذكورة في [مصادر ومعلومات موثقة] فقط.\n"
+            f"- الرد 4-6 جمل عملية، بالعربية الفصحى الميسرة.\n"
+            f"- لا تكرر الأفكار.\n"
+            f"- اختم بـ: 📚 المصدر: {source_line}\n"
+            f"- إن كان السياق غير كافٍ: «لا تتوفر لديّ معلومات موثقة حول هذا — يُنصح بمراجعة متخصص»\n"
+        )
+    else:  # compact — default for the local 3B
+        user_prompt += (
+            f"تعليمات الرد:\n"
+            f"1. أجب عن السؤال المطروح بالضبط وعن موضوعه المحدد. لا تبدأ "
+            f"بعبارة «بناءً على النص المرجعي»، ولا تكتفِ بإعادة صياغة عامة عن "
+            f"أنشطة لا يسأل عنها الوالد.\n"
+            f"2. ابدأ بجملة إجابة مباشرة عن الموضوع المحدد، ثم خطوات عملية "
+            f"ملموسة خاصة بهذا الموضوع.\n"
+            f"3. {length_rule}\n"
+            f"4. استخدم المصادر كدعم عند صلتها بالموضوع، وقدّم إرشاداً سلوكياً "
+            f"عاماً وآمناً خاصاً بالسؤال — لكن لا تخترع معلومة طبية أو رقماً أو "
+            f"تشخيصاً أو دواءً أو حكماً شرعياً غير وارد في المصادر.\n"
+            f"5. اختم بسطر: 📚 المصادر: {source_line}\n"
+        )
+
+    return user_prompt, source_line
+
+
+# Latin script in the question is not proof of English — French, Spanish and
+# German all land here — so the rule names no language. "The language of the
+# question" is something the model can see and we cannot.
+_NON_ARABIC_DIRECTIVE = (
+    "🔴 LANGUAGE — this overrides the language of every instruction below.\n"
+    "The parent did not write in Arabic. Write your entire answer in the same "
+    "language they used, including the closing sources line. The instructions "
+    "that follow are written in Arabic because that is the language of this "
+    "system, not the language of your answer.\n"
+    "Two exceptions, and they are not negotiable:\n"
+    "  • Qur'an is quoted in Arabic script, as revealed. Any English or French "
+    "wording you give for it is an explanation of the meaning — introduce it "
+    "as such ('the meaning of which is'), never as the Qur'an itself.\n"
+    "  • Hadith wording is quoted in Arabic with its attribution, then "
+    "explained. Do not present a translation as the Prophet's words ﷺ.\n\n"
+)
+
+# The off-topic pivot cites nothing (its rule 6), so its copy of the
+# directive must not ask for "the closing sources line" either.
+_NON_ARABIC_DIRECTIVE_PIVOT = _NON_ARABIC_DIRECTIVE.replace(
+    ", including the closing sources line", "",
+)
+assert _NON_ARABIC_DIRECTIVE_PIVOT != _NON_ARABIC_DIRECTIVE
+
+# Said in Arabic too, because the model reads the whole prompt and an Arabic
+# system prompt that never mentions language is itself an instruction to
+# answer in Arabic — which is how 40% of the assistant's users came to write in
+# English and be answered in Arabic.
+_LANGUAGE_RULE_AR = (
+    "\n\nأجب بلغة الوالد نفسها التي كتب بها سؤاله. إن كتب بالإنجليزية أو "
+    "الفرنسية فأجب بها كاملةً بما في ذلك سطر المصادر. ويبقى القرآن مقتبساً "
+    "بالعربية كما نزل، وما تذكره بغيرها فهو بيان للمعنى تُصدِّره بما يدل على "
+    "ذلك لا على أنه القرآن؛ وكذلك لفظ الحديث يُذكر بالعربية منسوباً ثم يُشرح."
+)
+
+
+def _compose_system_prompt(domain: str, question_text: str = "") -> str:
+    base = (
+        "أنت مساعد تربوي ذكي للأهل العرب المسلمين. تقدم إجابات عملية وآمنة بدون تشخيص طبي ملزم أو فتوى شخصية.\n\n"
+        "خاطب المستخدم (الوالد/الوالدة) مباشرة بصيغة المخاطب (مثل: 'يمكنك أن تفعل...' أو 'ننصحك بـ...')، ولا تتحدث عنه أبداً بصيغة الغائب (مثل: 'يمكن للأب' أو 'بناءً على ما طرحه الوالد').\n\n"
+        "لا تنصح بالضرب أو العقاب البدني (مثل استخدام العصا) أبداً وتحت أي ظرف، حتى لو ورد ذكره في المصادر التاريخية؛ وجّه المربي دائماً إلى الأساليب التربوية الإيجابية والآمنة والبدائل التربوية السليمة.\n\n"
+        "أجب دائماً على آخر سؤال في المحادثة فقط. لا تعيد الإجابة على أسئلة سابقة.\n\n"
+        "عليك دائماً تكييف ومواءمة النصائح والخطوات الواردة في المصادر لتناسب سن وقدرات الطفل إدراكياً وسلوكياً (مثال: للأطفال دون السابعة لا يُطلب منهم الصلاة الكاملة أو الإجبار أو الذهاب للمسجد إن كان يشق عليهم، بل ركّز معهم على التقليد واللعب والتحبيب والارتباط العاطفي).\n\n"
+        "إن كان السؤال عاماً وليس له علاقة مباشرة بالتربية أو الأطفال (مثل وصفة طعام أو معلومة عامة): "
+        "أجب عنه بإيجاز شديد (سطر أو سطران)، ثم اربطه فوراً بالطفل — اقترح كيف يحوّله "
+        "المستخدم إلى نشاط ممتع مع ابنه أو ابنته، ووضّح ما الذي ينمّيه فيه (مهارة، قيمة، أو رابطة عاطفية).\n\n"
+        "استثناءات هامة لهذه القاعدة:\n"
+        "- إذا كان كلام المستخدم مجرد تحية أو شكر أو تعبير لطيف (مثل: 'شكراً'، 'جزاك الله خيراً'، 'السلام عليكم'): رد بلطف واقتضاب وتمنَّ له ولطفله التوفيق، دون اختلاق أي نشاط ودون فرض أي مهمة تربوية.\n"
+        "- إذا كان السؤال عن التطبيق نفسه أو استخدامه التقني (مثل: كيفية إضافة طفل، تعديل البيانات): لا تخترع خطوات ولا أسماء قوائم لا تعرفها يقيناً؛ إن لم تكن الخطوات أمامك في المصادر فقل ذلك باختصار وادعُه إلى إرسال سؤاله من «شاركنا رأيك» في التطبيق، دون ربط ذلك بنشاط تربوي.\n"
+        "- إذا تضمن السؤال عبارات مسيئة أو بذيئة: ضع حداً مهذباً وموجزاً باحترام، دون أي نشاط.\n"
+        "- إذا كان السؤال استفساراً عن كيفية تطبيق نصيحة أو نشاط (مثل: 'بخصوص نصيحة اليوم: ... إزاي أطبقها؟'): قدّم خطوات تطبيقية متسلسلة ومحددة ومناسبة لعمر الطفل، مع أمثلة عملية من الحياة اليومية دون اختصار مخل."
+    )
+    if domain in {"fiqh", "islamic_parenting", "aqeedah"}:
+        composed = (
+            "أنت مساعد تربوي إسلامي. عند أي تعارض بين المصادر الطبية أو النفسية أو التنموية من جهة، "
+            "والحكم الشرعي الإسلامي من جهة أخرى — يُقدَّم الحكم الشرعي دون استثناء. "
+            "لا تُفتِ في مسائل الحلال والحرام، لكن وضّح دائماً أن الإطار الإسلامي هو المرجع الأول.\n\n"
+            + base
+        )
+    else:
+        composed = base + (
+            "\n\nإذا تعارضت أي معلومة مع الثوابت الإسلامية، أشر إلى ذلك بوضوح وقدّم البديل الإسلامي."
+        )
+    composed += _LANGUAGE_RULE_AR
+    # Imported here, not at module scope: `retrieval` pulls chromadb in, and
+    # this module is imported by paths that have no business loading a vector
+    # store — including tests that would start failing for an unrelated reason.
+    from app.services.retrieval import detect_query_language
+    # First, not appended: the local 3B follows the top of a prompt far more
+    # reliably than its tail, and this rule has to beat several hundred words
+    # of Arabic that follow it.
+    if detect_query_language(question_text) == "en":
+        composed = _NON_ARABIC_DIRECTIVE + composed
+    return composed
+
+
+async def generate_reply(
+    domain: str,
+    behavior_type: str,
+    age_group: str,
+    severity: str,
+    retrieved_units: list[dict],
+    question_text: str = "",
+    conversation_history: list[ConversationTurn] | None = None,
+    tier: str = "local_fast",
+    route_reason: str | None = None,
+    child_context: str = "",
+) -> str:
+    """Generate via the gateway. Returns generated text or raises on failure."""
+
+    variant = "rich" if tier == "cloud_quality" else PROMPT_VARIANT_LOCAL
+    user_prompt, source_line = _build_prompt(
+        domain, behavior_type, age_group, severity, retrieved_units,
+        question_text, conversation_history, variant=variant,
+        child_context=child_context,
+    )
+    full_prompt = (_compose_system_prompt(domain, question_text)
+                   + "\n\n" + user_prompt)
+
+    # All LLM calls go through the gateway (retry/backoff + telemetry).
+    # tier="cloud_quality" tries the Azure provider first, local as fallback.
+    #
+    # The local qwen-3B model occasionally leaks CJK characters mid-sentence.
+    # clean_model_output() strips them, but that can leave a truncated sentence,
+    # so regenerate a couple of times to prefer a clean Arabic answer first.
+    text = ""
+    for _attempt in range(3):
+        result = await get_gateway().generate(
+            full_prompt, tier=tier, route_reason=route_reason
+        )
+        text = result.text or ""
+        if len(_CJK_RE.findall(text)) <= 2:
+            break
+    return clean_model_output(text)
+
+
+def build_full_prompt(
+    domain: str,
+    behavior_type: str,
+    age_group: str,
+    severity: str,
+    retrieved_units: list[dict],
+    question_text: str = "",
+    conversation_history: list[ConversationTurn] | None = None,
+    tier: str = "local_fast",
+    child_context: str = "",
+) -> tuple[str, str]:
+    """Expose the composed (system + user) prompt and source line for streaming.
+
+    The streaming endpoint needs the same prompt this function builds but must
+    drive the gateway's stream() itself, so it can't reuse generate_reply().
+    """
+    variant = "rich" if tier == "cloud_quality" else PROMPT_VARIANT_LOCAL
+    user_prompt, source_line = _build_prompt(
+        domain, behavior_type, age_group, severity, retrieved_units,
+        question_text, conversation_history, variant=variant,
+        child_context=child_context,
+    )
+    return (_compose_system_prompt(domain, question_text)
+            + "\n\n" + user_prompt), source_line

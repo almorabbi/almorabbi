@@ -1,0 +1,54 @@
+{
+  "id": "med-3f714838__en",
+  "domain": "medical",
+  "source_file": "Saudi_MOH_Child_Nutrition_Guide.pdf",
+  "title": "Preserving the Child’s Weight and Avoiding Obesity, Diabetes, and Heart Diseases",
+  "language": "en",
+  "age_group": "4-6",
+  "behavior_type": "تغذية صحية",
+  "intervention_type": "إرشادي",
+  "severity": "متوسط",
+  "reference_type": "تقرير_طبي",
+  "reference_info": "وزارة الصحة السعودية",
+  "text_original": "دﻟﻴــﻞ اﻟﺘﻐــﺬﻳﺔ\nاﻟﺤﻔﺎظ ﻋﻠﻰ اﻟـــﻮزن ﺧﻼل ﻧﻤﻮ اﻟﻄﻔﻞ ﻳﺆدي\nاﻟﻮزن ﻋﻨـــﺪ اﻟﻄﻔـــﻞ؟\nﻣﺘﺎﺑﻌـــﺔ وزن اﻟﻄﻔﻞ ﻣﻨﺬ اﻟـــﻮﻻدة، ﻣﻊ\nاﺳـــﺘﻤﺮار ﻧﻤﻮ اﻟﻄﻔـــﻞ ﺧـــﻼل اﻟﺰﻳﺎرات\nاﻟﻮاﻟﺪﻳﻦ ﺑﺎﻟﺴـــﻤﻨﺔ أو اﻟﺴـــﻜﺮي اﻟﻨﻮع\nاﻟﺜﺎﻧﻲ او أﻣﺮاض اﻟﻘﻠﺐ واﻟﺸﺮاﻳﻴﻦ.\nوﺑﻌـــﺾ اﻷﻣﺮاض اﻟﻤﺮﺗﺒﻄﺔ ﺑﺎﻟﺴـــﻤﻨﺔ\nأﻋـــﺮاض اﻟﺠﻬـــﺎز اﻟﻬﻀﻤـــﻲ، ﻣﻘﺎوﻣﺔ\nﻳﺤﺴّ ـــﻦ ﺻﺤـــﺔ  اﻟﻌﻈـــﺎم  واﻟﺼﺤـــﺔ\nاﻟﺪم وأﻣﺮاض اﻟﻘﻠﺐ اﻟﺘﺎﺟﻴﺔ واﻟﺴﻜﺘﺔ\nاﻟﺪﻣﺎﻏﻴﺔ وداء اﻟﺴﻜﺮي واﻻﻛﺘﺌﺎب.\nاﻟﺸﺎﺷـــﺎت ﻟﺴـــﺎﻋﺎت ﻃﻮﻳﻠﺔ، وﻓﻘﺎ ﻹرﺷـــﺎدات ﻣﻨﻈﻤﺔ\nﻟﻤﺎذا ﺣﻠﻴﺐ اﻷم؟\nﺧﻤـــﺲ ﺣﻘـــﺎﺋﻖ\nﺧﻤـــﺲ ﺣﻘـــﺎﺋﻖ\nﺧﻤـــﺲ ﺣﻘـــﺎﺋﻖ\nﺧﻤـــﺲ ﺣﻘـــﺎﺋﻖ\nاﻹﻛﺜﺎر ﻣﻦ ﺗﻨﺎول اﻟﺨﻀﺮوات واﻟﻔﻮاﻛﻪ\nﺧﻤـــﺲ ﺣﻘـــﺎﺋﻖ",
+  "text_simplified": "It is essential to maintain the child’s weight as they grow, as their weight impacts their overall health. The child’s weight should be monitored from birth throughout their development, with medical visits to check for obesity, type 2 diabetes, or cardiovascular diseases.",
+  "labels": [
+    "وزن الطفل",
+    "السمنة",
+    "السكري النوع الثاني",
+    "أمراض القلب والأوعية الدموية"
+  ],
+  "created_at": "2026-06-22T11:59:23Z",
+  "updated_at": "2026-07-30",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Saudi_MOH_Child_Nutrition_Guide",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "med-3f714838",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "45f2cad22b36b543463d7f1419c7640ac2fea18041c3bd84817c0f52a5cb5f71",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

@@ -1,0 +1,816 @@
+/// «رحلة الطفل» — the per-child keepsake timeline (Phase 1).
+///
+/// Shows the milestones a parent has logged for one child (a treasured
+/// record they build over years) plus a calm list of suggested spiritual
+/// milestones still to come. Logging a milestone celebrates it and credits
+/// coins once (reusing the existing on-device reward path). Fully local.
+library;
+
+import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../l10n/app_localizations.dart';
+import '../../../theme/app_theme.dart';
+import '../../../theme/design_tokens.dart';
+import '../../../theme/app_colors.dart';
+import '../../../core/analytics.dart';
+import '../../../core/app_routes.dart';
+import '../../../widgets/ui/celebration_overlay.dart';
+import '../../coins/coins_providers.dart';
+import '../../program/data/review_prompt.dart';
+import '../../share/share_service.dart';
+import '../../share/shareable_moment_card.dart';
+import '../data/challenges.dart';
+import '../data/journey_milestones.dart';
+import '../data/journey_store.dart';
+import '../providers/journey_providers.dart';
+import '../widgets/milestone_icon.dart';
+import '../../../widgets/ui/error_retry_view.dart';
+import 'package:almorabbi/widgets/ui/loading_view.dart';
+import '../../../widgets/ui/art_image.dart';
+
+class ChildJourneyScreen extends ConsumerWidget {
+  const ChildJourneyScreen({
+    super.key,
+    required this.childId,
+    required this.childName,
+    this.ageGroup,
+  });
+
+  final int childId;
+  final String childName;
+
+  /// The child's age band (wire value, e.g. `4-6`) — drives the
+  /// developmental-milestone section. Null hides that section.
+  final String? ageGroup;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final asyncLogged = ref.watch(childJourneyProvider(childId));
+    return Scaffold(
+      appBar: AppBar(title: Text(AppLocalizations.of(context).journeyTitle(childName))),
+      body: asyncLogged.when(
+        loading: () => const LoadingView(),
+        error: (e, _) => Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Text('${AppLocalizations.of(context).journeyLoading}\n${describeFailure(AppLocalizations.of(context), e)}', textAlign: TextAlign.center),
+          ),
+        ),
+        data: (logged) {
+          // Logged milestones, newest first — the keepsake timeline.
+          final entries = logged.values.toList()
+            ..sort((a, b) => b.achievedAt.compareTo(a.achievedAt));
+          // Catalogue milestones not yet marked — gentle "what's next".
+          final suggestions = spiritualMilestones
+              .where((m) => !logged.containsKey(m.key))
+              .toList();
+          final devSuggestions = developmentalMilestonesFor(ageGroup)
+              .where((m) => !logged.containsKey(m.key))
+              .toList();
+
+          return ListView(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+            children: [
+              _Header(name: childName, count: entries.length),
+              const SizedBox(height: 16),
+              _ChallengeSection(childId: childId, childName: childName),
+              const SizedBox(height: 12),
+              _QuranMemoCard(childId: childId, childName: childName),
+              const SizedBox(height: 8),
+              if (entries.isEmpty)
+                const _EmptyTimeline()
+              else
+                for (var i = 0; i < entries.length; i++)
+                  _TimelineCard(
+                    entry: entries[i],
+                    onDelete: () => _confirmDelete(context, ref, entries[i]),
+                  )
+                      .animate(delay: (60 * (i % 8)).ms)
+                      .fadeIn(duration: Dt.base)
+                      .slideX(begin: .06),
+              const SizedBox(height: 24),
+              if (suggestions.isNotEmpty) ...[
+                _SectionLabel(AppLocalizations.of(context).journeyFaithMilestones),
+                const SizedBox(height: 10),
+                for (final m in suggestions)
+                  _SuggestedTile(
+                    milestone: m,
+                    onTap: () => _showLogSheet(context, ref, milestone: m),
+                  ),
+                const SizedBox(height: 20),
+              ],
+              if (devSuggestions.isNotEmpty) ...[
+                _SectionLabel(AppLocalizations.of(context).journeyDevMilestones),
+                const SizedBox(height: 10),
+                for (final m in devSuggestions)
+                  _SuggestedTile(
+                    milestone: m,
+                    onTap: () => _showLogSheet(context, ref, milestone: m),
+                  ),
+                const SizedBox(height: 20),
+              ],
+              const SizedBox(height: 16),
+              OutlinedButton.icon(
+                onPressed: () => _showLogSheet(context, ref),
+                icon: const Icon(Icons.add_circle_outline),
+                label: Text(AppLocalizations.of(context).journeyMilestoneLog),
+                style: OutlinedButton.styleFrom(
+                  minimumSize: const Size.fromHeight(50),
+                  side: BorderSide(
+                    color: AppTheme.primary.withValues(alpha: 0.5),
+                  ),
+                  foregroundColor: AppTheme.primary,
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Future<void> _confirmDelete(
+    BuildContext context,
+    WidgetRef ref,
+    MilestoneEntry entry,
+  ) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(AppLocalizations.of(context).journeyDeleteMilestone),
+        content: Text(AppLocalizations.of(context).journeyDeleteConfirm(entry.title, childName)),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: Text(AppLocalizations.of(context).cancel),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            style: TextButton.styleFrom(foregroundColor: AppTheme.dangerFg),
+            child: Text(AppLocalizations.of(context).delete),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true) return;
+    await ref.read(childJourneyProvider(childId).notifier).remove(entry.key);
+  }
+
+  /// Bottom sheet to log a milestone — either a catalogue [milestone] (note
+  /// optional) or a fully custom one (title + note).
+  Future<void> _showLogSheet(
+    BuildContext context,
+    WidgetRef ref, {
+    JourneyMilestone? milestone,
+  }) async {
+    final result = await showModalBottomSheet<_LogResult>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: AppTheme.surface,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (_) => _LogSheet(milestone: milestone),
+    );
+    if (result == null) return;
+
+    final key = milestone?.key ??
+        'custom_${DateTime.now().millisecondsSinceEpoch}';
+    await ref.read(childJourneyProvider(childId).notifier).log(
+          key: key,
+          title: result.title,
+          emoji: milestone?.emoji ?? '💛',
+          note: result.note,
+        );
+    Analytics.milestoneLogged();
+    // Celebrate once, ever, per child+milestone — reuses the coins ledger.
+    await ref
+        .read(coinsProvider.notifier)
+        .creditBadges([journeyRewardId(childId, key)]);
+
+    if (context.mounted) {
+      final l10n = AppLocalizations.of(context);
+      final emoji = milestone?.emoji ?? '💛';
+      await showCelebration(
+        context,
+        emoji: emoji,
+        imageAsset: milestone != null ? milestoneBadgeAsset(milestone.key) : null,
+        title: l10n.lessonCelebrationTitle,
+        message: '${l10n.journeyNewMilestone} $childName:\n${result.title}',
+        onShare: () {
+          final share = milestoneShare(l10n,
+              childName: childName,
+              emoji: emoji,
+              title: result.title,
+              note: result.note);
+          return ShareService.shareMomentCard(
+            fileTag: 'milestone_$key',
+            message: share.message,
+            card: share.card,
+          );
+        },
+      );
+      if (context.mounted) await ReviewPrompt.maybeAsk(context);
+    }
+  }
+}
+
+/// A journey milestone, as the parent shares it: the parent's own [note] on
+/// the card, or else a du'a, which only Arabic carries —
+/// [AppLocalizations.shareMilestoneDua] is empty in other languages, and the
+/// card then shows no line there.
+MomentShare milestoneShare(
+  AppLocalizations l10n, {
+  required String childName,
+  required String emoji,
+  required String title,
+  required String note,
+}) =>
+    (
+      message: l10n.shareMilestoneMessage(childName, title),
+      card: ShareableMomentCard(
+        emoji: emoji,
+        eyebrow: l10n.shareMilestoneEyebrow(childName),
+        headline: title,
+        body: note.trim().isNotEmpty ? note : l10n.shareMilestoneDua,
+      ),
+    );
+
+class _Header extends StatelessWidget {
+  const _Header({required this.name, required this.count});
+  final String name;
+  final int count;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+          colors: [Color(0xFF7E57C2), Color(0xFF9575CD)],
+        ),
+        borderRadius: BorderRadius.circular(Dt.rCard),
+        boxShadow: Dt.softShadow(const Color(0xFF7E57C2)),
+      ),
+      child: Row(
+        children: [
+          const Text('🌟', style: TextStyle(fontSize: 40)),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  AppLocalizations.of(context).journeyTitle(name),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  count == 0
+                      ? AppLocalizations.of(context).journeyStartFirst
+                      : AppLocalizations.of(context).journeyCount(count),
+                  style: TextStyle(
+                    color: Colors.white.withValues(alpha: .92),
+                    fontSize: 13,
+                    height: 1.4,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// «تحدّي الطفل الحالي» — the parent picks one focus; the proactive coach
+/// then prioritizes advice on it. Backed by the server (activeChallengeProvider).
+class _ChallengeSection extends ConsumerWidget {
+  const _ChallengeSection({required this.childId, required this.childName});
+  final int childId;
+  final String childName;
+
+  Future<void> _set(BuildContext context, WidgetRef ref, String key) async {
+    try {
+      await ref.read(activeChallengeProvider(childId).notifier).set(key);
+    } catch (_) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(AppLocalizations.of(context).journeySaveError)),
+        );
+      }
+    }
+  }
+
+  Future<void> _clear(BuildContext context, WidgetRef ref) async {
+    try {
+      await ref.read(activeChallengeProvider(childId).notifier).clear();
+    } catch (_) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(AppLocalizations.of(context).journeySaveError)),
+        );
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final activeKey = ref.watch(activeChallengeProvider(childId)).maybeWhen(
+          data: (k) => k,
+          orElse: () => null,
+        );
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppTheme.surface,
+        borderRadius: BorderRadius.circular(Dt.rCard),
+        border: Border.all(color: Dt.surface),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Text('🎯', style: TextStyle(fontSize: 20)),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  AppLocalizations.of(context).journeyChallengeTitle(childName),
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+              if (activeKey != null)
+                TextButton(
+                  onPressed: () => _clear(context, ref),
+                  style: TextButton.styleFrom(
+                    visualDensity: VisualDensity.compact,
+                    foregroundColor: AppTheme.primary,
+                  ),
+                  child: Text(AppLocalizations.of(context).journeyChallengeDone),
+                ),
+            ],
+          ),
+          const SizedBox(height: 4),
+          Text(
+            activeKey == null
+                ? AppLocalizations.of(context).journeyChallengeDesc
+                : AppLocalizations.of(context).journeyChallengeActive,
+            style: TextStyle(
+              fontSize: 12.5,
+              color: AppTheme.textSecondary,
+              height: 1.4,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              for (final c in challengeOptions)
+                ChoiceChip(
+                  label: Text('${c.emoji} ${c.label}'),
+                  selected: c.key == activeKey,
+                  onSelected: (_) {
+                    if (c.key == activeKey) {
+                      _clear(context, ref);
+                    } else {
+                      _set(context, ref, c.key);
+                    }
+                  },
+                  selectedColor: AppTheme.primary.withValues(alpha: 0.15),
+                  labelStyle: TextStyle(
+                    fontSize: 13,
+                    fontWeight:
+                        c.key == activeKey ? FontWeight.w800 : FontWeight.w600,
+                    color: c.key == activeKey
+                        ? AppTheme.primary
+                        : AppTheme.textSecondary,
+                  ),
+                ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Entry to the Quran-memorization checklist + live memorized count.
+class _QuranMemoCard extends ConsumerWidget {
+  const _QuranMemoCard({required this.childId, required this.childName});
+  final int childId;
+  final String childName;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final count = ref.watch(memorizedSurahsProvider(childId)).maybeWhen(
+          data: (s) => s.length,
+          orElse: () => 0,
+        );
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () => Navigator.of(context).push(
+          AppRoutes.quranMemorization(
+            childId: childId,
+            childName: childName,
+          ),
+        ),
+        borderRadius: BorderRadius.circular(Dt.rCard),
+        child: Container(
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            color: AppTheme.surface,
+            borderRadius: BorderRadius.circular(Dt.rCard),
+            border: Border.all(color: Dt.surface),
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF2E7D32).withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Text('📖', style: TextStyle(fontSize: 22)),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      AppLocalizations.of(context).journeyQuranTitle,
+                      style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      count == 0
+                          ? AppLocalizations.of(context).journeyQuranTrack
+                          : AppLocalizations.of(context).journeyQuranCount(count),
+                      style: TextStyle(
+                        fontSize: 12.5,
+                        color: AppTheme.textSecondary,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(Icons.chevron_left, color: AppTheme.textMuted),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _SectionLabel extends StatelessWidget {
+  const _SectionLabel(this.text);
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 4),
+      child: Text(
+        text,
+        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.w800,
+              color: AppTheme.textPrimary,
+            ),
+      ),
+    );
+  }
+}
+
+class _EmptyTimeline extends StatelessWidget {
+  const _EmptyTimeline();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      decoration: BoxDecoration(
+        color: AppTheme.surfaceAlt,
+        borderRadius: BorderRadius.circular(Dt.rCard),
+      ),
+      child: Column(
+        children: [
+          ArtImage(
+            'assets/svg/art/empty_journey.svg',
+            height: 130,
+            fallback: (_) =>
+                const Text('🕊️', style: TextStyle(fontSize: 40)),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            AppLocalizations.of(context).journeyEmpty,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: AppTheme.textSecondary,
+              fontSize: 13,
+              height: 1.5,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _TimelineCard extends StatelessWidget {
+  const _TimelineCard({required this.entry, required this.onDelete});
+  final MilestoneEntry entry;
+  final VoidCallback onDelete;
+
+  String _date(DateTime d) {
+    final l = d.toLocal();
+    return '${l.year}/${l.month.toString().padLeft(2, '0')}/'
+        '${l.day.toString().padLeft(2, '0')}';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: AppTheme.surface,
+        borderRadius: BorderRadius.circular(14),
+        boxShadow: Dt.cardShadow,
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 46,
+            height: 46,
+            child: Center(
+              child: MilestoneIcon(
+                milestoneKey: entry.key,
+                emoji: entry.emoji,
+                size: 46,
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  entry.title,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  _date(entry.achievedAt),
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: AppTheme.textMuted,
+                  ),
+                ),
+                if (entry.note.isNotEmpty) ...[
+                  const SizedBox(height: 6),
+                  Text(
+                    entry.note,
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: AppTheme.textSecondary,
+                      height: 1.4,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          IconButton(
+            icon: Icon(Icons.delete_outline,
+                color: AppTheme.textMuted, size: 20),
+            tooltip: AppLocalizations.of(context).journeyDeleteMilestone,
+            visualDensity: VisualDensity.compact,
+            onPressed: onDelete,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SuggestedTile extends StatelessWidget {
+  const _SuggestedTile({required this.milestone, required this.onTap});
+  final JourneyMilestone milestone;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 8),
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: AppTheme.surface,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: Dt.surface),
+          ),
+          child: Row(
+            children: [
+              Opacity(
+                opacity: 0.85,
+                child: MilestoneIcon(
+                  milestoneKey: milestone.key,
+                  emoji: milestone.emoji,
+                  size: 40,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      milestone.title,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      milestone.description,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: AppTheme.textSecondary,
+                      ),
+                    ),
+                    if (milestone.concernNote != null) ...[
+                      const SizedBox(height: 4),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(Icons.info_outline,
+                              size: 13, color: context.colors.warningFg),
+                          const SizedBox(width: 4),
+                          Expanded(
+                            child: Text(
+                              milestone.concernNote!,
+                              style: TextStyle(
+                                fontSize: 11,
+                                color: context.colors.warningFg,
+                                height: 1.35,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+              Icon(Icons.add_circle_outline,
+                  color: AppTheme.primary, size: 22),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _LogResult {
+  const _LogResult(this.title, this.note);
+  final String title;
+  final String note;
+}
+
+class _LogSheet extends StatefulWidget {
+  const _LogSheet({this.milestone});
+  final JourneyMilestone? milestone;
+
+  @override
+  State<_LogSheet> createState() => _LogSheetState();
+}
+
+class _LogSheetState extends State<_LogSheet> {
+  late final TextEditingController _titleCtrl;
+  late final TextEditingController _noteCtrl;
+
+  @override
+  void initState() {
+    super.initState();
+    _titleCtrl = TextEditingController();
+    _noteCtrl = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _titleCtrl.dispose();
+    _noteCtrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final m = widget.milestone;
+    final isCustom = m == null;
+    return Padding(
+      padding: EdgeInsets.only(
+        left: 20,
+        right: 20,
+        top: 20,
+        bottom: MediaQuery.of(context).viewInsets.bottom + 20,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Text(m?.emoji ?? '💛', style: const TextStyle(fontSize: 28)),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  m?.title ?? AppLocalizations.of(context).journeyNewMilestone,
+                  style: const TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          if (isCustom) ...[
+            TextField(
+              controller: _titleCtrl,
+              maxLength: 60,
+              textInputAction: TextInputAction.next,
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context).journeyMilestoneTitle,
+                hintText: AppLocalizations.of(context).journeyMilestoneHint,
+                border: const OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 8),
+          ],
+          TextField(
+            controller: _noteCtrl,
+            maxLength: JourneyStore.kMaxNoteLength,
+            maxLines: 3,
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context).journeyMilestoneNote,
+              hintText: AppLocalizations.of(context).journeyMilestoneNoteHint,
+              border: const OutlineInputBorder(),
+            ),
+          ),
+          const SizedBox(height: 8),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              onPressed: () {
+                final title = isCustom ? _titleCtrl.text.trim() : m.title;
+                if (title.isEmpty) return;
+                Navigator.of(context).pop(
+                  _LogResult(title, _noteCtrl.text.trim()),
+                );
+              },
+              icon: const Icon(Icons.check),
+              label: Text(AppLocalizations.of(context).journeyMilestoneSave),
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size.fromHeight(50),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

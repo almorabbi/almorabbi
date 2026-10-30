@@ -1,0 +1,63 @@
+"""SSE keep-alive while the model is silent (audit M13, server side).
+
+The app drops a stream that sends nothing for 45 s. A slow first token
+(retrieval, a cold local model, the fallback chain) must therefore still put
+bytes on the wire — an SSE comment, which every client ignores.
+"""
+import asyncio
+import json
+import time
+
+from fastapi.testclient import TestClient
+
+from app.routers import assistant
+from app.services import ai_gateway
+from app.services.llm_service import usable_reference
+
+
+def test_silent_model_gets_keepalive_comments(monkeypatch):
+    from app.main import app
+
+    class _SlowProvider:
+        name = "fake"
+        model = "fake-model"
+
+        def __init__(self, *a, **k):
+            pass
+
+        def stream(self, prompt, *, options):
+            time.sleep(0.4)                         # thinking, no tokens yet
+            yield {"response": "جواب", "done": False}
+            yield {"response": "", "done": True,
+                   "prompt_eval_count": 1, "eval_count": 1}
+
+    monkeypatch.setattr(ai_gateway, "OllamaProvider", _SlowProvider)
+    monkeypatch.setattr(assistant, "_STREAM_KEEPALIVE_S", 0.05)
+    # no ayah reference → no full-Quran search on mcp.tafsir.net (real HTTPS)
+    monkeypatch.setattr(assistant, "resolve_ayah_reference",
+                        lambda text: asyncio.sleep(0, result=None))
+    ai_gateway._gateway = None
+    try:
+        with TestClient(app) as client:
+            sess = client.post("/api/chat/sessions", json={"device_id": "ka"})
+            client.headers["Authorization"] = f"Bearer {sess.json()['token']}"
+            resp = client.post("/api/assistant/stream", json={
+                "age_group": "4-6", "severity": "خفيف",
+                "message_text": "إزاي أعود ابني على الصلاة؟",
+            })
+        assert resp.status_code == 200
+        body = resp.text
+        assert ": keep-alive\n\n" in body
+        assert body.index(": keep-alive") < body.index("event: token")
+        # The event contract is unchanged: comments are not events.
+        events = [line for line in body.split("\n") if line.startswith("event: ")]
+        assert events[-1] == "event: done"
+        assert all(e in ("event: token", "event: done") for e in events)
+        # The done frame carries the citations for the app's Sources row
+        # (UX-2, C8): a list, only real citations, never a bare domain name.
+        done = json.loads(body.split("event: done\ndata: ", 1)[1].split("\n", 1)[0])
+        sources = done["metadata"]["sources"]
+        assert isinstance(sources, list)
+        assert all(usable_reference(s) == s for s in sources)
+    finally:
+        ai_gateway._gateway = None

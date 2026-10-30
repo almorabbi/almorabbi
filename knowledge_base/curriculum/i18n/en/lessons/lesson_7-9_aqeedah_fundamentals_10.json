@@ -1,0 +1,70 @@
+{
+  "id": "lesson_7-9_aqeedah_fundamentals_10",
+  "path_id": "path_7-9_aqeedah_fundamentals",
+  "title": "Al-ʿAqeedah in My Behavior",
+  "age_group": "7-9",
+  "domain": "aqeedah",
+  "unit_ids": [
+    "aqe-6dd8b600"
+  ],
+  "summary": "The culmination of the journey: ʿaqeedah is not information memorized in the head, but faith in the heart whose effect appears in behavior. The young believer who knows that Allah sees him speaks the truth even if he loses, shows birr al-walidayn, treats his siblings with rifq, and apologizes if he makes a mistake. Connect every good akhlaq for your child to his faith: \"You are truthful because our Lord loves the truthful,\" \"You help because our Lord loves the good-doers.\" In this way, the previous lessons transform into a lived life. And the greatest means to reinforce this is for your child to see you living your faith in your behavior before you command him to do so; for the example is more powerful than a thousand pieces of advice.",
+  "try_this": "This week: Create an \"Iman Tree\" together. Every time your child connects a good akhlaq to his faith, add a leaf to the tree. At the end of the week, review how what he learned has turned into actions.",
+  "order": 10,
+  "estimated_minutes": 8,
+  "reflection_prompts": [
+    "How can you make your child connect every good behavior to an internal faith-based motivation rather than external supervision?",
+    "What does your child see in you of practical application of your faith?"
+  ],
+  "warning_flags": [],
+  "needs_professional_followup": false,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": true
+    },
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "fields.summary.english",
+        "type": "meaning",
+        "why": "The Arabic says «الله» (Allah) in both phrases but the English renders it as \"our Lord,\" a slight but consistent substitution."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "fixed_at": "2026-08-13T19:43:15.664915+00:00",
+    "fixer_model": "mistral-large-3:675b",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "b026b1f4f101cfcb547a5d2183b12b095b8bd14ac557c39e7af059e6220b9d4c",
+      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "fields.summary.english",
+          "type": "meaning",
+          "why": "The Arabic says «الله» (Allah) in both phrases but the English renders it as \"our Lord,\" a slight but consistent substitution."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "id": "tip_7-9_024",
+  "age_group": "7-9",
+  "domain": "medical",
+  "text": "DMDD is diagnosed by a specialist; its signs include severe outbursts averaging 3 or more a week with irritable mood most of the day. But do not wait a year or count outbursts before seeking help: if they are severe and affect his life, see a specialist.",
+  "unit_id": "med-08886df5",
+  "day_of_week": 0,
+  "time_of_day": "morning",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text.english",
+        "type": "omission",
+        "why": "The English uses the acronym DMDD without spelling out the full disorder name, which may be unclear to some parents."
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text.english",
+        "type": "meaning",
+        "why": "The Arabic uses 'and' (ولا) to list two things to avoid; English 'or' could be misinterpreted as an alternative."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "text",
+        "type": "leakage",
+        "why": "The Arabic uses the full descriptive term 'اضطراب خلل تنظيم المزاج' while the English uses the acronym 'DMDD' without spelling it out, which may be unclear to some parents."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+    "revalidated_at": "2026-10-08T18:17:08+00:00",
+    "english_authors": [
+      "claude-opus-5.5"
+    ],
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "openrouter",
+          "model": "deepseek/deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "openrouter",
+          "model": "z-ai/glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "f3833b5726e8debf9af402439efde86ff490214c10c8a20bd2a4270a274ba3b4",
+      "reviewed_at": "2026-10-08T18:17:08+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text.english",
+          "type": "omission",
+          "why": "The English uses the acronym DMDD without spelling out the full disorder name, which may be unclear to some parents."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text.english",
+          "type": "meaning",
+          "why": "The Arabic uses 'and' (ولا) to list two things to avoid; English 'or' could be misinterpreted as an alternative."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "text",
+          "type": "leakage",
+          "why": "The Arabic uses the full descriptive term 'اضطراب خلل تنظيم المزاج' while the English uses the acronym 'DMDD' without spelling it out, which may be unclear to some parents."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    }
+  }
+}

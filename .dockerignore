@@ -1,0 +1,47 @@
+# Keep the build context tiny — never ship venvs / indexes / backups.
+# Secrets must NEVER be baked into image layers (mounted :ro at runtime instead).
+backend/secrets/
+.venv/
+backend/.venv/
+venv/
+**/__pycache__/
+*.py[cod]
+.git/
+.githooks/
+knowledge_base/chroma_db/
+knowledge_base/chroma_seed/
+ops/chroma_data/
+ops/*.db
+*.db
+*.sqlite3
+knowledge_base/units_backup/
+knowledge_base/units_backup_*/
+knowledge_base/data/
+knowledge_base/raw_sources/
+.env
+.pytest_cache/
+.mypy_cache/
+
+# Media (~2.4GB) is volume-mounted read-only in prod (./docs:/app/docs:ro),
+# which shadows the baked COPY docs/. Baking it in just bloats the image and
+# fills the VPS disk. Keep the small json/md in docs/ as a dev fallback.
+docs/*.mp3
+docs/*.mp4
+docs/path_videos/
+# Keep lightweight lesson-asset JSON (flashcards, quizzes, reports,
+# data_tables) inside the image so asset-content tests run without mounts.
+# Heavy infographics and any stray media stay out.
+docs/lesson_assets/infographics/
+docs/lesson_assets/**/*.png
+docs/lesson_assets/**/*.jpg
+docs/lesson_assets/**/*.jpeg
+docs/lesson_assets/**/*.webp
+docs/lesson_assets/**/*.gif
+docs/lesson_assets/**/*.mp3
+docs/lesson_assets/**/*.mp4
+
+# Never bake internal marketing docs or partner agreement notes into the image.
+docs/marketing/
+BAHOUTH*
+ops/BAHOUTH*
+

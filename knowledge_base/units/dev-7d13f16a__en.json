@@ -1,0 +1,55 @@
+{
+  "id": "dev-7d13f16a__en",
+  "domain": "development",
+  "source_file": "Alliance_Positive_Parenting_Guide_Arabic.pdf",
+  "title": "Improving the Relationship Between Parents and Child and Strengthening Trust",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "تحسين العلاقة الأسرية",
+  "intervention_type": "إرشادي",
+  "severity": "متوسط",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "دليل التربية الإيجابية - Alliance for Child Protection (NSPCC)",
+  "text_original": "،لفطلاو ءابلآا نيب ةقلاعلا تدسف اذإ راهظلإ قرط ىلإ لصوتلا .لفطلا اهب فرصتي وأ رعشي يتلا ،ةيمهلأا غلاب رمأ مكلفط ىلإ نيطورشملا ريغ ةفطاعلاو بحلا اميس لاو ،هقيبطت بعصلا نمو كلذ لوق لهسلا نم نكلو .ةفلتخم تاجايتحا نيب قيفوتلا ةلواحم وأ بعتلاب مكروعش دنع ،مكنيب طبارلا ةيوقتو ،مكلفط ةقث ةدايز ىلع كلذ دعاسيُ دق .ايًوس اوملعتو مكلفط عم اتًقو اوقرغتسا .لضفأ وٍحن ىلع هتاجايتحا مهف ىلع اضً يأ دعاسيُ دق امك ةوسقلا يديدش اونوكت لاو اوملستست لا •. :حئاصن سمخ لضفأ .روفلا ىلع روملأا ريغتت مل اذإ مكسفنأ عم فادهلأاو ةريغصلا تاوطخلا ىلع اوزكر يتلا روملأاب نيمتهم مكنأ مكلفطل اورهظأ • .قيقحتلل ةلباقلا مكنكميُ ةعتمم ةطشنأ يف اوركف .هل قورت طسو لح ىلإ لوصولل نيدعتسم اونوك • .ايًوس اهب مايقلا .أطخ يأ فارتقا دنع نيئطخم مكنأب فارتعلااو ارًيغت اهيف متيأر يتلا تاقولأا يف اوركف • ءيش يأو مكلفط تايكولس يف ايًباجيإ .ةبرجتلا كلت نم هوملعتت نأ نكميُ نيدعتسم اونوكو هئارآ نع مكلفط اولأسا • ىلع كلذ مكدعاسيُ دقف ؛هيلإ عامتسلال .هروظنم نم روملأا ةيؤر ةيباجيلإا ةيبرتلا ؟مكب ةصاخلا تاظحلاملا ضعب نوفيضتُ لا مل ،مكيلع اهانحرط يتلا حئاصنلا لضفأ متأرق نأ دعبو ،نلآا .مكب ةصاخ ةخسن ليلدلا اذه نم اولعجتل ةحفصلا هذه اومدختسا كلذل ،اهريغ نع ةرسأ لك فلتخت :ايوس اهب مايقلا مكنكمي يتلا ةيلسملا روملأا :اهومتظحلا يتلا لفطلا تايكولس ىلع ةئراطلا ةيباجيلإا تارييغتلا ؟رييغتلا كلذ ثودح ىلع تدعاس نوكت دق يتلا روملأا ام NSPCC ةيعمج نم ةيساسأ تامولعم روعشلا ءابلآا عيمج باتني دق ادنلريأ يف ةيبرتلا يف ةدعاسملا طخ )ةيلامشلا ادنلريأ( ةيلامشلا ،رخلآ نٍ يح نم ةقثلا مدعو رتوتلاب صخش",
+  "text_simplified": "When the relationship between parents and child falters, it becomes important to find ways to express feelings. You can strengthen trust and the bond between you by spending enjoyable time together and understanding the child’s needs. Avoid harshness and giving up, and focus on small steps and achievable goals. Listen to your child’s opinions and learn from your mistakes together.",
+  "labels": [
+    "العلاقة الأسرية",
+    "الثقة",
+    "التواصل",
+    "التربية الإيجابية",
+    "فهم الاحتياجات"
+  ],
+  "created_at": "2026-06-21T10:35:12Z",
+  "updated_at": "2026-06-21T10:35:12Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Alliance_Positive_Parenting_Guide_Arabic",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "dev-7d13f16a",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "c6fc1033d40f51d885ca396ad3e281dfffb532e1a9d4d6897c9311a1962591a2",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

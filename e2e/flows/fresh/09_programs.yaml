@@ -1,0 +1,58 @@
+# Checkpoint 9 — «برامج الأسرة» (family programs, MOBILE_API §11).
+#
+# Enabled as a gate: public GET /api/programs returns 401 (authentication
+# required), confirming the route is deployed. The onboarded app authenticates
+# and must render the list and Prayer Journey; failures remain gating.
+#
+# Walk (read-only — it starts nothing, so it writes no production rows):
+# «المزيد» → «برامج الأسرة» → the list renders for the onboarded child (band
+# 7-9, no birth month: the Prayer Journey is offered by band) → the Prayer
+# Journey screen opens → back to Today.
+appId: com.alsaba.almorabbi
+name: fresh/09 Family programs
+---
+- runScript: ../common/l10n.js
+- runFlow: ../common/home.yaml
+- tapOn: '${output.lead.navMore}'
+- extendedWaitUntil:
+    visible: '${output.t.hubTitle}'
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      text: '${output.tile.programsTitle}'
+    direction: DOWN
+    timeout: 20000
+- tapOn: '${output.tile.programsTitle}'
+- extendedWaitUntil:
+    visible: '${output.c.programsIntro}'
+    timeout: 30000
+- assertVisible: '(?s)(?:.*\s)?${CHILD_NAME}(?:\s.*)?'
+- assertNotVisible: '${output.c.lit_errorWidget}'
+- takeScreenshot: programs_1_list
+- scrollUntilVisible:
+    element:
+      text: '${output.lead.programsPrayerTitle}'
+    direction: DOWN
+    timeout: 20000
+- tapOn: '${output.lead.programsPrayerTitle}'
+# Either outcome ends the wait: the journey, or its error page (every
+# ErrorRetryView here offers Retry).
+- extendedWaitUntil:
+    visible: '(?:${output.c.prayerStagesTitle}|${output.t.retry})'
+    timeout: 30000
+    optional: true
+# A 5xx is the server's moment, not this build's (2026-10-14: a 502 on this
+# screen failed the run) — see common/server_retry.yaml.
+- runFlow:
+    file: ../common/server_retry.yaml
+    env:
+      READY: '${output.c.prayerStagesTitle}'
+      SHOT: programs_prayer_server_error_retry
+- extendedWaitUntil:
+    visible: '${output.c.prayerStagesTitle}'
+    timeout: 30000
+- assertNotVisible: '${output.c.lit_errorWidget}'
+- takeScreenshot: programs_2_prayer_journey
+- back
+- back
+- runFlow: ../common/home.yaml

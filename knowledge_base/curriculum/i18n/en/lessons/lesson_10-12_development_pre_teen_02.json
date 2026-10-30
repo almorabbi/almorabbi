@@ -1,0 +1,52 @@
+{
+  "id": "lesson_10-12_development_pre_teen_02",
+  "path_id": "path_10-12_development_pre_teen",
+  "title": "Gradual Independence and Responsibility",
+  "age_group": "10-12",
+  "domain": "development",
+  "unit_ids": [],
+  "summary": "Your child is growing and needs a wider space, but with boundaries. Transition from control to supervision: entrust them with real responsibilities (their allowance, duties, household tasks) and grant them trust conditioned on commitment. Responsibility given gradually builds maturity, while excessive protection delays it.",
+  "try_this": "This week: Hand over to your child a new responsibility that one of you used to handle (organizing their bag or managing their weekly allowance).",
+  "order": 2,
+  "estimated_minutes": 8,
+  "reflection_prompts": [
+    "Which responsibility can your child take on now?",
+    "How do you handle their mistakes in it?"
+  ],
+  "warning_flags": [],
+  "needs_professional_followup": false,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "fbbdaef867ebe84fcaf3ca1ca8584e52863ea004c4c8414e24d45a5017414ff0",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

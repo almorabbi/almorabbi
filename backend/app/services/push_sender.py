@@ -1,0 +1,353 @@
+"""
+Push sender — Phase 1.1 re-engagement loop.
+
+Uses Firebase Admin SDK (FCM HTTP v1). Credentials are loaded from:
+  1. env FIREBASE_CREDENTIALS (raw JSON string), or
+  2. backend/secrets/firebase-adminsdk.json (gitignored file).
+
+Provides thin helpers to send notifications to a device by device_id.
+Cron scripts live outside this module (ops/scripts/) and call these helpers.
+"""
+import json
+import logging
+import os
+from pathlib import Path
+from typing import Optional
+
+import firebase_admin
+from firebase_admin import credentials, messaging
+
+from app.core.log_safety import device_tag
+from app.core.service_account import read_service_account
+from app.db.init_db import get_conn
+
+logger = logging.getLogger(__name__)
+
+_PROJECT_ROOT = Path(__file__).resolve().parents[3]
+# …/backend/secrets/, matching the docstring above and the compose bind mount.
+# This used to be _PROJECT_ROOT / "secrets", i.e. /app/secrets in the container
+# and <repo>/secrets in dev — neither of which is where the file actually lives,
+# so the file fallback could never fire.
+_CREDENTIALS_PATH = _PROJECT_ROOT / "backend" / "secrets" / "firebase-adminsdk.json"
+
+_app: firebase_admin.App | None = None
+
+
+def _read_service_account(path: Path) -> Optional[dict]:
+    """Load service-account JSON from a path, or None if it is unusable.
+
+    `exists()` was not enough: secrets/ is bind-mounted from the host and the
+    file arrives 0600 root:root while the container runs as uid 10001, so the
+    read raised PermissionError straight out of _ensure_app() and took the whole
+    push path down with it. Push is an optional feature, so an unreadable or
+    malformed credential disables it instead of raising. The loader is shared
+    with support purchases, which read their Play credential the same way.
+    """
+    return read_service_account(path, label="Firebase", feature="push")
+
+
+def _load_credentials() -> Optional[dict]:
+    """Read service account JSON from env, env-path, or file. Returns None if missing."""
+    raw = os.environ.get("FIREBASE_CREDENTIALS", "").strip()
+    if raw:
+        try:
+            return json.loads(raw)
+        except json.JSONDecodeError:
+            logger.error("FIREBASE_CREDENTIALS is set but is not valid JSON — push disabled")
+            return None
+    path_env = os.environ.get("FIREBASE_CREDENTIALS_PATH", "").strip()
+    if path_env:
+        p = Path(path_env)
+        if p.is_file():
+            return _read_service_account(p)
+    if _CREDENTIALS_PATH.is_file():
+        return _read_service_account(_CREDENTIALS_PATH)
+    return None
+
+
+def _ensure_app() -> bool:
+    """Initialize Firebase Admin once. Returns True if initialized."""
+    global _app
+    if _app is not None:
+        return True
+    creds = _load_credentials()
+    if creds is None:
+        return False
+    cred_obj = credentials.Certificate(creds)
+    _app = firebase_admin.initialize_app(cred_obj)
+    return True
+
+
+def get_fcm_token(device_id: str) -> Optional[str]:
+    """Return the latest FCM token for a device, or None."""
+    conn = get_conn()
+    row = conn.execute(
+        "SELECT token FROM push_tokens WHERE device_id = ? ORDER BY updated_at DESC LIMIT 1",
+        (device_id,),
+    ).fetchone()
+    conn.close()
+    return row["token"] if row else None
+
+
+def _record_send(device_id: str, kind: str) -> None:
+    """Log one delivered push so senders can ask about the recent past.
+
+    Recorded here rather than in each cron so every future sender inherits the
+    log instead of each one having to remember. Best-effort by design: a
+    logging failure must never turn a delivered notification into an error, and
+    the only cost of a missed row is one extra push later.
+
+    `kind` comes from the payload's `type`, which is the same string the client
+    reports back as `push_tapped(type)` — so the send log and the open log can
+    be joined without a second vocabulary.
+    """
+    try:
+        conn = get_conn()
+        conn.execute(
+            "INSERT INTO push_sends (device_id, kind) VALUES (?, ?)",
+            (device_id, kind),
+        )
+        conn.commit()
+        conn.close()
+    except Exception:  # noqa: BLE001
+        logger.warning("push_sends insert failed for %s/%s", device_tag(device_id), kind,
+                       exc_info=True)
+
+
+def recently_pushed_since(cutoff_iso: str) -> set[str]:
+    """Device ids that received any push at or after `cutoff_iso`.
+
+    One query for the whole audience rather than one per device: the callers
+    iterate over every device holding a token, and a per-row lookup turns a
+    frequency cap into N queries per run.
+
+    The cutoff is normalised with SQLite's `datetime()` because the two sides
+    are written in different shapes: `sent_at` defaults to `datetime('now')`,
+    which is `YYYY-MM-DD HH:MM:SS`, while callers pass Python's `isoformat()`,
+    which is `YYYY-MM-DDTHH:MM:SS.ffffff`. These are compared as strings, and
+    ' ' (0x20) sorts before 'T' (0x54) — so a send made on the cutoff date
+    itself would be read as older than the cutoff and the device would be
+    pushed again. Only the parameter is wrapped, never the column, so the
+    (device_id, sent_at) index is still usable.
+    """
+    try:
+        conn = get_conn()
+        rows = conn.execute(
+            "SELECT DISTINCT device_id FROM push_sends "
+            "WHERE sent_at >= datetime(?)",
+            (cutoff_iso,),
+        ).fetchall()
+        conn.close()
+        return {r["device_id"] for r in rows}
+    except Exception:  # noqa: BLE001
+        # An unreadable log must not silence the sender entirely — failing open
+        # sends one push too many, failing closed sends none at all.
+        logger.warning("push_sends read failed", exc_info=True)
+        return set()
+
+
+def pushed_only_with(cutoff_iso: str, kind: str) -> set[str]:
+    """Device ids whose every push at or after `cutoff_iso` was of `kind`.
+
+    For a sender that must not be capped by one particular kind: the evening
+    digest subtracts these from `recently_pushed_since`, so a milestone
+    reminder at 20:00 does not silence the 21:00 «a mission is waiting» —
+    while any other push in the window still does. Same failure stance as
+    `recently_pushed_since`: unreadable → empty set, so the cap is not lifted.
+    """
+    try:
+        conn = get_conn()
+        rows = conn.execute(
+            "SELECT device_id FROM push_sends WHERE sent_at >= datetime(?) "
+            "GROUP BY device_id HAVING SUM(kind != ?) = 0",
+            (cutoff_iso, kind),
+        ).fetchall()
+        conn.close()
+        return {r["device_id"] for r in rows}
+    except Exception:  # noqa: BLE001
+        logger.warning("push_sends read failed", exc_info=True)
+        return set()
+
+
+# Every message this service sent used to land on one Android channel, named
+# for re-engagement. That is fine while everything *is* re-engagement, and
+# wrong the moment something is not: a parent who mutes marketing nudges would
+# have muted a safety alert with them. The channel is a parameter now, and the
+# default keeps every existing caller exactly where it was.
+DEFAULT_CHANNEL = "almorabbi_reengagement"
+
+
+def send_to_device(
+    device_id: str,
+    title: str,
+    body: str,
+    data: Optional[dict[str, str]] = None,
+    channel_id: str = DEFAULT_CHANNEL,
+    visibility: Optional[str] = None,
+) -> dict:
+    """Send an FCM notification to a single device.
+
+    Returns {"ok": True, "sent": True, "message_id": ...} on success,
+    {"ok": True, "sent": False, "reason": "no_token"} if no token stored,
+    {"ok": False, "error": ...} on other failures.
+
+    A successful send is recorded in `push_sends` — see [_record_send].
+
+    `channel_id` selects the Android notification channel. Use
+    `license_alert.SAFETY_CHANNEL` for anything a parent must be able to keep
+    unmuted while silencing the rest. `visibility='private'` keeps the text off
+    a locked screen.
+    """
+    if not _ensure_app():
+        return {"ok": False, "error": "firebase_credentials_not_configured"}
+
+    token = get_fcm_token(device_id)
+    if not token:
+        return {"ok": True, "sent": False, "reason": "no_token"}
+
+    notification = messaging.Notification(title=title, body=body)
+    message = messaging.Message(
+        notification=notification,
+        data=data or {},
+        token=token,
+        android=messaging.AndroidConfig(
+            priority="high",
+            notification=messaging.AndroidNotification(
+                channel_id=channel_id,
+                sound="default",
+                # 'private' hides the text on a locked screen (follow-ups).
+                visibility=visibility,
+            ),
+        ),
+    )
+    try:
+        message_id = messaging.send(message, app=_app)
+        _record_send(device_id, (data or {}).get("type", "unknown"))
+        return {"ok": True, "sent": True, "message_id": message_id}
+    except messaging.UnregisteredError:
+        # Token is stale; stop using it — unless the app registered a newer one
+        # while this was in flight (remove_token_if_current).
+        remove_token_if_current(device_id, token)
+        return {"ok": True, "sent": False, "reason": "unregistered"}
+    except Exception as exc:  # noqa: BLE001
+        return {"ok": False, "error": str(exc)}
+
+
+# A dead push token leaves a tombstone, not a hole: the row stays, with an
+# empty token. Every reader already treats '' as "no token"; what survives is
+# the device's push history (routers/push.py) — a deleted row made the next
+# registration a "first" token and skipped the takeover cooldown (PR #26 final
+# review).
+
+
+def _remove_token(device_id: str) -> None:
+    conn = get_conn()
+    try:
+        conn.execute("UPDATE push_tokens SET token = '' WHERE device_id = ?", (device_id,))
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def remove_token_if_current(device_id: str, token: str) -> None:
+    """Stop using a push token FCM called unregistered — unless the app has
+    registered a newer one in the meantime, which must survive."""
+    conn = get_conn()
+    try:
+        conn.execute("UPDATE push_tokens SET token = '' WHERE device_id = ? AND token = ?",
+                     (device_id, token))
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def send_notification_to_token(token: str, title: str, body: str,
+                               data: Optional[dict[str, str]] = None,
+                               channel_id: str = DEFAULT_CHANNEL) -> dict:
+    """A visible notification to one specific FCM token — not the device's
+    current one. For the notice owed to the phone that just lost the account's
+    token (services/device_alerts.py). Not written to `push_sends`: it goes to
+    a different phone from the one the send log speaks for.
+
+    Returns {"ok": True, "sent": True}, {"ok": True, "sent": False, "reason":
+    "unregistered"}, or {"ok": False, "error": <exception type name>}."""
+    if not _ensure_app():
+        return {"ok": False, "error": "firebase_credentials_not_configured"}
+    message = messaging.Message(
+        notification=messaging.Notification(title=title, body=body),
+        data=data or {},
+        token=token,
+        android=messaging.AndroidConfig(
+            priority="high",
+            notification=messaging.AndroidNotification(channel_id=channel_id,
+                                                       sound="default"),
+        ),
+    )
+    try:
+        messaging.send(message, app=_app)
+        return {"ok": True, "sent": True}
+    except messaging.UnregisteredError:
+        return {"ok": True, "sent": False, "reason": "unregistered"}
+    except Exception as exc:  # noqa: BLE001
+        return {"ok": False, "error": type(exc).__name__}
+
+
+def send_data_message(token: str, data: dict[str, str], ttl_seconds: int) -> dict:
+    """A silent data-only message to one FCM registration token.
+
+    No `notification` block: nothing is shown, and Android delivers it without
+    the notification permission. `ttl_seconds` keeps FCM from delivering it
+    after it has stopped meaning anything (a device-proof code's lifetime).
+
+    Not written to `push_sends`: that log is for pushes a parent *sees*, and a
+    silent message must not hold back the next real one.
+
+    Returns {"ok": True, "sent": True} on success,
+    {"ok": True, "sent": False, "reason": "unregistered"} for a dead token,
+    {"ok": False, "error": ...} otherwise. The error is the exception's type
+    name only — FCM messages can echo the request, and this one carries a code.
+    """
+    if not _ensure_app():
+        return {"ok": False, "error": "firebase_credentials_not_configured"}
+    message = messaging.Message(
+        data=data,
+        token=token,
+        android=messaging.AndroidConfig(priority="high", ttl=ttl_seconds),
+    )
+    try:
+        messaging.send(message, app=_app)
+        return {"ok": True, "sent": True}
+    except messaging.UnregisteredError:
+        return {"ok": True, "sent": False, "reason": "unregistered"}
+    except Exception as exc:  # noqa: BLE001
+        return {"ok": False, "error": type(exc).__name__}
+
+
+def send_to_topic(
+    topic: str,
+    title: str,
+    body: str,
+    data: Optional[dict[str, str]] = None,
+) -> dict:
+    """Broadcast to an FCM topic (e.g. 'all_parents')."""
+    if not _ensure_app():
+        return {"ok": False, "error": "firebase_credentials_not_configured"}
+
+    notification = messaging.Notification(title=title, body=body)
+    message = messaging.Message(
+        notification=notification,
+        data=data or {},
+        topic=topic,
+        android=messaging.AndroidConfig(
+            priority="high",
+            notification=messaging.AndroidNotification(
+                channel_id="almorabbi_reengagement",
+                sound="default",
+            ),
+        ),
+    )
+    try:
+        message_id = messaging.send(message, app=_app)
+        return {"ok": True, "sent": True, "message_id": message_id}
+    except Exception as exc:  # noqa: BLE001
+        return {"ok": False, "error": str(exc)}

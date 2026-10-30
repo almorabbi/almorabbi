@@ -1,0 +1,54 @@
+{
+  "id": "lesson_10-12_aqeedah_growth_02",
+  "path_id": "path_10-12_aqeedah_growth",
+  "title": "Al-Muraqabah and Ikhlas: Act for Allah, Not for People",
+  "age_group": "10-12",
+  "domain": "aqeedah",
+  "unit_ids": [],
+  "summary": "As puberty approaches, the influence of people’s gaze begins to grow stronger. Plant in your child ikhlas (sincerity): that he does good because Allah sees him and is pleased, not because people see him and praise him. Teach him the difference between praying or giving charity only in front of others, and doing so in secret where no one sees him but Allah. This muraqabah (awareness of Allah’s constant observation) is his guardian when you are not with him, and the most precious protection in an age of temptations.",
+  "try_this": "This week: Encourage your child to do a ‘amal sirri (secret deed) that no one knows about (hidden charity, helping without praise), and you two talk about how Allah alone sees him and suffices him.",
+  "order": 3,
+  "estimated_minutes": 8,
+  "reflection_prompts": [
+    "How do you teach your child to do good for Allah’s sake, not for people’s gaze?",
+    "In what situations does your child need to remember muraqabah at this age?"
+  ],
+  "warning_flags": [],
+  "needs_professional_followup": false,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "fixed_at": "2026-08-13T18:56:15.794546+00:00",
+    "fixer_model": "mistral-large-3:675b",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "5dacbca84bb84dbbb2caa8d05158b760410aa813fc65258b75c39656aa94b262",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "seed-sleep-46__en",
+  "domain": "medical",
+  "source_file": "curated/AAP / NHS - Children's sleep",
+  "title": "Sleep Difficulties at the Age of Four to Six",
+  "language": "en",
+  "age_group": "4-6",
+  "behavior_type": "مشاكل النوم",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "تقرير_طبي",
+  "reference_info": "AAP / NHS - Children's sleep",
+  "text_original": "يحتاج الطفل في هذا العمر إلى نحو ١٠ إلى ١٣ ساعة نوم. ثبّت موعد نوم واستيقاظ واحداً كل أيام الأسبوع حتى العطلات. اصنع روتيناً مهدّئاً قبل النوم بنصف ساعة بعيداً عن الشاشات والألعاب الحركية والطعام الثقيل. إن كان يخاف من الظلام استخدم إضاءة خافتة وطمئنه، وتجنّب القصص أو الأفلام المخيفة قبل النوم. إن جاء لغرفتك ليلاً أعِده بهدوء وحزم إلى سريره دون عتاب طويل. تجنّب الكافيين في المشروبات، واجعل أيامه مليئة بالحركة واللعب فهذا يحسّن نومه.",
+  "text_simplified": "At this age, a child needs about 10 to 13 hours of sleep. Keep a consistent bedtime and wake-up time every day of the week, including weekends. Create a calming routine half an hour before bed, away from screens, physical play, and heavy food. If they are afraid of the dark, use dim lighting and reassure them, and avoid scary stories or films before bed. If they come to your room at night, gently and firmly return them to their bed without lengthy reproach. Avoid caffeine in drinks, and ensure their days are filled with movement and play, as this improves their sleep.",
+  "labels": [
+    "النوم",
+    "روتين النوم",
+    "الخوف من الظلام",
+    "4-6 سنوات"
+  ],
+  "created_at": "2026-06-13T00:00:00Z",
+  "updated_at": "2026-06-13T00:00:00Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "AAP / NHS - Children's sleep",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "seed-sleep-46",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "109908404c8b2ae298a5df9bac9ec31183a4c419213370bcc97f7a053776d9ad",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": "isl-fb584945__en",
+  "domain": "islamic_parenting",
+  "source_file": "Manhaj_Nabawi_Khulayfi.pdf",
+  "title": "Aesthetic and Physical Tarbiyah in Islam",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "تربية جمالية وبدنية",
+  "intervention_type": "وقائي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "المنهاج التربوي النبوي — د. عدنان الخليفي",
+  "text_original": "؟ﷲ لوسر (cid:686) نه امو :ليق :تس ملسﳌا بـْتاف تام اذإو ،هدُْ عف ضرم اذإو .هتم :ةيلامﳉا ةيبﱰلا ـ د اﲟ ناسنﻹا رعشي ﱴح ،24\" سﳊا اذه ةيقرت ىلع بيردتلاو ةيتوصلا وأ ةيلكشلا هروص ﱴشب ﱄامﳉا سﳊا داﳚإ ىلع درفلا ةيبرت\" هب دصقيو ساسحﻹا اذه نم ديفتسي ﰒ نمو ،هلاوقأو هلاعفأو ،هقلخو هقلخ ﰲ ، هسفن ﰲ هلاﲨو ،ةيناسنﻹا ةايﳊا لاﲨو ،نوكلا لاﲨ نم هب طيﳛ ةيﳍﻹا ةردقلا كاردإ هلﻼخ نم عيطتسيو ،هلعفو هلوقو هنكسمو هسبلمو هلكش ﰲ هكاحيف ،هب اهلك هتايح غبصي نأ ىلع هدعاسي اﲟ لامﳉ(cid:682) 86 2024 ربنون –نورشعلاو دحاولا ددعلا **** ةـــــــفرعملا ةــــــلجم ي فيلخل ناندع .د ** يوبنلا يوبرتلا جاهنملا : ةيمسﳉا ةيبﱰلا ـ ه ملسو هيلع ﷲ ىلص هتاهيجوت تءاجف ،ناسنﻹا ىلع ا(cid:273) ﷲ معنأ ةمعنك ندبل(cid:682) ةيانعلا ةرورض ىلع هتمأ ملسو هيلع ﷲ ىلص ﱯنلا ﰉر دقل يه ةيدسﳉا وأ ةيندبلا وأ ةيمسﳉا ةيبﱰلاف ،هيذؤيو هرضي نأ هنأش نم ام لك نع داعتبﻻاو هحلصي ام لكو ندبلا ىلع ةظفاﶈا ةرورض ﱃإ هبنت ةظفاﶈا ﱃإ فد(cid:275) يهف .ةيكرﳊا هتءافك ةد(cid:686)زو ةفلتخﳌا مسﳉا تاردق ةيمنت فد(cid:273) مظنم يمسج طاشنب اﳍﻼخ ـ هاعري نم وأ درفلا موقي ةيلمع . 25\" فيعضلا نمؤﳌا نم ﷲ ﱃإ بحأو لضفأو ﲑخ يوقلا نمؤﳌا\" ملسو هيلع ﷲ ىلص ههيجوت مومع عم مجسني اذهو اطيشن (cid:686)وق مسﳉا ىلع ءاعدلا ﰲ هلوق ﰲ امك مسﳉا فعضي ام لك نع داعتبﻻا ﱃإ هتوعدو ةناكر ةعراصمو ةشئاع ةقباسم ﰲ ملسو هيلع ﷲ ىلص هلعف كلذكو .26\" لسكلاو زجعلا نم كب ذوعأ ﱐإ مهللا \" روهشﳌا يوبنلا يوبﱰلا جهنﳌا ﰲ ةيعقاولا :اين(cid:684) هيبري ﻻو ،هقيطي",
+  "text_simplified": "This text concerns *tarbiyah* (upbringing) that is aesthetic and sensory, and how to nurture a love of beauty in the human soul through appearance, behavior, and *akhlaq* (character). It also points to the importance of physical *tarbiyah* in Islam, citing Prophetic *ahadith* (plural of hadith) that encourage physical strength and care for the body. The text connects inner and outer beauty, and physical health with spiritual strength.",
+  "labels": [
+    "تربية جمالية",
+    "تربية بدنية",
+    "جمال النفس",
+    "صحة الجسم",
+    "أحاديث نبوية"
+  ],
+  "created_at": "2026-06-20T14:39:44Z",
+  "updated_at": "2026-06-20T14:39:44Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Manhaj_Nabawi_Khulayfi",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-fb584945",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "addition",
+        "why": "The parenthetical gloss '(plural of hadith)' is explanatory content not present in the Arabic source."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "5bd3cb5d6983a034af3de8af8ecaca9501d1e4601dad3f097965598105c94a10",
+      "reviewed_at": "2026-10-04T11:26:06+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "addition",
+          "why": "The parenthetical gloss '(plural of hadith)' is explanatory content not present in the Arabic source."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:26:06+00:00"
+  }
+}

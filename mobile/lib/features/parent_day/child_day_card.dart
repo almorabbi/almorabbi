@@ -1,0 +1,159 @@
+/// The child's day, on the «اليوم» tab.
+///
+/// The plan puts the parent panel in this tab (item 2.4). What shipped was a
+/// button on the routine screen instead — two taps deeper than specified, and
+/// down a path a parent only takes when they already intend to look. The
+/// numbers this feature exists to produce were therefore invisible to anyone
+/// not going looking for them.
+///
+/// A summary, not the panel: two rows and the mission's state, with the full
+/// screen one tap away. Everything the panel says about *why* the two numbers
+/// are never added lives there, where there is room to say it.
+library;
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../core/app_routes.dart';
+import '../../l10n/app_localizations.dart';
+import '../../state/chat_notifier.dart' show tgClientProvider;
+import '../program/providers/lesson_assets_provider.dart'
+    show contentLanguageProvider;
+import '../program/providers/progress_providers.dart' show activeChildIdProvider;
+
+class ChildDayCard extends ConsumerStatefulWidget {
+  const ChildDayCard({
+    super.key,
+    this.whenEmpty,
+    this.whenNoMission,
+    this.onOpened,
+  });
+
+  /// Shown instead of nothing — while loading, when the backend cannot be
+  /// reached, and on a day with nothing to report. The «اليوم» tab passes the
+  /// block's call to action here, so «مهمة الطفل» always has something to do;
+  /// left null, the card keeps its old behaviour and simply hides.
+  final Widget? whenEmpty;
+
+  /// Shown under the day's summary when the day has activity but no mission
+  /// yet. For a band with a mission bank this is the hand-over invitation: a
+  /// child who spent twenty minutes on the screen today has still not been
+  /// given today's mission, and the summary alone would hide the one thing
+  /// the parent can do about it.
+  final Widget? whenNoMission;
+
+  /// Called when the parent opens the full day from this card.
+  final VoidCallback? onOpened;
+
+  @override
+  ConsumerState<ChildDayCard> createState() => _ChildDayCardState();
+}
+
+class _ChildDayCardState extends ConsumerState<ChildDayCard> {
+  Map<String, dynamic>? _day;
+  bool _failed = false;
+
+  /// The child and the language the shown day was fetched for. The mission's
+  /// title arrives in the language of the request (`?lang=`), so switching
+  /// the app to English must fetch again — keyed on the child alone, the
+  /// card kept the Arabic title until the next cold start.
+  (int, String)? _loadedFor;
+
+  Future<void> _load((int, String) key) async {
+    _loadedFor = key;
+    try {
+      final day = await ref.read(tgClientProvider).fetchChildDay(key.$1);
+      // Switching child (or language) while a request is in flight: the
+      // slower, older answer must not overwrite the newer one.
+      if (!mounted || _loadedFor != key) return;
+      setState(() { _day = day; _failed = false; });
+    } catch (_) {
+      // The home tab must survive a backend that is down. A card that cannot
+      // load hides; it does not put an error in the middle of the day.
+      if (!mounted || _loadedFor != key) return;
+      setState(() => _failed = true);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final empty = widget.whenEmpty ?? const SizedBox.shrink();
+    final childId = ref.watch(activeChildIdProvider);
+    if (childId == null) return empty;
+    final key = (childId, ref.watch(contentLanguageProvider));
+    if (_loadedFor != key) {
+      // A new child: the previous child's day is not shown for a single
+      // frame, and its late answer is discarded by _load.
+      _loadedFor = key;
+      _day = null;
+      _failed = false;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && _loadedFor == key) _load(key);
+      });
+    }
+
+    final day = _day;
+    if (_failed || day == null) return empty;
+
+    final screen = day['screen'] as Map<String, dynamic>? ?? const {};
+    final listening = day['listening'] as Map<String, dynamic>? ?? const {};
+    final mission = day['mission'] as Map<String, dynamic>?;
+    final screenMin = ((screen['counted_seconds'] as int? ?? 0) / 60).round();
+    final screenBudget = ((screen['budget_seconds'] as int? ?? 0) / 60).round();
+    final audioMin = ((listening['counted_seconds'] as int? ?? 0) / 60).round();
+
+    // Nothing happened today and nothing is pending: an empty card is noise on
+    // the one screen that should stay calm.
+    if (screenMin == 0 && audioMin == 0 && mission == null) {
+      return empty;
+    }
+
+    final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context);
+    final card = Card(
+      elevation: 0,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: () async {
+          widget.onOpened?.call();
+          await Navigator.of(context).push(AppRoutes.parentDay());
+          if (mounted) _load(key);
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(l10n.parentDayWith('${day['child_name'] ?? ''}'),
+                  style: theme.textTheme.titleSmall
+                      ?.copyWith(fontWeight: FontWeight.w800)),
+              const SizedBox(height: 10),
+              // Two lines, never one sum — same rule as the panel.
+              Text(l10n.parentDayScreenLine(screenMin, screenBudget),
+                  style: theme.textTheme.bodyMedium),
+              const SizedBox(height: 4),
+              Text(l10n.parentDayAudioLine(audioMin),
+                  style: theme.textTheme.bodyMedium
+                      ?.copyWith(color: theme.colorScheme.outline)),
+              if (mission != null) ...[
+                const SizedBox(height: 8),
+                Text(
+                  mission['status'] == 'claimed'
+                      ? l10n.parentDayMissionClaimed('${mission['title_ar']}')
+                      : l10n.parentDayMissionAssigned('${mission['title_ar']}'),
+                  style: theme.textTheme.bodyMedium,
+                ),
+              ],
+            ],
+          ),
+        ),
+      ),
+    );
+    final invite = widget.whenNoMission;
+    if (mission != null || invite == null) return card;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [card, const SizedBox(height: 10), invite],
+    );
+  }
+}

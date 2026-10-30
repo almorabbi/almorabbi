@@ -1,0 +1,55 @@
+{
+  "id": "isl-3b349626__en",
+  "domain": "islamic_parenting",
+  "source_file": "Kayfa_Turabbi_Waladak.pdf",
+  "title": "Tarbiyah of the Orphaned Child between Firmness and Tenderness",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "تربية الطفل اليتيم",
+  "intervention_type": "إرشادي",
+  "severity": "متوسط",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "كيف تربي ولدك",
+  "text_original": "........................ حيحصلا رايتخلاا ونح بيرلما ةيلوؤسمو لحاصلا سيللجا ايناث ......................................... هتاعرتمخو ثيدلحا ملعلا نم ةدافلإا ًاثلاث 9 ................ ةجوزلا رايتخا في ابه ةناعتسلااو ةثارولا ملعو ةئيبلا نم ةدافلإا اعبار 64 .............................................. ةيرطفلا عفاودلا نم ةدافلإا اسماخ 63 .................... نانلحاو مزلحا ينب عملجا ةرورضو ميتيلا لفطلا ةيبرت لولأا لصفلا 6 .............................. تاسسؤلماو دارفلأا ينب يذلا لفطلا ةيبرت نياثلا لصفلا 66 ....... ضرلما بسبح ةيبرتلا طئاسو يريغتو قاعلما وأ ضيرلما لفطلا ةيبرت ثلاثلا لصفلا",
+  "text_simplified": "This text discusses the tarbiyah of the orphaned child and the importance of combining firmness with tenderness. It also highlights the benefit of the environment and modern knowledge in choosing a spouse. It emphasizes the necessity of adapting tarbiyah methods according to the child’s health condition.",
+  "labels": [
+    "تربية",
+    "طفل يتيم",
+    "حزم",
+    "حنان",
+    "اختيار الزوجة"
+  ],
+  "created_at": "2026-06-20T14:38:38Z",
+  "updated_at": "2026-06-20T14:38:38Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Kayfa_Turabbi_Waladak",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-3b349626",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "c93cc1719aa8099982eabdb7b8df1579e774b81d6bce66e5352e019c82c74a6a",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

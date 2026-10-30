@@ -1,0 +1,52 @@
+{
+  "id": "lesson_4-6_cyber_early_screens_03",
+  "path_id": "path_4-6_cyber_early_screens",
+  "title": "Shared Screen, Not Solo: Watching as Dialogue",
+  "age_group": "4-6",
+  "domain": "cyber",
+  "unit_ids": [],
+  "summary": "A child learns many times more when they watch with you instead of being left alone in front of the device. Keep the screen in a shared space, not in their room. Watch with them sometimes, and afterward ask, «What did you like? What did you learn?» to turn passive watching into interaction and language.",
+  "try_this": "This week: Watch a full episode with your child, then discuss it afterward with three simple questions.",
+  "order": 3,
+  "estimated_minutes": 7,
+  "reflection_prompts": [
+    "Where is the device usually located in the home?",
+    "How did your child interact when you watched with them?"
+  ],
+  "warning_flags": [],
+  "needs_professional_followup": false,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "05c63fda3275d3c14ce63ccf8ed9de995d88075ee2a09e66de2a8613b98e0442",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

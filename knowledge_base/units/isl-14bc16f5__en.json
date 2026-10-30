@@ -1,0 +1,62 @@
+{
+  "id": "isl-14bc16f5__en",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "The Prophet's ﷺ Love for Usama and al-Hasan",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "تربية دينية",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين - عماد عبدالعظيم (الألوكة)",
+  "text_original": "وعن أسامة بن زيد رضي الله عنهما، عن النبي ﷺ أنه كان يأخذه والحسن، ويقول: «اللهم إني أحبهما فأحبهما» أو كما قال.\nأخرجه البخاري (٣٧٤٧).",
+  "text_simplified": "The Prophet ﷺ would hold Usama ibn Zayd and al-Hasan, pray that Allah would love them, and express his love for them.",
+  "labels": [
+    "أسامة بن زيد",
+    "الحسن",
+    "محبة"
+  ],
+  "created_at": "2026-06-21T10:19:33Z",
+  "updated_at": "2026-10-07T10:15:41.924957+00:00",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "حقوق الأولاد على الوالدين",
+    "source_author": "عماد أحمد عبدالعظيم"
+  },
+  "source_language": "ar",
+  "translated_from": "isl-14bc16f5",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+    "draft_status": "draft",
+    "source_recovery_note": "Source-faithful draft; canonical English parity reviewed by deepseek-v4-pro + glm-5.2. No scholar, human or publication approval.",
+    "fixer_model": "openai:codex",
+    "english_authors": [
+      "mistral-large-3:675b",
+      "openai:codex"
+    ],
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "6f8b33f049d9991776e59592b0ec6cacd4385d18f2b441f7f76e8e3e7d61943d",
+      "reviewed_at": "2026-10-07T14:33:44+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "revalidated_at": "2026-10-07T14:33:44+00:00"
+  },
+  "source_url": "https://www.alukah.net/Books/Files/Book_17337/BookFile/brotherandboys.pdf#page=53",
+  "source_note": "DRAFT source recovery, 2026-10-07. Selected primary PDF excerpt; provenance and exact local citation checks: ops/data/kb_fidelity/source_recovery/isl-14bc16f5.json. Canonical English parity review recorded; no scholar, human or publication approval."
+}

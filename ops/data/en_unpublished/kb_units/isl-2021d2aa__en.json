@@ -1,0 +1,55 @@
+{
+  "id": "isl-2021d2aa__en",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "Analysis of a Tarbiyah Story Containing Domestic Violence",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "عنف أسري",
+  "intervention_type": "إحالة_لطبيب",
+  "severity": "شديد",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين - عماد عبدالعظيم (الألوكة)",
+  "text_original": "عموامٜمًا لقم٘مًا« بياتمي مذ اتهرميذ ،عضاقتمًا مذ هذه مػمه رقص ـــــــــــــــتــــــــ نيدلاىلا ىلع دلاولأا قىقح ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ نْ ِ نفَ ,اػً لْأَ ـَ قع ِ بْ س غَ ؾَ بَ ل ٍ اؿ ِ ب ل ِ ـتقْ تَ أَ تْـكُ ؽكَ إ ,ت ِ بَ أَ ايَ :ةبتط فقبٕ ور :لَ اقَ ,ف ِ ض ِ م ل َ فَ ةُ بَ تْ طُ :فُ لَ لَ اقَ ,فقض ِ م ل َ فَ ل ِ ـطْ دَ فَ َٓ ِ إوَ ,هُ ذْ خُ فَ اذَ قَ فُ فَ فُ ْـطَ ل ِ ؾ ِ ئاس .فجيرخت مدؼت » ؿ د فُ ْـم لؼبَ ام كتَ حَ هُ اضَ م افعم اقبهذا ,فسقماقج مورلا ذخأ دعب هدقبعل لاق يبرطلا رقشب نأ مدؼتو نإ لـب يأ تؽسا :لاؼف ,اـترؼفأ تبأ اي :فـبا فل لاؼف ,للها فجقل رارحأ ؿتكلف .»هديزأ نأ تببحلف نيبرتخا لبر :امقي كقبأ لل لاق :تلاق ,لمأ لـتثدح :لاق ,زيزعلا دبط ـب دؿحم ـطو ؾئاس اذإو ,فيدي ـقب فتعضقف ,هرطػل فتلقفف :تلاق ,ـقخث زبخب اـبل لفتشأ ـم مدعؿلا هدبط :كقبأ لقؼي :تلاق ,؟فيقلا ءلؾؿلا ضرؼي ـم :لقؼي ,ؾئاسلا كلإ افقف اؿب افعفدف ,ابه جرخف ,ةػحصلا ذخأ ؿث :تلاق ,تاـسحلا ,؟ادغ ؽبؾص ابه ؿقؼت ةرسؽب ؽقتآ ٓأ :رحسلا في فل تؾؼف ايواص فتؾقل تابو .)1(»ةجاح ـم ؽلذ كلإ دجأ ام ,ٓ :لاق ٛٗبشعلا ٛػملا دلألأا يٗمعت :ُٕثلاجلأ ٌ٘اجلا للحا .)2( ـِ حْ ؾَ لا كؾَ طَ هُ دَ لَوَ بُ ر ِ ضْ يَ نَ اكَ فُ كَ أَ ,ﭭ ر طُ ـِ بْ ا ـِ طَ ٓ نينف",
+  "text_simplified": "The text discusses a complex and unclear story involving dialogue between characters about tarbiyah (upbringing) situations. It depicts physical violence and family conflicts. Parents are advised to avoid violence in tarbiyah and resort to dialogue and understanding.",
+  "labels": [
+    "عنف",
+    "تربية",
+    "أسرة",
+    "صراع",
+    "حوار"
+  ],
+  "created_at": "2026-06-21T10:29:02Z",
+  "updated_at": "2026-06-21T10:29:02Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Alukah_Rights_of_Children",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-2021d2aa",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "0cd22c843376d886cd0c05485ec181c2e0070b8ee5a9571617461e8b29a24dd9",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

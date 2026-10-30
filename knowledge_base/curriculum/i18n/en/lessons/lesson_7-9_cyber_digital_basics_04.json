@@ -1,0 +1,69 @@
+{
+  "id": "lesson_7-9_cyber_digital_basics_04",
+  "path_id": "path_7-9_cyber_digital_basics",
+  "title": "Cyberbullying: How He Protects Himself and When to Tell You",
+  "age_group": "7-9",
+  "domain": "cyber",
+  "unit_ids": [],
+  "summary": "Your child may face hurtful words or exclusion online, and he may stay silent out of fear or shyness. Teach him not to respond, to save the evidence (a screenshot), and to tell you immediately—you are with him, not against him. And teach him never to be the bully. A child who trusts that you will support him seeks help early.",
+  "try_this": "This week: Tell your child clearly: «If someone bothers you online, come to me immediately, and I will not punish you nor take the device away.»",
+  "order": 4,
+  "estimated_minutes": 7,
+  "reflection_prompts": [
+    "Does your child trust that he can tell you?",
+    "Does he know what to do if he is harmed?"
+  ],
+  "warning_flags": [
+    "تغيّر مزاجٍ أو انسحابٌ بعد استخدام الجهاز",
+    "تنمّرٌ متكرر يؤذي الطفل"
+  ],
+  "needs_professional_followup": true,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "fields.try_this.english",
+        "type": "leakage",
+        "why": "English text uses guillemets («») instead of standard English quotation marks, likely carried over from Arabic typography."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "2954a8fcd34f6ec7377b5719ed785578e606202a5167daa0b7de07514bb2c0b6",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "fields.try_this.english",
+          "type": "leakage",
+          "why": "English text uses guillemets («») instead of standard English quotation marks, likely carried over from Arabic typography."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

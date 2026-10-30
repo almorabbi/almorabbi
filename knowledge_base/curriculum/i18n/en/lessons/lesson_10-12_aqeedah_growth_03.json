@@ -1,0 +1,55 @@
+{
+  "id": "lesson_10-12_aqeedah_growth_03",
+  "path_id": "path_10-12_aqeedah_growth",
+  "title": "Al-Qada' wal-Qadar: Al-Rida wal-Tawakkul",
+  "age_group": "10-12",
+  "domain": "aqeedah",
+  "unit_ids": [],
+  "summary": "Belief in al-qadar (divine decree) grants your child a psychological fortress in a stage filled with frustrations—grades, friendships, comparisons. Teach him a principle: we take the means first (we study, we strive), then we place our tawakkul (trust) in Allah and accept what He has decreed. If something he dislikes befalls him, he exercises patience, says, 'Qaddar Allahu wa ma sha’a fa’al (Allah has decreed, and He does what He wills)' (Sahih Muslim 2664), and seeks the alternative good. If he succeeds, he praises Allah and does not grow arrogant. This balance between taking the means and contentment with al-qadar shapes a well-adjusted personality that does not collapse at the first shock.",
+  "try_this": "This week: When your child faces a disappointment (a result, a friend’s disagreement), teach him to say, 'Qaddar Allah,' and ask, 'What do I do now?' instead of drowning in regret.",
+  "order": 4,
+  "estimated_minutes": 8,
+  "reflection_prompts": [
+    "How do you balance teaching your child to take the means and being content with Allah’s decree?",
+    "What is the impact of belief in al-qadar on your child’s psychological steadiness during frustration?"
+  ],
+  "warning_flags": [],
+  "needs_professional_followup": false,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": true
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "fixed_at": "2026-10-04T08:15:36.331649+00:00",
+    "manual_fix_note": "Removed 'Prophetic' and ﷺ: the Arabic says «علّمه قاعدةً» — a principle, with no attribution to the Prophet. The same false attribution was corrected on the Arabic side on 2026-08-11 («قاعدة نبوية» → «قاعدة») and the English was missed. | 2026-10-04 scripture fix: hadith quoted only from the Sahihayn with book + number (Muslim by Abd al-Baqi); non-Sahihayn or paraphrased quotes replaced, mirrored from the Arabic.",
+    "fixer_model": "claude-opus-5.5",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "005a98da0c933a537d2d63f69c89053b7d4b9971abfd5f637348ed9d48de4a42",
+      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    }
+  }
+}

@@ -1,0 +1,161 @@
+# ── Python ──────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Virtual environments (huge: ~1.75GB) ────────────────────────────────
+.venv/
+backend/.venv/
+venv/
+env/
+notebooklm_env/
+
+# ── Secrets / config ────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+mobile/android/key.properties
+mobile/android/app/upload-keystore.jks
+mobile/android/app/*.keystore
+backend/secrets/
+!backend/secrets/.gitkeep
+
+# ── Generated vector indexes (rebuilt from knowledge_base/units/) ───────
+knowledge_base/chroma_db/
+knowledge_base/chroma_seed/
+ops/chroma_data/
+
+# ── Runtime databases (regenerated) ─────────────────────────────────────
+*.db
+*.db-shm
+*.db-wal
+*.sqlite3
+ops/sessions.db
+
+# ── Real user evaluation sets (Strict privacy: never commit parent questions) ──
+*real_set*.jsonl
+data/eval/
+ops/eval/real_set*.jsonl
+
+# ── Old backups & deprecated data ───────────────────────────────────────
+knowledge_base/units_backup/
+knowledge_base/units_backup_*/
+knowledge_base/data/
+
+# ── Raw source binaries (heavy provenance — not needed to run) ─────────
+# Ignore the big binaries, but KEEP extracted/OCR'd .txt sidecars (the usable,
+# small derived text that the ingestion pipeline turns into units).
+knowledge_base/raw_sources/**/*.pdf
+knowledge_base/raw_sources/**/*.png
+knowledge_base/raw_sources/**/*.jpg
+knowledge_base/raw_sources/**/*.jpeg
+knowledge_base/raw_sources/**/*.tif
+knowledge_base/raw_sources/**/*.tiff
+knowledge_base/raw_sources/**/*.docx
+knowledge_base/raw_sources/**/*.epub
+
+# ── OS / editor ─────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# ── Editor temp files ───────────────────────────────────────────────────
+.hermes-tmp.*
+*.tmp
+
+# ── Generated fine-tune dataset artifacts (built locally, uploaded to Kaggle) ──
+# Matched by shape, not by exact name. Every rule here used to name one file, so
+# each new variant (_v3, _premium_25k, _final, tg_train_*) escaped and sat
+# untracked and unignored — 12GB one `git add -A` away from being committed.
+ops/data/*.jsonl
+ops/data/*.ckpt.json
+ops/data/*.log
+ops/data/*.pid
+ops/data/*checkpoint.json
+
+# ── Generated lesson media (AI-generated, multi-GB — served from the VPS) ──
+# Media reaches production by rsync, never through git. docs/lesson_videos/ was
+# ignored as a directory, but gen_lesson_videos.py writes docs/<id>_video.mp4 at
+# the root, so 274MB of it escaped the rule.
+docs/*.mp3
+docs/*.mp4
+docs/lesson_videos/
+# Story narration (mobile/tool/gen_story_narration.py): m4a + manifests, rsynced
+# with the rest of the media — the app reads them from the server.
+docs/stories/narration/
+docs/podcast_artifacts/
+docs/screenshots/
+docs/lesson_assets/infographics/
+
+# ── Model weights and training output (12GB — never in git) ──
+kaggle_logs*.txt
+ops/data/kaggle_output*/
+ops/data/kaggle_upload*/
+ops/data/v3gguf/
+tg-tutor-commandr-lora/
+*.safetensors
+*.gguf
+
+# Eval harness artifacts
+ops/eval/runs/
+ops/eval/_eval_*.db
+ops/eval/golden_candidates.jsonl
+
+backend/secrets/
+*firebase-adminsdk*.json
+# Android App Bundles (large release artifacts; store separately)
+*.aab
+
+# ── User-facing media assets (hosted on VPS; kept out of git) ────────────
+docs/marketing/watermarked_infographics/
+docs/research/aqidah_library/
+docs/path_videos/
+
+# ── Marketing render intermediates and QA frames ──────────────────────────
+docs/marketing/reel_scratch/
+docs/marketing/shorts/
+docs/marketing/screenshots/raw*/
+docs/marketing/screenshots/preview/
+
+# ── Local development / agent scratch dirs ─────────────────────────────────
+logs/
+memory/
+.agents/
+# Reels output large media
+docs/marketing/reels_output/*.mp4
+docs/marketing/reels_output/*_thumb.jpg
+# The v2 factory's output. The manifest is tracked — it records what was
+# generated and what was published — but the renders themselves are not.
+docs/marketing/reels_v2/*.mp4
+
+# ── Play Developer API service account (upload + review replies) ──────────
+# Same class as backend/secrets: a private key that must never be committed.
+scripts/play_service_account.json
+**/play_service_account.json
+**/*service_account*.json
+source_to_lesson.json.bak-*
+scratch/en_media_progress.json
+
+# Auto Claude data directory
+.auto-claude/
+
+# Auto Claude generated files
+.auto-claude-security.json
+.auto-claude-status
+.claude_settings.json
+.worktrees/
+.security-key
+logs/security/
+
+# Infographic harvest bookkeeping (runtime state, like its ops/data siblings)
+ops/data/infographic_task_meta.json
+ops/data/.*.tmp.*

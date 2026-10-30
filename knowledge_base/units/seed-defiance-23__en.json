@@ -1,0 +1,55 @@
+{
+  "id": "seed-defiance-23__en",
+  "domain": "islamic_parenting",
+  "source_file": "curated/CDC - Positive Parenting / إرشاد تربوي",
+  "title": "Dealing with Stubbornness in a Child Aged Two to Three",
+  "language": "en",
+  "age_group": "2-3",
+  "behavior_type": "العناد",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "مقال_تربوي",
+  "reference_info": "CDC - Positive Parenting / إرشاد تربوي",
+  "text_original": "العناد في هذا العمر علامة طبيعية على نمو إرادة الطفل واكتشافه لذاته، وليس تمرّداً مقصوداً. تجنّبي معركة الإرادات والصراخ، فالشدّة تزيد العناد. امنحيه خيارات بسيطة محدودة مثل «تلبس الأحمر أم الأزرق» ليشعر ببعض التحكم. استخدمي اللعب والمرح لتجاوز الرفض بدل الأمر المباشر. ثبّتي روتيناً يومياً واضحاً فالطفل يتعاون أكثر حين يتوقّع ما سيحدث. كوني حازمة بلطف في الأمور المهمة، ومرنة في الصغيرة. امدحي تعاونه فوراً، واقتدي بالرفق النبوي فالرفق ما كان في شيء إلا زانه.",
+  "text_simplified": "Stubbornness at this age is a natural sign of the child’s growing will and self-discovery, not intentional defiance. Avoid battles of will and shouting, for harshness only increases stubbornness. Offer simple, limited choices like, \"Do you want to wear the red or the blue?\" so he feels some control. Use play and fun to bypass refusal instead of direct commands. Establish a clear daily routine, for the child cooperates more when he knows what to expect. Be firm with *rifq* (gentleness) in important matters, and flexible in small ones. Praise his cooperation immediately, and follow the Prophetic *rifq*, for *rifq* is never present in anything except that it beautifies it.",
+  "labels": [
+    "العناد",
+    "الحزم بلطف",
+    "الروتين",
+    "التربية الإسلامية",
+    "2-3 سنوات"
+  ],
+  "created_at": "2026-06-13T00:00:00Z",
+  "updated_at": "2026-06-13T00:00:00Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "CDC - Positive Parenting / إرشاد تربوي",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "seed-defiance-23",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "025ed5487ab82a1078a57aec6b24cb413295a7f83cfdc02bcc96f55dd390c62c",
+      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T16:52:31+00:00"
+  }
+}

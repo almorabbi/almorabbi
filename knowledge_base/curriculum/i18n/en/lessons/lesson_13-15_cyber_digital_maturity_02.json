@@ -1,0 +1,73 @@
+{
+  "id": "lesson_13-15_cyber_digital_maturity_02",
+  "path_id": "path_13-15_cyber_digital_maturity",
+  "title": "Artificial Intelligence, Deepfake, and Fabricated Content: The Shield of Critical Thinking",
+  "age_group": "13-15",
+  "domain": "cyber",
+  "unit_ids": [
+    "e3caaf25-9c84-4ff2-a924-00263347df1c",
+    "e9717a72-3836-4c57-9c93-9d9ba67f1ed9",
+    "f69ebfd7-8cec-4eca-b7f9-3c2ac0f38996"
+  ],
+  "summary": "Deepfake, AI-generated images, and fake news—these can no longer be distinguished by sight alone. The rule is: (1) Is the source official/trusted? (2) Is there another independent source confirming it? (3) Does it provoke anger/fear/urgency? (Three signs of deception). Tools: reverse image search, video verification tools, and the platform’s official website.",
+  "try_this": "This week: Choose a suspicious video or image—use reverse image search together, and look for the original source. Discuss: How did you uncover the fabrication?",
+  "order": 2,
+  "estimated_minutes": 25,
+  "reflection_prompts": [
+    "Which tool revealed the fabrication?",
+    "Has your child become more cautious about sharing?"
+  ],
+  "warning_flags": [],
+  "needs_professional_followup": false,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "title",
+        "type": "source_corruption",
+        "why": "The Arabic title uses a transliteration with a definite article that can be misread; the summary uses the standard term 'التزييف العميق'."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+    "revalidated_at": "2026-10-07T07:42:07+00:00",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "8e355e334bd1a55a3b0dc3aaf7344e27ab8e7b789828f83533503f02eb0faa2e",
+      "reviewed_at": "2026-10-07T07:42:07+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "title",
+          "type": "source_corruption",
+          "why": "The Arabic title uses a transliteration with a definite article that can be misread; the summary uses the standard term 'التزييف العميق'."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "english_authors": [
+      "claude-opus-5.5"
+    ]
+  }
+}

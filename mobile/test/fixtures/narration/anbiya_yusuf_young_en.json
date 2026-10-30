@@ -1,0 +1,84 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/anbiya_yusuf_young_p1.m4a",
+      "text": "Yusuf (peace be upon him) saw a dream in his sleep, and told it to his father Ya'qub (peace be upon him).",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 105,
+          "start": 0.0,
+          "end": 6.854
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_yusuf_young_p2.m4a",
+      "text": "Yusuf said to his father: ﴿يَـٰٓأَبَتِ إِنِّي رَأَيۡتُ أَحَدَ عَشَرَ كَوۡكَبٗا وَٱلشَّمۡسَ وَٱلۡقَمَرَ رَأَيۡتُهُمۡ لِي سَٰجِدِينَ﴾ — interpretation of the meaning: 'O my father, I saw eleven stars and the sun and the moon; I saw them bowing down to me.' This dream was good news for him.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 254,
+          "start": 0.0,
+          "end": 27.918
+        },
+        {
+          "from": 255,
+          "to": 288,
+          "start": 28.368,
+          "end": 30.115
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_yusuf_young_p3.m4a",
+      "text": "His father advised him not to tell his dream to his brothers. And he told him that his Lord would choose him and teach him the meaning of dreams.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 61,
+          "start": 0.0,
+          "end": 3.04
+        },
+        {
+          "from": 62,
+          "to": 145,
+          "start": 3.49,
+          "end": 7.73
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_yusuf_young_p4.m4a",
+      "text": "Allah brought his parents and his brothers to him. Yusuf raised his parents onto the throne, and they bowed down to him in greeting and honour, not in worship. That was allowed in their law, and it is forbidden in ours. This was the meaning of the dream he had seen before, and Allah made it come true.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 50,
+          "start": 0.0,
+          "end": 2.32
+        },
+        {
+          "from": 51,
+          "to": 159,
+          "start": 2.77,
+          "end": 8.85
+        },
+        {
+          "from": 160,
+          "to": 219,
+          "start": 9.3,
+          "end": 12.577
+        },
+        {
+          "from": 220,
+          "to": 302,
+          "start": 13.027,
+          "end": 17.744
+        }
+      ]
+    }
+  ]
+}

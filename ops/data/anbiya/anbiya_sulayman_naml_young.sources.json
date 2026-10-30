@@ -1,0 +1,900 @@
+{
+  "id": "anbiya_sulayman_naml_young",
+  "series": "anbiya_quran",
+  "about": "مصادر القصة: الآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/anbiya_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py.",
+  "tafsir_source": "moyassar",
+  "content_sha256": "25ab0f4ba46fe4808be7f6bd06fee3e057659f09d22eee180dc49aeb6c0bc5c3",
+  "refs": [
+    "27:15",
+    "27:16",
+    "27:17",
+    "27:18",
+    "27:19"
+  ],
+  "verses": {
+    "27:15": "وَلَقَدۡ ءَاتَيۡنَا دَاوُۥدَ وَسُلَيۡمَٰنَ عِلۡمٗاۖ وَقَالَا ٱلۡحَمۡدُ لِلَّهِ ٱلَّذِي فَضَّلَنَا عَلَىٰ كَثِيرٖ مِّنۡ عِبَادِهِ ٱلۡمُؤۡمِنِينَ",
+    "27:16": "وَوَرِثَ سُلَيۡمَٰنُ دَاوُۥدَۖ وَقَالَ يَـٰٓأَيُّهَا ٱلنَّاسُ عُلِّمۡنَا مَنطِقَ ٱلطَّيۡرِ وَأُوتِينَا مِن كُلِّ شَيۡءٍۖ إِنَّ هَٰذَا لَهُوَ ٱلۡفَضۡلُ ٱلۡمُبِينُ",
+    "27:17": "وَحُشِرَ لِسُلَيۡمَٰنَ جُنُودُهُۥ مِنَ ٱلۡجِنِّ وَٱلۡإِنسِ وَٱلطَّيۡرِ فَهُمۡ يُوزَعُونَ",
+    "27:18": "حَتَّىٰٓ إِذَآ أَتَوۡاْ عَلَىٰ وَادِ ٱلنَّمۡلِ قَالَتۡ نَمۡلَةٞ يَـٰٓأَيُّهَا ٱلنَّمۡلُ ٱدۡخُلُواْ مَسَٰكِنَكُمۡ لَا يَحۡطِمَنَّكُمۡ سُلَيۡمَٰنُ وَجُنُودُهُۥ وَهُمۡ لَا يَشۡعُرُونَ",
+    "27:19": "فَتَبَسَّمَ ضَاحِكٗا مِّن قَوۡلِهَا وَقَالَ رَبِّ أَوۡزِعۡنِيٓ أَنۡ أَشۡكُرَ نِعۡمَتَكَ ٱلَّتِيٓ أَنۡعَمۡتَ عَلَيَّ وَعَلَىٰ وَٰلِدَيَّ وَأَنۡ أَعۡمَلَ صَٰلِحٗا تَرۡضَىٰهُ وَأَدۡخِلۡنِي بِرَحۡمَتِكَ فِي عِبَادِكَ ٱلصَّـٰلِحِينَ"
+  },
+  "tafsir": {
+    "27:15": "ولقد آتينا داود وسليمان علمًا فعملا به، وقالا الحمد لله الذي فضَّلنا بهذا على كثير من عباده المؤمنين. وفي الآية دليل على شرف العلم، وارتفاع أهله.",
+    "27:16": "وورث سليمان أباه داود في النبوة والعلم والملك، وقال سليمان لقومه: يا أيها الناس عُلِّمنا وفُهِّمنا كلام الطير، وأُعطينا مِن كل شيء تدعو إليه الحاجة، إن هذا الذي أعطانا الله تعالى إياه لهو الفضل الواضح الذي يُمَيِّزنا على مَن سوانا.",
+    "27:17": "وجُمِع لسليمان جنوده من الجن والإنس والطير في مسيرة لهم، فهم على كثرتهم لم يكونوا مهمَلين، بل كان على كل جنس من يَرُدُّ أولهم على آخرهم; كي يقفوا جميعًا منتظمين.",
+    "27:18": "حتى إذا بلغوا وادي النمل قالت نملة: يا أيها النمل ادخلوا مساكنكم لا يهلكنَّكم سليمان وجنوده، وهم لا يعلمون بذلك. فتبسم ضاحكًا من قول هذه النملة لفهمها واهتدائها إلى تحذير النمل، واستشعر نعمة الله عليه، فتوجَّه إليه داعيًا: ربِّ ألْهِمْني، ووفقني، أن أشكر نعمتك التي أنعمت عليَّ وعلى والديَّ، وأن أعمل عملا صالحًا ترضاه مني، وأدخلني برحمتك في نعيم جنتك مع عبادك الصالحين الذين ارتضيت أعمالهم.",
+    "27:19": "حتى إذا بلغوا وادي النمل قالت نملة: يا أيها النمل ادخلوا مساكنكم لا يهلكنَّكم سليمان وجنوده، وهم لا يعلمون بذلك. فتبسم ضاحكًا من قول هذه النملة لفهمها واهتدائها إلى تحذير النمل، واستشعر نعمة الله عليه، فتوجَّه إليه داعيًا: ربِّ ألْهِمْني، ووفقني، أن أشكر نعمتك التي أنعمت عليَّ وعلى والديَّ، وأن أعمل عملا صالحًا ترضاه مني، وأدخلني برحمتك في نعيم جنتك مع عبادك الصالحين الذين ارتضيت أعمالهم."
+  },
+  "tafsir_meta": {
+    "27:15": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T09:55:12+00:00"
+    },
+    "27:16": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T09:55:12+00:00"
+    },
+    "27:17": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T09:55:13+00:00"
+    },
+    "27:18": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T09:55:13+00:00"
+    },
+    "27:19": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T09:55:13+00:00"
+    }
+  },
+  "fields": [
+    {
+      "path": "title",
+      "refs": [
+        "27:15",
+        "27:16",
+        "27:17",
+        "27:18",
+        "27:19"
+      ],
+      "sentences": [
+        {
+          "text": "سليمان عليه السلام والنملة",
+          "refs": [
+            "27:15",
+            "27:16",
+            "27:17",
+            "27:18",
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The title simply names Solomon and the ant, both mentioned in the given verses, with a supported honorific.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The title names Solomon and the ant, both of whom appear in the cited verses, and the honorific is always allowed.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "c38cb551eb40d89bc4caf9a92a14aaf2b6b118afe7d565e08e9cb6e34c6dc792",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "refs": [
+        "27:15",
+        "27:16",
+        "27:17",
+        "27:18",
+        "27:19"
+      ],
+      "sentences": [
+        {
+          "text": "قصة نبيّ الله سليمان عليه السلام والنملة كما ذكرها القرآن الكريم في سورة النمل، مكتوبة من التفسير الميسّر لآياتها.",
+          "refs": [
+            "27:15",
+            "27:16",
+            "27:17",
+            "27:18",
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The description accurately states that the story of Sulaiman and the ant is from Surat An-Naml and based on the Qur'an and Al-Tafsir Al-Muyassar.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a meta-description of the story's source and does not assert any unsupported fact about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "179cc89c40792978d15db5ed3b96320cf129f101c52067ffc5bcb660cdfb69a3",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[0].text",
+      "refs": [
+        "27:15",
+        "27:16",
+        "27:17"
+      ],
+      "sentences": [
+        {
+          "text": "آتى اللهُ نبيَّه سليمانَ عليه السلام علمًا، وعلّمه منطقَ الطير.",
+          "refs": [
+            "27:15",
+            "27:16"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited verses and tafsir stating that God gave Solomon knowledge and taught him the speech of birds.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Both claims are directly supported by [27:15] (Allah gave Sulayman knowledge) and [27:16] (Sulayman was taught the language of birds).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "7e4311270784b9e7ebafdff13869f6b29792db4b9d35f9cb67656c063858d267",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وجُمع لسليمان جنودُه من الجنّ والإنس والطير.",
+          "refs": [
+            "27:17"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited verse 27:17 and its tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly restates the Qur'anic verse 27:17 and its tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "2213694c699ab02527052fd026fafa77cc782d4ffe7cf8607ee4d5b5aa79caec",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[1].text",
+      "refs": [
+        "27:17",
+        "27:18"
+      ],
+      "sentences": [
+        {
+          "text": "وساروا جميعًا منتظمين.",
+          "refs": [
+            "27:17"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir states they were in a march and stood all together organized.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir mentions their march (مسيرة) and that they were all organized (جميعًا منتظمين), so this is a minor simplification.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "7ee11f322b3552c4bd8a061028f96079646345c7f3d5fa6b89b0e8f79719085c",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "حتى بلغوا واديَ النمل.",
+          "refs": [
+            "27:18"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir states that they reached the valley of the ants, and the sentence is a minor simplification of that wording.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly matches the Qur'anic verse and tafsir wording.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "baf88d514355c89b8f15dfb7c65c7aad69086a8536530f8ea449642dfaf06350",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[2].text",
+      "refs": [
+        "27:18"
+      ],
+      "sentences": [
+        {
+          "text": "فقالت نملةٌ تحذّر النمل: ﴿يَـٰٓأَيُّهَا ٱلنَّمۡلُ ٱدۡخُلُواْ مَسَٰكِنَكُمۡ لَا يَحۡطِمَنَّكُمۡ سُلَيۡمَٰنُ وَجُنُودُهُۥ وَهُمۡ لَا يَشۡعُرُونَ﴾.",
+          "refs": [
+            "27:18"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence reports that an ant warned the ants using the verbatim Qur'anic words, which matches the verse and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse states the ant spoke, the tafsir explains it was to warn the ants, and the quoted words are verbatim Qur'an.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "1cdd56dff136aca6d07a9d603880522db4889810c120ed860197831e115c9f92",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[3].text",
+      "refs": [
+        "27:19"
+      ],
+      "sentences": [
+        {
+          "text": "فتبسّم سليمانُ ضاحكًا من قولها، لفهمها وتحذيرها النمل.",
+          "refs": [
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited tafsir, which says Sulayman smiled because of the ant's understanding and warning to the ants.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly follows the tafsir's explanation that Solomon smiled at the ant's words because of her understanding and her warning to the ants.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "80d63010e6d40e31952b687797ea5e77f88682dad8b665b88a8612fc196de81f",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "واستشعر نعمةَ الله عليه، فتوجّه إلى ربّه داعيًا.",
+          "refs": [
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited tafsir wording exactly.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This matches the cited tafsir which states 'واستشعر نعمة الله عليه، فتوجَّه إليه داعيًا'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "825f806f10156f79c4c74b0f4e332da6933ce8e09db94e06eac72ac1313066c9",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.question",
+      "refs": [
+        "27:15",
+        "27:16",
+        "27:17",
+        "27:18",
+        "27:19"
+      ],
+      "sentences": [
+        {
+          "text": "النملة حذّرت النمل.",
+          "refs": [
+            "27:15",
+            "27:16",
+            "27:17",
+            "27:18",
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state that the ant warned the ants to enter their dwellings.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse and tafsir state that the ant told the ants to enter their dwellings so they would not be crushed, which is a warning.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "cf401e175e2fb8695bfbf9c4886e28d47783c98bc223e66dcb96e9d2697e00ea",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ماذا تفعل إذا رأيت نملًا في طريقك؟",
+          "refs": [
+            "27:15",
+            "27:16",
+            "27:17",
+            "27:18",
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a question to the child about their own behavior and does not assert any unsupported fact about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a question to the child about their own life, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "44e7bbd24b842655e31e065e30ff2bf0a8cf8367c481afed537aed2d3a44f18c",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.affirm",
+      "refs": [
+        "27:15",
+        "27:16",
+        "27:17",
+        "27:18",
+        "27:19"
+      ],
+      "sentences": [
+        {
+          "text": "أحسنت!",
+          "refs": [
+            "27:15",
+            "27:16",
+            "27:17",
+            "27:18",
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is only a warm praise with no claim about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general word of praise to the child for their choice, making no claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "6a5d387c7efb426f39612b621678a232efd22d4fab1f44c9ccdbf189bab34df0",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "الرفق بالنمل خُلُقٌ جميل.",
+          "refs": [
+            "27:15",
+            "27:16",
+            "27:17",
+            "27:18",
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general moral statement about kindness to ants, not a claim about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general good-manners statement and does not assert anything about the prophet or the story beyond what the sources allow.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "dd6cddfb9452f1020151b38a4505d1afdf28e04a7a42e83d6bfc7e017f0c5691",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.nudge",
+      "refs": [
+        "27:15",
+        "27:16",
+        "27:17",
+        "27:18",
+        "27:19"
+      ],
+      "sentences": [
+        {
+          "text": "تذكّر ما فعلت النملة حين بلغ الجنودُ واديَ النمل…",
+          "refs": [
+            "27:15",
+            "27:16",
+            "27:17",
+            "27:18",
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence only prompts the child to recall what the ant did when the soldiers reached the valley, which matches the cited verses and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence asks the child to recall the ant's action when the soldiers reached the valley of ants, both of which are stated in 27:18.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "ed18689f2eddea5562d1052d3b8cc4e32c6c42dd0f32275f30467b69440311b1",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "كيف نمشي نحن حتى لا نؤذي النمل؟",
+          "refs": [
+            "27:15",
+            "27:16",
+            "27:17",
+            "27:18",
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general question about avoiding harm to ants and does not assert anything unsupported about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a question addressed to the child about everyday behavior, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "62c6ac032718ca03ffda8285f4aa0914208970c929a6a6e93d8f9ce37b214923",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[0]",
+      "refs": [
+        "27:15",
+        "27:16",
+        "27:17",
+        "27:18",
+        "27:19"
+      ],
+      "sentences": [
+        {
+          "text": "أمشي بحذر حتى لا أؤذيه",
+          "refs": [
+            "27:15",
+            "27:16",
+            "27:17",
+            "27:18",
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general good-manners choice in the child's own life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is the child's own possible life choice expressing general good manners, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "aedd382e742863afcae66734742c466279fc709d0828f2b216295c2b88e707ee",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[1]",
+      "refs": [
+        "27:15",
+        "27:16",
+        "27:17",
+        "27:18",
+        "27:19"
+      ],
+      "sentences": [
+        {
+          "text": "لا أنتبه له",
+          "refs": [
+            "27:15",
+            "27:16",
+            "27:17",
+            "27:18",
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is the child's own possible choice in today's life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a child's own possible life choice and makes no claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "b75833d36bfa3fb8a1fe4c091ce72e334908774e9a4e9f227625e7985238fe9f",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[0]",
+      "refs": [
+        "27:15",
+        "27:16",
+        "27:17",
+        "27:18",
+        "27:19"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا علّم اللهُ سليمانَ عليه السلام؟",
+          "refs": [
+            "27:15",
+            "27:16",
+            "27:17",
+            "27:18",
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question only asks about what God taught Solomon, and the sources state that God gave Solomon knowledge and taught him the speech of birds.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks what Allah taught Sulayman, which is directly supported by 27:15 (knowledge) and 27:16 (language of birds).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "3f9e24f5b7db12a2076c1e03c4b42a1c574885a458618d133b8a14af17f64315",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[1]",
+      "refs": [
+        "27:15",
+        "27:16",
+        "27:17",
+        "27:18",
+        "27:19"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا قالت النملة حين بلغ سليمانُ وجنودُه واديَ النمل؟",
+          "refs": [
+            "27:15",
+            "27:16",
+            "27:17",
+            "27:18",
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about what the ant said when they reached the valley of the ants, which is directly stated in the cited verses and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks about the ant's words when Solomon and his army reached the Valley of Ants, which is directly stated in [27:18].",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "b53edb361a70b40ce939a5434c8426ab94528b8ceaded42d5a457da4510e3ff1",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[2]",
+      "refs": [
+        "27:15",
+        "27:16",
+        "27:17",
+        "27:18",
+        "27:19"
+      ],
+      "sentences": [
+        {
+          "text": "لماذا تبسّم سليمانُ عليه السلام؟",
+          "refs": [
+            "27:15",
+            "27:16",
+            "27:17",
+            "27:18",
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about an event the sources mention, without asserting an unsupported reason.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks why Sulayman smiled, which is directly based on 27:19 where his smiling is mentioned.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "5a9d31548390b95c640ff0e48d10bd740b3eac3653f91db540d4692e81e45783",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "islamicValue",
+      "refs": [
+        "27:19"
+      ],
+      "sentences": [
+        {
+          "text": "﴿رَبِّ أَوۡزِعۡنِيٓ أَنۡ أَشۡكُرَ نِعۡمَتَكَ ٱلَّتِيٓ أَنۡعَمۡتَ عَلَيَّ وَعَلَىٰ وَٰلِدَيَّ﴾ [النمل: ١٩].",
+          "refs": [
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is verbatim Qur'an from the cited verse and is always supported.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic verse inside ﴿﴾, which is always supported.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "874dee5c8cedc06150ba268121aace1396686a5febc6857b77638299930cecdc",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "actionChallenge",
+      "refs": [
+        "27:15",
+        "27:16",
+        "27:17",
+        "27:18",
+        "27:19"
+      ],
+      "sentences": [
+        {
+          "text": "إذا رأيت نملًا في طريقك اليوم، فامشِ بحذر حتى لا تؤذيه، واحمد الله على نِعَمه.",
+          "refs": [
+            "27:15",
+            "27:16",
+            "27:17",
+            "27:18",
+            "27:19"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a general practical instruction to the child about being careful with ants and thanking God, and it does not assert any unsupported fact about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general good-manners instruction to the child and does not assert anything about the prophet or the story beyond what the sources support.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "68beca349b4b8409af29cd7c58574b2c7fa516c51410be4786a3913301bb88ac",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    }
+  ]
+}

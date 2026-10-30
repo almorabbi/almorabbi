@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tutor-guardian.local/schemas/curriculum/path.schema.json",
+  "title": "Curriculum Path",
+  "description": "مسار تربوي متكامل لفترة زمنية محددة (≤ 30 يوم) يجمع عدة دروس مرتبة في رحلة واحدة. كل مسار مرتبط بفئة عمرية ومجال محدد من taxonomy. ملاحظة: قيم enum هنا يجب أن تطابق backend/app/core/taxonomy.py.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "age_group",
+    "domain",
+    "description",
+    "lesson_ids",
+    "estimated_days"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^path_[a-z0-9_\\-]{3,80}$",
+      "description": "معرّف المسار. النمط: path_<age_group>_<domain>_<variant>. مثال: path_4-6_islamic_parenting_bond."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 120,
+      "description": "عنوان المسار بالعربية الفصحى، موجّه للوالد."
+    },
+    "age_group": {
+      "type": "string",
+      "enum": [
+        "0-3",
+        "10-12",
+        "13-15",
+        "16-18",
+        "2-3",
+        "4-6",
+        "7-9",
+        "prenatal-1",
+        "unspecified"
+      ],
+      "description": "الفئة العمرية المستهدفة (من CANONICAL_AGE_GROUPS في taxonomy.py — بدون unspecified للمسارات لأنها مرحلة عمرية محددة)."
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "aqeedah",
+        "cyber",
+        "development",
+        "islamic_parenting",
+        "medical",
+        "infant_pregnancy"
+      ],
+      "description": "المجال الأساسي للمسار (من CANONICAL_DOMAINS في taxonomy.py). مسارات التربية الإسلامية تستند على Prophetic 7-7-7 + Ghazali tazkiyah."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 600,
+      "description": "وصف موجز للمسار: ما سيتعلمه الوالد، ولماذا هذه المرحلة العمرية، وكيف يقاس النجاح."
+    },
+    "lesson_ids": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 30,
+      "items": {
+        "type": "string",
+        "pattern": "^lesson_[a-z0-9_\\-]{3,80}$"
+      },
+      "description": "قائمة الدروس بالترتيب التعليمي (order=1 أولاً). كل lesson_id يجب أن يطابق ملف درس موجود في knowledge_base/curriculum/lessons/."
+    },
+    "estimated_days": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 30,
+      "description": "المدة الإرشادية لإكمال المسار بالأيام. تنبيه: ≤ 30 يوماً — مسارات أطول من شهر تنقسم لمسارين."
+    },
+    "pedagogical_framework": {
+      "type": "string",
+      "enum": [
+        "aqeedah_parent_led",
+        "attachment_rahma",
+        "ghazali_tazkiyah",
+        "prophetic_7_7_7",
+        "zpd_scaffolded"
+      ],
+      "description": "الإطار التربوي المرجعي للمسار. القيمة prophetic_7_7_7 مفتاح قديم يبقى لأن نسخ التطبيق المنشورة تعرض عنوانه، ومعناه تقسيمٌ تربوي بالمراحل العمرية فقط: لا يُنسب إلى حديث نبوي، إذ لا نصّ ولا درجة موثّقة لتقسيم «سبع-سبع-سبع». ويُعرض للوالدين بعنوان «مراحل عمرية تربوية» (pathsFrameworkProphetic)."
+    },
+    "primary_reference": {
+      "type": "object",
+      "description": "المرجع العلمي/الشرعي الأساسي الذي بُني عليه المسار.",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "DSM-5",
+            "إرشاد_مهني",
+            "بحث_علمي",
+            "تقرير_سيبراني",
+            "تقرير_طبي",
+            "حديث",
+            "دراسات_عقدية",
+            "دليل_تربوي",
+            "دليل_طبي",
+            "دليل_مهني",
+            "كتاب_تربوي",
+            "كتاب_فقهي",
+            "مرجع_علمي",
+            "مقال_تربوي",
+            "مقال_تنموي"
+          ]
+        },
+        "info": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 200
+        }
+      }
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^path_[a-z0-9_]{3,80}$"
+      },
+      "default": [],
+      "description": "مسارات يجب إكمالها قبل البدء بهذا المسار (اختياري)."
+    },
+    "is_published": {
+      "type": "boolean",
+      "default": false,
+      "description": "هل المسار منشور في الـ app (true) أم لا يزال في draft (false)."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "إصدار المسار (semver). مثال: 1.0.0."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "تاريخ إنشاء المسار (ISO 8601)."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "تاريخ آخر تعديل (ISO 8601)."
+    },
+    "approved_by": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "من أجاز هذا المحتوى. في ملفات i18n/en: إما ختم المراجعة الآلية `auto-review:<مراجع A>+<مراجع B>:<YYYY-MM-DD>` (أو `auto-review:<مراجع>:<YYYY-MM-DD>` لمراجعٍ واحد من عائلة نماذج غير عائلة كتّاب الإنجليزي) الذي يكتبه ops/tools/review_en_parity.py وحده، وبصمته في translation.auto_review.content_sha256؛ وإما توقيع إنسانٍ قرأ النصّين يكتبه `review_en_parity.py sign` مع بصمته في translation.approval.content_sha256 — اسمٌ بلا بصمة ترفضه البوابة. الختم يشهد أن الإنجليزي يطابق العربي فقط، لا أن العربي أمينٌ لمصدره، وليس إجازة شرعية. أي تعديل بعده في أيٍّ من اللغتين يُبطله. null = غير مختوم: لا يُقبل منشورًا إلا مُدرَجًا في ops/data/en_parity_queue.json ببصمة نصّه (CI وpre-commit).",
+      "default": null
+    },
+    "language": {
+      "type": "string",
+      "description": "لغة هذا الملف. غيابه = العربية (لغة المصدر). الترجمات في i18n/<lang>/."
+    },
+    "source_language": {
+      "type": "string",
+      "description": "اللغة التي تُرجم عنها هذا الملف. للمصدر العربي: غير موجود."
+    },
+    "translation": {
+      "type": "object",
+      "description": "سجل الترجمة والمراجعة. تكتبه ops/tools/translate_curriculum.py، ويختمه ops/tools/review_en_parity.py (approved_by + auto_review) بعد المراجعة الآلية المزدوجة.",
+      "properties": {
+        "translator_model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reviewer_model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "needs_scholar_review": {
+          "type": "boolean"
+        },
+        "scholar_signals": {
+          "type": "object"
+        },
+        "review_verdict": {
+          "type": "string",
+          "enum": [
+            "clean",
+            "defects",
+            "pending",
+            "unreviewed",
+            "low_only"
+          ]
+        },
+        "review_defects": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "revalidated_at": {
+          "type": "string",
+          "description": "متى أُعيد الحكم على النص الحالي. غيابه = السجل قد يصف نصًّا أُصلح بعده."
+        },
+        "approved_by": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "نفس قيمة approved_by في الجذر: ختم auto-review:<…>:<date> (بصمته auto_review.content_sha256) أو توقيع بشري ببصمة (approval.content_sha256). null = غير مختوم."
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

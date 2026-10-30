@@ -1,0 +1,36 @@
+{
+  "id": "isl-752169b4",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "أهمية الصلاة في التربية الإسلامية",
+  "language": "ar",
+  "age_group": "unspecified",
+  "behavior_type": "تعزيز القيم الدينية",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين - عماد عبدالعظيم (الألوكة)",
+  "text_original": "وهذا أبو بكرة رضي الله عنه يعلم ولده ويحثه بالتمسك بالسنة:\nعن مسلم بن أبي بكرة أنه مر بوالده وهو يدعو ويقول: اللهم إني أعوذ بك من الكفر والفقر وعذاب القبر، قال: فأخذتهن عنه، وكنت أدعو بهن في دبر كل صلاة، فمر بي وأنا أدعو بهن، فقال: يا بني أنى عقلت هؤلاء الكلمات؟ قال: يا أبتاه سمعتك تدعو بهن في دبر كل صلاة، فأخذتهن عنك، قال: فالزمهن يا بني، فإن رسول الله ﷺ كان يدعو بهن في دبر كل صلاة.\n\nوهذا أسامة بن عمير الهذلي رضي الله عنه يعلم ابنه الصلاة في اليوم المطير:\nعن أبي المليح، قال: خرجت ذات ليلة مطيرة إلى المسجد، فلما رجعت استفتحت، فقال أبي: من هذا؟ قالوا: أبو المليح، قال: لقد رأيتنا مع رسول الله ﷺ يوم الحديبية، وأصابتنا سماء لم تبل أسافل نعالنا، فنادى منادي رسول الله ﷺ: أن صلوا في رحالكم.",
+  "text_simplified": "علّم أبو بكرة ابنه مسلمًا دعاءً للاستعاذة من الكفر والفقر وعذاب القبر. سمع الابن أباه يدعو به بعد كل صلاة، فتعلمه وداوم عليه، وأخبره أبوه أن رسول الله ﷺ كان يدعو به. وروى أبو المليح أن أباه أسامة بن عمير الهذلي حدثه عن يوم الحديبية، حين نادى منادي رسول الله ﷺ بالصلاة في الرحال بعد نزول المطر.",
+  "labels": [
+    "صلاة",
+    "تربية دينية",
+    "أحاديث نبوية",
+    "قيم إسلامية"
+  ],
+  "created_at": "2026-06-21T10:25:03Z",
+  "updated_at": "2026-10-07T07:45:57+00:00",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "حقوق الأولاد على الوالدين",
+    "source_author": "عماد أحمد عبدالعظيم",
+    "source_url": "https://www.alukah.net/Books/Files/Book_17337/BookFile/brotherandboys.pdf"
+  },
+  "source_url": "https://www.alukah.net/Books/Files/Book_17337/BookFile/brotherandboys.pdf#page=103",
+  "source_note": "DRAFT source recovery, 2026-10-07: manually transcribed from the publisher PDF, PDF page 103 (printed page 102), the two complete sections on Abu Bakra and Usama ibn Umayr. Line wrapping and vowel marks normalized; honorific glyphs expanded; footnote markers/footnotes and the preceding incomplete paragraph omitted. Source provenance and transcription evidence: ops/data/kb_fidelity/source_recovery/isl-752169b4.md. Source evidence only: no human approval, specialist signoff, model review, or publication approval.",
+  "translation": {
+    "needs_scholar_review": true,
+    "review_verdict": "pending",
+    "approved_by": null
+  }
+}

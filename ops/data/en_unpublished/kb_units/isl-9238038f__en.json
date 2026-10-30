@@ -1,0 +1,69 @@
+{
+  "id": "isl-9238038f__en",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "The Rights of Children upon Parents in Tarbiyah (religious upbringing)",
+  "language": "en",
+  "age_group": "4-6",
+  "behavior_type": "تربية دينية وأخلاقية",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين - عماد عبدالعظيم (الألوكة)",
+  "text_original": "نأ عم ةؾؿجلا في ررض عقك ةؾؿج ـم نقؽي ؾب ةقؿستلا ةكرب ؾجأ ـم فقؾط طؾسي ؿل كـعؿلا :ؾقؼف .﴾ٌ ٰ َ ۡ ُ ۡ ۡ َ َ َ َ َ ۡ َ َ ذ ﴿ ؿفقف ؾقق ـيذلا دابعلا ي يغ مل سحى يِداتغِ نِإ مدؼتؿلا ثيدحلا رهاض فتذباـؿل دقعب قهو فـطب في ـعطي ؿل دارؿلا :ؾققو .اذه صقصخت ـم كلولب فصقصخت سقلو .)397ص( »مامٙمطٕا مامٙمطإ« (1) ـــــــــــــــتــــــــ نيدلاىلا ىلع دلاولأا قىقح ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ .فطرصي ؿل دارؿلا :ؾققو .فكدب في هرضي ؿل :ؾققو :دٝعيا لٝقد ٔبا ٍاقٚ نلب بؼعتو ,ةؿصعلا ءاػتكا هدعبي ـؽلو ,اضيأ فـيد في هرضي ٓ نأ ؾؿتحي نأ عكام لاف زاقجلا ؼيرطب ٓ بقجقلا ؼيرطب ةؿصعلاب صخ ـم صاصتخا .فل ابجاو ؽلذ ـؽي ؿل نأو ادؿط ةقصعم فـم ردصي ٓ ـم دجقي فـم فتؿصط دارؿلا سقلو ,رػؽلا كلإ فـيد ـط فـتػي ؿل يأ هرضي ؿل كـعم يذلا نأ دهاجم ـط ءاج اؿك فمأ عاؿج في فقبأ ةكراشؿب هرضي ؿل :ؾققو .فعم عماجقف فؾقؾحإ كؾط ناطقشلا ػتؾي لؿسي ٓو عماجي فرعي ـؿم رقثؽلا نلب لوٕا كؾط ؾؿحلا ديلتيو ةبقجٕا برقأ اذه ؾعلو هرضحتسي دق يذلا ؾقؾؼلاو ةعقاقؿلا ةدارإ دـط فـط ؾهذي ؿقظعلا ؾضػلا اذه .)1(»دعبي ؿل ارداك ؽلذ ناك اذنف ؾؿحلا فعم عؼي ٓ فؾعػيو نبق يّئازٖإ ًذعٔ ,يّتاّوأ ًاحسأ في دلألأاب ٖٛاٍعلا :حلاجلا للحا اِذعب لأ ٚدلإلا .فقؾط ةظفاحؿلا لغبـيو ؽلذ قحك وأ فصاؼسإ ٓو ؿهؤاذيإ زقجي ٓ .)229/9( »يرابمًا حتمو« (1) ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ نيدلاىلا ىلع دلاولأا قىقح ــــــــــــــــــــ حقبأ اذلو ,فمأ ؿحر في قهو ,فتحص كؾط رثمي دق اؿم فتياقو فب ةياـعلا ـمو ,رفاسؿلاو ضيرؿلاك ,ناضمر في",
+  "text_simplified": "Parents must raise their children upon the love of Allah and obedience to Him, and teach them salah (prayer) and sawm (fasting) from a young age. They should also instill moral values in their hearts and accustom them to good conduct. It is important for parents to be a righteous example for their children in worship and dealings.",
+  "labels": [
+    "تربية",
+    "دين",
+    "أخلاق",
+    "قدوة",
+    "صلاة"
+  ],
+  "created_at": "2026-06-21T10:16:02Z",
+  "updated_at": "2026-06-21T10:16:02Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Alukah_Rights_of_Children",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-9238038f",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "leakage",
+        "why": "'Sawm' is not among the allowed transliterated Islamic terms in the app's glossary."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "f1c59c340b04702c940e78b518923c94fc365c43ef0bfb7078cb9d1393e9f382",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "leakage",
+          "why": "'Sawm' is not among the allowed transliterated Islamic terms in the app's glossary."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

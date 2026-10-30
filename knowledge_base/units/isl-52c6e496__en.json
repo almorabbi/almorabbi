@@ -1,0 +1,54 @@
+{
+  "id": "isl-52c6e496__en",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "The Rights of Children over Their Parents in Islamic Tarbiyah",
+  "language": "en",
+  "age_group": "unspecified",
+  "behavior_type": "تربية إسلامية",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين - عماد عبدالعظيم (الألوكة)",
+  "text_original": "ؼحلا 74 . رشلا ـم ؿهريذحتو ,رقخلا كؾط ؿفثحل دٓوٕا عؿج :رشط سداسلا ؼحلا ـــــــــــــــتــــــــ نيدلاىلا ىلع دلاولأا قىقح ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ 75 ....................... ؿفتياطرو دٓوٕا ةفاظـب ماؿتهٓا :رشط عباسلا ؼحلا 77 ..................................... نآرؼلا دٓوٕا ؿقؾعت :رشط ـماثلا ؼحلا 82 .... كرشلا ـم ؿهريذحتو ,ةؿقؾسلا ةدقؼعلا ءاـبٕا ؿقؾعت :رشط عساتلا ؼحلا 89 ........ ضئارػلا ـم اؿهرقغو ماقصلاو ةلاصلا ءاـبٕا ؿقؾعت :نورشعلا ؼحلا 96 ............................. ,ةـسلا دٓوٕا ؿقؾعت :نورشعلاو يداحلا ؼحلا 145 ..... ةقطرشلا مقؾعلا ؿؾعتل ؿفبقغرتو دٓوٕا ثح :نورشعلاو نياثلا ؼحلا ؿفؿقؾعتل ؿؾعلا ؾهأ كلإ ؿبهاحطصاو دٓوٕا لاسرإ :نورشعلاو ثلاثلا ؼحلا 111 .. عرشلا ػلاخي ٓ اؿب نقبعؾي دٓوٕا كرت حابيو :نورشعلاو عبارلا ؼحلا 121 ............. زقجي ٓ اؿب اقبعل اذإ دٓوٕا رجز :نورشعلاو سماخلا ؼحلا ةرشاعلا ـس اقغؾب اذإ عجاضؿلا في ؿفـقب ؼيرػتلا :نورشعلاو سداسلا ؼحلا 128 ...... ةقماسلا فادهلأل لقصقؾل دٓوٕا عقجشت :نورشعلاو عباسلا ؼحلا ةققرلاك ةقطرشلا ؾئاسقلاب ضرؿلا دـط ءاـبٕا ةاوادم :نورشعلاو ـماثلا ؼحلا 134 .............. ةذقعشلاو رحسلاك ةمرحؿلا ؾئاسقلا ـط ؿهداعبإو اهقحكو 133 عدبلا ؾهأ ةسلاجم ـمو عدبلا ـم دٓوٕا ريذحت :نورشعلاو عساتلا ؼحلا 135 ..................... ءقسلا ؾهأ ةبحاصم ـط دٓوٕا داعبإ :نقثلاثلا ؼحلا 136 . ـقؿؾسؿلا ةدطاسمو لذبلا كؾط دٓوٕا بيردت :نقثلاثلاو يداحلا ؼحلا 144 ......................... ةقبرعلا ةغؾلا دٓوٕا ؿقؾعت :نقثلاثلاو نياثلا ؼحلا ـم ؿفتياققل ؾقؾلا لوأ جورخلا ـم دٓوٕا عـم لغبـيو :نقثلاثلاو ثلاثلا ؼحلا 143 ............................. ثاكلإاو رقكذلا ناتخ :نقثلاثلاو عبارلا ؼحلا ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ نيدلاىلا ىلع دلاولأا قىقح ــــــــــــــــــــ 144 ............................. دٓوٕا كؾط ةؼػـلا :نقثلاثلاو سماخلا ؼحلا 151 ............................ دٓوٕا كؾط ملاسلا :نقثلاثلاو سداسلا ؼحلا 152 .................. قلاخٕا ـساحم دٓوٕا ؿقؾعت :نقثلاثلاو عباسلا ؼحلا 173 ................. قلاخٕا",
+  "text_simplified": "This text addresses the rights of children over their parents, encompassing diverse tarbiyah (upbringing) and religious directives. It aims to strengthen Islamic values and akhlaq (moral character) in raising children, while also focusing on protecting them from intellectual and behavioral deviations.",
+  "labels": [
+    "حقوق الطفل",
+    "تربية دينية",
+    "قيم أخلاقية",
+    "توجيه أسري"
+  ],
+  "created_at": "2026-06-21T10:33:31Z",
+  "updated_at": "2026-06-21T10:33:31Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Alukah_Rights_of_Children",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-52c6e496",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "b18485d508d4beb81ad8b899f31013145e290f8d4c6d98b2c5c0b536afe15565",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

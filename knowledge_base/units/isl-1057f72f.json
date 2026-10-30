@@ -1,0 +1,37 @@
+{
+  "id": "isl-1057f72f",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "عمرو بن سلمة ومعرفة القرآن في الصغر",
+  "language": "ar",
+  "age_group": "4-6",
+  "behavior_type": "تعليم ديني",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين - عماد عبدالعظيم (الألوكة)",
+  "text_original": "صياغة تحريرية لرواية عمرو بن سلمة بن قيس الجرمي في صفحة ٨٠ من ملف الكتاب: تعلّم وفد قومه القرآن وسألوا النبي ﷺ عمن يصلي بهم. وجّههم إلى من كان أكثر أخذا للقرآن، ولم يجدوا في قومهم من جمع أكثر من عمرو، وكان يومئذ غلاما. هذه إعادة صياغة وليست نقلا حرفيا للحديث.",
+  "text_simplified": "روى عمرو بن سلمة أن وفد قومه تعلّموا القرآن وسألوا النبي ﷺ عمن يصلي بهم، فوجههم إلى أكثرهم أخذا للقرآن. ولم يجد قومه من جمع من القرآن أكثر مما جمعه عمرو، وكان يومئذ غلاما.",
+  "labels": [
+    "عمرو بن سلمة",
+    "القرآن",
+    "غلام"
+  ],
+  "created_at": "2026-06-21T10:22:36Z",
+  "updated_at": "2026-10-07T10:15:41.901805+00:00",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "حقوق الأولاد على الوالدين",
+    "source_author": "عماد أحمد عبدالعظيم"
+  },
+  "source_url": "https://www.alukah.net/Books/Files/Book_17337/BookFile/brotherandboys.pdf#page=80",
+  "source_note": "DRAFT source recovery, 2026-10-07. Selected primary PDF excerpt; provenance and exact local citation checks: ops/data/kb_fidelity/source_recovery/isl-1057f72f.json. No scholar, human, model or publication approval.",
+  "translation": {
+    "needs_scholar_review": true,
+    "review_verdict": "pending",
+    "review_defects": [],
+    "approved_by": null,
+    "draft_status": "draft",
+    "source_recovery_note": "Source-faithful draft; no model review or approval."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "voice": "gemini-3.8-flash-tts/Algieba",
+  "language": "ar",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/ar/anbiya_musa_tabut_young_p1.m4a",
+      "text": "أوحى اللهُ إلى أمِّ موسى أن تُرضعه مطمئنة. فإذا خافت عليه، تضعه في صندوق وتلقيه في اليمّ، وهو النيل.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 42,
+          "start": 0.0,
+          "end": 6.077
+        },
+        {
+          "from": 43,
+          "to": 100,
+          "start": 6.527,
+          "end": 14.439
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_musa_tabut_young_p2.m4a",
+      "text": "وأوحى اللهُ إليها: ﴿أَنِ ٱقۡذِفِيهِ فِي ٱلتَّابُوتِ فَٱقۡذِفِيهِ فِي ٱلۡيَمِّ﴾. فوضعته أمُّه في صندوق، وألقته في اليمّ.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 79,
+          "start": 0.0,
+          "end": 11.793
+        },
+        {
+          "from": 80,
+          "to": 119,
+          "start": 12.242,
+          "end": 18.139
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_musa_tabut_young_p3.m4a",
+      "text": "وألقى اليمُّ الصندوقَ بالساحل. وكان اللهُ قد وعد أمَّه أن يردّه إليها.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 30,
+          "start": 0.0,
+          "end": 3.176
+        },
+        {
+          "from": 31,
+          "to": 70,
+          "start": 3.626,
+          "end": 9.884
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_musa_tabut_young_p4.m4a",
+      "text": "فردّ اللهُ موسى إلى أمه، كي تقرّ عينُها ولا تحزن. ووفى اللهُ بوعده، فوعدُ الله حق.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 49,
+          "start": 0.0,
+          "end": 7.475
+        },
+        {
+          "from": 50,
+          "to": 82,
+          "start": 7.925,
+          "end": 13.995
+        }
+      ]
+    }
+  ]
+}

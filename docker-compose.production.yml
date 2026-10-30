@@ -1,0 +1,112 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: tg_backend
+    stop_grace_period: 20s
+    restart: unless-stopped
+    # deploy.yml runs `up -d --no-build --remove-orphans backend`, naming this
+    # service alone. Redis has to be a dependency of it or the deploy would
+    # never start the store, and --remove-orphans would reap a hand-started one.
+    depends_on:
+      - redis
+    # Resource guardrails on a shared VPS (analytics_nginx runs on same host).
+    # Current steady usage ~1.2 GB; 4 GB gives headroom for model warm-up + Chroma
+    # spikes while protecting neighbouring services from OOM. Two cores keep
+    # retrieval + LLM calls from monopolising the machine.
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+        reservations:
+          cpus: '0.5'
+          memory: 1G
+    # No host-port binding needed — analytics_nginx reaches us via the shared network
+    expose:
+      - "8000"
+    env_file: .env
+    environment:
+      PROJECT_ROOT: /app
+    volumes:
+      - tg_sessions:/app/ops          # sessions.db + feedback SQLite
+      - tg_chroma:/app/knowledge_base/chroma_db
+      # Lesson media (podcasts/videos, ~2GB) lives on the host — too big
+      # to bake into the image. rsynced from the dev machine; the image's
+      # COPY docs/ is shadowed by this read-only mount.
+      - ./docs:/app/docs:ro
+      # Firebase Admin service account — kept outside the image for rotation.
+      - ./backend/secrets:/app/backend/secrets:ro
+      # Ops scripts (cron push triggers) — run inside container with correct env.
+      - ./ops/scripts:/app/ops/scripts:ro
+      # Ops tools, for the same reason — and because the tg_sessions volume
+      # above is mounted at /app/ops, which SHADOWS the image's /app/ops/tools.
+      # Docker seeded that directory into the volume once, when the volume was
+      # created, and has never refreshed it since: the container held 20 tools
+      # while the repo had 45, every content-integrity checker among the
+      # missing ones. `ops/tools/**` is in deploy.yml's paths filter, so edits
+      # there triggered a production deploy that reported success and shipped
+      # nothing. Binding the directory puts the repo back in front of the
+      # stale volume copy.
+      - ./ops/tools:/app/ops/tools:ro
+      # Ops data (campaign_codes.md, campaign_spend.csv) — read inside the
+      # container by launch_weekly_report.py and campaign_report.py; without a
+      # bind mount, tg_sessions (/app/ops) shadows /app/ops/data.
+      - ./ops/data:/app/ops/data:ro
+      # Mobile marketing assets (logo, icons) for public landing pages.
+      - ./mobile/assets:/app/mobile/assets:ro
+      # Frontend assets & cinematic landing page live mount
+      - ./frontend:/app/frontend:ro
+      # The app's own suggested questions (chatQ_*). weekly_kb_gap_report.py
+      # must exclude them before counting anything — they were the five most
+      # frequent "questions" in production, so a report that counts button
+      # taps ranks the app's own UI as parent demand. The script refuses to
+      # run without this file rather than quietly emitting a skewed report.
+      - ./mobile/lib/l10n:/app/mobile/lib/l10n:ro
+    networks:
+      - internal
+      - analytics_net               # shared with analytics_nginx for direct name-based proxy
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/health"]
+      interval: 30s
+      retries: 3
+      start_period: 90s   # extra time for ONNX warm-up + ChromaDB index load
+
+  # The rate-limit store. NOT optional any more: without it the 20/day AI quota
+  # lives in one process's memory and every deploy hands every device a fresh
+  # 20 — the ceiling the product advertises was never a ceiling. It sat behind
+  # `profiles: ["with-redis"]` and was therefore never once started.
+  #
+  # Reachable from the backend as `tg_redis` ONLY. Do not use the bare host
+  # `redis`: tg_backend also sits on analytics-platform_production_network,
+  # where analytics_redis holds the alias `redis` — that name resolves to the
+  # neighbouring product's password-protected store, which would fail AUTH and
+  # drop us silently back to the in-memory fallback.
+  redis:
+    image: redis:7-alpine
+    container_name: tg_redis
+    restart: unless-stopped
+    # Quota counters, not a system of record — but appendonly keeps a same-day
+    # restart from zeroing them, which is the entire point of this service.
+    command: ["redis-server", "--appendonly", "yes"]
+    networks:
+      - internal
+    volumes:
+      - tg_redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      retries: 3
+
+volumes:
+  tg_sessions:
+  tg_chroma:
+  tg_redis_data:
+
+networks:
+  internal:
+    driver: bridge
+  analytics_net:
+    external: true
+    name: analytics-platform_production_network   # join analytics nginx network

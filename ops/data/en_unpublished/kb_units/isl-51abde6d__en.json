@@ -1,0 +1,55 @@
+{
+  "id": "isl-51abde6d__en",
+  "domain": "islamic_parenting",
+  "source_file": "Tarbiya_Al_Banat.pdf",
+  "title": "A Mother’s Concern Over Her Daughter’s School Behavior",
+  "language": "en",
+  "age_group": "10-12",
+  "behavior_type": "قلق تربوي",
+  "intervention_type": "إرشادي",
+  "severity": "متوسط",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "تربية البنات",
+  "text_original": "،ﺩﺍﻮﳌﺍ ﻯﺪﺣﺇ ﱂ !؟ﺔﻴﻛﻮﻠﺳ ﺕﺎﻈﺣﻼﻣ ﺎﻬﻴﻠﻋ ﻞﻫ ﻭﺃ ،ﺕﺎﳊﺎﻃ ﻡﺃ ﺕﺎﳊﺎﺻ ﺎﺎﻘﻳﺪﺻ ﰲ ﺔﻴﻟﺎﺜﻣ ﱵﻨﺑﺍ ﻞﻫﻭ ؟ﻻ ﻡﺃ ﺔﻤﻠﻌﳌﺍ ﻡﺮﺘﲢ ﱵﻨﺑﺍ ﻞﻫ ﹰﻼﺜﻣ ﻡﺃ ﲏﻟﺄﺴﺗ ﺖﺗﺄﻓ ﺎﻬﻌﺠﻀﻣ ﺖﻀﻗﺃﻭ ﻡﻷﺍ ﺖﻘﻠﻗﺃ ﺔﺟﺭﺩ ﻒﺼﻧ ﻝﺎﺑ ﺎﻣ !؟ﺎﻬﻠﻣﺎﻌﺗ ﻑﺎﲣ ﻻﻭ ﺎﻴﻧﺪﻟﺍ ﻝﺎﺣ ﺎﻬﺘﻨﺑﺍ ﻰﻠﻋ ﻑﺎﲣ ﺎﳍ ﺎﻣﻭ !ﺓﺭﻮﻜﺸﻣ ﺔﻟﻭﺮﻬﻣ ﺕﺎﻨﺒﻟﺍ ﺔﻴﺑﺮﺗ ﰲ ﺕﺎﶈ !ﺓﺮﺧﻵﺍ ﺭﺎﻧ ﻦﻣ ﺎﻬﻴﻠﻋ ،ﺎﻨﺗﺎﻳﺭﺫﻭ ﺎﻨﺗﺎﻴﻧ ﺢﻠﺼﻳ ﻥﺃ ﻪﻣﺮﻛﻭ ﻩﺩﻮﺟﻭ ﻪﻨﲟ ﱘﺮﻜﻟﺍ ﷲﺍ ﻝﺄﺳﺃ ﰲ ﺎﻨﺗﺎﻳﺭﺫﻭ ﺎﻨﻳﺪﻟﺍﻭ ﻊﻣ ﺎﻨﻌﻤﳚ ﻥﺃﻭ ،ﲔﻟﺎﺿ ﻻ ﻦﻳﺪﺘﻬﻣ ﺓﺍﺪﻫ ﺎﻨﻠﻌﳚ ﻥﺃﻭ ﻢﻬﺘﻳﺭﹸﺫ ﻢﻬﺘﻌﺒﺗﺍﻭ ﺍﻮﻨﻣَﺁ ﻦﻳﺬﱠﻟﺍﻭ :ﱃﺎﻌﺗ ﻝﺎﻗ ﺎﻤﻛ ﻢﻴﻌﻨﻟﺍ ﺕﺎﻨﺟ ﱡﻞﹸﻛ ٍﺀﻲﺷ ﻦﻣ ﻢﹺﻬﻠﻤﻋ ﻦﻣ ﻢﻫﺎﻨﺘﹶﻟﹶﺃ ﺎﻣﻭ ﻢﻬﺘﻳﺭﹸﺫ ﻢﹺﻬﹺﺑ ﺎﻨﹾﻘﺤﹾﻟﹶﺃ ﻥﺎﳝﹺﺈﹺﺑ .[٢١ :ﺭﻮﻄﻟﺍ]  ﲔﻫﺭ ﺐﺴﹶﻛ ﺎﻤﹺﺑ ﹴﺉﹺﺮﻣﺍ",
+  "text_simplified": "The mother speaks of her worry about her daughter’s behavior at school, wondering whether she respects her teacher or not. She also expresses her fear for her daughter regarding the dunya and the consequences of poor tarbiyah. She mentions the importance of raising daughters with righteous tarbiyah and supplicates to Allah to rectify her offspring.",
+  "labels": [
+    "تربية البنات",
+    "قلق الأمهات",
+    "السلوك المدرسي",
+    "احترام المعلمة",
+    "الدعاء للذرية"
+  ],
+  "created_at": "2026-06-20T11:38:09Z",
+  "updated_at": "2026-06-20T11:38:09Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Tarbiya_Al_Banat",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-51abde6d",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "4ba2cbfece35112599e763e5c3f9433e92ac5f7df9240026a52d29f7822a96b4",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "voice": "gemini-3.8-flash-tts/Algieba",
+  "language": "ar",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/ar/anbiya_ibrahim_nar_young_p1.m4a",
+      "text": "آتى اللهُ إبراهيمَ عليه السلام رُشدَه وهداه. وكان اللهُ عالمًا أنه أهلٌ لذلك.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 44,
+          "start": 0.0,
+          "end": 6.684
+        },
+        {
+          "from": 45,
+          "to": 77,
+          "start": 7.134,
+          "end": 12.207
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_ibrahim_nar_young_p2.m4a",
+      "text": "وكان أبوه وقومُه يعبدون أصنامًا صنعوها. فأنكر عليهم إبراهيمُ عبادةَ هذه التماثيل.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 39,
+          "start": 0.0,
+          "end": 5.671
+        },
+        {
+          "from": 40,
+          "to": 81,
+          "start": 6.121,
+          "end": 12.271
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_ibrahim_nar_young_p3.m4a",
+      "text": "ولمّا ذهب قومُه، حطّم إبراهيمُ الأصنامَ وجعلها قِطعًا صغيرة. وترك كبيرَها، ليرجعوا إليه ويسألوه، فيتبيّن لهم ضلالُهم.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 60,
+          "start": 0.0,
+          "end": 8.4
+        },
+        {
+          "from": 61,
+          "to": 117,
+          "start": 8.85,
+          "end": 17.309
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/anbiya_ibrahim_nar_young_p4.m4a",
+      "text": "فأشعل قومُه نارًا عظيمة، وألقوه فيها. فقال الله تعالى: ﴿قُلۡنَا يَٰنَارُ كُونِي بَرۡدٗا وَسَلَٰمًا عَلَىٰٓ إِبۡرَٰهِيمَ﴾. فلم يُصبه فيها أذى.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 37,
+          "start": 0.0,
+          "end": 5.75
+        },
+        {
+          "from": 38,
+          "to": 121,
+          "start": 6.2,
+          "end": 22.044
+        },
+        {
+          "from": 122,
+          "to": 141,
+          "start": 22.494,
+          "end": 25.477
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/anbiya_yunus_young_p1.m4a",
+      "text": "Allah sent His Prophet Yunus (peace be upon him) to his people. He called them, but they did not believe. So he left them, angry, and boarded a ship full of passengers and goods.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 63,
+          "start": 0.0,
+          "end": 3.825
+        },
+        {
+          "from": 64,
+          "to": 105,
+          "start": 4.275,
+          "end": 6.355
+        },
+        {
+          "from": 106,
+          "to": 178,
+          "start": 6.805,
+          "end": 11.045
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_yunus_young_p2.m4a",
+      "text": "Great waves surrounded the ship, and the passengers feared they would drown. They drew lots among themselves, and Yunus was cast into the sea, and the whale swallowed him.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 76,
+          "start": 0.0,
+          "end": 4.148
+        },
+        {
+          "from": 77,
+          "to": 171,
+          "start": 4.598,
+          "end": 10.328
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_yunus_young_p3.m4a",
+      "text": "Yunus was in the darkness of the night, the sea and the belly of the whale. He called out to his Lord, repenting: ﴿لَّآ إِلَٰهَ إِلَّآ أَنتَ سُبۡحَٰنَكَ إِنِّي كُنتُ مِنَ ٱلظَّـٰلِمِينَ﴾ — interpretation of the meaning: 'There is no god but You; glory be to You! I have been one of the wrongdoers.'",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 75,
+          "start": 0.0,
+          "end": 4.32
+        },
+        {
+          "from": 76,
+          "to": 264,
+          "start": 4.77,
+          "end": 29.57
+        },
+        {
+          "from": 265,
+          "to": 300,
+          "start": 30.02,
+          "end": 31.7
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_yunus_young_p4.m4a",
+      "text": "Allah answered him, saved him from his distress, and brought him out of the whale's belly onto an empty land. And Allah made a gourd plant grow over him to shade him.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 109,
+          "start": 0.0,
+          "end": 6.56
+        },
+        {
+          "from": 110,
+          "to": 166,
+          "start": 7.01,
+          "end": 10.369
+        }
+      ]
+    }
+  ]
+}

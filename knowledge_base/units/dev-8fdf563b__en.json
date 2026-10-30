@@ -1,0 +1,93 @@
+{
+  "id": "dev-8fdf563b__en",
+  "domain": "development",
+  "source_file": "Positive_Parenting_3_5.pdf",
+  "title": "Tips for Caring for Young Children in the Hyperactive Stage",
+  "language": "en",
+  "age_group": "prenatal-1",
+  "behavior_type": "تربية إيجابية",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "UNICEF",
+  "text_original": "Tips Following are some things you, as a parent, can do to help your preschooler during this time:  Continue to read to your child. Nurture her love for books by taking her to the library or bookstore.  Let your child help with simple chores.  Encourage your child to play with other children. This helps him to learn the value of sharing and friendship.  Be clear and consistent when disciplining your child. Explain and show the behavior that you expect from her. Whenever you tell her no, follow up with what he should be doing instead.  Help your child develop good language skills by speaking to him in complete sentences and using \"grown up\" words. Help him to use the correct words and phrases.  Help your child through the steps to solve problems when she is  Give your child a limited number of simple choices (for example, deciding what to wear, when to play, and what to eat for snack). National Center on Birth Defects and Developmental Disabilities Division of Human Development and Disability Child Safety First As your child becomes more independent and spends more time in the outside world, it is important that you and your child are aware of ways to stay safe. Here are a few tips to protect your child:  Tell your child why it is important to stay out of traffic. Tell him not to play in the street or run after stray balls.  Be cautious",
+  "text_simplified": "Often, these things help you as a father in the *tarbiyah* (nurturing) of your young children during this stage through having them read books, assisting them with simple things, encouraging them to play with their friends, teaching them how to behave properly, and speaking to them earnestly.",
+  "labels": [
+    "أطفال صغار",
+    "القراءة",
+    "الحوار",
+    "الأنشطة الاجتماعية",
+    "التعليم"
+  ],
+  "created_at": "2026-06-07T07:56:06Z",
+  "updated_at": "2026-07-30",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Positive_Parenting_3_5",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "dev-8fdf563b",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "addition",
+        "why": "The Arabic has no explicit subject; 'these things' is added."
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "The Arabic says 'their reading books', not the parent making them read."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "addition",
+        "why": "The Arabic has no equivalent of 'these things'; the sentence simply says 'Often, it helps you as a father to raise…'"
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "2d289d60fcba1dd03ab36fba22ec6deb7ffa86cb7b19ad9b76c8ad0f3f190d70",
+      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "addition",
+          "why": "The Arabic has no explicit subject; 'these things' is added."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "The Arabic says 'their reading books', not the parent making them read."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "addition",
+          "why": "The Arabic has no equivalent of 'these things'; the sentence simply says 'Often, it helps you as a father to raise…'"
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T16:52:31+00:00"
+  }
+}

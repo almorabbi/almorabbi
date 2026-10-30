@@ -1,0 +1,1507 @@
+{
+  "schema": "tg.game_pack/1",
+  "game": "data_defender",
+  "locale": "en",
+  "levels": [
+    {
+      "level": 1,
+      "questions": [
+        {
+          "id": "data_defender.q_0",
+          "question": "Your child sent you a strange link on WhatsApp saying 'Open it quickly!' What should you do?",
+          "emoji": "🔗",
+          "category": "Digital Safety",
+          "context": "Suspicious links can steal your data or compromise your device.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Enter my personal details on the page to view the content",
+              "rationale": "❌ Any site asking for personal data without a clear reason may be a scam."
+            },
+            {
+              "key": "c",
+              "text": "Forward it to everyone to see what is inside",
+              "rationale": "❌ Forwarding a suspicious link puts others at risk too."
+            },
+            {
+              "key": "a",
+              "text": "Do not open it until I verify it comes from a trusted source",
+              "rationale": "✅ Verifying before opening protects your data and device."
+            },
+            {
+              "key": "b",
+              "text": "Open it right away because my child sent it",
+              "rationale": "❌ Even family accounts can be compromised. Ask your child before opening."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_1",
+          "question": "How can you tell if a new app you are about to download is safe?",
+          "emoji": "📱",
+          "category": "Digital Safety",
+          "context": "Some apps steal your data or cause problems on your device.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Download it from the official store and read the reviews",
+              "rationale": "✅ Using the official store and checking reviews reduces risk."
+            },
+            {
+              "key": "c",
+              "text": "Grant every permission it asks for",
+              "rationale": "❌ You should deny unnecessary permissions like camera or contacts access."
+            },
+            {
+              "key": "b",
+              "text": "Download it from any website on the internet",
+              "rationale": "❌ APK files from random websites may contain malware."
+            },
+            {
+              "key": "d",
+              "text": "Download it just because friends mentioned it",
+              "rationale": "❌ Friends' recommendations are not proof of security."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_2",
+          "question": "A website asks you to register with your full name, phone number, and home address. How do you respond?",
+          "emoji": "🛡️",
+          "category": "Data Protection",
+          "context": "Personal data is valuable and should not be shared everywhere.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Delete all accounts from my device",
+              "rationale": "❌ Not every site is dangerous, but caution is essential."
+            },
+            {
+              "key": "c",
+              "text": "Enter fake information as a joke",
+              "rationale": "❌ Entering random data is not a real solution; deciding mindfully is better."
+            },
+            {
+              "key": "b",
+              "text": "Fill in all the details just to finish quickly",
+              "rationale": "❌ Excess personal information can be leaked or sold."
+            },
+            {
+              "key": "a",
+              "text": "Ask first: Is this site trustworthy, and does it really need all this info?",
+              "rationale": "✅ Pausing to think before sharing protects your privacy."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_3",
+          "question": "Someone calls claiming to be from your bank and asks for your card number and PIN. What do you do?",
+          "emoji": "🏦",
+          "category": "Online Fraud",
+          "context": "Real banks never ask for your PIN or password.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Share no information and call the bank back using their official number",
+              "rationale": "✅ Verifying through the official channel keeps you safe."
+            },
+            {
+              "key": "b",
+              "text": "Give them the PIN so they can fix the issue",
+              "rationale": "❌ Any request for your PIN is almost certainly a scam."
+            },
+            {
+              "key": "d",
+              "text": "Ask the caller to send a photo of their ID card",
+              "rationale": "❌ ID photos can easily be faked."
+            },
+            {
+              "key": "c",
+              "text": "Provide the details so my account does not get closed",
+              "rationale": "❌ Threats of immediate account closure are a common scam tactic."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_4",
+          "question": "You discover a private photo of your child posted on a public page. What is the first thing you should do?",
+          "emoji": "🖼️",
+          "category": "Family Privacy",
+          "context": "Children's photos require special protection online.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Stay silent and do nothing",
+              "rationale": "❌ Silence does not help; protecting your child's privacy is a right."
+            },
+            {
+              "key": "a",
+              "text": "Report the photo and request its immediate removal",
+              "rationale": "✅ Prompt reporting helps remove harmful or unauthorized content."
+            },
+            {
+              "key": "c",
+              "text": "Share the post so everyone knows about it",
+              "rationale": "❌ Spreading the photo further harms the child's privacy."
+            },
+            {
+              "key": "b",
+              "text": "Like the photo to avoid upsetting anyone",
+              "rationale": "❌ Engaging with the post can boost its visibility."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "questions": [
+        {
+          "id": "data_defender.q_5",
+          "question": "Your device has become unusually slow and strange pop-ups keep appearing. What could this mean?",
+          "emoji": "🦠",
+          "category": "Malware",
+          "context": "These symptoms can be a sign of malware or a virus.",
+          "options": [
+            {
+              "key": "a",
+              "text": "It might be malware — I should run a security scan right away",
+              "rationale": "✅ Regular security checks help catch problems early."
+            },
+            {
+              "key": "c",
+              "text": "Remove the battery and put it back in",
+              "rationale": "❌ That is only a temporary reset and will not fix a software infection."
+            },
+            {
+              "key": "b",
+              "text": "Keep using the device as normal",
+              "rationale": "❌ Ignoring symptoms can allow malware to steal your data."
+            },
+            {
+              "key": "d",
+              "text": "Download any random 'speed booster' from the internet",
+              "rationale": "❌ Untrusted utilities often make the problem worse."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_6",
+          "question": "What is the difference between a strong password and a weak password?",
+          "emoji": "🔑",
+          "category": "Passwords",
+          "context": "Weak passwords make it easy for attackers to access your accounts.",
+          "options": [
+            {
+              "key": "c",
+              "text": "You should use the exact same password for every account",
+              "rationale": "❌ If one account is breached, all your other accounts become vulnerable."
+            },
+            {
+              "key": "b",
+              "text": "A password like '123456' is fine if it is easy to remember",
+              "rationale": "❌ Common passwords can be cracked in seconds."
+            },
+            {
+              "key": "d",
+              "text": "Passwords do not matter as long as I do not download apps",
+              "rationale": "❌ Strong passwords matter even for everyday browsing and email."
+            },
+            {
+              "key": "a",
+              "text": "A strong one combines letters, numbers, and symbols and avoids names or birthdays",
+              "rationale": "✅ Length and variety make passwords much harder to guess."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_7",
+          "question": "You are connected to public Wi-Fi at a café or airport. What should you avoid doing?",
+          "emoji": "📶",
+          "category": "Networks",
+          "context": "Public Wi-Fi networks are often unsecured.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Avoid online banking or entering sensitive personal data",
+              "rationale": "✅ Sensitive transactions should wait for a trusted connection."
+            },
+            {
+              "key": "b",
+              "text": "Use it for everything just like my home network",
+              "rationale": "❌ Public networks can be intercepted by attackers."
+            },
+            {
+              "key": "c",
+              "text": "Download apps from links posted around the café",
+              "rationale": "❌ Public QR codes or links can easily be spoofed."
+            },
+            {
+              "key": "d",
+              "text": "Leave my unlocked device on the table",
+              "rationale": "❌ Physical theft or unauthorized access is also a major risk."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_8",
+          "question": "Your child wants to livestream or post a public video of themselves. How should you handle it?",
+          "emoji": "📹",
+          "category": "Child Privacy",
+          "context": "Public posts stay online and can reach strangers with bad intentions.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Let them stream publicly and just watch from afar",
+              "rationale": "❌ Watching from afar cannot undo public exposure."
+            },
+            {
+              "key": "a",
+              "text": "Discuss the risks together and keep sharing private or family-only",
+              "rationale": "✅ Open dialogue and clear boundaries protect your child long-term."
+            },
+            {
+              "key": "b",
+              "text": "Let them post whatever they want publicly",
+              "rationale": "❌ Children often do not realize the long-term risks of public sharing."
+            },
+            {
+              "key": "c",
+              "text": "Ban them from using the internet completely",
+              "rationale": "❌ A total ban is unrealistic; guided use teaches safer habits."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_9",
+          "question": "You receive an email saying 'You won a prize!' and asking for your personal details. What do you do?",
+          "emoji": "📧",
+          "category": "Online Fraud",
+          "context": "Fake prize notifications are among the most common online scams.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Treat the email as suspicious and do not enter any information",
+              "rationale": "✅ Healthy skepticism is the first step to staying safe."
+            },
+            {
+              "key": "d",
+              "text": "Forward the email to the whole family",
+              "rationale": "❌ Sharing suspicious links puts family members at risk."
+            },
+            {
+              "key": "c",
+              "text": "Reply to the email asking if it is real",
+              "rationale": "❌ Replying confirms to scammers that your email address is active."
+            },
+            {
+              "key": "b",
+              "text": "Enter my details just in case I really won",
+              "rationale": "❌ Legitimate prizes do not demand sensitive data via unsolicited emails."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "questions": [
+        {
+          "id": "data_defender.q_10",
+          "question": "What does a 'software update' do, and why is it important?",
+          "emoji": "🔄",
+          "category": "Updates",
+          "context": "Updates are not just about new features; they often patch security vulnerabilities.",
+          "options": [
+            {
+              "key": "b",
+              "text": "It only changes colors and icons, so it is not important",
+              "rationale": "❌ Security fixes are a primary reason for many updates."
+            },
+            {
+              "key": "a",
+              "text": "It fixes security gaps and strengthens device protection",
+              "rationale": "✅ Regular updates are a vital line of defense."
+            },
+            {
+              "key": "c",
+              "text": "It slows down the device, so we should skip it",
+              "rationale": "❌ Skipping updates leaves your device exposed to known exploits."
+            },
+            {
+              "key": "d",
+              "text": "We should only update when the device freezes",
+              "rationale": "❌ Waiting until something breaks is often too late."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_11",
+          "question": "Someone on social media asks for a private photo or video. How should you respond?",
+          "emoji": "👤",
+          "category": "Strangers Online",
+          "context": "People online may not be who they claim to be.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Report them, but still send the photo anyway",
+              "rationale": "❌ Reporting does not undo the risk of sending private content."
+            },
+            {
+              "key": "c",
+              "text": "Send an old photo since it will not matter",
+              "rationale": "❌ Any personal photo can be misused."
+            },
+            {
+              "key": "b",
+              "text": "Send it because they seem polite and friendly",
+              "rationale": "❌ Politeness online is no guarantee of honesty or safety."
+            },
+            {
+              "key": "a",
+              "text": "Never send private content to anyone I do not know and trust in real life",
+              "rationale": "✅ Digital boundaries are an essential part of personal safety."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_12",
+          "question": "What is 'Phishing'?",
+          "emoji": "🎣",
+          "category": "Terminology",
+          "context": "Understanding security terms helps you spot scams.",
+          "options": [
+            {
+              "key": "a",
+              "text": "An attempt to trick you into entering your data on a fake website or message",
+              "rationale": "✅ That is the exact definition of phishing."
+            },
+            {
+              "key": "b",
+              "text": "A type of fishing video game",
+              "rationale": "❌ The word sounds similar, but it is a cybersecurity threat."
+            },
+            {
+              "key": "d",
+              "text": "A method for repairing broken devices",
+              "rationale": "❌ Phishing is fraud, not device maintenance."
+            },
+            {
+              "key": "c",
+              "text": "A program that speeds up your internet connection",
+              "rationale": "❌ That is misleading; phishing is an online scam."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_13",
+          "question": "In an online game, a player asks your child to meet up in person outside the game. What should your child do?",
+          "emoji": "🎮",
+          "category": "Online Games",
+          "context": "Online games can be used by strangers to initiate unsafe contact.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Give them a personal social media account instead",
+              "rationale": "❌ Sharing personal accounts opens the door to further unsafe contact."
+            },
+            {
+              "key": "b",
+              "text": "Meet them because they seem nice in the game",
+              "rationale": "❌ Friendly behavior online can be a disguise."
+            },
+            {
+              "key": "a",
+              "text": "Say 'No' and tell a parent right away",
+              "rationale": "✅ Refusing offline meetups and telling a parent keeps the child safe."
+            },
+            {
+              "key": "d",
+              "text": "Keep quiet and not tell anyone",
+              "rationale": "❌ Secrecy leaves the child vulnerable."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_14",
+          "question": "How do you best protect your online accounts from being hacked?",
+          "emoji": "🔐",
+          "category": "Account Security",
+          "context": "Multiple layers of protection are much stronger than a single one.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Skip updates so the device stays fast",
+              "rationale": "❌ Updates are essential for closing security holes."
+            },
+            {
+              "key": "a",
+              "text": "Use a strong password + enable two-factor authentication + keep software updated",
+              "rationale": "✅ Layered security drastically reduces the chance of a breach."
+            },
+            {
+              "key": "d",
+              "text": "Stay logged in on shared devices so I do not forget my password",
+              "rationale": "❌ Leaving accounts open on shared or unlocked devices is risky."
+            },
+            {
+              "key": "b",
+              "text": "Use one strong password across all accounts",
+              "rationale": "❌ If that single password leaks, every account is at risk."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "questions": [
+        {
+          "id": "data_defender.q_15",
+          "question": "An app or website asks to turn on 'Location Services' before you use it. What do you do?",
+          "emoji": "📍",
+          "category": "Location Privacy",
+          "context": "Many apps request location data without genuinely needing it.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Never use maps or any location feature ever",
+              "rationale": "❌ Some apps genuinely need location; the key is selective permission."
+            },
+            {
+              "key": "b",
+              "text": "Always allow location access for every app",
+              "rationale": "❌ Constant location tracking exposes your daily movements."
+            },
+            {
+              "key": "a",
+              "text": "Allow it only if the app truly needs it to function (like a maps app)",
+              "rationale": "✅ Location sharing should always be justified and limited."
+            },
+            {
+              "key": "c",
+              "text": "Set every app to 'While Using' without checking if it needs location",
+              "rationale": "❌ Even 'While Using' is unnecessary if the app has no reason to know where you are."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_16",
+          "question": "Your child mentions that someone online told them to keep secrets from Mom and Dad. What should you do?",
+          "emoji": "💬",
+          "category": "Online Grooming",
+          "context": "Online predators often try to isolate a child from their parents.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Start an angry argument in the chat before blocking",
+              "rationale": "❌ Engaging fuels conflict; blocking, documenting, and reporting is safer."
+            },
+            {
+              "key": "d",
+              "text": "Say nothing so my child does not feel embarrassed",
+              "rationale": "❌ Silence allows the unsafe contact to continue."
+            },
+            {
+              "key": "b",
+              "text": "Tell my child they are overreacting",
+              "rationale": "❌ Dismissing their concern may stop them from speaking up next time."
+            },
+            {
+              "key": "a",
+              "text": "Listen calmly, reassure my child, block/report the person, and stop contact",
+              "rationale": "✅ Calm listening and swift action protect your child and keep trust open."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_17",
+          "question": "What should you do if your social media account gets hacked?",
+          "emoji": "🚨",
+          "category": "Account Breach",
+          "context": "How quickly you respond determines how much damage is done.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Change the password immediately, enable 2FA, and warn friends not to click strange links",
+              "rationale": "✅ These steps contain the damage and secure the account."
+            },
+            {
+              "key": "c",
+              "text": "Wait a few days to see if the problem goes away on its own",
+              "rationale": "❌ Waiting gives the attacker more time to cause harm."
+            },
+            {
+              "key": "d",
+              "text": "Reuse the same old password on a new account",
+              "rationale": "❌ Once a password is compromised, it is never safe to reuse."
+            },
+            {
+              "key": "b",
+              "text": "Create a new account and ignore the hacked one",
+              "rationale": "❌ The compromised account can still be used to scam your contacts."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_18",
+          "question": "How can you tell a genuine app apart from a fake look-alike?",
+          "emoji": "🎭",
+          "category": "Apps",
+          "context": "Fake apps often imitate popular ones to trick users.",
+          "options": [
+            {
+              "key": "b",
+              "text": "If the icon looks similar to the original, it is fine",
+              "rationale": "❌ Icons and screenshots are easy to copy."
+            },
+            {
+              "key": "c",
+              "text": "Download it whenever it is free or cheap",
+              "rationale": "❌ Free look-alikes are a common trap."
+            },
+            {
+              "key": "a",
+              "text": "Check the developer name, download count, reviews, and requested permissions",
+              "rationale": "✅ Reviewing app details helps you spot imitations."
+            },
+            {
+              "key": "d",
+              "text": "Ask random strangers in comments",
+              "rationale": "❌ Verifying official store details is much more reliable."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_19",
+          "question": "Your child downloads a simple puzzle game that asks for camera and microphone access. What do you do?",
+          "emoji": "🎰",
+          "category": "App Permissions",
+          "context": "Some games collect far more data than they need.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Ask whether the game truly needs the camera or mic — if not, deny permission",
+              "rationale": "✅ Permissions should only be granted when genuinely needed."
+            },
+            {
+              "key": "b",
+              "text": "Allow all permissions so the child can play right away",
+              "rationale": "❌ Unjustified permissions put your family's privacy at risk."
+            },
+            {
+              "key": "c",
+              "text": "Delete the game without explaining why",
+              "rationale": "❌ Explaining the reason helps your child learn digital safety."
+            },
+            {
+              "key": "d",
+              "text": "Ban games forever",
+              "rationale": "❌ A total ban does not teach how to evaluate permissions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "questions": [
+        {
+          "id": "data_defender.q_20",
+          "question": "Why is backing up your data important?",
+          "emoji": "💾",
+          "category": "Backups",
+          "context": "Devices can be lost, broken, or compromised at any time.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Backups are only for banking apps",
+              "rationale": "❌ Personal photos, contacts, and documents need protection too."
+            },
+            {
+              "key": "a",
+              "text": "It protects important photos and files if the device is lost or damaged",
+              "rationale": "✅ Regular backups ensure you do not lose family memories and important documents."
+            },
+            {
+              "key": "c",
+              "text": "You only need to back up once when buying the phone",
+              "rationale": "❌ Ongoing backups are needed to keep recent data safe."
+            },
+            {
+              "key": "b",
+              "text": "It slows down the device, so it is unnecessary",
+              "rationale": "❌ Losing all your files is far worse than a brief background sync."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_21",
+          "question": "You find a harsh, bullying comment on your child's post. What is your first step?",
+          "emoji": "💔",
+          "category": "Cyberbullying",
+          "context": "Cruel comments can deeply affect a child's emotional well-being.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Scold my child for receiving the comment",
+              "rationale": "❌ Blaming the victim is unfair; the bully is at fault."
+            },
+            {
+              "key": "c",
+              "text": "Leave the comment up and ignore how my child feels",
+              "rationale": "❌ Ignoring cyberbullying leaves your child feeling unsupported."
+            },
+            {
+              "key": "a",
+              "text": "Report/block the comment and comfort and support my child",
+              "rationale": "✅ Supporting your child emotionally and using platform reporting tools comes first."
+            },
+            {
+              "key": "b",
+              "text": "Reply with insults of my own",
+              "rationale": "❌ Retaliating with insults usually escalates the conflict."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_22",
+          "question": "What should you do if your child's phone or tablet is stolen?",
+          "emoji": "📱",
+          "category": "Lost Devices",
+          "context": "A stolen device exposes logged-in accounts and personal data.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Buy a new device and leave all old passwords unchanged",
+              "rationale": "❌ Old sessions on the stolen device could still access your accounts."
+            },
+            {
+              "key": "a",
+              "text": "Change account passwords immediately, use remote locate/lock if available, and report it",
+              "rationale": "✅ Changing passwords and locking the device remotely protects your accounts."
+            },
+            {
+              "key": "b",
+              "text": "Just wait and hope someone brings it back",
+              "rationale": "❌ Waiting gives whoever has the device time to access accounts."
+            },
+            {
+              "key": "d",
+              "text": "Expect the child to handle the security steps alone",
+              "rationale": "❌ Children need adult help to secure accounts after a theft."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_23",
+          "question": "How should you teach your child to handle upsetting content they accidentally see online?",
+          "emoji": "🚸",
+          "category": "Digital Parenting",
+          "context": "Children may stumble upon inappropriate content even with filters in place.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Tell them never to mention it to anyone",
+              "rationale": "❌ Your child needs to know you are a safe person to talk to."
+            },
+            {
+              "key": "b",
+              "text": "Take away all devices immediately whenever they tell me",
+              "rationale": "❌ Punishing honesty makes children hide things next time."
+            },
+            {
+              "key": "a",
+              "text": "Teach them to close the screen and come talk to me calmly about what they saw",
+              "rationale": "✅ Open, blame-free conversation builds lasting digital safety."
+            },
+            {
+              "key": "d",
+              "text": "Leave them to figure it out on their own",
+              "rationale": "❌ Children need guidance to process confusing content."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_24",
+          "question": "What should you avoid posting publicly about your child on social media?",
+          "emoji": "🤐",
+          "category": "Child Privacy",
+          "context": "Oversharing details can put a child's safety and future privacy at risk.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Nothing — it is fine to share everything since they are my child",
+              "rationale": "❌ Oversharing can expose children to privacy and safety risks."
+            },
+            {
+              "key": "c",
+              "text": "Only avoid blurry photos",
+              "rationale": "❌ Even high-quality photos can reveal sensitive location or school details."
+            },
+            {
+              "key": "d",
+              "text": "Share every milestone publicly with the whole internet",
+              "rationale": "❌ Milestones can be celebrated safely with close family rather than the public."
+            },
+            {
+              "key": "a",
+              "text": "Their school name/location, daily routine details, bath photos, and sensitive info",
+              "rationale": "✅ Keeping identifying and private details offline protects your child."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "questions": [
+        {
+          "id": "data_defender.q_25",
+          "question": "Your child asks: 'What is a VPN?' What is the accurate answer?",
+          "emoji": "🌐",
+          "category": "Networks",
+          "context": "A reputable VPN encrypts traffic, though not every free VPN app is trustworthy.",
+          "options": [
+            {
+              "key": "b",
+              "text": "A program that always makes your internet twice as fast",
+              "rationale": "❌ A VPN does not necessarily speed up connections; sometimes it slows them slightly."
+            },
+            {
+              "key": "a",
+              "text": "A tool that encrypts your internet connection and helps hide your IP location",
+              "rationale": "✅ That is the core function of a VPN."
+            },
+            {
+              "key": "d",
+              "text": "A piece of hardware that connects your phone directly to a satellite",
+              "rationale": "❌ A VPN is software encryption over your existing internet connection."
+            },
+            {
+              "key": "c",
+              "text": "A tool that makes all paid websites free",
+              "rationale": "❌ That is a misconception."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_26",
+          "question": "How do you set healthy screen-time boundaries for your child?",
+          "emoji": "⏱️",
+          "category": "Healthy Screen Time",
+          "context": "Excessive screen time affects sleep, eyesight, and focus.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Only use screen limits as a punishment when you are angry",
+              "rationale": "❌ Healthy screen habits should be a normal daily routine, not just a punishment."
+            },
+            {
+              "key": "b",
+              "text": "Let them use screens right up until they fall asleep",
+              "rationale": "❌ Screens right before bed disrupt sleep quality."
+            },
+            {
+              "key": "a",
+              "text": "Set a clear daily limit suited to their age and encourage regular breaks",
+              "rationale": "✅ Clear, consistent boundaries reduce conflict and protect well-being."
+            },
+            {
+              "key": "c",
+              "text": "Have no rules at all until an argument starts",
+              "rationale": "❌ Agreed-upon limits work much better than sudden arguments."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_27",
+          "question": "What is the first thing you should do if you learn your personal data was part of a breach?",
+          "emoji": "🔓",
+          "category": "Data Breaches",
+          "context": "Data breaches happen frequently and require prompt action.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Abandon every account I own and start over",
+              "rationale": "❌ Securing your existing accounts with new passwords and 2FA is usually sufficient."
+            },
+            {
+              "key": "d",
+              "text": "Just complain online without changing my password",
+              "rationale": "❌ Venting does not secure your accounts."
+            },
+            {
+              "key": "c",
+              "text": "Ignore it because breaches happen to everyone",
+              "rationale": "❌ Ignoring a breach leaves your accounts easy to take over."
+            },
+            {
+              "key": "a",
+              "text": "Change my passwords immediately, enable 2FA, and monitor my accounts",
+              "rationale": "✅ Acting quickly prevents attackers from using leaked credentials."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_28",
+          "question": "Why is it important to teach children never to share their live location online?",
+          "emoji": "🗺️",
+          "category": "Location Privacy",
+          "context": "Live location reveals where a child physically is in real time.",
+          "options": [
+            {
+              "key": "d",
+              "text": "It does not matter as long as they are with friends",
+              "rationale": "❌ Public location sharing is risky even when with friends."
+            },
+            {
+              "key": "a",
+              "text": "Because strangers could find out where the child lives, studies, or hangs out",
+              "rationale": "✅ Real-time location is highly sensitive safety information."
+            },
+            {
+              "key": "c",
+              "text": "To save storage space on the device",
+              "rationale": "❌ Location sharing is a safety issue, not a storage issue."
+            },
+            {
+              "key": "b",
+              "text": "So they do not spend too much time on the phone",
+              "rationale": "❌ That is about screen time, not location safety."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_29",
+          "question": "What is Two-Factor Authentication (2FA)?",
+          "emoji": "📲",
+          "category": "Account Security",
+          "context": "Adding a second verification step significantly boosts account safety.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Typing your password twice on the same screen",
+              "rationale": "❌ Typing the same password twice is not two-factor authentication."
+            },
+            {
+              "key": "b",
+              "text": "Changing your password twice every day",
+              "rationale": "❌ 2FA is a second login factor, not daily password changes."
+            },
+            {
+              "key": "a",
+              "text": "Requiring a second verification code in addition to your password when signing in",
+              "rationale": "✅ 2FA adds an essential extra layer of protection."
+            },
+            {
+              "key": "d",
+              "text": "Sharing your password with two family members",
+              "rationale": "❌ 2FA uses a second verification method, not password sharing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "questions": [
+        {
+          "id": "data_defender.q_30",
+          "question": "Your child is installing a simple game that asks for 'Access to Contacts'. How should you respond?",
+          "emoji": "📇",
+          "category": "App Permissions",
+          "context": "Your contacts list contains private details of family and friends.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Take the device away permanently",
+              "rationale": "❌ Teaching how to manage permissions is more effective than a ban."
+            },
+            {
+              "key": "c",
+              "text": "Delete the app silently without explaining why",
+              "rationale": "❌ Explaining the reason helps your child build good judgment."
+            },
+            {
+              "key": "b",
+              "text": "Allow it so the app runs smoothly",
+              "rationale": "❌ Unnecessary access exposes your family's and friends' contact info."
+            },
+            {
+              "key": "a",
+              "text": "Deny contacts access if the game does not need it, and check if the app is trustworthy",
+              "rationale": "✅ Permissions should only be granted when clearly necessary."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_31",
+          "question": "What should you do if your child comes across a violent video on YouTube?",
+          "emoji": "🎬",
+          "category": "Content Safety",
+          "context": "Children can accidentally encounter content that is too intense for their age.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Turn off the video, talk calmly with my child about what they saw, and adjust filters",
+              "rationale": "✅ Calm conversation and better boundaries help your child process and stay safe."
+            },
+            {
+              "key": "d",
+              "text": "Ignore it completely",
+              "rationale": "❌ Children need reassurance and guidance after seeing disturbing content."
+            },
+            {
+              "key": "c",
+              "text": "Yell at the child for seeing the video",
+              "rationale": "❌ Yelling makes children afraid to tell you next time."
+            },
+            {
+              "key": "b",
+              "text": "Let them keep watching so they 'learn about the real world'",
+              "rationale": "❌ Violent content can cause anxiety and distress in children."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_32",
+          "question": "How do you distinguish an official app store listing from a fake one?",
+          "emoji": "🏪",
+          "category": "App Stores",
+          "context": "Fake listings try to trick users into installing malicious software.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Trust it if the colors look similar to the original",
+              "rationale": "❌ Visual appearance is easy to imitate."
+            },
+            {
+              "key": "a",
+              "text": "Verify the publisher name, review history, download count, and update track record",
+              "rationale": "✅ Checking publisher authenticity is the most reliable step."
+            },
+            {
+              "key": "d",
+              "text": "Trust it if a link came in a random group chat",
+              "rationale": "❌ Always verify directly in the official app store."
+            },
+            {
+              "key": "c",
+              "text": "Trust it if it promises lots of free rewards",
+              "rationale": "❌ 'Too good to be true' freebies are often bait."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_33",
+          "question": "What should you do if intrusive pop-up ads suddenly start appearing all over your phone?",
+          "emoji": "🛑",
+          "category": "Malware",
+          "context": "Constant pop-up ads are often caused by adware or a shady app.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Run a security check and uninstall recently added or suspicious apps",
+              "rationale": "✅ Removing the offending app and scanning the device solves the root cause."
+            },
+            {
+              "key": "b",
+              "text": "Tap the ads to see what they are offering",
+              "rationale": "❌ Tapping suspicious pop-ups can install more malware."
+            },
+            {
+              "key": "d",
+              "text": "Wait and hope the pop-ups stop on their own",
+              "rationale": "❌ Delaying action leaves your device at risk."
+            },
+            {
+              "key": "c",
+              "text": "Just restart the phone and do nothing else",
+              "rationale": "❌ Restarting will not remove an installed adware app."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_34",
+          "question": "Why is it smart to hide notification previews on your lock screen?",
+          "emoji": "🔔",
+          "category": "Notifications",
+          "context": "Lock-screen notifications can display private messages and verification codes to anyone nearby.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Only to make the wallpaper look prettier",
+              "rationale": "❌ Aesthetics are secondary; protecting private messages and OTP codes is the real benefit."
+            },
+            {
+              "key": "a",
+              "text": "So private messages and login codes are not visible to anyone who picks up the phone",
+              "rationale": "✅ Good privacy starts with everyday habits."
+            },
+            {
+              "key": "d",
+              "text": "It has no benefit at all",
+              "rationale": "❌ Every layer of privacy helps protect your accounts."
+            },
+            {
+              "key": "c",
+              "text": "Because it doubles battery life",
+              "rationale": "❌ The battery impact is minimal; privacy is the main reason."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "questions": [
+        {
+          "id": "data_defender.q_35",
+          "question": "Your child receives a threatening or blackmail message online. What is the very first step?",
+          "emoji": "⚠️",
+          "category": "Online Extortion",
+          "context": "Online extortion is a serious offense that requires calm, decisive action.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Keep silent out of embarrassment",
+              "rationale": "❌ Silence gives the blackmailer power."
+            },
+            {
+              "key": "b",
+              "text": "Pay what they ask so they delete the content",
+              "rationale": "❌ Paying almost always leads to more demands."
+            },
+            {
+              "key": "a",
+              "text": "Reassure my child, save evidence, do not pay or negotiate, and report it immediately",
+              "rationale": "✅ Supporting your child and reporting to the platform/authorities is the right response."
+            },
+            {
+              "key": "c",
+              "text": "Focus only on blaming and punishing the child",
+              "rationale": "❌ Blaming the child increases fear and hides the problem."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_36",
+          "question": "What should you do if you learn an app on your phone secretly harvests data in the background?",
+          "emoji": "👁️",
+          "category": "Malicious Apps",
+          "context": "Some apps abuse permissions to collect personal data.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Uninstall the app immediately, review permissions, and run a security scan",
+              "rationale": "✅ Removing the app and checking your device stops further data collection."
+            },
+            {
+              "key": "d",
+              "text": "Keep using it as long as I do not type my name",
+              "rationale": "❌ Malicious apps can still access device data and identifiers."
+            },
+            {
+              "key": "c",
+              "text": "Just open the app less often",
+              "rationale": "❌ Background apps can collect data even when you do not open them."
+            },
+            {
+              "key": "b",
+              "text": "Keep it installed since I am not 100% sure",
+              "rationale": "❌ When an app is credibly flagged as unsafe, removing it is the safest choice."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_37",
+          "question": "How do you teach your child to tell real news apart from fake news online?",
+          "emoji": "📰",
+          "category": "Media Literacy",
+          "context": "Misinformation spreads rapidly on social platforms.",
+          "options": [
+            {
+              "key": "b",
+              "text": "If it has a dramatic photo, it must be true",
+              "rationale": "❌ Photos can be taken out of context or edited."
+            },
+            {
+              "key": "d",
+              "text": "Read the headline only",
+              "rationale": "❌ Clickbait headlines are often misleading."
+            },
+            {
+              "key": "c",
+              "text": "If thousands of people shared it, it must be real",
+              "rationale": "❌ Viral spread is not proof of accuracy."
+            },
+            {
+              "key": "a",
+              "text": "Check the source, date, and evidence — and verify with trusted outlets before believing or sharing",
+              "rationale": "✅ Fact-checking sources is an essential digital literacy skill."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_38",
+          "question": "What is the most important rule for passwords on critical accounts like email and banking?",
+          "emoji": "🔒",
+          "category": "Passwords",
+          "context": "Core accounts like email and banking need the strongest protection.",
+          "options": [
+            {
+              "key": "a",
+              "text": "Make each password long, unique, and never reused anywhere else",
+              "rationale": "✅ Unique, long passwords prevent a breach on one site from compromising others."
+            },
+            {
+              "key": "b",
+              "text": "Keep it short and simple so it is easy to type",
+              "rationale": "❌ Short, simple passwords are easy to crack."
+            },
+            {
+              "key": "c",
+              "text": "Use the same password for all accounts",
+              "rationale": "❌ Reusing passwords puts every account at risk if one leaks."
+            },
+            {
+              "key": "d",
+              "text": "Tape the password onto the back of the phone",
+              "rationale": "❌ Anyone who picks up the phone would have full access."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_39",
+          "question": "Why is it important to teach children to speak up about any strange online contact?",
+          "emoji": "📣",
+          "category": "Communication",
+          "context": "Early reporting prevents online risks from escalating.",
+          "options": [
+            {
+              "key": "d",
+              "text": "To make children afraid of technology",
+              "rationale": "❌ The goal is confident awareness, not fear."
+            },
+            {
+              "key": "b",
+              "text": "Just to spy on everything the child does",
+              "rationale": "❌ The goal is safety and trust, not surveillance."
+            },
+            {
+              "key": "c",
+              "text": "It is not necessary unless something bad has already happened",
+              "rationale": "❌ Catching red flags early prevents harm before it happens."
+            },
+            {
+              "key": "a",
+              "text": "Because secrecy helps bad actors, while speaking up early lets parents protect the child",
+              "rationale": "✅ Open communication is the strongest first line of defense."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "questions": [
+        {
+          "id": "data_defender.q_40",
+          "question": "Your child wants to create an account on a new social platform. What should you do first?",
+          "emoji": "🆕",
+          "category": "Platforms",
+          "context": "Each platform has age ratings, privacy settings, and different risks.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Refuse to discuss technology at all",
+              "rationale": "❌ Guided conversation works better than avoidance."
+            },
+            {
+              "key": "c",
+              "text": "Enter a fake adult birth year so they bypass age checks",
+              "rationale": "❌ Falsifying age removes child-safety protections on the platform."
+            },
+            {
+              "key": "a",
+              "text": "Check the minimum age requirement, review privacy settings, and agree on family rules",
+              "rationale": "✅ Checking age appropriateness and privacy settings upfront keeps your child safer."
+            },
+            {
+              "key": "b",
+              "text": "Let them sign up immediately without checking what the app is",
+              "rationale": "❌ Age-inappropriate platforms can expose children to harmful content and strangers."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_41",
+          "question": "What should you do if false rumors or defamatory posts are shared about your family online?",
+          "emoji": "💭",
+          "category": "Digital Reputation",
+          "context": "Online rumors can harm reputation and emotional well-being.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Post angry insults back at everyone in the comments",
+              "rationale": "❌ Public fights amplify the post and worsen the situation."
+            },
+            {
+              "key": "d",
+              "text": "Make up false rumors about the other person in return",
+              "rationale": "❌ Retaliating with falsehoods creates ethical and legal problems."
+            },
+            {
+              "key": "c",
+              "text": "Do nothing because platforms never remove anything",
+              "rationale": "❌ Platforms have reporting channels specifically for harassment and defamation."
+            },
+            {
+              "key": "a",
+              "text": "Document evidence (screenshots), report to the platform, and seek official/legal help if needed",
+              "rationale": "✅ Calm, documented action protects your rights effectively."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_42",
+          "question": "How can you reduce the risk of family photos being misused by AI manipulation (deepfakes)?",
+          "emoji": "🤖",
+          "category": "AI & Privacy",
+          "context": "AI tools can manipulate publicly available photos.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Post as many public photos as possible so people know the originals",
+              "rationale": "❌ Posting more public photos gives AI tools more material to misuse."
+            },
+            {
+              "key": "a",
+              "text": "Limit public photos of children, keep accounts private to trusted people, and stay vigilant",
+              "rationale": "✅ Prevention and strong privacy settings reduce exposure."
+            },
+            {
+              "key": "d",
+              "text": "Rely on a color filter to protect the photo",
+              "rationale": "❌ Simple filters do not stop image misuse."
+            },
+            {
+              "key": "c",
+              "text": "Do not worry because deepfakes only target celebrities",
+              "rationale": "❌ Anyone's public photos can be misused."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_43",
+          "question": "How should you explain 'cybercrime' when your child asks about it?",
+          "emoji": "👮",
+          "category": "Awareness",
+          "context": "Explaining digital concepts simply helps children build sound judgment.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Tell them it is an adult topic and refuse to explain",
+              "rationale": "❌ Age-appropriate explanations help children protect themselves."
+            },
+            {
+              "key": "d",
+              "text": "Make up a random answer just to end the conversation",
+              "rationale": "❌ Inaccurate information leaves children confused."
+            },
+            {
+              "key": "a",
+              "text": "Explain that harmful or illegal acts online are real offenses with real-world consequences",
+              "rationale": "✅ Connecting online actions to real-world ethics and laws helps children understand."
+            },
+            {
+              "key": "c",
+              "text": "Scare them into thinking the computer itself is dangerous",
+              "rationale": "❌ Fear is not a substitute for understanding."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_44",
+          "question": "What does 'safe browsing' really mean?",
+          "emoji": "🛡️",
+          "category": "Core Concepts",
+          "context": "Safe browsing is a combination of everyday habits.",
+          "options": [
+            {
+              "key": "c",
+              "text": "Never using the internet at all",
+              "rationale": "❌ The internet is a useful tool when used safely."
+            },
+            {
+              "key": "b",
+              "text": "Installing an antivirus app and then clicking any link freely",
+              "rationale": "❌ No tool can replace careful user habits."
+            },
+            {
+              "key": "d",
+              "text": "Browsing as fast as possible",
+              "rationale": "❌ Speed has nothing to do with safety."
+            },
+            {
+              "key": "a",
+              "text": "Using trusted sites, protecting personal data, and keeping security updates current",
+              "rationale": "✅ Safe browsing is a set of consistent, mindful habits."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "questions": [
+        {
+          "id": "data_defender.q_45",
+          "question": "How do you keep your whole family comprehensively safe online?",
+          "emoji": "👨‍👩‍👧‍👦",
+          "category": "Family Plan",
+          "context": "Family digital safety combines clear rules, open communication, and technical safeguards.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Ban children from ever touching technology",
+              "rationale": "❌ Guided learning prepares children better than total isolation."
+            },
+            {
+              "key": "a",
+              "text": "Combine clear rules, open conversation, healthy screen boundaries, and regular security checks",
+              "rationale": "✅ Comprehensive protection blends trust, boundaries, and smart security habits."
+            },
+            {
+              "key": "c",
+              "text": "Buy the most expensive security software and never talk about safety",
+              "rationale": "❌ Software alone cannot replace family communication."
+            },
+            {
+              "key": "d",
+              "text": "Leave digital safety entirely up to the school",
+              "rationale": "❌ Home is the primary place where daily digital habits are formed."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_46",
+          "question": "Someone calls claiming you won a company raffle and asks for your bank details to deliver the prize. What do you do?",
+          "emoji": "📞",
+          "category": "Phone Scams",
+          "context": "Phone scams often use excitement or urgency to trick people.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Give them my bank details so I do not miss the prize",
+              "rationale": "❌ Legitimate companies do not ask for sensitive banking credentials to hand out prizes."
+            },
+            {
+              "key": "d",
+              "text": "Share the caller's link with friends first",
+              "rationale": "❌ Never pass along unverified links or offers."
+            },
+            {
+              "key": "a",
+              "text": "Hang up and verify independently using the company's official contact number",
+              "rationale": "✅ Verifying through official channels protects you from phone scams."
+            },
+            {
+              "key": "c",
+              "text": "Stay on the line and give them my home address instead",
+              "rationale": "❌ Sharing personal address details with unverified callers is also risky."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_47",
+          "question": "Your child is learning programming and technology. How do you encourage them safely?",
+          "emoji": "💻",
+          "category": "Coding & Ethics",
+          "context": "Technical skills grow best alongside strong digital ethics.",
+          "options": [
+            {
+              "key": "b",
+              "text": "Let them test hacking tools on other people's accounts",
+              "rationale": "❌ Accessing others' accounts without permission is unethical and illegal."
+            },
+            {
+              "key": "c",
+              "text": "Tell them ethics do not matter as long as the code works",
+              "rationale": "❌ Ethics and safety matter just as much as technical skill."
+            },
+            {
+              "key": "d",
+              "text": "Discourage them from learning programming",
+              "rationale": "❌ Programming is a valuable skill when paired with good guidance."
+            },
+            {
+              "key": "a",
+              "text": "Encourage their curiosity while teaching respect for privacy, ethics, and responsible reporting",
+              "rationale": "✅ Digital ethics are an essential part of learning technology."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_48",
+          "question": "What is the most important digital safety takeaway to practice every day?",
+          "emoji": "🧠",
+          "category": "Review",
+          "context": "Consistent habits turn knowledge into real protection.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Rely on a password alone and ignore everything else",
+              "rationale": "❌ Safety requires multiple habits working together."
+            },
+            {
+              "key": "c",
+              "text": "Assume everyone online is trustworthy",
+              "rationale": "❌ Healthy caution is essential online."
+            },
+            {
+              "key": "a",
+              "text": "Verify sources, protect personal data, and keep communication open",
+              "rationale": "✅ Those three habits form the foundation of everyday digital safety."
+            },
+            {
+              "key": "b",
+              "text": "Never use the internet for anything",
+              "rationale": "❌ Safe, mindful use — not avoidance — is the goal."
+            }
+          ]
+        },
+        {
+          "id": "data_defender.q_49",
+          "question": "How can you regularly check your family's digital safety readiness?",
+          "emoji": "📊",
+          "category": "Assessment",
+          "context": "Periodic check-ins keep your family's security habits up to date.",
+          "options": [
+            {
+              "key": "d",
+              "text": "Never review settings once a phone is set up",
+              "rationale": "❌ Ongoing review keeps your family protected."
+            },
+            {
+              "key": "a",
+              "text": "Check: Are devices updated? Are passwords strong and 2FA on? Do we talk openly?",
+              "rationale": "✅ A practical checklist helps spot and fix gaps early."
+            },
+            {
+              "key": "c",
+              "text": "Check once every few years",
+              "rationale": "❌ Regular check-ins work best as apps and habits change."
+            },
+            {
+              "key": "b",
+              "text": "Assume everything is fine as long as nothing has broken yet",
+              "rationale": "❌ Security risks often stay hidden until a problem occurs."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

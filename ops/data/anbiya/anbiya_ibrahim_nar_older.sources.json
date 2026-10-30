@@ -1,0 +1,1399 @@
+{
+  "id": "anbiya_ibrahim_nar_older",
+  "series": "anbiya_quran",
+  "about": "مصادر القصة: الآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/anbiya_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py.",
+  "tafsir_source": "moyassar",
+  "content_sha256": "e3348b2daf35c1446a7f4f068e285c3c2c44ba81cfad949554affc35b7a8c5bd",
+  "refs": [
+    "21:51",
+    "21:52",
+    "21:53",
+    "21:57",
+    "21:58",
+    "21:59",
+    "21:61",
+    "21:62",
+    "21:64",
+    "21:65",
+    "21:66",
+    "21:68",
+    "21:69",
+    "21:70"
+  ],
+  "verses": {
+    "21:51": "۞وَلَقَدۡ ءَاتَيۡنَآ إِبۡرَٰهِيمَ رُشۡدَهُۥ مِن قَبۡلُ وَكُنَّا بِهِۦ عَٰلِمِينَ",
+    "21:52": "إِذۡ قَالَ لِأَبِيهِ وَقَوۡمِهِۦ مَا هَٰذِهِ ٱلتَّمَاثِيلُ ٱلَّتِيٓ أَنتُمۡ لَهَا عَٰكِفُونَ",
+    "21:53": "قَالُواْ وَجَدۡنَآ ءَابَآءَنَا لَهَا عَٰبِدِينَ",
+    "21:57": "وَتَٱللَّهِ لَأَكِيدَنَّ أَصۡنَٰمَكُم بَعۡدَ أَن تُوَلُّواْ مُدۡبِرِينَ",
+    "21:58": "فَجَعَلَهُمۡ جُذَٰذًا إِلَّا كَبِيرٗا لَّهُمۡ لَعَلَّهُمۡ إِلَيۡهِ يَرۡجِعُونَ",
+    "21:59": "قَالُواْ مَن فَعَلَ هَٰذَا بِـَٔالِهَتِنَآ إِنَّهُۥ لَمِنَ ٱلظَّـٰلِمِينَ",
+    "21:61": "قَالُواْ فَأۡتُواْ بِهِۦ عَلَىٰٓ أَعۡيُنِ ٱلنَّاسِ لَعَلَّهُمۡ يَشۡهَدُونَ",
+    "21:62": "قَالُوٓاْ ءَأَنتَ فَعَلۡتَ هَٰذَا بِـَٔالِهَتِنَا يَـٰٓإِبۡرَٰهِيمُ",
+    "21:64": "فَرَجَعُوٓاْ إِلَىٰٓ أَنفُسِهِمۡ فَقَالُوٓاْ إِنَّكُمۡ أَنتُمُ ٱلظَّـٰلِمُونَ",
+    "21:65": "ثُمَّ نُكِسُواْ عَلَىٰ رُءُوسِهِمۡ لَقَدۡ عَلِمۡتَ مَا هَـٰٓؤُلَآءِ يَنطِقُونَ",
+    "21:66": "قَالَ أَفَتَعۡبُدُونَ مِن دُونِ ٱللَّهِ مَا لَا يَنفَعُكُمۡ شَيۡـٔٗا وَلَا يَضُرُّكُمۡ",
+    "21:68": "قَالُواْ حَرِّقُوهُ وَٱنصُرُوٓاْ ءَالِهَتَكُمۡ إِن كُنتُمۡ فَٰعِلِينَ",
+    "21:69": "قُلۡنَا يَٰنَارُ كُونِي بَرۡدٗا وَسَلَٰمًا عَلَىٰٓ إِبۡرَٰهِيمَ",
+    "21:70": "وَأَرَادُواْ بِهِۦ كَيۡدٗا فَجَعَلۡنَٰهُمُ ٱلۡأَخۡسَرِينَ"
+  },
+  "tafsir": {
+    "21:51": "ولقد آتينا إبراهيم هداه، الذي دعا الناس إليه من قبل موسى وهارون، وكنَّا عالمين أنه أهل لذلك.",
+    "21:52": "حين قال لأبيه وقومه: ما هذه الأصنام التي صنعتموها، ثم أقمتم على عبادتها ملازمين لها؟",
+    "21:53": "قالوا: وجدنا آباءنا عابدين لها، ونحن نعبدها اقتداء بهم.",
+    "21:57": "وتالله لأمكرنَّ بأصنامكم وأكسِّرها بعد أن تتولَّوا عنها ذاهبين.",
+    "21:58": "فحطم إبراهيم الأصنام وجعلها قطعًا صغيرة، وترك كبيرها; كي يرجع القوم إليه ويسألوه، فيتبين عجزهم وضلالهم، وتقوم الحجة عليهم.",
+    "21:59": "ورجع القوم، ورأوا أصنامهم محطمة مهانة، فسأل بعضهم بعضًا: مَن فعل هذا بآلهتنا؟ إنه لظالم في اجترائه على الآلهة المستحقة للتعظيم والتوقير.",
+    "21:61": "قال رؤساؤهم: فَأْتوا بإبراهيم على مرأى من الناس; كي يشهدوا على اعترافه بما قال; ليكون ذلك حجة عليه.",
+    "21:62": "وجيء بإبراهيم وسألوه منكرين: أأنت الذي كسَّرْتَ آلهتنا؟ يعنون أصنامهم.",
+    "21:64": "فأُسقِط في أيديهم، وبدا لهم ضلالهم; كيف يعبدونها، وهي عاجزة عن أن تدفع عن نفسها شيئًا أو أن تجيب سائلها؟ وأقرُّوا على أنفسهم بالظلم والشرك.",
+    "21:65": "وسُرعان ما عاد إليهم عنادهم بعد إفحامهم، فانقلبوا إلى الباطل، واحتجُّوا على إبراهيم بما هو حجة له عليهم، فقالوا: كيف نسألها، وقد علمتَ أنها لا تنطق؟",
+    "21:66": "قال إبراهيم محقِّرًا لشأن الأصنام: كيف تعبدون أصنامًا لا تنفع إذا عُبدت، ولا تضرُّ إذا تُركت؟ قبحًا لكم ولآلهتكم التي تعبدونها من دون الله تعالى، أفلا تعقلون فتدركون سوء ما أنتم عليه؟",
+    "21:68": "لما بطلت حجتهم وظهر الحق عدلوا إلى استعمال سلطانهم، وقالوا: حَرِّقوا إبراهيم بالنار; غضبًا لآلهتكم إن كنتم ناصرين لها. فأشْعَلوا نارًا عظيمة وألقوه فيها، فانتصر الله لرسوله وقال للنار: كوني بردًا وسلامًا على إبراهيم، فلم يَنَلْه فيها أذى، ولم يصبه مكروه.",
+    "21:69": "لما بطلت حجتهم وظهر الحق عدلوا إلى استعمال سلطانهم، وقالوا: حَرِّقوا إبراهيم بالنار؛ غضبًا لآلهتكم إن كنتم ناصرين لها. فأشْعَلوا نارًا عظيمة وألقوه فيها، فانتصر الله لرسوله وقال للنار: كوني بردًا وسلامًا على إبراهيم، فلم يَنَلْه فيها أذى، ولم يصبه مكروه.",
+    "21:70": "وأراد القوم بإبراهيم الهلاك فأبطل الله كيدهم، وجعلهم المغلوبين الأسفلين."
+  },
+  "tafsir_meta": {
+    "21:51": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:48+00:00"
+    },
+    "21:52": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:49+00:00"
+    },
+    "21:53": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:49+00:00"
+    },
+    "21:57": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:50+00:00"
+    },
+    "21:58": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:51+00:00"
+    },
+    "21:59": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:52+00:00"
+    },
+    "21:61": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:52+00:00"
+    },
+    "21:62": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:53+00:00"
+    },
+    "21:64": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:54+00:00"
+    },
+    "21:65": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:54+00:00"
+    },
+    "21:66": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:55+00:00"
+    },
+    "21:68": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:55+00:00"
+    },
+    "21:69": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:56+00:00"
+    },
+    "21:70": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:10:57+00:00"
+    }
+  },
+  "fields": [
+    {
+      "path": "title",
+      "refs": [
+        "21:51",
+        "21:52",
+        "21:53",
+        "21:57",
+        "21:58",
+        "21:59",
+        "21:61",
+        "21:62",
+        "21:64",
+        "21:65",
+        "21:66",
+        "21:68",
+        "21:69",
+        "21:70"
+      ],
+      "sentences": [
+        {
+          "text": "إبراهيم عليه السلام والأصنام والنار",
+          "refs": [
+            "21:51",
+            "21:52",
+            "21:53",
+            "21:57",
+            "21:58",
+            "21:59",
+            "21:61",
+            "21:62",
+            "21:64",
+            "21:65",
+            "21:66",
+            "21:68",
+            "21:69",
+            "21:70"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The title mentions Ibrahim, the idols, and the fire, all of which are present in the provided sources, and the honorific is acceptable.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The title merely names the three elements present in the cited verses: Ibrahim, the idols, and the fire.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "60b77bd7610426851ff087f224f99c3b17ecd3068006f682b5e53813da308017",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "refs": [
+        "21:51",
+        "21:52",
+        "21:53",
+        "21:57",
+        "21:58",
+        "21:59",
+        "21:61",
+        "21:62",
+        "21:64",
+        "21:65",
+        "21:66",
+        "21:68",
+        "21:69",
+        "21:70"
+      ],
+      "sentences": [
+        {
+          "text": "قصة نبيّ الله إبراهيم عليه السلام مع أصنام قومه والنار كما ذكرها القرآن الكريم في سورة الأنبياء، مكتوبة من التفسير الميسّر لآياتها.",
+          "refs": [
+            "21:51",
+            "21:52",
+            "21:53",
+            "21:57",
+            "21:58",
+            "21:59",
+            "21:61",
+            "21:62",
+            "21:64",
+            "21:65",
+            "21:66",
+            "21:68",
+            "21:69",
+            "21:70"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a meta description of the story's source and does not assert any unsupported facts about the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a meta-description accurately identifying the story, its source (Surat Al-Anbiya), and the tafsir used, all of which match the given sources.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "010292974b0ab0250911dab4ff82d73fd82409f711b2464d834fce69f1b0a6a9",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[0].text",
+      "refs": [
+        "21:51"
+      ],
+      "sentences": [
+        {
+          "text": "آتى اللهُ إبراهيمَ عليه السلام رُشدَه وهداه، وكان سبحانه عالمًا أنه أهلٌ لذلك.",
+          "refs": [
+            "21:51"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence closely paraphrases the given verse and tafsir without adding unsupported details.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a direct paraphrase of [21:51] and its tafsir, with only honorifics added and 'من قبل' omitted as a minor simplification.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "9829345e1704f9fd951f96492c404f595a13fd9fe1d4e1f9386377d37b1dd23e",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وكان يدعو الناسَ إلى هذا الهدى.",
+          "refs": [
+            "21:51"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir states that Ibrahim called people to the guidance given to him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir explicitly states that Ibrahim called people to this guidance ('الذي دعا الناس إليه').",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "5c827078894bbb57b9705c4e39fde9ebbfbb4358c40665390366b5ddad6fdd77",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[1].text",
+      "refs": [
+        "21:52",
+        "21:53"
+      ],
+      "sentences": [
+        {
+          "text": "وكان أبوه وقومُه يعبدون أصنامًا صنعوها، ويُقيمون على عبادتها.",
+          "refs": [
+            "21:52"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the tafsir's statement that they made idols and persisted in worshiping them.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse and tafsir state that his father and people made idols and were devoted to worshipping them, which the sentence directly reflects.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "d3f547d98f4c0d44dc2369d934e495e0f7ae672e6a161f3f57ccaade1124b1ad",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فقال لهم: ﴿مَا هَٰذِهِ ٱلتَّمَاثِيلُ ٱلَّتِيٓ أَنتُمۡ لَهَا عَٰكِفُونَ﴾.",
+          "refs": [
+            "21:52"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the exact Qur'anic words addressed to his father and people, as stated in the source verse and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence uses the verbatim Qur'anic verse and the framing 'فقال لهم' is consistent with the verse's 'قال لأبيه وقومه'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a6c37e5dfa95878131665b0cb0826575be3fc75fb0bdcd7a16fdcc985c2ab61e",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وكانوا يعبدونها اقتداءً بآبائهم.",
+          "refs": [
+            "21:53"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir explicitly states they worshipped the idols in imitation of their fathers.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir of 21:53 explicitly states they worshipped the idols اقتداء بآبائهم.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "7a1542c0a8163ab4b892cca41d783a7b44f136e1bec8ba1b40236e214273d6fa",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[2].text",
+      "refs": [
+        "21:57",
+        "21:58",
+        "21:59",
+        "21:61",
+        "21:62"
+      ],
+      "sentences": [
+        {
+          "text": "ولمّا ذهب قومُه، حطّم إبراهيمُ الأصنامَ وجعلها قِطعًا صغيرة، وترك كبيرَها ليرجعوا إليه ويسألوه.",
+          "refs": [
+            "21:57",
+            "21:58"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited verse and tafsir: after the people left, Ibrahim smashed the idols into pieces and left the large one so they would return to it and ask.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence faithfully paraphrases the cited verses and tafsir: the people leaving matches 'بعد أن تولّوا مدبرين', and the smashing and leaving the large idol matches [21:58] and its tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a73accfc1c1876cc7e4bd1063f1b6641f469b49cd7a47d7773bc27a899350628",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فلمّا رجعوا ورأوا أصنامهم محطّمة، جاؤوا بإبراهيم على مرأى من الناس.",
+          "refs": [
+            "21:59",
+            "21:61",
+            "21:62"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state that they returned, saw the idols smashed, and brought Ibrahim before the people.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The return, seeing broken idols, and bringing Ibrahim before the people are all directly stated in the cited tafsir of 21:59, 21:61, and 21:62.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "759e9f8ae25b8b39b575ab6946cbeb6c463aed3e34377df1bcf503fb4c875639",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[3].text",
+      "refs": [
+        "21:64",
+        "21:65",
+        "21:66",
+        "21:68"
+      ],
+      "sentences": [
+        {
+          "text": "فرجعوا إلى أنفسهم، وظهر لهم ضلالُهم، وسرعان ما عادوا إلى عنادهم.",
+          "refs": [
+            "21:64",
+            "21:65"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence closely follows the cited verse and tafsir: returning to themselves, their misguidance becoming clear, and quickly returning to stubbornness.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Each clause directly matches the cited verses and tafsir: 'فرجعوا إلى أنفسهم' is 21:64, 'ظهر لهم ضلالهم' matches 'بدا لهم ضلالهم', and 'سرعان ما عادوا إلى عنادهم' matches 'وسُرعان ما عاد إليهم عنادهم'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "0e316bd17afc65cc1e3f027cea69c2cc805c9e14fc33afed307a12ad1f43f769",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فقال لهم إبراهيم: ﴿أَفَتَعۡبُدُونَ مِن دُونِ ٱللَّهِ مَا لَا يَنفَعُكُمۡ شَيۡـٔٗا وَلَا يَضُرُّكُمۡ﴾.",
+          "refs": [
+            "21:66"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence reports that Ibrahim said the verbatim Qur'anic verse, and the tafsir confirms he addressed a group with these words.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the verbatim verse [21:66] and attributes it to Ibrahim, which the tafsir confirms with 'قال إبراهيم'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "2c8223f19481ad5d8d1fdc196862f954385b4e500d06c8e56519b307d7cc01df",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فلمّا بطلت حجّتُهم، أشعلوا نارًا عظيمة ليُحرقوه بها، وألقوه فيها.",
+          "refs": [
+            "21:68"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence directly matches the given tafsir: when their argument failed, they lit a great fire and threw him into it to burn him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence closely paraphrases the cited tafsir, which states that after their argument was invalidated, they lit a great fire and cast him into it.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "bd26cf47a8be218bbf24cbb4622164ff3db1058defeff15d552af02f0381182d",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[4].text",
+      "refs": [
+        "21:69"
+      ],
+      "sentences": [
+        {
+          "text": "فقال الله تعالى: ﴿قُلۡنَا يَٰنَارُ كُونِي بَرۡدٗا وَسَلَٰمًا عَلَىٰٓ إِبۡرَٰهِيمَ﴾.",
+          "refs": [
+            "21:69"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the Qur'anic verse verbatim, and the given tafsir states that God said this to the fire.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence quotes the verbatim verse [21:69] and attributes it to Allah, which the tafsir confirms with 'قال للنار'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "76a1e73882ede1dab7f8cf649b70af29b3fc2b827617dd7bb8a1289b697d32ea",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فلم يَنَلْه فيها أذى، ولم يُصبه مكروه.",
+          "refs": [
+            "21:69"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "This sentence is verbatim from the provided tafsir of 21:69.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is verbatim from the cited tafsir of 21:69.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "fd2b68a1ce13b115285caab314505749d5acd6b8eae291ed873ddbe783785e12",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[5].text",
+      "refs": [
+        "21:66",
+        "21:68",
+        "21:69",
+        "21:70"
+      ],
+      "sentences": [
+        {
+          "text": "وأراد قومُه به الهلاك، فأبطل اللهُ كيدَهم، وجعلهم المغلوبين.",
+          "refs": [
+            "21:70"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the given tafsir of 21:70, with minor simplification and omission of 'الأسفلين'.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a near-verbatim rendering of the cited tafsir with only minor simplification.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "8d6fd655ea5a73904a0e3e26a857995ea9f0469ff7f9befc1d40d700e7c1722a",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ومن عِبَر هذه الآيات أن الأصنام لا تنفع ولا تضرّ، فلا يُعبد إلا الله.",
+          "refs": [
+            "21:66"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The lesson that idols neither benefit nor harm and therefore only Allah should be worshipped is directly entailed by the cited verse and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The lesson that idols neither benefit nor harm is directly stated in the verse and tafsir, and the conclusion that only Allah should be worshipped is the direct entailment of Ibrahim's argument.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "ee46a5502dcbdf0141077a308bf3b31b1c6a992229ce69bc2f832c48e956c7a3",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ومنها أن الله انتصر لرسوله إبراهيم، فجعل النار عليه بردًا وسلامًا.",
+          "refs": [
+            "21:68",
+            "21:69"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the tafsir: God supported His messenger Ibrahim and made the fire coolness and peace upon him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir explicitly states that Allah defended His messenger and made the fire cool and safe upon Ibrahim.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "e6e3736ed5d5642010a3218448a87f4cdeaf5e31fe6f62eaf8652db3f3b88cb2",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.question",
+      "refs": [
+        "21:51",
+        "21:52",
+        "21:53",
+        "21:57",
+        "21:58",
+        "21:59",
+        "21:61",
+        "21:62",
+        "21:64",
+        "21:65",
+        "21:66",
+        "21:68",
+        "21:69",
+        "21:70"
+      ],
+      "sentences": [
+        {
+          "text": "إذا رأيت جماعةً تفعل شيئًا لا يحبّه الله، ماذا تفعل؟",
+          "refs": [
+            "21:51",
+            "21:52",
+            "21:53",
+            "21:57",
+            "21:58",
+            "21:59",
+            "21:61",
+            "21:62",
+            "21:64",
+            "21:65",
+            "21:66",
+            "21:68",
+            "21:69",
+            "21:70"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a general question to the child and does not assert any unsupported fact about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a question addressed to the child about their own life, making no claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "9e1955280e87e438225dbfe23bed392e85df4eaf26d3bc2883fa9fec15ee15e2",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.affirm",
+      "refs": [
+        "21:51",
+        "21:52",
+        "21:53",
+        "21:57",
+        "21:58",
+        "21:59",
+        "21:61",
+        "21:62",
+        "21:64",
+        "21:65",
+        "21:66",
+        "21:68",
+        "21:69",
+        "21:70"
+      ],
+      "sentences": [
+        {
+          "text": "أحسنت!",
+          "refs": [
+            "21:51",
+            "21:52",
+            "21:53",
+            "21:57",
+            "21:58",
+            "21:59",
+            "21:61",
+            "21:62",
+            "21:64",
+            "21:65",
+            "21:66",
+            "21:68",
+            "21:69",
+            "21:70"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is only praise to the child and asserts nothing about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general word of praise to the child and makes no claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "52ae92a3d10b13f9219659a80d5f7bdf338ce76b037a573e0ee5f6d25ac9fe1b",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "إبراهيم عليه السلام أنكر على قومه عبادة الأصنام، ودعاهم إلى عبادة الله.",
+          "refs": [
+            "21:51",
+            "21:52",
+            "21:53",
+            "21:57",
+            "21:58",
+            "21:59",
+            "21:61",
+            "21:62",
+            "21:64",
+            "21:65",
+            "21:66",
+            "21:68",
+            "21:69",
+            "21:70"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state that Ibrahim denounced idol worship and called people to Allah.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verses and tafsir show Ibrahim rebuking his people's idol worship (21:52, 21:66) and the tafsir of 21:51 states he called people to his guidance (monotheism).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "cc5b0192b01b1931a25f168928673135cd95c8af5c9a5d879cc2e63f8b447538",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.nudge",
+      "refs": [
+        "21:51",
+        "21:52",
+        "21:53",
+        "21:57",
+        "21:58",
+        "21:59",
+        "21:61",
+        "21:62",
+        "21:64",
+        "21:65",
+        "21:66",
+        "21:68",
+        "21:69",
+        "21:70"
+      ],
+      "sentences": [
+        {
+          "text": "أفهم أن مخالفة الجماعة صعبة…",
+          "refs": [
+            "21:51",
+            "21:52",
+            "21:53",
+            "21:57",
+            "21:58",
+            "21:59",
+            "21:61",
+            "21:62",
+            "21:64",
+            "21:65",
+            "21:66",
+            "21:68",
+            "21:69",
+            "21:70"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general empathetic statement to the child and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is Noor's empathetic reply to the child about a general life situation, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "189182ccc32d1c583218f080208c267ba3a280a477175def9d39d844eccd8734",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ماذا قال إبراهيم عليه السلام لأبيه وقومه عن التماثيل؟",
+          "refs": [
+            "21:51",
+            "21:52",
+            "21:53",
+            "21:57",
+            "21:58",
+            "21:59",
+            "21:61",
+            "21:62",
+            "21:64",
+            "21:65",
+            "21:66",
+            "21:68",
+            "21:69",
+            "21:70"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question only asks what Ibrahim said to his father and people about the statues, which is directly supported by verse 21:52.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks what Ibrahim said to his father and people about the statues, which is directly grounded in [21:52].",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "3f72a10bd6a5353ba59e98fc96222b456d38527b621fea5b99e092c0bc7f065a",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[0]",
+      "refs": [
+        "21:51",
+        "21:52",
+        "21:53",
+        "21:57",
+        "21:58",
+        "21:59",
+        "21:61",
+        "21:62",
+        "21:64",
+        "21:65",
+        "21:66",
+        "21:68",
+        "21:69",
+        "21:70"
+      ],
+      "sentences": [
+        {
+          "text": "أنصحهم بالحكمة ولا أشاركهم",
+          "refs": [
+            "21:51",
+            "21:52",
+            "21:53",
+            "21:57",
+            "21:58",
+            "21:59",
+            "21:61",
+            "21:62",
+            "21:64",
+            "21:65",
+            "21:66",
+            "21:68",
+            "21:69",
+            "21:70"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is the child's own possible choice in today's life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is the child's own possible life choice and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a47e66fb48dbd656952e45f64d454bcfdf78deff473fba0f98d12b42a15d2978",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[1]",
+      "refs": [
+        "21:51",
+        "21:52",
+        "21:53",
+        "21:57",
+        "21:58",
+        "21:59",
+        "21:61",
+        "21:62",
+        "21:64",
+        "21:65",
+        "21:66",
+        "21:68",
+        "21:69",
+        "21:70"
+      ],
+      "sentences": [
+        {
+          "text": "أفعل مثلهم حتى لا يسخروا مني",
+          "refs": [
+            "21:51",
+            "21:52",
+            "21:53",
+            "21:57",
+            "21:58",
+            "21:59",
+            "21:61",
+            "21:62",
+            "21:64",
+            "21:65",
+            "21:66",
+            "21:68",
+            "21:69",
+            "21:70"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is the child's own possible choice in today's life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a child's own possible life choice, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "ec7fdb5fcd6e767a25382cadaca7f87d326a9b7737a13205f1780f75c761bdce",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[0]",
+      "refs": [
+        "21:51",
+        "21:52",
+        "21:53",
+        "21:57",
+        "21:58",
+        "21:59",
+        "21:61",
+        "21:62",
+        "21:64",
+        "21:65",
+        "21:66",
+        "21:68",
+        "21:69",
+        "21:70"
+      ],
+      "sentences": [
+        {
+          "text": "لماذا كان قومُ إبراهيم يعبدون الأصنام؟",
+          "refs": [
+            "21:51",
+            "21:52",
+            "21:53",
+            "21:57",
+            "21:58",
+            "21:59",
+            "21:61",
+            "21:62",
+            "21:64",
+            "21:65",
+            "21:66",
+            "21:68",
+            "21:69",
+            "21:70"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about a fact clearly stated in the sources: Ibrahim's people worshipped idols, and the sources give their reason.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sources state the people's reason for worshipping idols: they found their fathers doing so (21:53).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "28e6ae191c3670dcf1b4e4a15fedbbd850a314295e83df3439ef0f973490a5ca",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[1]",
+      "refs": [
+        "21:51",
+        "21:52",
+        "21:53",
+        "21:57",
+        "21:58",
+        "21:59",
+        "21:61",
+        "21:62",
+        "21:64",
+        "21:65",
+        "21:66",
+        "21:68",
+        "21:69",
+        "21:70"
+      ],
+      "sentences": [
+        {
+          "text": "لماذا ترك إبراهيم كبيرَ الأصنام دون أن يحطّمه؟",
+          "refs": [
+            "21:51",
+            "21:52",
+            "21:53",
+            "21:57",
+            "21:58",
+            "21:59",
+            "21:61",
+            "21:62",
+            "21:64",
+            "21:65",
+            "21:66",
+            "21:68",
+            "21:69",
+            "21:70"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question states only that Ibrahim left the large idol unbroken, which is directly supported by 21:58 and its tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks about a fact and reason explicitly stated in [21:58] and its tafsir: Ibrahim left the big idol so the people would return to it and realize their idols' helplessness.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "957e3d5d93babca0a1a057a4385aed1bfb0a9c63b1e85f61639bea7e44bd9521",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[2]",
+      "refs": [
+        "21:51",
+        "21:52",
+        "21:53",
+        "21:57",
+        "21:58",
+        "21:59",
+        "21:61",
+        "21:62",
+        "21:64",
+        "21:65",
+        "21:66",
+        "21:68",
+        "21:69",
+        "21:70"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا فعل الله بالنار التي أُلقي فيها إبراهيم؟",
+          "refs": [
+            "21:51",
+            "21:52",
+            "21:53",
+            "21:57",
+            "21:58",
+            "21:59",
+            "21:61",
+            "21:62",
+            "21:64",
+            "21:65",
+            "21:66",
+            "21:68",
+            "21:69",
+            "21:70"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about an event stated in the sources: God commanded the fire to be coolness and safety for Ibrahim.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks about Allah's action regarding the fire, which the sources describe (Allah commanded it to be cool and safe for Ibrahim).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "1f904f43213aff1e757b22550c097943f6316aa9d75f3db948328a5260f6dd61",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "islamicValue",
+      "refs": [
+        "21:66"
+      ],
+      "sentences": [
+        {
+          "text": "﴿أَفَتَعۡبُدُونَ مِن دُونِ ٱللَّهِ مَا لَا يَنفَعُكُمۡ شَيۡـٔٗا وَلَا يَضُرُّكُمۡ﴾ [الأنبياء: ٦٦].",
+          "refs": [
+            "21:66"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is verbatim Qur'an inside ﴿﴾, which is always supported.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic verse inside ﴿﴾, which is always supported.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "97698e4df6fe1dd6d3a9bfa5609a7d4807662bc7069c97702ad1d718c5de34ac",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "actionChallenge",
+      "refs": [
+        "21:51",
+        "21:52",
+        "21:53",
+        "21:57",
+        "21:58",
+        "21:59",
+        "21:61",
+        "21:62",
+        "21:64",
+        "21:65",
+        "21:66",
+        "21:68",
+        "21:69",
+        "21:70"
+      ],
+      "sentences": [
+        {
+          "text": "اجلس مع أسرتك، وتأمّلوا السماء والأرض، وتحدّثوا: لماذا لا نعبد إلا الله الذي خلقهما؟",
+          "refs": [
+            "21:51",
+            "21:52",
+            "21:53",
+            "21:57",
+            "21:58",
+            "21:59",
+            "21:61",
+            "21:62",
+            "21:64",
+            "21:65",
+            "21:66",
+            "21:68",
+            "21:69",
+            "21:70"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a practical question to the child, not a claim about the story or prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a practical challenge addressed to the child encouraging reflection on worshipping Allah alone, which aligns with the story's message and asserts no unsupported facts about the prophet.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "eedcfe9953652db4e527ad24f2ade338b137a11934cc6c84ed288c4b0ea7643c",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    }
+  ]
+}

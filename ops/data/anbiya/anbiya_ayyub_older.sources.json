@@ -1,0 +1,1090 @@
+{
+  "id": "anbiya_ayyub_older",
+  "series": "anbiya_quran",
+  "about": "مصادر القصة: الآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/anbiya_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py.",
+  "tafsir_source": "moyassar",
+  "content_sha256": "9b89d76699a97b37277cb5663cf352ac425776524903836340f0769b3ce89b22",
+  "refs": [
+    "21:83",
+    "21:84",
+    "38:41",
+    "38:42",
+    "38:43",
+    "38:44"
+  ],
+  "verses": {
+    "21:83": "۞وَأَيُّوبَ إِذۡ نَادَىٰ رَبَّهُۥٓ أَنِّي مَسَّنِيَ ٱلضُّرُّ وَأَنتَ أَرۡحَمُ ٱلرَّـٰحِمِينَ",
+    "21:84": "فَٱسۡتَجَبۡنَا لَهُۥ فَكَشَفۡنَا مَا بِهِۦ مِن ضُرّٖۖ وَءَاتَيۡنَٰهُ أَهۡلَهُۥ وَمِثۡلَهُم مَّعَهُمۡ رَحۡمَةٗ مِّنۡ عِندِنَا وَذِكۡرَىٰ لِلۡعَٰبِدِينَ",
+    "38:41": "وَٱذۡكُرۡ عَبۡدَنَآ أَيُّوبَ إِذۡ نَادَىٰ رَبَّهُۥٓ أَنِّي مَسَّنِيَ ٱلشَّيۡطَٰنُ بِنُصۡبٖ وَعَذَابٍ",
+    "38:42": "ٱرۡكُضۡ بِرِجۡلِكَۖ هَٰذَا مُغۡتَسَلُۢ بَارِدٞ وَشَرَابٞ",
+    "38:43": "وَوَهَبۡنَا لَهُۥٓ أَهۡلَهُۥ وَمِثۡلَهُم مَّعَهُمۡ رَحۡمَةٗ مِّنَّا وَذِكۡرَىٰ لِأُوْلِي ٱلۡأَلۡبَٰبِ",
+    "38:44": "وَخُذۡ بِيَدِكَ ضِغۡثٗا فَٱضۡرِب بِّهِۦ وَلَا تَحۡنَثۡۗ إِنَّا وَجَدۡنَٰهُ صَابِرٗاۚ نِّعۡمَ ٱلۡعَبۡدُ إِنَّهُۥٓ أَوَّابٞ"
+  },
+  "tafsir": {
+    "21:83": "واذكر - أيها الرسول - عبدنا أيوب، إذ ابتليناه بضر وسقم عظيم في جسده، وفقد أهله وماله وولده، فصبر واحتسب، ونادى ربه عز وجل أني قد أصابني الضر، وأنت أرحم الراحمين، فاكشفه عني.",
+    "21:84": "فاستجبنا له دعاءه، ورفعنا عنه البلاء، ورددنا عليه ما فقده من أهل وولد ومال مضاعفًا، فَعَلْنا به ذلك رحمة منَّا، وليكون قدوة لكل صابر على البلاء، راجٍ رحمة ربه، عابد له.",
+    "38:41": "واذكر -أيها الرسول- عبدنا أيوب، حين دعا ربه أن الشيطان تسبب لي بتعب ومشقة، وألم في جسدي ومالي وأهلي.",
+    "38:42": "فقلنا له: اضرب برجلك الأرض ينبع لك منها ماء بارد، فاشرب منه، واغتسِلْ فيذهب عنك الضر والأذى.",
+    "38:43": "فكشفنا عنه ضره وأكرمناه ووهبنا له أهله من زوجة وولد، وزدناه مثلهم بنين وحفدة، كل ذلك رحمة منَّا به وإكرامًا له على صبره، وعبرة وذكرى لأصحاب العقول السليمة؛ ليعلموا أن عاقبة الصبر الفرج وكشف الضر.",
+    "38:44": "وقلنا له: خذ بيدك حُزمة شماريخ، فاضرب بها زوجك إبرارًا بيمينك، فلا تحنث؛ إذ أقسم ليضربنَّها مائة جلدة إذا شفاه الله، لمَّا غضب عليها من أمر يسير أثناء مرضه، وكانت امرأة صالحة، فرحمها الله ورحمه بهذه الفتوى. إنا وجدنا أيوب صابرًا على البلاء، نِعم العبد هو، إنه رجَّاع إلى طاعة الله."
+  },
+  "tafsir_meta": {
+    "21:83": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:30+00:00"
+    },
+    "21:84": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:30+00:00"
+    },
+    "38:41": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:31+00:00"
+    },
+    "38:42": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:32+00:00"
+    },
+    "38:43": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:32+00:00"
+    },
+    "38:44": {
+      "attribution": "التفسير الميسر، مجمع الملك فهد لطباعة المصحف الشريف",
+      "fetched_at": "2026-10-25T20:11:33+00:00"
+    }
+  },
+  "fields": [
+    {
+      "path": "title",
+      "refs": [
+        "21:83",
+        "21:84",
+        "38:41",
+        "38:42",
+        "38:43",
+        "38:44"
+      ],
+      "sentences": [
+        {
+          "text": "صبر أيوب عليه السلام ورحمة ربه",
+          "refs": [
+            "21:83",
+            "21:84",
+            "38:41",
+            "38:42",
+            "38:43",
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state that Ayyub was patient and that Allah showed him mercy.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The title states Ayyub's patience and his Lord's mercy, both of which are explicitly mentioned in the cited verses and tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "14b100f6de23c8753b9328ba2b4cdfdfde342c2e47ed09e0b114621fd1c78f22",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "refs": [
+        "21:83",
+        "21:84",
+        "38:41",
+        "38:42",
+        "38:43",
+        "38:44"
+      ],
+      "sentences": [
+        {
+          "text": "قصة نبيّ الله أيوب عليه السلام كما ذكرها القرآن الكريم في سورتي الأنبياء وص، مكتوبة من التفسير الميسّر لآياتها.",
+          "refs": [
+            "21:83",
+            "21:84",
+            "38:41",
+            "38:42",
+            "38:43",
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The description accurately states that the story is from the Qur'an in Surahs Al-Anbiya and Sad and is written from Al-Muyassar tafsir, which matches the provided sources.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a meta-description accurately identifying the sources (Surahs Al-Anbiya and Sad) and the Tafsir Al-Muyassar, making no unsupported claims about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "73e29ae649f77b5430bc64cf2021356be94f4b5b7cc6b763792ec614b26dbb14",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[0].text",
+      "refs": [
+        "21:83",
+        "38:41"
+      ],
+      "sentences": [
+        {
+          "text": "أمر اللهُ رسولَه أن يذكر عبدَه أيوبَ عليه السلام.",
+          "refs": [
+            "21:83",
+            "38:41"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources explicitly address the Messenger with 'and mention Our servant Ayyub,' matching the sentence.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The verse 38:41 directly commands the Messenger to remember Allah's servant Ayyub, and the tafsir confirms this.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "3433740cae759341f2da503135874bb4187323002226e4737a5fda29f967e721",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فقد ابتلاه اللهُ بضُرٍّ أصابه، وفقد أهلَه ومالَه وولدَه.",
+          "refs": [
+            "21:83"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the given tafsir, which states that God tested Ayyub with harm and illness and the loss of his family, wealth, and children.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence matches the tafsir which states Allah tested him with harm and that he lost his family, wealth, and children.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "cecf1f1378a8cd15f010d5b2561deb2ff747190d46159fa1b79ddbd5a8ba4ddb",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[1].text",
+      "refs": [
+        "21:83",
+        "21:84",
+        "38:41"
+      ],
+      "sentences": [
+        {
+          "text": "وأصابه من ذلك تعبٌ ومشقّة، وألمٌ في جسده وماله وأهله.",
+          "refs": [
+            "38:41"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence directly reflects the tafsir's explanation of the affliction mentioned in the verse.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly restates the tafsir's explanation that Satan caused Ayyub fatigue, hardship, and pain in his body, wealth, and family.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "e279bf0caae76913a9cc6bd70618e3e90aa5a7d9582099b3034856dded1fb23d",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فصبر على البلاء.",
+          "refs": [
+            "21:83",
+            "21:84"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir of 21:83 explicitly states that Ayyub was patient and sought reward.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir of 21:83 explicitly states 'فصبر واحتسب' regarding Ayyub's affliction.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "42cf48b2e965af0350a85359c4bb3f08bc5396dd1942ab99dc3d947246a522db",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[2].text",
+      "refs": [
+        "21:83",
+        "21:84"
+      ],
+      "sentences": [
+        {
+          "text": "فنادى أيوبُ ربَّه: ﴿أَنِّي مَسَّنِيَ ٱلضُّرُّ وَأَنتَ أَرۡحَمُ ٱلرَّـٰحِمِينَ﴾.",
+          "refs": [
+            "21:83"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence reports that Ayyub called his Lord with the exact Qur'anic words, which is directly stated in the verse and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence reports Ayyub calling his Lord using the verbatim Qur'anic verse, which matches [21:83] and its tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "bcedd6e0463abfaab4b10125885cde4eda7fd916ea08c8dd274a6defbc4f067d",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وكان صابرًا على البلاء، راجيًا رحمةَ ربه.",
+          "refs": [
+            "21:84"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir states Ayyub is an example for every patient person hoping for his Lord's mercy, so this description is directly supported.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The tafsir describes Ayyub as a قدوة for every صابر على البلاء راجٍ رحمة ربه, which directly entails he himself embodied these qualities.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "1cd3b7033bb735352cadb73e6f54ecad3102472e7ce8866640dd01be4b70f592",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[3].text",
+      "refs": [
+        "21:84",
+        "38:42"
+      ],
+      "sentences": [
+        {
+          "text": "فاستجاب اللهُ له، وقال له: ﴿ٱرۡكُضۡ بِرِجۡلِكَۖ هَٰذَا مُغۡتَسَلُۢ بَارِدٞ وَشَرَابٞ﴾.",
+          "refs": [
+            "21:84",
+            "38:42"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The response and the quoted command are both directly stated in the given verses and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Allah's response is stated in 21:84 and His saying the quoted verse is confirmed by the tafsir of 38:42 ('فقلنا له'); the verse itself is verbatim Qur'an.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "d310473df77dc30df464694938a7e811ff805df587da18107207dd8f07e29eef",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فنبع له من الأرض ماءٌ باردٌ، يشرب منه ويغتسل؛ ليذهب عنه الضرّ والأذى.",
+          "refs": [
+            "38:42"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the tafsir of 38:42, which states that cold water springs from the earth for him to drink and wash so that harm and hurt leave him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly restates the tafsir of 38:42: water gushed forth, he drinks and bathes, so harm and pain leave him.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "f4ea6f9a246cf9d82bc0818fb9faed4abb82dc0c609185d85dac3eca0848de3d",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[4].text",
+      "refs": [
+        "21:84",
+        "38:43"
+      ],
+      "sentences": [
+        {
+          "text": "وكشف اللهُ عنه ضرَّه، وأكرمه.",
+          "refs": [
+            "38:43"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The tafsir states that Allah removed his harm and honored him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is nearly verbatim from the cited tafsir of 38:43: 'فكشفنا عنه ضره وأكرمناه'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "1533033e8226335c115efdcab3bbc8987aa8085765c0a44ff9a4e3fe3cfc0c72",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وردّ عليه ما فقده من أهلٍ وولدٍ ومالٍ مضاعفًا: أهلَه ومثلَهم معهم.",
+          "refs": [
+            "21:84",
+            "38:43"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited tafsir and verses about restoring his family and wealth doubled.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence closely follows the tafsir of 21:84 which states 'رددنا عليه ما فقده من أهل وولد ومال مضاعفًا' and the verse's 'أهله ومثلهم معهم'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "5507911bc5d73f37b6c130a802c736649a18bf60926cf2e7d9369b3b0c0f5619",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[5].text",
+      "refs": [
+        "38:43",
+        "38:44"
+      ],
+      "sentences": [
+        {
+          "text": "والعبرة في قوله تعالى: ﴿إِنَّا وَجَدۡنَٰهُ صَابِرٗاۚ نِّعۡمَ ٱلۡعَبۡدُ إِنَّهُۥٓ أَوَّابٞ﴾.",
+          "refs": [
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence only points to the given Qur'anic verse as the lesson and quotes it verbatim.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence contains a verbatim Qur'anic verse in ﴿﴾ and a general framing statement pointing to it as a lesson, which is consistent with the cited sources.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "89b785caa932ed1e241004d66958a5c25307b7a3ec3a6f9d2152688174927ea8",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "فقد وجده اللهُ صابرًا على البلاء، رجّاعًا إلى طاعة الله.",
+          "refs": [
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence directly reflects the verse and tafsir: God found Ayyub patient in affliction and ever returning to obedience.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly matches the cited tafsir wording for 38:44.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a96e82e933e11692836b6989933941674c949d4e4c0122f99bd8c2879ceb4bdd",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "وكان ما أعطاه الله رحمةً منه، وذكرى لأصحاب العقول السليمة.",
+          "refs": [
+            "38:43"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence directly reflects the verse and tafsir that what God gave him was mercy from Him and a reminder for people of sound intellect.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly paraphrases [38:43] and its tafsir, which describe the gift as mercy from Allah and a reminder for those of sound intellect.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "1f63dfabc95182432bf5a9001fb041ed16123ca434b381403b7d0f3633b0e189",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.question",
+      "refs": [
+        "21:83",
+        "21:84",
+        "38:41",
+        "38:42",
+        "38:43",
+        "38:44"
+      ],
+      "sentences": [
+        {
+          "text": "حين يصيبك شيءٌ يؤلمك أو يحزنك، ماذا تفعل؟",
+          "refs": [
+            "21:83",
+            "21:84",
+            "38:41",
+            "38:42",
+            "38:43",
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks the child about their own response and does not assert anything about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general question to the child about their own life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "adaa1401d2444ae9cc454f95f6744896f4825c6d2a7a72bf0e95cf99a22a9b63",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.affirm",
+      "refs": [
+        "21:83",
+        "21:84",
+        "38:41",
+        "38:42",
+        "38:43",
+        "38:44"
+      ],
+      "sentences": [
+        {
+          "text": "أحسنت!",
+          "refs": [
+            "21:83",
+            "21:84",
+            "38:41",
+            "38:42",
+            "38:43",
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is only praise and asserts nothing about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general word of praise to the child and makes no claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "bff4b9abbe1264b61040289782b45a3373da744bfc0900756cbf6653370c8878",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "أيوب عليه السلام صبر ونادى ربَّه، فاستجاب الله له.",
+          "refs": [
+            "21:83",
+            "21:84",
+            "38:41",
+            "38:42",
+            "38:43",
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources state that Ayyub was patient, called his Lord, and Allah answered him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence accurately summarizes 21:83-84: Ayyub was patient, called his Lord, and Allah responded to him.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "23757c5e594fc53560413d7f6f6007dcd5b399f10d064730087184e9c1bb1576",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.nudge",
+      "refs": [
+        "21:83",
+        "21:84",
+        "38:41",
+        "38:42",
+        "38:43",
+        "38:44"
+      ],
+      "sentences": [
+        {
+          "text": "أفهم أن الألم صعب…",
+          "refs": [
+            "21:83",
+            "21:84",
+            "38:41",
+            "38:42",
+            "38:43",
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general empathetic remark that does not assert anything unsupported about the story or the prophet.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a general empathetic statement to the child, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "b73690134a1835d29f3814da8443eb3f5c76037b8b2c40c366fc6eff0d637806",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        },
+        {
+          "text": "ماذا فعل أيوب عليه السلام حين أصابه الضرّ؟",
+          "refs": [
+            "21:83",
+            "21:84",
+            "38:41",
+            "38:42",
+            "38:43",
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question only asks what Ayyub did when harm afflicted him, and the sources state that harm afflicted him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a question asking what Ayyub did when harm befell him, and the sources confirm harm (ضر) afflicted him and he called his Lord and was patient.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "47e31993f12e2057350dfcbd5bc2057a04886d8a9bb1c18a9678b9d65ea1765b",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[0]",
+      "refs": [
+        "21:83",
+        "21:84",
+        "38:41",
+        "38:42",
+        "38:43",
+        "38:44"
+      ],
+      "sentences": [
+        {
+          "text": "أصبر وأدعو الله راجيًا رحمته",
+          "refs": [
+            "21:83",
+            "21:84",
+            "38:41",
+            "38:42",
+            "38:43",
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is the child's own personal resolution in today's life and does not assert any unsupported fact about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is the child's own life choice expressing patience and prayer, which mirrors the general lesson of the story without asserting unsupported facts about the prophet.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "915b2764d706d13fff626d171dc75421789a253d6185da2059600a2b1868bb0c",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[1]",
+      "refs": [
+        "21:83",
+        "21:84",
+        "38:41",
+        "38:42",
+        "38:43",
+        "38:44"
+      ],
+      "sentences": [
+        {
+          "text": "أشكو وأترك الدعاء",
+          "refs": [
+            "21:83",
+            "21:84",
+            "38:41",
+            "38:42",
+            "38:43",
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is the child's own possible choice in today's life and does not assert anything about the prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a child's possible life choice, not a claim about the prophet or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "41e004279f0112807a99773734a306e8f4fbb07024908219538cb02e12958cd8",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[0]",
+      "refs": [
+        "21:83",
+        "21:84",
+        "38:41",
+        "38:42",
+        "38:43",
+        "38:44"
+      ],
+      "sentences": [
+        {
+          "text": "بماذا ابتلى اللهُ أيوبَ عليه السلام، وماذا فعل؟",
+          "refs": [
+            "21:83",
+            "21:84",
+            "38:41",
+            "38:42",
+            "38:43",
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about the affliction and response of Ayyub, both of which are stated in the given verses and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks about the affliction and Ayyub's response, both of which are directly covered by the cited verses and tafsir.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "75dd195d39eb466de1b4ef42e3e8c2ffb1860bbe75c53cefa9bb58bc319e7ea9",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[1]",
+      "refs": [
+        "21:83",
+        "21:84",
+        "38:41",
+        "38:42",
+        "38:43",
+        "38:44"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا قال اللهُ لأيوب عليه السلام حين استجاب له، وماذا نبع له؟",
+          "refs": [
+            "21:83",
+            "21:84",
+            "38:41",
+            "38:42",
+            "38:43",
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about what Allah said to Ayyub and what sprang forth, which is directly supported by the cited verses and tafsir.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks about events directly present in the cited verses and tafsir (Allah's instruction to strike the ground and the water that sprang forth).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a908b77bd56ac1bf34df9ac493d1f0ef620532d57ec157b5cc321090880247bb",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[2]",
+      "refs": [
+        "21:83",
+        "21:84",
+        "38:41",
+        "38:42",
+        "38:43",
+        "38:44"
+      ],
+      "sentences": [
+        {
+          "text": "بماذا وصف اللهُ أيوبَ في آخر القصة، وماذا نتعلّم منه؟",
+          "refs": [
+            "21:83",
+            "21:84",
+            "38:41",
+            "38:42",
+            "38:43",
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about God's description of Ayyub at the end of the story, which the sources state as patient, excellent servant, and oft-returning, and invites reflection.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a discussion question that does not assert any unsupported fact; the Qur'an does describe Ayyub at the end of the story in 38:44.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "887a0466a79013e25b7c71d719c95cbe8cc515d4cf248956f61bbf92fe1c90b1",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "islamicValue",
+      "refs": [
+        "38:44"
+      ],
+      "sentences": [
+        {
+          "text": "﴿إِنَّا وَجَدۡنَٰهُ صَابِرٗاۚ نِّعۡمَ ٱلۡعَبۡدُ إِنَّهُۥٓ أَوَّابٞ﴾ [ص: ٤٤].",
+          "refs": [
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is verbatim Qur'an from the cited verse, which is always supported.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is a verbatim Qur'anic verse inside ﴿﴾, which is always supported.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "28d7a5547e60a8aa732c7da181352a95f33a0d0d5a6db84939e6622c64740a95",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    },
+    {
+      "path": "actionChallenge",
+      "refs": [
+        "21:83",
+        "21:84",
+        "38:41",
+        "38:42",
+        "38:43",
+        "38:44"
+      ],
+      "sentences": [
+        {
+          "text": "اكتب مع والديك دعاءَ أيوب عليه السلام واحفظه، وتحدّثوا معًا: كيف نصبر حين يصيبنا ما يؤلمنا؟",
+          "refs": [
+            "21:83",
+            "21:84",
+            "38:41",
+            "38:42",
+            "38:43",
+            "38:44"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The instruction refers to Ayyub's supplication found in the cited verses and encourages a general discussion about patience without adding unsupported story details.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a practical instruction to the child to write and memorize Ayyub's Qur'anic dua and discuss patience, making no unsupported claims about the prophet.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "b4ce064a2f4be0cf7569027fc9073070adcf99b42a04ccaf310231810b410d24",
+            "date": "2026-10-25",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "6f3cf6ea2c6d"
+          }
+        }
+      ]
+    }
+  ]
+}

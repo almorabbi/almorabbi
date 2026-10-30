@@ -1,0 +1,346 @@
+/// Edit child screen — same fields as onboarding, but PATCHes the
+/// existing child instead of creating a new one.
+library;
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../l10n/app_localizations.dart';
+import '../../child_memory/widgets/memory_errors.dart';
+import '../../../models/enums.dart';
+import '../../../theme/app_theme.dart';
+import '../../../widgets/ui/bouncy_button.dart';
+import '../../onboarding/screens/avatar_picker_sheet.dart';
+import '../../programs/providers/programs_providers.dart';
+import '../../programs/widgets/birth_month_field.dart';
+import '../data/progress_models.dart';
+import '../data/child_name.dart';
+import '../providers/settings_providers.dart';
+import '../../../theme/design_tokens.dart';
+
+class EditChildScreen extends ConsumerStatefulWidget {
+  const EditChildScreen({super.key, required this.child});
+  final ChildProfile child;
+
+  @override
+  ConsumerState<EditChildScreen> createState() => _EditChildScreenState();
+}
+
+class _EditChildScreenState extends ConsumerState<EditChildScreen> {
+  final _formKey = GlobalKey<FormState>();
+  late final TextEditingController _nameController =
+      TextEditingController(text: widget.child.name);
+  late String _ageGroup = widget.child.ageGroup;
+  late String? _gender = widget.child.gender;
+  late String? _avatarEmoji = widget.child.avatarEmoji;
+  late String? _birthMonth = widget.child.birthMonth;
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _pickAvatar() async {
+    final picked = await showModalBottomSheet<String>(
+      context: context,
+      backgroundColor: AppTheme.surface,
+      isScrollControlled: true,
+      builder: (_) => AvatarPickerSheet(initial: _avatarEmoji),
+    );
+    if (picked != null) {
+      setState(() => _avatarEmoji = picked);
+    }
+  }
+
+  Future<void> _submit() async {
+    if (!_formKey.currentState!.validate()) return;
+    final container = programsContainerOf(context);
+    try {
+      // Sent only when it changed: an explicit null removes it, an absent key
+      // leaves it alone.
+      final monthChanged = _offerBirthMonth && _birthMonth != widget.child.birthMonth;
+      // A rename may have to prove the phone first (PR #39): the notifier
+      // proves and retries whenever the server asks.
+      await ref.read(updateChildProvider.notifier).call(
+            childId: widget.child.id,
+            name: _nameController.text.trim(),
+            ageGroup: _ageGroup,
+            gender: _gender,
+            avatarEmoji: _avatarEmoji,
+            birthMonth: monthChanged ? _birthMonth : null,
+            clearBirthMonth: monthChanged && _birthMonth == null,
+          );
+      // The milestones and the journey are timed by the birth month and the
+      // age group; the programs summary must not keep the old answer.
+      refreshProgramsSummary(container);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(AppLocalizations.of(context).editChildSaved)),
+        );
+        Navigator.of(context).pop(true);
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            // A rename can be paused for 72 h after a push-token change, like
+            // a deletion (MOBILE_API §9.0.1): say until when.
+            content: Text(AppLocalizations.of(context)
+                .editChildSaveError(describeActionFailure(context, e))),
+            backgroundColor: AppTheme.dangerFg,
+          ),
+        );
+      }
+    }
+  }
+
+  /// A server that sent the key knows the field; otherwise the programs API
+  /// answering is the sign it can store it.
+  bool get _offerBirthMonth =>
+      widget.child.serverKnowsBirthMonth || ref.read(programsAvailableProvider);
+
+  @override
+  Widget build(BuildContext context) {
+    final updateState = ref.watch(updateChildProvider);
+    final busy = updateState.isLoading;
+    final offerBirthMonth =
+        widget.child.serverKnowsBirthMonth || ref.watch(programsAvailableProvider);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context).editChildTitle),
+        actions: [
+          TextButton(
+            onPressed: busy ? null : _submit,
+            child: Text(
+              AppLocalizations.of(context).save,
+              style: TextStyle(
+                // AppBar background is the light cream — primary, not white.
+                color: busy ? AppTheme.textMuted : AppTheme.primary,
+                fontWeight: FontWeight.w800,
+                fontSize: 16,
+              ),
+            ),
+          ),
+        ],
+      ),
+      // Prominent, always-visible save CTA (the AppBar action alone was
+      // easy to miss).
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+          child: BouncyButton(
+            label: busy ? AppLocalizations.of(context).editChildSaving : AppLocalizations.of(context).editChildSaveBtn,
+            icon: busy
+                ? SizedBox(
+                    width: 18,
+                    height: 18,
+                    child: CircularProgressIndicator(
+                        strokeWidth: 2, color: Dt.surface),
+                  )
+                : const Icon(Icons.check, color: Colors.white),
+            onTap: busy ? null : _submit,
+          ),
+        ),
+      ),
+      body: SafeArea(
+        child: Form(
+          key: _formKey,
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 32),
+            children: [
+              // ── Name ──
+              Text(
+                AppLocalizations.of(context).editChildName,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall
+                    ?.copyWith(fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 8),
+              TextFormField(
+                controller: _nameController,
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.person_outline),
+                ),
+                validator: (v) =>
+                    childNameError(AppLocalizations.of(context), v),
+              ),
+              const SizedBox(height: 24),
+
+              // ── Age group ──
+              Text(
+                AppLocalizations.of(context).editChildAge,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall
+                    ?.copyWith(fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: AgeGroup.values
+                    .where((a) => a != AgeGroup.unspecified)
+                    .map((a) => ChoiceChip(
+                          label: Text(a.label(AppLocalizations.of(context))),
+                          selected: _ageGroup == a.wire,
+                          selectedColor: AppTheme.primary,
+                          labelStyle: TextStyle(
+                            color: _ageGroup == a.wire
+                                ? Colors.white
+                                : AppTheme.textPrimary,
+                            fontWeight: _ageGroup == a.wire
+                                ? FontWeight.w700
+                                : FontWeight.w500,
+                          ),
+                          onSelected: (_) =>
+                              setState(() => _ageGroup = a.wire),
+                        ))
+                    .toList(),
+              ),
+              const SizedBox(height: 24),
+
+              // ── Birth month (optional) ──
+              if (offerBirthMonth) ...[
+                BirthMonthField(
+                  value: _birthMonth,
+                  childName: _nameController.text,
+                  ageGroup: _ageGroup,
+                  onChanged: (v) => setState(() => _birthMonth = v),
+                  onUseBand: (band) => setState(() => _ageGroup = band),
+                ),
+                const SizedBox(height: 24),
+              ],
+
+              // ── Avatar ──
+              Text(
+                AppLocalizations.of(context).editChildAvatar,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall
+                    ?.copyWith(fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 8),
+              InkWell(
+                borderRadius: BorderRadius.circular(12),
+                onTap: _pickAvatar,
+                child: Container(
+                  padding: const EdgeInsets.all(14),
+                  decoration: BoxDecoration(
+                    color: AppTheme.surface,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Dt.surface),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 48,
+                        height: 48,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: AppTheme.surfaceAlt,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Text(
+                          _avatarEmoji ?? '👶',
+                          style: const TextStyle(fontSize: 24),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          _avatarEmoji == null
+                              ? AppLocalizations.of(context).onbTapEmoji
+                              : AppLocalizations.of(context).onbTapChangeEmoji,
+                          style: TextStyle(
+                            color: _avatarEmoji == null
+                                ? AppTheme.textMuted
+                                : AppTheme.textPrimary,
+                          ),
+                        ),
+                      ),
+                      Icon(Icons.chevron_left,
+                          color: AppTheme.textMuted),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
+
+              // ── Gender ──
+              Text(
+                AppLocalizations.of(context).editChildGender,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall
+                    ?.copyWith(fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  _GenderPill(
+                    label: AppLocalizations.of(context).onbBoy,
+                    selected: _gender == 'male',
+                    onTap: () => setState(() => _gender = 'male'),
+                  ),
+                  _GenderPill(
+                    label: AppLocalizations.of(context).onbGirl,
+                    selected: _gender == 'female',
+                    onTap: () => setState(() => _gender = 'female'),
+                  ),
+
+                  if (_gender != null)
+                    _GenderPill(
+                      label: AppLocalizations.of(context).onbClear,
+                      selected: false,
+                      onTap: () => setState(() => _gender = null),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 32),
+              if (busy)
+                const Center(child: CircularProgressIndicator()),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _GenderPill extends StatelessWidget {
+  const _GenderPill({
+    required this.label,
+    required this.selected,
+    required this.onTap,
+  });
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(20),
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+          color: selected ? AppTheme.primary : AppTheme.surfaceAlt,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            color: selected ? Colors.white : AppTheme.textPrimary,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+    );
+  }
+}

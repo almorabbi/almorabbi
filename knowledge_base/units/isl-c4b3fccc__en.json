@@ -1,0 +1,94 @@
+{
+  "id": "isl-c4b3fccc__en",
+  "domain": "islamic_parenting",
+  "source_file": "sahih_muslim_145.txt",
+  "title": "Islam Began as Something Strange, So Glad Tidings to the Strangers",
+  "language": "en",
+  "age_group": "10-12",
+  "behavior_type": "الشعور بالاختلاف عن الأصدقاء بسبب الالتزام",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "حديث",
+  "reference_info": "صحيح مسلم، حديث رقم 145، عن أبي هريرة رضي الله عنه",
+  "text_original": "بدأ الإسلام غريبًا وسيعود غريبًا كما بدأ، فطوبى للغرباء. رواه مسلم (145) عن أبي هريرة رضي الله عنه.",
+  "text_simplified": "When your child feels like a stranger because he is the only one in his company who prays or observes hijab, teach him the hadith of the Prophet ﷺ: «بدأ الإسلام غريبًا، وسيعود كما بدأ غريبًا، فطوبى للغرباء» — “Islam began as something strange, and it will return to being strange as it began, so glad tidings to the strangers.” (Sahih Muslim 145). Explain to him that differing from the majority in obedience to Allah is not a deficiency, but rather the praise with which the Prophet ﷺ promised the committed in every era.",
+  "labels": [
+    "السخرية من الالتزام",
+    "الغربة في الدين",
+    "الثبات على الطاعة",
+    "الطفولة المتأخرة"
+  ],
+  "created_at": "2026-07-30T12:00:00Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "صحيح مسلم",
+    "source_author": "الإمام مسلم بن الحجاج"
+  },
+  "source_language": "ar",
+  "translated_from": "isl-c4b3fccc",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "\"بشّر\" means \"gave glad tidings to,\" not \"promised,\" so the English loses the good-news nuance that is central to the hadith."
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "\"The committed\" as a standalone noun is an awkward calque from Arabic and reads unnaturally in English."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "«بشّر» means 'gave glad tidings to' rather than 'promised'; the nuance of conveying good news is softened."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "bcf29d3531418fd536b0c8ceb3b558e6b8b47d62fb6b077084e600a2c52377b4",
+      "reviewed_at": "2026-10-07T07:31:28+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "\"بشّر\" means \"gave glad tidings to,\" not \"promised,\" so the English loses the good-news nuance that is central to the hadith."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "\"The committed\" as a standalone noun is an awkward calque from Arabic and reads unnaturally in English."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "«بشّر» means 'gave glad tidings to' rather than 'promised'; the nuance of conveying good news is softened."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-07T07:31:28+00:00",
+    "english_authors": [
+      "claude-opus-5.5"
+    ]
+  }
+}

@@ -1,0 +1,332 @@
+#!/usr/bin/env python3
+"""
+Knowledge-Base Integrity Guard — حارس سلامة قاعدة المعرفة
+==========================================================
+The tutor-guardian analog of analytics-platform's schema-drift detector.
+
+The same class of bug — sources of truth silently diverging — lives here
+between THREE places:
+    1. knowledge_base/units/*.json   (the data)
+    2. knowledge_base/schema/*.json  (the contract)
+    3. backend/app/core/taxonomy.py  (the code's vocabulary)
+    4. ChromaDB index                (the serving layer)
+
+This guard fails loudly when any of them drift apart.
+
+Checks (tiered like the analytics detector — 🔴 errors block, 🟡 warnings inform):
+  META   🔴 schema enums must equal taxonomy.py canonical sets
+  DATA   🔴 every unit parses + validates against the JSON schema
+         🔴 domain/age_group/severity/intervention_type within canonical enums
+         🔴 no duplicate unit ids
+         🟡 missing optional metadata (reference_type/version/updated_at)
+  INDEX  🔴 (--check-index) ChromaDB ids must match units on disk
+
+Exit: 0 = in sync · 1 = drift/errors
+
+Usage:
+    python ops/tools/check_kb_integrity.py                 # fast (no vector index)
+    python ops/tools/check_kb_integrity.py --check-index   # also verify ChromaDB
+    python ops/tools/check_kb_integrity.py --check-index --rebuild  # rebuild then verify
+"""
+import argparse
+import json
+import re
+import sys
+from pathlib import Path
+
+from jsonschema import Draft202012Validator
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "backend"))
+
+from app.core import taxonomy  # noqa: E402
+
+UNITS_DIR = ROOT / "knowledge_base" / "units"
+CURRICULUM_DIR = ROOT / "knowledge_base" / "curriculum"
+SCHEMA_PATH = ROOT / "knowledge_base" / "schema" / "knowledge_unit.schema.json"
+INDEX_JSON = ROOT / "knowledge_base" / "units_index.json"
+
+# CJK regex (Chinese/Japanese/Korean unified ideographs + hiragana/katakana + hangul)
+# CJK (Chinese/Japanese/Korean) + Cyrillic + Hebrew — scripts that never belong in
+# our Arabic/English content. Hebrew added 2026-10-04: «ما القصة التي أثرت בו
+# أكثر؟» had shipped in a 7-9 prayer lesson since launch, and «صورة לעائلة» in a
+# public docs page — model drift into a neighbouring Semitic script that the
+# CJK-only pattern could not see.
+CJK_RE = re.compile(r"[\u4e00-\u9fff\u3040-\u30ff\uac00-\ud7af\u0400-\u04ff\u0590-\u05ff]")
+
+# schema-property → canonical taxonomy set (the meta-check)
+ENUM_FIELDS = {
+    "domain": taxonomy.CANONICAL_DOMAINS,
+    "age_group": taxonomy.CANONICAL_AGE_GROUPS,
+    "severity": taxonomy.CANONICAL_SEVERITIES,
+    "intervention_type": taxonomy.CANONICAL_INTERVENTIONS,
+    "reference_type": taxonomy.CANONICAL_REFERENCE_TYPES,
+}
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--check-index", action="store_true", help="verify ChromaDB ↔ disk sync")
+    ap.add_argument("--rebuild", action="store_true", help="rebuild the index before verifying")
+    args = ap.parse_args()
+
+    errors: list[str] = []
+    warnings: list[str] = []
+
+    schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
+
+    print("\n" + "=" * 67)
+    print("  KNOWLEDGE-BASE INTEGRITY GUARD — حارس سلامة قاعدة المعرفة")
+    print("=" * 67)
+
+    # ── META: schema enums must equal taxonomy.py ──────────────────────────
+    for field, canon in ENUM_FIELDS.items():
+        schema_enum = set(schema.get("properties", {}).get(field, {}).get("enum", []))
+        if schema_enum != canon:
+            only_schema = schema_enum - canon
+            only_code = canon - schema_enum
+            msg = f"META: schema `{field}` enum ≠ taxonomy.py"
+            if only_schema:
+                msg += f" | in schema not code: {sorted(only_schema)}"
+            if only_code:
+                msg += f" | in code not schema: {sorted(only_code)}"
+            errors.append(msg)
+
+    # ── DATA: validate every unit ──────────────────────────────────────────
+    validator = Draft202012Validator(schema)
+    files = sorted(UNITS_DIR.glob("*.json"))
+    if not files:
+        errors.append(f"DATA: no units found in {UNITS_DIR}")
+
+    ids: dict[str, str] = {}  # id → filename
+    disk_ids: set[str] = set()
+    for fp in files:
+        try:
+            data = json.loads(fp.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            errors.append(f"DATA: {fp.name} is not valid JSON: {e}")
+            continue
+
+        # schema validation
+        for err in validator.iter_errors(data):
+            loc = "/".join(str(p) for p in err.absolute_path) or "(root)"
+            errors.append(f"DATA: {fp.name} [{loc}]: {err.message}")
+
+        # duplicate id
+        uid = data.get("id")
+        if uid:
+            disk_ids.add(uid)
+            if uid in ids:
+                errors.append(f"DATA: duplicate id {uid!r} in {fp.name} and {ids[uid]}")
+            else:
+                ids[uid] = fp.name
+
+        # optional-metadata warnings
+        for opt in ("reference_type", "version", "updated_at"):
+            if opt not in data:
+                warnings.append(f"DATA: {fp.name} missing optional `{opt}`")
+
+    # ── units_index.json freshness ─────────────────────────────────────────
+    # Blocking: this is the one drift the guard could see and let through, and
+    # it drifted by 46 units for weeks while every run reported "IN SYNC". The
+    # index is a derived file — a mismatch always means someone forgot to run
+    # build_vector_db.py, and the fix is one command.
+    if INDEX_JSON.exists():
+        try:
+            idx = json.loads(INDEX_JSON.read_text(encoding="utf-8"))
+            if idx.get("total_units") != len(files):
+                errors.append(
+                    f"INDEX: units_index.json total_units={idx.get('total_units')} "
+                    f"but {len(files)} units on disk — run build_vector_db.py"
+                )
+        except Exception as e:
+            errors.append(f"INDEX: could not read units_index.json: {e}")
+
+    # ── INDEX: ChromaDB ↔ disk (optional, slower) ──────────────────────────
+    if args.check_index:
+        try:
+            from app.services.retrieval import (
+                _get_collection,
+                index_knowledge_units,
+            )
+            from app.services.knowledge_loader import load_default_knowledge_units
+            loaded_units = load_default_knowledge_units()
+            if args.rebuild:
+                index_knowledge_units(loaded_units)
+
+            expected_ids = {u.id for u in loaded_units}
+            collection = _get_collection()
+            indexed_ids = set(collection.get().get("ids", []))
+            missing = expected_ids - indexed_ids
+            orphan = indexed_ids - disk_ids
+            if missing:
+                errors.append(
+                    f"INDEX: {len(missing)} unit(s) on disk not in ChromaDB "
+                    f"(run build_vector_db.py): {sorted(missing)[:5]}..."
+                )
+            if orphan:
+                errors.append(
+                    f"INDEX: {len(orphan)} orphan vector(s) in ChromaDB with no source unit: "
+                    f"{sorted(orphan)[:5]}..."
+                )
+            if not missing and not orphan:
+                print(f"  ✓ ChromaDB in sync ({len(indexed_ids)} vectors)")
+        except Exception as e:
+            errors.append(f"INDEX: ChromaDB check failed: {e}")
+
+    # ── CJK GATE: no Chinese/Japanese/Korean characters in content ───────────
+    print("=" * 67)
+    print("  CJK PURITY CHECK — فحص نقاء النصوص من الحروف الصينية/اليابانية/الكورية")
+    print("=" * 67)
+
+    cjk_errors: list[str] = []      # curriculum + units = blocking (KB fully cleaned 2026-06-10)
+
+    # Scan curriculum files (paths, lessons, daily_tips) — BLOCKING
+    for fp in CURRICULUM_DIR.rglob("*.json"):
+        try:
+            content = fp.read_text(encoding="utf-8")
+            matches = CJK_RE.findall(content)
+            if matches:
+                cjk_errors.append(f"{fp.relative_to(ROOT)}: {len(matches)} CJK chars (e.g., {matches[0]!r})")
+        except Exception as e:
+            warnings.append(f"CJK: could not read {fp}: {e}")
+
+    # Units (source of truth) — BLOCKING since full cleanup on 2026-06-10
+    for fp in UNITS_DIR.glob("*.json"):
+        try:
+            content = fp.read_text(encoding="utf-8")
+            matches = CJK_RE.findall(content)
+            if matches:
+                cjk_errors.append(f"{fp.relative_to(ROOT)}: {len(matches)} CJK chars (e.g., {matches[0]!r})")
+        except Exception as e:
+            warnings.append(f"CJK: could not read {fp}: {e}")
+
+    # Backend source — the gate covered the knowledge base but not the code, and
+    # a leak got through there instead: the public /methodology page shipped
+    # «ولا ن给出 فتاوى بدون سند» to readers. Arabic copy written with model help
+    # can pick up CJK the same way a unit can, so the same gate applies.
+    #
+    # Three modules legitimately contain CJK: llm_service, coach_service and
+    # coach_safety each define a filter that strips leaked CJK out of model
+    # output. Those definitions are the cure, not the disease — skip them by
+    # path rather than by pattern, so a leak elsewhere in the same file still
+    # trips the gate.
+    cjk_exempt = {
+        "backend/app/services/llm_service.py",
+        "backend/app/services/coach_service.py",
+        "backend/app/services/coach_safety.py",
+        # Same reasoning for the tooling: these define the strippers, and this
+        # file quotes past leaks so the comments explain what to look for.
+        "ops/tools/check_kb_integrity.py",
+        "ops/tools/build_final_corpus.py",
+        "ops/tools/normalize_units.py",
+        "scripts/gen_flashcards_quizzes.py",
+        "scripts/generate_clean_assets.py",
+    }
+    # Scripts were outside the gate, and a leak got in there too:
+    # warm_answer_cache.py seeded the answer cache with "ابني م沉迷 بالموبايل",
+    # so a corrupted question was being sent to the model on every warm run.
+    cjk_scan_dirs = [
+        ROOT / "backend" / "app",
+        ROOT / "backend" / "ops",
+        ROOT / "backend" / "scripts",
+        ROOT / "ops" / "tools",
+        ROOT / "scripts",
+    ]
+    for scan_dir in cjk_scan_dirs:
+        if not scan_dir.is_dir():
+            continue
+        for fp in scan_dir.rglob("*.py"):
+            rel = fp.relative_to(ROOT).as_posix()
+            if rel in cjk_exempt or "__pycache__" in rel:
+                continue
+            try:
+                matches = CJK_RE.findall(fp.read_text(encoding="utf-8"))
+                if matches:
+                    cjk_errors.append(f"{rel}: {len(matches)} CJK chars (e.g., {matches[0]!r})")
+            except Exception as e:
+                warnings.append(f"CJK: could not read {fp}: {e}")
+
+    # docs/ markdown — the third place LLM-written Arabic lands, and the one
+    # the public can read: docs/ is mounted at /docs, so anything here is a URL
+    # away. QA-REPORT.md carried «而不是» mid-sentence and was world-readable.
+    for fp in (ROOT / "docs").rglob("*.md"):
+        rel = fp.relative_to(ROOT).as_posix()
+        try:
+            matches = CJK_RE.findall(fp.read_text(encoding="utf-8"))
+            if matches:
+                cjk_errors.append(f"{rel}: {len(matches)} CJK chars (e.g., {matches[0]!r})")
+        except Exception as e:
+            warnings.append(f"CJK: could not read {fp}: {e}")
+
+    if cjk_errors:
+        print(f"\n🔴  CJK VIOLATIONS ({len(cjk_errors)}):")
+        for v in cjk_errors:
+            print(f"     ✗ {v}")
+        errors.append(f"CJK GATE FAILED: {len(cjk_errors)} file(s) contain CJK characters — remove them before committing")
+    else:
+        print("  ✅  CJK PURITY OK — 0 files with CJK characters "
+              "(curriculum, units, backend source, docs markdown)")
+
+    # ── REPORT FORMAT GATE: check generated reports under docs/lesson_assets/reports/ ──
+    print("=" * 67)
+    print("  REPORT FORMAT CHECK — فحص صياغة وجودة التقارير التربوية")
+    print("=" * 67)
+
+    report_errors = []
+    reports_dir = ROOT / "docs" / "lesson_assets" / "reports"
+    if reports_dir.exists():
+        for fp in reports_dir.glob("*.md"):
+            try:
+                content = fp.read_text(encoding="utf-8")
+                # Reject if contains LLM formatting leftovers
+                if "Answer:" in content or "answer:" in content:
+                    report_errors.append(f"{fp.name}: Contains raw 'Answer:' prefix")
+                # Reject if the header has untranslated English labels
+                header_match = re.match(r"^# تقرير تربوي عملي:\s*([^(]+)", content)
+                if header_match:
+                    topic_name = header_match.group(1).strip()
+                    if re.search(r"[a-zA-Z]", topic_name):
+                        report_errors.append(f"{fp.name}: Untranslated domain title in header: '{topic_name}'")
+            except Exception as e:
+                warnings.append(f"REPORTS: could not read {fp.name}: {e}")
+
+    if report_errors:
+        print(f"\n🔴  REPORT FORMAT VIOLATIONS ({len(report_errors)}):")
+        for v in report_errors[:10]:
+            print(f"     ✗ {v}")
+        if len(report_errors) > 10:
+            print(f"     ... and {len(report_errors) - 10} more")
+        errors.append(f"REPORT FORMAT GATE FAILED: {len(report_errors)} report(s) contain raw LLM text or untranslated domain titles")
+    else:
+        print("  ✅  REPORT FORMAT OK — all reports are clean and fully translated")
+
+    if warnings:
+
+        print(f"\n🟡  WARNINGS ({len(warnings)}):")
+        # collapse the noisy optional-metadata warnings into a count
+        meta_warns = [w for w in warnings if "missing optional" in w]
+        other = [w for w in warnings if "missing optional" not in w]
+        for w in other:
+            print(f"     {w}")
+        if meta_warns:
+            print(f"     ({len(meta_warns)} units missing optional metadata — non-blocking)")
+
+    if errors:
+        print(f"\n🔴  ERRORS ({len(errors)}):")
+        for e in errors:
+            print(f"     ✗ {e}")
+        print("\n" + "=" * 67)
+        print("  ❌  DRIFT DETECTED — fix before committing.")
+        print("  Tools: ops/tools/normalize_units.py · ops/tools/build_vector_db.py")
+        print("=" * 67 + "\n")
+        return 1
+
+    print("\n" + "=" * 67)
+    print(f"  ✅  KNOWLEDGE BASE IN SYNC — {len(files)} units, schema ≡ taxonomy")
+    print("=" * 67 + "\n")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,60 @@
+{
+  "id": "med-ccf5e011__en",
+  "domain": "medical",
+  "source_file": "Autism_CDC.pdf",
+  "title": "The Gradual Development of the Infant and Steps of Guidance",
+  "language": "en",
+  "age_group": "prenatal-1",
+  "behavior_type": "معالم النمو",
+  "intervention_type": "إرشادي",
+  "severity": "متوسط",
+  "reference_type": "تقرير_طبي",
+  "reference_info": "CDC — Learn the Signs. Act Early: قوائم مراحل النمو (Milestone Checklists)",
+  "text_original": "sounds with you ◦ Blows “raspberries” (sticks tongue out and blows) Milestones ◦ Makes squealing noises ◦ Rolls from tummy to back ◦ Pushes up with straight arms when on tummy ◦ Leans on hands to support himself when sitting Other important things to share with the doctor… • What are some things you and your baby do together? • What are some things your baby likes to do? • Is there anything your baby does or does not do that concerns you? • Has your baby lost any skills he/she once had? • Does your baby have any special healthcare needs or was he/she born prematurely? You know your baby best. Don’t wait. If your baby is not meeting one or more milestones, has lost skills he or she once had, or you have other concerns, act early. Talk with your baby’s doctor, share your concerns, and ask about developmental screening. If you or the doctor are still concerned: 1. Ask for a referral to a specialist who can evaluate your baby more; and 2. Call your state or territory’s early intervention program to find out if your baby can get services to help. Learn more and find the number at cdc.gov/FindEI. For more on how to help your baby, visit cdc.gov/Concerned. Acting early can make a real difference! Help your baby learn and grow As your baby’s first teacher, you can help his or her learning and brain development. Try these simple tips and activities in a safe",
+  "text_simplified": "At around six months, an infant learns some simple actions, such as laughing and making happy squealing sounds. They roll from tummy to back, push up on straight arms when lying on their tummy, and lean on their hands for support when sitting.",
+  "labels": [
+    " developmental milestones",
+    "early intervention",
+    "child development"
+  ],
+  "created_at": "2026-06-07T08:15:42Z",
+  "updated_at": "2026-07-30",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Autism_CDC",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "med-ccf5e011",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+    "english_authors": [
+      "mistral-large-3:675b",
+      "claude-opus-5.5"
+    ],
+    "fixer_model": "claude-opus-5.5",
+    "fixed_at": "2026-10-04T18:17:56+00:00",
+    "manual_fix_note": "2026-10-04 PR #20 review: the CDC 6-month milestones replace 'moves slowly backward and lifts their bottom', which are not milestones",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "5de773fecc409b301a9f67757b0b86ba199d6bd4ad5ad3fb67ab7ac4c3c73ffd",
+      "reviewed_at": "2026-10-07T07:22:53+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-07T07:22:53+00:00"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": "lesson_16-18_islamic_parenting_adult_faith_01",
+  "path_id": "path_16-18_aqeedah_conviction",
+  "title": "Iman with Conviction: When Your Young Adult Faces the World Alone",
+  "age_group": "16-18",
+  "domain": "aqeedah",
+  "unit_ids": [],
+  "summary": "As your young adult stands at the threshold of university and work, they will encounter ideas and pressures that test their iman far from you. Your goal is not to shield them from every question, but to ensure they emerge with iman built on conviction, not mere imitation—knowing *why* they believe and engaging with those who differ with confidence and adab. What they learned at home is a solid foundation that understanding, dialogue, and evidence suited to their age make more firmly rooted, so let them feel that their questions take nothing from their standing or from your love for them.",
+  "try_this": "Today: Ask your child about the idea they hear most that raises questions about faith for them, and agree to look together for a solid answer from a trusted scholar, without denial or haste.",
+  "order": 1,
+  "estimated_minutes": 7,
+  "reflection_prompts": [
+    "What idea is troubling your child’s iman these days?",
+    "Did they leave the discussion more at ease or more anxious?"
+  ],
+  "warning_flags": [
+    "انجراف نحو إنكار الدين أو ترك الصلاة",
+    "صحبة تجرّه بعيداً عن قيمه"
+  ],
+  "needs_professional_followup": true,
+  "is_published": true,
+  "version": "1.0.0",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "language": "en",
+  "source_language": "ar",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "scholar_signals": {
+      "keyword": false,
+      "quoted_arabic": true,
+      "reviewer_model": false
+    },
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+    "revalidated_at": "2026-10-08T16:29:33+00:00",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "openrouter",
+          "model": "deepseek/deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "openrouter",
+          "model": "z-ai/glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "3ef0d137478602afe36ac67015cd40ac4960b545f0a18af4ee154fd8cecf92ff",
+      "reviewed_at": "2026-10-08T16:29:33+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "english_authors": [
+      "mistral-large-3:675b",
+      "claude-opus-5-5"
+    ]
+  }
+}

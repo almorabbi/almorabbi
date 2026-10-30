@@ -1,0 +1,81 @@
+{
+  "id": "isl-9933c64e__en",
+  "domain": "islamic_parenting",
+  "age_group": "4-6",
+  "behavior_type": "تقليد ألفاظ بذيئة من الشارع",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "title": "My child is saying foul words he heard in the street",
+  "language": "en",
+  "reference_type": "حديث",
+  "reference_info": "سنن الترمذي، حديث رقم 1977، عن عبدالله بن مسعود رضي الله عنه، وقال الترمذي: حسن غريب، وصححه الألباني",
+  "text_original": "ليس المؤمن بالطعّان، ولا اللعّان، ولا الفاحش، ولا البذيء. رواه الترمذي (1977) عن عبدالله بن مسعود رضي الله عنه، وقال: حديث حسن غريب.",
+  "text_simplified": "If your child (ages 4–6) repeats a foul word he heard in the street, don’t magnify the issue with shouting or harsh punishment that would fix it in his mind. Teach him gently that the Prophet ﷺ said: «المسلم من سلم المسلمون من لسانه ويده» — meaning: a Muslim is one from whose tongue and hand the Muslims are safe (Sahih al-Bukhari 10) — and replace the word with a kind one. Repeat this without tension until the habit fades away.",
+  "labels": [
+    "الألفاظ البذيئة",
+    "تقليد الأقران",
+    "الطفولة المبكرة",
+    "تأديب اللسان"
+  ],
+  "created_at": "2026-07-30T12:00:00Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "سنن الترمذي",
+    "source_author": "الإمام محمد بن عيسى الترمذي"
+  },
+  "source_language": "ar",
+  "translated_from": "isl-9933c64e",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "title",
+        "type": "meaning",
+        "why": "«ابني» means 'my son,' not the gender-neutral 'my child.'"
+      },
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "«بهدوء» means 'calmly' rather than 'gently,' a subtle but distinct nuance in parenting guidance."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "1e2579e3feb1a05673fd9475216f522799f48534f510c1808a62423330ad6961",
+      "reviewed_at": "2026-10-07T07:25:20+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "title",
+          "type": "meaning",
+          "why": "«ابني» means 'my son,' not the gender-neutral 'my child.'"
+        },
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "«بهدوء» means 'calmly' rather than 'gently,' a subtle but distinct nuance in parenting guidance."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-07T07:25:20+00:00",
+    "english_authors": [
+      "claude-opus-5.5"
+    ]
+  }
+}

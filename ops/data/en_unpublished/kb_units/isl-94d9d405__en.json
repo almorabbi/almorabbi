@@ -1,0 +1,55 @@
+{
+  "id": "isl-94d9d405__en",
+  "domain": "islamic_parenting",
+  "source_file": "Alukah_Rights_of_Children.pdf",
+  "title": "Teaching Children Their Religious and Moral Rights",
+  "language": "en",
+  "age_group": "4-6",
+  "behavior_type": "تربية دينية وأخلاقية",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "حقوق الأولاد على الوالدين - عماد عبدالعظيم (الألوكة)",
+  "text_original": "كفَ ْـتَ ـِ قْ س حُ لْا تَ ْـ ِ ب ةَ ؿ :ٕازدتدا ٢ًع ترطيا عضٚ ٔع دلاٚلأا ٢ٜٗٓٚ ـْ ئلَ للهاوَ : لَ اؼَ فَ ,فُ كَ اطَ قح ر فُ لَ اًـبْ ا نَ أَ ﭭ ر طُ غَ ؾَ بَ : لَ اقَ ,ر طُ ـِ بْ ا ـِ طَ .)2( فُ تَ قْ بَ ـَ قَ ر ِ حْ َٕ ؽَ لذَ كَ نَ اكَ .)2121( ؿمٚسمُو ،)5921( يراخبمًا فمضرمظأ (1) .حمٞحص دامٜمؾم٢مس )318/8( ةبمٞمؿ بيأ ـمسا فمضرمظأ (2) ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ نيدلاىلا ىلع دلاولأا قىقح ــــــــــــــــــــ , للها دبْ طَ ـِ بْ ؿِ لاس ـْ طَ حقحص داـسنب )348/8( ةبقش لبأ ـبا جرخأو دْ قَ وَ , بَ قيُ أَ ق بُ أَ نَ ذَ آ ـْ ؿ قف نَ اكَ وَ , سَ اَـلا ل ِ بأَ نَ ذَ آفَ ل ِ بأَ د فْ طَ لف تُ س ر ِ طَ أَ : لَ اقَ تُ قْ بَ لْا اذَ ِ نفَ , ر ئاقَ ل ِ بأَ وَ ؾَ خَ دَ فَ بَ قيُ أَ قبُ أَ ء ضَ خْ أَ يٍ داَـجُ ِ ب لتقْ بَ تُ ر ,ل ِ بأَ لَ اؼَ فَ ,؟ ر دُ جُ لْا نَ ور تَ ,للها دَ بْ طَ يأَ :لَ اؼَ فَ , ر ضَ خْ أَ يٍ داَـجُ ِ ب رتَ س كشَ خْ أَ َلا فَ ء ِـلا فُ بَ ؾغْ يَ نْ أَ كشَ خْ أَ ـْ م : لَ اقَ ,بَ قيُ أَ ابَ أَ ايَ ء ِـلا اَـبَ ؾَ",
+  "text_simplified": "Parents must teach their children their religious and moral rights from a young age. It is important for parents to instill in their children the values of truthfulness, amanah (trustworthiness), and respect. They should also guide their children toward upright behavior and strengthen their self-confidence.",
+  "labels": [
+    "تربية",
+    "أخلاق",
+    "حقوق الطفل",
+    "دين",
+    "توجيه"
+  ],
+  "created_at": "2026-06-21T10:32:42Z",
+  "updated_at": "2026-06-21T10:32:42Z",
+  "version": "1.0.0",
+  "source_meta": {
+    "source_title": "Alukah_Rights_of_Children",
+    "source_author": ""
+  },
+  "source_language": "ar",
+  "translated_from": "isl-94d9d405",
+  "translation": {
+    "translator_model": "mistral-large-3:675b",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "88cd0255bcabf59219684ef6ed13030a51b33216fcf22e3d95e2f85b29af0386",
+      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-10-04T11:18:18+00:00"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/anbiya_ibrahim_nar_young_p1.m4a",
+      "text": "Allah gave Ibrahim (peace be upon him) right guidance. And Allah knew that he was worthy of it.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 54,
+          "start": 0.0,
+          "end": 3.74
+        },
+        {
+          "from": 55,
+          "to": 95,
+          "start": 4.19,
+          "end": 6.19
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_ibrahim_nar_young_p2.m4a",
+      "text": "His father and his people worshipped idols that they had made. And Ibrahim spoke out against their worship of these statues.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 62,
+          "start": 0.0,
+          "end": 3.68
+        },
+        {
+          "from": 63,
+          "to": 124,
+          "start": 4.13,
+          "end": 7.465
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_ibrahim_nar_young_p3.m4a",
+      "text": "When his people had gone away, Ibrahim broke the idols into small pieces. He left the biggest of them, so that they would come back to it and ask it, and their error would become clear to them.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 73,
+          "start": 0.0,
+          "end": 4.24
+        },
+        {
+          "from": 74,
+          "to": 193,
+          "start": 4.69,
+          "end": 10.69
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/anbiya_ibrahim_nar_young_p4.m4a",
+      "text": "His people lit a huge fire and threw him into it. Allah the Exalted says: ﴿قُلۡنَا يَٰنَارُ كُونِي بَرۡدٗا وَسَلَٰمًا عَلَىٰٓ إِبۡرَٰهِيمَ﴾ — interpretation of the meaning: 'We said: O fire, be coolness and safety for Ibrahim.' And no harm touched him in it.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 49,
+          "start": 0.0,
+          "end": 2.84
+        },
+        {
+          "from": 50,
+          "to": 227,
+          "start": 3.29,
+          "end": 24.93
+        },
+        {
+          "from": 228,
+          "to": 258,
+          "start": 25.38,
+          "end": 27.107
+        }
+      ]
+    }
+  ]
+}
