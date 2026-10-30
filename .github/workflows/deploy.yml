@@ -113,11 +113,15 @@ jobs:
     # the gated commit. The token is not used on this host.
     permissions:
       contents: read
+      packages: read # pull the (private) image with this job's own token
     environment:
       name: production
       url: https://tg-api.alsaba.cloud
     env:
       DIGEST: ${{ needs.image.outputs.digest }}
+      # Short-lived (this job only). Used solely through ghcr_login below, into
+      # a throwaway DOCKER_CONFIG — no registry credential stays on the host.
+      GHCR_TOKEN: ${{ github.token }}
     steps:
 
       - name: Pull the published image (no build, no tests here)
@@ -139,12 +143,17 @@ jobs:
           fi
 
           # By digest: exactly the manifest the image job smoked, whatever any
-          # tag says now. Anonymous — the package is public. nice only lowers
-          # the client; unpacking runs in dockerd, but after the first deploy
-          # it is a few small layers.
+          # tag says now. The package may be private, so the pull logs in with
+          # this job's token into a temporary DOCKER_CONFIG that is deleted on
+          # exit (only `docker pull` sees it). nice only lowers the client;
+          # unpacking runs in dockerd, but after the first deploy it is a few
+          # small layers.
+          GHCR_CFG=$(mktemp -d)
+          trap 'rm -rf "$GHCR_CFG"' EXIT
+          printf '%s' "$GHCR_TOKEN" | DOCKER_CONFIG="$GHCR_CFG" docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin >/dev/null
           echo "=== Pull $IMAGE@$DIGEST ==="
-          if ! nice -n 10 docker pull "$IMAGE@$DIGEST"; then
-            echo "::error::anonymous pull of $IMAGE failed. If the package is still private, make it public once: https://github.com/orgs/almorabbi/packages/container/almorabbi-backend/settings → Danger Zone → Change visibility → Public. Then re-run this deploy."
+          if ! DOCKER_CONFIG="$GHCR_CFG" nice -n 10 docker pull "$IMAGE@$DIGEST"; then
+            echo "::error::pull of $IMAGE failed. The package must grant this repository read access (it does when this repository's workflow published it): https://github.com/orgs/almorabbi/packages/container/almorabbi-backend/settings"
             exit 1
           fi
 
@@ -298,7 +307,10 @@ jobs:
               echo "::warning::Restoring previous image $PREVIOUS_IMAGE"
               docker tag "$PREVIOUS_IMAGE" tutor-guardian-backend:latest
               docker compose -f docker-compose.production.yml up -d --no-build --remove-orphans backend
-            elif nice -n 10 docker pull "$IMAGE:$PREVIOUS_SHA"; then
+            elif _cfg=$(mktemp -d) \
+                && printf '%s' "$GHCR_TOKEN" | DOCKER_CONFIG="$_cfg" docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin >/dev/null \
+                && DOCKER_CONFIG="$_cfg" nice -n 10 docker pull "$IMAGE:$PREVIOUS_SHA"; then
+              rm -rf "$_cfg"
               echo "::warning::Restoring $IMAGE:$PREVIOUS_SHA"
               docker tag "$IMAGE:$PREVIOUS_SHA" tutor-guardian-backend:latest
               docker compose -f docker-compose.production.yml up -d --no-build --remove-orphans backend
