@@ -33,6 +33,7 @@ import 'package:almorabbi/features/stories/scene/story_scene_catalog.dart';
 import 'package:almorabbi/l10n/app_localizations.dart';
 import 'package:almorabbi/theme/app_colors.dart';
 import 'package:almorabbi/theme/app_palette.dart';
+import 'package:almorabbi/features/stories/shelf/magic_shelf.dart';
 
 List<Story> _bundled(String file) =>
     (jsonDecode(File('assets/data/$file').readAsStringSync()) as List)
@@ -489,21 +490,21 @@ void main() {
     addTearDown(tester.view.reset);
     await tester.pumpWidget(_host(Scaffold(body: StoryShelf(stories: stories))));
     await tester.pump(const Duration(milliseconds: 300));
-    expect(find.byType(StoryBookCard), findsNWidgets(stories.length));
+    expect(find.byType(ShelfBook), findsNWidgets(stories.length));
     final l10n = await AppLocalizations.delegate.load(const Locale('ar'));
     await tester.tap(find.text(l10n.storyFilterOlder));
     await tester.pump(const Duration(milliseconds: 300));
     expect(
-      find.byType(StoryBookCard),
+      find.byType(ShelfBook),
       findsNWidgets(stories.where((s) => storyMatchesFilter(s, StoryShelfFilter.older)).length),
     );
   });
 
   group('the prophets\' section', () {
     Set<String> idsIn(WidgetTester tester, String shelf) => {
-          for (final card in tester.widgetList<StoryBookCard>(find.descendant(
+          for (final card in tester.widgetList<ShelfBook>(find.descendant(
             of: find.byKey(ValueKey(shelf)),
-            matching: find.byType(StoryBookCard),
+            matching: find.byType(ShelfBook),
           )))
             card.story.id,
         };
@@ -532,24 +533,24 @@ void main() {
         ),
         findsOneWidget,
       );
-      expect(idsIn(tester, 'prophet-shelf'), series);
-      expect(idsIn(tester, 'story-shelf').intersection(series), isEmpty);
-      expect(find.byType(StoryBookCard), findsNWidgets(stories.length));
+      expect(idsIn(tester, 'shelf-prophets'), series);
+      expect(idsIn(tester, 'shelf-tales').intersection(series), isEmpty);
+      expect(find.byType(ShelfBook), findsNWidgets(stories.length));
       // The section is above the shelf, and "all" still counts every story.
       expect(
-        tester.getTopLeft(find.byKey(const ValueKey('prophet-shelf'))).dy,
-        lessThan(tester.getTopLeft(find.byKey(const ValueKey('story-shelf'))).dy),
+        tester.getTopLeft(find.byKey(const ValueKey('shelf-prophets'))).dy,
+        lessThan(tester.getTopLeft(find.byKey(const ValueKey('shelf-tales'))).dy),
       );
       expect(find.text(l10n.storyFilterAll(stories.length)), findsOneWidget);
 
       // The age filter reaches the section too.
       await tester.tap(find.text(l10n.storyFilterYoung));
       await tester.pump(const Duration(milliseconds: 300));
-      expect(idsIn(tester, 'prophet-shelf'), {
+      expect(idsIn(tester, 'shelf-prophets'), {
         for (final s in stories)
           if (s.isProphetStory && storyMatchesFilter(s, StoryShelfFilter.young)) s.id,
       });
-      expect(idsIn(tester, 'prophet-shelf'), isNotEmpty);
+      expect(idsIn(tester, 'shelf-prophets'), isNotEmpty);
     });
 
     testWidgets('is gone when no series story is visible', (tester) async {
@@ -568,8 +569,8 @@ void main() {
       // No series story at all → no heading.
       await pumpShelf(tester, [book('layla_star', '3-6 سنوات'), book('hamza_truth', '7-12 سنة')]);
       expect(find.text(l10n.storyProphetsTitle), findsNothing);
-      expect(find.byKey(const ValueKey('prophet-shelf')), findsNothing);
-      expect(find.byType(StoryBookCard), findsNWidgets(2));
+      expect(find.byKey(const ValueKey('shelf-prophets')), findsNothing);
+      expect(find.byType(ShelfBook), findsNWidgets(2));
 
       // A series story the filter hides → the heading goes with it.
       await pumpShelf(tester, [
@@ -577,13 +578,13 @@ void main() {
         book('anbiya_yunus_older', '7-12 سنة', series: kAnbiyaSeries),
       ]);
       expect(find.text(l10n.storyProphetsTitle), findsOneWidget);
-      expect(idsIn(tester, 'prophet-shelf'), {'anbiya_yunus_older'});
-      expect(idsIn(tester, 'story-shelf'), {'layla_star'});
+      expect(idsIn(tester, 'shelf-prophets'), {'anbiya_yunus_older'});
+      expect(idsIn(tester, 'shelf-tales'), {'layla_star'});
       await tester.tap(find.text(l10n.storyFilterYoung));
       await tester.pump(const Duration(milliseconds: 300));
       expect(find.text(l10n.storyProphetsTitle), findsNothing);
-      expect(find.byKey(const ValueKey('prophet-shelf')), findsNothing);
-      expect(idsIn(tester, 'story-shelf'), {'layla_star'});
+      expect(find.byKey(const ValueKey('shelf-prophets')), findsNothing);
+      expect(idsIn(tester, 'shelf-tales'), {'layla_star'});
     });
   });
 }
