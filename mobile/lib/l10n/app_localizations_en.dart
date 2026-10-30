@@ -3719,6 +3719,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get offscreenBand7to9 => '7 – 9';
 
   @override
+  String get updateAvailableTitle => 'A new version of Almorabbi is out';
+
+  @override
+  String get updateAvailableBody =>
+      'Update whenever you like to get the newest stories and fixes.';
+
+  @override
+  String get updateAvailableAction => 'Update from the store';
+
+  @override
+  String get answerCopy => 'Copy the answer';
+
+  @override
+  String get answerCopied => 'Answer copied';
+
+  @override
+  String get answerShare => 'Share the answer';
+
+  @override
   String get licenseAckTitle => 'Got it. This is worth talking about together.';
 
   @override

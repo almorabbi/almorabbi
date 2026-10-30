@@ -24,6 +24,8 @@ import '../features/companion/widgets/noor_face.dart';
 import '../features/companion/widgets/noor_presence.dart';
 import '../theme/app_colors.dart';
 import 'ui/brand_glyph.dart';
+import 'package:flutter/services.dart';
+import '../features/share/share_service.dart';
 
 /// Noor's moon window beside an answer. The halo paints ×1.3 around it, so
 /// the avatar column is that footprint plus a hair of space.
@@ -42,8 +44,10 @@ const double _kUnderAnswerIndent = 12 + _kAvatarColumn;
 String stripSourceLines(String text) {
   final kept = text
       .split('\n')
-      .where((line) =>
-          !line.replaceFirst(RegExp(r'^[\s>*_-]+'), '').startsWith('📚'))
+      .where(
+        (line) =>
+            !line.replaceFirst(RegExp(r'^[\s>*_-]+'), '').startsWith('📚'),
+      )
       .join('\n');
   return kept.trimRight();
 }
@@ -92,8 +96,9 @@ class MessageBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isUser = message.role == 'user';
-    final align =
-        isUser ? AlignmentDirectional.centerEnd : AlignmentDirectional.centerStart;
+    final align = isUser
+        ? AlignmentDirectional.centerEnd
+        : AlignmentDirectional.centerStart;
 
     final radius = BorderRadiusDirectional.only(
       topStart: const Radius.circular(20),
@@ -120,12 +125,12 @@ class MessageBubble extends StatelessWidget {
           ? Text(
               message.content,
               style: const TextStyle(
-                  color: Colors.white, fontSize: 15, height: 1.5),
+                color: Colors.white,
+                fontSize: 15,
+                height: 1.5,
+              ),
             )
-          : _AssistantBody(
-              message: message,
-              onFeedback: onFeedback,
-            ),
+          : _AssistantBody(message: message, onFeedback: onFeedback),
     );
 
     // Assistant rows get Noor (only on the first bubble of a group);
@@ -153,8 +158,9 @@ class MessageBubble extends StatelessWidget {
     return Align(
       alignment: align,
       child: Column(
-        crossAxisAlignment:
-            isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+        crossAxisAlignment: isUser
+            ? CrossAxisAlignment.end
+            : CrossAxisAlignment.start,
         children: [
           body,
           if (message.error != null)
@@ -163,16 +169,12 @@ class MessageBubble extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.error_outline,
-                      size: 14, color: AppTheme.dangerFg),
+                  Icon(Icons.error_outline, size: 14, color: AppTheme.dangerFg),
                   const SizedBox(width: 4),
                   Flexible(
                     child: Text(
                       message.error!,
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: AppTheme.dangerFg,
-                      ),
+                      style: TextStyle(fontSize: 12, color: AppTheme.dangerFg),
                     ),
                   ),
                   if (onRetry != null)
@@ -181,7 +183,8 @@ class MessageBubble extends StatelessWidget {
                       icon: const Icon(Icons.refresh, size: 16),
                       label: Text(AppLocalizations.of(context).chatRetry),
                       style: TextButton.styleFrom(
-                          foregroundColor: AppTheme.dangerFg),
+                        foregroundColor: AppTheme.dangerFg,
+                      ),
                     ),
                 ],
               ),
@@ -231,8 +234,7 @@ class _AssistantBody extends StatelessWidget {
         if (showContent)
           MarkdownBody(
             data: content,
-            styleSheet: MarkdownStyleSheet.fromTheme(Theme.of(context))
-                .copyWith(
+            styleSheet: MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
               // 16/1.7 for long Arabic guidance: diacritics need the leading
               // (UX_UI_ROADMAP §1.3 type ramp).
               p: TextStyle(
@@ -263,13 +265,18 @@ class _AssistantBody extends StatelessWidget {
           // «مخصّص لأحمد» — the answer used what the parent told the assistant
           // (MOBILE_API §9.1); it opens what is remembered, so the parent can
           // see and correct what shaped it.
-          if (r.memoryFactsUsed > 0)
-            PersonalisedChip(childId: r.memoryChildId),
+          if (r.memoryFactsUsed > 0) PersonalisedChip(childId: r.memoryChildId),
           if (sources.isNotEmpty) _SourcesDisclosure(sources: sources),
           const SizedBox(height: 4),
-          _FeedbackRow(
-            current: message.feedback,
-            onFeedback: (rating) => onFeedback?.call(rating),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _FeedbackRow(
+                current: message.feedback,
+                onFeedback: (rating) => onFeedback?.call(rating),
+              ),
+              _AnswerActions(answer: content),
+            ],
           ),
         ],
       ],
@@ -325,8 +332,7 @@ class _ThinkingIndicatorState extends State<_ThinkingIndicator> {
                     padding: const EdgeInsets.only(top: 6),
                     child: Text(
                       AppLocalizations.of(context).chatThinkingSlow,
-                      style: TextStyle(
-                          fontSize: 13, color: AppTheme.textMuted),
+                      style: TextStyle(fontSize: 13, color: AppTheme.textMuted),
                     ),
                   )
                 : const SizedBox.shrink(),
@@ -383,11 +389,17 @@ class _TryChip extends StatelessWidget {
     );
     return Padding(
       padding: const EdgeInsetsDirectional.only(
-          start: _kUnderAnswerIndent, end: 12, top: 4),
+        start: _kUnderAnswerIndent,
+        end: 12,
+        top: 4,
+      ),
       child: kept
           ? Chip(
-              avatar: Icon(Icons.check_rounded,
-                  size: 18, color: AppTheme.success),
+              avatar: Icon(
+                Icons.check_rounded,
+                size: 18,
+                color: AppTheme.success,
+              ),
               label: Text(AppLocalizations.of(context).promiseSaved),
               labelStyle: style,
               backgroundColor: AppTheme.success.withValues(alpha: .10),
@@ -395,8 +407,11 @@ class _TryChip extends StatelessWidget {
               shape: const StadiumBorder(),
             )
           : ActionChip(
-              avatar: BrandGlyph(BrandIcon.lantern,
-                  size: 18, color: colors.accent),
+              avatar: BrandGlyph(
+                BrandIcon.lantern,
+                size: 18,
+                color: colors.accent,
+              ),
               label: Text(label),
               labelStyle: style,
               backgroundColor: colors.accent.withValues(alpha: .12),
@@ -420,7 +435,10 @@ class _FollowUps extends StatelessWidget {
     return Padding(
       // Indented to line up with the bubble text, past the avatar column.
       padding: const EdgeInsetsDirectional.only(
-          start: _kUnderAnswerIndent, end: 12, top: 4),
+        start: _kUnderAnswerIndent,
+        end: 12,
+        top: 4,
+      ),
       child: Semantics(
         label: AppLocalizations.of(context).chatFollowUpsLabel,
         container: true,
@@ -534,8 +552,7 @@ class _MetadataChips extends StatelessWidget {
           .where((c) => c.isNotEmpty)
           .map(
             (c) => Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
               decoration: BoxDecoration(
                 color: AppTheme.surface,
                 border: Border.all(color: AppTheme.surfaceAlt),
@@ -543,10 +560,7 @@ class _MetadataChips extends StatelessWidget {
               ),
               child: Text(
                 c,
-                style: TextStyle(
-                  fontSize: 11,
-                  color: AppTheme.textSecondary,
-                ),
+                style: TextStyle(fontSize: 11, color: AppTheme.textSecondary),
               ),
             ),
           )
@@ -616,7 +630,10 @@ class _SourcesDisclosureState extends State<_SourcesDisclosure> {
           alignment: AlignmentDirectional.topStart,
           child: _open
               ? Padding(
-                  padding: const EdgeInsetsDirectional.only(start: 22, bottom: 4),
+                  padding: const EdgeInsetsDirectional.only(
+                    start: 22,
+                    bottom: 4,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -636,6 +653,43 @@ class _SourcesDisclosureState extends State<_SourcesDisclosure> {
                   ),
                 )
               : const SizedBox.shrink(),
+        ),
+      ],
+    );
+  }
+}
+
+/// Copy and share under a finished answer (2026-10-30: parents asked to send
+/// Noor's advice on to the other parent or a grandmother).
+class _AnswerActions extends StatelessWidget {
+  final String answer;
+  const _AnswerActions({required this.answer});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        IconButton(
+          icon: const Icon(Icons.copy_rounded, size: 18),
+          color: AppTheme.textMuted,
+          tooltip: l10n.answerCopy,
+          onPressed: () async {
+            await Clipboard.setData(
+              ClipboardData(text: ShareService.plainAnswer(answer)),
+            );
+            if (!context.mounted) return;
+            ScaffoldMessenger.maybeOf(
+              context,
+            )?.showSnackBar(SnackBar(content: Text(l10n.answerCopied)));
+          },
+        ),
+        IconButton(
+          icon: const Icon(Icons.share_outlined, size: 18),
+          color: AppTheme.textMuted,
+          tooltip: l10n.answerShare,
+          onPressed: () => ShareService.shareAnswer(answer),
         ),
       ],
     );

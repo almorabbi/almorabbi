@@ -173,6 +173,18 @@ def test_app_config_endpoint_is_public(client):
 
 
 
+def test_app_config_names_the_latest_build_for_the_optional_update(client, monkeypatch):
+    """«نسخة جديدة متاحة»: 0 (say nothing) unless LATEST_BUILD_NUMBER is set,
+    and never mixed up with the forced-update wall."""
+    monkeypatch.delenv("LATEST_BUILD_NUMBER", raising=False)
+    monkeypatch.setenv("MINIMUM_BUILD_NUMBER", "119")
+    assert client.get("/api/app-config").json()["latest_build_number"] == 0
+    monkeypatch.setenv("LATEST_BUILD_NUMBER", "121")
+    data = client.get("/api/app-config").json()
+    assert data["latest_build_number"] == 121
+    assert data["minimum_build_number"] == 119
+
+
 def test_app_config_carries_the_noor_header_kill_switch(client, monkeypatch):
     """«نور يتذكّر»: on by default; NOOR_HEADER_ENABLED=0 turns it off for
     every installed build without a release."""

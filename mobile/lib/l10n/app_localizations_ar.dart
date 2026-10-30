@@ -3666,6 +3666,25 @@ class AppLocalizationsAr extends AppLocalizations {
   String get offscreenBand7to9 => '٧ – ٩';
 
   @override
+  String get updateAvailableTitle => 'نسخة جديدة من المربّي متاحة';
+
+  @override
+  String get updateAvailableBody =>
+      'حدِّث متى شئت لتصلك أحدث القصص والتحسينات.';
+
+  @override
+  String get updateAvailableAction => 'حدِّث من المتجر';
+
+  @override
+  String get answerCopy => 'نسخ الإجابة';
+
+  @override
+  String get answerCopied => 'نُسخت الإجابة';
+
+  @override
+  String get answerShare => 'مشاركة الإجابة';
+
+  @override
   String get licenseAckTitle => 'وصلت. هذا أمر يستحق أن تتحدثوا فيه معًا.';
 
   @override

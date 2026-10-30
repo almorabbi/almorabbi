@@ -115,7 +115,9 @@ def _deepseek(fake: _DeepSeekFake, timeout: float = 0.3) -> "ai_gateway.OpenAICh
 
 def _scripted_provider(script, calls: list | None = None):
     """An Ollama stand-in whose stream follows `script`:
-    ("token", text) | ("sleep", s) | ("hang", s) | ("finish", reason)."""
+    ("token", text) | ("sleep", s) | ("hang", s) | ("gate", threading.Event)
+    | ("finish", reason). A gate holds the stream until the test opens it (or
+    the test ends): ordering that a sleep only makes likely."""
 
     class _Scripted:
         name = "fake"
@@ -135,6 +137,9 @@ def _scripted_provider(script, calls: list | None = None):
                     time.sleep(value)
                 elif kind == "hang":
                     _RELEASE.wait(value)
+                elif kind == "gate":
+                    while not (value.wait(0.05) or _RELEASE.is_set()):
+                        pass
                 elif kind == "finish":  # the answer stopped short (R3)
                     final["truncated"] = value
             yield final
@@ -711,16 +716,25 @@ def test_new_question_cuts_the_pending_completion_and_keeps_order(pipeline):
     """S1/S5 — a question asked while the previous answer was being finished
     in the background landed before it (Q1, Q2, A1): A1 then showed under Q2
     and Q2's prompt never saw it. The old turn is now cut and written first."""
+    # A1 is held after its first token until Q2 has been taken in. A sleep
+    # here only made that likely: on a loaded CI runner Q2 arrived after A1
+    # had finished in the background, and there was nothing left to cut.
+    held = threading.Event()
     pipeline.use_script([
-        ("token", "بداية الجواب الأول "), ("sleep", 0.4), ("token", "بقية لن تُكتب"),
+        ("token", "بداية الجواب الأول "), ("gate", held), ("token", "بقية لن تُكتب"),
     ])
     sid = store.create_session("asker")
 
     async def scenario():
-        r1 = await assistant.stream_reply(_request("asker"), _msg(sid, "السؤال الأول عن النوم"))
-        await _read_until(r1, "event: token")
-        pipeline.use_script([("token", "الجواب الثاني")])
-        r2 = await assistant.stream_reply(_request("asker"), _msg(sid, "السؤال الثاني عن الشاشات"))
+        try:
+            r1 = await assistant.stream_reply(_request("asker"), _msg(sid, "السؤال الأول عن النوم"))
+            await _read_until(r1, "event: token")
+            # The reader left; A1 is being finished in the background.
+            assert [r["mode"] for r in _rows(sid)] == [None, "pending"]
+            pipeline.use_script([("token", "الجواب الثاني")])
+            r2 = await assistant.stream_reply(_request("asker"), _msg(sid, "السؤال الثاني عن الشاشات"))
+        finally:
+            held.set()  # Q2 is stored (and A1 cut) — A1's model may go on now
         async for _frame in r2.body_iterator:
             pass
         await _drain_background()

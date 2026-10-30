@@ -6632,6 +6632,42 @@ abstract class AppLocalizations {
   /// **'٧ – ٩'**
   String get offscreenBand7to9;
 
+  /// No description provided for @updateAvailableTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'نسخة جديدة من المربّي متاحة'**
+  String get updateAvailableTitle;
+
+  /// No description provided for @updateAvailableBody.
+  ///
+  /// In ar, this message translates to:
+  /// **'حدِّث متى شئت لتصلك أحدث القصص والتحسينات.'**
+  String get updateAvailableBody;
+
+  /// No description provided for @updateAvailableAction.
+  ///
+  /// In ar, this message translates to:
+  /// **'حدِّث من المتجر'**
+  String get updateAvailableAction;
+
+  /// No description provided for @answerCopy.
+  ///
+  /// In ar, this message translates to:
+  /// **'نسخ الإجابة'**
+  String get answerCopy;
+
+  /// No description provided for @answerCopied.
+  ///
+  /// In ar, this message translates to:
+  /// **'نُسخت الإجابة'**
+  String get answerCopied;
+
+  /// No description provided for @answerShare.
+  ///
+  /// In ar, this message translates to:
+  /// **'مشاركة الإجابة'**
+  String get answerShare;
+
   /// No description provided for @licenseAckTitle.
   ///
   /// In ar, this message translates to:

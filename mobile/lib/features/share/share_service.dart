@@ -31,8 +31,8 @@ class ShareService {
   /// Build the share/install URL, optionally carrying a referral code.
   static String installUrlFor({String? referralCode}) =>
       referralCode == null || referralCode.isEmpty
-          ? installUrl
-          : '$installUrl?ref=$referralCode';
+      ? installUrl
+      : '$installUrl?ref=$referralCode';
 
   /// The wa.me deep link carrying [text] as the pre-filled message.
   ///
@@ -53,21 +53,49 @@ class ShareService {
     AppLocalizations l10n, {
     String? referralCode,
     bool appendInstallLink = true,
-  }) =>
-      appendInstallLink
-          ? '$message\n\n${l10n.shareInstallLine}\n'
-              '${installUrlFor(referralCode: referralCode)}'
-          : message;
+  }) => appendInstallLink
+      ? '$message\n\n${l10n.shareInstallLine}\n'
+            '${installUrlFor(referralCode: referralCode)}'
+      : message;
 
   /// Open WhatsApp directly with a pre-filled text + install link.
   /// Falls back to the system share sheet if WhatsApp is not installed.
-  static Future<bool> shareWhatsApp(String message, {String? referralCode}) async {
+  static Future<bool> shareWhatsApp(
+    String message, {
+    String? referralCode,
+  }) async {
     referralCode ??= ReferralService.cachedCode;
-    final text = shareText(message, AppL10n.current, referralCode: referralCode);
+    final text = shareText(
+      message,
+      AppL10n.current,
+      referralCode: referralCode,
+    );
     final uri = whatsAppUri(text);
     if (await canLaunchUrl(uri)) {
       return await launchUrl(uri, mode: LaunchMode.externalApplication);
     }
+    final result = await SharePlus.instance.share(ShareParams(text: text));
+    return result.status == ShareResultStatus.success;
+  }
+
+  /// Noor's answer as plain text: no Markdown marks, sources lines already
+  /// stripped by the caller. What a parent pastes into a chat should read
+  /// like a message, not like `**bold**`.
+  static String plainAnswer(String markdown) => markdown
+      .replaceAll(RegExp(r'^#{1,6}\s*', multiLine: true), '')
+      .replaceAll(RegExp(r'\*\*|__'), '')
+      .replaceAll(RegExp(r'^\s*[-*]\s+', multiLine: true), '• ')
+      .replaceAll(RegExp(r'\n{3,}'), '\n\n')
+      .trim();
+
+  /// Open the share sheet with Noor's [answer] and the install link (with the
+  /// parent's own code, so a friend who installs is counted to them).
+  static Future<bool> shareAnswer(String answer) async {
+    final text = shareText(
+      plainAnswer(answer),
+      AppL10n.current,
+      referralCode: ReferralService.cachedCode,
+    );
     final result = await SharePlus.instance.share(ShareParams(text: text));
     return result.status == ShareResultStatus.success;
   }
@@ -109,11 +137,16 @@ class ShareService {
       final file = File('${dir.path}/$fileTag.png');
       await file.writeAsBytes(image);
 
-      final text = shareText(message, AppL10n.current,
-          referralCode: referralCode, appendInstallLink: appendInstallLink);
+      final text = shareText(
+        message,
+        AppL10n.current,
+        referralCode: referralCode,
+        appendInstallLink: appendInstallLink,
+      );
 
       final result = await SharePlus.instance.share(
-          ShareParams(files: [XFile(file.path)], text: text));
+        ShareParams(files: [XFile(file.path)], text: text),
+      );
       final ok = result.status == ShareResultStatus.success;
       if (ok) {
         // fileTag like "milestone_<id>" / "quran_<n>" / "invite_<code>".

@@ -71,6 +71,7 @@ import '../theme/app_theme.dart';
 import '../theme/design_tokens.dart';
 import '../widgets/ui/brand_glyph.dart';
 import '../features/whats_new/widgets/whats_new_card.dart';
+import '../features/whats_new/widgets/update_available_card.dart';
 
 import '../core/analytics.dart';
 import '../core/app_routes.dart';
@@ -321,6 +322,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
           // ── Everything else. Every destination below is also in «المزيد». ──
           TodayMoreDivider(label: l10n.todayMoreTitle),
+          // Renders nothing unless the server names a newer live build.
+          const UpdateAvailableCard(),
           // Renders nothing except in the one launch after an update.
           const WhatsNewCard(),
           TodayRitualsRow(ageGroup: ageGroup),

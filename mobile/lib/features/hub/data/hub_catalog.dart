@@ -21,6 +21,7 @@ import '../../../core/app_routes.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../widgets/ui/brand_glyph.dart';
 import '../../routine/screens/daily_routine_screen.dart' show habitTabLabel;
+import '../../identity/identity_entry.dart';
 
 /// A server capability a tile depends on. The hub shows such a tile only once
 /// the server has been seen to offer it — an older server answers 404, and a
@@ -257,12 +258,13 @@ final List<HubGroup> kHubGroups = [
         label: (l10n, _) => l10n.settings,
         route: AppRoutes.settings,
       ),
-      HubItem(
-        id: 'identity',
-        icon: Icons.account_circle_outlined,
-        label: (l10n, _) => l10n.hubAccount,
-        route: AppRoutes.identity,
-      ),
+      if (kGoogleAccountEntryEnabled)
+        HubItem(
+          id: 'identity',
+          icon: Icons.account_circle_outlined,
+          label: (l10n, _) => l10n.hubAccount,
+          route: AppRoutes.identity,
+        ),
       HubItem(
         id: 'invite',
         icon: Icons.favorite_border_outlined,

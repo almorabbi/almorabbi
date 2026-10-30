@@ -20,6 +20,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_theme.dart';
 import '../../../theme/design_tokens.dart';
 import '../../../widgets/ui/directional_chevron.dart';
+import '../../identity/identity_entry.dart';
 
 class _Intent {
   const _Intent(this.id, this.emoji, this.question, this.route);
@@ -39,15 +40,13 @@ final _intents = <_Intent>[
   _Intent('who_for', '📖', (l) => l.helpWhoAreLessonsFor, AppRoutes.paths),
   _Intent('where_start', '🧭', (l) => l.helpWhereToStart, AppRoutes.paths),
   _Intent('games', '🎮', (l) => l.helpWhereGames, AppRoutes.games),
-  _Intent('stories', '🌙', (l) => l.helpWhereStories,
-      AppRoutes.storyBookshelf),
-  _Intent('add_child', '👶', (l) => l.helpHowAddChild,
-      AppRoutes.childrenList),
+  _Intent('stories', '🌙', (l) => l.helpWhereStories, AppRoutes.storyBookshelf),
+  _Intent('add_child', '👶', (l) => l.helpHowAddChild, AppRoutes.childrenList),
   _Intent('quran', '📗', (l) => l.helpWhereQuran, AppRoutes.quran),
-  _Intent('progress', '📊', (l) => l.helpWhereProgress,
-      AppRoutes.dailyRoutine),
+  _Intent('progress', '📊', (l) => l.helpWhereProgress, AppRoutes.dailyRoutine),
   _Intent('badges', '🏅', (l) => l.helpWhereBadges, AppRoutes.badges),
-  _Intent('backup', '☁️', (l) => l.helpHowBackup, AppRoutes.identity),
+  if (kGoogleAccountEntryEnabled)
+    _Intent('backup', '☁️', (l) => l.helpHowBackup, AppRoutes.identity),
   _Intent('contact', '💬', (l) => l.helpHowContact, AppRoutes.feedback),
 ];
 
@@ -78,10 +77,9 @@ class _HelpSheetBody extends StatelessWidget {
         children: [
           Text(
             l10n.helpTitle,
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium
-                ?.copyWith(fontWeight: FontWeight.w800),
+            style: Theme.of(
+              context,
+            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
           ),
           const SizedBox(height: 4),
           Text(

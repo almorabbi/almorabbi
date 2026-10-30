@@ -86,6 +86,9 @@ async def get_app_config():
 
     return {
         "minimum_build_number": int(os.environ.get("MINIMUM_BUILD_NUMBER", "0")),
+        # The newest build live on Play, for the optional «نسخة جديدة متاحة»
+        # card (0 = say nothing). Never a wall: that is minimum_build_number.
+        "latest_build_number": int(os.environ.get("LATEST_BUILD_NUMBER", "0")),
         "store_url": os.environ.get("STORE_URL", "https://play.google.com/store/apps/details?id=com.alsaba.almorabbi"),
         # The first build the session mint answers `410 device_erased` (null =
         # none yet): only for such a build is a 201 proof that a device id was

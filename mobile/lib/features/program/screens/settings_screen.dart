@@ -41,6 +41,7 @@ import 'package:almorabbi/features/companion/providers/companion_providers.dart'
 import '../../child_memory/providers/memory_providers.dart';
 import '../../child_memory/widgets/memory_errors.dart';
 import 'package:almorabbi/core/failures.dart';
+import '../../identity/identity_entry.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -82,9 +83,7 @@ class SettingsScreen extends ConsumerWidget {
           ),
           data: (envelope) {
             final activeChild = profile != null
-                ? envelope.children
-                    .where((c) => c.id == profile.id)
-                    .firstOrNull
+                ? envelope.children.where((c) => c.id == profile.id).firstOrNull
                 : envelope.children.firstOrNull;
             if (activeChild == null) {
               // A bare sentence used to be the whole branch. It is the same
@@ -116,7 +115,9 @@ class SettingsScreen extends ConsumerWidget {
                   icon: Icons.swap_horiz,
                   title: l10n.settingsSwitchChild,
                   subtitle: l10n.settingsChildCount(
-                      envelope.count, ChildrenListScreen.kMaxChildren),
+                    envelope.count,
+                    ChildrenListScreen.kMaxChildren,
+                  ),
                   onTap: () async {
                     await Navigator.of(context).push(AppRoutes.childrenList());
                     if (context.mounted) {
@@ -129,9 +130,9 @@ class SettingsScreen extends ConsumerWidget {
                   title: l10n.settingsEditChild,
                   subtitle: l10n.settingsEditChildDesc,
                   onTap: () async {
-                    final changed = await Navigator.of(context).push(
-                      AppRoutes.editChild(activeChild),
-                    );
+                    final changed = await Navigator.of(
+                      context,
+                    ).push(AppRoutes.editChild(activeChild));
                     if (changed == true) {
                       ref.invalidate(childrenListProvider);
                     }
@@ -155,13 +156,15 @@ class SettingsScreen extends ConsumerWidget {
                 // «ادعُ صديقًا» now lives in the hub under الإعدادات والمساعدة.
                 // Settings is for settings; content and rewards belong in the
                 // index, not buried behind a gear icon.
-                _SettingsRow(
-                  icon: Icons.cloud_sync_outlined,
-                  title: l10n.settingsBackup,
-                  subtitle: l10n.settingsBackupDesc,
-                  iconColor: AppTheme.primary,
-                  onTap: () => Navigator.of(context).push(AppRoutes.identity()),
-                ),
+                if (kGoogleAccountEntryEnabled)
+                  _SettingsRow(
+                    icon: Icons.cloud_sync_outlined,
+                    title: l10n.settingsBackup,
+                    subtitle: l10n.settingsBackupDesc,
+                    iconColor: AppTheme.primary,
+                    onTap: () =>
+                        Navigator.of(context).push(AppRoutes.identity()),
+                  ),
                 _SettingsRow(
                   icon: Icons.feedback_outlined,
                   title: l10n.settingsShareFeedback,
@@ -194,7 +197,9 @@ class SettingsScreen extends ConsumerWidget {
                       : l10n.english,
                   onTap: () {
                     final currentLocale = ref.read(appLocaleProvider);
-                    final currentCode = currentLocale?.languageCode ?? Localizations.localeOf(context).languageCode;
+                    final currentCode =
+                        currentLocale?.languageCode ??
+                        Localizations.localeOf(context).languageCode;
                     final nextCode = currentCode == 'ar' ? 'en' : 'ar';
                     ref.read(appLocaleProvider.notifier).setLocale(nextCode);
                   },
@@ -250,15 +255,21 @@ class SettingsScreen extends ConsumerWidget {
                   subtitle: l10n.settingsRateDesc,
                   onTap: () async {
                     final market = Uri.parse(
-                        'market://details?id=com.alsaba.almorabbi');
+                      'market://details?id=com.alsaba.almorabbi',
+                    );
                     final web = Uri.parse(
-                        'https://play.google.com/store/apps/details?id=com.alsaba.almorabbi');
+                      'https://play.google.com/store/apps/details?id=com.alsaba.almorabbi',
+                    );
                     if (await canLaunchUrl(market)) {
-                      await launchUrl(market,
-                          mode: LaunchMode.externalApplication);
+                      await launchUrl(
+                        market,
+                        mode: LaunchMode.externalApplication,
+                      );
                     } else {
-                      await launchUrl(web,
-                          mode: LaunchMode.externalApplication);
+                      await launchUrl(
+                        web,
+                        mode: LaunchMode.externalApplication,
+                      );
                     }
                   },
                 ),
@@ -276,10 +287,13 @@ class SettingsScreen extends ConsumerWidget {
                   subtitle: l10n.settingsPrivacyDesc,
                   onTap: () async {
                     final uri = Uri.parse(
-                        '${AppConfig.apiBaseUrl}/privacy-policy');
+                      '${AppConfig.apiBaseUrl}/privacy-policy',
+                    );
                     if (await canLaunchUrl(uri)) {
-                      await launchUrl(uri,
-                          mode: LaunchMode.externalApplication);
+                      await launchUrl(
+                        uri,
+                        mode: LaunchMode.externalApplication,
+                      );
                     }
                   },
                 ),
@@ -288,11 +302,12 @@ class SettingsScreen extends ConsumerWidget {
                   title: l10n.settingsMethodologyLink,
                   subtitle: l10n.settingsMethodologyDesc,
                   onTap: () async {
-                    final uri =
-                        Uri.parse('https://alsaba.cloud/methodology');
+                    final uri = Uri.parse('https://alsaba.cloud/methodology');
                     if (await canLaunchUrl(uri)) {
-                      await launchUrl(uri,
-                          mode: LaunchMode.externalApplication);
+                      await launchUrl(
+                        uri,
+                        mode: LaunchMode.externalApplication,
+                      );
                     }
                   },
                 ),
@@ -354,18 +369,20 @@ class SettingsScreen extends ConsumerWidget {
     try {
       final jsonString = await backupService.exportToJson();
       final filename = backupService.generateBackupFilename();
-      
+
       // Save to temporary file
       final tempDir = await Directory.systemTemp.createTemp('tg_backup_');
       final file = File('${tempDir.path}/$filename');
       await file.writeAsString(jsonString);
-      
+
       // Share the file
-      await SharePlus.instance.share(ShareParams(
-        files: [XFile(file.path)],
-        text: l10n.settingsBackupTitle,
-        subject: l10n.settingsBackupName,
-      ));
+      await SharePlus.instance.share(
+        ShareParams(
+          files: [XFile(file.path)],
+          text: l10n.settingsBackupTitle,
+          subject: l10n.settingsBackupName,
+        ),
+      );
 
       if (context.mounted) {
         scaffoldMessenger.showSnackBar(
@@ -431,9 +448,9 @@ class SettingsScreen extends ConsumerWidget {
 
       // Perform import
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(l10n.settingsImporting)),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(l10n.settingsImporting)));
       }
 
       final importResult = await backupService.importFromJson(jsonString);
@@ -455,7 +472,8 @@ class SettingsScreen extends ConsumerWidget {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
-                  l10n.settingsImportFailed('${importResult.errorMessage}')),
+                l10n.settingsImportFailed('${importResult.errorMessage}'),
+              ),
               backgroundColor: AppTheme.dangerFg,
             ),
           );
@@ -521,7 +539,9 @@ class SettingsScreen extends ConsumerWidget {
         SnackBar(
           // A reset can be paused for 72 h after a push-token change
           // (MOBILE_API §9.0.1): say until when, not the exception.
-          content: Text(l10n.settingsResetFailed(describeActionFailure(context, e))),
+          content: Text(
+            l10n.settingsResetFailed(describeActionFailure(context, e)),
+          ),
           backgroundColor: AppTheme.dangerFg,
         ),
       );
@@ -698,7 +718,9 @@ class _SettingsRow extends StatelessWidget {
                 height: 36,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: (iconColor ?? AppTheme.primary).withValues(alpha: 0.10),
+                  color: (iconColor ?? AppTheme.primary).withValues(
+                    alpha: 0.10,
+                  ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Icon(
@@ -754,12 +776,14 @@ class _ErrorView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.error_outline,
-                size: 48, color: AppTheme.dangerFg),
+            Icon(Icons.error_outline, size: 48, color: AppTheme.dangerFg),
             const SizedBox(height: 12),
-            Text(AppLocalizations.of(context).settingsLoadFailed(
-                describeFailure(AppLocalizations.of(context), error)),
-                textAlign: TextAlign.center),
+            Text(
+              AppLocalizations.of(context).settingsLoadFailed(
+                describeFailure(AppLocalizations.of(context), error),
+              ),
+              textAlign: TextAlign.center,
+            ),
             const SizedBox(height: 16),
             ElevatedButton.icon(
               onPressed: onRetry,
@@ -850,7 +874,8 @@ class _AdhkarSettingsRowState extends State<_AdhkarSettingsRow> {
             title: AppLocalizations.of(context).noorQuietMode,
             subtitle: AppLocalizations.of(context).noorQuietModeHint,
             icon: Icons.bedtime_outlined,
-            value: ref.watch(companionMemoryProvider).valueOrNull?.quietMode ??
+            value:
+                ref.watch(companionMemoryProvider).valueOrNull?.quietMode ??
                 false,
             onChanged: (val) =>
                 ref.read(companionMemoryProvider.notifier).setQuietMode(val),
@@ -880,30 +905,26 @@ class _AdhkarSettingsRowState extends State<_AdhkarSettingsRow> {
         borderRadius: BorderRadius.circular(18),
         clipBehavior: Clip.antiAlias,
         child: SwitchListTile(
-        title: Text(
-          title,
-          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
-        ),
-        subtitle: Text(
-          subtitle,
-          style: TextStyle(fontSize: 12, color: AppTheme.textSecondary),
-        ),
-        value: value,
-        onChanged: (val) => onChanged(val),
-        secondary: Container(
-          width: 36,
-          height: 36,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: const Color(0xFFE65100).withValues(alpha: 0.10),
-            borderRadius: BorderRadius.circular(10),
+          title: Text(
+            title,
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
           ),
-          child: Icon(
-            icon,
-            size: 18,
-            color: const Color(0xFFE65100),
+          subtitle: Text(
+            subtitle,
+            style: TextStyle(fontSize: 12, color: AppTheme.textSecondary),
           ),
-        ),
+          value: value,
+          onChanged: (val) => onChanged(val),
+          secondary: Container(
+            width: 36,
+            height: 36,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: const Color(0xFFE65100).withValues(alpha: 0.10),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Icon(icon, size: 18, color: const Color(0xFFE65100)),
+          ),
         ),
       ),
     );
