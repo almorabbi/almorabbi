@@ -62,8 +62,9 @@ name: Mobile E2E (emulator)
 # flows and every selector matches Arabic and English alike.
 #
 # ── Baseline (the build users have now) ─────────────────────────────────
-# Default: efaa740f = released 1.0.68+113. E2E_BASELINE_REF is also set to
-# this released commit; explicit manual input still takes precedence.
+# Default: ab3d9fbd = this repository's first commit (the 1.0.75+120 tree it
+# started from; earlier release commits are not in this history).
+# E2E_BASELINE_REF overrides it; explicit manual input still takes precedence.
 # After each Play release, point it at the released commit: the repository
 # variable E2E_BASELINE_REF (Settings → Variables), or the default below.
 # A manual run can pass any ref as `baseline_ref`.
@@ -121,7 +122,7 @@ name: Mobile E2E (emulator)
 #   rehearsal-head      the PR head (+ E2E_PROBES=true, the sound check's key
 #                       probe — mobile/lib/core/e2e_probes.dart; compiled out
 #                       of every other build)
-#   rehearsal-baseline  the build on Play: v1.0.72+117 (c3087014) unless the
+#   rehearsal-baseline  ab3d9fbd (first commit, 1.0.75+120) unless the
 #                       manual input `rehearsal_baseline_ref` says otherwise
 # Neither app sends `as_of` — the Play build cannot, and the head must not
 # ship a date knob — so `e2e_tool.py as-of-proxy` on :8090 adds the stage's
@@ -144,12 +145,12 @@ on:
   workflow_dispatch:
     inputs:
       baseline_ref:
-        description: 'Commit/tag of the build users run now (upgrade test starts there). Empty = E2E_BASELINE_REF or efaa740f (1.0.68+113).'
+        description: 'Commit/tag of the build users run now (upgrade test starts there). Empty = E2E_BASELINE_REF or ab3d9fbd (first commit, 1.0.75+120).'
         required: false
         type: string
         default: ''
       rehearsal_baseline_ref:
-        description: 'The Play build the Ramadan rehearsal upgrades from. Empty = c3087014 (v1.0.72+117).'
+        description: 'The Play build the Ramadan rehearsal upgrades from. Empty = ab3d9fbd (first commit, 1.0.75+120).'
         required: false
         type: string
         default: ''
@@ -322,7 +323,7 @@ jobs:
             dart_defines: ''
             child_name: E2E-Maestro
           - variant: baseline
-            ref: ${{ inputs.baseline_ref || vars.E2E_BASELINE_REF || 'efaa740f48389636ea4bf06b6a71bbe3f324e8bc' }}
+            ref: ${{ inputs.baseline_ref || vars.E2E_BASELINE_REF || 'ab3d9fbd307940bb432ce4100b3556e4eaa8be30' }}
             dart_defines: ''
             child_name: E2E-Maestro
     defaults:
@@ -451,7 +452,7 @@ jobs:
             dart_defines: '--dart-define=API_BASE_URL=http://10.0.2.2:8090 --dart-define=E2E_PROBES=true'
             child_name: E2E-Rehearsal
           - variant: rehearsal-baseline
-            ref: ${{ inputs.rehearsal_baseline_ref || 'c30870145dda59acffd63b68784ad6f9e0974ca5' }}
+            ref: ${{ inputs.rehearsal_baseline_ref || 'ab3d9fbd307940bb432ce4100b3556e4eaa8be30' }}
             dart_defines: '--dart-define=API_BASE_URL=http://10.0.2.2:8090'
             child_name: E2E-Rehearsal
     defaults:

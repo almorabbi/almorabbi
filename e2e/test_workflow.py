@@ -461,8 +461,8 @@ class RehearsalJobTest(unittest.TestCase):
             defines = self.matrix[variant]['dart_defines'].split()
             self.assertIn('--dart-define=API_BASE_URL=http://10.0.2.2:8090', defines, variant)
         self.assertEqual(self.matrix['rehearsal-head']['ref'], self.matrix['head']['ref'])
-        # The Play build (v1.0.72+117) unless a manual run names another.
-        self.assertIn('c30870145dda59acffd63b68784ad6f9e0974ca5', self.matrix['rehearsal-baseline']['ref'])
+        # This repository's first commit unless a manual run names another.
+        self.assertIn('ab3d9fbd307940bb432ce4100b3556e4eaa8be30', self.matrix['rehearsal-baseline']['ref'])
         self.assertIn('inputs.rehearsal_baseline_ref', self.matrix['rehearsal-baseline']['ref'])
         downloaded = sorted(s['with']['name'] for s in self.job['steps']
                             if s.get('uses', '').startswith('actions/download-artifact@'))
