@@ -1,0 +1,84 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/sira_abu_umair_older_p1.m4a",
+      "text": "Anas ibn Malik (may Allah be pleased with him) said: “The Prophet ﷺ was the best of people in character.” (Sahih al-Bukhari 6203)",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 105,
+          "start": 0.0,
+          "end": 8.8
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_abu_umair_older_p2.m4a",
+      "text": "Anas had a little brother called Abu Umair, and he had a nughar that he played with — a little bird.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 100,
+          "start": 0.0,
+          "end": 7.52
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_abu_umair_older_p3.m4a",
+      "text": "Whenever the Prophet ﷺ came, he would say to him: “O Abu Umair, what did the nughayr do?” (Sahih al-Bukhari 6203). And Anas said: “The Prophet ﷺ would mix with us.” (Sahih al-Bukhari 6129)",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 89,
+          "start": 0.0,
+          "end": 8.5
+        },
+        {
+          "from": 115,
+          "to": 164,
+          "start": 8.95,
+          "end": 13.91
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_abu_umair_older_p4.m4a",
+      "text": "Sometimes the time of prayer came while he ﷺ was in their house; he would order the mat beneath him to be swept and sprinkled with water, then he would stand, and they would stand behind him, and he would lead them in prayer.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 225,
+          "start": 0.0,
+          "end": 14.96
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_abu_umair_older_p5.m4a",
+      "text": "Anas said: “I served the Prophet ﷺ for ten years, and he never said to me ‘uff’, nor ‘why did you do that?’, nor ‘why did you not do that?’” (Sahih al-Bukhari 6038)",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 140,
+          "start": 0.0,
+          "end": 12.209
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_abu_umair_older_p6.m4a",
+      "text": "In this story, the Prophet ﷺ mixed with the family of Anas and asked little Abu Umair about his bird, and for ten years he never said ‘uff’ to Anas, nor blamed him for what he did or did not do.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 194,
+          "start": 0.0,
+          "end": 14.875
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/sira_abu_umair_young_p1.m4a",
+      "text": "Anas ibn Malik (may Allah be pleased with him) had a little brother called Abu Umair, and he had a nughar that he played with — a little bird.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 142,
+          "start": 0.0,
+          "end": 9.28
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_abu_umair_young_p2.m4a",
+      "text": "Whenever the Prophet ﷺ came, he would say to him: “O Abu Umair, what did the nughayr do?” (Sahih al-Bukhari 6203) — asking him about his little bird.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 89,
+          "start": 0.0,
+          "end": 7.893
+        },
+        {
+          "from": 90,
+          "to": 149,
+          "start": 8.343,
+          "end": 9.999
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_abu_umair_young_p3.m4a",
+      "text": "Anas said: “The Prophet ﷺ was the best of people in character.” (Sahih al-Bukhari 6203)",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 63,
+          "start": 0.0,
+          "end": 5.52
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_abu_umair_young_p4.m4a",
+      "text": "Anas said: “I served the Prophet ﷺ for ten years, and he never said to me ‘uff’.” (Sahih al-Bukhari 6038)",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 81,
+          "start": 0.0,
+          "end": 7.197
+        }
+      ]
+    }
+  ]
+}

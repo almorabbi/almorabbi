@@ -441,3 +441,49 @@ class NoTtsVoiceRecitesTheQuran(unittest.TestCase):
         self.assertFalse(g.verify_page("وَبِالْوَالِدَيْنِ إِحْسَانًا", "وبيلوال إيذين إحسانة", "ar"))
         self.assertTrue(g.verify_page("وَبِالْوَالِدَيْنِ إِحْسَانًا", "وبيلوال إيذين إحسانة", "quran"))
         self.assertFalse(g.verify_page("وَبِالْوَالِدَيْنِ إِحْسَانًا", "وبالوالدين إحسانا", "quran"))
+
+
+class Citations(unittest.TestCase):
+    """A hadith's citation stays on the page and is never read aloud (2026-10-30)."""
+
+    AR = ("وكان النبيُّ ﷺ إذا جاء قال له: «يَا أَبَا عُمَيْرٍ مَا فَعَلَ النُّغَيْرُ» (صحيح البخاري ٦٢٠٣). "
+          "وقال أنس: «إِنْ كَانَ النَّبِيُّ صلى الله عليه وسلم لَيُخَالِطُنَا» (صحيح البخاري — حديث ٦١٢٩).")
+    EN = ("Whenever the Prophet ﷺ came, he would say to him: “O Abu Umair, what did the little bird do?” "
+          "(Sahih al-Bukhari 6203)")
+
+    def test_the_citation_is_not_said(self):
+        self.assertEqual(g.spoken(self.AR, "ar"),
+                         "وكان النبيُّ ﷺ إذا جاء قال له: «يَا أَبَا عُمَيْرٍ مَا فَعَلَ النُّغَيْرُ». "
+                         "وقال أنس: «إِنْ كَانَ النَّبِيُّ صلى الله عليه وسلم لَيُخَالِطُنَا».")
+        self.assertEqual(g.spoken(self.EN, "en"),
+                         "Whenever the Prophet sallallahu alayhi wa sallam came, he would say to him: "
+                         "“O Abu Umair, what did the little bird do?”")
+        self.assertEqual(g.unspoken("(Sahih Muslim 1631) and (صحيح مسلم ١٦٣١)."), " and.")
+
+    def test_other_parentheses_are_said(self):
+        for t in ("قال أبو بكر (رضي الله عنه) لابنته.", "The nughar (a little bird) flew."):
+            self.assertEqual(g.unspoken(t), t)
+
+    def test_a_cited_page_is_recorded_without_its_citation_and_keeps_it_in_the_manifest(self):
+        tmp = Path(_tempfile.mkdtemp())
+        calls = []
+
+        def fake_synth(text, *a, **k):
+            calls.append(text)
+            return b"\x10\x00" * 2400
+
+        g.REPORT.clear()
+        heard = g.spoken(self.AR, "ar")
+        with mock.patch.object(g, "synth", side_effect=fake_synth), \
+                mock.patch.object(g, "encode_m4a", side_effect=lambda pcm, out: Path(out).write_bytes(b"m4a")), \
+                mock.patch.object(g, "transcribe", side_effect=lambda path, lang, model="small": heard):
+            code = g.run([_story([self.AR], sid="sira_abu_umair_older")], "ar", "Algieba", "m", tmp,
+                         "docs/x", "k")
+        self.assertEqual(code, 0)
+        self.assertEqual(len(calls), 2)
+        self.assertFalse(any("صحيح" in c or "٦٢٠٣" in c or "٦١٢٩" in c for c in calls), calls)
+        self.assertEqual(g.REPORT[-1]["problems"], [])
+        manifest = _json.loads((tmp / "sira_abu_umair_older.json").read_text(encoding="utf-8"))
+        page = manifest["pages"][0]
+        self.assertEqual(page["text"], self.AR)                     # the page keeps its citations
+        self.assertEqual(page["sentences"][-1]["to"], len(self.AR))  # and its spans still cover them

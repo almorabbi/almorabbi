@@ -2261,7 +2261,7 @@
   "@storyProphetsTitle": {"description": "Story shelf: heading of the Qur'anic prophets' stories section, above the main shelf."},
   "storyProphetsSubtitle": "من آيات القرآن وتفسيرها الميسّر — بلا صور للأنبياء.",
   "storyShelfSeerah": "من السيرة النبوية",
-  "storyShelfSeerahSubtitle": "من القرآن والصحيحين بنصّ الحديث ورقمه — بلا صور للنبي ﷺ ولا للصحابة.",
+  "storyShelfSeerahSubtitle": "من القرآن وصحيحَي البخاري ومسلم، بنصّ الحديث ورقمه — بلا صور للنبي ﷺ ولا للصحابة.",
   "storyShelfTales": "حكايات وآداب",
   "@storyProphetsSubtitle": {"description": "Story shelf: one line under the prophets' section heading — the stories come from the verses and the Muyassar tafsir, and no prophet is pictured."},
   "storyGoodNight": "تصبحون على خير",

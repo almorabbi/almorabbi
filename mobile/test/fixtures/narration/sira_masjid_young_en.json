@@ -1,0 +1,72 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/sira_masjid_young_p1.m4a",
+      "text": "The Prophet ﷺ came to Madinah and stayed in its upper part, with a people called Banu Amr ibn Awf.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 98,
+          "start": 0.0,
+          "end": 8.21
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_masjid_young_p2.m4a",
+      "text": "Then he stopped in the courtyard of the house of Abu Ayyub, and ordered the mosque to be built. He said to Banu an-Najjar: “O Banu an-Najjar, name me a price for this walled garden of yours.” (Sahih al-Bukhari 428) — that is: sell me this garden of yours.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 95,
+          "start": 0.0,
+          "end": 5.332
+        },
+        {
+          "from": 96,
+          "to": 191,
+          "start": 5.782,
+          "end": 12.531
+        },
+        {
+          "from": 192,
+          "to": 255,
+          "start": 12.981,
+          "end": 15.519
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_masjid_young_p3.m4a",
+      "text": "They said: “No, by Allah! We seek its price only from Allah.” (Sahih al-Bukhari 428)",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 25,
+          "start": 0.0,
+          "end": 2.536
+        },
+        {
+          "from": 26,
+          "to": 61,
+          "start": 2.986,
+          "end": 5.146
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_masjid_young_p4.m4a",
+      "text": "The palm trees were cut down and set in a row as the qiblah of the mosque, and they began carrying the rocks, and the Prophet ﷺ was with them, saying: “O Allah, there is no good except the good of the Hereafter, so forgive the Ansar and the Muhajirun.” (Sahih al-Bukhari 428)",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 252,
+          "start": 0.0,
+          "end": 18.931
+        }
+      ]
+    }
+  ]
+}

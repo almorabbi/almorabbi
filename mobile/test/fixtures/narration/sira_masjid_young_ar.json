@@ -1,0 +1,54 @@
+{
+  "voice": "gemini-3.8-flash-tts/Algieba",
+  "language": "ar",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/ar/sira_masjid_young_p1.m4a",
+      "text": "قدم النبيُّ ﷺ المدينة، فنزل في أعلاها عند قومٍ يقال لهم بنو عمرو بن عوف.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 72,
+          "start": 0.0,
+          "end": 12.674
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_masjid_young_p2.m4a",
+      "text": "ثم نزل بفِناء دار أبي أيوب، وأمر ببناء المسجد، فقال لبني النجّار: «يَا بَنِي النَّجَّارِ ثَامِنُونِي بِحَائِطِكُمْ هَذَا» (صحيح البخاري ٤٢٨)، أي: بيعوني بستانكم هذا.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 165,
+          "start": 0.0,
+          "end": 15.332
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_masjid_young_p3.m4a",
+      "text": "فقالوا: «لاَ وَاللَّهِ، لاَ نَطْلُبُ ثَمَنَهُ إِلاَّ إِلَى اللَّهِ» (صحيح البخاري ٤٢٨).",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 87,
+          "start": 0.0,
+          "end": 7.33
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_masjid_young_p4.m4a",
+      "text": "فقُطع النخل وصُفّ قبلةً للمسجد، وجعلوا ينقلون الصخر، والنبيُّ ﷺ معهم يقول: «اللَّهُمَّ لاَ خَيْرَ إِلاَّ خَيْرُ الآخِرَهْ، فَاغْفِرْ لِلأَنْصَارِ وَالْمُهَاجِرَهْ» (صحيح البخاري ٤٢٨).",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 183,
+          "start": 0.0,
+          "end": 19.626
+        }
+      ]
+    }
+  ]
+}

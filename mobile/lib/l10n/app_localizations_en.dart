@@ -6455,7 +6455,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get storyShelfSeerahSubtitle =>
-      'From the Qur\'an and the two Sahihs, each hadith in its words with its number — no pictures of the Prophet ﷺ or the Companions.';
+      'From the Qur\'an and Sahih al-Bukhari and Sahih Muslim, each hadith in its words with its number — no pictures of the Prophet ﷺ or the Companions.';
 
   @override
   String get storyShelfTales => 'Tales and manners';

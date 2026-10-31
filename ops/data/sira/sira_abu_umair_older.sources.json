@@ -1,0 +1,850 @@
+{
+  "id": "sira_abu_umair_older",
+  "series": "sira_sahih",
+  "about": "مصادر القصة: الأحاديث من صحيح البخاري ومسلم بنصّها في الطبعة المثبّتة (fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784) — وهي التي بُني منها فهرس الصحيحين — والآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/sira_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py --series sira_sahih.",
+  "tafsir_source": null,
+  "content_sha256": "5ed3c6df0aacdbad55a53eee21b49f567a19b0be32de333e2fc6f3399ee2c7f7",
+  "refs": [
+    "bukhari:6038",
+    "bukhari:6129",
+    "bukhari:6203"
+  ],
+  "hadith": {
+    "bukhari:6038": {
+      "book": "البخاري",
+      "number": 6038,
+      "text": "حَدَّثَنَا مُوسَى بْنُ إِسْمَاعِيلَ، سَمِعَ سَلاَّمَ بْنَ مِسْكِينٍ، قَالَ سَمِعْتُ ثَابِتًا، يَقُولُ حَدَّثَنَا أَنَسٌ ـ رضى الله عنه ـ قَالَ خَدَمْتُ النَّبِيَّ صلى الله عليه وسلم عَشْرَ سِنِينَ، فَمَا قَالَ لِي أُفٍّ‏.‏ وَلاَ لِمَ صَنَعْتَ وَلاَ أَلاَّ صَنَعْتَ‏.‏",
+      "edition": "fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784",
+      "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784/editions/ara-bukhari/6038.json",
+      "reference": {
+        "book": 78,
+        "hadith": 68
+      },
+      "fetched_at": "2026-10-30T12:51:41+00:00"
+    },
+    "bukhari:6129": {
+      "book": "البخاري",
+      "number": 6129,
+      "text": "حَدَّثَنَا آدَمُ، حَدَّثَنَا شُعْبَةُ، حَدَّثَنَا أَبُو التَّيَّاحِ، قَالَ سَمِعْتُ أَنَسَ بْنَ مَالِكٍ ـ رضى الله عنه ـ يَقُولُ إِنْ كَانَ النَّبِيُّ صلى الله عليه وسلم لَيُخَالِطُنَا حَتَّى يَقُولَ لأَخٍ لِي صَغِيرٍ ‏ \"‏ يَا أَبَا عُمَيْرٍ مَا فَعَلَ النُّغَيْرُ ‏\"‏‏.‏",
+      "edition": "fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784",
+      "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784/editions/ara-bukhari/6129.json",
+      "reference": {
+        "book": 78,
+        "hadith": 156
+      },
+      "fetched_at": "2026-10-30T12:51:42+00:00"
+    },
+    "bukhari:6203": {
+      "book": "البخاري",
+      "number": 6203,
+      "text": "حَدَّثَنَا مُسَدَّدٌ، حَدَّثَنَا عَبْدُ الْوَارِثِ، عَنْ أَبِي التَّيَّاحِ، عَنْ أَنَسٍ، قَالَ كَانَ النَّبِيُّ صلى الله عليه وسلم أَحْسَنَ النَّاسِ خُلُقًا، وَكَانَ لِي أَخٌ يُقَالُ لَهُ أَبُو عُمَيْرٍ ـ قَالَ أَحْسِبُهُ فَطِيمٌ ـ وَكَانَ إِذَا جَاءَ قَالَ ‏ \"‏ يَا أَبَا عُمَيْرٍ مَا فَعَلَ النُّغَيْرُ ‏\"‏‏.‏ نُغَرٌ كَانَ يَلْعَبُ بِهِ، فَرُبَّمَا حَضَرَ الصَّلاَةَ وَهُوَ فِي بَيْتِنَا، فَيَأْمُرُ بِالْبِسَاطِ الَّذِي تَحْتَهُ فَيُكْنَسُ وَيُنْضَحُ، ثُمَّ يَقُومُ وَنَقُومُ خَلْفَهُ فَيُصَلِّي بِنَا‏.‏",
+      "edition": "fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784",
+      "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784/editions/ara-bukhari/6203.json",
+      "reference": {
+        "book": 78,
+        "hadith": 227
+      },
+      "fetched_at": "2026-10-30T12:51:42+00:00"
+    }
+  },
+  "verses": {},
+  "tafsir": {},
+  "tafsir_meta": {},
+  "fields": [
+    {
+      "path": "title",
+      "refs": [
+        "bukhari:6038",
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "أبو عمير وطائره الصغير",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The hadiths mention Anas's young brother Abu Umayr and a small bird (nughar) he used to play with.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The title names only what the cited hadiths state: Abu 'Umayr (Anas's little brother) and the نُغَر, which is by its ordinary meaning a small bird he played with, so 'his little bird' is a plain-language rendering.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "9d5f371c96fdcaac13c6e9a408df12a9c10d176f7454984dbfac10b7362c485d",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "refs": [
+        "bukhari:6038",
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "قصة أبي عمير وطائره الصغير، وخُلُق النبيّ ﷺ مع أهل بيت أنس، كما رواها أنس بن مالك رضي الله عنه في صحيح البخاري، بنصّ الحديث ورقمه.",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sources mention Abu Umayr, the little bird, the Prophet's kind character with Anas's household, and Anas's narration in Sahih al-Bukhari.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The description matches the sources: Abu 'Umair's nughar is a small bird he played with, the Prophet's ﷺ conduct is described with Anas's household, and the hadiths of Anas are cited in Sahih al-Bukhari with texts and numbers.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "5bb1de73b0fd59a7242d56aab9b97969c74f3a6f77383db1a2a6db9efdf90336",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[0].text",
+      "refs": [
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "قال أنس بن مالك رضي الله عنه: «كَانَ النَّبِيُّ صلى الله عليه وسلم أَحْسَنَ النَّاسِ خُلُقًا» (صحيح البخاري ٦٢٠٣).",
+          "refs": [
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The quote is verbatim from Sahih al-Bukhari 6203 and is correctly attributed to Anas ibn Malik.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The quote is verbatim from Bukhari 6203 and is correctly attributed to the companion Anas ibn Malik, who says it in the hadith itself.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "dc50a666d4727a1f2a4391ff04a34302ffb690aeade9980ed6d5565d4ff177c4",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[1].text",
+      "refs": [
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "وكان لأنس أخٌ صغير يقال له أبو عمير، وكان عنده نُغَرٌ يلعب به، وهو طائرٌ صغير.",
+          "refs": [
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The details come directly from the cited hadiths, and 'small bird' is the ordinary meaning of 'nughar'.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Anas's little brother named Abu 'Umayr and the nughar he played with are stated in Bukhari 6129/6203, and 'small bird' is the ordinary dictionary meaning of نُغَر.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "dcd902f44303e39be7454c39661e5fdf058178ca109747e12d3dd0420dce6619",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[2].text",
+      "refs": [
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "وكان النبيُّ ﷺ إذا جاء قال له: «يَا أَبَا عُمَيْرٍ مَا فَعَلَ النُّغَيْرُ» (صحيح البخاري ٦٢٠٣).",
+          "refs": [
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the wording and attribution in Sahih al-Bukhari 6203.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The quote is verbatim Bukhari 6203 and the sentence correctly states the Prophet ﷺ said it to Abu Umair when he came, exactly as the hadith relates.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "437b3d03482d8ad3fc8c9ca305847f900b8e345a340dfc43378ce0837239152b",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        },
+        {
+          "text": "وقال أنس: «إِنْ كَانَ النَّبِيُّ صلى الله عليه وسلم لَيُخَالِطُنَا» (صحيح البخاري ٦١٢٩).",
+          "refs": [
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The quote is verbatim from Sahih al-Bukhari 6129 and correctly attributed to Anas ibn Malik.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The quote is the verbatim opening of Bukhari 6129 and is correctly attributed to Anas ibn Malik, who is the companion narrator of that hadith.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "242f0fb59bddf9dea9832cf7e94c0f28d9e23cff2a579250d5c33c61b5a6840e",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[3].text",
+      "refs": [
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "وربما حضرت الصلاة وهو ﷺ في بيتهم، فيأمر بالبساط الذي تحته فيُكنَس ويُرَشّ بالماء، ثم يقوم ويقومون خلفه، فيصلّي بهم.",
+          "refs": [
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence faithfully paraphrases the hadith's account of the Prophet leading them in prayer on the cleaned mat.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence follows the hadith closely; 'يُرشّ بالماء' is the ordinary dictionary meaning of the hadith's word 'يُنضَح' (to sprinkle with water) and adds no new fact.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "69d6dd62cda646bfe0cf880828903a0535857d501b4d14cc6fc888d2a56cdc09",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[4].text",
+      "refs": [
+        "bukhari:6038"
+      ],
+      "sentences": [
+        {
+          "text": "وقال أنس: «خَدَمْتُ النَّبِيَّ صلى الله عليه وسلم عَشْرَ سِنِينَ، فَمَا قَالَ لِي أُفٍّ، وَلاَ لِمَ صَنَعْتَ، وَلاَ أَلاَّ صَنَعْتَ» (صحيح البخاري ٦٠٣٨).",
+          "refs": [
+            "bukhari:6038"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence accurately attributes the verbatim hadith to Anas and matches the cited source.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The quote is the verbatim wording of Bukhari 6038 and is correctly attributed to Anas (رضي الله عنه), who narrates it in the hadith.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "146e2e5ef873405e1a51d537eb124825b694afd5a51b65ed2c769fade7918220",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[5].text",
+      "refs": [
+        "bukhari:6038",
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "وفي القصة أن النبيّ ﷺ كان يخالط أهل بيت أنس، ويسأل أبا عمير الصغير عن طائره، وأنه لم يقل لأنسٍ: أفٍّ، عشر سنين، ولم يعاتبه على ما صنع ولا على ما لم يصنع.",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is directly supported by Bukhari 6038, 6129, and 6203.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "Each claim matches the cited hadiths: mixing with Anas's household (6129), asking little Abu 'Umair about his bird (6129, 6203), and never saying 'uff' or rebuking Anas in ten years of service (6038).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "a0d073282df6ce6c4d2b40b014657ede6df8bb7521e4e85eaa839a67b5b5f37c",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.question",
+      "refs": [
+        "bukhari:6038",
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "أخوك الصغير أفسد لعبتك دون قصد.",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence addresses the child's own life and does not assert anything about the Prophet ﷺ or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a scenario addressed to the child about the child's own life today and asserts nothing about the Prophet ﷺ, Abu 'Umair, or the bird beyond what the sources contain.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "1efd31821dc58f26ed9bb0e6ff426adbd0b5c70bc5be6893d0b7984e41db4b19",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        },
+        {
+          "text": "ماذا تقول له؟",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a question addressed to the child and does not assert any unsupported fact about the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a question addressed to the child that asserts nothing about the story beyond what the sources state.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "ba2322367b0b19ed4d8bdcecff4c824849ac5f6580ad56e9c4cb9ef4b5b7a291",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.affirm",
+      "refs": [
+        "bukhari:6038",
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "أحسنت!",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is praise addressed to the child and does not assert anything about the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "General praise addressed to the child, asserting nothing about the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "234abdce2734374524a1d134bbd331b3f07c1715294f75dd62a41d0f5e977d6f",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        },
+        {
+          "text": "النبيّ ﷺ لم يقل لأنسٍ: أفٍّ، عشر سنين.",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches Anas's statement in Sahih al-Bukhari 6038 that he served the Prophet for ten years and the Prophet never said 'uff' to him.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly restates Bukhari 6038, where Anas says he served the Prophet ﷺ for ten years and he never said to him 'uff'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "f12c2b731d122a546dd3925ad47bc399664aac761f03efedd4a76eef4b039d25",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.nudge",
+      "refs": [
+        "bukhari:6038",
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "تذكّر كيف كان النبيّ ﷺ مع أنس وأخيه الصغير؟",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question only prompts recalling the Prophet's interactions with Anas and his young brother, which the cited hadiths describe.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "It is a gentle recall question to the child about the Prophet's ﷺ dealing with Anas and his little brother, both of whom appear in the cited hadiths, and it asserts no unsupported detail.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "3968b4eb29f7985979737bfae0c582132b67749f6993e1b4aebacab06f707146",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[0]",
+      "refs": [
+        "bukhari:6038",
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "أكلّمه برفق",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a general good-manners choice by the child, not a claim about the Prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The option is the child's own possible choice in today's life expressing a general good manner (gentle speech) and asserts no fact about the Prophet ﷺ or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "7ccf6fa2c00d06ceccc029634e992a7c29fec8fbf7ce0db50842c4e56bfd1f7a",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[1]",
+      "refs": [
+        "bukhari:6038",
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "أصرخ عليه",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "This is a child's possible choice in today's life and does not assert anything about the story or the Prophet ﷺ.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is the child's own possible life choice, asserting nothing about the Prophet ﷺ or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "735b8bd5c1e700b84b0e220a11bcf1a3585e3077c2318c4508c86bb4d3b2c88b",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[0]",
+      "refs": [
+        "bukhari:6038",
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا كان النبيّ ﷺ يقول لأبي عمير، وعمّ كان يسأله؟",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about what the Prophet ﷺ said to Abu Umayr and what he asked about, which is directly stated in the cited hadith.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question asks the child to recall what the sources explicitly state: the Prophet ﷺ said to Abu 'Umair «يا أبا عمير ما فعل النغير» (Bukhari 6129, 6203).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "4df3d33125078ce2e54162d57c0d27ae27c68c18ced73411f4228dabba056cea",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[1]",
+      "refs": [
+        "bukhari:6038",
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "كم سنةً خدم أنسٌ النبيَّ ﷺ، وماذا قال عنه؟",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about facts directly stated in Bukhari 6038: Anas served the Prophet for ten years and described his kind treatment.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "A question addressed to the child that only presupposes Anas served the Prophet ﷺ for some years and said something about him, both of which are directly in Bukhari 6038.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "e5d3f3decadb62860130295e0aa9ada90b3b8a7cea2fb12f94cde11482788980",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[2]",
+      "refs": [
+        "bukhari:6038",
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "كيف تعامل أخاك الصغير أو أختك الصغيرة؟",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a question to the child about their own behavior and does not assert anything about the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "A discussion question addressed to the child about their own life, asserting nothing about the Prophet ﷺ or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "071aa3cc585ac5acfcf6fc922940ae6a02fc46370e79ec29302cf01d097a4a1a",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "islamicValue",
+      "refs": [
+        "bukhari:6038",
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "قال أنس رضي الله عنه: «خَدَمْتُ النَّبِيَّ صلى الله عليه وسلم عَشْرَ سِنِينَ، فَمَا قَالَ لِي أُفٍّ، وَلاَ لِمَ صَنَعْتَ، وَلاَ أَلاَّ صَنَعْتَ» (صحيح البخاري ٦٠٣٨).",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The quote and its attribution to Anas match Bukhari 6038 exactly.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The quote is the verbatim wording of Bukhari 6038 correctly attributed to Anas (رضي الله عنه), with no added facts or framing.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "ef5a88e360a22b106cc67d26feef90592e7cd090bcb2b652a9127e4c1b6c77b3",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "actionChallenge",
+      "refs": [
+        "bukhari:6038",
+        "bukhari:6129",
+        "bukhari:6203"
+      ],
+      "sentences": [
+        {
+          "text": "اسأل أصغر واحد في بيتكم اليوم عن لعبته أو عن شيءٍ يحبّه، واسمع منه.",
+          "refs": [
+            "bukhari:6038",
+            "bukhari:6129",
+            "bukhari:6203"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a practical instruction to the child and does not assert any unsupported fact about the Prophet ﷺ or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is an instruction to the child in today's life, making no claim about the Prophet ﷺ, Abu 'Umair, or the story's events.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "c70850b9554466db182ad59141d8de6b164b52f0541115e0193fd817f4cc46ea",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    }
+  ]
+}

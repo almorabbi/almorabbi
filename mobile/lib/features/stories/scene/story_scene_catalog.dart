@@ -108,6 +108,14 @@ const _coverPage = <String, int>{
   'anbiya_ayyub_older': 4,
   'anbiya_zakariya_young': 2,
   'anbiya_zakariya_older': 1,
+  'sira_ghar_young': 1,
+  'sira_ghar_older': 2,
+  'sira_masjid_young': 3,
+  'sira_masjid_older': 4,
+  'sira_jidh_young': 2,
+  'sira_jidh_older': 3,
+  'sira_abu_umair_young': 1,
+  'sira_abu_umair_older': 1,
 };
 
 final Map<String, List<StoryScene>> _catalog = {
@@ -1187,4 +1195,128 @@ final Map<String, List<StoryScene>> _catalog = {
       _air('bird', .7, .44, .18),
     ]),
   ],
+
+  // ───── من السيرة النبوية (series: sira_sahih) ─────
+  // 🚨 No person in any of these scenes — the Prophet ﷺ and his companions are
+  // never drawn (tests pin it). Only the sky, palms, birds, a mosque's hall.
+
+  // صاحبا الغار
+  'sira_ghar_young': [
+    _gharTown,
+    _gharNight,
+    _gharMoon,
+    _gharDawn,
+  ],
+  'sira_ghar_older': [
+    _gharTown,
+    _gharNight,
+    _gharMoon,
+    _gharStars,
+    _gharStars,
+    _gharDawn,
+  ],
+  // بناء المسجد النبوي
+  'sira_masjid_young': [
+    _palms,
+    _palmsBird,
+    _palmsEvening,
+    _mosqueHall,
+  ],
+  'sira_masjid_older': [
+    _palms,
+    _gharTown,
+    _palmsBird,
+    _palmsEvening,
+    _mosqueHall,
+    _mosqueBirds,
+  ],
+  // الجذع الذي حنّ
+  'sira_jidh_young': [
+    _palms,
+    _mosqueHall,
+    _mosqueHall,
+    _mosqueHeart,
+  ],
+  'sira_jidh_older': [
+    _palms,
+    _mosqueHall,
+    _mosqueHall,
+    _mosqueHall,
+    _mosqueHeart,
+    _mosqueBirds,
+  ],
+  // أبو عمير وطائره الصغير
+  'sira_abu_umair_young': [
+    _yardBird,
+    _yardBird,
+    _palmsBird,
+    _yardEvening,
+  ],
+  'sira_abu_umair_older': [
+    _palmsBird,
+    _yardBird,
+    _yardBird,
+    _yardPlants,
+    _palms,
+    _yardEvening,
+  ],
 };
+
+// The Seerah season's scenes, shared by its stories (no person in any).
+final _gharTown = _s('bg_street', [
+  _air('cloud', .3, .5, .42, motion: SceneMotion.drift),
+  _air('cloud', .74, .42, .34, motion: SceneMotion.drift, phase: .5),
+]);
+final _gharNight = _s('bg_night_sky', [
+  _air('moon', .76, .56, .4, motion: SceneMotion.breathe),
+  _air('star', .26, .36, .14, motion: SceneMotion.twinkle),
+  _air('star', .48, .26, .1, motion: SceneMotion.twinkle, phase: .4),
+]);
+final _gharMoon = _s('bg_night_sky', [
+  _air('moon', .5, .5, .42, motion: SceneMotion.breathe),
+]);
+final _gharStars = _s('bg_night_sky', [
+  _air('star', .2, .3, .12, motion: SceneMotion.twinkle),
+  _air('star', .5, .22, .14, motion: SceneMotion.twinkle, phase: .3),
+  _air('star', .8, .34, .12, motion: SceneMotion.twinkle, phase: .6),
+]);
+final _gharDawn = _s('bg_garden_day', [
+  _air('sun', .74, .3, .3, motion: SceneMotion.breathe),
+  _air('bird', .3, .36, .16),
+  _air('bird', .44, .28, .12, phase: .5),
+]);
+final _palms = _s('bg_garden_day', [
+  _p('tree', .2, size: .95, depth: .2, motion: SceneMotion.sway),
+  _p('tree', .78, size: .85, depth: .3, motion: SceneMotion.sway, flip: true),
+]);
+final _palmsBird = _s('bg_garden_day', [
+  _p('tree', .22, size: .95, depth: .2, motion: SceneMotion.sway),
+  _air('bird', .7, .4, .18),
+]);
+final _palmsEvening = _s('bg_garden_evening', [
+  _p('tree', .74, size: .9, depth: .2, motion: SceneMotion.sway),
+  _p('bush', .24, size: .55, depth: .4),
+]);
+final _mosqueHall = _s('bg_mosque', [
+  _air('lantern', .5, .3, .2, motion: SceneMotion.breathe),
+]);
+final _mosqueHeart = _s('bg_mosque', [
+  _air('lantern', .5, .3, .2, motion: SceneMotion.breathe),
+  _air('heart', .7, .5, .16),
+]);
+final _mosqueBirds = _s('bg_mosque', [
+  _air('bird', .3, .3, .14),
+  _air('bird', .7, .26, .12, phase: .5),
+]);
+final _yardBird = _s('bg_garden_day', [
+  _p('plant', .2, y: 1, size: .5, depth: .7, motion: SceneMotion.sway),
+  _air('bird', .6, .56, .2),
+]);
+final _yardPlants = _s('bg_garden_day', [
+  _p('plant', .24, y: 1, size: .55, depth: .7, motion: SceneMotion.sway),
+  _p('flower', .7, size: .4, depth: .8, motion: SceneMotion.sway),
+]);
+final _yardEvening = _s('bg_garden_evening', [
+  _air('bird', .5, .44, .18),
+  _p('bush', .2, size: .55, depth: .4),
+]);

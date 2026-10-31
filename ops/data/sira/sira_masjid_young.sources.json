@@ -1,0 +1,661 @@
+{
+  "id": "sira_masjid_young",
+  "series": "sira_sahih",
+  "about": "مصادر القصة: الأحاديث من صحيح البخاري ومسلم بنصّها في الطبعة المثبّتة (fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784) — وهي التي بُني منها فهرس الصحيحين — والآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/sira_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py --series sira_sahih.",
+  "tafsir_source": null,
+  "content_sha256": "7498fb1e409edcea95c087d602f0053376cfb8b81102677ee1a34a0b1e6166e3",
+  "refs": [
+    "bukhari:428"
+  ],
+  "hadith": {
+    "bukhari:428": {
+      "book": "البخاري",
+      "number": 428,
+      "text": "حَدَّثَنَا مُسَدَّدٌ، قَالَ حَدَّثَنَا عَبْدُ الْوَارِثِ، عَنْ أَبِي التَّيَّاحِ، عَنْ أَنَسٍ، قَالَ قَدِمَ النَّبِيُّ صلى الله عليه وسلم الْمَدِينَةَ فَنَزَلَ أَعْلَى الْمَدِينَةِ، فِي حَىٍّ يُقَالُ لَهُمْ بَنُو عَمْرِو بْنِ عَوْفٍ‏.‏ فَأَقَامَ النَّبِيُّ صلى الله عليه وسلم فِيهِمْ أَرْبَعَ عَشْرَةَ لَيْلَةً، ثُمَّ أَرْسَلَ إِلَى بَنِي النَّجَّارِ فَجَاءُوا مُتَقَلِّدِي السُّيُوفِ، كَأَنِّي أَنْظُرُ إِلَى النَّبِيِّ صلى الله عليه وسلم عَلَى رَاحِلَتِهِ، وَأَبُو بَكْرٍ رِدْفُهُ، وَمَلأُ بَنِي النَّجَّارِ حَوْلَهُ، حَتَّى أَلْقَى بِفِنَاءِ أَبِي أَيُّوبَ، وَكَانَ يُحِبُّ أَنْ يُصَلِّيَ حَيْثُ أَدْرَكَتْهُ الصَّلاَةُ، وَيُصَلِّي فِي مَرَابِضِ الْغَنَمِ، وَأَنَّهُ أَمَرَ بِبِنَاءِ الْمَسْجِدِ، فَأَرْسَلَ إِلَى مَلإٍ مِنْ بَنِي النَّجَّارِ فَقَالَ ‏\"‏ يَا بَنِي النَّجَّارِ ثَامِنُونِي بِحَائِطِكُمْ هَذَا ‏\"‏‏.‏ قَالُوا لاَ وَاللَّهِ، لاَ نَطْلُبُ ثَمَنَهُ إِلاَّ إِلَى اللَّهِ‏.‏ فَقَالَ أَنَسٌ فَكَانَ فِيهِ مَا أَقُولُ لَكُمْ، قُبُورُ الْمُشْرِكِينَ، وَفِيهِ خَرِبٌ، وَفِيهِ نَخْلٌ، فَأَمَرَ النَّبِيُّ صلى الله عليه وسلم بِقُبُورِ الْمُشْرِكِينَ فَنُبِشَتْ، ثُمَّ بِالْخَرِبِ فَسُوِّيَتْ، وَبِالنَّخْلِ فَقُطِعَ، فَصَفُّوا النَّخْلَ قِبْلَةَ الْمَسْجِدِ، وَجَعَلُوا عِضَادَتَيْهِ الْحِجَارَةَ، وَجَعَلُوا يَنْقُلُونَ الصَّخْرَ، وَهُمْ يَرْتَجِزُونَ، وَالنَّبِيُّ صلى الله عليه وسلم مَعَهُمْ وَهُوَ يَقُولُ ‏\"‏ اللَّهُمَّ لاَ خَيْرَ إِلاَّ خَيْرُ الآخِرَهْ فَاغْفِرْ لِلأَنْصَارِ وَالْمُهَاجِرَهْ ‏\"‏",
+      "edition": "fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784",
+      "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784/editions/ara-bukhari/428.json",
+      "reference": {
+        "book": 8,
+        "hadith": 78
+      },
+      "fetched_at": "2026-10-30T12:51:38+00:00"
+    }
+  },
+  "verses": {},
+  "tafsir": {},
+  "tafsir_meta": {},
+  "fields": [
+    {
+      "path": "title",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "بناء المسجد النبوي",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The title matches the cited hadith's mention that the Prophet ordered the building of the mosque.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The hadith describes the Prophet ﷺ ordering and overseeing the building of the mosque, so this title directly matches the cited content.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "07ad05912d3eca2583ee76f9a8caaa1082e06366fb69d71fa4ae0b2d844826cf",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "قصة بناء المسجد حين قدم النبيّ ﷺ المدينة، كما رواها أنس رضي الله عنه في صحيح البخاري، بنصّ الحديث ورقمه.",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence accurately describes the given Sahih al-Bukhari hadith narrated by Anas about building the mosque when the Prophet arrived in Medina.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The hadith of Bukhari 428 is indeed narrated by Anas and states the Prophet's ﷺ arrival in Medina and his order to build the mosque; the rest merely describes the story's format.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "6b1729f66b570b2f9ef58e9c304a6e59ec1fb0dcd0b31811a4c14b6613d2ff89",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[0].text",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "قدم النبيُّ ﷺ المدينة، فنزل في أعلاها عند قومٍ يقال لهم بنو عمرو بن عوف.",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited hadith wording and meaning.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence closely matches Bukhari 428, which states the Prophet ﷺ arrived in Madinah and stayed in its upper part among a clan called Banu 'Amr ibn 'Awf; 'قوم' is a fair simplification of 'حي'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "44b916d0682be28d3ebeb31b05204c423216bc0dd1f260c6a8f3aa5b77d60de2",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[1].text",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "ثم نزل بفِناء دار أبي أيوب، وأمر ببناء المسجد، فقال لبني النجّار: «يَا بَنِي النَّجَّارِ ثَامِنُونِي بِحَائِطِكُمْ هَذَا» (صحيح البخاري ٤٢٨)، أي: بيعوني بستانكم هذا.",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The narration and quoted words match Sahih al-Bukhari 428, and the explanation is a plain-language paraphrase.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The alighting at Abu Ayyub's courtyard, the order to build the mosque, and the verbatim quote correctly attributed to the Prophet ﷺ addressing Banu'l-Najjar all match Bukhari 428, and «أي: بيعوني بستانكم هذا» is an ordinary plain-language gloss of «ثامنوني بحائطكم هذا».",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "870ae73477ff9591981f8817f82835f459e52337c0fbda6f15de0ad0e0fa4d8f",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[2].text",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "فقالوا: «لاَ وَاللَّهِ، لاَ نَطْلُبُ ثَمَنَهُ إِلاَّ إِلَى اللَّهِ» (صحيح البخاري ٤٢٨).",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The quoted words are verbatim in the cited hadith and correctly attributed to Bani al-Najjar.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The quote is verbatim from Bukhari 428 and is correctly attributed to Banu al-Najjar replying to the Prophet's ﷺ request to price their land.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "4a5b0345683b41c501d0bf28028e6c0d897f33a389fd944ec79d9fd48c39a080",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pages[3].text",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "فقُطع النخل وصُفّ قبلةً للمسجد، وجعلوا ينقلون الصخر، والنبيُّ ﷺ معهم يقول: «اللَّهُمَّ لاَ خَيْرَ إِلاَّ خَيْرُ الآخِرَهْ، فَاغْفِرْ لِلأَنْصَارِ وَالْمُهَاجِرَهْ» (صحيح البخاري ٤٢٨).",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence matches the cited hadith: the palm trees were cut and arranged as the mosque's qibla, they carried rocks, and the Prophet ﷺ said the quoted supplication.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence follows Bukhari 428 exactly: the palms were cut and lined toward the mosque's qibla, they carried the rocks, and the Prophet ﷺ was with them saying the verbatim quoted words.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "8c8aaa1b11b683f8fe26a71c30ae2fd20c722829ba581fc0c70bec3c066a944b",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.question",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "أعطى بنو النجّار بستانهم لا يطلبون ثمنه إلا من الله.",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The hadith states that Banu Najjar declined any worldly price for their garden and said they sought its reward only from Allah, which directly supports this paraphrase.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence directly matches Bukhari 428, where Banu al-Najjar said they would not seek the garden's price except from Allah, and 'بستان' is a plain rendering of 'حائط'.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "3f6eac86a0470511359d449b9275238c17aecb13d96293bff58bacee33b5bed9",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        },
+        {
+          "text": "وأنت، ماذا تفعل إذا احتاج أحدٌ شيئًا عندك؟",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question is addressed to the child about their own behavior and does not assert any fact about the Prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is a question addressed to the child about the child's own life and asserts no fact about the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "c9772007ffd15723cfd0d39c6f68055d3ea2014c086b395e95b7c5e08eab68a3",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.affirm",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "أحسنت!",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "It is a simple encouraging reply to the child and asserts nothing about the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The sentence is simple praise for the child's choice and asserts nothing about the Prophet ﷺ, the companions, or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "6b33f603e6c3b9e2c3cb6a4789d15581cb2bf07fb82f2ced6eca25b389553a63",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        },
+        {
+          "text": "هكذا فعل بنو النجّار حين احتاج المسجد أرضهم.",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The hadith states that Banu al-Najjar gave their land without seeking any price except from Allah when the Prophet asked for it to build the mosque.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The hadith states Banu al-Najjar gave their land for the Prophet's ﷺ mosque seeking its price only from Allah, which this reply accurately paraphrases.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "8f98b22afd1cfe9d913558eba25c91672c5d42ddb061650b533f2edae608dfa9",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.nudge",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا فعل بنو النجّار حين طلب النبيّ ﷺ بستانهم؟",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question refers only to the Prophet asking Banu Najjar for their garden, which is stated in the source.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question only presupposes that the Prophet ﷺ asked Banu al-Najjar for their garden, which matches Bukhari 428 («ثامنوني بحائطكم هذا»), with بستان being the ordinary meaning of حائط, and asks what they did, which the hadith answers.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "fab140eff7ac5c43110aadadfb2f6749e0be761a6e23985eec8af1f2f5cdfe88",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[0]",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "أعطيه وأشاركه",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence is a child's possible personal choice in today's life and does not assert anything about the Prophet or the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is the child's own possible choice in today's life and asserts nothing about the Prophet ﷺ or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "d9aee60d60b4aa5f7dff3324ec6afc84598ac4edee454acdd10dfe083e1ff8c9",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "pause.options[1]",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "أخفيه عنه",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "This is the child's own possible choice in today's life and does not assert anything unsupported about the story.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This is an answer option representing the child's own possible choice in daily life and asserts nothing about the Prophet ﷺ, his companions, or the story.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "145a1f17faee08cc99a6afbcbfef890cd7cc28e702b4e757121dcef4b26d2573",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[0]",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا أراد النبيّ ﷺ أن يبني في المدينة؟",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question presupposes that the Prophet ﷺ wanted to build something in Medina, which the hadith supports by stating he ordered the building of the mosque.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question only presupposes that the Prophet ﷺ wanted to build something in Medina, which the cited hadith directly states when it says he ordered the building of the mosque.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "2049357dc5a56e1f34e1c7e1abdd5b05d2e3c9090dd078256af33258739b5f00",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[1]",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا قال بنو النجّار حين طلب النبيّ ﷺ أن يشتري بستانهم؟",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The question asks about an exchange that is directly present in the cited hadith.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The question matches the hadith: the Prophet ﷺ asked Banu al-Najjar to price their garden («ثامنوني بحائطكم هذا»), and بستان is the ordinary meaning of حائط; the child is asked to recall their reply which is in the source.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "f99f1eeebbe4f76bdef4e07c90bb4c22aa60bc93a792279177112dca6aae8bf4",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "discussionQuestions[2]",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "ماذا كانوا ينقلون وهم يبنون المسجد؟",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The hadith states they were carrying rocks (الصخر) while building the mosque.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "This comprehension question only asks about what the hadith explicitly states: 'وجعلوا ينقلون الصخر' (they carried the rocks while building the mosque).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "64713971a64cef8073cfad9c1f2234dc4696d68d13248c5c69530e49cb053cb1",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "islamicValue",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "كان النبيّ ﷺ مع أصحابه وهم ينقلون الصخر، يقول: «اللَّهُمَّ لاَ خَيْرَ إِلاَّ خَيْرُ الآخِرَهْ، فَاغْفِرْ لِلأَنْصَارِ وَالْمُهَاجِرَهْ» (صحيح البخاري ٤٢٨).",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The sentence accurately matches the hadith: the Prophet was with those carrying rocks and said that supplication.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The hadith states the Prophet ﷺ was with those carrying the stones saying these exact words; 'his companions' is a fair simplification, and the quote is verbatim and correctly attributed.",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "70d76f3bf63f66572c163adb228dbce00216a40225a48ecf4153d0ee5f5ce013",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "actionChallenge",
+      "refs": [
+        "bukhari:428"
+      ],
+      "sentences": [
+        {
+          "text": "ساعد أهلك اليوم في عملٍ للبيت، كما كان النبيّ ﷺ مع أصحابه وهم يبنون المسجد.",
+          "refs": [
+            "bukhari:428"
+          ],
+          "fidelity": {
+            "verdict": "supported",
+            "reviews": {
+              "deepseek-v4-pro": {
+                "verdict": "supported",
+                "reason": "The instruction is a practical application, and the source states the Prophet was with his companions while they built the mosque.",
+                "unsupported_part": ""
+              },
+              "glm-5.2": {
+                "verdict": "supported",
+                "reason": "The instruction to the child is a general good-manner challenge, and the comparison matches the hadith, which states the companions were building/carrying rock while the Prophet ﷺ was with them (والنبي ﷺ معهم).",
+                "unsupported_part": ""
+              }
+            },
+            "sha": "c8ef28e01d5ce3a6a7f1c611f4eed3bd7feb2e585ad84df798386892e3aed517",
+            "date": "2026-10-30",
+            "reviewers": [
+              "deepseek-v4-pro",
+              "glm-5.2"
+            ],
+            "prompt_version": "4771ff7d36f5"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -14,6 +14,11 @@
 /// closed list of endings («فاطمة», "toys") — so «هر» catches «هراً» and
 /// «بالهر» but never «هرب». A word written `=word` matches exactly.
 ///
+/// A hadith's citation — «(صحيح البخاري ٦٢٠٣)», "(Sahih al-Bukhari 6203)" — is
+/// on the page but never said (mobile/tool/gen_story_narration.py, the same
+/// pattern): its words cue nothing, and the clock of its sentence runs over
+/// the spoken characters only.
+///
 /// Missing or broken data means fewer cues, never an error.
 library;
 
@@ -52,13 +57,17 @@ List<WordCue> wordCuesFor(
   ];
   final cues = <WordCue>[];
   final lastAt = <int, double>{};
+  final mute = unspokenRanges(text);
   for (final token in _word.allMatches(text)) {
+    if (mute.any((r) => token.start >= r.start && token.start < r.end)) {
+      continue;
+    }
     final candidates = _candidates(normalizeCueWord(token.group(0)!)).toList();
     for (var i = 0; i < stems.length; i++) {
       if (!candidates.any((c) => stems[i].any((s) => _matches(c, s)))) {
         continue;
       }
-      final at = _timeOf(token.start, timed);
+      final at = _timeOf(token.start, timed, mute);
       if (at == null) continue;
       final last = lastAt[i];
       if (last != null && at - last < minGap) continue;
@@ -108,10 +117,37 @@ bool _matches(String candidate, String stem) => stem.startsWith('=')
           (candidate.startsWith(stem) &&
               _endings.contains(candidate.substring(stem.length)));
 
-double? _timeOf(int c, List<NarrationSentence> sentences) {
+final _citation = RegExp(
+  r'\s*\(\s*(?:صحيح\s+(?:البخاري|مسلم)|Sahih\s+(?:al-)?(?:Bukhari|Muslim))[^()]*\)',
+  caseSensitive: false,
+);
+
+/// The character ranges of [text] the narrator does not say: hadith citations.
+List<({int start, int end})> unspokenRanges(String text) => [
+  for (final m in _citation.allMatches(text)) (start: m.start, end: m.end),
+];
+
+int _muted(int from, int to, List<({int start, int end})> mute) {
+  var n = 0;
+  for (final r in mute) {
+    final a = r.start < from ? from : r.start;
+    final b = r.end > to ? to : r.end;
+    if (b > a) n += b - a;
+  }
+  return n;
+}
+
+double? _timeOf(
+  int c,
+  List<NarrationSentence> sentences,
+  List<({int start, int end})> mute,
+) {
   for (final s in sentences) {
     if (c >= s.from && c < s.to) {
-      return s.start + (c - s.from) / (s.to - s.from) * (s.end - s.start);
+      final said = (s.to - s.from) - _muted(s.from, s.to, mute);
+      if (said <= 0) return s.start;
+      final before = (c - s.from) - _muted(s.from, c, mute);
+      return s.start + before / said * (s.end - s.start);
     }
   }
   return null;

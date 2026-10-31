@@ -331,5 +331,55 @@
         "on": "2026-10-26"
       }
     ]
+  },
+  "story:sira_masjid_young": {
+    "content_sha256": "044a85cd2fec69b1cbbee90ef61b7987b7692ba57a3dd1e51561277772160a22",
+    "overrides": [
+      {
+        "field": "pages[3].text",
+        "type": "hadith",
+        "reason": "The pinned edition (fawazahmed0 hadith-api df57907, the corpus of ops/data/hadith_index.json.gz) reads Sahih al-Bukhari 428 exactly «اللَّهُمَّ لاَ خَيْرَ إِلاَّ خَيْرُ الآخِرَهْ فَاغْفِرْ لِلأَنْصَارِ وَالْمُهَاجِرَهْ»; scripture_scan.sahihayn_holds('البخاري', 428, …) is True. «لا عيش إلا عيش الآخرة» is a different narration (located at Bukhari 2961), not a correction of 428.",
+        "by": "claude-opus-5.5 (Seerah season 2 en-parity adjudication, verified against the pinned corpus)",
+        "on": "2026-10-30"
+      },
+      {
+        "field": "islamicValue",
+        "type": "hadith",
+        "reason": "The pinned edition (fawazahmed0 hadith-api df57907, the corpus of ops/data/hadith_index.json.gz) reads Sahih al-Bukhari 428 exactly «اللَّهُمَّ لاَ خَيْرَ إِلاَّ خَيْرُ الآخِرَهْ فَاغْفِرْ لِلأَنْصَارِ وَالْمُهَاجِرَهْ»; scripture_scan.sahihayn_holds('البخاري', 428, …) is True. «لا عيش إلا عيش الآخرة» is a different narration (located at Bukhari 2961), not a correction of 428.",
+        "by": "claude-opus-5.5 (Seerah season 2 en-parity adjudication, verified against the pinned corpus)",
+        "on": "2026-10-30"
+      }
+    ]
+  },
+  "story:sira_masjid_older": {
+    "content_sha256": "f7cc51351f9a3f034c2a2010db0310b7cb77cb766f8779e14480b609d1bf2599",
+    "overrides": [
+      {
+        "field": "pages[4].text",
+        "type": "hadith",
+        "reason": "The pinned edition (fawazahmed0 hadith-api df57907, the corpus of ops/data/hadith_index.json.gz) reads Sahih al-Bukhari 428 exactly «اللَّهُمَّ لاَ خَيْرَ إِلاَّ خَيْرُ الآخِرَهْ فَاغْفِرْ لِلأَنْصَارِ وَالْمُهَاجِرَهْ»; scripture_scan.sahihayn_holds('البخاري', 428, …) is True. «لا عيش إلا عيش الآخرة» is a different narration (located at Bukhari 2961), not a correction of 428.",
+        "by": "claude-opus-5.5 (Seerah season 2 en-parity adjudication, verified against the pinned corpus)",
+        "on": "2026-10-30"
+      },
+      {
+        "field": "actionChallenge",
+        "type": "source_corruption",
+        "reason": "«شارك أهلك أو أصدقاءك»: أصدقاءَك is the object (accusative), so the hamza stays on the line after the alif; «أصدقائك» would be the genitive. Correct as written.",
+        "by": "claude-opus-5.5 (Seerah season 2 en-parity adjudication, verified against the pinned corpus)",
+        "on": "2026-10-30"
+      }
+    ]
+  },
+  "story:sira_abu_umair_older": {
+    "content_sha256": "883f1e5b03eb96bc845290e265f6cc97b3e9feae35243011cfd07796078f56c8",
+    "overrides": [
+      {
+        "field": "islamicValue",
+        "type": "source_corruption",
+        "reason": "The pinned edition reads Sahih al-Bukhari 6038 «وَلاَ أَلاَّ صَنَعْتَ» with the shadda; ألّا here is the particle of reproach/urging (= هلّا, 'why did you not'), which is exactly the meaning the reviewer asks for. The quote is verbatim (sahihayn_holds('البخاري', 6038, …) is True).",
+        "by": "claude-opus-5.5 (Seerah season 2 en-parity adjudication, verified against the pinned corpus)",
+        "on": "2026-10-30"
+      }
+    ]
   }
 }

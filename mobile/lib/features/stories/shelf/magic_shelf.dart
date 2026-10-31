@@ -27,9 +27,6 @@ import '../living/living_picture.dart' show livingImage;
 import '../living/living_picture_catalog.dart'
     show livingCoverFor, livingPictureFor;
 
-/// The Seerah stories' series tag (season 2).
-const kSiraSeries = 'sira_sahih';
-
 enum ShelfKind { prophets, seerah, tales }
 
 ShelfKind shelfOf(Story s) => switch (s.series) {

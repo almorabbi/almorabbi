@@ -2137,7 +2137,7 @@
   "@storyProphetsTitle": {"description": "Story shelf: heading of the Qur'anic prophets' stories section, above the main shelf."},
   "storyProphetsSubtitle": "From the verses of the Qur'an and their Muyassar tafsir — no pictures of the prophets.",
   "storyShelfSeerah": "From the Seerah",
-  "storyShelfSeerahSubtitle": "From the Qur'an and the two Sahihs, each hadith in its words with its number — no pictures of the Prophet ﷺ or the Companions.",
+  "storyShelfSeerahSubtitle": "From the Qur'an and Sahih al-Bukhari and Sahih Muslim, each hadith in its words with its number — no pictures of the Prophet ﷺ or the Companions.",
   "storyShelfTales": "Tales and manners",
   "@storyProphetsSubtitle": {"description": "Story shelf: one line under the prophets' section heading — the stories come from the verses and the Muyassar tafsir, and no prophet is pictured."},
   "storyGoodNight": "Good night",

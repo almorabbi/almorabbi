@@ -187,7 +187,9 @@ void main() {
     });
 
     test('a delivered reward is never overdue', () async {
-      final old = DateTime.now().subtract(const Duration(days: 30)).toIso8601String();
+      // 45, not 30: on the 31st, «30 days ago» is the 1st of this same month
+      // and deliveredThisMonth counted it (failed on 2026-10-31).
+      final old = DateTime.now().subtract(const Duration(days: 45)).toIso8601String();
       SharedPreferences.setMockInitialValues({
         'covenant.list.1':
             '[{"id":"c1","title":"حديقة","cost":100,"isRedeemed":true,"isDelivered":true,"redeemedAt":"$old"}]',
