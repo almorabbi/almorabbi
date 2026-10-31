@@ -199,6 +199,14 @@ class _AuthStore {
   /// secure copy is missing or unreadable — see [getOrCreateDeviceId].
   static const _kDeviceIdBackup = 'tg_device_id_backup';
 
+  /// The device's restore key (backend services/restore_keys.py), stored as
+  /// "<device id> <key>" in plain SharedPreferences — beside
+  /// [_kDeviceIdBackup], so the phone backup that restores the id restores
+  /// the key with it (backup_rules.xml keeps FlutterSharedPreferences.xml).
+  /// A reinstall then proves it is this device at the mint, where the id
+  /// alone no longer will once the server closes bare mints.
+  static const _kRestoreKey = 'tg_device_restore_key';
+
   /// The token an account DELETE was sent with (MOBILE_API §10). Not part of
   /// the session: "new conversation" and the 401 handlers clear the session,
   /// and this token is the only way to send the same DELETE again when its
@@ -275,6 +283,39 @@ class _AuthStore {
     }
   }
 
+  /// The restore key saved for [deviceId], or null (none, or one saved for
+  /// another id this install was before).
+  Future<String?> readRestoreKey(String deviceId) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final v = prefs.getString(_kRestoreKey);
+      if (v == null) return null;
+      final space = v.indexOf(' ');
+      if (space <= 0 || v.substring(0, space) != deviceId) return null;
+      final key = v.substring(space + 1);
+      return key.startsWith('tgr_') ? key : null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  Future<void> writeRestoreKey(String deviceId, String key) async {
+    if (!isValidDeviceId(deviceId) || !key.startsWith('tgr_')) return;
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString(_kRestoreKey, '$deviceId $key');
+    } catch (_) {
+      // Best effort: the next launch asks again.
+    }
+  }
+
+  Future<void> clearRestoreKey() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove(_kRestoreKey);
+    } catch (_) {}
+  }
+
   Future<void> _safeDelete(String key) async {
     try {
       await _storage.delete(key: key);
@@ -345,6 +386,7 @@ class _AuthStore {
     await _safeWrite(_kDeviceId, id);
     await _writeDeviceIdBackup(id);
     await _claim.replace(id);
+    await clearRestoreKey(); // it proved the device this install was before
   }
 
   Future<void> setSession({required String sessionId, required String token}) async {
@@ -455,6 +497,7 @@ class _AuthStore {
         await _safeDelete(key);
       }
     }
+    await clearRestoreKey(); // the erased account's key opens nothing anyway
     final fresh = _uuid.v4();
     _cachedDeviceId = fresh;
     _deviceIdLoad = Future.value(fresh);
@@ -664,12 +707,18 @@ class TgClient {
       'metadata': ?metadata,
     });
     final build = appBuild;
+    // A reinstall restored from a phone backup has the id and its restore
+    // key but no token: the key proves the device (sent only when there is
+    // no token to send — the token decides when there is one).
+    final restoreKey = await _auth.readRestoreKey(deviceId);
     Future<http.Response> post(String? proof) => _raw
         .post(
           Uri.parse('$_baseUrl/api/chat/sessions'),
           headers: {
             'Content-Type': 'application/json; charset=utf-8',
             if (proof != null && proof.isNotEmpty) 'Authorization': 'Bearer $proof',
+            if ((proof == null || proof.isEmpty) && restoreKey != null)
+              'X-Device-Restore': restoreKey,
             // "I handle 410 device_erased" (MOBILE_API §3.2): the Android
             // versionCode, on every mint.
             'X-App-Build': ?build?.toString(),
@@ -707,7 +756,48 @@ class TgClient {
     if (minted != null && minted.isNotEmpty && minted != deviceId) {
       await _auth.adoptDeviceId(minted);
     }
+    unawaited(ensureRestoreKey());
     return parsed;
+  }
+
+  /// Whether the server refused this install a restore key (its session was
+  /// minted bare). Not asked again until the next process.
+  bool _restoreKeyRefused = false;
+  bool _restoreKeyChecked = false;
+  Future<void>? _restoreKeyFetch;
+
+  /// Make sure this install holds its device's restore key (see
+  /// [_AuthStore.readRestoreKey]): asked once when it has none. Never throws.
+  Future<void> ensureRestoreKey() =>
+      _restoreKeyFetch ??= _fetchRestoreKey().whenComplete(() => _restoreKeyFetch = null);
+
+  Future<void> _fetchRestoreKey() async {
+    if (_restoreKeyRefused) return;
+    try {
+      final deviceId = await _auth.getOrCreateDeviceId();
+      if (await _auth.readRestoreKey(deviceId) != null) {
+        _restoreKeyChecked = true;
+        return;
+      }
+      final (_, tok) = await _auth.readSession();
+      if (tok == null) return;
+      final resp = await _raw
+          .post(Uri.parse('$_baseUrl/api/chat/restore-key'), headers: _authHeaders(tok))
+          .timeout(AppConfig.httpTimeout);
+      if (resp.statusCode == 200) {
+        final key = (jsonDecode(utf8.decode(resp.bodyBytes)) as Map<String, dynamic>)['restore_key'];
+        // The device may have changed under the request (a re-attached twin):
+        // keep the key only for the id it was asked for.
+        if (key is String && deviceId == await _auth.getOrCreateDeviceId()) {
+          await _auth.writeRestoreKey(deviceId, key);
+          _restoreKeyChecked = true;
+        }
+      } else if (resp.statusCode == 403) {
+        _restoreKeyRefused = true;
+      }
+    } catch (_) {
+      // Offline or a server without the route: the next session asks again.
+    }
   }
 
   /// Stream an assistant reply over Server-Sent Events. Yields:
@@ -1089,6 +1179,9 @@ class TgClient {
   Future<SessionResponse> ensureSession() async {
     final (sid, tok) = await _auth.readSession();
     if (sid != null && tok != null) {
+      // Installs from before restore keys hold a long-lived session and
+      // rarely mint: they ask on their first session use of a launch.
+      if (!_restoreKeyChecked && !_restoreKeyRefused) unawaited(ensureRestoreKey());
       return SessionResponse(sessionId: sid, token: tok);
     }
     return _mintOnce();

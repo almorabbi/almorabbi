@@ -120,8 +120,14 @@ def _upsert_push_token(conn, device_id, token, platform, app_version, build_numb
             (device_id, token, platform, app_version, build_number,
              1 if vouched else 0, 1 if first else 0),
         )
-        if changed and not vouched and old is not None:
-            device_alerts.queue(conn, device_id, old)        # a dead token hears nothing
+        if changed and not vouched:
+            # Whoever holds the phone now is not who confirmed its Google link:
+            # the link stays, but carries no data until a proven session
+            # re-confirms it (routers/identity.py _link_confirmable).
+            from app.routers.identity import unconfirm_device_links
+            unconfirm_device_links(conn, device_id)
+            if old is not None:
+                device_alerts.queue(conn, device_id, old)    # a dead token hears nothing
         conn.commit()
     except Exception:
         conn.rollback()

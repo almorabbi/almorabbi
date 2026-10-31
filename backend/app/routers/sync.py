@@ -81,15 +81,22 @@ def download_backup(request: Request):  # sync on purpose: sqlite work runs in t
         # the linked Google account. (Previously the device's own backup was
         # returned even when a sibling device had uploaded a newer one, so a
         # re-linking device could restore a stale copy forever.)
+        # Another phone's backup only through a CONFIRMED link, and only while
+        # links may carry data between phones at all (routers/identity.py
+        # cross_device_enabled): an unconfirmed link is anyone who held a
+        # session for the device id when it was made.
+        from app.routers.identity import cross_device_enabled
+        across = cross_device_enabled()
         row = conn.execute(
             """
             SELECT salt, nonce, payload, updated_at FROM user_backups
             WHERE device_id = ?
-               OR (google_id IS NOT NULL AND google_id =
-                     (SELECT google_id FROM identity_links WHERE device_id = ?))
+               OR (? AND google_id IS NOT NULL AND google_id =
+                     (SELECT google_id FROM identity_links
+                      WHERE device_id = ? AND COALESCE(confirmed, 0) = 1))
             ORDER BY updated_at DESC LIMIT 1
             """,
-            (device_id, device_id),
+            (device_id, 1 if across else 0, device_id),
         ).fetchone()
 
         if not row:

@@ -196,6 +196,25 @@ Two independent defects:
   - Logs and the Telegram feedback alert carry `device_tag(id)` (a sha256 prefix) instead of the raw id (`chat.py`, `sync.py`, `push_sender.py`, `feedback.py`).
 - **Operational note:** after v28, rolling back the *image* without the data leaves stored hashes the old code cannot match — every install re-mints its session (chat recovers automatically; old builds may show one error elsewhere). Restore the pre-deploy backup that `deploy.yml` step 3d takes if a full rollback is needed.
 - **Still open 📋:** flip `SESSION_MINT_ENFORCE` once the forced-update floor is ≥ 106.
+- **Restore-key pass (schema v37, 2026-10-31):** enforcing as written would have
+  locked out every reinstall: the phone backup restores the device id
+  (`tg_device_id_backup`) but never the token, so a reinstall got its family
+  back through the very bare mint H5 is about. Now:
+  - a restore key (`services/restore_keys.py`, `POST /api/chat/restore-key`) is
+    kept beside the backed-up id and proves the device at the mint
+    (`X-Device-Restore`); only `sha256` is stored, and a bare session gets none;
+  - every token records `mint_kind` (new / proof / restore / bare); a proof
+    that was itself bare stays bare;
+  - under `SESSION_MINT_ENFORCE` a bare mint becomes a new, empty device for
+    builds ≥ 117 (they adopt the answered id) instead of a 401 that would leave
+    the app with no session;
+  - the Google-link takeover (security review of PR #175) is closed: a bare
+    session cannot confirm, a first push token on an established device waits
+    out its pause, an unvouched token change unconfirms, and what a parent
+    deleted is not merged back (`services/merge_tombstones.py`).
+- **Still open 📋 (replaces the line above):** ship 1.0.77 (it asks for the key),
+  watch `ops/tools/bare_mint_readiness.py`, then set `SESSION_MINT_ENFORCE` and
+  `IDENTITY_CROSS_DEVICE` together.
 
 ### H6 — Threadpool starvation under concurrent streams ✅
 - Each SSE stream runs `run_sync_stream` in the **default** executor for its whole duration. On a 2-CPU container that pool has about 6 workers.
