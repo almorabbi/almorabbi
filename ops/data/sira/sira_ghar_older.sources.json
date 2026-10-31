@@ -3,7 +3,7 @@
   "series": "sira_sahih",
   "about": "مصادر القصة: الأحاديث من صحيح البخاري ومسلم بنصّها في الطبعة المثبّتة (fawazahmed0/hadith-api@df57907be35291c91ad6a6691180e22ca9920784) — وهي التي بُني منها فهرس الصحيحين — والآيات من mobile/assets/data/quran.json، والتفسير الميسّر (مجمع الملك فهد) عبر Tafsir MCP. كتبته ops/tools/sira_sources.py — جلب للقراءة فقط، لا توليد نص. والحكم لكل جملة من anbiya_fidelity.py --series sira_sahih.",
   "tafsir_source": "moyassar",
-  "content_sha256": "13eebd6ad7bb731272fbf175b29cef9337949201069158266da425f304118bae",
+  "content_sha256": "f0dc1a792a45327d13f4b19d4e07c5ffc9e88fc13a8da2739b5e0e3af9d2b4a3",
   "refs": [
     "9:40",
     "bukhari:3653",
@@ -131,7 +131,7 @@
       ],
       "sentences": [
         {
-          "text": "أخرج كفّارُ قريش النبيَّ ﷺ من بلده مكة، فخرج ومعه صاحبُه أبو بكر الصدّيق رضي الله عنه، فكان ﷺ ﴿ثَانِيَ ٱثۡنَيۡنِ﴾.",
+          "text": "أخرج كفّارُ قريش النبيَّ ﷺ من بلده مكة، فخرج ومعه صاحبُه أبو بكر الصدّيق رضي الله عنه.",
           "refs": [
             "9:40"
           ],
@@ -140,17 +140,17 @@
             "reviews": {
               "deepseek-v4-pro": {
                 "verdict": "supported",
-                "reason": "The sentence matches the cited verse and tafsir: Quraysh disbelievers expelled the Prophet from Mecca, and he was with Abu Bakr as the second of two.",
+                "reason": "The tafsir of verse 9:40 states that the disbelievers of Quraysh expelled him from Mecca and that he was the second of two, he and Abu Bakr al-Siddiq.",
                 "unsupported_part": ""
               },
               "glm-5.2": {
                 "verdict": "supported",
-                "reason": "Every element is stated in the cited tafsir: Quraysh's disbelievers drove him out of his town Mecca, he was second of two, and his companion is identified as Abu Bakr al-Siddiq; the quoted phrase is the verbatim verse.",
+                "reason": "The tafsir of 9:40 explicitly states the Quraysh disbelievers drove him out of his town Mecca, second of two, he and Abu Bakr al-Siddiq, and the verse calls Abu Bakr his companion.",
                 "unsupported_part": ""
               }
             },
-            "sha": "4655f691abcfd63c9f5c316b8f4713559c8661da7205adeb3b79d26dd5c1e888",
-            "date": "2026-10-30",
+            "sha": "e3ae9e71f878ac9bb46d8642cd7e277ce96e227e78fc28d3c15fb12d9173de41",
+            "date": "2026-10-31",
             "reviewers": [
               "deepseek-v4-pro",
               "glm-5.2"

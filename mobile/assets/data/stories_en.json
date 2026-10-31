@@ -4783,7 +4783,7 @@
     "pages": [
       {
         "pageNumber": 1,
-        "text": "The disbelievers of Quraysh drove the Prophet ﷺ out of his town, Makkah, and he set out with his companion Abu Bakr as-Siddiq (may Allah be pleased with him). So he ﷺ was ﴿ثَانِيَ ٱثۡنَيۡنِ﴾ — interpretation of the meaning: 'the second of two'.",
+        "text": "The disbelievers of Quraysh drove the Prophet ﷺ out of his town, Makkah, and he set out with his companion Abu Bakr as-Siddiq (may Allah be pleased with him).",
         "image": "docs/stories/sira_ghar_older_1.png"
       },
       {
@@ -4852,7 +4852,7 @@
         "claude-opus-5.5"
       ],
       "manual_fix_note": "Written by hand (claude-opus-5.5) from the Arabic and its sources: each hadith rendered literally with its citation (Sahih al-Bukhari N), the verse kept in Arabic with an interpretation of the meaning from al-Muyassar. translate_stories.py was not used: the Ollama Cloud quota it runs on was exhausted (2026-10-30).",
-      "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-30",
+      "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-31",
       "auto_review": {
         "reviewers": [
           "deepseek-v4-pro",
@@ -4871,14 +4871,14 @@
         "fixer": null,
         "rounds": 1,
         "prompt_version": "dfa8a5f39718",
-        "content_sha256": "8ff6e03f74747ecd274e3ca2ac80e617e42eaf65a3a2d1e112686e488888fb11",
-        "reviewed_at": "2026-10-30T17:20:57+00:00",
+        "content_sha256": "a69b3efc094c86b20dcbe413ed306c9f74b4202d9dec647f29a77a7def3a4a96",
+        "reviewed_at": "2026-10-31T04:39:26+00:00",
         "residual_low": [],
         "adjudicated": [],
         "tool": "ops/tools/review_en_parity.py",
         "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
       },
-      "revalidated_at": "2026-10-30T17:20:57+00:00"
+      "revalidated_at": "2026-10-31T04:39:26+00:00"
     }
   },
   {
