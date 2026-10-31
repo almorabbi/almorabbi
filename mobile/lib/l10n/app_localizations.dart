@@ -10820,6 +10820,24 @@ abstract class AppLocalizations {
   /// **'من آيات القرآن وتفسيرها الميسّر — بلا صور للأنبياء.'**
   String get storyProphetsSubtitle;
 
+  /// No description provided for @storyShelfSeerah.
+  ///
+  /// In ar, this message translates to:
+  /// **'من السيرة النبوية'**
+  String get storyShelfSeerah;
+
+  /// No description provided for @storyShelfSeerahSubtitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'من القرآن والصحيحين بنصّ الحديث ورقمه — بلا صور للنبي ﷺ ولا للصحابة.'**
+  String get storyShelfSeerahSubtitle;
+
+  /// No description provided for @storyShelfTales.
+  ///
+  /// In ar, this message translates to:
+  /// **'حكايات وآداب'**
+  String get storyShelfTales;
+
   /// Closing button of the bedtime adhkar when opened on its own from a story's end.
   ///
   /// In ar, this message translates to:

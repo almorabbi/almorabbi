@@ -51,6 +51,7 @@ import '../data/story_models.dart';
 import '../providers/progress_providers.dart';
 import '../services/bedtime_audio_service.dart';
 import '../widgets/next_step_sheet.dart';
+import '../../stories/shelf/read_stories.dart';
 
 /// Text sizes the reader cycles through, on top of the system's own scale.
 const kStoryTextSizes = [1.0, 1.18, 1.36];
@@ -306,6 +307,7 @@ class StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
     } else if (l is EndLeaf && !_finished) {
       _finished = true;
       _event('story_finished', page: _lastPage);
+      unawaited(ReadStories.markFinished(widget.story.id));
     }
     _clockLeaf = null;
     _clock.value = Duration.zero;

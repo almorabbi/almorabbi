@@ -6397,6 +6397,16 @@ class AppLocalizationsAr extends AppLocalizations {
       'من آيات القرآن وتفسيرها الميسّر — بلا صور للأنبياء.';
 
   @override
+  String get storyShelfSeerah => 'من السيرة النبوية';
+
+  @override
+  String get storyShelfSeerahSubtitle =>
+      'من القرآن والصحيحين بنصّ الحديث ورقمه — بلا صور للنبي ﷺ ولا للصحابة.';
+
+  @override
+  String get storyShelfTales => 'حكايات وآداب';
+
+  @override
   String get storyGoodNight => 'تصبحون على خير';
 
   @override

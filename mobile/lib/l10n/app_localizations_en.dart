@@ -6451,6 +6451,16 @@ class AppLocalizationsEn extends AppLocalizations {
       'From the verses of the Qur\'an and their Muyassar tafsir — no pictures of the prophets.';
 
   @override
+  String get storyShelfSeerah => 'From the Seerah';
+
+  @override
+  String get storyShelfSeerahSubtitle =>
+      'From the Qur\'an and the two Sahihs, each hadith in its words with its number — no pictures of the Prophet ﷺ or the Companions.';
+
+  @override
+  String get storyShelfTales => 'Tales and manners';
+
+  @override
   String get storyGoodNight => 'Good night';
 
   @override
