@@ -1,0 +1,66 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/sira_jidh_young_p1.m4a",
+      "text": "The roof of the mosque stood on trunks of palm trees, and when the Prophet ﷺ gave a sermon, he would stand by one of those trunks.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 130,
+          "start": 0.0,
+          "end": 9.36
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_jidh_young_p2.m4a",
+      "text": "A woman of the Ansar, or a man, said: “O Messenger of Allah, shall we not make a minbar for you?” He said: “If you wish.” (Sahih al-Bukhari 3584)",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 97,
+          "start": 0.0,
+          "end": 6.32
+        },
+        {
+          "from": 98,
+          "to": 121,
+          "start": 6.77,
+          "end": 8.739
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_jidh_young_p3.m4a",
+      "text": "So they made a minbar for him. When Friday came and he ﷺ moved to the minbar, the trunk cried out like a little child.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 30,
+          "start": 0.0,
+          "end": 2.24
+        },
+        {
+          "from": 31,
+          "to": 118,
+          "start": 2.69,
+          "end": 10.418
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_jidh_young_p4.m4a",
+      "text": "The Prophet ﷺ came down and held it close to him, and it moaned like a little child being hushed; and he said: “It was crying for the remembrance it used to hear near it.” (Sahih al-Bukhari 3584)",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 171,
+          "start": 0.0,
+          "end": 12.04
+        }
+      ]
+    }
+  ]
+}

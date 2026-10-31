@@ -1,0 +1,84 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/sira_ghar_older_p1.m4a",
+      "text": "The disbelievers of Quraysh drove the Prophet ﷺ out of his town, Makkah, and he set out with his companion Abu Bakr as-Siddiq (may Allah be pleased with him).",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 158,
+          "start": 0.0,
+          "end": 12.051
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_ghar_older_p2.m4a",
+      "text": "The two of them took refuge in a cave in the mountain of Thawr in Makkah, and they stayed there for three nights.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 113,
+          "start": 0.0,
+          "end": 6.286
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_ghar_older_p3.m4a",
+      "text": "Abu Bakr was afraid for the Prophet ﷺ, and while the two of them were in the cave he said: “If one of them were to look down beneath his feet, he would see us.” (Sahih al-Bukhari 3653)",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 160,
+          "start": 0.0,
+          "end": 11.12
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_ghar_older_p4.m4a",
+      "text": "The Prophet ﷺ said to him: “O Abu Bakr, what do you think of two, the third of whom is Allah?” (Sahih al-Bukhari 3653)",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 94,
+          "start": 0.0,
+          "end": 8.104
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_ghar_older_p5.m4a",
+      "text": "Allah mentioned this in the Qur'an: ﴿إِذۡ هُمَا فِي ٱلۡغَارِ إِذۡ يَقُولُ لِصَٰحِبِهِۦ لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ فَأَنزَلَ ٱللَّهُ سَكِينَتَهُۥ عَلَيۡهِ﴾ — interpretation of the meaning: 'when the two of them were in the cave, when he said to his companion: Do not grieve; Allah is with us. Then Allah sent down His tranquillity upon him' — that is, He sent down calm into the heart of His Messenger ﷺ, and saved him from his enemy.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 300,
+          "start": 0.0,
+          "end": 31.22
+        },
+        {
+          "from": 301,
+          "to": 442,
+          "start": 31.67,
+          "end": 42.191
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_ghar_older_p6.m4a",
+      "text": "In this story, Allah was with His Prophet and his companion with His help and support; and in it is a great honour for Abu Bakr as-Siddiq (may Allah be pleased with him), the companion of the Prophet ﷺ in the cave.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 214,
+          "start": 0.0,
+          "end": 15.242
+        }
+      ]
+    }
+  ]
+}

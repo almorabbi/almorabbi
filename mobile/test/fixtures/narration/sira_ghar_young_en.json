@@ -1,0 +1,60 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/sira_ghar_young_p1.m4a",
+      "text": "The disbelievers of Quraysh drove the Prophet ﷺ out of his town, Makkah, and he set out with his companion Abu Bakr as-Siddiq (may Allah be pleased with him).",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 158,
+          "start": 0.0,
+          "end": 11.983
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_ghar_young_p2.m4a",
+      "text": "The two of them took refuge in a cave in the mountain of Thawr, and they stayed there for three nights.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 103,
+          "start": 0.0,
+          "end": 5.735
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_ghar_young_p3.m4a",
+      "text": "Abu Bakr was afraid for the Prophet ﷺ, and he said: “If one of them were to look down beneath his feet, he would see us.” (Sahih al-Bukhari 3653)",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 121,
+          "start": 0.0,
+          "end": 8.614
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_ghar_young_p4.m4a",
+      "text": "The Prophet ﷺ said to him: ﴿لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ﴾ — interpretation of the meaning: 'Do not grieve; Allah is with us.' And Allah sent down tranquillity into the heart of His Prophet, and saved him from his enemy.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 132,
+          "start": 0.0,
+          "end": 15.159
+        },
+        {
+          "from": 133,
+          "to": 226,
+          "start": 15.609,
+          "end": 21.828
+        }
+      ]
+    }
+  ]
+}

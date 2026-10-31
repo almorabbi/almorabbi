@@ -1,0 +1,60 @@
+{
+  "voice": "gemini-3.8-flash-tts/Algieba",
+  "language": "ar",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/ar/sira_ghar_young_p1.m4a",
+      "text": "أخرج كفّارُ قريش النبيَّ ﷺ من بلده مكة، فخرج ومعه صاحبُه أبو بكر الصدّيق رضي الله عنه.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 86,
+          "start": 0.0,
+          "end": 11.722
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_ghar_young_p2.m4a",
+      "text": "ولجأ الاثنان إلى غارٍ في جبل ثور، فمكثا فيه ثلاث ليال.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 54,
+          "start": 0.0,
+          "end": 8.081
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_ghar_young_p3.m4a",
+      "text": "وخاف أبو بكر على النبيّ ﷺ، فقال: «لَوْ أَنَّ أَحَدَهُمْ نَظَرَ تَحْتَ قَدَمَيْهِ لأَبْصَرَنَا» (صحيح البخاري ٣٦٥٣).",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 115,
+          "start": 0.0,
+          "end": 12.412
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_ghar_young_p4.m4a",
+      "text": "فقال له النبيّ ﷺ: ﴿لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ﴾. فأنزل اللهُ الطمأنينة في قلب نبيّه، وأنجاه من عدوّه.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 56,
+          "start": 0.0,
+          "end": 10.322
+        },
+        {
+          "from": 57,
+          "to": 109,
+          "start": 10.772,
+          "end": 18.123
+        }
+      ]
+    }
+  ]
+}

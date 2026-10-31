@@ -1,0 +1,54 @@
+{
+  "voice": "gemini-3.8-flash-tts/Algieba",
+  "language": "ar",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/ar/sira_abu_umair_young_p1.m4a",
+      "text": "كان لأنس بن مالك رضي الله عنه أخٌ صغير يقال له أبو عمير، وكان عنده نُغَرٌ يلعب به، وهو طائرٌ صغير.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 98,
+          "start": 0.0,
+          "end": 12.336
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_abu_umair_young_p2.m4a",
+      "text": "وكان النبيُّ ﷺ إذا جاء قال له: «يَا أَبَا عُمَيْرٍ مَا فَعَلَ النُّغَيْرُ» (صحيح البخاري ٦٢٠٣)، يسأله عن طائره الصغير.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 118,
+          "start": 0.0,
+          "end": 13.61
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_abu_umair_young_p3.m4a",
+      "text": "وقال أنس: «كَانَ النَّبِيُّ صلى الله عليه وسلم أَحْسَنَ النَّاسِ خُلُقًا» (صحيح البخاري ٦٢٠٣).",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 94,
+          "start": 0.0,
+          "end": 8.578
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_abu_umair_young_p4.m4a",
+      "text": "وقال أنس: «خَدَمْتُ النَّبِيَّ صلى الله عليه وسلم عَشْرَ سِنِينَ، فَمَا قَالَ لِي أُفٍّ» (صحيح البخاري ٦٠٣٨).",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 109,
+          "start": 0.0,
+          "end": 8.772
+        }
+      ]
+    }
+  ]
+}

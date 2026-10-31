@@ -46,16 +46,7 @@ bool _recorded(String id) =>
 
 /// Living stories painted before they were recorded. Shrinks to empty as
 /// their fixtures are copied in from the server (test: only these may wait).
-const _pendingNarration = {
-  'sira_ghar_young',
-  'sira_ghar_older',
-  'sira_masjid_young',
-  'sira_masjid_older',
-  'sira_jidh_young',
-  'sira_jidh_older',
-  'sira_abu_umair_young',
-  'sira_abu_umair_older',
-};
+const _pendingNarration = <String>{};
 
 List<NarrationSentence> _even(String text, double seconds) => [
   NarrationSentence(from: 0, to: text.length, start: 0, end: seconds),

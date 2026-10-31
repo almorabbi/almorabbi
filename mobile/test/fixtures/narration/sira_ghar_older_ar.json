@@ -1,0 +1,78 @@
+{
+  "voice": "gemini-3.8-flash-tts/Algieba",
+  "language": "ar",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/ar/sira_ghar_older_p1.m4a",
+      "text": "أخرج كفّارُ قريش النبيَّ ﷺ من بلده مكة، فخرج ومعه صاحبُه أبو بكر الصدّيق رضي الله عنه.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 86,
+          "start": 0.0,
+          "end": 12.558
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_ghar_older_p2.m4a",
+      "text": "ولجأ الاثنان إلى غارٍ في جبل ثور بمكة، فمكثا فيه ثلاث ليال.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 59,
+          "start": 0.0,
+          "end": 8.963
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_ghar_older_p3.m4a",
+      "text": "وكان أبو بكر يخاف على النبيّ ﷺ، فقال وهما في الغار: «لَوْ أَنَّ أَحَدَهُمْ نَظَرَ تَحْتَ قَدَمَيْهِ لأَبْصَرَنَا» (صحيح البخاري ٣٦٥٣).",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 134,
+          "start": 0.0,
+          "end": 15.138
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_ghar_older_p4.m4a",
+      "text": "فقال له النبيّ ﷺ: «مَا ظَنُّكَ يَا أَبَا بَكْرٍ بِاثْنَيْنِ اللَّهُ ثَالِثُهُمَا» (صحيح البخاري ٣٦٥٣).",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 102,
+          "start": 0.0,
+          "end": 9.695
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_ghar_older_p5.m4a",
+      "text": "وذكر الله ذلك في القرآن: ﴿إِذۡ هُمَا فِي ٱلۡغَارِ إِذۡ يَقُولُ لِصَٰحِبِهِۦ لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ فَأَنزَلَ ٱللَّهُ سَكِينَتَهُۥ عَلَيۡهِ﴾، أي: أنزل الطمأنينة في قلب رسوله ﷺ، وأنجاه من عدوّه.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 205,
+          "start": 0.0,
+          "end": 32.58
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_ghar_older_p6.m4a",
+      "text": "وفي القصة أن الله كان مع نبيّه وصاحبه بنصره وتأييده، وفيها منقبةٌ عظيمة لأبي بكر الصدّيق رضي الله عنه، صاحبِ النبيّ ﷺ في الغار.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 127,
+          "start": 0.0,
+          "end": 15.893
+        }
+      ]
+    }
+  ]
+}

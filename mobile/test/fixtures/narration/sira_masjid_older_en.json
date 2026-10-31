@@ -1,0 +1,108 @@
+{
+  "voice": "eleven_v3/JBFqnCBsd6RMkjVDRZzb",
+  "language": "en",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/en/sira_masjid_older_p1.m4a",
+      "text": "The Prophet ﷺ came to Madinah and stayed in its upper part, in a quarter whose people were called Banu Amr ibn Awf, and he stayed among them for fourteen nights.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 161,
+          "start": 0.0,
+          "end": 11.882
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_masjid_older_p2.m4a",
+      "text": "Then he sent for Banu an-Najjar and they came. He ﷺ was on his mount with Abu Bakr riding behind him, and Banu an-Najjar around him, until he stopped in the courtyard of the house of Abu Ayyub.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 46,
+          "start": 0.0,
+          "end": 2.88
+        },
+        {
+          "from": 47,
+          "to": 193,
+          "start": 3.33,
+          "end": 15.57
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_masjid_older_p3.m4a",
+      "text": "He ﷺ loved to pray wherever the time of prayer reached him. Then he ordered the mosque to be built, and said to Banu an-Najjar: “O Banu an-Najjar, name me a price for this walled garden of yours.” (Sahih al-Bukhari 428) — that is: sell me this garden of yours.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 59,
+          "start": 0.0,
+          "end": 5.091
+        },
+        {
+          "from": 60,
+          "to": 196,
+          "start": 5.541,
+          "end": 14.712
+        },
+        {
+          "from": 197,
+          "to": 260,
+          "start": 15.162,
+          "end": 17.802
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_masjid_older_p4.m4a",
+      "text": "They said: “No, by Allah! We seek its price only from Allah.” (Sahih al-Bukhari 428). In the garden there were ruins and palm trees: the ruins were levelled, and the palm trees were cut down.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 25,
+          "start": 0.0,
+          "end": 2.371
+        },
+        {
+          "from": 26,
+          "to": 61,
+          "start": 2.821,
+          "end": 4.957
+        },
+        {
+          "from": 86,
+          "to": 191,
+          "start": 5.407,
+          "end": 11.647
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_masjid_older_p5.m4a",
+      "text": "They set the palm trunks in a row as the qiblah of the mosque, made the two sides of its door of stone, and began carrying the rocks, chanting verses as they worked, and the Prophet ﷺ was with them, saying: “O Allah, there is no good except the good of the Hereafter, so forgive the Ansar and the Muhajirun.” (Sahih al-Bukhari 428)",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 308,
+          "start": 0.0,
+          "end": 21.885
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/en/sira_masjid_older_p6.m4a",
+      "text": "In this story, Banu an-Najjar gave their garden seeking its price only from Allah, and the Prophet ﷺ was with his companions as they carried the rocks, praying for the Ansar and the Muhajirun.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 192,
+          "start": 0.0,
+          "end": 14.56
+        }
+      ]
+    }
+  ]
+}

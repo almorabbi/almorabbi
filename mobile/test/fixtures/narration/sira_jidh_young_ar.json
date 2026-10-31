@@ -1,0 +1,60 @@
+{
+  "voice": "gemini-3.8-flash-tts/Algieba",
+  "language": "ar",
+  "pages": [
+    {
+      "audio": "docs/stories/narration/ar/sira_jidh_young_p1.m4a",
+      "text": "كان سقف المسجد قائمًا على جذوعٍ من النخل، وكان النبيُّ ﷺ إذا خطب يقوم إلى جذعٍ منها.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 84,
+          "start": 0.0,
+          "end": 12.78
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_jidh_young_p2.m4a",
+      "text": "فقالت امرأةٌ من الأنصار، أو رجلٌ: «يَا رَسُولَ اللَّهِ أَلاَ نَجْعَلُ لَكَ مِنْبَرًا»، قال: «إِنْ شِئْتُمْ» (صحيح البخاري ٣٥٨٤).",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 128,
+          "start": 0.0,
+          "end": 11.762
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_jidh_young_p3.m4a",
+      "text": "فصنعوا له منبرًا. فلما كان يوم الجمعة انتقل ﷺ إلى المنبر، فصاح الجذع صياحَ الصبيّ.",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 17,
+          "start": 0.0,
+          "end": 2.019
+        },
+        {
+          "from": 18,
+          "to": 82,
+          "start": 2.469,
+          "end": 14.572
+        }
+      ]
+    },
+    {
+      "audio": "docs/stories/narration/ar/sira_jidh_young_p4.m4a",
+      "text": "فنزل النبيُّ ﷺ فضمّه إليه، فجعل يئنّ أنين الصبيّ الذي يُسكَّت، وقال: «كَانَتْ تَبْكِي عَلَى مَا كَانَتْ تَسْمَعُ مِنَ الذِّكْرِ عِنْدَهَا» (صحيح البخاري ٣٥٨٤).",
+      "sentences": [
+        {
+          "from": 0,
+          "to": 159,
+          "start": 0.0,
+          "end": 16.556
+        }
+      ]
+    }
+  ]
+}
