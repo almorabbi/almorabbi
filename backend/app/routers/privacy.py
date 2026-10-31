@@ -37,6 +37,7 @@ from app.core.contact import SUPPORT_EMAIL
 from app.core.proof import require_device_proof, require_device_proof_irreversible
 from app.core.times import now_z
 from app.db.init_db import get_conn
+from app.services import merge_tombstones
 
 logger = logging.getLogger(__name__)
 
@@ -70,6 +71,8 @@ def erase_device_memory(device_id: str) -> dict[str, int]:
         for table, column in MEMORY_TABLES:
             cur = conn.execute(f"DELETE FROM {table} WHERE {column} = ?", (device_id,))
             counts[table] = cur.rowcount
+        # Nothing a linked phone still holds comes back on the next merge.
+        merge_tombstones.record(conn, device_id, "memory", merge_tombstones.ALL_CHILDREN)
         bump_generation(conn, device_id)
         conn.commit()
         return counts
@@ -463,6 +466,13 @@ def erase_child(device_id: str, child_id: int) -> dict[str, int]:
         conn.execute("PRAGMA foreign_keys = OFF")
         conn.execute("BEGIN IMMEDIATE")
         tables = _table_columns(conn)
+        named = conn.execute("SELECT name FROM child_profiles WHERE id = ? AND device_id = ?",
+                             (child_id, device_id)).fetchone()
+        if named is not None:
+            # A linked phone's copy of this child must not come back on the next
+            # merge (services/merge_tombstones.py).
+            merge_tombstones.record(conn, device_id, "child",
+                                    merge_tombstones.child_key(named[0]))
         forget_sibling(conn, device_id, child_id)
         counts: Counter = Counter()
         for table, column, parent, parent_col in DEPENDENT_TABLES:

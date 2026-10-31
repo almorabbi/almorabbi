@@ -31,15 +31,28 @@ def generate_token() -> str:
     return "tg_" + secrets.token_hex(32)
 
 
-def create_token(device_id: str, session_id: str) -> str:
+# How a session was minted (v37, routers/chat.py create_session):
+#   new     — a device id never seen before: how an install begins;
+#   proof   — the caller presented a token of the device (or of its family);
+#   restore — the caller presented the device's restore key (services/restore_keys.py);
+#   bare    — a known device claimed with no proof, while SESSION_MINT_ENFORCE is
+#             off — or a proof that was itself bare: the taint carries forward.
+# NULL is a token from before v37. A bare token never gets a restore key or a
+# confirmed Google link: anyone who learned the id can hold one.
+MINT_KINDS = ("new", "proof", "restore", "bare")
+
+
+def create_token(device_id: str, session_id: str, mint_kind: str | None = None) -> str:
     """Store a new auth token for the given device + session."""
+    if mint_kind is not None and mint_kind not in MINT_KINDS:
+        raise ValueError(mint_kind)
     token = generate_token()
     conn = get_conn()
     try:
         conn.execute(
-            "INSERT INTO api_tokens (token, device_id, session_id, expires_at) "
-            "VALUES (?, ?, ?, datetime('now', ?))",
-            (hash_token(token), device_id, session_id, _ttl_modifier()),
+            "INSERT INTO api_tokens (token, device_id, session_id, expires_at, mint_kind) "
+            "VALUES (?, ?, ?, datetime('now', ?), ?)",
+            (hash_token(token), device_id, session_id, _ttl_modifier(), mint_kind),
         )
         conn.commit()
     finally:
@@ -98,6 +111,25 @@ def token_device(token: str) -> str | None:
         conn.close()
 
 
+def token_mint_kind(token: str | None) -> str | None:
+    """How the session behind this token was minted (MINT_KINDS), whether or
+    not it has expired; None for an unknown token or one from before v37."""
+    if not token:
+        return None
+    conn = get_conn()
+    try:
+        row = conn.execute(
+            "SELECT mint_kind FROM api_tokens WHERE token = ?", (hash_token(token),)
+        ).fetchone()
+        return row["mint_kind"] if row else None
+    finally:
+        conn.close()
+
+
+def token_is_bare(token: str | None) -> bool:
+    return token_mint_kind(token) == "bare"
+
+
 def device_has_tokens(device_id: str) -> bool:
     """True once any token was ever issued for this device id."""
     conn = get_conn()
@@ -140,13 +172,14 @@ def create_session(device_id: str | None = None, metadata: dict | None = None) -
     return sid
 
 
-def create_session_with_token(device_id: str | None = None, metadata: dict | None = None) -> tuple[str, str]:
+def create_session_with_token(device_id: str | None = None, metadata: dict | None = None,
+                              mint_kind: str | None = None) -> tuple[str, str]:
     """Create a session and return (session_id, auth_token)."""
     # Normalize device_id
     if not device_id:
         device_id = f"device_{uuid.uuid4().hex[:12]}"
     sid = create_session(device_id, metadata)
-    token = create_token(device_id, sid)
+    token = create_token(device_id, sid, mint_kind=mint_kind)
     return sid, token
 
 

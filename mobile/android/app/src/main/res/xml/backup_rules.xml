@@ -29,7 +29,10 @@
   loose in app_flutter/.
 
   FlutterSharedPreferences.xml stays in the backup on purpose: it carries
-  tg_device_id_backup, which gives a reinstalled phone its family back. A
+  tg_device_id_backup and tg_device_restore_key, which together give a
+  reinstalled phone its family back — the key is what proves the id at the
+  session mint once the server stops serving a bare id (backend
+  services/restore_keys.py). A
   restore of a DELETED account's copy is answered by the server instead — the
   session mint says 410 device_erased, and the app clears itself.
 -->
