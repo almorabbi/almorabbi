@@ -169,7 +169,7 @@ def _link_with(client, payload, *, proven: bool = True):
             return_value=Response(200, json=payload),
         ),
         patch(
-            "app.routers.identity.request_proven",
+            "app.routers.identity._link_confirmable",
             return_value=proven,
         ),
     ):

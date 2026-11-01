@@ -37,7 +37,7 @@ def _columns(db, table: str) -> set[str]:
 
 
 def test_schema_version_is_36():
-    assert SCHEMA_VERSION == 36
+    assert SCHEMA_VERSION >= 36   # later migrations only move it up
 
 
 def test_fresh_db_gets_the_column_and_the_table():
@@ -82,7 +82,7 @@ def test_v35_db_is_upgraded_in_place():
         conn.close()
     assert "source" in cols
     assert tuple(row) == ("d", None)      # no backfill: the old row stays NULL
-    assert version == 36
+    assert version == SCHEMA_VERSION >= 36
     assert has_marks
 
 

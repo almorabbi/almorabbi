@@ -736,12 +736,22 @@ def update_fact(
 
 
 def delete_fact(device_id: str, child_id: int, fact_id: int) -> bool:
+    from app.services import merge_tombstones
+
     conn = get_conn()
     try:
+        row = conn.execute(
+            "SELECT category, fact FROM child_facts WHERE id = ? AND device_id = ? AND child_id = ?",
+            (fact_id, device_id, child_id),
+        ).fetchone()
         cur = conn.execute(
             "DELETE FROM child_facts WHERE id = ? AND device_id = ? AND child_id = ?",
             (fact_id, device_id, child_id),
         )
+        if row is not None:
+            # A linked phone's copy must not come back on the next merge.
+            merge_tombstones.record(conn, device_id, "fact", merge_tombstones.fact_key(
+                child_id, row["category"], row["fact"]))
         conn.commit()
         return cur.rowcount > 0
     finally:
@@ -762,6 +772,8 @@ def delete_child_memory(device_id: str, child_id: int) -> dict:
                 (device_id, child_id),
             )
             counts[table] = cur.rowcount
+        from app.services import merge_tombstones
+        merge_tombstones.record(conn, device_id, "memory", str(int(child_id)))
         bump_generation(conn, device_id)
         conn.commit()
         return counts

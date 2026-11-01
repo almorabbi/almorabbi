@@ -120,6 +120,12 @@ Migration v35: erased_devices — a one-way hash (never the id) of every device 
                410 device_erased to builds that understand it
                (services/erased_devices.py). No device_id column on purpose —
                an account deletion keeps these rows. Additive.
+Migration v37: closing the bare mint (audit H5). api_tokens.mint_kind records
+               how each session was minted — new / proof / restore / bare
+               (NULL = before v37); device_restore_keys holds sha256 of each
+               device's restore key (services/restore_keys.py); and
+               merge_tombstones keeps what a parent deleted out of the
+               cross-device merge (services/merge_tombstones.py). Additive.
 """
 import hashlib
 import os
@@ -251,10 +257,11 @@ CREATE INDEX IF NOT EXISTS ix_referrals_referrer
 # 30 = child memory, 31 = «ادعم المربّي» ledger, 32 = attribution provenance,
 # 33 = device twins (aliases + fold log), 34 = family programs,
 # 35 = erased-device tombstones,
-# 36 = honest weekly counter: followups.source + weekly_plan_marks.
+# 36 = honest weekly counter: followups.source + weekly_plan_marks,
+# 37 = mint_kind + restore keys + merge tombstones.
 # Every _ensure_* step runs unconditionally and the stamp only ever moves up,
 # so branches can land in any order: keep the highest number.
-SCHEMA_VERSION = 36
+SCHEMA_VERSION = 37
 
 
 def db_path() -> Path:
@@ -453,6 +460,7 @@ def init_db() -> None:
     _ensure_family_programs_v34(conn)
     _ensure_erased_devices_v35(conn)
     _ensure_honest_counter_v36(conn)
+    _ensure_restore_v37(conn)
 
     row = conn.execute("SELECT version FROM schema_version LIMIT 1").fetchone()
     if row is None:
@@ -1552,6 +1560,20 @@ def _ensure_erased_devices_v35(conn: sqlite3.Connection) -> None:
     store not have been through this step yet."""
     from app.services.erased_devices import CREATE_TABLE
     conn.execute(CREATE_TABLE)
+
+
+# ── v37: closing the bare mint (audit H5) ────────────────────────────────
+
+def _ensure_restore_v37(conn: sqlite3.Connection) -> None:
+    """v37: api_tokens.mint_kind, device_restore_keys, merge_tombstones.
+    Additive and idempotent."""
+    from app.services import merge_tombstones, restore_keys
+    _ensure_column(
+        conn, table="api_tokens", column="mint_kind",
+        ddl="ALTER TABLE api_tokens ADD COLUMN mint_kind TEXT",
+    )
+    conn.execute(restore_keys.CREATE_TABLE)
+    conn.execute(merge_tombstones.CREATE_TABLE)
 
 
 # ── v36: the honest weekly counter (نور والقناديل, Phase 0) ───────────────

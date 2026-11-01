@@ -138,6 +138,8 @@ TABLE_DISCLOSURE = {
     "milestone_alerts": "milestone reminders we sent",
     # Erased-device tombstones (v35): no id, but derived from one — disclosed.
     "erased_devices": "one-way hash of a deleted phone's identifier",
+    "device_restore_keys": "Restore key",
+    "merge_tombstones": "Marks of what you deleted",
 }
 
 

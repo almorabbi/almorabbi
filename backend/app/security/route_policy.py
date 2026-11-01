@@ -103,7 +103,7 @@ _add(
     """
     POST /api/chat/sessions create_session
 """,
-    exception="Public bootstrap; proof fixes device identity; known-device bare mint conditional on SESSION_MINT_ENFORCE",
+    exception="Public bootstrap; a token or restore key fixes device identity; a known-device bare mint becomes a new device (or 401 for old builds) under SESSION_MINT_ENFORCE",
 )
 
 _add(
@@ -113,6 +113,16 @@ _add(
     """
     GET /api/chat/sessions list_sessions
 """,
+)
+
+_add(
+    "app.routers.chat",
+    "device",
+    "device",
+    """
+    POST /api/chat/restore-key issue_restore_key
+""",
+    exception="Device Bearer; refused (403) to a session minted bare — services/restore_keys.py",
 )
 
 _add(

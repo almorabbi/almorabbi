@@ -26,9 +26,12 @@ than assuming a protected pathname is sufficient.
 ## Reviewed exceptions
 
 - `POST /api/chat/sessions` is bootstrap-public, whereas `GET` on the same path
-  requires device auth. The mint handler uses proof to choose identity and
-  refuses a known-device bare mint only under `SESSION_MINT_ENFORCE`. New device
-  IDs remain admitted. Existing sessions are not revoked by this policy table.
+  requires device auth. The mint handler uses proof (a token, or the device's
+  restore key) to choose identity; under `SESSION_MINT_ENFORCE` a known-device
+  bare mint becomes a new, empty device (builds ≥ 117) or a 401 (older). New
+  device IDs remain admitted. Every token records its mint kind (v37); a bare
+  one gets no restore key and cannot confirm a Google link. Existing sessions
+  are not revoked by this policy table.
 - `/api/program/story` has staged soft auth. Child ownership checking there is
   conditional on having device identity and a supplied child ID. Public catalog
   routes, including story themes, remain public. Tafsir and Quranic linguistics

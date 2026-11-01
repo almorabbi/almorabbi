@@ -13,7 +13,7 @@ Security:
     tokeninfo endpoint before linking.
   - Cross-device data merge runs ONLY when BOTH devices (the previous device
     and the current device) hold confirmed links (`confirmed = 1` in
-    `identity_links`, proven via `request_proven`). An unconfirmed link
+    `identity_links`, see `_link_confirmable`). An unconfirmed link
     (`confirmed = 0`) is never pulled from and never copied to — not even
     child names.
 """
@@ -27,8 +27,10 @@ from typing import Optional
 import httpx
 from fastapi import APIRouter, Request
 
-from app.core.proof import request_proven
+from app.core.proof import request_access
 from app.db.init_db import get_conn
+from app.services import conversation_store as store
+from app.services import merge_tombstones as tombs
 from app.services.child_memory import family_from_conn
 from app.services.privacy import Family, reletter_siblings
 
@@ -140,7 +142,7 @@ async def link_google_identity(request: Request, payload: dict) -> dict:
     # (PR #26 final review — a bare session for a known device id must not be
     # able to tie a family's phone to someone else's Google account and pull
     # or delete its data).
-    confirmed = await asyncio.to_thread(request_proven, request)
+    confirmed = await asyncio.to_thread(_link_confirmable, request)
     # sqlite is blocking — keep it off the event loop.
     linked = await asyncio.to_thread(
         _link_identity, device_id, google_id, email, display_name, confirmed)
@@ -149,16 +151,51 @@ async def link_google_identity(request: Request, payload: dict) -> dict:
     return {"ok": True, "google_id": google_id, "email": email}
 
 
+def _link_confirmable(request: Request) -> bool:
+    """May this session make a CONFIRMED link — one that carries data between
+    phones and account deletion across them?
+
+    The security review of PR #175 (2026-10-27) found `request_proven` was not
+    enough: a session minted bare for someone else's device id registered its
+    own FCM token as the device's first (vouched, so only irreversible routes
+    paused), proved itself on it, and got confirmed=1. Now all three:
+
+      * the session was not minted bare (api_tokens.mint_kind) — a bare
+        session is anyone who learned the id;
+      * it is proven, with no cooldown of EITHER kind — moving a family's
+        data to another phone is as irreversible as deleting it, so a first
+        token on an established device waits out its pause;
+      * (push.py) a later unvouched token change takes confirmed back.
+    """
+    token = getattr(request.state, "token", None)
+    if store.token_is_bare(token):
+        return False
+    return request_access(request, irreversible=True).ok
+
+
+def unconfirm_device_links(conn, device_id: str) -> int:
+    """The device's push token changed without a proof vouching for it
+    (routers/push.py): whoever holds the phone now is not who confirmed its
+    Google link. Inside the caller's transaction."""
+    try:
+        cur = conn.execute(
+            "UPDATE identity_links SET confirmed = 0 WHERE device_id = ? AND confirmed = 1",
+            (device_id,))
+        return cur.rowcount
+    except Exception:  # an older schema without the table or column
+        return 0
+
+
 def cross_device_enabled() -> bool:
     """Whether a Google link may move data between phones (merge on link,
     account deletion across linked phones). Off unless IDENTITY_CROSS_DEVICE=1.
 
-    `confirmed` does not prove the phone is the caller's: on an established
-    device with no push token the first token registered is vouched, so whoever
-    knows a device id can get confirmed=1 on it, pull its family onto their own
-    phone, keep pulling after the owner comes back, and delete it through their
-    own account (security review of PR #175, 2026-10-27). Until ownership is
-    proven by the old phone itself, a link carries no data either way.
+    History: `confirmed` used to be reachable by anyone who knew a device id
+    (security review of PR #175, 2026-10-27; see _link_confirmable). With v37
+    a bare session can no longer confirm, but tokens minted before v37 carry
+    no mint_kind and a bare one among them cannot be told apart. Turn this on
+    together with SESSION_MINT_ENFORCE, once most active installs hold a
+    restore key (ops/tools/runtime_readiness_report.py).
     """
     return os.environ.get("IDENTITY_CROSS_DEVICE", "").strip() == "1"
 
@@ -271,6 +308,15 @@ def _to_family(members: list[tuple[int, str]]) -> Family:
     )
 
 
+def _memory_enabled(conn, device_id: str) -> bool:
+    """child_memory_settings.enabled for the device (no row = on)."""
+    if not _table_exists(conn, "child_memory_settings"):
+        return True
+    row = conn.execute("SELECT enabled FROM child_memory_settings WHERE device_id = ?",
+                       (device_id,)).fetchone()
+    return row is None or bool(row["enabled"])
+
+
 def _sync_child_scoped_rows(
     conn,
     old_device: str,
@@ -292,6 +338,15 @@ def _sync_child_scoped_rows(
         return False
 
     memory_touched = False
+
+    # What the parent deleted on `new_device` stays deleted (services/
+    # merge_tombstones.py): memory rows from before a wipe are not copied, and
+    # with memory switched off on `new_device` no facts or follow-ups are.
+    wiped_at = tombs.memory_since(conn, new_device, new_cid)
+    memory_on = _memory_enabled(conn, new_device)
+
+    def wiped(row) -> bool:
+        return tombs.covers(_row_val(row, "created_at"), wiped_at)
 
     # 1. lesson_progress — UNIQUE(device_id, child_id, lesson_id)
     if _table_exists(conn, "lesson_progress"):
@@ -354,6 +409,8 @@ def _sync_child_scoped_rows(
             (old_device, old_cid),
         ).fetchall()
         for old_r in old_rows:
+            if wiped(old_r) or (_row_val(old_r, "personal", 0) and not memory_on):
+                continue
             raw_json = _row_val(old_r, "plan_json") or "{}"
             if old_cid != new_cid and raw_json:
                 try:
@@ -387,6 +444,8 @@ def _sync_child_scoped_rows(
             (old_device, old_cid),
         ).fetchall()
         for old_r in old_rows:
+            if wiped(old_r):
+                continue
             conn.execute(
                 """
                 INSERT OR IGNORE INTO weekly_plan_marks
@@ -397,7 +456,7 @@ def _sync_child_scoped_rows(
             )
 
     # 4. child_facts
-    if _table_exists(conn, "child_facts"):
+    if memory_on and _table_exists(conn, "child_facts"):
         old_rows = conn.execute(
             "SELECT * FROM child_facts WHERE device_id = ? AND child_id = ?",
             (old_device, old_cid),
@@ -411,6 +470,10 @@ def _sync_child_scoped_rows(
                 and old_fam.members != after_fam.members
             ):
                 fact_text = reletter_siblings(fact_text, old_fam, after_fam, owner=new_cid)
+            if wiped(old_r) or tombs.covers(_row_val(old_r, "created_at"), tombs.since(
+                    conn, new_device, "fact",
+                    tombs.fact_key(new_cid, old_r["category"], fact_text))):
+                continue
             existing = conn.execute(
                 """
                 SELECT id, confidence, times_seen, status
@@ -461,7 +524,7 @@ def _sync_child_scoped_rows(
                 )
 
     # 5. followups — ux_followups_pending_topic ON (device_id, child_id, topic) WHERE status = 'pending' AND topic != 'other'
-    if _table_exists(conn, "followups"):
+    if memory_on and _table_exists(conn, "followups"):
         f_cols = _table_cols(conn, "followups")
         has_source = "source" in f_cols
         old_rows = conn.execute(
@@ -469,6 +532,8 @@ def _sync_child_scoped_rows(
             (old_device, old_cid),
         ).fetchall()
         for old_r in old_rows:
+            if wiped(old_r):
+                continue
             strategy_text = old_r["strategy"]
             if (
                 old_fam is not None
@@ -1583,6 +1648,17 @@ def _merge_legacy_device_data(conn, current_device_id: str, google_id: str) -> N
 
             _sync_device_scoped_rows(conn, old_device, current_device_id)
 
+            if not old_children:
+                continue
+
+            # A child the parent erased on this phone is not brought back from
+            # the other phone's copy — not even onto a child of the same name
+            # added again here. A child created there after the erase is new.
+            old_children = [
+                c for c in old_children
+                if not tombs.covers(_row_val(c, "created_at"), tombs.since(
+                    conn, current_device_id, "child", tombs.child_key(c["name"])))
+            ]
             if not old_children:
                 continue
 

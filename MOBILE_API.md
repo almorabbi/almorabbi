@@ -85,6 +85,26 @@ X-App-Build: 120
   is a live install. Only a token from before the deletion (gone with the data)
   is no proof.
 
+**Proving the device at the mint** (backend schema v37). A mint for a device
+id the server already knows must prove it is that device, with one of:
+- `Authorization: Bearer <the last token this install held>` — expired is fine;
+  the token decides the device, whatever `device_id` claims;
+- `X-Device-Restore: <restore key>` — sent **only when there is no token**
+  (a reinstall restored from a phone backup). The key decides the device.
+
+A known id with neither is a *bare* mint. Today it is still served and marked
+bare; once the server sets `SESSION_MINT_ENFORCE`, a bare mint from a build
+that sends `X-App-Build` ≥ 117 is answered `201` for a **new, empty** device
+(`device_id` in the response differs — adopt it), and older builds get `401`.
+
+**`POST /api/chat/restore-key`** (Bearer) → `200 {"restore_key": "tgr_…"}`.
+Ask once per install when none is held; keep it **with the device id it was
+issued for**, in storage the phone backup restores (plain SharedPreferences,
+next to the backed-up device id — never the keystore). Asking again replaces
+the key. `403 {"detail": {"code": "restore_key_unavailable"}}`: the session was
+itself minted bare — do not ask again in this process. Drop the key whenever
+the install becomes another device (an adopted id, a `410`, starting over).
+
 ### 3.3 `GET /api/chat/sessions/{session_id}` — history
 Response `200`:
 ```json

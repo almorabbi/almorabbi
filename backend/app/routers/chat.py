@@ -4,10 +4,12 @@ Chat session router — إدارة جلسات المحادثة (mobile-ready)
 POST /api/chat/sessions          → create a session, returns session_id + auth token
 GET  /api/chat/sessions/{id}     → full session with message history (requires auth)
 POST /api/chat/sessions/{id}/stop → stop the answer being generated (requires auth)
+POST /api/chat/restore-key       → this device's restore key (requires auth, not bare)
 """
 import asyncio
 import logging
 import os
+import uuid
 
 from fastapi import APIRouter, HTTPException, Request, status
 from pydantic import BaseModel
@@ -15,7 +17,7 @@ from pydantic import BaseModel
 from app.core.log_safety import device_tag
 from app.models.api import SessionCreate, SessionCreateResponse, SessionResponse
 from app.services import conversation_store as store
-from app.services import device_twins, erased_devices
+from app.services import device_twins, erased_devices, restore_keys
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/chat", tags=["chat"])
@@ -24,6 +26,13 @@ router = APIRouter(prefix="/chat", tags=["chat"])
 def _session_mint_enforced() -> bool:
     """Read per call (like STORY_AUTH_ENFORCE) so ops can flip it on restart."""
     return os.environ.get("SESSION_MINT_ENFORCE", "").strip().lower() in {"1", "true", "yes"}
+
+
+# Every build from here on adopts the device id a mint answers with
+# (TgClient._keepMinted → adoptDeviceId, first shipped in 1.0.72+117): an
+# enforced bare mint can hand it a new, empty device instead of a 401 that
+# would leave the app with no session at all.
+ADOPTS_MINTED_ID_BUILD = 117
 
 
 @router.post("/sessions", response_model=SessionCreateResponse, status_code=status.HTTP_201_CREATED)
@@ -61,6 +70,14 @@ def create_session(request: Request, body: SessionCreate | None = None) -> Sessi
     without a live token of it, answers 410 device_erased to builds that send
     X-App-Build ≥ ERASED_DEVICE_410_MIN_BUILD — the install restored it from a
     phone backup, or is settling a deletion whose answer it lost.
+
+    A restore key (header X-Device-Restore, services/restore_keys.py) proves
+    its device like a token does — it is how a reinstall restored from a phone
+    backup gets its family back once bare mints are closed. With
+    SESSION_MINT_ENFORCE on, a known device claimed with neither is minted as
+    a NEW, empty device for builds that adopt the answered id (≥ 117) and
+    refused with 401 for older ones. Every token records how it was minted
+    (api_tokens.mint_kind); a proof that was itself bare stays bare.
     """
     body = body or SessionCreate()
     # A device id folded into its family's device (services/device_twins.py)
@@ -73,8 +90,14 @@ def create_session(request: Request, body: SessionCreate | None = None) -> Sessi
     # lapse after TOKEN_TTL_DAYS idle, and the install holding one must be
     # able to mint its next session once minting is enforced.
     proof_device = store.token_device(proof) if proof else None
+    restored = (restore_keys.device_for(request.headers.get(restore_keys.HEADER))
+                if proof_device is None else None)
     if proof_device is not None:
         device_id = device_twins.resolve_mint(device_id, proof_device, proof=proof)
+        mint_kind = "bare" if store.token_is_bare(proof) else "proof"
+    elif restored is not None:
+        device_id = device_twins.canonical_of(restored) or restored
+        mint_kind = "restore"
     elif (device_id and erased_devices.understands_410(request.headers)
           and erased_devices.is_erased(device_id)):
         # An account deleted in the app, its id back from a phone backup (or
@@ -86,16 +109,45 @@ def create_session(request: Request, body: SessionCreate | None = None) -> Sessi
         raise HTTPException(status_code=status.HTTP_410_GONE, detail=erased_devices.refusal())
     elif device_id and store.device_has_tokens(device_id):
         if _session_mint_enforced():
-            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
-                                detail="مطلوب توثيق الجهاز لإنشاء جلسة جديدة.")
-        logger.info("session minted for a known device without proof (%s)",
-                    device_tag(device_id))
+            build = erased_devices.app_build(request.headers)
+            if build is None or build < ADOPTS_MINTED_ID_BUILD:
+                raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
+                                    detail="مطلوب توثيق الجهاز لإنشاء جلسة جديدة.")
+            logger.info("bare mint for a known device moved to a new device (%s)",
+                        device_tag(device_id))
+            device_id, mint_kind = str(uuid.uuid4()), "new"
+        else:
+            logger.info("session minted for a known device without proof (%s)",
+                        device_tag(device_id))
+            mint_kind = "bare"
+    else:
+        mint_kind = "new"
 
     sid, token = store.create_session_with_token(
         device_id=device_id,
         metadata=body.metadata,
+        mint_kind=mint_kind,
     )
     return SessionCreateResponse(session_id=sid, token=token, device_id=device_id)
+
+
+@router.post("/restore-key")
+def issue_restore_key(request: Request) -> dict:
+    """This device's restore key (services/restore_keys.py), shown once.
+
+    The app keeps it beside the device id in the storage a phone backup
+    restores, and presents it when it mints without a token. A session that
+    was itself minted bare is refused: whoever learned the device id can hold
+    one, and the key would let them back in after bare mints are closed.
+    Asking again replaces the key.
+    """
+    if store.token_is_bare(getattr(request.state, "token", None)):
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail={
+            "code": "restore_key_unavailable",
+            "message": "لا يمكن إصدار مفتاح استرجاع لهذه الجلسة.",
+            "message_en": "A restore key cannot be issued to this session.",
+        })
+    return {"restore_key": restore_keys.issue(request.state.device_id)}
 
 
 @router.get("/sessions")

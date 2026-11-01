@@ -84,15 +84,41 @@ def test_sync_api_download_missing(client):
     assert r.status_code == 404
     assert r.json()["detail"] == "No backup found"
 
-def test_sync_cross_device_google_sync(client, tmp_db):
-    """Verify cross-device backup restore via shared Google identity link."""
-    # 1. Setup identity link mock data directly in sqlite DB
+def _link_both(tmp_db, *, confirmed_b: int = 1):
     conn = sqlite3.connect(tmp_db)
-    # Link device-A and device-B to the same google_id
-    conn.execute("INSERT INTO identity_links (device_id, google_id) VALUES (?, ?)", ("device-A", "google-123"))
-    conn.execute("INSERT INTO identity_links (device_id, google_id) VALUES (?, ?)", ("device-B", "google-123"))
+    conn.execute("INSERT INTO identity_links (device_id, google_id, confirmed) VALUES (?, ?, 1)",
+                 ("device-A", "google-123"))
+    conn.execute("INSERT INTO identity_links (device_id, google_id, confirmed) VALUES (?, ?, ?)",
+                 ("device-B", "google-123", confirmed_b))
     conn.commit()
     conn.close()
+
+
+def _upload_from_a(client):
+    r = client.post("/api/sync/upload", json={
+        "salt": "c2FsdF9kZXZpY2VfQQ==", "nonce": "bm9uY2VfZGV2aWNlX0E=",
+        "payload": "cGF5bG9hZF9kZXZpY2VfQQ=="}, headers={"x-test-device-id": "device-A"})
+    assert r.status_code == 200
+
+
+@pytest.mark.parametrize("cross_device, confirmed_b", [("", 1), ("1", 0)])
+def test_another_phones_backup_needs_a_confirmed_link_and_cross_device(
+        client, tmp_db, monkeypatch, cross_device, confirmed_b):
+    """An unconfirmed link is anyone who held a session for the device id when
+    it was made; and while links carry no data (IDENTITY_CROSS_DEVICE off) a
+    backup does not cross phones either."""
+    monkeypatch.setenv("IDENTITY_CROSS_DEVICE", cross_device)
+    _link_both(tmp_db, confirmed_b=confirmed_b)
+    _upload_from_a(client)
+    r = client.get("/api/sync/download", headers={"x-test-device-id": "device-B"})
+    assert r.status_code == 404
+
+
+def test_sync_cross_device_google_sync(client, tmp_db, monkeypatch):
+    """Verify cross-device backup restore via shared Google identity link."""
+    monkeypatch.setenv("IDENTITY_CROSS_DEVICE", "1")
+    # 1. Link device-A and device-B to the same google_id, both confirmed
+    _link_both(tmp_db)
 
     # 2. Upload backup from Device A
     backup_data = {
