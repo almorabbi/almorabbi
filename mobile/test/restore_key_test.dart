@@ -116,7 +116,8 @@ void main() {
     final server = _Server();
     final storage = _MemStorage()..store['tg_device_id'] = _id;
     final c = TgClient.forTesting(
-        baseUrl: 'http://t', httpClient: MockClient(server.handle), storage: storage);
+        baseUrl: 'http://t', httpClient: MockClient(server.handle), storage: storage,
+        asksRestoreKey: true);
     await c.createSession();
     await _settle();
     final prefs = await SharedPreferences.getInstance();
@@ -139,7 +140,8 @@ void main() {
     });
     final server = _Server();
     final c = TgClient.forTesting(
-        baseUrl: 'http://t', httpClient: MockClient(server.handle), storage: _MemStorage());
+        baseUrl: 'http://t', httpClient: MockClient(server.handle), storage: _MemStorage(),
+        asksRestoreKey: true);
     await c.createSession();
     final mint = server.mints.single;
     expect((jsonDecode(mint.body) as Map)['device_id'], _id);
@@ -154,7 +156,8 @@ void main() {
       ..store['tg_device_id'] = _id
       ..store['tg_device_proof'] = 'tok-old';
     final c = TgClient.forTesting(
-        baseUrl: 'http://t', httpClient: MockClient(server.handle), storage: storage);
+        baseUrl: 'http://t', httpClient: MockClient(server.handle), storage: storage,
+        asksRestoreKey: true);
     await c.createSession();
     expect(server.mints.single.headers['Authorization'], 'Bearer tok-old');
     expect(server.mints.single.headers['X-Device-Restore'], isNull);
@@ -167,7 +170,8 @@ void main() {
     });
     final server = _Server();
     final c = TgClient.forTesting(
-        baseUrl: 'http://t', httpClient: MockClient(server.handle), storage: _MemStorage());
+        baseUrl: 'http://t', httpClient: MockClient(server.handle), storage: _MemStorage(),
+        asksRestoreKey: true);
     await c.createSession();
     expect(server.mints.single.headers['X-Device-Restore'], isNull);
   });
@@ -178,7 +182,8 @@ void main() {
     final c = TgClient.forTesting(
         baseUrl: 'http://t',
         httpClient: MockClient(server.handle),
-        storage: _MemStorage()..store['tg_device_id'] = _id);
+        storage: _MemStorage()..store['tg_device_id'] = _id,
+        asksRestoreKey: true);
     await c.createSession();
     await _settle();
     await c.ensureSession();
@@ -195,6 +200,7 @@ void main() {
     final c = TgClient.forTesting(
         baseUrl: 'http://t',
         storage: _MemStorage()..store['tg_device_id'] = _id,
+        asksRestoreKey: true,
         httpClient: MockClient((req) async {
           if (req.url.path == '/api/chat/sessions') {
             // The server moved this install to a new, empty device.

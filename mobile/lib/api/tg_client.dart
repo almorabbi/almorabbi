@@ -200,7 +200,7 @@ class _AuthStore {
   static const _kDeviceIdBackup = 'tg_device_id_backup';
 
   /// The device's restore key (backend services/restore_keys.py), stored as
-  /// "<device id> <key>" in plain SharedPreferences — beside
+  /// `"<device id> <key>"` in plain SharedPreferences — beside
   /// [_kDeviceIdBackup], so the phone backup that restores the id restores
   /// the key with it (backup_rules.xml keeps FlutterSharedPreferences.xml).
   /// A reinstall then proves it is this device at the mint, where the id
@@ -544,6 +544,7 @@ class TgClient {
     this.onNeedActiveChildId,
     Duration? streamIdleTimeout,
     List<Duration>? transientRetryDelays,
+    bool? asksRestoreKey,
   })  : _raw = httpClient ?? http.Client(),
         _auth = _AuthStore(storage ?? createDefaultSecureStorage(),
             deviceIdClaim ?? DeviceIdClaim.inAppCache()),
@@ -551,6 +552,9 @@ class TgClient {
         _retryDelays = transientRetryDelays ??
             (httpClient == null ? kTransientRetryDelays : const []),
         _baseUrlOverride = null,
+        // Like the retry delays: on by default only with the real network, so
+        // a test's fake server sees just the calls it scripted.
+        _asksRestoreKey = asksRestoreKey ?? httpClient == null,
         streamIdleTimeout = streamIdleTimeout ?? AppConfig.streamIdleTimeout;
 
   /// Test-only constructor that bypasses [AppConfig.apiBaseUrl].
@@ -563,6 +567,7 @@ class TgClient {
     this.onNeedActiveChildId,
     Duration? streamIdleTimeout,
     List<Duration>? transientRetryDelays,
+    bool? asksRestoreKey,
   })  : _raw = httpClient ?? http.Client(),
         _auth = _AuthStore(storage ?? createDefaultSecureStorage(),
             deviceIdClaim ?? DeviceIdClaim.inAppCache()),
@@ -570,6 +575,7 @@ class TgClient {
         _retryDelays = transientRetryDelays ??
             (httpClient == null ? kTransientRetryDelays : const []),
         _baseUrlOverride = baseUrl,
+        _asksRestoreKey = asksRestoreKey ?? false,
         streamIdleTimeout = streamIdleTimeout ?? AppConfig.streamIdleTimeout;
 
   static TgClient? _shared;
@@ -756,7 +762,7 @@ class TgClient {
     if (minted != null && minted.isNotEmpty && minted != deviceId) {
       await _auth.adoptDeviceId(minted);
     }
-    unawaited(ensureRestoreKey());
+    if (_asksRestoreKey) unawaited(ensureRestoreKey());
     return parsed;
   }
 
@@ -764,6 +770,7 @@ class TgClient {
   /// minted bare). Not asked again until the next process.
   bool _restoreKeyRefused = false;
   bool _restoreKeyChecked = false;
+  final bool _asksRestoreKey;
   Future<void>? _restoreKeyFetch;
 
   /// Make sure this install holds its device's restore key (see
@@ -772,7 +779,7 @@ class TgClient {
       _restoreKeyFetch ??= _fetchRestoreKey().whenComplete(() => _restoreKeyFetch = null);
 
   Future<void> _fetchRestoreKey() async {
-    if (_restoreKeyRefused) return;
+    if (_restoreKeyRefused || !_asksRestoreKey) return;
     try {
       final deviceId = await _auth.getOrCreateDeviceId();
       if (await _auth.readRestoreKey(deviceId) != null) {
@@ -1181,7 +1188,9 @@ class TgClient {
     if (sid != null && tok != null) {
       // Installs from before restore keys hold a long-lived session and
       // rarely mint: they ask on their first session use of a launch.
-      if (!_restoreKeyChecked && !_restoreKeyRefused) unawaited(ensureRestoreKey());
+      if (_asksRestoreKey && !_restoreKeyChecked && !_restoreKeyRefused) {
+        unawaited(ensureRestoreKey());
+      }
       return SessionResponse(sessionId: sid, token: tok);
     }
     return _mintOnce();

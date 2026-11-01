@@ -1,6 +1,6 @@
 # سياسة الخصوصية — المربّي
 
-**آخر تحديث:** 2026-10-18
+**آخر تحديث:** 2026-11-01
 
 ## عربي
 
@@ -25,6 +25,10 @@
 
 - **معرّف الهاتف ورموز الجلسة:** لربط بياناتك بهاتفك وحماية الوصول إليها. نحفظ رمز
   الجلسة مشفَّرًا بدالة تجزئة (hash) لا بنصّه.
+- **مفتاح الاسترجاع:** يحفظه التطبيق مع معرّف الهاتف في النسخة الاحتياطية لهاتفك، ليستعيد
+  بيانات أسرتك عند إعادة التثبيت أو الانتقال إلى هاتف جديد؛ ونحفظ نحن تجزئته (hash) فقط.
+- **علامات ما حذفته:** إن ربطت أكثر من هاتف بحساب Google، نحفظ علامة مشفَّرة (hash)
+  لكل طفل أو معلومة أو ذاكرة حذفتها، حتى لا تعود من نسخة الهاتف الآخر.
 - **إصلاح التثبيت المنقسم:** قسمت إصدارات التطبيق 1.0.58–1.0.67 بعض التثبيتات الجديدة إلى
   معرّفين لهاتف واحد. حين يعود التطبيق بالمعرّف الثاني نضمّه إلى معرّف أسرتك، ونحفظ أيّ معرّف
   قديم صار يشير إلى أيّ معرّف (ليجد التطبيق بياناتك)، وسجلًّا بما نقله الإصلاح أو حذفه — ومعه
@@ -192,7 +196,7 @@
 
 # Privacy Policy — Almorabbi (المربّي)
 
-**Last updated:** 2026-10-18
+**Last updated:** 2026-11-01
 
 ## English
 
@@ -220,6 +224,12 @@ to your phone's random identifier:
 
 - **Phone identifier and session tokens:** to link your data to your phone and
   protect access to it. Session tokens are stored as a hash, not as text.
+- **Restore key:** the app keeps it with the phone identifier in your phone's
+  backup, so a reinstall or a new phone gets your family's data back; we store
+  only its hash.
+- **Marks of what you deleted:** if you link more than one phone to a Google
+  account, we keep a hashed mark of each child, memory item or memory you
+  deleted, so it does not come back from the other phone's copy.
 - **Repairing a split install:** app versions 1.0.58–1.0.67 split some fresh
   installs into two phone identifiers. When the app comes back under the second
   one, we merge it into your family's identifier, keep which old identifier now
