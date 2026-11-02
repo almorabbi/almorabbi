@@ -107,6 +107,11 @@ def create_session(request: Request, body: SessionCreate | None = None) -> Sessi
         # fresh, empty session they always got. A token minted for the id
         # after the erase proves a live install and is served above.
         raise HTTPException(status_code=status.HTTP_410_GONE, detail=erased_devices.refusal())
+    elif device_id and store.device_has_tokens(device_id) and store.is_birth_race(device_id):
+        # The same fresh install minting twice in its first seconds (seen on
+        # production 2026-11-01): not a stranger, and under enforcement moving
+        # it to another id would split the install in two (device_twins).
+        mint_kind = "new"
     elif device_id and store.device_has_tokens(device_id):
         if _session_mint_enforced():
             build = erased_devices.app_build(request.headers)
