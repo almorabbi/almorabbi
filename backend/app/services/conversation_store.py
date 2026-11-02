@@ -130,6 +130,31 @@ def token_is_bare(token: str | None) -> bool:
     return token_mint_kind(token) == "bare"
 
 
+# A fresh install can mint twice in its first seconds (two isolates racing
+# their first session): the second mint finds the first one's token and has no
+# proof yet. Within this window, while every token the device has is itself a
+# `new` one, that second mint is the same install — not a stranger.
+BIRTH_RACE_SECONDS = 120
+
+
+def is_birth_race(device_id: str) -> bool:
+    """Every token of the device is a `new` mint younger than BIRTH_RACE_SECONDS."""
+    if BIRTH_RACE_SECONDS <= 0:
+        return False
+    conn = get_conn()
+    try:
+        row = conn.execute(
+            "SELECT COUNT(*) AS n, "
+            "       SUM(CASE WHEN mint_kind = 'new' "
+            "                 AND created_at >= datetime('now', ?) THEN 1 ELSE 0 END) AS fresh "
+            "FROM api_tokens WHERE device_id = ?",
+            (f"-{BIRTH_RACE_SECONDS} seconds", device_id),
+        ).fetchone()
+        return bool(row["n"]) and row["n"] == (row["fresh"] or 0)
+    finally:
+        conn.close()
+
+
 def device_has_tokens(device_id: str) -> bool:
     """True once any token was ever issued for this device id."""
     conn = get_conn()

@@ -448,3 +448,51 @@ def test_a_bare_session_cannot_confirm_even_without_a_pause(client, monkeypatch)
     prove(client, intruder, push_token="fcm-young-attacker")
     _link(client, intruder, "sub-young-attacker")
     assert _confirmed(dev) == 0
+
+
+# ── a fresh install racing its own first mint ─────────────────────────────
+
+
+@pytest.mark.parametrize("enforced", [False, True])
+def test_a_fresh_install_minting_twice_at_birth_stays_one_new_device(client, monkeypatch, enforced):
+    from app.services import conversation_store
+    monkeypatch.setattr(conversation_store, "BIRTH_RACE_SECONDS", 120)
+    """Seen on production 2026-11-01: a new install minted twice in the same
+    second; the second mint, with no proof yet, was marked bare — and under
+    enforcement would have been moved to another id, splitting the install."""
+    monkeypatch.setenv("SESSION_MINT_ENFORCE", "true" if enforced else "")
+    _, first, dev = _session(client, "dev-birth-race", build=122)
+    _, second, minted = _session(client, "dev-birth-race", build=122)
+    assert minted == dev
+    assert _kind(first) == "new" and _kind(second) == "new"
+
+
+def test_the_birth_window_closes(client, monkeypatch):
+    from app.services import conversation_store
+    monkeypatch.setattr(conversation_store, "BIRTH_RACE_SECONDS", 120)
+    monkeypatch.delenv("SESSION_MINT_ENFORCE", raising=False)
+    _, _, dev = _session(client, "dev-birth-old")
+    conn = get_conn()
+    conn.execute("UPDATE api_tokens SET created_at = datetime('now', '-10 minutes') "
+                 "WHERE device_id = ?", (dev,))
+    conn.commit()
+    conn.close()
+    _, token, _ = _session(client, dev)
+    assert _kind(token) == "bare"
+
+
+def test_a_bare_token_in_the_window_does_not_open_it(client, monkeypatch):
+    """A stranger who minted bare inside the window does not make the next
+    bare mint `new`: every token must be a `new` one."""
+    from app.services import conversation_store
+    monkeypatch.setattr(conversation_store, "BIRTH_RACE_SECONDS", 120)
+    monkeypatch.delenv("SESSION_MINT_ENFORCE", raising=False)
+    _, _, dev = _session(client, "dev-birth-mixed")
+    conn = get_conn()
+    conn.execute("UPDATE api_tokens SET created_at = datetime('now', '-10 minutes') "
+                 "WHERE device_id = ?", (dev,))
+    conn.commit()
+    conn.close()
+    _, bare, _ = _session(client, dev)                  # bare: outside the window
+    _, after, _ = _session(client, dev)
+    assert _kind(bare) == "bare" and _kind(after) == "bare"

@@ -178,3 +178,12 @@ def _temp_conversations_db(monkeypatch):
     monkeypatch.setenv("CHILD_MODE_SECRET", "test-child-mode-secret")  # child_token fails closed without it
     with isolated_conversations_db(monkeypatch):
         yield
+
+
+@pytest.fixture(autouse=True)
+def _no_birth_race_window(monkeypatch):
+    """Tests mint a device and claim it again at once to play a stranger; the
+    real 120-second window (conversation_store.is_birth_race) would read that
+    as the install's own racing first mint. Tests of the window set it back."""
+    from app.services import conversation_store
+    monkeypatch.setattr(conversation_store, "BIRTH_RACE_SECONDS", 0)
