@@ -1,0 +1,78 @@
+{
+  "id": "shm-isl-12-prayer-encouragement-7-9__en",
+  "domain": "islamic_parenting",
+  "age_group": "7-9",
+  "behavior_type": "تشجيع الطفل على الصلاة بالقدوة والمحاكاة",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "Sa'id ibn Wahf al-Qahtani, al-Hady al-Nabawi fi Tarbiyat al-Awlad fi Daw' al-Kitab wa-l-Sunnah (The Prophetic Guidance on Raising Children), in Arabic, pp. 143–145",
+  "title": "Good example in accustoming a child to prayer and noble character",
+  "language": "en",
+  "source_file": "shamela:96478:140-142",
+  "source_meta": {
+    "source_title": "الهدي النبوي في تربية الأولاد في ضوء الكتاب والسنة",
+    "source_author": "سعيد بن وهف القحطاني"
+  },
+  "text_original": "فعن أبي هريرة رضي الله عنه أن النبي ﷺ قال: «كُلُّ مَوْلُودٍ يُولَدُ على الْفِطْرَةِ، فَأَبَوَاهُ يُهَوِّدَانِهِ، أو يُنَصِّرَانِهِ، أو يُمَجِّسَانِهِ» (صحيح البخاري — حديث ١٣٨٥).\nومما لا شك فيه أن والد الطفل ووالدته يستطيعان بتوفيق الله لهما العمل على حسن تربية الولد، عن طريق القدوة الحسنة أولاً، ثم تلقينه الآداب الفاضلة، والعمل على غرس الخصال الكريمة في نفسه وطبعه على الصفات الحميدة، وتقوية صلته بالله عن طريق حفظه للقرآن، وممارسة والده ووالدته العبادات، وتعليمه إيَّاها وتعويده عليها.\nفإذا بلغ سبع سنين أُمِر بالصلاة، وعُلِّم الطهارة والوضوء، وشُجِّع على الصلاة، وتأديتها في أوقاتها في المسجد مع الجماعة، حتى يصبح ذلك خُلقاً له.\nوقد قال بعض الحكماء يوصي مؤدب ولده: «ليكن إصلاحك لابني إصلاحك لنفسك؛ فإن عيونهم معقودة بعينك، فالحسن عندهم ما استحسنت، والقبيح ما استقبحت».",
+  "text_simplified": "The author reminds that a child's heart takes in whatever good or bad is put into it, citing the Prophet's ﷺ words: «Every child is born upon the natural disposition, then his parents make him a Jew, a Christian or a Magian» (Sahih al-Bukhari 1385). He states that parents, by Allah's help, can raise the child well, first through good example, then by teaching him noble manners, strengthening his bond with Allah by memorizing the Qur'an, and by his seeing his parents practise acts of worship, then teaching them to him and accustoming him to them. When he reaches seven, he is told to pray, taught purification and wudu, and encouraged to pray on time in the mosque with the congregation, until it becomes part of his character. The author quotes a wise man's advice to his son's teacher: «Let your reforming of my son be your reforming of yourself, for their eyes are tied to your eye: the good to them is what you approve, and the bad is what you reject», because a boy imitates those around him; he sees a thing done in front of him and repeats it until it becomes a habit, imitating his parents and his older siblings.",
+  "labels": [
+    "القدوة",
+    "تعليم_الصلاة",
+    "الأخلاق_الفاضلة",
+    "المحاكاة"
+  ],
+  "created_at": "2026-11-02T16:34:00Z",
+  "updated_at": "2026-11-03T12:00:00Z",
+  "version": "1.1.0",
+  "source_language": "ar",
+  "translated_from": "shm-isl-12-prayer-encouragement-7-9",
+  "translation": {
+    "translator_model": "claude-opus-5-5",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "«أُمر» is the passive of \"command\", and here it carries the shar'i directive sense of the age-seven command to pray, which \"is told to pray\" slightly understates."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "zai-coding",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "8abd79d78bd5c4fce6eba0a8144ce8bba437cb9db903d4adf5ebe24256c63cf9",
+      "reviewed_at": "2026-11-03T07:49:39+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "«أُمر» is the passive of \"command\", and here it carries the shar'i directive sense of the age-seven command to pray, which \"is told to pray\" slightly understates."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-11-03T07:49:39+00:00"
+  }
+}

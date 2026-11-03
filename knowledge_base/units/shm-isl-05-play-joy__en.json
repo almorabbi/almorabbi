@@ -1,0 +1,64 @@
+{
+  "id": "shm-isl-05-play-joy__en",
+  "domain": "islamic_parenting",
+  "age_group": "4-6",
+  "behavior_type": "مداعبة الأطفال وإدخال السرور عليهم",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "Sa'id ibn Wahf al-Qahtani, al-Hady al-Nabawi fi Tarbiyat al-Awlad fi Daw' al-Kitab wa-l-Sunnah (The Prophetic Guidance on Raising Children), in Arabic, pp. 164–168",
+  "title": "From the Prophet's ﷺ way of gentleness with children and bringing them joy",
+  "language": "en",
+  "source_file": "shamela:96478:161-165",
+  "source_meta": {
+    "source_title": "الهدي النبوي في تربية الأولاد في ضوء الكتاب والسنة",
+    "source_author": "سعيد بن وهف القحطاني"
+  },
+  "text_original": "ومن هذه الأخلاق العظيمة أخلاقه مع الأطفال التي ضرب فيها المثل الأعلى، ولا يصل إلى درجته أحد من خلق الله تعالى، لا علماء النفس، ولا غيرهم؛ ولكن مع ذلك المسلم يُلْزِمُ نفسه على حسب قدرته بالاقتداء بالنبي ﷺ.\nقال محمود بن الربيع رضي الله عنه: «عَقلتُ من النبي ﷺ مَجَّةً مجَّها في وجهي وأنا ابن خمس سنين من دلوٍ» (صحيح البخاري — حديث ٧٧).\nعن جابر بن سَمُرة رضي الله عنه، قال: «صليتُ مع رسول الله ﷺ صلاة الأُولى ثم خرج إلى أهله وخرجتُ معه، فاستقبلهُ وِلدانٌ فجعل يمسح خدَّيْ أحدهم واحداً واحداً، قال: وأما أنا فمسح خدَّيَّ فوجدت لِيَدِهِ برداً أو ريحاً، كأنما أخرجها من جؤنة عطّار» (صحيح مسلم — حديث ٢٣٢٩).\nوعن أبي هريرة رضي الله عنه قال: قبَّل رسول الله ﷺ الحسن بن عليٍّ وعنده الأقرع بن حابسٍ التميمي جالساً، فقال الأقرع: إن لي عشرة من الولد ما قبَّلتُ منهم أحداً، فنظر إليه رسول الله ﷺ ثم قال: «من لا يَرْحم لا يُرحم» (صحيح البخاري — حديث ٥٩٩٧).\nوعن أسامة بن زيد رضي الله عنهما قال: كان رسول الله ﷺ يأخذني فَيُقْعِدُني على فخذه ويُقعد الحسن بن علي على فخذه الآخر ثُمَّ يضمُّهما ثم يقول: «اللهم ارحمهما فإني أرحمهما» (صحيح البخاري — حديث ٦٠٠٣).\nوعن أنس بن مالك رضي الله عنه أنه مرَّ على صبيان فسلم عليهم، وقال: كان النبي ﷺ يفعله.",
+  "text_simplified": "The author explains that the Prophet ﷺ set the highest example in his conduct with children, and that a Muslim holds himself, as far as he can, to following him; then he gives examples of his gentleness with them. Mahmud ibn al-Rabi' said: «I remember the Prophet ﷺ spraying water from a bucket onto my face with his mouth when I was five years old» (Sahih al-Bukhari 77) — meaning he remembered it; the Prophet ﷺ did this either playfully or to bless him. Jabir ibn Samurah reported that young children met the Prophet ﷺ and he stroked the cheeks of each of them one by one, as in Sahih Muslim (2329). He kissed al-Hasan ibn Ali, and al-Aqra' ibn Habis said: I have ten children and have never kissed any of them; he ﷺ said: «Whoever does not show mercy will not be shown mercy» (Sahih al-Bukhari 5997). He would seat Usamah ibn Zayd on one thigh and al-Hasan on the other, then hug them and say: «O Allah, have mercy on them, for I have mercy on them» (Sahih al-Bukhari 6003). And Anas ibn Malik passed by some children, greeted them with salam and said: the Prophet ﷺ used to do this, as in Sahih al-Bukhari (6247) and Sahih Muslim (2168).",
+  "labels": [
+    "ملاطفة_الأطفال",
+    "الرحمة",
+    "مداعبة_الأطفال",
+    "السلام_على_الصبيان"
+  ],
+  "created_at": "2026-11-02T15:40:00Z",
+  "updated_at": "2026-11-03T12:00:00Z",
+  "version": "1.1.0",
+  "source_language": "ar",
+  "translated_from": "shm-isl-05-play-joy",
+  "translation": {
+    "translator_model": "claude-opus-5-5",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "zai-coding",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "0cbdcd4ebc70004f5120e1f1f52d92382e88ead6e13638e04e8aa75ddb4ea01c",
+      "reviewed_at": "2026-11-03T07:42:34+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-11-03T07:42:34+00:00"
+  }
+}

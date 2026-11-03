@@ -1,0 +1,110 @@
+{
+  "id": "shm-isl-11-wudu-step-by-step-7-9__en",
+  "domain": "islamic_parenting",
+  "age_group": "7-9",
+  "behavior_type": "تعليم الوضوء وأذكاره بالتدرج والتيسير",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "Abd al-Razzaq ibn Abd al-Muhsin al-Badr, Adhkar al-Taharah wa-l-Salah (The Remembrances of Purification and Prayer), in Arabic, pp. 13–17",
+  "title": "Remembrances of wudu: bismillah at the start, the testimony after it, and no special supplication for each limb",
+  "language": "en",
+  "source_file": "shamela:7498:11-15",
+  "source_meta": {
+    "source_title": "أذكار الطهارة والصلاة",
+    "source_author": "عبد الرزاق بن عبد المحسن البدر"
+  },
+  "text_original": "وقد اختلف العلماء رحمهم الله في حكمها، فذهب الجمهور إلى أنَّها مستحبَّة، وذهب بعضُ أهل العلم إلى القول بوجوبها، إذا كان عالماً بالحكم ذاكراً لها، فإن جهل حكمها أو نسيها فلا حرج عليه ولا يلزمُه إعادة الوضوء.\nوأمَّا الدعاء على أعضاء الوضوء في أثناء الوضوء، كلُّ عضوٍ بدعاء مخصوص بأن يجعلَ لغسل اليدِ دعاءً ولغسل الوجه دعاءً ولغسل القَدم دعاءً ونحو ذلك، فهذا لَم يثبت فيه شيءٌ عن النَّبيِّ ﷺ.\nويُستحبُّ للمسلمِ أن يقول عقب فراغه من الوضوء: أَشْهَدُ أن لاَ إِلَهَ إِلاَّ الله، وأَنَّ مُحَمَّداً عَبْدُ اللهِ وَرَسُولُهُ؛ لِما ثبت في صحيح مسلم عن عُقْبَةَ بنِ عَامِرٍ رضي الله عنه قال: فَأَدْرَكْتُ مِنْ قَوْلِهِ: «مَا مِنْ مُسْلِمٍ يَتَوَضَّأُ، فَيُحْسِنُ وُضُوءَهُ، ثُمَّ يَقُومُ فَيُصَلِّي رَكْعَتَيْنِ مُقْبلٌ عَلَيْهَا بقَلْبهِ وَوَجْهِهِ إِلاَّ وَجَبَتْ لَهُ الجَنَّةُ» (صحيح مسلم — حديث ٢٣٤)، قَالَ: فَقُلْتُ: مَا أَجْوَدَ هَذِهِ! فَإِذَا قَائِلٌ بَيْنَ يَدَيَّ يَقُولُ: الَّتِي قَبْلَهَا أَجْوَدُ، فَنَظَرْتُ فَإِذَا عُمَرُ رضي الله عنه قَالَ: إِنِّي رَأَيْتُكَ حَينَ جِئْتَ آنِفاً، قَالَ: «مَا مِنْكُمْ مِنْ أَحَدٍ يَتَوَضَّأُ، فَيُبْلِغُ ـ أَوْ فَيُسْبغُ ـ الوُضُوءَ، ثُمَّ يَقُولُ: أَشْهَدُ أن لاَ إِلَهَ إِلاَّ الله، وأَنَّ مُحَمَّداً عَبْدُ اللهِ وَرَسُولُهُ إِلاَّ فُتِحَتْ لَهُ أَبْوَابُ الجَنَّةِ الثَّمَانِيَةِ، يَدْخُلُ مِنْ أَيِّهَا شَاءَ» (صحيح مسلم — حديث ٢٣٤).",
+  "text_simplified": "The author explains that scholars differed on saying bismillah at the start of wudu: most hold that it is recommended, and some hold it obligatory for one who knows the ruling and remembers it; whoever does not know the ruling or forgets it is not at fault and does not repeat his wudu. He quotes Shaykh Ibn Baz that whoever leaves it out of forgetfulness or ignorance, his wudu is valid, citing Allah's words: ﴿رَبَّنَا لا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا﴾ (al-Baqarah 2:286; interpretation of the meaning: Our Lord, do not take us to task if we forget or make a mistake), and that whoever forgets it at the start and remembers during wudu says it then and does not redo what has passed. He then states that a special supplication for each limb of wudu has not been established from the Prophet ﷺ, and that a Muslim must keep to what the Sunnah brought. It is recommended to say after wudu: I bear witness that there is no god but Allah and that Muhammad is the servant of Allah and His Messenger, because he ﷺ said: «There is none of you who performs wudu and completes it well, then says: I bear witness that there is no god but Allah and that Muhammad is the servant of Allah and His Messenger, but the eight gates of Paradise are opened for him, and he may enter by whichever he wishes» (Sahih Muslim 234). He ﷺ also said: «There is no Muslim who performs wudu and does it well, then stands and prays two rak'ahs, turning to them with his heart and his face, but Paradise becomes due for him» (Sahih Muslim 234).",
+  "labels": [
+    "الوضوء",
+    "أذكار_الوضوء",
+    "التسمية",
+    "العبادات"
+  ],
+  "created_at": "2026-11-02T16:34:00Z",
+  "updated_at": "2026-11-03T12:00:00Z",
+  "version": "1.1.0",
+  "source_language": "ar",
+  "translated_from": "shm-isl-11-wudu-step-by-step-7-9",
+  "translation": {
+    "translator_model": "claude-opus-5-5",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified.english",
+        "type": "hadith",
+        "why": "The English collapses the Arabic textual variant 'يُبْلِغُ أَوْ يُسْبِغُ' into one phrase, slightly shortening the hadith wording."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "hadith",
+        "why": "The English merges the narration's two readings (\"completes — or does thoroughly — the wudu\") into a single phrase, slightly altering the transmitted wording of the hadith."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "omission",
+        "why": "The honorific رحمه الله (may Allah have mercy on him) after Shaykh Ibn Baz is dropped in the English."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "zai-coding",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "afc122c689f1d34c97b376c21032da35e6fc24ff01195d5acd397491b297b637",
+      "reviewed_at": "2026-11-03T07:50:04+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified.english",
+          "type": "hadith",
+          "why": "The English collapses the Arabic textual variant 'يُبْلِغُ أَوْ يُسْبِغُ' into one phrase, slightly shortening the hadith wording."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "hadith",
+          "why": "The English merges the narration's two readings (\"completes — or does thoroughly — the wudu\") into a single phrase, slightly altering the transmitted wording of the hadith."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "omission",
+          "why": "The honorific رحمه الله (may Allah have mercy on him) after Shaykh Ibn Baz is dropped in the English."
+        }
+      ],
+      "adjudicated": [
+        {
+          "field": "text_simplified.arabic",
+          "type": "hadith",
+          "reason": "Both quoted hadiths are in Sahih Muslim 234 (Abd al-Baqi numbering): Uqba ibn Amir's report of «ما من مسلم يتوضأ فيحسن وضوءه…» and, in the same narration, Umar's report of «ما منكم من أحد يتوضأ…». ops/tools/scripture_scan.py locates both quotes inside narration 234; 235 is a different hadith (Abd Allah ibn Zayd on the description of wudu). The repeated number is correct.",
+          "by": "claude-opus-5.5 (en-parity review, shamela units)",
+          "on": "2026-11-03"
+        }
+      ],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-11-03T07:50:04+00:00"
+  }
+}

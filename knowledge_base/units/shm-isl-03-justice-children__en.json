@@ -1,0 +1,101 @@
+{
+  "id": "shm-isl-03-justice-children__en",
+  "domain": "islamic_parenting",
+  "age_group": "unspecified",
+  "behavior_type": "العدل بين الأبناء في العطية والمعاملة",
+  "intervention_type": "وقائي",
+  "severity": "متوسط",
+  "reference_type": "كتاب_فقهي",
+  "reference_info": "Ibn al-Qayyim, Tuhfat al-Mawdud bi-Ahkam al-Mawlud (ed. Abd al-Qadir al-Arna'ut), in Arabic, pp. 227–229",
+  "title": "The obligation of fairness between children in giving and withholding",
+  "language": "en",
+  "source_file": "shamela:6266:225-227",
+  "source_meta": {
+    "source_title": "تحفة المودود بأحكام المولود (ت الأرنؤوط)",
+    "source_author": "ابن قيم الجوزية"
+  },
+  "text_original": "وَمن حُقُوق الْأَوْلَاد الْعدْل بَينهم فِي الْعَطاء وَالْمَنْع\nوَفِي الصَّحِيحَيْنِ عَن النُّعْمَان بن بشير أَن أَبَاهُ أَتَى بِهِ النَّبِي ﷺ فَقَالَ إِنِّي نحلت ابْني هَذَا غُلَاما كَانَ لي فَقَالَ رَسُول ﷺ أكل ولدك نحلت مثل هَذَا فَقَالَ لَا فَقَالَ أرجعه وَفِي رِوَايَة لمُسلم فَقَالَ افعلت هَذَا بولدك كلهم قَالَ لَا قَالَ «اتَّقوا الله واعدلوا فِي أَوْلَادكُم» (صحيح مسلم — حديث ١٦٢٣) فَرجع أبي فِي تِلْكَ الصَّدَقَة\nوَفِي الصَّحِيح أشهد على هَذَا غَيْرِي وَهَذَا أَمر تهديد لَا إِبَاحَة فَإِن تِلْكَ الْعَطِيَّة كَانَت جورا بِنَصّ الحَدِيث وَرَسُول الله ﷺ لَا يَأْذَن لأحد أَن يشْهد على صِحَة الْجور\nوَكَانَ السّلف يستحبون أَن يعدلُوا بَين الْأَوْلَاد فِي الْقبْلَة",
+  "text_simplified": "Ibn al-Qayyim states that among the rights of children is fairness between them in what they are given and what they are denied. In the two Sahihs, Bashir, the father of al-Nu'man, came to the Prophet ﷺ and told him he had given his son al-Nu'man a servant boy. The Prophet ﷺ asked: Have you given each of your children the same? He said: No. So he told him to take it back. In a narration of Muslim he ﷺ said: «Fear Allah and be fair among your children» (Sahih Muslim 1623), and he took back that gift. Ibn al-Qayyim explains that the gift was an injustice by the text of the hadith, and that the command to be fair between children is an obligation: it is an emphatic command, and the Prophet ﷺ said that its opposite is not right. The early Muslims liked to be fair between their children even in kisses.",
+  "labels": [
+    "العدل_بين_الأولاد",
+    "الهبة_للأولاد",
+    "ابن_القيم"
+  ],
+  "created_at": "2026-11-02T15:40:00Z",
+  "updated_at": "2026-11-03T12:00:00Z",
+  "version": "1.1.0",
+  "source_language": "ar",
+  "translated_from": "shm-isl-03-justice-children",
+  "translation": {
+    "translator_model": "claude-opus-5-5",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "The English renders the Islamic legal sense of \"يستحبون\" (they recommended/held as praiseworthy) as a mere liking, softening the normative tone."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "omission",
+        "why": "The honorific رحمه الله (may Allah have mercy on him) after Ibn al-Qayyim is dropped in the English."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "يستحبون indicates the Salaf regarded such fairness as religiously recommended (mustahabb), which 'liked to' reduces to a mere personal preference."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "zai-coding",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "67649008265d5dcfb57fae86ba39c788cbcfaded41237a77390f11bd58202356",
+      "reviewed_at": "2026-11-03T07:42:34+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "The English renders the Islamic legal sense of \"يستحبون\" (they recommended/held as praiseworthy) as a mere liking, softening the normative tone."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "omission",
+          "why": "The honorific رحمه الله (may Allah have mercy on him) after Ibn al-Qayyim is dropped in the English."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "يستحبون indicates the Salaf regarded such fairness as religiously recommended (mustahabb), which 'liked to' reduces to a mere personal preference."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-11-03T07:42:34+00:00"
+  }
+}
