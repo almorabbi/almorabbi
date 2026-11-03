@@ -9,9 +9,9 @@
   "intervention_type": "إرشادي",
   "severity": "خفيف",
   "reference_type": "كتاب_تربوي",
-  "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 1 — Part 2: Considering Addressees' Capacities in Obligations and Supererogatory Acts, p. 87.",
-  "text_original": "نقصد ثانيا بواقعية المنهج النبوي في التربية، أنه ﷺ راعى أحوال المتربين (المخاطبين) في اختلافاتهم النفسية ومكانتهم الاجتماعية وطاقاتهم المختلفة؛ فحينما سأله الأعرابي قائلا: يا رسول الله، أخبرني بما افترض الله علي من الصلاة، فقال: «الصلوات الخمس إلا أن تطوع شيئا»، قال: أخبرني بما افترض الله علي من الصيام، فقال: «شهر رمضان إلا أن تطوع شيئا»، قال: أخبرني بما افترض الله علي من الزكاة، فأخبره رسول الله ﷺ شرائع الإسلام، قال: والذي أكرمك لا أتطوع شيئا ولا أنقص مما افترض الله علي شيئا، فقال رسول الله ﷺ: «أفلح إن صدق، أو دخل الجنة إن صدق» (صحيح البخاري — حديث 1891).\nفأخبر بدخوله الجنة إن صدق الله فيما فرضه عليه فقط، أما حينما سأله معاذ بن جبل رضي الله عنه عن عمل يدخله الجنة ويباعده عن النار، أرشده ﷺ بعد فرائض الإسلام من إقام الصلاة وإيتاء الزكاة وصوم رمضان وحج البيت إلى أبواب الخير من النوافل وكف اللسان؛ ونلاحظ هنا كيف أنه ﷺ لما علم من طاقة معاذ واستعداداته — وهو أعلم الأمة بالحلال والحرام — وجهه إلى ما يطيقه ويلائمه وجعل النوافل له مع الفرائض سببا لدخوله الجنة، في حين أن الأعرابي اكتفى معه بالفرائض وجعلها سببا لدخول الجنة، فطاقة الأعرابي واستعداداته ليست هي استعداد معاذ.",
-  "text_simplified": "In his educational methodology, the Prophet ﷺ took into account the varying capacities and readiness of those he addressed; when the Bedouin asked him about what Allah had made obligatory upon him of prayer, fasting, and zakah and pledged neither to add to nor subtract from the obligations, the Prophet ﷺ said: \"He will succeed if he is truthful, or he will enter Paradise if he is truthful\" (Sahih al-Bukhari 1891), whereas, knowing the high aspiration and readiness of Mu'adh ibn Jabal (may Allah be pleased with him), he guided him to increase in supererogatory good deeds and guarding the tongue alongside the obligations.",
+  "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 1 — Part 2: Considering Addressees' Capacities in Obligations and Supererogatory Acts, p. 86–87.",
+  "text_original": "ثم نقصد ثانيا بواقعية المنهج النبوي في التربية، أنه ﷺ راعى أحوال المتربين (المخاطبين) في اختلافاتهم النفسية ومكانتهم الاجتماعية وطاقاتهم المختلفة.\nفحينما سأله الأعرابي قائلا: يا رسول الله أخبرني بما افترض الله علي من الصلاة … فأخبر بدخوله الجنة إن صدق الله فيما فرضه عليه فقط، أما حينما سأله معاذ بن جبل عن عمل يدخله الجنة ويباعده عن النار، قال: … ونلاحظ هنا كيف أنه ﷺ لما علم من طاقة معاذ واستعداداته — وهو أعلم الأمة بالحلال والحرام — وجهه إلى ما يطيقه ويلائمه وجعل النوافل له والفرائض سببا لدخوله الجنة، في حين أن الأعرابي اكتفى معه بالفرائض وجعلها سببا لدخول الجنة، فطاقة الأعرابي واستعداداته ليس هو استعداد معاذ.",
+  "text_simplified": "In his educational methodology, the Prophet ﷺ took into account the varying capacities and readiness of those he addressed; when the Bedouin asked him about what Allah had made obligatory upon him of prayer, he sufficed with the obligatory duties for him as a cause for entering Paradise if truthful, whereas he directed Mu'adh ibn Jabal (may Allah be pleased with him), knowing his capacity, readiness, and knowledge of the lawful and unlawful, to combine the obligatory and supererogatory acts as a cause for entering Paradise.",
   "labels": [
     "حديث نبوي",
     "أركان الإسلام",
@@ -32,15 +32,22 @@
     "translator_model": "mistral-large-3:675b",
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "needs_scholar_review": true,
-    "review_verdict": "clean",
-    "review_defects": [],
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "omission",
+        "why": "The qualifier 'psychological' is omitted, slightly narrowing the Arabic expression."
+      }
+    ],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
-    "revalidated_at": "2026-11-03T11:36:00+00:00",
+    "revalidated_at": "2026-11-03T13:22:02+00:00",
     "english_authors": [
       "mistral-large-3:675b"
     ],
     "fixer_model": "mistral-large-3:675b",
-    "fixed_at": "2026-11-03T11:33:59+00:00",
+    "fixed_at": "2026-11-03T13:21:05+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,9 +66,16 @@
       "fixer": "mistral-large-3:675b",
       "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "ab2bc2c4e8c5aa64af30777ad3ce07a9dee689b840351845ffa4e548a3e2c198",
-      "reviewed_at": "2026-11-03T11:36:00+00:00",
-      "residual_low": [],
+      "content_sha256": "c29b0f792ad7da08185b396d5c85c47b221ae81ee0abd5b4c67afb9ade1f8bde",
+      "reviewed_at": "2026-11-03T13:22:02+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "omission",
+          "why": "The qualifier 'psychological' is omitted, slightly narrowing the Arabic expression."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"

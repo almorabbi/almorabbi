@@ -9,9 +9,9 @@
   "intervention_type": "إرشادي",
   "severity": "خفيف",
   "reference_type": "كتاب_تربوي",
-  "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 1 — Part 2: Realism and Considering Individual Differences, p. 87.",
-  "text_original": "قال أحدهم: أما أنا فإني أصلي الليل أبدا، وقال آخر: أنا أصوم الدهر ولا أفطر، وقال آخر: أنا أعتزل النساء فلا أتزوج أبدا، فجاء رسول الله ﷺ إليهم فقال: «أنتم الذين قلتم كذا وكذا، أما والله إني لأخشاكم لله وأتقاكم له، لكني أصوم وأفطر، وأصلي وأرقد، وأتزوج النساء، فمن رغب عن سنتي فليس مني» (صحيح البخاري — حديث 5063). فهذا الحديث تضمن إشارة إلى أنه ﷺ كان يربي الصحابة رضوان الله عليهم على ما يطيقون في أمور العبادة، فمنهجه ميسر للخلق جميعا هين ولين مع الفطرة يوجهها ويقومها حين تميل ولكنه لا يكسرها ولا يجهدها كذلك.\nثم نقصد ثانيا بواقعية المنهج النبوي في التربية، أنه ﷺ راعى أحوال المتربين (المخاطبين) في اختلافاتهم النفسية ومكانتهم الاجتماعية وطاقاتهم المختلفة؛ فحينما سأله الأعرابي عن الإسلام فأخبره رسول الله ﷺ بالصلوات الخمس وصيام رمضان والزكاة، قال الأعرابي: والله لا أزيد على هذا ولا أنقص منه، فقال رسول الله ﷺ: «أفلح إن صدق» (صحيح البخاري — حديث 46).",
-  "text_simplified": "The Prophet ﷺ raised his Companions upon what they could bear in worship through an easy methodology that guides and rectifies innate human nature without breaking or exhausting it (Sahih al-Bukhari 5063). Part of the realism of his ﷺ methodology was considering individual differences among people in their capacities and psychological and social circumstances, just as he accepted the Bedouin's commitment to the obligatory duties alone when he said he would neither add to nor subtract from them, to which the Prophet ﷺ said: \"He will succeed if he is truthful\" (Sahih al-Bukhari 46).",
+  "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 1 — Part 2: Realism and Considering Individual Differences, p. 86–87.",
+  "text_original": "قال أحدهم: أما أنا فإني أصلي الليل أبدا، وقال آخر: أنا أصوم الدهر ولا أفطر، وقال آخر: أنا أعتزل النساء فلا أتزوج أبدا، فجاء رسول الله ﷺ إليهم فقال: «أنتم الذين قلتم كذا وكذا، أما والله إني لأخشاكم لله وأتقاكم له، لكني أصوم وأفطر، وأصلي وأرقد، وأتزوج النساء، فمن رغب عن سنتي فليس مني» (صحيح البخاري — حديث 5063). فهذا الحديث تضمن إشارة إلى أنه ﷺ كان يربي الصحابة رضوان الله عليهم على ما يطيقون في أمور العبادة، فمنهجه ميسر للخلق جميعا هين ولين مع الفطرة يوجهها ويقومها حين تميل ولكنه لا يكسرها ولا يجهدها كذلك.\nثم نقصد ثانيا بواقعية المنهج النبوي في التربية، أنه ﷺ راعى أحوال المتربين (المخاطبين) في اختلافاتهم النفسية ومكانتهم الاجتماعية وطاقاتهم المختلفة.\nفحينما سأله الأعرابي قائلا: يا رسول الله أخبرني بما افترض الله علي من الصلاة … فأخبر بدخوله الجنة إن صدق الله فيما فرضه عليه فقط.",
+  "text_simplified": "The Prophet ﷺ raised his Companions upon what they could bear in worship through an easy methodology that guides and rectifies innate human nature without breaking or exhausting it (Sahih al-Bukhari 5063). Part of the realism of his ﷺ methodology was considering individual differences among people in their capacities and psychological and social circumstances, just as he accepted the Bedouin's commitment to the obligatory duties alone as a cause for entering Paradise if he remained truthful.",
   "labels": [
     "فروق فردية",
     "تربية نبوية",
@@ -31,8 +31,15 @@
     "translator_model": "mistral-large-3:675b",
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "needs_scholar_review": true,
-    "review_verdict": "clean",
-    "review_defects": [],
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "The Arabic refers to actual performance (أداء) of the obligations, whereas 'commitment' suggests a pledge or intention, slightly weakening the meaning."
+      }
+    ],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
     "auto_review": {
       "reviewers": [
@@ -52,13 +59,20 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "41116a46044852d92a70499ff56b96e282178a6fca947ced77e01f58cbf31ad5",
-      "reviewed_at": "2026-11-03T11:33:26+00:00",
-      "residual_low": [],
+      "content_sha256": "77598919e490bc483b7a3aa9ad4055ff49a5f732def834ce31931fab778eca3a",
+      "reviewed_at": "2026-11-03T13:20:58+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "The Arabic refers to actual performance (أداء) of the obligations, whereas 'commitment' suggests a pledge or intention, slightly weakening the meaning."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "revalidated_at": "2026-11-03T11:33:26+00:00"
+    "revalidated_at": "2026-11-03T13:20:58+00:00"
   }
 }

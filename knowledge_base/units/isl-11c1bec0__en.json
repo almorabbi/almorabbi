@@ -10,8 +10,8 @@
   "severity": "خفيف",
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 1 — Part 2: Considering Differences in Capacities and Social Standing, p. 87.",
-  "text_original": "نلاحظ هنا كيف أنه ﷺ لما علم من طاقة معاذ بن جبل رضي الله عنه واستعداداته — وهو أعلم الأمة بالحلال والحرام — وجهه إلى ما يطيقه ويلائمه وجعل النوافل له والفرائض سببا لدخوله الجنة، في حين أن الأعرابي اكتفى معه بالفرائض وجعلها سببا لدخول الجنة (صحيح البخاري — حديث 46)، فطاقة الأعرابي واستعداداته ليس هو استعداد معاذ.\nوكما أنه راعى في تربيته اختلافات الطاقات، فقد راعى كذلك المكانة الاجتماعية للأفراد، حيث قال في سعد بن معاذ رضي الله عنه: «قوموا إلى سيدكم» (صحيح البخاري — حديث 3043) لعلمه بمكانته بين قومه، وكذلك تشريفه لأبي سفيان رضي الله عنه حينما جعل بيته مأمنا يوم فتح مكة وهو سيد قريش يومئذ، وكذلك إعطاؤه الراية لخالد بن الوليد رضي الله عنه يوم مؤتة لعلمه بقدرته في القيادة، وغير هذه المواقف كثير في سيرته ﷺ مما يدل على واقعيته ﷺ في تربية أمته.",
-  "text_simplified": "In his educational realism, the Prophet ﷺ combined consideration for individuals' varying capacities in worship—as seen in his address to the Bedouin (Sahih al-Bukhari 46) and to Mu'adh ibn Jabal (may Allah be pleased with him)—with consideration for social standing and leadership talents; he said regarding Sa'd ibn Mu'adh (may Allah be pleased with him): \"Stand up for your leader\" (Sahih al-Bukhari 3043), honored Abu Sufyan (may Allah be pleased with him) on the day of the Conquest of Makkah by making his house a place of safety, and entrusted the banner to Khalid ibn al-Walid (may Allah be pleased with him) knowing his leadership ability.",
+  "text_original": "ونلاحظ هنا كيف أنه ﷺ لما علم من طاقة معاذ واستعداداته — وهو أعلم الأمة بالحلال والحرام — وجهه إلى ما يطيقه ويلائمه وجعل النوافل له والفرائض سببا لدخوله الجنة، في حين أن الأعرابي اكتفى معه بالفرائض وجعلها سببا لدخول الجنة، فطاقة الأعرابي واستعداداته ليس هو استعداد معاذ.\nوكما أنه راعى في تربيته اختلافات الطاقات، فقد راعى كذلك المكانة الاجتماعية للأفراد، حيث قال في سعد بن معاذ رضي الله عنه: «قوموا إلى سيدكم» (صحيح البخاري — حديث 3043) لعلمه بمكانته بين قومه، وكذلك تشريفه لأبي سفيان رضي الله عنه حينما جعل بيته مأمنا يوم فتح مكة وهو سيد قريش يومئذ، وكذلك إعطاؤه راية لخالد بن الوليد رضي الله عنه يوم مؤتة لعلمه بقدرته في القيادة، وغير هذه المواقف كثير في سيرته ﷺ مما يدل على واقعيته ﷺ في تربية أمته.",
+  "text_simplified": "In his educational realism, the Prophet ﷺ combined consideration for individuals' varying capacities in worship—as seen in his address to the Bedouin and to Mu'adh—with consideration for social standing and leadership talents; he said regarding Sa'd ibn Mu'adh (may Allah be pleased with him): \"Stand up for your leader\" (Sahih al-Bukhari 3043), honored Abu Sufyan (may Allah be pleased with him) on the day of the Conquest of Makkah by making his house a place of safety, and gave the banner to Khalid ibn al-Walid (may Allah be pleased with him) on the day of Mu'tah knowing his leadership ability.",
   "labels": [
     "تربية نبوية",
     "فروق فردية",
@@ -53,13 +53,13 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "31841509c21a475e9c6e255f24f539ec1d5f3a0788ff8edb5bb09bdaf1a0bb50",
-      "reviewed_at": "2026-11-03T12:08:55+00:00",
+      "content_sha256": "d49941900343b595e59d144a20167dc849fa8881d3f0cf81c2de9b72f10647aa",
+      "reviewed_at": "2026-11-03T13:28:43+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "revalidated_at": "2026-11-03T12:08:55+00:00"
+    "revalidated_at": "2026-11-03T13:28:43+00:00"
   }
 }
