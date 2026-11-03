@@ -381,5 +381,17 @@
         "on": "2026-10-30"
       }
     ]
+  },
+  "shm-isl-11-wudu-step-by-step-7-9__en": {
+    "content_sha256": "afc122c689f1d34c97b376c21032da35e6fc24ff01195d5acd397491b297b637",
+    "overrides": [
+      {
+        "field": "text_simplified.arabic",
+        "type": "hadith",
+        "reason": "Both quoted hadiths are in Sahih Muslim 234 (Abd al-Baqi numbering): Uqba ibn Amir's report of «ما من مسلم يتوضأ فيحسن وضوءه…» and, in the same narration, Umar's report of «ما منكم من أحد يتوضأ…». ops/tools/scripture_scan.py locates both quotes inside narration 234; 235 is a different hadith (Abd Allah ibn Zayd on the description of wudu). The repeated number is correct.",
+        "by": "claude-opus-5.5 (en-parity review, shamela units)",
+        "on": "2026-11-03"
+      }
+    ]
   }
 }

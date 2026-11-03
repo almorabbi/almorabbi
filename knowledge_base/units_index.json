@@ -1,13 +1,13 @@
 {
-  "total_units": 1398,
-  "generated_at": "2026-10-30T00:00:00+00:00",
+  "total_units": 1420,
+  "generated_at": "2026-11-03T07:50:14.459450+00:00",
   "by_domain": {
     "medical": 362,
     "cyber": 284,
-    "islamic_parenting": 581,
+    "islamic_parenting": 601,
     "development": 134,
     "app_help": 12,
-    "aqeedah": 25
+    "aqeedah": 27
   },
   "units": [
     {
@@ -1703,18 +1703,6 @@
       "size_chars": 293
     },
     {
-      "id": "aqe-why-evil-7-9-01",
-      "domain": "aqeedah",
-      "title": "«ليه ربنا خلق الشر؟» — جواب يناسب طفل من ٧ إلى ٩ سنوات",
-      "source_file": "parent_doubts_2026-10",
-      "language": "ar",
-      "original_age_group": "7-9",
-      "normalized_age_group": "7-9",
-      "behavior_type": "أسئلة الطفل عن الشر والألم: ليه ربنا خلق الشر؟",
-      "needs_ocr": false,
-      "size_chars": 743
-    },
-    {
       "id": "aqe-why-evil-13-15-01",
       "domain": "aqeedah",
       "title": "«ليه ربنا خلق الشر؟» — حوار مع مراهق (١٣–١٥)",
@@ -1725,6 +1713,18 @@
       "behavior_type": "سؤال المراهق عن الشر والألم: ليه ربنا خلق الشر؟",
       "needs_ocr": false,
       "size_chars": 1113
+    },
+    {
+      "id": "aqe-why-evil-7-9-01",
+      "domain": "aqeedah",
+      "title": "«ليه ربنا خلق الشر؟» — جواب يناسب طفل من ٧ إلى ٩ سنوات",
+      "source_file": "parent_doubts_2026-10",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "أسئلة الطفل عن الشر والألم: ليه ربنا خلق الشر؟",
+      "needs_ocr": false,
+      "size_chars": 743
     },
     {
       "id": "b08d70af-9008-41cc-97f5-cfeba46ba327",
@@ -13235,16 +13235,16 @@
       "size_chars": 626
     },
     {
-      "id": "isl-teen-write-doubts-one-by-one-01",
+      "id": "isl-teen-calm-not-mockery-01",
       "domain": "islamic_parenting",
-      "title": "ابنك عنده شكوك كتير: اكتبوا أسئلته واحدًا واحدًا وناقشوها عل",
+      "title": "هدوء لا سخرية: نبرة صوتك حين يشكّك ابنك في دينه",
       "source_file": "parent_doubts_2026-10",
       "language": "ar",
       "original_age_group": "13-15",
       "normalized_age_group": "13-15",
-      "behavior_type": "حوار على أيام: اتفاق على إطار ثم كتابة الأسئلة وأخذها واحدًا واحدًا",
+      "behavior_type": "حوار الأب مع ابنه المتشكّك في دينه: الهدوء لا السخرية",
       "needs_ocr": false,
-      "size_chars": 986
+      "size_chars": 1246
     },
     {
       "id": "isl-teen-western-ideas-doubts-01",
@@ -13259,16 +13259,16 @@
       "size_chars": 746
     },
     {
-      "id": "isl-teen-calm-not-mockery-01",
+      "id": "isl-teen-write-doubts-one-by-one-01",
       "domain": "islamic_parenting",
-      "title": "هدوء لا سخرية: نبرة صوتك حين يشكّك ابنك في دينه",
+      "title": "ابنك عنده شكوك كتير: اكتبوا أسئلته واحدًا واحدًا وناقشوها عل",
       "source_file": "parent_doubts_2026-10",
       "language": "ar",
       "original_age_group": "13-15",
       "normalized_age_group": "13-15",
-      "behavior_type": "حوار الأب مع ابنه المتشكّك في دينه: الهدوء لا السخرية",
+      "behavior_type": "حوار على أيام: اتفاق على إطار ثم كتابة الأسئلة وأخذها واحدًا واحدًا",
       "needs_ocr": false,
-      "size_chars": 1246
+      "size_chars": 986
     },
     {
       "id": "isl-toddler-prayer",
@@ -16785,6 +16785,270 @@
       "behavior_type": "نوبات الغضب",
       "needs_ocr": false,
       "size_chars": 425
+    },
+    {
+      "id": "shm-aqd-09-tawhid-muraqabah",
+      "domain": "aqeedah",
+      "title": "تلقين الطفل كلمة التوحيد ومعرفة الله عند بدء النطق",
+      "source_file": "shamela:6266:229-230",
+      "language": "ar",
+      "original_age_group": "2-3",
+      "normalized_age_group": "2-3",
+      "behavior_type": "غرس التوحيد ومعية الله في الطفولة المبكرة",
+      "needs_ocr": false,
+      "size_chars": 478
+    },
+    {
+      "id": "shm-aqd-09-tawhid-muraqabah__en",
+      "domain": "aqeedah",
+      "title": "Teaching a child the word of tawhid and knowing Allah when s",
+      "source_file": "shamela:6266:229-230",
+      "language": "en",
+      "original_age_group": "2-3",
+      "normalized_age_group": "2-3",
+      "behavior_type": "غرس التوحيد ومعية الله في الطفولة المبكرة",
+      "needs_ocr": false,
+      "size_chars": 478
+    },
+    {
+      "id": "shm-isl-01-quran-prayer",
+      "domain": "islamic_parenting",
+      "title": "تعليم الطفل بحسب مراحل نموه: التوحيد ثم القرآن ثم الصلاة وآد",
+      "source_file": "shamela:96478:121-124",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "تعليم القرآن والصلاة والآداب الشرعية",
+      "needs_ocr": false,
+      "size_chars": 620
+    },
+    {
+      "id": "shm-isl-01-quran-prayer__en",
+      "domain": "islamic_parenting",
+      "title": "Teaching a child step by step: tawhid, then the Qur'an, then",
+      "source_file": "shamela:96478:121-124",
+      "language": "en",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "تعليم القرآن والصلاة والآداب الشرعية",
+      "needs_ocr": false,
+      "size_chars": 620
+    },
+    {
+      "id": "shm-isl-02-mercy-gentleness",
+      "domain": "islamic_parenting",
+      "title": "الحلم والرفق بالأولاد واجتناب القسوة",
+      "source_file": "shamela:96478:154",
+      "language": "ar",
+      "original_age_group": "unspecified",
+      "normalized_age_group": "unspecified",
+      "behavior_type": "الحلم والرفق بالأبناء وتجنب القسوة",
+      "needs_ocr": false,
+      "size_chars": 568
+    },
+    {
+      "id": "shm-isl-02-mercy-gentleness__en",
+      "domain": "islamic_parenting",
+      "title": "Forbearance and gentleness with children, and avoiding harsh",
+      "source_file": "shamela:96478:154",
+      "language": "en",
+      "original_age_group": "unspecified",
+      "normalized_age_group": "unspecified",
+      "behavior_type": "الحلم والرفق بالأبناء وتجنب القسوة",
+      "needs_ocr": false,
+      "size_chars": 568
+    },
+    {
+      "id": "shm-isl-03-justice-children",
+      "domain": "islamic_parenting",
+      "title": "وجوب العدل بين الأولاد في العطاء والمنع",
+      "source_file": "shamela:6266:225-227",
+      "language": "ar",
+      "original_age_group": "unspecified",
+      "normalized_age_group": "unspecified",
+      "behavior_type": "العدل بين الأبناء في العطية والمعاملة",
+      "needs_ocr": false,
+      "size_chars": 671
+    },
+    {
+      "id": "shm-isl-03-justice-children__en",
+      "domain": "islamic_parenting",
+      "title": "The obligation of fairness between children in giving and wi",
+      "source_file": "shamela:6266:225-227",
+      "language": "en",
+      "original_age_group": "unspecified",
+      "normalized_age_group": "unspecified",
+      "behavior_type": "العدل بين الأبناء في العطية والمعاملة",
+      "needs_ocr": false,
+      "size_chars": 671
+    },
+    {
+      "id": "shm-isl-04-truthfulness-giving",
+      "domain": "islamic_parenting",
+      "title": "تعويد الطفل البذل والعطاء وتجنيبه الكذب والخيانة والكسل",
+      "source_file": "shamela:6266:238-239",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "غرس الصدق والبذل وتجنيب الطفل الكذب والكسل",
+      "needs_ocr": false,
+      "size_chars": 1032
+    },
+    {
+      "id": "shm-isl-04-truthfulness-giving__en",
+      "domain": "islamic_parenting",
+      "title": "Training a child to give, and keeping him from lying, betray",
+      "source_file": "shamela:6266:238-239",
+      "language": "en",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "غرس الصدق والبذل وتجنيب الطفل الكذب والكسل",
+      "needs_ocr": false,
+      "size_chars": 1032
+    },
+    {
+      "id": "shm-isl-05-play-joy",
+      "domain": "islamic_parenting",
+      "title": "من هدي النبي ﷺ في التلطف بالأطفال وإدخال السرور عليهم",
+      "source_file": "shamela:96478:161-165",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "مداعبة الأطفال وإدخال السرور عليهم",
+      "needs_ocr": false,
+      "size_chars": 1124
+    },
+    {
+      "id": "shm-isl-05-play-joy__en",
+      "domain": "islamic_parenting",
+      "title": "From the Prophet's ﷺ way of gentleness with children and bri",
+      "source_file": "shamela:96478:161-165",
+      "language": "en",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "مداعبة الأطفال وإدخال السرور عليهم",
+      "needs_ocr": false,
+      "size_chars": 1124
+    },
+    {
+      "id": "shm-isl-06-good-companions",
+      "domain": "islamic_parenting",
+      "title": "إرشاد الأبناء إلى الجليس الصالح وإبعادهم عن رفقاء السوء",
+      "source_file": "shamela:96478:172-174",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "اختيار الأصدقاء والوقاية من رفقاء السوء",
+      "needs_ocr": false,
+      "size_chars": 746
+    },
+    {
+      "id": "shm-isl-06-good-companions__en",
+      "domain": "islamic_parenting",
+      "title": "Guiding children to good company and away from bad friends",
+      "source_file": "shamela:96478:172-174",
+      "language": "en",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "اختيار الأصدقاء والوقاية من رفقاء السوء",
+      "needs_ocr": false,
+      "size_chars": 746
+    },
+    {
+      "id": "shm-isl-07-daughters-honor",
+      "domain": "islamic_parenting",
+      "title": "فضل الإحسان إلى البنات والعناية بتربيتهن",
+      "source_file": "shamela:36554:2-6",
+      "language": "ar",
+      "original_age_group": "unspecified",
+      "normalized_age_group": "unspecified",
+      "behavior_type": "تربية البنات والإحسان إليهن",
+      "needs_ocr": false,
+      "size_chars": 812
+    },
+    {
+      "id": "shm-isl-07-daughters-honor__en",
+      "domain": "islamic_parenting",
+      "title": "The virtue of being good to daughters and caring for their u",
+      "source_file": "shamela:36554:2-6",
+      "language": "en",
+      "original_age_group": "unspecified",
+      "normalized_age_group": "unspecified",
+      "behavior_type": "تربية البنات والإحسان إليهن",
+      "needs_ocr": false,
+      "size_chars": 812
+    },
+    {
+      "id": "shm-isl-08-aptitude-readiness",
+      "domain": "islamic_parenting",
+      "title": "مراعاة استعداد الصبي وتوجيهه لما هُيّئ له من الأعمال",
+      "source_file": "shamela:6266:241-242",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "مراعاة الفروق الفردية واكتشاف ميول الطفل",
+      "needs_ocr": false,
+      "size_chars": 969
+    },
+    {
+      "id": "shm-isl-08-aptitude-readiness__en",
+      "domain": "islamic_parenting",
+      "title": "Paying attention to a child's aptitude and directing him to ",
+      "source_file": "shamela:6266:241-242",
+      "language": "en",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "مراعاة الفروق الفردية واكتشاف ميول الطفل",
+      "needs_ocr": false,
+      "size_chars": 969
+    },
+    {
+      "id": "shm-isl-11-wudu-step-by-step-7-9",
+      "domain": "islamic_parenting",
+      "title": "أذكار الوضوء: التسمية في أوله والتشهد بعده، ولا دعاء مخصوصًا",
+      "source_file": "shamela:7498:11-15",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "تعليم الوضوء وأذكاره بالتدرج والتيسير",
+      "needs_ocr": false,
+      "size_chars": 1277
+    },
+    {
+      "id": "shm-isl-11-wudu-step-by-step-7-9__en",
+      "domain": "islamic_parenting",
+      "title": "Remembrances of wudu: bismillah at the start, the testimony ",
+      "source_file": "shamela:7498:11-15",
+      "language": "en",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "تعليم الوضوء وأذكاره بالتدرج والتيسير",
+      "needs_ocr": false,
+      "size_chars": 1277
+    },
+    {
+      "id": "shm-isl-12-prayer-encouragement-7-9",
+      "domain": "islamic_parenting",
+      "title": "القدوة الحسنة في تعويد الطفل الصلاة والأخلاق الفاضلة",
+      "source_file": "shamela:96478:140-142",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "تشجيع الطفل على الصلاة بالقدوة والمحاكاة",
+      "needs_ocr": false,
+      "size_chars": 773
+    },
+    {
+      "id": "shm-isl-12-prayer-encouragement-7-9__en",
+      "domain": "islamic_parenting",
+      "title": "Good example in accustoming a child to prayer and noble char",
+      "source_file": "shamela:96478:140-142",
+      "language": "en",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "تشجيع الطفل على الصلاة بالقدوة والمحاكاة",
+      "needs_ocr": false,
+      "size_chars": 773
     }
   ]
 }

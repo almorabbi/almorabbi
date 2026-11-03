@@ -1,0 +1,78 @@
+{
+  "id": "shm-isl-06-good-companions__en",
+  "domain": "islamic_parenting",
+  "age_group": "10-12",
+  "behavior_type": "اختيار الأصدقاء والوقاية من رفقاء السوء",
+  "intervention_type": "وقائي",
+  "severity": "متوسط",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "Sa'id ibn Wahf al-Qahtani, al-Hady al-Nabawi fi Tarbiyat al-Awlad fi Daw' al-Kitab wa-l-Sunnah (The Prophetic Guidance on Raising Children), in Arabic, pp. 175–177",
+  "title": "Guiding children to good company and away from bad friends",
+  "language": "en",
+  "source_file": "shamela:96478:172-174",
+  "source_meta": {
+    "source_title": "الهدي النبوي في تربية الأولاد في ضوء الكتاب والسنة",
+    "source_author": "سعيد بن وهف القحطاني"
+  },
+  "text_original": "فقد شرع الإسلام اختيار الجليس الصالح، فمن هنا يجب على الآباء إرشاد أبنائهم إلى مجالسة الصالحين والتزام مجالسهم؛ فإن الصالح لا يأتي إلا بخير.\nفينبغي لأب الطفل وأمه كذلك أن يلحقا أولادهما برفقة صالحة وإبعادهم عن رفقاء السوء.\nوعن أبي موسى الأشعري رضي الله عنه قال: قال ﷺ: «مَثَلُ الْجَلِيسِ الصَّالِحِ وَالْجَلِيسِ السُّوْءِ كَمَثَلِ صَاحِبِ الْمِسْكِ وَكِيرِ الْحَدَّادِ، لَا يَعْدَمُكَ من صَاحِبِ الْمِسْكِ إِمَّا تَشْتَرِيهِ أو تَجِدُ رِيحَهُ، وَكِيرُ الْحَدَّادِ يُحْرِقُ بَدَنَكَ أو ثَوْبَكَ أو تَجِدُ منه رِيحًا خَبِيثَةً» (صحيح البخاري — حديث ٢١٠١).\nفعلى الآباء أولاً إرشاد أبنائهم وأقاربهم وإخوانهم الشباب وغيرهم إلى مجالسة الصالحين، وتحذيرهم من مجالسة الفساق والعاصين؛ فإنهم إذا جالسوا الصالحين فسوف يعينونهم على الحق، ويذكِّرونهم إذا نسوا.",
+  "text_simplified": "The author states that Islam teaches choosing a righteous companion, that fathers must guide their children to sit with righteous people, and that the father and mother should place their children among good friends and keep them away from bad ones, because the righteous help them to the truth and remind them when they forget. The Prophet ﷺ gave a parable for this: «The likeness of a good companion and a bad companion is that of the musk-bearer and the blacksmith's bellows: from the musk-bearer you will not miss either buying from him or finding his pleasant scent, while the blacksmith's bellows burns your body or your clothes, or you find a foul smell from it» (Sahih al-Bukhari 2101). Among the means of righteous offspring, the author mentions praying for one's children sincerely, with heart and tongue, and parents being careful never to pray against their children.",
+  "labels": [
+    "الجليس_الصالح",
+    "الأصدقاء",
+    "رفقاء_السوء",
+    "الدعاء_للأولاد"
+  ],
+  "created_at": "2026-11-02T15:40:00Z",
+  "updated_at": "2026-11-03T12:00:00Z",
+  "version": "1.1.0",
+  "source_language": "ar",
+  "translated_from": "shm-isl-06-good-companions",
+  "translation": {
+    "translator_model": "claude-opus-5-5",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "hadith",
+        "why": "The word \"pleasant\" is added to the quoted hadith wording, where the Arabic says only \"تَجِدُ رِيحَهُ\" (you find its scent); the gloss is implied by musk but is still an addition to the translated had"
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "zai-coding",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "ea918896a83ac647dfc1f84eefeea0b8c4b3e2c0385f8152605c40599911f579",
+      "reviewed_at": "2026-11-03T07:42:34+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "hadith",
+          "why": "The word \"pleasant\" is added to the quoted hadith wording, where the Arabic says only \"تَجِدُ رِيحَهُ\" (you find its scent); the gloss is implied by musk but is still an addition to the translated had"
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-11-03T07:42:34+00:00"
+  }
+}

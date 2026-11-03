@@ -1,0 +1,64 @@
+{
+  "id": "shm-isl-02-mercy-gentleness__en",
+  "domain": "islamic_parenting",
+  "age_group": "unspecified",
+  "behavior_type": "الحلم والرفق بالأبناء وتجنب القسوة",
+  "intervention_type": "إرشادي",
+  "severity": "متوسط",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "Sa'id ibn Wahf al-Qahtani, al-Hady al-Nabawi fi Tarbiyat al-Awlad fi Daw' al-Kitab wa-l-Sunnah (The Prophetic Guidance on Raising Children), in Arabic, p. 157",
+  "title": "Forbearance and gentleness with children, and avoiding harshness",
+  "language": "en",
+  "source_file": "shamela:96478:154",
+  "source_meta": {
+    "source_title": "الهدي النبوي في تربية الأولاد في ضوء الكتاب والسنة",
+    "source_author": "سعيد بن وهف القحطاني"
+  },
+  "text_original": "على الأب أن يكون حليماً في تربيته لأولاده، وأن يكون رفيقاً بهم، وألاَّ يكون قاسياً شديداً، فلقد كان الرسول ﷺ أرحم الناس وأكرمهم، وهو الذي كان يُقبِّل الحسن والحسين.\nعن أبي هريرة رضي الله عنه أن رسول الله ﷺ قَبَّل الحسن بن علي، وعنده الأقرع بن حابس التميمي جالساً، فقال الأقرع: إن لي عشرة من الولد ما قبلت أحداً منهم، فنظر إليه رسول الله ﷺ وقال: «مَنْ لا يَرحَمُ لا يُرحَمُ» (صحيح البخاري — حديث ٥٩٩٧).\nوعن عائشة رضي الله عنها أن رسول الله ﷺ قال: «يا عائشةُ إنَّ الله رَفِيقٌ يُحبُّ الرِّفْقَ، ويُعْطِي على الرَّفقِ ما لا يُعْطِي علَى العُنْفِ» (صحيح مسلم — حديث ٢٥٩٣).",
+  "text_simplified": "The author states that a father should be forbearing in raising his children and gentle with them, neither harsh nor severe. The Prophet ﷺ was the most merciful of people and used to kiss al-Hasan and al-Husayn. He ﷺ kissed al-Hasan ibn Ali while al-Aqra' ibn Habis was present, and al-Aqra' said: I have ten children and I have never kissed any of them. The Messenger of Allah ﷺ looked at him and said: «Whoever does not show mercy will not be shown mercy» (Sahih al-Bukhari 5997). And he ﷺ said to Aishah: «O Aishah, Allah is gentle and loves gentleness, and He gives for gentleness what He does not give for harshness» (Sahih Muslim 2593).",
+  "labels": [
+    "الرفق_بالأطفال",
+    "الرحمة",
+    "الحلم",
+    "تقبيل_الأطفال"
+  ],
+  "created_at": "2026-11-02T15:40:00Z",
+  "updated_at": "2026-11-03T12:00:00Z",
+  "version": "1.1.0",
+  "source_language": "ar",
+  "translated_from": "shm-isl-02-mercy-gentleness",
+  "translation": {
+    "translator_model": "claude-opus-5-5",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "clean",
+    "review_defects": [],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "zai-coding",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "6c06e83b2f4203f48b0d865a988d6a9655fb5363f952894864de06bbb6bd2854",
+      "reviewed_at": "2026-11-03T07:42:34+00:00",
+      "residual_low": [],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-11-03T07:42:34+00:00"
+  }
+}

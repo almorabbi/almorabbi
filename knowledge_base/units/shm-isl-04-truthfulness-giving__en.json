@@ -1,0 +1,91 @@
+{
+  "id": "shm-isl-04-truthfulness-giving__en",
+  "domain": "islamic_parenting",
+  "age_group": "4-6",
+  "behavior_type": "غرس الصدق والبذل وتجنيب الطفل الكذب والكسل",
+  "intervention_type": "وقائي",
+  "severity": "متوسط",
+  "reference_type": "كتاب_فقهي",
+  "reference_info": "Ibn al-Qayyim, Tuhfat al-Mawdud bi-Ahkam al-Mawlud (ed. Abd al-Qadir al-Arna'ut), in Arabic, pp. 240–241",
+  "title": "Training a child to give, and keeping him from lying, betrayal and idleness",
+  "language": "en",
+  "source_file": "shamela:6266:238-239",
+  "source_meta": {
+    "source_title": "تحفة المودود بأحكام المولود (ت الأرنؤوط)",
+    "source_author": "ابن قيم الجوزية"
+  },
+  "text_original": "وَمِمَّا يحْتَاج إِلَيْهِ الطِّفْل غَايَة الِاحْتِيَاج الاعتناء بِأَمْر خلقه فَإِنَّهُ ينشأ على مَا عوده المربي فِي صغره من حرد وَغَضب ولجاج وعجلة وخفة مَعَ هَوَاهُ وطيش وحدة وجشع فيصعب عَلَيْهِ فِي كبره تلافي ذَلِك وَتصير هَذِه الْأَخْلَاق صِفَات وهيئات راسخة لَهُ فَلَو تحرز مِنْهَا غَايَة التَّحَرُّز فضحته وَلَا بُد يَوْمًا مَا وَلِهَذَا تَجِد أَكثر النَّاس منحرفة أَخْلَاقهم وَذَلِكَ من قبل التربية الَّتِي نَشأ عَلَيْهَا\nوَيَنْبَغِي لوَلِيِّه أَن يجنبه الْأَخْذ من غَيره غَايَة التجنب فَإِنَّهُ مَتى اعْتَادَ الْأَخْذ صَار لَهُ طبيعة وَنَشَأ بِأَن يَأْخُذ لَا بِأَن يُعْطي ويعوده الْبَذْل والإعطاء وَإِذا أَرَادَ الْوَلِيّ أَن يُعْطي شَيْئا أعطَاهُ إِيَّاه على يَده ليذوق حلاوة الْإِعْطَاء ويجنبه الْكَذِب والخيانة أعظم مِمَّا يجنبه السم الناقع فَإِنَّهُ مَتى سهل لَهُ سَبِيل الْكَذِب والخيانة أفسد عَلَيْهِ سَعَادَة الدُّنْيَا وَالْآخِرَة وَحرمه كل خير\nويجنبه الكسل والبطالة والدعة والراحة بل يَأْخُذهُ بأضدادها وَلَا يريحه إِلَّا بِمَا يجم نَفسه وبدنه للشغل فَإِن الكسل والبطالة عواقب سوء ومغبة نَدم وللجد والتعب عواقب حميدة",
+  "text_simplified": "Ibn al-Qayyim notes that a child needs, more than anything, care for his character, because he grows up on what his educator accustomed him to in childhood — anger, stubbornness, haste, recklessness, sharpness and greed — and in adulthood it becomes hard to undo, as these traits settle in him. He advises the guardian to keep the child from taking from others as far as possible, because once he is used to taking it becomes his nature, and to accustom him to giving: when the guardian wants to give something, he should hand it over through the child so that he tastes the sweetness of giving. He should keep him away from lying and betrayal more than he keeps him from deadly poison, for once the way to them is made easy, they ruin his happiness in this world and the next. And he should keep him from laziness, idleness and ease, letting him rest only enough to refresh his soul and body for work, for laziness and idleness end in harm and regret, while effort and toil end in praiseworthy results.",
+  "labels": [
+    "الصدق",
+    "العطاء",
+    "الكسل",
+    "الأخلاق",
+    "ابن_القيم"
+  ],
+  "created_at": "2026-11-02T15:40:00Z",
+  "updated_at": "2026-11-03T12:00:00Z",
+  "version": "1.1.0",
+  "source_language": "ar",
+  "translated_from": "shm-isl-04-truthfulness-giving",
+  "translation": {
+    "translator_model": "claude-opus-5-5",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "omission",
+        "why": "The customary honorific رحمه الله (may Allah have mercy on him) after Ibn al-Qayyim is dropped, losing the religious invocation present in the Arabic."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "title",
+        "type": "meaning",
+        "why": "الكسل is rendered 'idleness' in the title but 'laziness' in the body, a minor cross-field inconsistency (idleness more precisely renders البطالة)."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "zai-coding",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "38b3c0e735c444886af370396ece01a21131eded8cdd67cf42f4edf99249e8ca",
+      "reviewed_at": "2026-11-03T07:42:34+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "omission",
+          "why": "The customary honorific رحمه الله (may Allah have mercy on him) after Ibn al-Qayyim is dropped, losing the religious invocation present in the Arabic."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "title",
+          "type": "meaning",
+          "why": "الكسل is rendered 'idleness' in the title but 'laziness' in the body, a minor cross-field inconsistency (idleness more precisely renders البطالة)."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-11-03T07:42:34+00:00"
+  }
+}

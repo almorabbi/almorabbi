@@ -1,0 +1,78 @@
+{
+  "id": "shm-isl-01-quran-prayer__en",
+  "domain": "islamic_parenting",
+  "age_group": "7-9",
+  "behavior_type": "تعليم القرآن والصلاة والآداب الشرعية",
+  "intervention_type": "إرشادي",
+  "severity": "خفيف",
+  "reference_type": "كتاب_تربوي",
+  "reference_info": "Sa'id ibn Wahf al-Qahtani, al-Hady al-Nabawi fi Tarbiyat al-Awlad fi Daw' al-Kitab wa-l-Sunnah (The Prophetic Guidance on Raising Children), in Arabic, pp. 124–127",
+  "title": "Teaching a child step by step: tawhid, then the Qur'an, then prayer and table manners",
+  "language": "en",
+  "source_file": "shamela:96478:121-124",
+  "source_meta": {
+    "source_title": "الهدي النبوي في تربية الأولاد في ضوء الكتاب والسنة",
+    "source_author": "سعيد بن وهف القحطاني"
+  },
+  "text_original": "ويتعين على الوالد والوالدة مواصلة تعليم الطفل وتربيته بحسب ما تقتضيه مراحل نموه، فيُعلَّم كيف ينطق ثم الكلام، وأحسن ما يقال له في هذا هو تلقينه لا إله إلا الله وأنَّ محمداً رسول الله ﷺ، ويجعل هذا عند الطفل من باب التسلية له.\nومن ذلك يجب على الأب أن يعلِّم ابنه الصلاة ويرغِّبه فيها إذا بلغ سبع سنين.\nوأعظم العلوم: القرآن، فينبغي لوالد الطفل ووالدته أن يُعلَّموا أولادهم القرآن من الصِّغر.\nوكان ﷺ يهتم بالأطفال، ويعتني بهم، ويعلمهم الأدب حتى طريقة الأكل والشرب وغير ذلك، فقد قال ﷺ لعمر بن أبي سلمة عندما رآه يأكل وتطيش يده في الصحفة: «يا غُلام سمِّ الله، وكُلْ بِيَمينكَ، وكُلْ ممَّا يَلِيْكَ» (صحيح البخاري — حديث ٥٣٧٦).",
+  "text_simplified": "The author guides parents to keep teaching the child according to his stage of growth: when he begins to speak, he is taught «La ilaha illa Allah» and that Muhammad ﷺ is the Messenger of Allah, and this is made a pleasant pastime for him. The greatest of all knowledge is the Qur'an, so parents should teach their children the Qur'an from an early age. When the child reaches seven, the father must teach him prayer and encourage him in it. The author recalls that the Prophet ﷺ was a model of mercy: he would pray carrying Umamah bint Zaynab, putting her down when he prostrated and picking her up when he stood (Sahih al-Bukhari 516; Sahih Muslim 543). He ﷺ also taught children manners, even how to eat: when he saw the hand of Umar ibn Abi Salamah wandering around the dish, he said: «Young boy, mention the name of Allah, eat with your right hand, and eat from what is in front of you» (Sahih al-Bukhari 5376).",
+  "labels": [
+    "تعليم_القرآن",
+    "تعليم_الصلاة",
+    "آداب_الطعام",
+    "التدرج_في_التعليم"
+  ],
+  "created_at": "2026-11-02T15:40:00Z",
+  "updated_at": "2026-11-03T12:00:00Z",
+  "version": "1.1.0",
+  "source_language": "ar",
+  "translated_from": "shm-isl-01-quran-prayer",
+  "translation": {
+    "translator_model": "claude-opus-5-5",
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "needs_scholar_review": true,
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "title",
+        "type": "meaning",
+        "why": "The Arabic ties the teaching sequence to the child's developmental stages (مراحل نموه), a nuance lost by the generic \"step by step\"."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "zai-coding",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "1ff728e0dea338175bac60bf0aa27066d127b87b5b970534959a344b2af1c173",
+      "reviewed_at": "2026-11-03T07:42:34+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "title",
+          "type": "meaning",
+          "why": "The Arabic ties the teaching sequence to the child's developmental stages (مراحل نموه), a nuance lost by the generic \"step by step\"."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "revalidated_at": "2026-11-03T07:42:34+00:00"
+  }
+}
