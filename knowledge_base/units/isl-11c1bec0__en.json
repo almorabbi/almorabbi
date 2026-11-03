@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 1 — Part 2: Considering Differences in Capacities and Social Standing, p. 87.",
   "text_original": "نلاحظ هنا كيف أنه ﷺ لما علم من طاقة معاذ بن جبل رضي الله عنه واستعداداته — وهو أعلم الأمة بالحلال والحرام — وجهه إلى ما يطيقه ويلائمه وجعل النوافل له والفرائض سببا لدخوله الجنة، في حين أن الأعرابي اكتفى معه بالفرائض وجعلها سببا لدخول الجنة (صحيح البخاري — حديث 46)، فطاقة الأعرابي واستعداداته ليس هو استعداد معاذ.\nوكما أنه راعى في تربيته اختلافات الطاقات، فقد راعى كذلك المكانة الاجتماعية للأفراد، حيث قال في سعد بن معاذ رضي الله عنه: «قوموا إلى سيدكم» (صحيح البخاري — حديث 3043) لعلمه بمكانته بين قومه، وكذلك تشريفه لأبي سفيان رضي الله عنه حينما جعل بيته مأمنا يوم فتح مكة وهو سيد قريش يومئذ، وكذلك إعطاؤه الراية لخالد بن الوليد رضي الله عنه يوم مؤتة لعلمه بقدرته في القيادة، وغير هذه المواقف كثير في سيرته ﷺ مما يدل على واقعيته ﷺ في تربية أمته.",
-  "text_simplified": "In his educational realism, the Prophet ﷺ combined consideration for individuals' varying capacities in worship—as seen in his address to the Bedouin (Sahih al-Bukhari 46) and to Mu'adh ibn Jabal (may Allah be pleased with him)—with consideration for social standing and leadership talents; he said to the Ansar regarding Sa'd ibn Mu'adh (may Allah be pleased with him): \"Stand up for your leader\" (Sahih al-Bukhari 3043), honored Abu Sufyan (may Allah be pleased with him) on the day of the Conquest of Makkah by making his house a place of safety, and entrusted the banner to Khalid ibn al-Walid (may Allah be pleased with him) knowing his leadership ability.",
+  "text_simplified": "In his educational realism, the Prophet ﷺ combined consideration for individuals' varying capacities in worship—as seen in his address to the Bedouin (Sahih al-Bukhari 46) and to Mu'adh ibn Jabal (may Allah be pleased with him)—with consideration for social standing and leadership talents; he said regarding Sa'd ibn Mu'adh (may Allah be pleased with him): \"Stand up for your leader\" (Sahih al-Bukhari 3043), honored Abu Sufyan (may Allah be pleased with him) on the day of the Conquest of Makkah by making his house a place of safety, and entrusted the banner to Khalid ibn al-Walid (may Allah be pleased with him) knowing his leadership ability.",
   "labels": [
     "تربية نبوية",
     "فروق فردية",
@@ -32,15 +32,8 @@
     "translator_model": "mistral-large-3:675b",
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "needs_scholar_review": true,
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "text_simplified",
-        "type": "meaning",
-        "why": "تألّف means won over/conciliated, not simply honored; the nuance of winning his heart is lost."
-      }
-    ],
+    "review_verdict": "clean",
+    "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
     "auto_review": {
       "reviewers": [
@@ -60,20 +53,13 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "df129fa8c9a4ce82ea8c5f6532cb14a13fb0d268d0f8d0f3400f077b601ae735",
-      "reviewed_at": "2026-11-03T11:33:26+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "text_simplified",
-          "type": "meaning",
-          "why": "تألّف means won over/conciliated, not simply honored; the nuance of winning his heart is lost."
-        }
-      ],
+      "content_sha256": "31841509c21a475e9c6e255f24f539ec1d5f3a0788ff8edb5bb09bdaf1a0bb50",
+      "reviewed_at": "2026-11-03T12:08:55+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "revalidated_at": "2026-11-03T11:33:26+00:00"
+    "revalidated_at": "2026-11-03T12:08:55+00:00"
   }
 }

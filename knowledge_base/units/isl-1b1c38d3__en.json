@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Introduction, p. 82.",
   "text_original": "مقدمة:\nفي ظل ما يعرفه العالم اليوم من ثورة على مستوى المناهج التربوية، يكتسي البحث في موضوع المناهج التربوية أهميته الموضوعية في سياق التطلع إلى منهاج تربوي شامل ومتكامل يساهم في تنمية المجتمع المسلم ويحقق الرقي له والقيام بدوره الطبيعي بين الأمم، ويلبي حاجاته المتزايدة.\nوقد ظلت المناهج الوضعية تتراوح بين انسياق كامل وراء شهوات الإنسان وغرائزه وبين طموحات مثالية لا علاقة لها بالواقع، مما أدى إلى إفراز عدد كبير من الاختلالات التربوية والسلوكية، والتي لم تحقق إنسانية الإنسان الحقيقية، بل ظل أثرها محدودا في جلب بعض المصالح الذاتية للإنسان؛ فبين انحلال مطلق وتفسخ كامل في الأخلاق وميوعة مركبة أصابت الفكر وعميت بها الأبصار، وبين إغراق في المثاليات الافتراضية وغلو في العقائد وتشدد في الممارسات، وبين من يدعو إلى تقديس الروح ومن يدعو إلى جعل العقل مصدرا وموجها ومن يدعو إلى حرية الجسد وانسلاخه من الضوابط.\nفبين هؤلاء وأولئك، وانطلاقا من تقريرنا لقاعدة أن آخر هذه الأمة لن يصلح إلا بما صلح به أولها، كان لزاما علينا أن نتلمس معالم لمنهاج أصيل في مصادره ومنطلقاته، وقادر على تجديد الحياة العلمية والعملية، وتغيير ما ران على هذه الأمة من مفاهيم غربية وشرقية. ولما كان النبي ﷺ مربي الأمة وقدوتها في سائر ميادين الحياة، والأصل التطبيقي الأول للتصور والمنهاج الإسلامي، كان لزاما علينا أن نستقرئ ممارسته ﷺ التربوية، التي مكنت من الوصول إلى أعلى النتائج التربوية، فغيرت الأفراد والمجتمعات.",
-  "text_simplified": "Man-made educational methodologies oscillate between drifting behind desires and instincts and immersing in hypothetical ideals detached from reality, producing educational and behavioral imbalances; the educational revival of the Muslim community requires examining the educational practice of the Prophet ﷺ as the role model and primary practical foundation of an authentic methodology in its sources and starting points that balances the needs of the soul, mind, and body within Islamic guidelines.",
+  "text_simplified": "Man-made educational methodologies oscillate between drifting behind desires and instincts and immersing in hypothetical ideals detached from reality, producing educational and behavioral imbalances; the educational revival of the Muslim community requires examining the educational practice of the Prophet ﷺ as the role model and primary practical foundation of an authentic educational methodology in its sources and starting points to overcome these imbalances.",
   "labels": [
     "منهج تربوي",
     "تربية إسلامية",
@@ -35,7 +35,7 @@
     "review_verdict": "clean",
     "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
-    "revalidated_at": "2026-11-03T11:36:00+00:00",
+    "revalidated_at": "2026-11-03T12:08:55+00:00",
     "english_authors": [
       "mistral-large-3:675b"
     ],
@@ -56,11 +56,11 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": "mistral-large-3:675b",
-      "rounds": 2,
+      "fixer": null,
+      "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "b5fdf455fbe9307447fb67620be6a61a9c8460e60490008e45e6c9d7d340987e",
-      "reviewed_at": "2026-11-03T11:36:00+00:00",
+      "content_sha256": "035785402c9b2f6c484a8d0e1cf5a14ac73317dc81ac84915e3b6f40efc73d31",
+      "reviewed_at": "2026-11-03T12:08:55+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",

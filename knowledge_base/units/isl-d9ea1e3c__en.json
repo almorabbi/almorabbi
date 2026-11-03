@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 2 — Part 1: Impact of Practical Example at Al-Hudaybiyah & 3. Education through Events, p. 91.",
   "text_original": "لقد كان لهذا الجانب من تربيته ﷺ بالقدوة الأثر الأكبر في تربية صحابته فكانوا أحرص الناس على الاقتداء به واتباعه، ويمكن أن نستحضر هنا ما وقع بعد إقرار صلح الحديبية؛ إذ لما فرغ رسول الله ﷺ من قضية الكتاب قال لأصحابه: «قوموا فانحروا ثم احلقوا»، فوالله ما قام منهم رجل حتى قال ذلك ثلاث مرات، فلما لم يقم منهم أحد دخل على أم سلمة، فذكر لها ما لقي من الناس، فقالت أم سلمة: يا نبي الله، أتحب ذلك؟ اخرج ثم لا تكلم أحدا منهم كلمة حتى تنحر بدنك وتدعو حالقك فيحلقك، فخرج فلم يكلم أحدا منهم حتى فعل ذلك، نحر بدنه ودعا حالقه فحلقه، فلما رأوا ذلك قاموا فنحروا وجعل بعضهم يحلق بعضا (صحيح البخاري — حديث 2731). والشاهد عندنا متابعتهم للنبي ﷺ في فعله، ففعله أبلغ من قوله في تلك اللحظة.\nثالثا: التربية بالحدث أو الموقف:\nإن المربي البارع لا يترك الأحداث تذهب سدى بغير عبرة وبغير توجيه، وإنما يستغلها لتربية النفوس وصقلها وتهذيبها، والتربية بالحدث تعني أن يستثمر المربي الأحداث من حوله ليطبع أثرا في نفس المتربي ليوصل رسالة أو يستقي عبرة أو يغرس خلقا أو يؤكد على مبدأ.",
-  "text_simplified": "The profound impact of practical example is evident at the Treaty of Al-Hudaybiyah when the Prophet ﷺ commanded his Companions three times to sacrifice their animals and shave their heads; when they hesitated out of grief, he went out in silence, sacrificed his camels, and had his head shaved, whereupon they all hastened to sacrifice and shave in emulation of his ﷺ action (Sahih al-Bukhari 2731). Closely linked to example is education through events and situations, whereby the educator utilizes unfolding occurrences to instill values and lasting lessons in hearts.",
+  "text_simplified": "The profound impact of practical example is evident at the Treaty of Al-Hudaybiyah when the Prophet ﷺ commanded his Companions three times to sacrifice their animals and shave their heads; when none of them stood up, he went out, sacrificed his camels, and had his head shaved, whereupon they all hastened to sacrifice and shave in emulation of his ﷺ action (Sahih al-Bukhari 2731). Closely linked to example is education through events and situations, whereby the educator utilizes unfolding occurrences to instill values and lasting lessons in hearts.",
   "labels": [
     "تربية نبوية",
     "قدوة حسنة",
@@ -36,15 +36,9 @@
     "review_defects": [
       {
         "model": "deepseek-v4-pro",
-        "field": "text_simplified",
-        "type": "addition",
-        "why": "The English inserts 'in silence', which is not present in the Arabic."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "text_simplified",
-        "type": "addition",
-        "why": "The English adds \"in silence,\" a descriptive detail not present in the Arabic, which simply says \"he went out.\""
+        "field": "title",
+        "type": "leakage",
+        "why": "\"Qudwah\" is left untranslated rather than rendered as \"example\" or \"role model\"."
       }
     ],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
@@ -66,26 +60,20 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "b32ebbc9d573bd881fb747abbec676e25fbf903f650a4a801512c4883c3e8d20",
-      "reviewed_at": "2026-11-03T11:33:26+00:00",
+      "content_sha256": "85e2eb7a87ec3b543b812b5be6e62ae88a16bb13cd5838514328927fce347cc7",
+      "reviewed_at": "2026-11-03T12:09:54+00:00",
       "residual_low": [
         {
           "model": "deepseek-v4-pro",
-          "field": "text_simplified",
-          "type": "addition",
-          "why": "The English inserts 'in silence', which is not present in the Arabic."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "text_simplified",
-          "type": "addition",
-          "why": "The English adds \"in silence,\" a descriptive detail not present in the Arabic, which simply says \"he went out.\""
+          "field": "title",
+          "type": "leakage",
+          "why": "\"Qudwah\" is left untranslated rather than rendered as \"example\" or \"role model\"."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "revalidated_at": "2026-11-03T11:33:26+00:00"
+    "revalidated_at": "2026-11-03T12:09:54+00:00"
   }
 }

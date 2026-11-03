@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 2: Means of the Prophetic Educational Methodology — Part 1: Pedagogical Means (1. Education through Participation), p. 88–89.",
   "text_original": "المبحث الثاني: وسائل المنهاج التربوي النبوي:\nونقصد بالوسائل هنا مجموع الوسائل والقنوات التي استثمرها النبي ﷺ في تنزيل منظومة العقائد والمبادئ إلى مجال الممارسة والواقع. فاستقراؤنا لتصرفات النبي ﷺ كمرب يبين لنا تنوع هذه الوسائل وتعددها، وقسمت هذه الوسائل إلى قسمين: الوسائل البيداغوجية والوسائل المؤسساتية.\nالمطلب الأول: الوسائل البيداغوجية:\nويقصد بالوسائل البيداغوجية في ميدان التربية طريقة المشروع أو مجموعة الممارسات الواضحة، ذات الاستعمالات المضبوطة والتي ترتبط بأهداف محددة وتنطلق من أسسها المرجعية التي تستند عليها، وفي مجال التعليم تعني البيداغوجيا مجموع طرق التدريس أو هي علم وفن التعليم.\nأولا: التربية بالمشاركة: يتحدث علماء التربية عن طرق جديدة ووسائل حديثة في العملية التربوية، ومن هذه الوسائل الحديثة التربية بالمشاركة أو التكليف، وهي عملية تنتقل بالمتربي من طريقة تلقينه للمبادئ والقيم المراد إيصالها، إلى جعله مشاركا في صناعة هذه القيم والمبادئ، عبر تحسيسه بانتمائه لها. وهذه الوسيلة تجعل المتربي أكثر ارتباطا وحماسة لترسيخ معاني هذه القيم في ذهنه وأكثر ممارسة لها في سلوكياته.",
-  "text_simplified": "The means utilized by the Prophet ﷺ to translate beliefs and principles into practical reality are divided into pedagogical means (methods and practices of teaching and upbringing) and institutional means (social environments). Among the most prominent Prophetic pedagogical means is education through participation and responsibility, which moves the learner from passive theoretical instruction to active participation in upholding and practicing values and principles with a sense of belonging and responsibility.",
+  "text_simplified": "The means utilized by the Prophet ﷺ to translate beliefs and principles into practical reality are divided into pedagogical means (methods and practices of teaching and upbringing) and institutional means. Among the most prominent Prophetic pedagogical means is education through participation and responsibility, which moves the learner from passive theoretical instruction to active participation in upholding values and principles and feeling a sense of belonging to them.",
   "labels": [
     "منهج نبوي",
     "تربية إسلامية",
@@ -53,13 +53,13 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "bb41ce336c8ee5b35818eb46d1be77b3cb4e23144e6c8ce418ca2ad569bbedc7",
-      "reviewed_at": "2026-11-03T11:33:26+00:00",
+      "content_sha256": "5b5179d6018c0addb1cbf17ac02215193d9b925fa4f852857c2961b335c93f79",
+      "reviewed_at": "2026-11-03T12:08:55+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "revalidated_at": "2026-11-03T11:33:26+00:00"
+    "revalidated_at": "2026-11-03T12:08:55+00:00"
   }
 }

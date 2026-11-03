@@ -7,8 +7,8 @@
   "language": "en",
   "age_group": "4-6",
   "behavior_type": "الرفق_بالأطفال",
-  "text_original": "المبحث الأول: الإطار العام للدراسة — مقدمة\nالحمد لله رب العالمين، القائل في كتابه الكريم: ﴿وَمَآ أَرۡسَلۡنَٰكَ إِلَّا رَحۡمَةٗ لِّلۡعَٰلَمِينَ﴾ [الأنبياء: 107]، والصلاة والسلام على نبي الرحمة محمد ﷺ، القائل: «إني لم أبعث لعاناً، وإنما بعثت رحمة» (صحيح مسلم — حديث 2599)، والذي وصفه ربه بقوله: ﴿وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٖ﴾ [القلم: 4]، وعلى آله وصحبه ومن اهتدى بهديه إلى يوم الدين.\nوبعد: فإن الرحمة خلق إسلامي رفيع، حث عليه الإسلام، وجعله من أبرز صفات المؤمنين، وتتجلى عظمة الرحمة في السنة النبوية المطهرة في تعامله ﷺ مع فئات المجتمع كافة، ولا سيما الأطفال الذين هم بأمسِّ الحاجة إلى العطف والحنان والرعاية.\nفالرحمة بالأطفال من أهم سمات المربي الناجح، وهي من الوالدين لأبنائهما أخصُّ وأوجب؛ إذ بها يُحسنون تربية أبنائهم وتكوينهم النفسي والخلقي والاجتماعي، وينشأ الطفل سويَّ النفس، مطمئنَّ القلب، محبّاً للخير، قادراً على العطاء والرحمة بالآخرين.",
-  "text_simplified": "Mercy is a noble Islamic character trait exemplified in the Prophet's ﷺ conduct with all people, especially children due to their deep need for affection and care. Showing mercy to children is one of the most important qualities of a successful educator and a primary duty of parents, forming the foundation of a child's healthy psychological, moral, and social development.",
+  "text_original": "المبحث الأول: الإطار العام للدراسة\nمقدمة\nالحمد لله رب العالمين، القائل في كتابه الكريم ﴿وَمَآ أَرۡسَلۡنَٰكَ إِلَّا رَحۡمَةٗ لِّلۡعَٰلَمِينَ﴾ [الأنبياء: 107] والصلاة والسلام على نبي الرحمة محمد ﷺ القائل «إني لم أبعث لعانا، وإنما بعثت رحمة» (صحيح مسلم — حديث 2599) وعلى آله وصحبه أجمعين، وبعد، فحري بكل مجتمع مسلم يسعى لتنشئة أبنائه تنشئة صالحة، وتربيتهم تربية راشدة، أن يقتفي أثر منهجه ﷺ، ويتخذ من رحمته الآخرين، وخاصة الأطفال دستوراً يمشي عليه، ويسير على هداه؛ ليغرس معاني التقوى والفضيلة في نفوسهم وأرواحهم، وتصبح تلك المعاني سجية لهم، ومعلماً أصيلاً لشخصيتهم.\nوإن من المشاعر النبيلة التي أودعها الله في قلبي الأبوين، شعور الرحمة بالأولاد، والرأفة بهم، والعطف عليهم، وهو شعور كريم، له في تربية الأطفال وفي إعدادهم وتكوينهم أفضل النتائج، وأعظم الآثار؛ لهذا نجد الشريعة الغراء قد رسخت في القلوب (الرحمة)، وحضت الكبار من آباء ومعلمين ومسؤولين على التحلي بها والتخلق بأخلاقها.\nوالرحمة إذا حلت قلب الأبوين، وترسخت في نفسيهما قاما بما يترتب عليهما من واجب، وأديا ما عليهما من حق تجاه من أوجب الله عليهما حق الرعاية، وواجب المسؤولية، ألا وهم الأطفال.\nومنهج السنة النبوية هو أفضل المناهج في التعامل مع الطفولة، ذلك أنها تربية ربانية المصادر إلهية المبادئ، فقد أرسل الله الرسل، وأنزل الكتب، وسن الشرائع، ليهدي الناس إلى النجدين: طريق الخير وطريق الشر، ويعلمهم ويزكيهم، ويربيهم على الهدى والتقوى والصلاح.",
+  "text_simplified": "Mercy, compassion, and affection toward children are noble feelings placed by Allah in the hearts of parents, yielding the greatest results in raising and forming children; thus, Islamic law urges parents and educators to embody mercy to fulfill their duty of care and responsibility toward children. The methodology of the Prophetic Sunnah is the best approach in dealing with childhood, as it is an upbringing of divine sources that guides to goodness, purifies souls, and instills piety and virtue in a child's character.",
   "keywords": [
     "mercy",
     "parents",
@@ -55,14 +55,14 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "d7298ec6d42572057ab7fc4c0a0dc38a543cbfee4c8cbb6176c0e535bc73657c",
-      "reviewed_at": "2026-11-03T11:47:01+00:00",
+      "content_sha256": "1e90495bb464abc8574eb10a2441a3eb1aa5c5733e32c955c9ec825f4f1e7ae3",
+      "reviewed_at": "2026-11-03T12:13:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "revalidated_at": "2026-11-03T11:47:01+00:00"
+    "revalidated_at": "2026-11-03T12:13:34+00:00"
   },
   "source_meta": {
     "source_title": "الرحمة بالأطفال وآثارها التربوية من خلال السنة النبوية",

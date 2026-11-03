@@ -11,7 +11,7 @@
   "reference_type": "تقرير_طبي",
   "reference_info": "وزارة الصحة السعودية (مبادرة عش بصحة) — «دليل التغذية والنشاط البدني للطفل»، ص ٥–٨",
   "text_original": "الحفاظ على الوزن خلال نمو الطفل يؤدي إلى وقايته من مخاطر السمنة على المدى القريب والبعيد.\nما هي العوامل التي تؤثر على زيادة الوزن عند الطفل؟\nمتابعة وزن الطفل منذ الولادة، مع استمرار نمو الطفل خلال الزيارات الدورية للطبيب لاكتشاف أي خلل في النمو مبكراً.\nالتاريخ العائلي للإصابة بالسمنة أو السكري النوع الثاني أو أمراض القلب والشرايين.\nوتؤدي سمنة الأطفال إلى زيادة خطر الإصابة ببعض الأمراض المرتبطة بالسمنة مثل داء السكري من النوع الثاني، وارتفاع ضغط الدم، وأمراض الجهاز الهضمي، ومقاومة الإنسولين، ومشاكل العظام والمفاصل، والاكتئاب.\nويساعد النشاط البدني المنتظم على تحسين صحة العظام والصحة النفسية وتقليل خطر الإصابة بارتفاع ضغط الدم وأمراض القلب التاجية والسكتة الدماغية وداء السكري والاكتئاب، كما يُنصح بتجنب الجلوس أمام الشاشات لساعات طويلة، والإكثار من تناول الخضروات والفواكه الطازجة.",
-  "text_simplified": "Maintaining a healthy weight and monitoring a child's growth regularly from birth protects against obesity and its complications, such as type 2 diabetes, hypertension, heart disease, bone problems, and depression. This is supported by regular physical activity, limiting screen time, and eating plenty of fresh vegetables and fruits.",
+  "text_simplified": "Maintaining a healthy weight and monitoring a child's growth regularly from birth protects against obesity and its complications, such as type 2 diabetes, hypertension, digestive disorders, insulin resistance, bone problems, and depression. This is supported by regular physical activity—which reduces the risk of heart disease and diabetes—alongside limiting screen time and eating plenty of fresh vegetables and fruits.",
   "labels": [
     "وزن الطفل",
     "السمنة",
@@ -52,13 +52,13 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5f88c612903c3e576d2c2a93b74aa252d1b48d335c85700b492040ed76a35e46",
-      "reviewed_at": "2026-11-03T11:47:01+00:00",
+      "content_sha256": "66b321230dc13bda9e8edfd6f33779bcfca8032307d4516a109f7196720e3915",
+      "reviewed_at": "2026-11-03T12:08:55+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "revalidated_at": "2026-11-03T11:47:01+00:00"
+    "revalidated_at": "2026-11-03T12:08:55+00:00"
   }
 }
