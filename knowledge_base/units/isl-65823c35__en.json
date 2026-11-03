@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Abd al-Razzaq ibn Abd al-Muhsin al-Badr, 'Ashr Raka'iz fi Tarbiyat al-Abna' (Ten Pillars in Raising Children), in Arabic, p. 28",
   "text_original": "ﻫ ﹸ ﺎﻌﺗ نﱠ إ (cid:3) ، ﺐ ﹲ ﺣﺎﺳ ﺐ ﹶ ﺣﺎﺼﻟا ن ﱠ ﺈﻓ ؛ ﺔ ﻴﺑﱰﻟا ﰲ ﺎﲥﺎﻋاﺮﻣ ﺐ ﹸ ﳚ ﻲﺘﻟا ﺰﺋﺎﻛﺮﻟا . ﻪ ﺴ ﻴﻠﺟ ﰲ ﺮ ﺛﺆﻳ نأ ﺪﱠ ﺑﻻو  ﲆﻋ ﺐﹺ ﺣﺎﺼﻟا ﲑﺛﺄ ﺗ نﺎﻴﺑ ﰲ ﻼﹰ ﺜﻣﹶ ﻲﱡ ﺒﻨﻟا ﺎﻨﻟ بﴐ ﺪﻗو   ء ِ ﻮ ﺴﻟاو ﺢِ ﻟ ﺎﺼﻟا ﺲِ ﻴﻠ ِ ﺠﻟ ا ﻞُ ﺜ ﻣَ» :لﺎﻘﻓ ﴩ ﻟاو ﲑﳋا ﰲ ﻪﺒﺣ ﹺ ﺎﺻ  (cid:3) ن أ ﺎﻣﱠإِ :ﻚﺴ ﻤـﻟ ا ﻞُ ﻣﺎﺤ ﻓَ ؛ ﺮِ ﻴﻜﻟا ﺦِ ﻓ ﺎﻧو ﻚﺴ ﻤـﻟ ا ﻞِ ﻣ ﺎﺤﻛ  ﺎﻣ ﱠإ :ﺮِ ـ ﻴ ﻜ ِ ﻟا ﺦُ ﻓ ِ ﺎﻧ و ،ﺔً ﺒ ـﻴ ﱢﻃ � ﺤ ﻳ ر ِ ﻪُ ﻨ ﻣ ﺪَﺠ ِ ﺗَ ن أ ﺎﻣ ﱠإِ و ،ﻪُ ﻨ ﻣ عَ ﺎﺘ ﺒﺗَ ن أ ﺎﻣ ﱠإِو  . « ﺔ ً ـ ﺜ َﻴﺒِﺧ ﺎﺤً ﻳر ﺪَﺠ ِ ﺗَ ن أ ﺎﻣ ﱠإِو ،ﻚَ ﺑ ﺎﻴﺛ قَ ﺮِ ﺤ ـﻳ  ﻢ ﻛ ﹸ ﺪ ﹸﺣﹶ أ ﹶ ﺮ ﻈ ﹸ ﻨ ﻴﻠـ ﻓ ﹶ ﻪ ﹺ ـ ﻠ ﻴﻠﺧﹶ ﻦ ﹺ ـ ﻳ د ﹺ ﲆ ﻋ ﻞ ﹸ ﺟﹸ ﺮﱠـﻟا» :  ﻲ ﱡ ـﺒﻨﱠﻟا ل ﺎﻗو  (cid:3) . « ﻞ ﻟﺎﺨـ ﻳ ﹸ ﻦ ﻣﹶ . (٢٦٢٨) « ﻪ ﺤﻴﺤﺻ» ﰲ ﻢﻠﺴﻣو ،(٥٥٣٤) « ﻪ ﺤﻴﺤﺻ» ﰲ يرﺎﺨﺒﻟا ﻪﺟﺮﺧأ ( ١) . (٩٢٧) « ﺔ ﺤﻴﺤﺼﻟا ﺔﻠﺴﻠﺴﻟا» : ﺮﻈﻧاو ،(٤٨٣٣) « ﻦ ﻨﺴﻟا» ﰲ دوادﻮﺑأ ﻪﺟﺮﺧأ ( ٢) ",
-  "text_simplified": "Companionship has a profound impact on a child's righteousness or corruption. The Prophet ﷺ said: \"The example of a righteous companion and a bad companion is like that of the seller of musk and the blacksmith's bellows: as for the seller of musk, either he will give you some, or you will buy from him, or you will find a pleasant scent from him; and as for the blacksmith's bellows, either he will burn your clothes, or you will find a foul smell from him\" (Sahih Muslim 2628). It is therefore obligatory to keep children away from bad companions who lead them into deviation.",
+  "text_simplified": "Paying constant attention to children's companions and friends is among the greatest pillars of tarbiyah, for a friend pulls (الصاحب ساحب) and inevitably influences his companion. The Prophet ﷺ gave the example of the righteous companion as a carrier of musk from whom you obtain good or a pleasant scent, and the example of a bad companion as a blower of the bellows who may burn your clothes or from whom you find a foul smell.",
   "labels": [
     "الصحبة",
     "التربية",
@@ -32,22 +32,15 @@
     "translator_model": "mistral-large-3:675b",
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "needs_scholar_review": true,
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "text_simplified",
-        "type": "hadith",
-        "why": "The hadith says 'carrier of musk' (حامل المسك), not 'seller of musk'; the wording of a hadith should not be altered."
-      }
-    ],
+    "review_verdict": "clean",
+    "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
-    "revalidated_at": "2026-11-03T11:05:46+00:00",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
     "english_authors": [
       "mistral-large-3:675b"
     ],
     "fixer_model": "mistral-large-3:675b",
-    "fixed_at": "2026-11-03T11:03:02+00:00",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -66,16 +59,9 @@
       "fixer": "mistral-large-3:675b",
       "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "3e914ed0a26fe8235bf5979483c103f9b247386a682ef51f04b225ea6f7e9cf3",
-      "reviewed_at": "2026-11-03T11:05:46+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "text_simplified",
-          "type": "hadith",
-          "why": "The hadith says 'carrier of musk' (حامل المسك), not 'seller of musk'; the wording of a hadith should not be altered."
-        }
-      ],
+      "content_sha256": "d6434ce6bb3b85586d3e91a3a2eddeb2bbfc4104473162f5ddb7b42f05b6566f",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"

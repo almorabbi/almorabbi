@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 2 — Part 2: The Fruit of Dar al-Arqam and Conclusion, p. 94–95.",
   "text_original": "إن رجوعنا للسيرة واستقراءنا لمحطات منها، يجعلنا نقف أمام حقيقة واضحة وهي أن كل الذين تربوا على يد النبي ﷺ في دار الأرقم ما علم من أحدهم ارتداد عن الدين أو نفاق فيه أو انتكاسة في الخلق، بل كانوا رجال تبليغ الدعوة، ورجال المواقف الصعبة الذين يثبتون إذا شك الناس، ويتقدمون إذا تخلف الناس، ويفدون بالمال والنفس والأهل إذا بخل الناس. وفي هذا دليل على نجاح المنهج التربوي النبوي في تحقيق غايته وأهدافه، وإخراج الفرد المسلم والأمة المسلمة إلى واقع الوجود، وإلى قيادة الإنسانية، مستنيرا بتوجيه الله تعالى ليكون نعم المربي ونعم المعلم.\nخاتمة:\nإن المنهاج التربوي النبوي، يعتبر منهاجا متميزا عن غيره من المناهج التربوية، من حيث خصائصه وسعة وسائله وتنوعها، مما يستلزم المزيد من تعميق البحث حوله، وإيلاء الدراسات التربوية المتخصصة في عالمنا الإسلامي اهتماما أكبر، حتى يتسنى لنا إخراج منظومة تربوية مؤصلة من كتاب الله تعالى، ومستنبطة من التجربة التاريخية الفريدة للنبي ﷺ في مجال التربية، في ظل النظريات التربوية الحديثة الغربية، والتي تفتقد إلى بوصلة التوجيه الرباني في مناهجها وأهدافها ووسائلها، فتنطبع بصفة القصور، مما يجعلها بعيدة عن التصور الإسلامي الذي يجعل من التربية عملية شاملة في أهدافها ووسائلها، تربي الإنسان على ما ينصلح به أمر دينه ودنياه وآخرته.",
-  "text_simplified": "The Prophet's ﷺ upbringing of his Companions in Dar al-Arqam produced a generation firm in faith and morals who stood steadfast in difficult times and sacrificed wealth and life to convey the message, proving the success of the Prophetic educational methodology in building both the individual and the community. The distinctiveness of this methodology in its characteristics and diverse means calls for deepening authentic educational research rooted in the Qur'an and Sunnah to overcome the shortcomings of secular educational theories that lack divine guidance.",
+  "text_simplified": "The researcher cites as evidence of the success of the Prophetic tarbiyah methodology the fact that none of those raised by the Prophet ﷺ in Dar al-Arqam was known to apostatize, be hypocritical, or regress in character; rather, they were people of da'wah who stood steadfast in difficult times. He concludes in his conclusion that this methodology is distinguished by its characteristics and diverse means, and he calls for deepening research into it to produce an authentic educational system rooted in the Qur'an and the Prophetic experience, in contrast to Western theories that lack divine guidance.",
   "labels": [
     "منهج نبوي",
     "تربية إسلامية",
@@ -32,16 +32,15 @@
     "translator_model": "mistral-large-3:675b",
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "needs_scholar_review": true,
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "text_simplified",
-        "type": "meaning",
-        "why": "'Upbringing' typically connotes raising children, whereas the Arabic refers to the Prophet's tarbiyah/education of his adult Companions, making the English sound slightly off-key."
-      }
-    ],
+    "review_verdict": "clean",
+    "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "revalidated_at": "2026-11-03T20:17:56+00:00",
+    "english_authors": [
+      "mistral-large-3:675b"
+    ],
+    "fixer_model": "mistral-large-3:675b",
+    "fixed_at": "2026-11-03T20:15:48+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,23 +56,15 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": null,
-      "rounds": 1,
+      "fixer": "mistral-large-3:675b",
+      "rounds": 3,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "1788c0f2b6dfbc72c28f7605ce44084a7d20bb900eda772c8af2b72dcf32d449",
-      "reviewed_at": "2026-11-03T11:33:26+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "text_simplified",
-          "type": "meaning",
-          "why": "'Upbringing' typically connotes raising children, whereas the Arabic refers to the Prophet's tarbiyah/education of his adult Companions, making the English sound slightly off-key."
-        }
-      ],
+      "content_sha256": "dd2e7b753ee4a1d0795edf2a674913ee6f05f74706f15bb972216961d6c8e8a1",
+      "reviewed_at": "2026-11-03T20:17:56+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    },
-    "revalidated_at": "2026-11-03T11:33:26+00:00"
+    }
   }
 }

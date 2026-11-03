@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Abd al-Razzaq ibn Abd al-Muhsin al-Badr, 'Ashr Raka'iz fi Tarbiyat al-Abna' (Ten Pillars in Raising Children), in Arabic, p. 21-22",
   "text_original": "ﱠﻧأو ،رٌ ﻮْ ﺟَ ﻪﻧﺄﺑ ﻲﺒﱠﻨﻟا ﻢَ ﻜَ ﺣَ ﺎﻣ ﻰﻠﻋ ﺪَ ﻬَ ﺸْ ﻳَ نأ ﻦﻴﻤﻠﺴﻤﻟا ( ٤) ِ ِ (cid:3)  . « ! ؟ ل ﺪْ ﻌَ ﻟا ف ُ ﻼ ﺧ ﻪ ﻧﱠ أَو ،ﷲا ىﻮﻘﺗ ف ُ ﻼ ﺧ ﻪ ﻧﱠ أَو ، ﺢ ُ ﻠ ُﺼ ْ ﻳ َ ﻻ  ﺎﳌ نﹲ ﺎﻴﺑو ،د ﻻوﻷﹶ ا ﲔ ﹶ ﺑ ﻢ ﹺ ﻠﻈ ﱡ ﻟاو ﻒﻴﺤﹶ ـ ﻟ ا ﻦ ﻣ ﻎﹲ ﻴﻠﺑ ﺮ ﹲﻳﺬﲢ اﺬﻬﻓ  . ناﻮﺧﻹا ﲔ ﺑ ﺮ ﹺ ﺟ ﹸ ﺎﻬﺘﻟ او ﻊ ﹺ ﻃ ﹸ ﺎﻘﺘﻟ او ،ﺮ ﱢـ ﺒ ﻟا م ﺪﻋو ق ﹺ ﻮﻘ ﹸـ ﻌ ﹸ ﻟ ا ﻦ ﻣ ﻪ ﹸ ـ ﺛ ﹸر ﱢﻮ ﹶ ﻳ ﹸ (cid:3) .(١٦٢٣) « ﻪﺤﻴﺤﺻ» ﰲ ﻢﹲ ﻠﺴﻣ ﻪﺟﺮﺧأ (١) (cid:3) . (١٦٢٣) « ﻪ ﺤﻴﺤﺻ» ﰲ ﻢﻠﺴﻣو ،(٢٦٥٠) « ﻪ ﺤﻴﺤﺻ» ﰲ يﱡ رﺎﺨﺒﻟا ﻪﺟﺮﺧأ ( ٢) .(١٦٢٣) « ﻪﺤﻴﺤﺻ» ﰲ ﻢﹲ ﻠﺴﻣ ﻪﺟﺮﺧأ (٣) . (١٣٣/ ٤) ﻢﻴﱢﻘﻟا ﻦﺑﻻ « ﲔ ﻌﻗﱢﻮﻤﹸ ـﻟا مﻼﻋإ» ( ٤) (cid:3) (cid:3) �Ô≈f_�åÿ^=�ÓäÎ‘àÿ^  ﺔ ﲪﺮ ﱠ ﻟاو ﻖ ﻓﺮ ﱢ ـﻟا  (cid:3) ﻢ ﻬﺘ ﹸـ ﻠ ﹶﻣ ﹶ ﺎﻌﻣو ، ﻢ ﲠ ﻒﹸ ﻄﻠﱡﻟاو ﻖ ﹸﻓ ﹾﺮ ﱢﻟا : ء ﺎﻨﺑﻷا ﺔ ﻴﺑﺮﺗ ﺰ ﺋﺎﻛر ﻦﹾ ﻣو . ن ﺎﺴﺣﻹ ﹺ او ﺔ ﲪﺮﻟﺎﺑ (cid:3) ﻲﱠ ﺒﻨﻟا ن ﱠ ﺈﻓ ؛ ءﺎﻔﳉاو ة ﺪﺸ ﱢ ﻟا ﻦ ﻋ ﺪ ﹸ ﻌﺒﻟاو ،ﺔ ﻈﻠﻐ ﻟا ﻦ ﻣ ر ﹸﺬ ﹶ ﺤ ﹶ ـ ﻟ او (cid:3) ﻦ ﹾ",
-  "text_simplified": "Ibn al-Qayyim (may Allah have mercy on him) observed that a child's dutifulness to his parent generally arises from the parent's fairness among his children, whereas disobedience and rebellion often stem from a parent's unfairness and favoritism.\nParents must therefore beware of injustice and favoring some children over others.\nAlongside fairness comes gentleness, leniency, and good speech in raising children.",
+  "text_simplified": "In the narrations of the hadith on fairness in giving, the Prophet ﷺ asked the father: 'Would it please you that your children be equal in dutifulness to you?' He refused to witness the injustice and said to him by way of warning: 'Have someone other than me witness this.' In this is a profound warning against bias and injustice among children, and an explanation of what it causes of undutifulness and estrangement between siblings. Then the Sheikh moves to the seventh pillar: gentleness with children, treating them with mercy, and caution against harshness and alienation.",
   "labels": [
     "العدل بين الأبناء",
     "التربية الإسلامية",
@@ -35,31 +35,19 @@
     "review_verdict": "low_only",
     "review_defects": [
       {
-        "model": "deepseek-v4-pro",
-        "field": "title",
-        "type": "meaning",
-        "why": "The Arabic title includes 'الانتقال إلى ركيزة الرفق' (transition to the pillar of gentleness), but the English replaces this with 'the Importance of Gentleness,' dropping the structural transition."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "title",
-        "type": "omission",
-        "why": "The Arabic title references transitioning to 'the pillar of gentleness' (ركيزة الرفق), a structural concept in the series; the English drops both 'transition' and 'pillar'."
-      },
-      {
         "model": "glm-5.2",
         "field": "text_simplified",
         "type": "meaning",
-        "why": "The Arabic presents cultivating gentleness as a parallel parental duty («مع التحلي»), whereas the English phrasing makes gentleness sound like a natural accompaniment of fairness."
+        "why": "«على سبيل التهديد» means 'by way of threat', not 'by way of warning'; the English softens the Prophet's ﷺ sternness."
       }
     ],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
-    "revalidated_at": "2026-11-03T11:05:46+00:00",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
     "english_authors": [
       "mistral-large-3:675b"
     ],
     "fixer_model": "mistral-large-3:675b",
-    "fixed_at": "2026-11-03T11:03:02+00:00",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -78,26 +66,14 @@
       "fixer": "mistral-large-3:675b",
       "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "870ca3e4410fcb25acc03b7cf90f76a19585b69cc942b53ccfe8ce914014d91d",
-      "reviewed_at": "2026-11-03T11:05:46+00:00",
+      "content_sha256": "1d32b7b0460af42774b0d678b41db0cfeadf8c565b4e2556944a952746a927ad",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
       "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "title",
-          "type": "meaning",
-          "why": "The Arabic title includes 'الانتقال إلى ركيزة الرفق' (transition to the pillar of gentleness), but the English replaces this with 'the Importance of Gentleness,' dropping the structural transition."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "title",
-          "type": "omission",
-          "why": "The Arabic title references transitioning to 'the pillar of gentleness' (ركيزة الرفق), a structural concept in the series; the English drops both 'transition' and 'pillar'."
-        },
         {
           "model": "glm-5.2",
           "field": "text_simplified",
           "type": "meaning",
-          "why": "The Arabic presents cultivating gentleness as a parallel parental duty («مع التحلي»), whereas the English phrasing makes gentleness sound like a natural accompaniment of fairness."
+          "why": "«على سبيل التهديد» means 'by way of threat', not 'by way of warning'; the English softens the Prophet's ﷺ sternness."
         }
       ],
       "adjudicated": [],

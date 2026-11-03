@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 2 — Part 1: Domains of Prophetic Example (Character, Da'wah, and Public Life), p. 90.",
   "text_original": "ـ قدوة في خلقه: وهذا ما أخبر به الله تعالى في كتابه: ﴿وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٖ﴾ [القلم: 4]، وهذا ما لمسه الصحابة في واقعه ﷺ فكانت أخلاقه بمثابة المحفز والمنشط لهم لمحاولة الوصول إليها وبذل الجهد في ذلك.\nـ قدوة في حبه لرسالته ودعوته وتحمله أعباءها وما يصيبه من أذى في سبيلها: ففي سيرته ﷺ أنه كان يدعو دون كلل أو ملل، يدعو الصغير والكبير، الشريف والوضيع، والغني والفقير، والحر والعبد، والقريب والبعيد، والفرد والقبيلة، يدعو في البيوت وفي الأسواق وفي المناسبات في الليل وفي النهار، فصحابته يرون هذا النموذج البشري يتحرك فيهم بهذا الحب وهذه القوة فانطبعوا بهذا الدين وبهذه الصفات حتى صار الدين أحب إليهم مما سواه من أموالهم وأهليهم وأنفسهم.\nـ قدوة في الحياة العامة: كان ﷺ يشاركهم في سائر أمورهم الدنيوية، وهذا ما ولد عند الصحابة حب القائد والتمسك به، ومن ذلك مشاركتهم في الظروف الصعبة، فقد كان الصحابة إذا جاعوا في حالات الفاقة والفقر … ومن ذلك مشاركتهم في الأعمال وإن كانت شاقة كمشاركته ﷺ في بناء المسجد وحفر الخندق يوم الأحزاب إلى غير ذلك من مظاهر القدوة في التصرفات النبوية.",
-  "text_simplified": "The example of the Prophet ﷺ was manifested in his noble character as testified by his Lord: ﴿وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٖ﴾ [Al-Qalam: 4] — interpretation of the meaning: \"And indeed, you are of a great moral character\" —, in his tireless perseverance in conveying the message to young and old, rich and poor, day and night without fatigue, and in his practical participation with his Companions during hardships and arduous labor such as building the Prophet's Mosque and digging the Trench at the Battle of Al-Ahzab—instilling in their hearts love for the religion and dedication to supporting it.",
+  "text_simplified": "The example of the Prophet ﷺ was manifested in his noble character, which motivated his Companions to strive to attain it, in his love for his message and his endurance of harm for its sake, and in his calling all people in every place and time without fatigue, until the religion became more beloved to his Companions than their wealth and their own selves. He was also an example in public life, sharing in their affairs, hardships, and arduous tasks such as building the Mosque and digging the Trench.",
   "labels": [
     "قدوة",
     "تربية",
@@ -35,12 +35,12 @@
     "review_verdict": "clean",
     "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
-    "revalidated_at": "2026-11-03T11:36:00+00:00",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
     "english_authors": [
       "mistral-large-3:675b"
     ],
     "fixer_model": "mistral-large-3:675b",
-    "fixed_at": "2026-11-03T11:33:59+00:00",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,8 +59,8 @@
       "fixer": "mistral-large-3:675b",
       "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "55072ee05fc5975d0d3210d660aa309a3e912162f635cc1bb045e0e16efdc056",
-      "reviewed_at": "2026-11-03T11:36:00+00:00",
+      "content_sha256": "03b49563c8bf8feebd65ea45ad15eeba07abd27085b81c94179691386cd79951",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",

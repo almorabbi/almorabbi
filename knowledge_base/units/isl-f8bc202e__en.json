@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Conclusion, p. 95.",
   "text_original": "خاتمة:\nإن المنهاج التربوي النبوي، يعتبر منهاجا متميزا عن غيره من المناهج التربوية، من حيث خصائصه وسعة وسائله وتنوعها، مما يستلزم المزيد من تعميق البحث حوله، وإيلاء الدراسات التربوية المتخصصة في عالمنا الإسلامي اهتماما أكبر، حتى يتسنى لنا إخراج منظومة تربوية مؤصلة من كتاب الله تعالى، ومستنبطة من التجربة التاريخية الفريدة للنبي ﷺ في مجال التربية، في ظل النظريات التربوية الحديثة الغربية، والتي تفتقد إلى بوصلة التوجيه الرباني في مناهجها وأهدافها ووسائلها، فتنطبع بصفة القصور، مما يجعلها بعيدة عن التصور الإسلامي الذي يجعل من التربية عملية شاملة في أهدافها ووسائلها، تربي الإنسان على ما ينصلح به أمر دينه ودنياه وآخرته، وهي تخاطبه في كينونته الذاتية، ثم باعتباره جزءا من المجتمع، وتضبط علاقاته بالكون كله، مما يحقق التوازن للإنسان في مختلف مجالات عيشه. ثم إن منهاج التربية النبوية منهاج يخاطب الإنسان كما هو، في حدود طاقته واستعداداته ويراعي نفسياته وانفعالاته، ويهدف للوصول به إلى أرقى درجات إنسانيته.\nوحاجتنا أشد ما تكون اليوم، لاستلهام التجربة النبوية في مجال التربية لإخراج الإنسان الصالح في ذاته، والمصلح لمجتمعه ومحيطه، بما يضمن لنا إخراج المجتمع المسلم والأمة المسلمة من حيز التاريخ الماضي، إلى حاضر الوجود ومستقبل الشهود.",
-  "text_simplified": "The Prophetic educational methodology is distinguished by the comprehensiveness of its goals and means for rectifying religious, worldly, and hereafter affairs, achieving balance between the individual self, society, and the universe while addressing human beings within their capacities and readiness and considering their psychology and emotions. Today, the Muslim community is in urgent need of drawing inspiration from this authentic Prophetic experience to raise individuals who are righteous in themselves and reformers of their society.",
+  "text_simplified": "The researcher concludes that the Prophetic educational methodology is distinguished by its characteristics and the breadth of its means. It requires further research to produce an educational system grounded in the Qur'an and the Prophetic experience, in contrast to modern Western theories that lack divine guidance and are characterized by shortcomings. Islamic tarbiyah is comprehensive, addressing the human being in their essence and within their society, and regulating their relationship with the universe, thereby achieving balance. It considers human capacity and psychology, and our need today is urgent to draw inspiration from this experience to raise the righteous individual who is a reformer.",
   "labels": [
     "تربية إسلامية",
     "مناهج نبوية",
@@ -35,6 +35,12 @@
     "review_verdict": "clean",
     "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
+    "english_authors": [
+      "mistral-large-3:675b"
+    ],
+    "fixer_model": "mistral-large-3:675b",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -50,16 +56,15 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": null,
-      "rounds": 1,
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "d5d7837d653fce0b38a9b22903149750c70ba24903d6ab55a1a4f530d06d35e6",
-      "reviewed_at": "2026-11-03T11:33:26+00:00",
+      "content_sha256": "45f51e5ec35afb6731fec59d8ef86d2f3665b513e2efa94a6c1f2f3634c70762",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    },
-    "revalidated_at": "2026-11-03T11:33:26+00:00"
+    }
   }
 }

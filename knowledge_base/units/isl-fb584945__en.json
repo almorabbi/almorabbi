@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 1 — Part 2: Comprehensive Educational Approaches (D. Aesthetic & E. Physical Education), p. 86.",
   "text_original": "د ـ التربية الجمالية: ويقصد بها «تربية الفرد على إيجاد الحس الجمالي بشتى صوره الشكلية أو الصوتية والتدريب على ترقية هذا الحس»، حتى يشعر الإنسان بما يحيط به من جمال الكون، وجمال الحياة الإنسانية، وجماله في نفسه، في خلقه وخلقه، وأفعاله وأقواله، ومن ثم يستفيد من هذا الإحساس بالجمال بما يساعده على أن يصبغ حياته كلها به، فيحاكيه في شكله وملبسه ومسكنه وقوله وفعله، ويستطيع من خلاله إدراك القدرة الإلهية.\nهـ ـ التربية الجسمية: لقد ربى النبي ﷺ أمته على ضرورة العناية بالبدن كنعمة أنعم الله بها على الإنسان، فجاءت توجيهاته ﷺ تنبه إلى ضرورة المحافظة على البدن وكل ما يصلحه والابتعاد عن كل ما من شأنه أن يضره ويؤذيه؛ فالتربية الجسمية أو البدنية أو الجسدية هي عملية يقوم الفرد أو من يرعاه خلالها بنشاط جسمي منظم بهدف تنمية قدرات الجسم المختلفة وزيادة كفاءته الحركية، فهي تهدف إلى المحافظة على الجسم قويا نشيطا. وهذا ينسجم مع عموم توجيهه ﷺ: «المؤمن القوي خير وأحب إلى الله من المؤمن الضعيف، وفي كل خير» (صحيح مسلم — حديث 2664)، وكذلك فعله ﷺ في مسابقة عائشة رضي الله عنها … ودعوته إلى الابتعاد عن كل ما يضعف الجسم كما في قوله في الدعاء المشهور: «اللهم إني أعوذ بك من الهم والحزن، والعجز والكسل، والجبن والبخل، وضلع الدين، وغلبة الرجال» (صحيح البخاري — حديث 6369).",
-  "text_simplified": "Prophetic education includes cultivating an aesthetic sense in appearance, clothing, home, speech, and action to appreciate Allah's wondrous creation in the universe, as well as physical education through caring for the body, developing its strength and vitality, and avoiding what weakens it; acting upon the Prophet's ﷺ statement: \"The strong believer is better and more beloved to Allah than the weak believer, while there is good in both\" (Sahih Muslim 2664), and his ﷺ seeking refuge from incapacity and laziness (Sahih al-Bukhari 6369).",
+  "text_simplified": "Aesthetic upbringing is the cultivation of a sense of beauty in the universe, in people and in their actions, so that it colors one's life and through it one perceives the divine power. Another part is physical upbringing: the Prophet ﷺ raised his community to care for the body as a blessing from Allah and to protect it from what harms it; he said that the strong believer is better and more beloved to Allah, he raced with 'A'ishah (may Allah be pleased with her), and he sought refuge from incapacity and laziness.",
   "labels": [
     "تربية جمالية",
     "تربية بدنية",
@@ -35,6 +35,12 @@
     "review_verdict": "clean",
     "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "revalidated_at": "2026-11-03T20:18:48+00:00",
+    "english_authors": [
+      "mistral-large-3:675b"
+    ],
+    "fixer_model": "mistral-large-3:675b",
+    "fixed_at": "2026-11-03T20:15:48+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -53,13 +59,12 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "f35bda477896c302fb185bb7ae7a52c717b063a204375e981006a3587d378063",
-      "reviewed_at": "2026-11-03T13:20:58+00:00",
+      "content_sha256": "6d2ba2b644004ec6b4848357d94bbf6409514cc2a23b421afba33e0b568cec3b",
+      "reviewed_at": "2026-11-03T20:18:48+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    },
-    "revalidated_at": "2026-11-03T13:20:58+00:00"
+    }
   }
 }

@@ -11,7 +11,7 @@
   "reference_type": "تقرير_طبي",
   "reference_info": "الهيئة العامة للغذاء والدواء السعودية — «دليل التغذية الصحية»، ص ٣٦–٤١",
   "text_original": "قلِّل كمية السكر أثناء إعداد الحلويات المنزلية، واحرص عند تناول الطعام خارج المنزل على اختيار الوجبة ذات السكر والدهون والملح الأقل، واجعل الماء خيارك الأول بدلاً من المشروبات المحلاة والعصائر المعلبة. …\nاحرص عند اختيار المنتجات الغذائية على قراءة البطاقة الغذائية لمعرفة كمية السعرات الحرارية والدهون والسكريات المضافة والملح (الصوديوم)، وانتبه لمسميات السكر المضاف مثل شراب الذرة عالي الفركتوز أو السكروز أو المالتوز. …\nتأكد من خلو الأغذية من المسببات الغذائية للحساسية عند إصابة الطفل بحساسية تجاه صنف معين كالحليب أو البيض أو المكسرات أو القمح. …\nاتبع إرشادات وتعليمات سلامة الغذاء وطرق الإعداد والحفظ الصحيحة: احفظ الأطعمة المبردة عند درجة حرارة أقل من 5 درجات مئوية، والأطعمة الساخنة عند درجة حرارة أعلى من 60 درجة مئوية، لأن نطاق درجات الحرارة بين 5 و60 درجة مئوية هو النطاق الخطر الذي تتكاثر فيه البكتيريا بسرعة.",
-  "text_simplified": "Parents are advised to reduce sugar in foods and desserts, choose water over sweetened beverages, and read nutrition labels to check calories, fats, salt, added sugar names, and food allergens. To ensure food safety, cold foods must be kept below 5°C and hot foods above 60°C to avoid the temperature danger zone where bacteria multiply rapidly.",
+  "text_simplified": "It is advised to reduce sugar in homemade desserts, choose meals with less sugar, fat, and salt when eating out, and make water the first choice instead of sweetened drinks. Read the nutrition label to know the calories, added sugars, and salt. If the child has a food allergy such as to milk, eggs, or nuts, ensure foods are free of the allergen. For food safety, keep cold foods below 5°C and hot foods above 60°C, because the range between them is where bacteria multiply rapidly.",
   "labels": [
     "تغذية",
     "سكريات",
@@ -35,6 +35,12 @@
     "review_verdict": "clean",
     "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
+    "english_authors": [
+      "mistral-large-3:675b"
+    ],
+    "fixer_model": "mistral-large-3:675b",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -50,16 +56,15 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": null,
-      "rounds": 1,
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "6ff992942836ded328d13483a85f86f43f098551014405ec189d38cb17e353be",
-      "reviewed_at": "2026-11-03T11:47:01+00:00",
+      "content_sha256": "ae1e47ae53ee8cf78ac2d02675c4b401de826d1e2b05e6ff557c3fba749a47f0",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    },
-    "revalidated_at": "2026-11-03T11:47:01+00:00"
+    }
   }
 }

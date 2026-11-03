@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Abd al-Razzaq ibn Abd al-Muhsin al-Badr, 'Ashr Raka'iz fi Tarbiyat al-Abna' (Ten Pillars in Raising Children), in Arabic, p. 31-32",
   "text_original": "ـ ﻬ ـ ﻳﱡ ﹶأ ﺎ ـ ﻳ (cid:3) ؟ ﻢﹸ ـ ﻴ ـ ﻠ ـ ﻌﹾ ـ ﱠﺘ ـ ﻟا اذﹶ نﹶ ﺎ ـ ﻛﹶ ﻚ ـ ﺴﻔﹾ ـ ﹶﻨﻟ ﻼﱠ ﻫﹶ  ﻰﻨ ﻀﱠ ﻟا ﻦ ﹶ ﻣ مﺎﻘﺴ ﱢ ﻟا يﺬﻟ ء ﹶ اوﺪ ﱠ ﻟا ﻒ ﹸ ﺼ ﺗ ﹶ  ﻢﹸ ﻴ ـ ﻘ ﹺ ـ ﺳﹶ ﺖﹶ ـ ﻧﹶأوﹶ ﴘﻤﹾ ـﺗﹸ ﻰﻨﻀﱠ ﻟا ﻦﹶ ـﻣ ﹺ و  ﻪﹸ ـ ﻠﹶ ـ ﹾﺜ ـ ﻣ ﹺ ﻲﹶ ـ ﹺ ﺗ ﹾ ﺄ ـ ﺗﹶو ﻖﹴ ـ ﻠﹸ ـ ﺧﹸ ﻦ ـ ﻋ ﻪﹶ ـ ﹾﻨ ـ ﺗﹶ ﻻ  ﻢﹸ ﻴﻣذ ﺖﹶ ـ ﻠﹾ ـ ﻌﹶ ـ ﻓﹶ اذﹶ إ ﻚ ـ ﹾﻴ ـ ﻠﹶ ـ ﻋﹶ رﹲ ﺎ ـ ﻋﹶ (cid:3) ٣١ لﻻﻻﻻﻻا  ﺎ ﻬﹶ ـ ﱢﻴ ـ ﻏﹶ ﻦﹾ ـ ﻋﹶ ﺎ ـ ﻬﹶ ـ ﻬﹶ ـ ﻧﹾﺎﻓ ﻚﹶ ﺴ ﹺ ﻔﹾ ـ ﹶﻨ ـ ﺑ أﹾ ﺪﹶ ـ ﺑﹾا  (cid:3)  ﻢﹸ ﻴ ـ ﹺ ﻜ ـ ﺣﹶ ﺖ ﹶ ـ ﻧ ﺄ ﹶ ـ ﻓ ﹶ و ﻪ ﹸـ ﻨ ﹾـ ﻋ ﹶ ﺖﹾ ﻬﹶـ ﺘ ﹶـ ﻧ ﹾا اذﹶ ﹺﺈـ ﻓ ﹶ  (cid:3) ￯ ﺪﹶ ـ ﹶﺘ ـ ﻘﹾ ـ ﻳﹸو لﹸﻮ ﻘﹸ ـ ﺗﹶ ﺎﻣ ﻞﹸ ـ ﹶﺒـ ﻘﹾ ـ ﻳﹸ كﹶ ﺎ ـ ﻨ ـ ﻫ (cid:3)  . ( ١ ) « ﻢ ﹸ ـ ﻴ ـ ﹺ ﻠ ـ ﻌ ﹾ ـ ﱠﺘ ﻟ ا ﻊ ﹸ ﻔﹶ ـ ﹾﻨ ـ ﻳﹶ",
-  "text_simplified": "A parent must avoid contradicting his words with his actions. He should not command his children to be truthful while lying in front of them, nor forbid them from backbiting, smoking, or harmful late nights while engaging in those habits himself. For advice is only accepted and beneficial when the educator begins with himself and restrains himself from error.",
+  "text_simplified": "The Sheikh cites verses condemning one who commands others what he does not do: 'He teaches others and forbids a trait while committing it himself.' The verses call him to begin with himself and restrain himself from error, so that his word may be accepted, he may be followed, and his teaching may benefit.",
   "labels": [
     "تعلم ذاتي",
     "ضبط النفس",
@@ -34,12 +34,12 @@
     "review_verdict": "clean",
     "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
-    "revalidated_at": "2026-11-03T13:32:35+00:00",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
     "english_authors": [
       "mistral-large-3:675b"
     ],
     "fixer_model": "mistral-large-3:675b",
-    "fixed_at": "2026-11-03T13:21:05+00:00",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -55,11 +55,11 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": null,
-      "rounds": 1,
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "475349d8105f1d68e41a8e896a45e6e32fb97e7525f772f71fedd1d899c365fe",
-      "reviewed_at": "2026-11-03T13:32:35+00:00",
+      "content_sha256": "7b36ba907d6058d92068b55d8d55ff4f2df13a726504ac16ff0e44df49f90c8c",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",

@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Abd al-Malik ibn Muhammad al-Qasim, Lamahat fi Tarbiyat al-Banat (Glimpses into Raising Daughters), in Arabic, p. 24-25",
   "text_original": "السادس والعشرون: الزوج يحب الزوجة المدبرة الحكيمة التي تقوم على شؤون بيتها وتحيطه بالرعاية، وفتاة اليوم هي أم المستقبل، ومما تحتاجه لمواجهة الحياة تعلم فن الطبخ والقيام بالمنزل. والأم الموفقة تحث ابنتها على القيام بأعمال المنزل وتدربها على ذلك حتى تكون زوجة صالحة تقوم برعاية منزلها حق الرعاية وهذا شرف لها وموطن استقرارها، وقد كانت بنات الأنبياء يقمن بذلك فقد كانت فاطمة رضي الله عنها تخدم في بيت علي بن أبي طالب رضي الله عنه؛ حتى أتعبها الرحى وشق عليها كثرة العمل.\nالسابع والعشرون: كلما داهمكما الهم والحزن وطال بكما أمد التربية تذكرا ما أعد الله عز وجل لكما من الجزاء على حسن التربية والتقويم والدعوة والتوجيه.\nسئل سماحة الشيخ عبد العزيز بن باز رحمه الله السؤال التالي: … هل يكن حجابا من النار لوالدهن فقط أم حتى الأم شريكة في ذلك؟ وأنا عندي ولله الحمد ثلاث بنات؟\nفأجاب: الحديث عام للأب والأم … وهكذا لو كان له أخوات أو عمات أو خالات أو نحوهن فأحسن إليهن فإنا نرجو له بذلك الجنة، فإنه متى أحسن إليهن فإنه بذلك يستحق الأجر العظيم ويحجب من النار ويحال بينه وبين النار لعمله الطيب، وهذا يختص بالمسلمين، فالمسلم إذا عمل هذه الخيرات ابتغاء وجه الله يكون قد تسبب في نجاته من النار.",
-  "text_simplified": "A wise mother trains her daughter in managing household affairs, for today's girl is tomorrow's mother, and Fatimah (may Allah be pleased with her) used to serve in the home of 'Ali ibn Abi Talib (may Allah be pleased with him). When the journey of upbringing feels long, parents should remember the great reward; Shaykh 'Abd al-'Aziz ibn Baz (may Allah have mercy on him) explained that both father and mother share in the promised reward for whoever treats daughters or sisters well seeking Allah's countenance, earning immense reward and a barrier from the Fire.",
+  "text_simplified": "A girl today is tomorrow’s mother, and she needs to learn cooking and household management. The successful mother trains her daughter in that so she becomes a righteous wife who cares for her home. Fatimah (may Allah be pleased with her) used to serve in the home of 'Ali until the work exhausted her. The author advises parents, if the journey of tarbiyah feels long, to remember Allah’s reward for good tarbiyah. He relates the answer of Ibn Baz that the virtue of ihsan to daughters is general for the father and the mother, and includes whoever treats his daughters, sisters, paternal aunts, or maternal aunts well.",
   "labels": [
     "تربية",
     "بنات",
@@ -37,29 +37,23 @@
       {
         "model": "deepseek-v4-pro",
         "field": "text_simplified",
-        "type": "meaning",
-        "why": "«موفقة» means successful or divinely granted tawfiq, whereas 'wise' shifts it to an inherent human quality."
+        "type": "addition",
+        "why": "English adds 'his daughters' to the list of relatives while the Arabic extends the virtue only to sisters and aunts after already stating it is general for parents."
       },
       {
         "model": "glm-5.2",
-        "field": "fields.text_simplified.english",
-        "type": "meaning",
-        "why": "موفقة means a mother granted success or blessed by Allah, not merely 'wise', which narrows the meaning."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "fields.text_simplified.english",
-        "type": "meaning",
-        "why": "The Arabic states a condition ('if the period of upbringing is prolonged'); 'feels long' adds a subjective emotional gloss not present in the source."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "fields.text_simplified.english",
-        "type": "meaning",
-        "why": "The Arabic is verbal — 'he is shielded from the Fire' — referring to the person who treats daughters well; the English noun phrase 'a barrier from the Fire' is grammatically ambiguous and loses the cl"
+        "field": "text_simplified",
+        "type": "addition",
+        "why": "The English adds 'daughters' to this list, but the Arabic lists only sisters, paternal aunts, and maternal aunts."
       }
     ],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
+    "english_authors": [
+      "mistral-large-3:675b"
+    ],
+    "fixer_model": "mistral-large-3:675b",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -75,41 +69,28 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": null,
-      "rounds": 1,
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "09e9a7edfd8d5cccaaa9ae14408d8ee6e51c16fa143ea87013a8e781f60cb0df",
-      "reviewed_at": "2026-11-03T13:31:10+00:00",
+      "content_sha256": "941e02a720b1c9ae755d403b0cfe40519e15cdbd32047dccf2a2bfa064dc3a1a",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
       "residual_low": [
         {
           "model": "deepseek-v4-pro",
           "field": "text_simplified",
-          "type": "meaning",
-          "why": "«موفقة» means successful or divinely granted tawfiq, whereas 'wise' shifts it to an inherent human quality."
+          "type": "addition",
+          "why": "English adds 'his daughters' to the list of relatives while the Arabic extends the virtue only to sisters and aunts after already stating it is general for parents."
         },
         {
           "model": "glm-5.2",
-          "field": "fields.text_simplified.english",
-          "type": "meaning",
-          "why": "موفقة means a mother granted success or blessed by Allah, not merely 'wise', which narrows the meaning."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "fields.text_simplified.english",
-          "type": "meaning",
-          "why": "The Arabic states a condition ('if the period of upbringing is prolonged'); 'feels long' adds a subjective emotional gloss not present in the source."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "fields.text_simplified.english",
-          "type": "meaning",
-          "why": "The Arabic is verbal — 'he is shielded from the Fire' — referring to the person who treats daughters well; the English noun phrase 'a barrier from the Fire' is grammatically ambiguous and loses the cl"
+          "field": "text_simplified",
+          "type": "addition",
+          "why": "The English adds 'daughters' to this list, but the Arabic lists only sisters, paternal aunts, and maternal aunts."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    },
-    "revalidated_at": "2026-11-03T13:31:10+00:00"
+    }
   }
 }

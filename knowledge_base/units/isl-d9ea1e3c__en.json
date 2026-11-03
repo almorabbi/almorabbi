@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 2 — Part 1: Impact of Practical Example at Al-Hudaybiyah & 3. Education through Events, p. 91.",
   "text_original": "لقد كان لهذا الجانب من تربيته ﷺ بالقدوة الأثر الأكبر في تربية صحابته فكانوا أحرص الناس على الاقتداء به واتباعه، ويمكن أن نستحضر هنا ما وقع بعد إقرار صلح الحديبية وامتناع المسلمين عن حلق رؤوسهم والتحلل من إحرامهم بعد أن أمرهم النبي ﷺ، وذلك لعدم رضاهم بشروط الصلح، يقول راوي الحادثة: ولما فرغ رسول الله ﷺ من قضية الكتاب قال لأصحابه: «قوموا فانحروا ثم احلقوا، قال: فوالله ما قام منهم رجل حتى قال ذلك ثلاث مرات، فلما لم يقم منهم أحد دخل على أم سلمة، فذكر لها ما لقي من الناس، فقالت أم سلمة: يا نبي الله، أتحب ذلك؟ اخرج ثم لا تكلم أحدا منهم كلمة حتى تنحر بدنك وتدعو حالقك فيحلقك، فخرج فلم يكلم أحدا منهم حتى فعل ذلك، نحر بدنه ودعا حالقه فحلقه، فلما رأوا ذلك قاموا فنحروا وجعل بعضهم يحلق بعضا» (صحيح البخاري — حديث 2731). والشاهد عندنا متابعتهم للنبي ﷺ في فعله، ففعله أبلغ من قوله في تلك اللحظة.\nثالثا: التربية بالحدث أو الموقف:\nإن المربي البارع لا يترك الأحداث تذهب سدى بغير عبرة وبغير توجيه، وإنما يستغلها لتربية النفوس وصقلها وتهذيبها، والتربية بالحدث تعني أن يستثمر المربي الأحداث من حوله ليطبع أثرا في نفس المتربي ليوصل رسالة أو يستقي عبرة أو يغرس خلقا أو يؤكد على مبدأ.",
-  "text_simplified": "The profound impact of practical example is evident at the Treaty of Al-Hudaybiyah when the Prophet ﷺ commanded his Companions three times to sacrifice their animals and shave their heads; when none of them stood up, he went out, sacrificed his camels, and had his head shaved, whereupon they all hastened to sacrifice and shave in emulation of his ﷺ action (Sahih al-Bukhari 2731). Closely linked to example is education through events and situations, whereby the educator utilizes unfolding occurrences to instill values and lasting lessons in hearts.",
+  "text_simplified": "The Prophet's ﷺ tarbiyah through practical example had the greatest impact on his Companions; this is evident at the Treaty of Al-Hudaybiyah when, after the Treaty, the Companions did not rise to sacrifice their animals and shave their heads despite the Prophet ﷺ commanding them three times. Umm Salamah advised him to go out, sacrifice and shave without speaking to anyone; he did so, and when they saw him they stood up and sacrificed, and some of them shaved each other. His action was more eloquent than his words. Closely linked to example is tarbiyah through events, whereby the educator utilizes unfolding occurrences to instill akhlaq or draw a lesson.",
   "labels": [
     "تربية نبوية",
     "قدوة حسنة",
@@ -35,13 +35,19 @@
     "review_verdict": "low_only",
     "review_defects": [
       {
-        "model": "deepseek-v4-pro",
-        "field": "title",
-        "type": "leakage",
-        "why": "\"Qudwah\" is left untranslated rather than rendered as \"example\" or \"role model\"."
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "The Arabic says it is another of his means (ومن وسائله أيضًا), while the English reframes it as \"closely linked to example,\" slightly altering the relationship described."
       }
     ],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "revalidated_at": "2026-11-03T20:17:56+00:00",
+    "english_authors": [
+      "mistral-large-3:675b"
+    ],
+    "fixer_model": "mistral-large-3:675b",
+    "fixed_at": "2026-11-03T20:15:48+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,23 +63,22 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": null,
-      "rounds": 1,
+      "fixer": "mistral-large-3:675b",
+      "rounds": 3,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "85e2eb7a87ec3b543b812b5be6e62ae88a16bb13cd5838514328927fce347cc7",
-      "reviewed_at": "2026-11-03T12:09:54+00:00",
+      "content_sha256": "a1276b449e526337c74b07d96e389b920540b92417923f90fd15d1801e94d784",
+      "reviewed_at": "2026-11-03T20:17:56+00:00",
       "residual_low": [
         {
-          "model": "deepseek-v4-pro",
-          "field": "title",
-          "type": "leakage",
-          "why": "\"Qudwah\" is left untranslated rather than rendered as \"example\" or \"role model\"."
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "The Arabic says it is another of his means (ومن وسائله أيضًا), while the English reframes it as \"closely linked to example,\" slightly altering the relationship described."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    },
-    "revalidated_at": "2026-11-03T12:09:54+00:00"
+    }
   }
 }
