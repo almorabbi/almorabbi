@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 2 — Part 1: Education through Participation and Involving the Companions, p. 89.",
   "text_original": "التربية بالمشاركة أو التكليف عملية تنتقل بالمتربي من طريقة تلقينه للمبادئ والقيم المراد إيصالها، إلى جعله مشاركا في صناعة هذه القيم والمبادئ، عبر تحسيسه بانتمائه لها. وهذه الوسيلة تجعل المتربي أكثر ارتباطا وحماسة لترسيخ معاني هذه القيم في ذهنه وأكثر ممارسة لها في سلوكياته. وإن كان علماء التربية المحدثون هم من تكلموا عن هذه الوسيلة التربوية، إلا أن الملاحظ لتصرفات النبي ﷺ مربيا يجد أنه انتهجها في تربيته لصحابته رضوان الله عليهم لغرس مجموعة من المبادئ والقيم، وكذلك في سائر شؤون الحياة التدبيرية للمجتمع المسلم.\nإن ممارسة النبي ﷺ لهذا النهج — في إشراك المتربين — لم تقتصر على جانب ضيق من التطبيق، بل شملت كبار الأمور قبل صغارها، ومنها إشراكه ﷺ لهم في حمل هم تبليغ الدعوة، وهي من كبريات الأمور بل هي رأس الأمر كله، ومن ثم كانت توجيهاته ﷺ تحسس بمعاني الانتماء للدين، وأن عموم المسلمين هم أهله وحملته والمنافحون عنه والداعون له، فانتقل بهم ﷺ من موقع المدعوين إلى موقع الداعين. ويمكن أن نستحضر هنا نموذجا من الصحابة كانت لمشاركته الأثر الكبير في نشر الرسالة:\nالنموذج الأول أبو بكر الصديق رضي الله عنه، فأول ما فاتح رسول الله ﷺ أبا بكر بالدعوة قال له: … فخطاب النبي ﷺ كان مركزا وموجها مباشرة من الوهلة الأولى إلى غرس الانتماء لهذا الدين والدعوة له والموالاة على طاعته.",
-  "text_simplified": "The Prophet ﷺ applied the method of education through participation and responsibility with his Companions (may Allah be pleased with them) in both major and minor affairs, foremost among them involving them in bearing the trust of conveying the message and moving them from being recipients of the call to active callers proud of their belonging to their religion, as exemplified by Abu Bakr al-Siddiq (may Allah be pleased with him), who immediately upon embracing Islam set out to support and convey the call.",
+  "text_simplified": "Education through participation moves the learner from merely receiving values to sharing in shaping them, making them more connected to and practising those values in their behaviour. Although modern educational scholars have discussed this method, the Prophet ﷺ applied it in raising his Companions, involving them in bearing the trust of conveying the message and moving them from being recipients of the call to active callers. An example is his call to Abu Bakr al-Siddiq (may Allah be pleased with him) from their very first meeting to belong to this religion and call to it.",
   "labels": [
     "تربية إسلامية",
     "قدوة حسنة",
@@ -35,13 +35,25 @@
     "review_verdict": "low_only",
     "review_defects": [
       {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "The Arabic 'هم' means concern/burden, not the religious trust (amanah), so the English shifts the nuance."
+      },
+      {
         "model": "glm-5.2",
         "field": "title",
-        "type": "addition",
-        "why": "The Arabic title says 'participation' (المشاركة) without the qualifier 'active'; the English adds 'Active'."
+        "type": "meaning",
+        "why": "«القدوة» means role model/example, not 'exemplary conduct'; 'Active' is added to 'Participation' without Arabic basis."
       }
     ],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
+    "english_authors": [
+      "mistral-large-3:675b"
+    ],
+    "fixer_model": "mistral-large-3:675b",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,23 +69,28 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": null,
-      "rounds": 1,
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4a7951e13db79121883846daf1450f15df2bfccb77aa470c56a9b4ca9b197471",
-      "reviewed_at": "2026-11-03T11:33:26+00:00",
+      "content_sha256": "e41b159a8d775d7a766ef072e78085e457b2e50b117fa952d8dc3a615bdc41f8",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
       "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "The Arabic 'هم' means concern/burden, not the religious trust (amanah), so the English shifts the nuance."
+        },
         {
           "model": "glm-5.2",
           "field": "title",
-          "type": "addition",
-          "why": "The Arabic title says 'participation' (المشاركة) without the qualifier 'active'; the English adds 'Active'."
+          "type": "meaning",
+          "why": "«القدوة» means role model/example, not 'exemplary conduct'; 'Active' is added to 'Participation' without Arabic basis."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    },
-    "revalidated_at": "2026-11-03T11:33:26+00:00"
+    }
   }
 }

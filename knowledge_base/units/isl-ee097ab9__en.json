@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 1 — Part 2: Comprehensive Educational Approaches (A. Creedal Education), p. 85.",
   "text_original": "إن استقراءنا لمختلف التصرفات والتوجيهات النبوية في تربية أفراد الأمة يجعلنا نقف أمام ملاحظة هامة وهي مراعاته ﷺ لحاجات الإنسان ومتطلباته الفكرية والروحية والجسدية باعتباره فردا مستقلا بذاته وكذلك باعتباره فردا وسط جماعة يتفاعل معها ويعيش في داخلها. لذلك وجدنا توجيهاته ﷺ تعمل على تنمية هذه المتطلبات مجتمعة وإشباع احتياجاتها بما يصلحها في دنياها ودينها ويرقيها في مدارج الكمال. ومن ثم شملت التربية النبوية جميع المداخل التربوية في الإنسان ويمكن أن نحددها في:\nأ ـ التربية العقدية: وهي تربية الفرد على اليقينيات المطلقة وربطه بالأصول الكبرى وتوجيه سلوكه على أساس القيم والمبادئ التي تستمد من الإيمان الصحيح بالله تعالى وملائكته وكتبه ورسله واليوم الآخر والقدر خيره وشره. وهذا النوع من التربية هو حجر الزاوية في العملية التربوية في التصور الإسلامي والمهمة الأولى للأنبياء صلوات الله عليهم جميعا، وغالب توجيه النبي ﷺ كان يصب في ترسيخ المعاني الكبرى الضابطة لحياة الفرد فكرا وممارسة. ومن أمثلة توجيهاته التربوية ﷺ في هذا الباب ما رواه ابن عباس رضي الله تعالى عنهما قال: كنت خلف رسول الله ﷺ يوما فقال: … فهذا الحديث دل على عنايته ﷺ بترسيخ معاني الاستعانة والنفع والضر والتوكل على الله تعالى والقضاء والقدر.",
-  "text_simplified": "Prophetic education attends to a person's intellectual, spiritual, and physical needs both as an individual and as a member of society, placing creedal upbringing at the forefront as the cornerstone of the Islamic worldview; it raises the individual upon the pillars of faith in Allah, His angels, His books, His messengers, the Last Day, and divine decree, both its good and its evil, while instilling reliance upon Allah, seeking His help alone, and certainty that benefit and harm are in His Hand.",
+  "text_simplified": "Prophetic education attends to a person's intellectual, spiritual, and physical needs both as an individual and as a member of society. It encompasses multiple approaches, the first of which is creedal upbringing: raising the individual upon the pillars of faith and guiding their behavior accordingly. This is the cornerstone of Islamic tarbiyah and the first task of the prophets. Among its examples is his ﷺ counsel to Ibn Abbas, which demonstrated his care for establishing the meanings of seeking Allah's help, reliance upon Him, and faith in divine decree.",
   "labels": [
     "تربية نبوية",
     "إيمان",
@@ -32,22 +32,15 @@
     "translator_model": "mistral-large-3:675b",
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "needs_scholar_review": true,
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "text_simplified",
-        "type": "addition",
-        "why": "The English adds \"alone\" after \"seeking His help,\" which is not present in the Arabic \"الاستعانة بالله\" and introduces an exclusivity claim the source does not explicitly state."
-      }
-    ],
+    "review_verdict": "clean",
+    "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
-    "revalidated_at": "2026-11-03T11:36:00+00:00",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
     "english_authors": [
       "mistral-large-3:675b"
     ],
     "fixer_model": "mistral-large-3:675b",
-    "fixed_at": "2026-11-03T11:33:59+00:00",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -66,16 +59,9 @@
       "fixer": "mistral-large-3:675b",
       "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "72ad40b2e7866a6f34f1c8d6adc5ca66d385dba6f16ee143f5a09b09eb4d6d36",
-      "reviewed_at": "2026-11-03T11:36:00+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "text_simplified",
-          "type": "addition",
-          "why": "The English adds \"alone\" after \"seeking His help,\" which is not present in the Arabic \"الاستعانة بالله\" and introduces an exclusivity claim the source does not explicitly state."
-        }
-      ],
+      "content_sha256": "4f07eaf9aa406fb44b33cb5aee86177c7b7154b4f3f95f5262cd4059b102ad41",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"

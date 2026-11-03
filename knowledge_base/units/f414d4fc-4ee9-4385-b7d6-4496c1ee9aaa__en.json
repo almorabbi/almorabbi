@@ -8,7 +8,7 @@
   "age_group": "7-9",
   "behavior_type": "تعليم_القرآن",
   "text_original": "المقدمة\nالحمد لله رب العالمين، القائل في كتابه الكريم: ﴿هُوَ ٱلَّذِي بَعَثَ فِي ٱلۡأُمِّيِّـۧنَ رَسُولٗا مِّنۡهُمۡ يَتۡلُواْ عَلَيۡهِمۡ ءَايَٰتِهِۦ وَيُزَكِّيهِمۡ وَيُعَلِّمُهُمُ ٱلۡكِتَٰبَ وَٱلۡحِكۡمَةَ وَإِن كَانُواْ مِن قَبۡلُ لَفِي ضَلَٰلٖ مُّبِينٖ﴾ [الجمعة: 2].\nفهو سبحانه الذي خلق النفس، وهو العالم بكنهها، وحقيقتها، وما يُصلحها ويَصلح لها، قال تعالى: ﴿أَلَا يَعۡلَمُ مَنۡ خَلَقَ وَهُوَ ٱللَّطِيفُ ٱلۡخَبِيرُ﴾ [الملك: 14].\nوالصلاة والسلام على خير مربٍّ ومعلم، الذي أرسله الله رحمة للعالمين، فأنار به دياجير الظلام، وهدى به من الكفر إلى الإسلام، قال الله تعالى ممتناً به على المؤمنين: ﴿لَقَدۡ مَنَّ ٱللَّهُ عَلَى ٱلۡمُؤۡمِنِينَ إِذۡ بَعَثَ فِيهِمۡ رَسُولٗا مِّنۡ أَنفُسِهِمۡ يَتۡلُواْ عَلَيۡهِمۡ ءَايَٰتِهِۦ وَيُزَكِّيهِمۡ وَيُعَلِّمُهُمُ ٱلۡكِتَٰبَ وَٱلۡحِكۡمَةَ وَإِن كَانُواْ مِن قَبۡلُ لَفِي ضَلَٰلٖ مُّبِينٍ﴾ [آل عمران: 164]، أما بعد:\nفإن دراسة التربية الإسلامية من خلال القرآن الكريم — المصدر الأول لها — أمر من الأهمية بمكان؛ حيث إن ارتباط المتربي في منهج التربية الإسلامية بالقرآن الكريم مباشرة؛ من أقوى وأنجح الوسائل في تحقيق غايات التربية الإسلامية وأهدافها؛ لأنَّ المتربي يتلقى المفاهيم التربوية غضة نقية، لم تَشُبْهَا اجتهادات البشر وآراؤهم، التي قد يجانب الصوابَ بعضُها أو كثيرٌ منها.\nإذن فالارتباط المباشر بالقرآن الكريم، والتلقي منه؛ هو عنوان السعادة والنجاة في الدنيا والآخرة. …\nوحين تكون أفكار الإنسان وتصوراته وقيمه مستمدة من القرآن الكريم مباشرة؛ فأنعم بها من حياة تملؤها السعادة وتغمرها الطمأنينة وانشراح الصدر فإن «الحياة في ظلال القرآن نعمة لا يعرفها إلا من ذاقها. نعمة ترفع العمر وتباركه وتزكيه».\nوإن المتأمل في كتاب الله، والمتدبر له، ومن يحيا معه بقلبه وعقله وروحه؛ ليلمس فيه أعلى أساليب التربية وأرقاها وأقواها.",
-  "text_simplified": "Connecting the learner directly to the Noble Qur'an and receiving guidance from it is among the strongest and most successful means of achieving the goals of Islamic upbringing, as the learner receives pure educational concepts from the primary source revealed by the Creator of the soul Who knows best what reforms it. When a person's thoughts, values, and worldview are drawn directly from reflecting upon the Noble Qur'an, they attain happiness, tranquility, and peace of heart through the highest and most refined methods of upbringing.",
+  "text_simplified": "The author explains in his introduction that Allah, who created the soul, knows what reforms it, and that He sent His Messenger ﷺ to recite the verses, purify, and teach. Studying Islamic tarbiyah from the Qur'an is important because connecting the learner directly to the Qur'an is among the strongest means of achieving its goals, as the learner receives concepts pure from human interpretation. Through this they attain happiness in this world and the Hereafter. The one who reflects on the Qur'an finds in it the most refined methods of tarbiyah.",
   "keywords": [
     "teaching_the_Qur'an",
     "tarbiyah (Islamic upbringing)"
@@ -23,16 +23,15 @@
     "translator_model": "mistral-large-3:675b",
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "needs_scholar_review": true,
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "keywords",
-        "type": "structure",
-        "why": "The English keyword contains an underscore instead of spaces, a formatting slip."
-      }
-    ],
+    "review_verdict": "clean",
+    "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
+    "english_authors": [
+      "mistral-large-3:675b"
+    ],
+    "fixer_model": "mistral-large-3:675b",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -48,24 +47,16 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": null,
-      "rounds": 1,
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "34a1f3cba0911c225eeeb520409cc1c189dca1198985ce4546544b10c6279bba",
-      "reviewed_at": "2026-11-03T12:13:34+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "keywords",
-          "type": "structure",
-          "why": "The English keyword contains an underscore instead of spaces, a formatting slip."
-        }
-      ],
+      "content_sha256": "a500a40ab9c16a6b16c8a517e32ec7e64a4341fb2d476dbaa31aaeefa5472687",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    },
-    "revalidated_at": "2026-11-03T12:13:34+00:00"
+    }
   },
   "source_meta": {
     "source_title": "معالم التربية القرآنية في جزء عم",

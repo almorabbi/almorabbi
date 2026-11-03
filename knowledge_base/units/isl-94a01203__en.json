@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 2 — Part 2: 3. Private Study Circles (Dar al-Arqam), p. 94.",
   "text_original": "ثالثا: مجالس الذكر الخاصة:\nونقصد بمجالس الذكر الحلق التربوية التي كان النبي ﷺ يعقدها لأصحابه ليلقنهم مبادئ الدين ويتدارس معهم آيات الكتاب وحال الدعوة والمدعوين الجدد. وقولنا الخاصة إشارة إلى أنها لم تكن تضم عددا كبيرا من الأفراد كما هو الشأن بالنسبة لمجالس المسجد المفتوحة من جهة، وكون الأفراد المستهدفين من العملية التربوية فيها ليسوا من عامة المسلمين من جهة أخرى.\nوتتبعنا لسيرة المصطفى ﷺ يبين لنا أنه انتهج هذه الوسيلة التربوية في بدايات الدعوة خاصة في المرحلة السرية منها، ونقصد بالضبط ما اشتهر بالمجلس الأرقمي، وذلك نسبة للمكان الذي كانت تنعقد فيه، وهو دار الأرقم بن أبي الأرقم رضي الله عنه.\nوكان النبي ﷺ يهدف من خلال هذا المجلس الخاص تربية الدعامات الأصيلة التي ستحمل الدعوة أو ما يمكن أن نصطلح عليه بالقيادات الدعوية التي ستتحمل عبء الدعوة والتبليغ، فكان تتبعه ﷺ لهذه الفئة وتكوينه لها عن قرب. وهنا الخطاب التربوي يكون موجها للفرد بعينه أي ما يصطلح عليه بتشكيل السلوك الفردي، عكس المسجد الذي قلنا أن الخطاب فيه يهدف إلى تأطير السلوك الاجتماعي. واعتماده ﷺ لهذه الوسيلة أمر طبيعي وواقعي، فكل دعوة كانت في مرحلة التأسيس، لا بد لها من السعي إلى تربية الخلايا الأولى، التي سيتولى أفرادها مهمة الإنتاج والاستيعاب فيما بعد، فيكون التأسيس التربوي الأول بطبعه تأسيسا قياديا بالدرجة الأولى.",
-  "text_simplified": "Alongside the open gatherings of the mosque aimed at shaping public social behavior, the Prophet ﷺ utilized private educational circles during the secret phase at the house of Al-Arqam ibn Abi al-Arqam (may Allah be pleased with him); there, the educational discourse focused on direct individual formation and reciting the verses of the Qur'an to build the pioneering leadership vanguard capable of bearing the trust of conveying the message and integrating new Muslims.",
+  "text_simplified": "Among the Prophetic educational means are private circles of remembrance, which were gatherings the Prophet ﷺ held for a limited number of his companions, teaching them the principles of the religion and studying with them the verses of the Book and the state of the da'wah. The most famous of these was the gathering at the house of Al-Arqam ibn Abi al-Arqam during the secret phase. Its goal was to raise leaders who would carry the burden of the da'wah, so the discourse was directed to the individual specifically, unlike the mosque which frames social behavior.",
   "labels": [
     "تربية",
     "سيرة نبوية",
@@ -35,12 +35,12 @@
     "review_verdict": "clean",
     "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
-    "revalidated_at": "2026-11-03T12:08:55+00:00",
+    "revalidated_at": "2026-11-03T20:17:56+00:00",
     "english_authors": [
       "mistral-large-3:675b"
     ],
     "fixer_model": "mistral-large-3:675b",
-    "fixed_at": "2026-11-03T11:33:59+00:00",
+    "fixed_at": "2026-11-03T20:15:48+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -56,11 +56,11 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": null,
-      "rounds": 1,
+      "fixer": "mistral-large-3:675b",
+      "rounds": 3,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "dc7695881da30bff0710361c486a48f050ee5507b0c08a95bd75b9dbed46a188",
-      "reviewed_at": "2026-11-03T12:08:55+00:00",
+      "content_sha256": "9e16e849a1a6596461eb4b5f8e208eb097e4282ac05db0de73aeeccd5e5dae55",
+      "reviewed_at": "2026-11-03T20:17:56+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",

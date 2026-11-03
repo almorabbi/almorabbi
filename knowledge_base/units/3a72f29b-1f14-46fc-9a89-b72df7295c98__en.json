@@ -8,7 +8,7 @@
   "age_group": "unspecified",
   "behavior_type": "تربية_البنات",
   "text_original": "الحمد لله رب العالمين، والصلاة والسلام على نبينا محمد، وعلى آله وصحبه أجمعين، وبعد:\nفلا يزال الأب الموفق والأم المسددة يحرصان على تربية بناتهم التربية الإسلامية التي تبرأ بها الذمة، وعندها تكون الابنة قريرة العين والوالدان يرفلان في سعادة الدنيا والآخرة؛ فإن البنات حبات القلوب ومهج النفوس.\nروى مسلم عن أنس رضي الله عنه عن النبي ﷺ قال: «من عال جاريتين حتى تبلغا جاء يوم القيامة أنا وهو» وضم أصابعه (صحيح مسلم — حديث 2631).\nقال ابن بطال: (حق على من سمع هذا الحديث أن يعمل به ليكون رفيق النبي ﷺ في الجنة، ولا منزلة في الآخرة أفضل من ذلك).\nوروى البخاري ومسلم عن عائشة رضي الله عنها قالت: دخلت علي امرأة ومعها ابنتان لها تسأل فلم تجد عندي شيئا غير تمرة واحدة فأعطيتها إياها فقسمتها بين ابنتيها ولم تأكل منها ثم قامت فخرجت فدخل النبي ﷺ علينا فأخبرته فقال: «من ابتلي من هذه البنات بشيء كن له سترا من النار» (صحيح البخاري — حديث 1418).\nوفي رواية لمسلم قال: «إن الله قد أوجب لها بها الجنة، أو أعتقها بها من النار» (صحيح مسلم — حديث 2630).\nوقال الإمام النووي: (إنما سماه ابتلاء لأن الناس يكرهون البنات في العادة، فجاء الشرع بزجرهم عن ذلك، ورغب في إبقائهن، وترك قتلهن بما ذكر من الثواب الموعود به من أحسن إليهن، وجاهد نفسه في الصبر عليهن).",
-  "text_simplified": "A guided father and upright mother strive to give their daughters an Islamic upbringing that fulfills their religious duty, bringing comfort to the daughter and happiness to both parents in this world and the Hereafter, for daughters are the beloved cores of hearts and the lifeblood of souls. The Prophetic Sunnah strongly encourages supporting daughters, showing them mercy, treating them kindly, and patiently raising them, promising the one who does so the companionship of the Prophet ﷺ in Paradise as well as protection and deliverance from the Fire.",
+  "text_simplified": "The author mentions that a successful father and a rightly-guided mother are keen to raise their daughters with the Islamic tarbiyah that fulfills their duty. Daughters are the beloved cores of hearts and the lifeblood of souls. He collected brief advice for the father and mother, then cited hadiths on the virtue of kindness to daughters: that whoever cares for two girls until they reach maturity will be the companion of the Prophet ﷺ on the Day of Resurrection, and that whoever is tested with daughters, they will be a shield for him from the Fire, along with the commentary of Ibn Hajar and al-Nawawi on the meaning of the test.",
   "keywords": [
     "raising daughters",
     "the father",
@@ -27,6 +27,12 @@
     "review_verdict": "clean",
     "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
+    "english_authors": [
+      "mistral-large-3:675b"
+    ],
+    "fixer_model": "mistral-large-3:675b",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -42,17 +48,16 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": null,
-      "rounds": 1,
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "91958a7b0ecaee595d3b7ec11643c49a46dfa86bde8413b189c1cd4f89c025d2",
-      "reviewed_at": "2026-11-03T11:50:15+00:00",
+      "content_sha256": "b033d28e49a59473fbd7825ac9b1b78ee34b53a26757c2901a084f7bf02382bb",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    },
-    "revalidated_at": "2026-11-03T11:50:15+00:00"
+    }
   },
   "source_meta": {
     "source_title": "لمحات في تربية البنات",

@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Abd al-Malik ibn Muhammad al-Qasim, Lamahat fi Tarbiyat al-Banat (Glimpses into Raising Daughters), in Arabic, p. 17-18",
   "text_original": "السادس عشر: نحن في زمن انتشرت فيه الفتن من كل جانب؛ فكن كمن هو قائم يذب عن صغاره السهام، ويحوطهم من الأذى، واحرصا على ذلك أشد الحرص، وكلما اشتدت الفتن لا بد أن يضاعف الوالدان جهودهما في التربية. ولو أن زمنا انتشرت فيه سرقة الأموال فإن ذلك يدفع أصحاب الأموال إلى وضع أموالهم في أماكن آمنة والاحتياط لذلك، وهكذا الأبناء. ومن المؤسف في هذا الجانب أن البعض ظلموا فلذات أكبادهم، رحموهم في الدنيا بأن أطلقوا لهم العقال وتركوهم يقعون في المحرمات ولم يرحموهم من نار الآخرة وحرها وسمومها، وليكن لكما حسن توجيه في اختيار رفيقات ابنتكم وجليساتها؛ فإن الصاحب ساحب، والرسول ﷺ يقول: …\nوتأملا في أثر الصحبة والخلطة فقد قال ﷺ: … فسبحان الله العظيم كيف أثر الحيوان على سلوك الإنسان. فما بالك بصديقة لصديقتها؟ إما أنها من الخيرات العابدات القانتات فهنيئا للأب والأم بصديقة ابنتهما وقد كفتهما نصف المؤونة! وربما أن تكون من السيئات خلقا ودينا فتلك وبالا على ابنتهما وشرا، إنما هي كنافخ الكير.\nواحذرا أن تصحباها إلى محلات ضياع الأوقات وإلى أماكن فيها منكرات. وكونا لابنتكما الصاحب والصديق، واغرسا في نفوس بناتكما الحياء والعفة، وذلك عبر اللباس والتوجيه والمحاكاة، ولا تتساهلا في خروجهن من المنزل إلا برفقة أحد الأبوين.",
-  "text_simplified": "Whenever trials intensify, parents must redouble their efforts to protect their children and shield them from forbidden matters, while taking great care in choosing a daughter's companions and friends, for a companion draws one along; a righteous, devout friend helps parents in raising their daughter and spares them half the burden, whereas a friend of bad character and religion is like the operator of a blacksmith's bellows.",
+  "text_simplified": "Whenever trials intensify, parents must redouble their efforts in tarbiyah, just as a property owner guards his wealth when theft increases. It is an injustice to children to leave them falling into forbidden matters out of mercy for them in this world without saving them from the Fire. The author advises carefully choosing a daughter's friends because companionship has a profound effect, that parents be companions to their daughter, instill haya and chastity in her, and not be lax in letting her go out except in the company of one of them.",
   "labels": [
     "تربية",
     "رفق",
@@ -32,15 +32,22 @@
     "translator_model": "mistral-large-3:675b",
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "needs_scholar_review": true,
-    "review_verdict": "clean",
-    "review_defects": [],
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "title",
+        "type": "meaning",
+        "why": "The Arabic uses the singular 'الصديقة الصالحة' (righteous friend) while the English renders it as plural 'Friends'."
+      }
+    ],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
-    "revalidated_at": "2026-11-03T13:31:10+00:00",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
     "english_authors": [
       "mistral-large-3:675b"
     ],
     "fixer_model": "mistral-large-3:675b",
-    "fixed_at": "2026-11-03T11:13:15+00:00",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -56,12 +63,19 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": null,
-      "rounds": 1,
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "b50bda93115eb8b3483cbabf0cde48c6b767559582c6bd6a237af9e8b45029b0",
-      "reviewed_at": "2026-11-03T13:31:10+00:00",
-      "residual_low": [],
+      "content_sha256": "09b3df7a643936e121b6d17ae6f65fa527fb2d7fde6e9724ae88db098b3055b6",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "title",
+          "type": "meaning",
+          "why": "The Arabic uses the singular 'الصديقة الصالحة' (righteous friend) while the English renders it as plural 'Friends'."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"

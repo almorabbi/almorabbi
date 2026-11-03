@@ -2,7 +2,7 @@
   "id": "isl-22169daa__en",
   "domain": "islamic_parenting",
   "source_file": "Rakaiz_Tarbiya.pdf",
-  "title": "The Tenth Pillar: Setting a Righteous Example Through Action",
+  "title": "The Tenth Pillar: The Good Example and the Effect of Action on Children",
   "language": "en",
   "age_group": "unspecified",
   "behavior_type": "تربية وقدوة",
@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Abd al-Razzaq ibn Abd al-Muhsin al-Badr, 'Ashr Raka'iz fi Tarbiyat al-Abna' (Ten Pillars in Raising Children), in Arabic, p. 30-31",
   "text_original": " ﻖ ﹲﻳﺮﻃ ﻪﺑ ﻆ ﹸ ﻌ ﹺ ﻳ ﹶ ﺎﻣ ن ﱠ ﺈ ﹺ ﻓ ،ﻆ ﹺ ﻋ ﹺ اﻮﻟا اﺬﻫ ف ﹺ ﻼﺨ ﹺ ﺑ ، ﻚ ﻟذ ﲑﻏو ، ﺔ ﹺ ﻌﻴﺒﻄ ﱠ ﻟا  . ﺎ ﻬﻨﻣ ﺪ ﱠ ﺑ ﻻو ،ﺎﻬﻣ ﹶ ﺎﻘﻣ ﹶ ﺎﻫ ﲑ ﹸ ﻏ م ﹸ ﻮﻘﻳ ﻻ ، ة ﺎﺠﻨﱠﻠﻟ ﻦ ﹲ ـ ﻴ ﱠﻌ ﹶ ﻣ ﹸ (cid:3)  ½ ¼ » : ﻪ ﻣﻮﻘﻟ ﺐ ﻴﻌﺷ لﺎﻗ ةﺮﻔ ْ ـ ﻨﱡﻟا هﺬﻫ ﻞﺟﻷو  . [ ٨٨ :د ﻮﻫ] (  ﺮ ُ ﻣْ َ ﻷا ﻚﻨﻣ ﻞ َ ـ ﺒَ ﻘْ ـ ﻳُ نأ تَ در أَ اذإ :ﻒﻠﺴﻟا ﺾﹸ ﻌﺑ لﺎﻗو»   ،ﻪﺑ ﻦﻳﺮﻤﺗﺆﻤﻟا ،ﻪﻟ ﻦﻴﻠﻋﺎﻔﻟا ل َو ﱠ أ ﻦ ْ ﻜ ُ ﻓ ء ٍ ﻲﺸﺑ ت َ ﺮﻣ َ أ َ اذﺈ ِ ﻓ : ﻲﻬﱠﻨﻟاو   . « ﻪ ﻨﻋ ﻦﻴﻬﺘ َـ ﻨ ْﻤ ُ ـ ﻟ ا ل َو ﱠ أ ﻦ ْ ﻜ ُ ﻓ ،ءﻲﺷ ﻦﻋ ﺖ َ ﻴﻬﻧ َ اذإو  : ﻞ ﻴﻗ ﺪﻗو (cid:3)  هﹸ ﺮﹶ ـ ﻴﻏ ﻢﹸ ﻠﱢ ـ ﻌﹶ ـ ﻤﹸ ـ ﻟا ﻞﹸ ـ ﺟﹸ ﺮﱠ ـ ﻟا ﺎ ـ ﻬ ـ ﻳﱡ ﹶأ ﺎ ـ ﻳ (cid:3) ؟ ﻢﹸ ـ ﻴ ـ ﻠ ـ ﻌﹾ ـ ﱠﺘ ـ ﻟا اذﹶ نﹶ ﺎ ـ ﻛﹶ ﻚ ـ ﺴﻔﹾ ـ ﹶﻨﻟ ﻼﱠ ﻫﹶ  ﻰﻨ ﻀﱠ ﻟا ﻦ ﹶ ﻣ مﺎﻘﺴ ﱢ ﻟا يﺬﻟ ء ﹶ اوﺪ ﱠ ﻟا ﻒ",
-  "text_simplified": "One of the greatest pillars of tarbiyah is for parents to be righteous role models for their children in their words, deeds, and akhlaq, because children are influenced far more by what they see their parents do than by words alone. The early scholars (may Allah have mercy on them) said: \"Whoever admonishes his child by his action is more effective than one who admonishes him by his speech.\"",
+  "text_simplified": "One of the pillars of tarbiyah is for the parent to be a role model for his children: he hastens to the good he commands them and stays away from the evil he forbids them, because contradiction between words and actions causes confusion in children and prevents them from benefiting from his advice. The Shaykh likened this to a doctor who prescribes medicine but does not take it himself, and he cited the words of Shu'ayb (peace be upon him) to his people, that he does not wish to oppose them by doing what he forbids them.",
   "labels": [
     "قدوة",
     "تربية",
@@ -35,12 +35,12 @@
     "review_verdict": "clean",
     "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
-    "revalidated_at": "2026-11-03T11:05:46+00:00",
+    "revalidated_at": "2026-11-03T20:17:56+00:00",
     "english_authors": [
       "mistral-large-3:675b"
     ],
     "fixer_model": "mistral-large-3:675b",
-    "fixed_at": "2026-11-03T11:03:02+00:00",
+    "fixed_at": "2026-11-03T20:15:48+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,10 +57,10 @@
         }
       },
       "fixer": "mistral-large-3:675b",
-      "rounds": 2,
+      "rounds": 3,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "1ef05aad33bb142aa0e135c7d267a196ba5534df7597f938b287d52566959bb8",
-      "reviewed_at": "2026-11-03T11:05:46+00:00",
+      "content_sha256": "76c4814fabb8747e9604f81a7b0ee23948f738f37c7c1f7f1bccda16273773c9",
+      "reviewed_at": "2026-11-03T20:17:56+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",

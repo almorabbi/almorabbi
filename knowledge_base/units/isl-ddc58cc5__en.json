@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Abd al-Razzaq ibn Abd al-Muhsin al-Badr, 'Ashr Raka'iz fi Tarbiyat al-Abna' (Ten Pillars in Raising Children), in Arabic, p. 4",
   "text_original": "D C B A@ ? > =  . [ ٢٨- ٢٧ : ل ﺎﻔﻧﻷا] ( J I H G F    ﹺ  (cid:3) ﲈﻛ ؛ءﺎﺑﻵا ﲆﻋ ﷲ ا ﻦ ﻣ ﺔﹲﻤﻴﻈﻋ ﺔﹲﻤﻌﻧو ﺔﹲﺒﻫ ءﺎﻨﺑﻷا ءﻻﺆﻫو ³ ² ± ° ¯ ® ¬ « ª © ¨ : ل ﺎﻗ (cid:3)  . [ ٤٩ : ￯ رﻮﺸﻟا] ( º ¹ ¸ ¶ µ ´  ﻢ ﻬﻴﻠﻋ ﺐ َ ﺟوأو ،ﻢ ﻬﺋﺎﻨﺑأ ﻰﻠﻋ ءﺎﺑﻵا ﷲا ﻦ ﻤﺘـ ﺋ ا ﺪﻗو ن ْ ﺈ ِ ﻓ ؛ءﺎﺑﻶﻟ ار ًﺎﺒﺘﺧاو ﺎﻧ ًﺎﺤﺘﻣا ﺎ ﻬﻠﻌﺟو ،ﻢ ﻬﻫﺎﺠﺗ ت ٍ ﺎﺒﺟاوو ﺎﻗ ًﻮﻘﺣ  ﺮ ﹲﺟأ ﷲ اﺪ ﻨﻋ ﻢ ﳍ ن ﺎ ﻛ ﷲ ا ﻢﻫ ُ ﺮ َﻣأ ﺎ ﻤﻠﺜﻣ ﻢﻬﺋﺎﻨﺑأ ه َﺎﺠﺗ ﺎﲠ اﻮﻣﺎﻗ  ﻢ ﻬ ﺴﻔﻧ أ (cid:3)ا ﻮﺿ ﺮﱠـ ﻋ ﹶ ﺪ ﻘﻓ ﺎﻬﻴ ﻓ ا ﻮﻃ ﺮﱠـ ﻓ ن إ ﺎﻣﱠ أو ، ﻞ ﹲﻳﺰﺟ ب ﹲ اﻮﺛو ، ﻢﹲ ﻴﻈﻋ (cid:3) . ﻢﻬ ﻄﻳﺮﻔﺗ ﺐ ﺴﺤﺑ ﺔ ﺑﻮﻘﻌﻠﻟ  ² ± ° ¯ ® ¬ « :  ﷲا لﺎﻗ  . [ ٦ : ﻢ ﻳﺮﺤﺘﻟا] ( º ¹ ¸ ¶ µ ´ ³ ـﻳﺎﻋر بِ ﻮﺟو ﰲ ﻢٌ ﻴﻈﻋ ﻞٌ ﺻأ ﺔُ ﻳﻵا هﺬﻫو . ﻢﻬﻟاﻮﺣﺄﺑ ﺔﻳﺎﻨﻌﻟاو ،ﻢ ﻬﺘﻴﺑﺮﺗو  ه ﺬﻫ ﲑﺴﻔﺗ ﰲ ¢ ﺐ ﻟﺎﻃ ﰊأ ﻦﺑ ﲇ ﱡ ﻋ ﺪﺷاﺮﻟا ﺔﻔﻴﻠﳋا لﺎﻗ  . « ﻢ ﻫﹸ ﻮﺑدﱢ أو ،ﻢﻫﻮﻤ ﹸ ﻠﱢﻋﹶ » :ﺔﻳﻵا . (١٠٣/ ٢٣) « نآﺮﻘﻟا ﻞﻳوﺄﺗ ﻦ ﻋ نﺎﻴﺒﻟا ﻊﻣﺎﺟ» ﰲ يﱡ ﱪﻄﻟا",
-  "text_simplified": "Children are a gift and blessing from Allah, and thanking the Bestower requires fulfilling their rights, caring for them well, and raising them with Islamic manners. Allah commands the believers to protect themselves and their families from the Fire. Ali ibn Abi Talib, may Allah be pleased with him, explained this by saying: \"Teach them and discipline them.\" Through teaching and discipline upon obedience to Allah lies the safety and salvation of children.",
+  "text_simplified": "Children are a gift and blessing from Allah; He entrusted parents with them and made their rights a test. Whoever fulfills them as Allah commanded will have a great reward, and whoever neglects them exposes himself to punishment according to his neglect. Allah commands the believers to protect themselves and their families from the Fire. This verse is a foundation for the obligation of caring for and raising children. Ali ibn Abi Talib, may Allah be pleased with him, explained this by saying: \"Teach them and discipline them.\"",
   "labels": [
     "تربية",
     "أبناء",
@@ -35,19 +35,19 @@
     "review_verdict": "low_only",
     "review_defects": [
       {
-        "model": "deepseek-v4-pro",
-        "field": "title",
-        "type": "meaning",
-        "why": "The English construction is ambiguous and can suggest the children's gratitude rather than gratitude for the gift, which the Arabic expresses clearly."
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "omission",
+        "why": "«عظيمة» (great) is dropped."
       }
     ],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
-    "revalidated_at": "2026-11-03T11:05:46+00:00",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
     "english_authors": [
       "mistral-large-3:675b"
     ],
     "fixer_model": "mistral-large-3:675b",
-    "fixed_at": "2026-11-03T11:03:02+00:00",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -66,14 +66,14 @@
       "fixer": "mistral-large-3:675b",
       "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "e5ae6d26045c09fc07bffc85d5ee54e8e484a42806eedbf3026efecaff5a753a",
-      "reviewed_at": "2026-11-03T11:05:46+00:00",
+      "content_sha256": "7ad8bad1ea694016adb1300e70b08880617764c6a5257147c6b24a6517f1b00d",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
       "residual_low": [
         {
-          "model": "deepseek-v4-pro",
-          "field": "title",
-          "type": "meaning",
-          "why": "The English construction is ambiguous and can suggest the children's gratitude rather than gratitude for the gift, which the Arabic expresses clearly."
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "omission",
+          "why": "«عظيمة» (great) is dropped."
         }
       ],
       "adjudicated": [],

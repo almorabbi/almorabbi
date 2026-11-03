@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Abd al-Razzaq ibn Abd al-Muhsin al-Badr, 'Ashr Raka'iz fi Tarbiyat al-Abna' (Ten Pillars in Raising Children), in Arabic, p. 32",
   "text_original": "ﹶﺘ ـ ﻘﹾ ـ ﻳﹸو لﹸﻮ ﻘﹸ ـ ﺗﹶ ﺎﻣ ﻞﹸ ـ ﹶﺒـ ﻘﹾ ـ ﻳﹸ كﹶ ﺎ ـ ﻨ ـ ﻫ (cid:3)  . ( ١ ) « ﻢ ﹸ ـ ﻴ ـ ﹺ ﻠ ـ ﻌ ﹾ ـ ﱠﺘ ﻟ ا ﻊ ﹸ ﻔﹶ ـ ﹾﻨ ـ ﻳﹶ و ﻚ ـ ﹾﻨ ـ ﻣ ﹺ ل ﹺ ﻮﹾ ـ ﻘﹶ ـ ﹾﻟ ﺎ ﹺﺑ (cid:3)  ر ٍ ﺎﻨﻳد ِ ﻦُ ﺑ ﻚُ ﻟﺎﻣ ىأر :لﺎﻗ ¬ ض ٍ ﺎﻴﻋ ِ ﻦﺑ ﻞﻴﻀَ ﻔُ ﻟ ا ل ﻦ ﻻ ﻋ ﻻ و ﻻﻻا  (cid:3)  ﺎﺑأ ﺎﻳ :ﻪﻟ ﻞﻴﻘﻓ «ﻪ ِ ـ ِ ﻟﺎﻴﻌ ِ ﺑ ﻲ ـ ِ ﻨ ﻤ َ ﺣ َ ر ْ أَ ﺎ ﻣ » : ل ﻻﺎﻘﻻﻓ ؛ ﻪ ُ ﺗَﻼﺻ ءُ ﻲـﺴ ِ ﻳُ ﻼً ﺟُ رَ  (cid:3) ،ﻢﻫُ ﺮُﻴﺒﻛَ ﻪُ ﻧﱠ ِ إ» :لﺎﻗ !؟ﻪُ ﻟَﺎﻴﻋ ِ ﻢُ ﺣَ ﺮْـﺗَو ﻪﺗَﻼﺻ اﺬﻫ ءُ ﻲﺴ ِ ﻳُ ﻰ (cid:3) ﻴﺤﻳ  (cid:3) . « ن ﻮﻤُ ﻠﱠ ﻌﺘﻳ ﻪُ ﻨْﻣو  ةﹰ وﺪـ ﻗ ﹸ نﹸ ﻮﻜﻳ ﺎﻣﺪﻨﻋ هﺪـ ﻟ و ﲆﻋ ﺪﻟاﻮﻟا ﺔﻳﺎﻨﺟ ﻢﻈﻋأ ﺎـ ﻤ ﻓ  ﻲـ ﻓ ءﹸ ﺎﻨﺑﻷا ذ ﹺ إ ؛ ت ﺎﻣﺮﱠﺤﻤـ ﻟ ا ﻞﻌﹾ ـ ﻓ ﹺ وأ ﺾﹺ ـ ﺋ ﹺ اﺮﻔﻟا ك ﹺ ﺮـ ﺗ ﻲـ ﻓ ﻢﻬـ ﻟ (cid:3) ،ﻢﻫ ﹸ ﺮ ﹸـ ﻴ ﺒﻛ ﻮﻬﻓ ،ﻢﻫﺪ ﻟاو تﺎﻴﱠﻛﻮﻠﺴﹸ ﺑ ﻦﻳﺮﺛﱢﺄﺘﻣ نوﺆﺸﻨـ ﻳ ﺐﻟﺎﻐـ ﻟ ا (cid:3)  . نﻮﻤﻠﱠ ﻌﺘﻳ ﻪﻨﻣو   .(٤٤٥/ ١) ﻢﻴﱢﻘﻟا ﻦﺑﻻ",
-  "text_simplified": "Children acquire their dispositions, habits, and words from their parents. As Malik ibn Dinar (may Allah have mercy on him) pointed out to the man who complained about his wife's frequent cursing of the children: if a child grows up in a home where he hears remembrance of Allah, supplication, and wholesome words, he grows up upon that; and if he hears insults, cursing, and foul speech, he is affected by what he hears.",
+  "text_simplified": "Malik ibn Dinar saw a man who prayed poorly and said: 'How I pity his children!' When asked about that, he said: 'He is their elder and from him they learn.' The Sheikh comments that a parent's crime against his child is great when he serves as a role model in abandoning obligations or committing forbidden acts, because children generally grow up influenced by their father's behavior.",
   "labels": [
     "القدوة",
     "تربية الأبناء",
@@ -32,22 +32,15 @@
     "translator_model": "mistral-large-3:675b",
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "needs_scholar_review": true,
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "title",
-        "type": "meaning",
-        "why": "Arabic 'طباع' means natures/temperaments, not habits, so the title changes the first element to 'Habits' while the text correctly lists dispositions, habits, and words."
-      }
-    ],
+    "review_verdict": "clean",
+    "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
-    "revalidated_at": "2026-11-03T11:05:46+00:00",
+    "revalidated_at": "2026-11-03T20:17:56+00:00",
     "english_authors": [
       "mistral-large-3:675b"
     ],
     "fixer_model": "mistral-large-3:675b",
-    "fixed_at": "2026-11-03T11:03:02+00:00",
+    "fixed_at": "2026-11-03T20:15:48+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -64,18 +57,11 @@
         }
       },
       "fixer": "mistral-large-3:675b",
-      "rounds": 2,
+      "rounds": 3,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5676f3a2bc71c95fcccb26c120bc7def64d122800046566970b95f41ad7702d1",
-      "reviewed_at": "2026-11-03T11:05:46+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "title",
-          "type": "meaning",
-          "why": "Arabic 'طباع' means natures/temperaments, not habits, so the title changes the first element to 'Habits' while the text correctly lists dispositions, habits, and words."
-        }
-      ],
+      "content_sha256": "1064c8d1b18e79b43d99b3e09f0c589f0f4cdf34b61e0aa7c0a7fcdcc9830872",
+      "reviewed_at": "2026-11-03T20:17:56+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"

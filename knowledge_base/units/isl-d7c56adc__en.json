@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 2: Means of the Prophetic Educational Methodology — Part 1: Pedagogical Means (1. Education through Participation), p. 88–89.",
   "text_original": "المبحث الثاني: وسائل المنهاج التربوي النبوي:\nونقصد بالوسائل هنا مجموع الوسائل والقنوات التي استثمرها النبي ﷺ في تنزيل منظومة العقائد والمبادئ إلى مجال الممارسة والواقع. فاستقراؤنا لتصرفات النبي ﷺ كمرب يبين لنا تنوع هذه الوسائل وتعددها، وسنكتفي في بحثنا هذا على الوقوف على بعض الوسائل التربوية التي لا زال لها أثرها في تربية الفرد والمجتمع ولا زالت تحتاج منا إلى مزيد من الدراسة والتأصيل، وقسمت هذه الوسائل إلى قسمين: الوسائل البيداغوجية والوسائل المؤسساتية.\nالمطلب الأول: الوسائل البيداغوجية:\nويقصد بالوسائل البيداغوجية في ميدان التربية طريقة المشروع أو مجموعة الممارسات الواضحة، ذات الاستعمالات المضبوطة والتي ترتبط بأهداف محددة وتنطلق من أسسها المرجعية التي تستند عليها، وفي مجال التعليم تعني البيداغوجيا مجموع طرق التدريس أو هي علم وفن التعليم. فما هي أهم الطرق البيداغوجية التي تميز بها المنهج النبوي في التربية؟\nأولا: التربية بالمشاركة: يتحدث علماء التربية عن طرق جديدة ووسائل حديثة في العملية التربوية، ومن هذه الوسائل الحديثة التربية بالمشاركة أو التكليف، وهي عملية تنتقل بالمتربي من طريقة تلقينه للمبادئ والقيم المراد إيصالها، إلى جعله مشاركا في صناعة هذه القيم والمبادئ، عبر تحسيسه بانتمائه لها. وهذه الوسيلة تجعل المتربي أكثر ارتباطا وحماسة لترسيخ معاني هذه القيم في ذهنه وأكثر ممارسة لها في سلوكياته.",
-  "text_simplified": "The means utilized by the Prophet ﷺ to translate beliefs and principles into practical reality are divided into pedagogical means (methods and practices of teaching and upbringing) and institutional means. Among the most prominent Prophetic pedagogical means is education through participation and responsibility, which moves the learner from passive theoretical instruction to active participation in upholding values and principles and feeling a sense of belonging to them.",
+  "text_simplified": "The researcher defines the means of the Prophetic tarbiyah curriculum as the channels the Prophet ﷺ invested in translating beliefs and principles into reality; they are diverse, and he limits himself to some of those whose impact remains. They are divided into pedagogical and institutional means. Pedagogy refers to teaching methods, the science of education, and its art. The first of these methods is education through participation, which moves the learner from being taught values to participating in making them, so he becomes more attached to them and practices them.",
   "labels": [
     "منهج نبوي",
     "تربية إسلامية",
@@ -32,9 +32,28 @@
     "translator_model": "mistral-large-3:675b",
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "needs_scholar_review": true,
-    "review_verdict": "clean",
-    "review_defects": [],
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "«تنزيل» here means implementing/applying into reality, not 'translating'; the English word 'translating' can mislead readers into thinking of language translation."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "text_simplified",
+        "type": "meaning",
+        "why": "«تلقين» means instilling/indoctrinating values, not merely 'being taught'; the active imparting nuance is lost."
+      }
+    ],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
+    "english_authors": [
+      "mistral-large-3:675b"
+    ],
+    "fixer_model": "mistral-large-3:675b",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -50,16 +69,28 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": null,
-      "rounds": 1,
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5b5179d6018c0addb1cbf17ac02215193d9b925fa4f852857c2961b335c93f79",
-      "reviewed_at": "2026-11-03T12:08:55+00:00",
-      "residual_low": [],
+      "content_sha256": "badbcc87a4d97e57cb9838c8c676f07345145a1e2b328092175e2e4c358dcca1",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "«تنزيل» here means implementing/applying into reality, not 'translating'; the English word 'translating' can mislead readers into thinking of language translation."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "text_simplified",
+          "type": "meaning",
+          "why": "«تلقين» means instilling/indoctrinating values, not merely 'being taught'; the active imparting nuance is lost."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    },
-    "revalidated_at": "2026-11-03T12:08:55+00:00"
+    }
   }
 }

@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Abd al-Razzaq ibn Abd al-Muhsin al-Badr, 'Ashr Raka'iz fi Tarbiyat al-Abna' (Ten Pillars in Raising Children), in Arabic, p. 32-35",
   "text_original": "ﻟ ا ﻞﻌﹾ ـ ﻓ ﹺ وأ ﺾﹺ ـ ﺋ ﹺ اﺮﻔﻟا ك ﹺ ﺮـ ﺗ ﻲـ ﻓ ﻢﻬـ ﻟ (cid:3) ،ﻢﻫ ﹸ ﺮ ﹸـ ﻴ ﺒﻛ ﻮﻬﻓ ،ﻢﻫﺪ ﻟاو تﺎﻴﱠﻛﻮﻠﺴﹸ ﺑ ﻦﻳﺮﺛﱢﺄﺘﻣ نوﺆﺸﻨـ ﻳ ﺐﻟﺎﻐـ ﻟ ا (cid:3)  . نﻮﻤﻠﱠ ﻌﺘﻳ ﻪﻨﻣو   .(٤٤٥/ ١) ﻢﻴﱢﻘﻟا ﻦﺑﻻ « ﲔ ﻜﻟﺎﺴﻟا جراﺪﻣ» :ﺮﻈﻧا ( ١)  . (٣٨٣/ ٢) « ءﺎﻴﻟوﻷا ﺔﻴﻠﺣ» ﰲ ﻢﻴﻌﻧ ﻮﺑأ ﻪﺟﺮﺧأ ( ٢)  ﹺ ﹺ  ﹺ  (cid:3) ﻲﻨﺒﻟ ﻪﺨﻴﺑﻮﺗ ﰲ ﷲ ا ل ﹶﻮﻗ م ﹺ ﺎﻘﳌا اﺬﻫ ﰲ ﴬ ﺤ ﹾ ﺘ ﹶﺴ ﹾ ﻨﹶﻟو y x w v u t : لﺎﻘﻓ ،ﻞ ﻴﺋاﴎإ (cid:3)  . [ ٤٤: ةﺮﻘﺒﻟا] ( ~ } | { z  (cid:3)  s r q p o n m l k ) : لﺎﻗو (cid:3)  . [ ٣- ٢ :ﻒ ﺼﻟا] ( | { z y x w v u t  (cid:3) (cid:3)  دﻻوﻷا ﺔ ﻴﺑﺮﺗ ﲆ ﻋ ﲔﹸ ﻌﺗﹸ ﻲ ﺘﻟا ﺰﺋﺎﻛﺮﻟا ﻦﻣ ةﹲ ﲑﺴﻳ ﺔ ﹲﻠﲨ ه ﺬﻬ ﻓ  (cid:3) ﺰﺋﺎﻛﺮﻟا هﺬﲠ ﻪﺋﺎﻨﺘﻋﺎﺑ ﻪﻧﱠأ ﻢ ﹸ ﻠﺴﳌا ﻢﻠﹶﻌﹾ ﻴﻟو ، ﻢﻬﺒﻳﺬﲥو ﻢ ﻬﺒ ﹺﻳدﺄﺗو  ﻪﺗﺎﻴﺣ ﰲ ؛ ﺔﻴﺑﱰﻟا هﺬﻫ رﲈﺛ ﻲﻨﺠـ ﻳ ﻦ ﻣ ﹶ لوﱠ أ نﻮﻜﻴﺳ ﻪﻧﺈﻓ ﺎﻬﻘﻴﺒﻄﺗو   ﲆ ﻋ ﺎ ﻈ ﹰ ﻓﺎﳏﹸ ، ﻪ ﺑ ا ر �ﺎﺑ ﺎ ﺤ ﹰ ـ ﻟ ﺎﺻ ﻪ ﻨﺑا ن ﻮﻜﻴ ﺴﻓ :ﻪ ﺗﺎﻴﺣ ﰲ ﺎ ﻣﱠ أ ؛ﻪ ﺗﺎﳑ ﺪﻌﺑو  ﻚ ﻟﺬﺑ ه ﺮﻣﺄﻳ ﻪ ﻴﻠﻋ ه ﺎ ﺑ",
-  "text_simplified": "Allah the Exalted censures those who command others to do good while forgetting themselves, and He warns the believers against saying what they do not do. Parents should realize that the righteousness of their children is a tremendous treasure and lasting reward for them in this world and the Hereafter.",
+  "text_simplified": "How great is the parent's offense against his child when he is an example in neglecting obligations or committing forbidden acts, for children usually grow up influenced by their parent's behavior. The Shaykh recalls Allah's censure of those who command others to good while forgetting themselves, and His detestation of those who say what they do not do. Then the Shaykh explains that whoever takes care of these pillars reaps their fruits in his life through a righteous son who is dutiful to him.",
   "labels": [
     "تربية",
     "قدوة",
@@ -32,15 +32,22 @@
     "translator_model": "mistral-large-3:675b",
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "needs_scholar_review": true,
-    "review_verdict": "clean",
-    "review_defects": [],
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "title",
+        "type": "meaning",
+        "why": "The Arabic says the righteousness of children is a great treasure, while the English makes the children themselves the treasure and drops the sense of greatness."
+      }
+    ],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
-    "revalidated_at": "2026-11-03T11:05:46+00:00",
+    "revalidated_at": "2026-11-03T20:17:56+00:00",
     "english_authors": [
       "mistral-large-3:675b"
     ],
     "fixer_model": "mistral-large-3:675b",
-    "fixed_at": "2026-11-03T11:03:02+00:00",
+    "fixed_at": "2026-11-03T20:15:48+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,11 +64,18 @@
         }
       },
       "fixer": "mistral-large-3:675b",
-      "rounds": 2,
+      "rounds": 3,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "3365195effbd1c3384da7bad220a9ba7dbb4472cb97eb7299973da94ea2bf5e6",
-      "reviewed_at": "2026-11-03T11:05:46+00:00",
-      "residual_low": [],
+      "content_sha256": "c693250aad06ccddf1adca7608529e1a59544941685e8f59c59991042da67561",
+      "reviewed_at": "2026-11-03T20:17:56+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "title",
+          "type": "meaning",
+          "why": "The Arabic says the righteousness of children is a great treasure, while the English makes the children themselves the treasure and drops the sense of greatness."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"

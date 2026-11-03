@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 1 — Part 2: Purifying the General Environment and Teaching the Book and Wisdom, p. 88.",
   "text_original": "تزكية البيئة العامة والمقصود بها البيئة الطبيعية وما يجري فيها من نشاطات إنسانية تحتوي على مجموعة الاعتقادات والتقاليد والأعراف والنظم والسياسات وشبكة العلاقات الاجتماعية؛ فللبيئة المحيطة بالإنسان أثر في صلاح سلوكه أو فساده، ثم إن الإنسان يتجه ضرورة إلى المحيط لإشباع حاجاته المختلفة. وبالتالي فالبيئة العامة تشمل البيئة الاجتماعية والسياسية والاقتصادية والطبيعية والثقافية للفرد، ومن ثم جاء حرص النبي ﷺ على تزكية البيئة في مدلولها العام.\nوأخيرا فمسألة تعليم الكتاب والحكمة، هي من أهم العمليات التربوية التي قام بها النبي ﷺ، ونقصد بالكتاب القرآن الكريم الذي هو منبع كل العلوم والمعارف والسلوكيات الحسنة، فالرسول المربي علم الصحابة الكتاب ليستخرجوا منه المعارف والعلوم التي تفرق بين الحق والباطل، وتشفي النفوس وتهدي إلى ما يصلح حياة الإنسان الدنيوية والدينية. وأما الحكمة فهي السنة وهي الصواب في القول والعمل والتقدير، وأشار الرازي في تفسيره أن الحكمة قسمان: حكمة نظرية وحكمة عملية، ولا بد من اجتماعهما في السلوك الكامل، ثم خلص للقول بأنها كل عمل حسن وصالح، وما يهمنا في هذا البحث هو قوله (أي الرازي): «الحكمة من الله تعالى خلق ما فيه منفعة العباد ومصلحتهم في الحال والمآل»، فهي من عند الله تعالى.\nوخلاصة فالمنهج التربوي النبوي منهج رباني في أصوله الكبرى ومصادره فهو الضابط للتصرفات النبوية في العملية التربوية وكذلك في وسائله التفصيلية الجزئية.",
-  "text_simplified": "The general environment encompasses the social, political, economic, natural, and cultural spheres that influence the righteousness or corruption of an individual's behavior, which is why the Prophet ﷺ took care to purify it. His educational methodology also rested on teaching the Book—the Noble Qur'an, the fountainhead of knowledge distinguishing truth from falsehood—and teaching Wisdom—the Prophetic Sunnah embodying soundness in speech and action—so that sound knowledge and righteous conduct come together.",
+  "text_simplified": "One of the means of Prophetic tarbiyah is purifying the general environment, including its beliefs, traditions, systems, and social relations, because the environment has an effect on the righteousness or corruption of a person's behavior. Among the most important of his ﷺ educational practices is teaching the Book and Wisdom: the Book is the Qur'an, the fountainhead of knowledge and good conduct, and Wisdom is the Sunnah and soundness in speech and action. The researcher concludes that the Prophetic educational methodology is divine in its origins and sources.",
   "labels": [
     "البيئة العامة",
     "التربية النبوية",
@@ -35,6 +35,12 @@
     "review_verdict": "clean",
     "review_defects": [],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
+    "english_authors": [
+      "mistral-large-3:675b"
+    ],
+    "fixer_model": "mistral-large-3:675b",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -50,16 +56,15 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": null,
-      "rounds": 1,
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "2e3bd1a48d5cf95d6e1a412ef80077b47f82a0238f5158613934534df9f9e8b1",
-      "reviewed_at": "2026-11-03T11:33:26+00:00",
+      "content_sha256": "24eb2e24a2d68e2c93bca65705a9babb7115d5cd1682f84b1fd62f392f76106f",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    },
-    "revalidated_at": "2026-11-03T11:33:26+00:00"
+    }
   }
 }

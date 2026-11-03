@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 2 — Part 2: Institutional Means (1. The Family as the Primary Educational Environment), p. 92.",
   "text_original": "المطلب الثاني: الوسائل المؤسساتية:\nنقصد بالوسائل المؤسساتية في التربية النبوية، مختلف القنوات الاجتماعية التي استثمرها النبي ﷺ في تربية أصحابه، وسأحصر الحديث هنا في أهم ثلاث مؤسسات شكلت المحاضن التربوية الأصيلة للفرد المسلم.\nأولا: الأسرة المحضن التربوي الأول للفرد:\nتعتبر الأسرة الخلية المركزية في المجتمع، وهي التي تزوده بالأفراد، وتكتسي أهميتها من حيث وظائفها، حيث أنها تحفظ الجنس البشري عبر قناة مشروعة ومضبوطة، ثم هي تحقق الأمن والطمأنينة والاستقرار النفسي بالنسبة لأفراد المجتمع، ثم تضمن التكافل الاقتصادي بين أفرادها، وهي التي تساهم بشكل كبير في المحافظة على ثقافة المجتمع وهويته باعتبارها البيئة الطبيعية الأولى للفرد.\nومن الناحية التربوية تعتبر الأسرة أقدم المؤسسات التربوية داخل المجتمعات والتي ينشأ الطفل فيها وينمو جسديا وعقليا وثقافيا، ومن ثم عني النبي ﷺ بالأسرة كوسيلة تربوية في تلقين مبادئ العقيدة والسلوك والأخلاق، وذلك من خلال:\nأولا: سنه ﷺ — انطلاقا من الوحي — لمجموعة من القواعد التي يتأسس عليها البيت المسلم، من مودة ورحمة، ومجموعة من الضوابط الشرعية المتعلقة بأحكام الأسرة ابتداء من اختيار الزوجة والزوج مرورا بالخطبة وآدابها والزواج وأحكامه وكذا قواعد التعامل داخل البيت، وذلك كله تهيئة للبنة الأولى التي ينشأ داخلها أفراد المجتمع.",
-  "text_simplified": "The family represents the primary educational environment and central unit that provides individuals with psychological security and economic solidarity while preserving society's identity and culture. The Prophet ﷺ cared for the family as a vehicle for imparting creed and morals by establishing divinely guided rules and guidelines for founding the Muslim home upon affection and mercy, starting from choosing a righteous spouse, the etiquettes of engagement, and the rulings of marriage to the principles of family interaction within the home.",
+  "text_simplified": "The researcher defines institutional methods as the social channels the Prophet ﷺ invested in raising his companions, foremost among them the family; it is the central unit of society. It preserves progeny through legitimate means, provides psychological security and solidarity, preserves society's identity, and in it the child grows physically, mentally, and culturally. The Prophet ﷺ cared for the family by establishing the rules of the Muslim home upon affection and mercy, and its guidelines from choosing the spouses to the etiquettes of interaction within the home.",
   "labels": [
     "تربية",
     "أسرة",
@@ -35,13 +35,25 @@
     "review_verdict": "low_only",
     "review_defects": [
       {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "omission",
+        "why": "The English merges security and psychological stability into 'psychological security' and omits the distinct notion of psychological stability."
+      },
+      {
         "model": "glm-5.2",
         "field": "text_simplified",
-        "type": "addition",
-        "why": "The Arabic says \"good choice of the two spouses\" without specifying \"righteous\"; the English adds \"righteous.\""
+        "type": "omission",
+        "why": "The English drops 'الاستقرار' (stability), rendering 'الأمن والاستقرار النفسي' as only 'psychological security.'"
       }
     ],
     "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "revalidated_at": "2026-11-03T20:15:25+00:00",
+    "english_authors": [
+      "mistral-large-3:675b"
+    ],
+    "fixer_model": "mistral-large-3:675b",
+    "fixed_at": "2026-11-03T20:08:16+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,23 +69,28 @@
           "model": "glm-5.2"
         }
       },
-      "fixer": null,
-      "rounds": 1,
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "3650fb8d6dcb330c32cdb6b8241aee89105856939b36239a962f1ba8c39ef260",
-      "reviewed_at": "2026-11-03T13:20:58+00:00",
+      "content_sha256": "cf2eee34a9d746d0b5ceb0f3dc4030c4794bf6dc339b47ca75b4048f1422532c",
+      "reviewed_at": "2026-11-03T20:15:25+00:00",
       "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "omission",
+          "why": "The English merges security and psychological stability into 'psychological security' and omits the distinct notion of psychological stability."
+        },
         {
           "model": "glm-5.2",
           "field": "text_simplified",
-          "type": "addition",
-          "why": "The Arabic says \"good choice of the two spouses\" without specifying \"righteous\"; the English adds \"righteous.\""
+          "type": "omission",
+          "why": "The English drops 'الاستقرار' (stability), rendering 'الأمن والاستقرار النفسي' as only 'psychological security.'"
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    },
-    "revalidated_at": "2026-11-03T13:20:58+00:00"
+    }
   }
 }
