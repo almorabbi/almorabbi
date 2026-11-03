@@ -16,6 +16,7 @@ from app.services.llm_service import build_full_prompt, usable_reference
     "", "   ", None,
     "أصل المصدر غير محدد",
     "العنوان المفقود للنص الأصلي",
+    "كتاب إسلامي", "  كتاب إسلامي ",
     "شرح عربي واضح للأهل في 3-5 جمل، يذكر الأعراض والتعامل العملي",
 ])
 def test_non_sources_are_rejected(ref):

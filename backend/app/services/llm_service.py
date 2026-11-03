@@ -55,6 +55,9 @@ _NON_SOURCE_EXACT = frozenset({
     # the absence of a source dressed up as one.
     "غير مذكور",
     "مصدر غير مذكور",
+    # 25 live units (and their English twins) carried this as their whole
+    # reference: «📚 المصدر: كتاب إسلامي» names no book at all.
+    "كتاب إسلامي",
 })
 _PROMPT_LEFTOVER_RE = re.compile(
     r"(شرح عربي واضح|يذكر الأعراض|للأهل في \d|\d\s*-\s*\d\s*جمل|بأسلوب مبسط|صياغة عربية)"
