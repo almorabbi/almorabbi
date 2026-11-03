@@ -2,16 +2,16 @@
   "id": "isl-22169daa__en",
   "domain": "islamic_parenting",
   "source_file": "Rakaiz_Tarbiya.pdf",
-  "title": "The Importance of the Role Model in the Tarbiyah of Children",
+  "title": "The Tenth Pillar: Setting a Righteous Example Through Action",
   "language": "en",
   "age_group": "unspecified",
   "behavior_type": "تربية وقدوة",
   "intervention_type": "إرشادي",
   "severity": "خفيف",
   "reference_type": "كتاب_تربوي",
-  "reference_info": "تربية البنات",
+  "reference_info": "Abd al-Razzaq ibn Abd al-Muhsin al-Badr, 'Ashr Raka'iz fi Tarbiyat al-Abna' (Ten Pillars in Raising Children), in Arabic, p. 31",
   "text_original": " ﻖ ﹲﻳﺮﻃ ﻪﺑ ﻆ ﹸ ﻌ ﹺ ﻳ ﹶ ﺎﻣ ن ﱠ ﺈ ﹺ ﻓ ،ﻆ ﹺ ﻋ ﹺ اﻮﻟا اﺬﻫ ف ﹺ ﻼﺨ ﹺ ﺑ ، ﻚ ﻟذ ﲑﻏو ، ﺔ ﹺ ﻌﻴﺒﻄ ﱠ ﻟا  . ﺎ ﻬﻨﻣ ﺪ ﱠ ﺑ ﻻو ،ﺎﻬﻣ ﹶ ﺎﻘﻣ ﹶ ﺎﻫ ﲑ ﹸ ﻏ م ﹸ ﻮﻘﻳ ﻻ ، ة ﺎﺠﻨﱠﻠﻟ ﻦ ﹲ ـ ﻴ ﱠﻌ ﹶ ﻣ ﹸ (cid:3)  ½ ¼ » : ﻪ ﻣﻮﻘﻟ ﺐ ﻴﻌﺷ لﺎﻗ ةﺮﻔ ْ ـ ﻨﱡﻟا هﺬﻫ ﻞﺟﻷو  . [ ٨٨ :د ﻮﻫ] (  ﺮ ُ ﻣْ َ ﻷا ﻚﻨﻣ ﻞ َ ـ ﺒَ ﻘْ ـ ﻳُ نأ تَ در أَ اذإ :ﻒﻠﺴﻟا ﺾﹸ ﻌﺑ لﺎﻗو»   ،ﻪﺑ ﻦﻳﺮﻤﺗﺆﻤﻟا ،ﻪﻟ ﻦﻴﻠﻋﺎﻔﻟا ل َو ﱠ أ ﻦ ْ ﻜ ُ ﻓ ء ٍ ﻲﺸﺑ ت َ ﺮﻣ َ أ َ اذﺈ ِ ﻓ : ﻲﻬﱠﻨﻟاو   . « ﻪ ﻨﻋ ﻦﻴﻬﺘ َـ ﻨ ْﻤ ُ ـ ﻟ ا ل َو ﱠ أ ﻦ ْ ﻜ ُ ﻓ ،ءﻲﺷ ﻦﻋ ﺖ َ ﻴﻬﻧ َ اذإو  : ﻞ ﻴﻗ ﺪﻗو (cid:3)  هﹸ ﺮﹶ ـ ﻴﻏ ﻢﹸ ﻠﱢ ـ ﻌﹶ ـ ﻤﹸ ـ ﻟا ﻞﹸ ـ ﺟﹸ ﺮﱠ ـ ﻟا ﺎ ـ ﻬ ـ ﻳﱡ ﹶأ ﺎ ـ ﻳ (cid:3) ؟ ﻢﹸ ـ ﻴ ـ ﻠ ـ ﻌﹾ ـ ﱠﺘ ـ ﻟا اذﹶ نﹶ ﺎ ـ ﻛﹶ ﻚ ـ ﺴﻔﹾ ـ ﹶﻨﻟ ﻼﱠ ﻫﹶ  ﻰﻨ ﻀﱠ ﻟا ﻦ ﹶ ﻣ مﺎﻘﺴ ﱢ ﻟا يﺬﻟ ء ﹶ اوﺪ ﱠ ﻟا ﻒ",
-  "text_simplified": "A murabbi (one who provides tarbiyah) must be a good role model for their children, enjoining them to do good and forbidding them from evil while applying that to themselves first. It is important that children see the murabbi’s behavior matching their words so that the influence is deeper and more effective.",
+  "text_simplified": "One of the greatest pillars of tarbiyah is for parents to be righteous role models for their children in their words, deeds, and akhlaq, because children are influenced far more by what they see their parents do than by words alone. The early scholars (may Allah have mercy on them) said: \"Whoever admonishes his child by his action is more effective than one who admonishes him by his speech.\"",
   "labels": [
     "قدوة",
     "تربية",
@@ -20,11 +20,11 @@
     "أهل"
   ],
   "created_at": "2026-06-20T11:35:23Z",
-  "updated_at": "2026-06-20T11:35:23Z",
-  "version": "1.0.0",
+  "updated_at": "2026-11-03T10:57:21Z",
+  "version": "1.1.0",
   "source_meta": {
-    "source_title": "Rakaiz_Tarbiya",
-    "source_author": ""
+    "source_title": "'Ashr Raka'iz fi Tarbiyat al-Abna' (Ten Pillars in Raising Children)",
+    "source_author": "Abd al-Razzaq ibn Abd al-Muhsin al-Badr"
   },
   "source_language": "ar",
   "translated_from": "isl-22169daa",
@@ -34,22 +34,37 @@
     "needs_scholar_review": true,
     "review_verdict": "clean",
     "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "revalidated_at": "2026-11-03T11:05:46+00:00",
+    "english_authors": [
+      "mistral-large-3:675b"
+    ],
+    "fixer_model": "mistral-large-3:675b",
+    "fixed_at": "2026-11-03T11:03:02+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
-      "fixer": null,
-      "rounds": 1,
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "9d3dd3c48d0b335a76317e54b0ad7e82def424f8ae8e2c81dbeee2dc11fed818",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "1ef05aad33bb142aa0e135c7d267a196ba5534df7597f938b287d52566959bb8",
+      "reviewed_at": "2026-11-03T11:05:46+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    },
-    "revalidated_at": "2026-10-04T11:18:18+00:00"
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    }
   }
 }
