@@ -93,11 +93,12 @@ List<CornerGame> cornerGames() {
 
 /// Whether the games' questions are written in [contentLanguage].
 ///
-/// The four packs exist in Arabic only (`assets/content/games/*.ar.json`). A
-/// child whose family reads the app in English is not handed a quiz they
-/// cannot read: the corner leaves the game out for them, exactly as it does
-/// for a band the policy gives no game.
-bool cornerGamesSpeak(String contentLanguage) => contentLanguage == 'ar';
+/// The four packs ship in both Arabic (`assets/content/games/*.ar.json`) and
+/// English (`assets/content/games/*.en.json`). Any other language has no game
+/// pack yet, so the corner leaves the game out for it rather than handing a
+/// child a quiz they cannot read.
+bool cornerGamesSpeak(String contentLanguage) =>
+    contentLanguage == 'ar' || contentLanguage == 'en';
 
 /// The level the child plays: the furthest one open to them, so a corner
 /// visit continues the game rather than restarting it — without saying so.

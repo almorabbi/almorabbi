@@ -74,11 +74,25 @@ void main() {
     }
 
     // …and every ayah and hadith is still Arabic, quoted as revealed and as
-    // narrated. An English pack that renders scripture is the one outcome this
-    // whole translation was not allowed to produce.
+    // narrated, while carrying an English topic, citation (`sourceEn`), and
+    // meaning (`meaning`, with interpretation disclosure on verses).
     for (final item in scripture) {
       expect(arabicOutsideQuotes.hasMatch(item.text), isTrue,
           reason: '${item.id} is a ${item.kind} and is no longer Arabic');
+      expect(arabicOutsideQuotes.hasMatch(item.topic), isFalse,
+          reason: '${item.id} topic should be translated to English');
+      expect(item.meaning, isNotNull,
+          reason: '${item.id} should include an English meaning');
+      expect(item.meaning!.trim(), isNotEmpty);
+      expect(arabicOutsideQuotes.hasMatch(item.meaning!), isFalse,
+          reason: '${item.id} meaning should be in English');
+      if (item.kind == 'verse') {
+        expect(item.meaning!, startsWith('Interpretation of the meaning:'));
+      }
+      expect(item.sourceEn, isNotNull,
+          reason: '${item.id} should include an English source citation');
+      expect(item.displaySource, equals(item.sourceEn));
+      expect(arabicOutsideQuotes.hasMatch(item.displaySource), isFalse);
     }
   });
 

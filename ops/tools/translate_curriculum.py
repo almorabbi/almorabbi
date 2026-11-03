@@ -267,7 +267,10 @@ def _validate_glossary(arabic: dict, english: dict) -> list[str]:
     لأجلها. (نفس الدرس المستفاد من الهيكل الصامت في `check_quran_citations`:
     المطابقة الفضفاضة تنتج إنذارات كاذبة تُسقِط الحارس نفسه.)
     """
-    ar_text = json.dumps(arabic, ensure_ascii=False)
+    # Vocalized Arabic (every ayah) puts harakat inside the root: «فِطْرَتَ»
+    # does not contain «فطر» until the marks are dropped.
+    ar_text = re.sub(r"[ً-ٰٟۖ-ۭـ]", "",
+                     json.dumps(arabic, ensure_ascii=False))
     en_text = json.dumps(english, ensure_ascii=False).lower()
     injections = []
     for en_term, roots in GLOSSARY_ROOTS.items():

@@ -105,10 +105,34 @@ def test_language_selection(client, query, accept, expected):
 
 
 def test_every_landing_route_speaks_english(client):
-    for url in ("/", "/go", "/ui/", "/ui/index.html", "/ui/cinematic.html"):
+    from app import curriculum_loader as cl
+
+    path = cl.get_paths()[0]
+    lesson = cl.get_lessons_for_path(path["id"])[0]
+    for url in ("/", "/go", "/ui/", "/ui/index.html", "/ui/cinematic.html",
+                f"/l/{lesson['id']}", f"/p/{path['id']}"):
         assert _lang(client.get(url, params={"lang": "en"}).text)[0] == "en", url
         assert _lang(client.get(url, params={"ref": "EN01"}).text)[0] == "en", url
     assert _lang(client.get("/ui/cinematic.en.html").text)[0] == "en"
+
+
+def test_lesson_and_path_pages_render_english_content_and_store_link(client):
+    from app import curriculum_loader as cl
+
+    path_en = cl.get_paths(lang="en")[0]
+    lesson_en = cl.get_lessons_for_path(path_en["id"], lang="en")[0]
+
+    r_lesson = client.get(f"/l/{lesson_en['id']}", params={"ref": "EN01"})
+    assert _lang(r_lesson.text) == ("en", "ltr")
+    assert lesson_en["title"] in _html.unescape(r_lesson.text)
+    assert "Download on Google Play" in r_lesson.text
+    assert _play_links(r_lesson.text)[0].endswith("&hl=en")
+
+    r_path = client.get(f"/p/{path_en['id']}", params={"lang": "en"})
+    assert _lang(r_path.text) == ("en", "ltr")
+    assert path_en["title"] in _html.unescape(r_path.text)
+    assert f'/l/{lesson_en["id"]}?lang=en' in r_path.text
+    assert _play_links(r_path.text)[0].endswith("&hl=en")
 
 
 def test_the_response_varies_by_accept_language(client):

@@ -274,11 +274,11 @@ void main() {
           findsOneWidget);
     });
 
-    testWidgets('game switched on, English: the Arabic-only games stay out',
+    testWidgets('game switched on, English: the English game pack is offered',
         (t) async {
       await _pump(t, locale: const Locale('en'), gameOn: true);
       expect(find.byKey(const ValueKey('child_corner_story')), findsOneWidget);
-      expect(find.byKey(const ValueKey('child_corner_game')), findsNothing);
+      expect(find.byKey(const ValueKey('child_corner_game')), findsOneWidget);
     });
   });
 
@@ -337,6 +337,8 @@ void main() {
             'حكاية قصيرة أو لعبة، ثم مهمة بعيدًا عن الشاشة'),
         (Locale('ar'), '4-6', true, 'حكاية قصيرة، ثم مهمة بعيدًا عن الشاشة'),
         (Locale('en'), '7-9', true,
+            'A short story or a game, then a task away from the screen'),
+        (Locale('en'), '4-6', true,
             'A short story, then a task away from the screen'),
       ]) {
         await t.pumpWidget(ProviderScope(
@@ -700,6 +702,7 @@ void main() {
     expect(cornerGames().map((g) => g.id),
         ['data_defender', 'healthy_hero', 'tree_of_deeds', 'emotion_maze']);
     expect(cornerGamesSpeak('ar'), isTrue);
-    expect(cornerGamesSpeak('en'), isFalse);
+    expect(cornerGamesSpeak('en'), isTrue);
+    expect(cornerGamesSpeak('fr'), isFalse);
   });
 }

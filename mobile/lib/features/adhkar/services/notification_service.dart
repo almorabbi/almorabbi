@@ -28,6 +28,8 @@ import 'package:timezone/timezone.dart' as tz;
 
 import 'local_timezone.dart';
 import '../../../core/analytics.dart';
+import '../../../l10n/app_localizations.dart';
+import '../../../l10n/content_direction.dart';
 import '../../../l10n/l10n_global.dart';
 import '../../../core/app_routes.dart';
 import '../../../main.dart';
@@ -253,49 +255,76 @@ class NotificationService {
     showDialog(
       context: context,
       builder: (context) {
-        return Directionality(
-          textDirection: TextDirection.rtl,
-          child: AlertDialog(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-            title: Row(
-              children: [
-                Text(
-                  content.kind == 'hadith'
-                      ? '🕌 حديث شريف'
-                      : content.kind == 'verse'
-                          ? '📖 آية كريمة'
-                          : '💡 نصيحة اليوم',
+        final l10n = AppLocalizations.of(context);
+        final title = switch (content.kind) {
+          'hadith' => l10n.notifHadithTitle,
+          'verse' => l10n.notifVerseTitle,
+          _ => l10n.notifTipTitle,
+        };
+        return AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  title,
                   style: const TextStyle(
                     fontWeight: FontWeight.w800,
                     fontSize: 18,
                     color: Color(0xFF0F172A),
                   ),
                 ),
-              ],
-            ),
-            content: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    content.text,
-                    style: const TextStyle(
-                      fontSize: 15,
-                      height: 1.6,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFF334155),
+              ),
+            ],
+          ),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ContentDirectionality(
+                  text: content.text,
+                  child: Align(
+                    alignment: AlignmentDirectional.centerStart,
+                    child: Text(
+                      content.text,
+                      style: const TextStyle(
+                        fontSize: 15,
+                        height: 1.6,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF334155),
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 16),
-                  Container(
+                ),
+                if (content.meaning != null && content.meaning!.isNotEmpty) ...[
+                  const SizedBox(height: 10),
+                  ContentDirectionality(
+                    text: content.meaning!,
+                    child: Align(
+                      alignment: AlignmentDirectional.centerStart,
+                      child: Text(
+                        content.meaning!,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          height: 1.55,
+                          color: Color(0xFF475569),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 16),
+                ContentDirectionality(
+                  text: content.displaySource,
+                  child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     decoration: BoxDecoration(
                       color: Dt.surface,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text(
-                      content.source,
+                      content.displaySource,
                       style: const TextStyle(
                         fontSize: 12,
                         color: Color(0xFF64748B),
@@ -303,23 +332,23 @@ class NotificationService {
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text(
-                  'حسناً',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 14,
-                    color: Color(0xFF10B981),
-                  ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text(
+                MaterialLocalizations.of(context).okButtonLabel,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 14,
+                  color: Color(0xFF10B981),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         );
       },
     );
@@ -680,7 +709,7 @@ class NotificationService {
       styleInformation: BigTextStyleInformation(''),
     );
 
-    final body = '${content.text}\n— ${content.source}';
+    final body = '${content.displayBody}\n— ${content.displaySource}';
     await _plugin.zonedSchedule(
       id,
       title,

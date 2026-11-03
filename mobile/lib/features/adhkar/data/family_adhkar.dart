@@ -49,13 +49,35 @@ class ParentingContent {
   /// 'hadith' | 'verse' | 'tip'
   final String kind;
 
+  /// Optional English meaning/translation for `verse` (with interpretation
+  /// disclosure) and `hadith` items in non-Arabic packs while [text] keeps
+  /// the verbatim Arabic scripture.
+  final String? meaning;
+
+  /// Optional localized citation (e.g. `"Surah Ibrahim — Ayah 40"`,
+  /// `"Sahih al-Bukhari — Hadith 5027"`) while [source] keeps the canonical
+  /// Arabic citation checked by the pre-commit scripture guards.
+  final String? sourceEn;
+
   const ParentingContent({
     required this.id,
     required this.text,
     required this.source,
     required this.topic,
     required this.kind,
+    this.meaning,
+    this.sourceEn,
   });
+
+  /// Citation string for UI and notifications: prefers [sourceEn] when present.
+  String get displaySource =>
+      (sourceEn != null && sourceEn!.isNotEmpty) ? sourceEn! : source;
+
+  /// Body string for notifications: includes [meaning] below [text] when
+  /// present so non-Arabic readers get both the Arabic scripture and its
+  /// English meaning.
+  String get displayBody =>
+      (meaning != null && meaning!.isNotEmpty) ? '$text\n$meaning' : text;
 
   factory ParentingContent.fromJson(Map<String, dynamic> json) =>
       ParentingContent(
@@ -64,6 +86,8 @@ class ParentingContent {
         source: json['source'] as String,
         topic: json['topic'] as String,
         kind: json['kind'] as String,
+        meaning: json['meaning'] as String?,
+        sourceEn: json['source_en'] as String?,
       );
 }
 

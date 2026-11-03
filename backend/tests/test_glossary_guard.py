@@ -98,3 +98,13 @@ def test_every_glossary_term_has_roots(tc):
     hole in the guard rather than a permitted term."""
     missing = set(tc.GLOSSARY.values()) - set(tc.GLOSSARY_ROOTS)
     assert not missing, f"glossary terms with no root list: {sorted(missing)}"
+
+
+def test_vocalized_arabic_still_holds_its_root(tc):
+    """An ayah is vocalized: «فِطْرَتَ» carries the root فطر with harakat between
+    its letters. Saheeh International's "fitrah of Allah" is no injection."""
+    issues = tc._validate_glossary(
+        {"text": "فِطْرَتَ اللَّهِ الَّتِي فَطَرَ النَّاسَ عَلَيْهَا"},
+        {"text": "[Adhere to] the fitrah of Allah upon which He has created [all] people."},
+    )
+    assert issues == []

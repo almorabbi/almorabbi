@@ -416,6 +416,10 @@ def collect_adhkar() -> list[Item]:
             for k in ("text", "source"):
                 if it.get(k) != src.get(k):
                     problems.append(f"items[{idx}].{k}: {it['kind']} differs from Arabic")
+            # The English meaning shown under the Arabic is a translation like any
+            # other: it is reviewed against the Arabic it renders.
+            if it.get("meaning"):
+                fields[f"items[{idx}].meaning"] = {"ar": src.get("text"), "en": it["meaning"]}
             continue
         for k in ("text", "source", "topic"):
             a = src.get(k)

@@ -30,9 +30,16 @@ class BedtimeRoutineScreen extends ConsumerStatefulWidget {
 
 class _DhikrItem {
   final String text;
+  final String transliteration;
+  final String meaningEn;
   final int count;
 
-  const _DhikrItem({required this.text, required this.count});
+  const _DhikrItem({
+    required this.text,
+    required this.transliteration,
+    required this.meaningEn,
+    required this.count,
+  });
 }
 
 class _StarParticle {
@@ -47,13 +54,24 @@ class _BedtimeRoutineScreenState extends ConsumerState<BedtimeRoutineScreen> {
   final List<_DhikrItem> _adhkar = const [
     _DhikrItem(
       text: 'بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي، وَبِكَ أَرْفَعُهُ',
+      transliteration: 'Bismika Rabbi wada\'tu janbi, wa bika arfa\'uhu',
+      meaningEn:
+          'In Your Name, my Lord, I lay down my side, and by You I raise it.',
       count: 1,
     ),
     _DhikrItem(
       text: 'اللَّهُمَّ قِنِي عَذَابَكَ يَوْمَ تَبْعَثُ عِبَادَكَ',
+      transliteration: 'Allahumma qini \'adhabaka yawma tab\'athu \'ibadaka',
+      meaningEn:
+          'O Allah, protect me from Your punishment on the Day You resurrect Your servants.',
       count: 3,
     ),
-    _DhikrItem(text: 'بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا', count: 1),
+    _DhikrItem(
+      text: 'بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا',
+      transliteration: 'Bismika Allahumma amutu wa ahya',
+      meaningEn: 'In Your Name, O Allah, I die and I live.',
+      count: 1,
+    ),
   ];
 
   int _currentIndex = 0;
@@ -272,20 +290,58 @@ class _BedtimeRoutineScreenState extends ConsumerState<BedtimeRoutineScreen> {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: Text(
-                        dhikr.text,
-                        textAlign: TextAlign.center,
-                        // The card is Dt.surface, which is dark in dark mode;
-                        // a fixed near-black here made the dhikr itself unreadable.
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w800,
-                          height: 1.85,
-                          color: context.colors.ink,
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Directionality(
+                          textDirection: TextDirection.rtl,
+                          child: Text(
+                            dhikr.text,
+                            textAlign: TextAlign.center,
+                            // The card is Dt.surface, which is dark in dark mode;
+                            // a fixed near-black here made the dhikr itself unreadable.
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w800,
+                              height: 1.85,
+                              color: context.colors.ink,
+                            ),
+                          ),
                         ),
-                      ),
+                        if (Localizations.localeOf(context).languageCode !=
+                            'ar') ...[
+                          const SizedBox(height: 12),
+                          Directionality(
+                            textDirection: TextDirection.ltr,
+                            child: Text(
+                              dhikr.transliteration,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontStyle: FontStyle.italic,
+                                height: 1.45,
+                                color: context.colors.textSecondary,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 6),
+                          Directionality(
+                            textDirection: TextDirection.ltr,
+                            child: Text(
+                              dhikr.meaningEn,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                height: 1.5,
+                                color: context.colors.ink.withValues(
+                                  alpha: 0.85,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ],
                     ),
                     // Render tap star particles inside this card
                     ..._starParticles.map((star) {

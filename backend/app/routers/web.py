@@ -84,8 +84,20 @@ def _esc(s: str | None) -> str:
 
 
 def _page(*, title: str, desc: str, body: str, install_url: str,
-          canonical: str) -> HTMLResponse:
-    """Modern branded RTL landing shell with OG tags + install CTA."""
+          canonical: str, lang: str = "ar") -> HTMLResponse:
+    """Modern branded landing shell with OG tags + install CTA (RTL ar / LTR en)."""
+    en = lang == "en"
+    html_lang = "en" if en else "ar"
+    html_dir = "ltr" if en else "rtl"
+    brand_name = "Al-Morabbi" if en else "المربّي"
+    nav_tag = "Islamic parenting companion" if en else "مساعد تربية إسلامية ذكي"
+    cta_label = "Download on Google Play" if en else "حمّله من Google Play"
+    free_label = (
+        "100% free — no ads, no subscriptions"
+        if en
+        else "مجاني بالكامل — بلا إعلانات ولا اشتراكات"
+    )
+    og_locale = '<meta property="og:locale" content="en_US">\n' if en else ""
     t, d = _esc(title), _esc(desc)
     install = html.escape(install_url)
     # Escaped *after* _abs uses the raw value: request.url carries the
@@ -93,18 +105,18 @@ def _page(*, title: str, desc: str, body: str, install_url: str,
     og_image = html.escape(_abs(canonical, _OG_IMAGE))
     canonical = html.escape(canonical)
     doc = f"""<!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="{html_lang}" dir="{html_dir}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{t} — المربّي</title>
+<title>{t} — {brand_name}</title>
 <meta name="description" content="{d}">
 <link rel="canonical" href="{canonical}">
 <link rel="icon" type="image/png" sizes="32x32" href="/ui/icons/favicon-32.png">
 <meta name="theme-color" content="{_EMERALD}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="المربّي">
-<meta property="og:title" content="{t}">
+<meta property="og:site_name" content="{brand_name}">
+{og_locale}<meta property="og:title" content="{t}">
 <meta property="og:description" content="{d}">
 <meta property="og:image" content="{og_image}">
 <meta property="og:image:width" content="1200">
@@ -231,9 +243,9 @@ def _page(*, title: str, desc: str, body: str, install_url: str,
   <div class="nav-inner">
     <div class="brand">
       <img src="/ui/icons/icon-192.png" width="34" height="34" alt="">
-      المربّي
+      {brand_name}
     </div>
-    <div class="nav-tag">مساعد تربية إسلامية ذكي</div>
+    <div class="nav-tag">{nav_tag}</div>
   </div>
 </div>
 <div class="wrap">
@@ -242,13 +254,13 @@ def _page(*, title: str, desc: str, body: str, install_url: str,
 <div class="cta">
   <a href="{install}">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    حمّله من Google Play
+    {cta_label}
   </a>
-  <div class="free">مجاني بالكامل — بلا إعلانات ولا اشتراكات</div>
+  <div class="free">{free_label}</div>
 </div>
 </body>
 </html>"""
-    return HTMLResponse(doc)
+    return HTMLResponse(doc, headers={"Vary": "Accept-Language"})
 
 
 # `/ui/` is the same page. It was a static copy of cinematic.html whose
@@ -369,40 +381,53 @@ def _canonical(request: Request) -> str:
 
 @router.get("/l/{lesson_id}", response_class=HTMLResponse)
 def lesson_page(lesson_id: str, request: Request):
-    install_url = attribute_visit(request)
-    lesson = cl.get_lesson(lesson_id)
+    lang = landing_language(request)
+    en = lang == "en"
+    install_url = attribute_visit(request, hl="en" if en else None)
+    lesson = cl.get_lesson(lesson_id, lang=lang)
     if not lesson:
-        return _page(title="الدرس غير متاح", desc="حمّل المربّي للمزيد.",
-                     body="<h1>الدرس غير متاح</h1>", install_url=install_url,
-                     canonical=_canonical(request))
-    title = lesson.get("title", "درس")
+        unavail_title = "Lesson unavailable" if en else "الدرس غير متاح"
+        unavail_desc = "Download Al-Morabbi for more." if en else "حمّل المربّي للمزيد."
+        return _page(title=unavail_title, desc=unavail_desc,
+                     body=f"<h1>{unavail_title}</h1>", install_url=install_url,
+                     canonical=_canonical(request), lang=lang)
+    title = lesson.get("title", "Lesson" if en else "درس")
     summary = lesson.get("summary", "")
-    body = (f'<span class="eyebrow">درس من المربّي</span><h1>{_esc(title)}</h1>'
+    eyebrow = "Lesson from Al-Morabbi" if en else "درس من المربّي"
+    body = (f'<span class="eyebrow">{eyebrow}</span><h1>{_esc(title)}</h1>'
             f'<div class="content">{_esc(summary)}</div>')
     return _page(title=title, desc=summary or title, body=body,
-                 install_url=install_url, canonical=_canonical(request))
+                 install_url=install_url, canonical=_canonical(request),
+                 lang=lang)
 
 
 @router.get("/p/{path_id}", response_class=HTMLResponse)
 def path_page(path_id: str, request: Request):
-    install_url = attribute_visit(request)
-    path = cl.get_path(path_id)
+    lang = landing_language(request)
+    en = lang == "en"
+    install_url = attribute_visit(request, hl="en" if en else None)
+    path = cl.get_path(path_id, lang=lang)
     if not path:
-        return _page(title="المسار غير متاح", desc="حمّل المربّي للمزيد.",
-                     body="<h1>المسار غير متاح</h1>", install_url=install_url,
-                     canonical=_canonical(request))
-    title = path.get("title", "مسار")
+        unavail_title = "Path unavailable" if en else "المسار غير متاح"
+        unavail_desc = "Download Al-Morabbi for more." if en else "حمّل المربّي للمزيد."
+        return _page(title=unavail_title, desc=unavail_desc,
+                     body=f"<h1>{unavail_title}</h1>", install_url=install_url,
+                     canonical=_canonical(request), lang=lang)
+    title = path.get("title", "Path" if en else "مسار")
     desc = path.get("description", "")
-    lessons = cl.get_lessons_for_path(path_id)
+    lessons = cl.get_lessons_for_path(path_id, lang=lang)
+    lesson_q = "?lang=en" if en else ""
     items = "".join(
-        f'<a href="/l/{_esc(ls.get("id"))}">{_esc(ls.get("title"))}</a>'
+        f'<a href="/l/{_esc(ls.get("id"))}{lesson_q}">{_esc(ls.get("title"))}</a>'
         for ls in lessons
     )
-    body = (f'<span class="eyebrow">مسار تربوي</span><h1>{_esc(title)}</h1>'
+    eyebrow = "Parenting path" if en else "مسار تربوي"
+    body = (f'<span class="eyebrow">{eyebrow}</span><h1>{_esc(title)}</h1>'
             f'<div class="content">{_esc(desc)}</div>'
             f'<div class="lessons">{items}</div>')
     return _page(title=title, desc=desc or title, body=body,
-                 install_url=install_url, canonical=_canonical(request))
+                 install_url=install_url, canonical=_canonical(request),
+                 lang=lang)
 
 
 @router.get("/sitemap.xml")

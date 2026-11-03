@@ -37,12 +37,15 @@ class _AdhkarScreenState extends State<AdhkarScreen> {
 
   List<ParentingContent> get _filtered {
     final q = _query.trim();
+    final qLower = q.toLowerCase();
     return FamilyAdhkar.items.where((c) {
       if (_kind != null && c.kind != _kind) return false;
       if (q.isEmpty) return true;
-      return c.text.contains(q) ||
-          c.topic.contains(q) ||
-          c.source.contains(q);
+      return c.text.toLowerCase().contains(qLower) ||
+          c.topic.toLowerCase().contains(qLower) ||
+          c.source.toLowerCase().contains(qLower) ||
+          (c.meaning?.toLowerCase().contains(qLower) ?? false) ||
+          (c.sourceEn?.toLowerCase().contains(qLower) ?? false);
     }).toList(growable: false);
   }
 
@@ -179,11 +182,34 @@ class _AdhkarCard extends StatelessWidget {
                 color: AppTheme.textPrimary,
               ),
             ),
+            if (item.meaning != null && item.meaning!.isNotEmpty) ...[
+              const SizedBox(height: 8),
+              ContentDirectionality(
+                text: item.meaning!,
+                child: Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: Text(
+                    item.meaning!,
+                    style: TextStyle(
+                      fontSize: 14,
+                      height: 1.55,
+                      color: AppTheme.textPrimary.withValues(alpha: 0.88),
+                    ),
+                  ),
+                ),
+              ),
+            ],
             const SizedBox(height: 10),
             // Citation, not a caption — never hidden behind a tap.
-            Text(
-              item.source,
-              style: TextStyle(fontSize: 12, color: AppTheme.textSecondary),
+            ContentDirectionality(
+              text: item.displaySource,
+              child: Align(
+                alignment: AlignmentDirectional.centerStart,
+                child: Text(
+                  item.displaySource,
+                  style: TextStyle(fontSize: 12, color: AppTheme.textSecondary),
+                ),
+              ),
             ),
           ],
         ),
