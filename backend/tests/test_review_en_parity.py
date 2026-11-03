@@ -662,3 +662,19 @@ def test_a_quarantined_unit_needs_no_stamp(rp, tree):
     (units / "isl-q__en.json").write_text(json.dumps(en, ensure_ascii=False))
     (item,) = rp.collect_units()
     assert item.published is False and rp.check_item(item) is None
+
+
+def test_adhkar_meaning_under_scripture_is_reviewed(rp, tmp_path, monkeypatch):
+    """A verse or hadith keeps its Arabic, but the English meaning shown under it
+    is a translation: it must enter the stamped fields, or a meaning taken from
+    a different hadith ships with a valid stamp."""
+    ar = {"items": [{"id": "h_1", "kind": "hadith", "text": "لا تغضب", "source": "صحيح البخاري — حديث ٦١١٦"}]}
+    en = {"items": [{"id": "h_1", "kind": "hadith", "text": "لا تغضب", "source": "صحيح البخاري — حديث ٦١١٦",
+                     "meaning": "Do not become angry."}]}
+    (tmp_path / "ar.json").write_text(json.dumps(ar, ensure_ascii=False), encoding="utf-8")
+    (tmp_path / "en.json").write_text(json.dumps(en, ensure_ascii=False), encoding="utf-8")
+    monkeypatch.setattr(rp, "ADHKAR_AR", tmp_path / "ar.json")
+    monkeypatch.setattr(rp, "ADHKAR_EN", tmp_path / "en.json")
+    [item] = rp.collect_adhkar()
+    assert item.fields == {"items[0].meaning": {"ar": "لا تغضب", "en": "Do not become angry."}}
+    assert item.struct_problems == []

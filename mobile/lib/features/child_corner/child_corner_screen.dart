@@ -154,7 +154,7 @@ class ChildCornerScreenState extends ConsumerState<ChildCornerScreen> {
     final game = pickOfTheDay(cornerGames(), _now, salt: _salt);
     if (game == null) return;
     try {
-      final pack = await EduGameContent.load(game.theme.id);
+      final pack = await EduGameContent.load(game.theme.id, locale: language);
       final progress = await EduGameProgressService.instance.load(
         game.theme.id,
       );

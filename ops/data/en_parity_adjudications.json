@@ -36,7 +36,7 @@
     ]
   },
   "adhkar:family_adhkar": {
-    "content_sha256": "34e847e50f009fd70efd1956ec0f1c526a548cab65cc9835cf1b191839314d45",
+    "content_sha256": "de20c34b884bcb08e68ec863a0df3e9b7439af5ca857a5c87d662365b1a837da",
     "overrides": [
       {
         "field": "items[145].source",
@@ -58,6 +58,13 @@
         "reason": "The tip quotes the opening of the leaving-home dhikr accurately; completing a du'a or hadith from memory is exactly what the content rules forbid.",
         "by": "claude-opus-5.5 (en-parity review, PR #20)",
         "on": "2026-10-04"
+      },
+      {
+        "field": "items[58].meaning",
+        "type": "source_corruption",
+        "reason": "«وُلِدتُّ» with shadda is the Hafs Uthmani spelling of Maryam 19:33 (idgham of dal into ta); check_quran_citations matches it to the mushaf. Not a corruption.",
+        "by": "claude-opus-5.5 (adhkar meaning review)",
+        "on": "2026-11-03"
       }
     ]
   },

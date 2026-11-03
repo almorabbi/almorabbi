@@ -480,20 +480,21 @@ Recitation, and adhkar and du'a for children, in one place.
 —
 Start with one question: "my child is defiant", "my child won't pray", "tantrums"… and get a practical plan in seconds, free.
 
-Note on language: the app, the curriculum, the stories and the assistant are in English. The interactive games are Arabic only for now.
+Note on language: the app, the curriculum, the stories, the daily reminders & adhkar, the interactive games and the assistant are in English.
 ```
 
 ### ما لا يجوز ادّعاؤه بالإنجليزية — تحقّق قبل أي تعديل
 
-| البند | الحالة اليوم (2026-08-21) | مقيس بـ |
+| البند | الحالة اليوم | مقيس بـ |
 |---|---|---|
-| المنهج المكتوب والمسارات | ✅ إنجليزي كامل — ٤٠ مسارًا على الفئات السبع | `GET /api/program/paths?lang=en` |
+| المنهج المكتوب والمسارات | ✅ إنجليزي كامل — ٤٣ مسارًا على الفئات السبع | `GET /api/program/paths?lang=en` |
 | المساعد | ✅ يجيب بلغة السؤال | مسبار حيّ بعد `0f709b09` |
-| البودكاست والإنفوجرافيك | ⚠️ **جزئي** — ٧٨ ملف صوت و١١ إنفوجرافيك | عدّ الملفات على الـVPS |
+| البودكاست والإنفوجرافيك | ⚠️ **جزئي** — ١٣٥ ملف صوت و٥٥ إنفوجرافيك | عدّ الملفات على الـVPS |
 | الفلاش كاردز والاختبارات | ✅ موجودة في أصول الدرس الإنجليزية | `GET /api/program/lesson-assets/{id}?lang=en` |
-| الأذكار والإشعار اليومي | ❌ **عربي فقط** — `family_adhkar.ar.json` وحده | ملفات الحزمة |
-| الألعاب | ❌ **عربي فقط** — وRTL فيها صحيح لا عيب | `mobile/assets/content/games/*.ar.json` وحدها |
-| القصص و«ركن الطفل» وشارع رمضان | ✅ إنجليزي (1.0.73) | لقطات CI الإنجليزية في `listing_1.0.73/manifest.json` |
+| الأذكار والإشعار اليومي | ✅ **إنجليزي كامل** — `family_adhkar.en.json` (١٢٤ نصيحة إنجليزية + ١٤٢ آية و١٥ حديثًا بنصّها العربي ومعناها وتخريجها بالإنجليزية) + أذكار النوم بالنطق والمعنى الإنجليزي | `mobile/assets/content/adhkar/family_adhkar.en.json` |
+| الألعاب | ✅ **إنجليزي كامل** — ٤ ألعاب (٢٠٠ سؤال و٨٠٠ خيار) | `mobile/assets/content/games/*.en.json` |
+| القصص و«ركن الطفل» وشارع رمضان | ✅ إنجليزي (1.0.73) — ١٩ قصة | لقطات CI الإنجليزية في `listing_1.0.73/manifest.json` |
+| صفحات الهبوط والمشاركة (`/go`, `/l/`, `/p/`) | ✅ إنجليزي كامل (`cinematic.en.html` + عرض الدروس والمسارات بالإنجليزية) | `backend/tests/test_landing_language.py` |
 
 الصفّان الأخيران مذكوران صراحةً في آخر الوصف. **من يترجم محتوى جديدًا يحدّث هذا
 الجدول والوصف معًا** — وإلا صار الوصف يعِد بما لا يوجد، أو يعتذر عمّا صار موجودًا.
