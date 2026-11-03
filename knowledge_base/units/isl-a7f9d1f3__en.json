@@ -9,9 +9,9 @@
   "intervention_type": "إرشادي",
   "severity": "خفيف",
   "reference_type": "كتاب_تربوي",
-  "reference_info": "المنهاج التربوي النبوي — د. عدنان الخليفي",
-  "text_original": "هنأ ،ةيبﱰلا ﰲ يوبنلا جهنﳌا ةيعقاوب اين(cid:684) دصقن ﰒ . ةفلتخﳌا م(cid:275)اقاطو ةيعامتجﻻا ﱰ ََْفا \" : لَاقَـَف ، ِ ةﻼَصﱠ لا ن ﱰ ََْفا اَﲟ ِ ﱐِﱪ َأ ،(cid:589) ِ ﱠا لَوس :ﻼئاق ﰊارعﻷا هلأس امنيحف شَ نﱠهِي ِ ف دُيزَِأ ﻻَ ،ق :لَاَق ،(cid:684)ًﻼََث ا ﱰ ََْفا :لَاَق ؟نﱠه امنيح امأ ،طقف هيلع هضرف اميف ﷲ قدص نإ ةنﳉا هلوخدب ﱪخأف .31 قَدَص ِﱠنلا لَاقَـَف :لَاَق ،ا (cid:589)ﱠا دُُ بع دْقََل \" :لَاَق ،رانلا نع هدعابيو ةنﳉا هلخدي لمع نع لبج نب ذاعم هلأس َأ ﻻََأ \" :لَاَق ﱠﰒُ \" ت ،َةاكَزﱠلا ﰐِؤ ُْـتو يشَ ه ِِب كْرِشُْت ُأ ﻻََأ \" :لَاَق ﱠﰒُ ،عِج ِ اض تـَت : ﻼََت ﱠﰒُ لَاَق ،لِ \" :لَاَق ﱠﰒُ ،\" د ُ اه َ ِ ﳉْ ا ه ِ م ِ اَنس َ ُةو َ ر ْ ذ ِ و َ ،ُةﻼَصﱠ لا ُ هد ُ وم ُ ع َ و َ ، ُ مﻼ َس ْ ﻹِْا رِم ْ َﻷْا س ُ ْأر َ \" :لَاَق ،(cid:589) ِ ﱠا لَوس ُ ر َ (cid:686) َ ىَل َ ـب :ت ُ ْلُـق \" ؟ ه ِ م ِ اَنس َ ِ ةو َ ر ْ ذ ِ و َ ه ِ د ِ وم ُ ع َ و َ ه ِ ّ ِ لكُ رِم ْ َﻷْا . \" 32 ذَه َ ك َ ْ يَلع َ فﱠ كُ \" :لَاَق ه ِِ ناس َ ِ لِب ذَخ َ َأَف ، ِ (cid:589)ﱠا ﱯ ﱠ ِ َن (cid:686) َ ىَل َ ـب",
-  "text_simplified": "This text explains a hadith nabawi about the arkan (pillars) of Islam and the importance of Salah, Zakat, and Jihad. The hadith clarifies that the foundation of the religion is Islam, its pillar is Salah, and its peak is Jihad. It also shows that whoever fulfills the obligations and is sincere to Allah will enter Jannah and be far from the Fire.",
+  "reference_info": "Adnan Lakhlifi, Al-Minhaj al-Tarbawi al-Nabawi: Khasa'isuhu wa Wasa'iluhu (The Prophetic Educational Methodology: Its Characteristics and Means), Majallat al-Ma'rifah, Issue 21 (November 2024), Section 1 — Part 2: Considering Addressees' Capacities in Obligations and Supererogatory Acts, p. 86–87.",
+  "text_original": "ثم نقصد ثانيا بواقعية المنهج النبوي في التربية، أنه ﷺ راعى أحوال المتربين (المخاطبين) في اختلافاتهم النفسية ومكانتهم الاجتماعية وطاقاتهم المختلفة.\nفحينما سأله الأعرابي قائلا: يا رسول الله أخبرني بما افترض الله علي من الصلاة … فأخبر بدخوله الجنة إن صدق الله فيما فرضه عليه فقط، أما حينما سأله معاذ بن جبل عن عمل يدخله الجنة ويباعده عن النار، قال: … ونلاحظ هنا كيف أنه ﷺ لما علم من طاقة معاذ واستعداداته — وهو أعلم الأمة بالحلال والحرام — وجهه إلى ما يطيقه ويلائمه وجعل النوافل له والفرائض سببا لدخوله الجنة، في حين أن الأعرابي اكتفى معه بالفرائض وجعلها سببا لدخول الجنة، فطاقة الأعرابي واستعداداته ليس هو استعداد معاذ.",
+  "text_simplified": "In his educational methodology, the Prophet ﷺ took into account the varying capacities and readiness of those he addressed; when the Bedouin asked him about what Allah had made obligatory upon him of prayer, he sufficed with the obligatory duties for him as a cause for entering Paradise if truthful, whereas he directed Mu'adh ibn Jabal (may Allah be pleased with him), knowing his capacity, readiness, and knowledge of the lawful and unlawful, to combine the obligatory and supererogatory acts as a cause for entering Paradise.",
   "labels": [
     "حديث نبوي",
     "أركان الإسلام",
@@ -23,8 +23,8 @@
   "updated_at": "2026-06-20T14:39:58Z",
   "version": "1.0.0",
   "source_meta": {
-    "source_title": "Manhaj_Nabawi_Khulayfi",
-    "source_author": ""
+    "source_title": "Al-Minhaj al-Tarbawi al-Nabawi — Dr. Adnan Lakhlifi (Majallat al-Ma'rifah, Issue 21, Nov 2024)",
+    "source_author": "Dr. Adnan Lakhlifi"
   },
   "source_language": "ar",
   "translated_from": "isl-a7f9d1f3",
@@ -32,24 +32,53 @@
     "translator_model": "mistral-large-3:675b",
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "needs_scholar_review": true,
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "text_simplified",
+        "type": "omission",
+        "why": "The qualifier 'psychological' is omitted, slightly narrowing the Arabic expression."
+      }
+    ],
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "revalidated_at": "2026-11-03T13:22:02+00:00",
+    "english_authors": [
+      "mistral-large-3:675b"
+    ],
+    "fixer_model": "mistral-large-3:675b",
+    "fixed_at": "2026-11-03T13:21:05+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
-      "fixer": null,
-      "rounds": 1,
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": "mistral-large-3:675b",
+      "rounds": 2,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5e82be3cb998899b0fce175b1a89e9edd07201dde23f03418196a9b4a8159f45",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
-      "residual_low": [],
+      "content_sha256": "c29b0f792ad7da08185b396d5c85c47b221ae81ee0abd5b4c67afb9ade1f8bde",
+      "reviewed_at": "2026-11-03T13:22:02+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "text_simplified",
+          "type": "omission",
+          "why": "The qualifier 'psychological' is omitted, slightly narrowing the Arabic expression."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    },
-    "revalidated_at": "2026-10-04T11:18:18+00:00"
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    }
   }
 }
