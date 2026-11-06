@@ -1405,7 +1405,7 @@
     {
       "id": "v_059_021_1",
       "kind": "verse",
-      "text": "لَوْ أَنزَلْنَا هَٰذَا الْقُرْآنَ عَلَىٰ جَبَلٍ لَّرَأَيْتَهُ خَاشِعاً مَُّتَصَدِّعاً مِّنْ خَشْيَةِ اللَّهِ",
+      "text": "لَوْ أَنزَلْنَا هَٰذَا الْقُرْآنَ عَلَىٰ جَبَلٍ لَّرَأَيْتَهُ خَاشِعاً مُّتَصَدِّعاً مِّنْ خَشْيَةِ اللَّهِ",
       "source": "سورة الحشر — آية ٢١",
       "topic": "The Awe-Inspiring Impact of the Qur'an",
       "provenance": {
@@ -2595,8 +2595,8 @@
     {
       "id": "t_087",
       "kind": "tip",
-      "text": "Teach your child not to talk with food in their mouth — for their safety as much as for good manners.",
-      "source": "Parenting guidance",
+      "text": "Teach your child to swallow before speaking — good manners, and it keeps them from choking. Pleasant conversation at the table is part of the Prophet's ﷺ way.",
+      "source": "Parenting guidance — drawn from the hadith of Jabir: the Prophet ﷺ spoke while eating, saying «نعم الأدم الخل» (Sahih Muslim 2052)",
       "topic": "Tip"
     },
     {
@@ -2609,7 +2609,7 @@
     {
       "id": "t_089",
       "kind": "tip",
-      "text": "Teach your child that a beautiful character leaves a deeper mark on people than expensive clothes ever do.",
+      "text": "Teach your child that beauty of soul and character leaves a deeper mark on people's hearts than expensive clothes ever do.",
       "source": "Parenting guidance",
       "topic": "Tip"
     },
@@ -2826,7 +2826,7 @@
     {
       "id": "t_120",
       "kind": "tip",
-      "text": "Teach your child that truth always brings you out, and that lying cuts the rope of trust and safety.",
+      "text": "Teach your child that truthfulness always saves, and that lying cuts the rope of trust and safety.",
       "source": "Parenting guidance",
       "topic": "Tip"
     },
@@ -3076,66 +3076,66 @@
       "mistral-large-3:675b"
     ],
     "fixer_model": "mistral-large-3:675b",
-    "fixed_at": "2026-11-03T13:55:56+00:00",
+    "fixed_at": "2026-11-06T14:38:15+00:00",
     "manual_fix_note": "Source-backed English corrections; exact Arabic canonical citation labels preserved. Human scholarly review pending.",
     "scholar_review": {
       "status": "pending",
       "approved_by": null
     },
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-03",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-06",
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "low_only",
     "review_defects": [
       {
         "model": "deepseek-v4-pro",
-        "field": "items[149].text",
+        "field": "items[0].meaning",
+        "type": "addition",
+        "why": "The bracketed word \"many\" is not present in the Arabic and adds an unstated quantity."
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "field": "items[7].meaning",
         "type": "meaning",
-        "why": "The Arabic says 'read with your child', emphasising shared activity, while the English says 'read your child', which can mean reading to them."
+        "why": "The Arabic verb means to rebuke or scold, not primarily to repel."
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "field": "items[12].meaning",
+        "type": "meaning",
+        "why": "The Arabic term means conceited or arrogant, not self-deluded."
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "field": "items[15].meaning",
+        "type": "addition",
+        "why": "The bracketed addition \"and people\" is not in the Arabic and expands the meaning beyond the original."
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "field": "items[17].meaning",
+        "type": "meaning",
+        "why": "The Arabic means sound, right, or appropriate speech, not specifically justice."
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "field": "items[21].meaning",
+        "type": "structure",
+        "why": "The English wording is grammatically awkward and should be rephrased for clarity."
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "field": "items[39].meaning",
+        "type": "source_corruption",
+        "why": "The Arabic has an extra fatha after the madda on the first word; it should be آمَنَ."
       },
       {
         "model": "deepseek-v4-pro",
         "field": "items[154].text",
         "type": "meaning",
-        "why": "'Invitation to settle' softens the Arabic 'visual incentive for tranquility'."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "items[163].text",
-        "type": "omission",
-        "why": "The English drops 'وبجانبك' (and beside you), losing the doubled reassurance."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "items[172].text",
-        "type": "meaning",
-        "why": "Arabic says 'sad' (حزين); 'upset' is broader and less precise."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "items[185].text",
-        "type": "quran",
-        "why": "The ayah is enclosed in guillemets «» rather than the required quranic brackets ﴿﴾."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "items[225].text",
-        "type": "meaning",
-        "why": "Arabic says arranging (ترتيب) the gifts, but English changes it to choosing; also adds 'with you'."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "items[230].text",
-        "type": "omission",
-        "why": "English drops 'جمال الروح' (beauty of soul) and keeps only character."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "items[237].text",
-        "type": "meaning",
-        "why": "English omits 'درجات' (degrees) and renders 'به' as 'for' instead of 'by it'."
+        "why": "The English softens 'حافز' (incentive/stimulus) to 'invitation' and renders 'للسكينة' as 'to settle' rather than calm/tranquillity."
       }
     ],
-    "revalidated_at": "2026-11-03T14:03:33+00:00",
+    "revalidated_at": "2026-11-06T14:41:05+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -3154,56 +3154,56 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "de20c34b884bcb08e68ec863a0df3e9b7439af5ca857a5c87d662365b1a837da",
-      "reviewed_at": "2026-11-03T14:03:33+00:00",
+      "content_sha256": "baa3c63fafdb954ad5ca03b14151489cb56c1073a67d6e62e2d540d2a51b833f",
+      "reviewed_at": "2026-11-06T14:41:05+00:00",
       "residual_low": [
         {
           "model": "deepseek-v4-pro",
-          "field": "items[149].text",
+          "field": "items[0].meaning",
+          "type": "addition",
+          "why": "The bracketed word \"many\" is not present in the Arabic and adds an unstated quantity."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "items[7].meaning",
           "type": "meaning",
-          "why": "The Arabic says 'read with your child', emphasising shared activity, while the English says 'read your child', which can mean reading to them."
+          "why": "The Arabic verb means to rebuke or scold, not primarily to repel."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "items[12].meaning",
+          "type": "meaning",
+          "why": "The Arabic term means conceited or arrogant, not self-deluded."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "items[15].meaning",
+          "type": "addition",
+          "why": "The bracketed addition \"and people\" is not in the Arabic and expands the meaning beyond the original."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "items[17].meaning",
+          "type": "meaning",
+          "why": "The Arabic means sound, right, or appropriate speech, not specifically justice."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "items[21].meaning",
+          "type": "structure",
+          "why": "The English wording is grammatically awkward and should be rephrased for clarity."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "items[39].meaning",
+          "type": "source_corruption",
+          "why": "The Arabic has an extra fatha after the madda on the first word; it should be آمَنَ."
         },
         {
           "model": "deepseek-v4-pro",
           "field": "items[154].text",
           "type": "meaning",
-          "why": "'Invitation to settle' softens the Arabic 'visual incentive for tranquility'."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "items[163].text",
-          "type": "omission",
-          "why": "The English drops 'وبجانبك' (and beside you), losing the doubled reassurance."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "items[172].text",
-          "type": "meaning",
-          "why": "Arabic says 'sad' (حزين); 'upset' is broader and less precise."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "items[185].text",
-          "type": "quran",
-          "why": "The ayah is enclosed in guillemets «» rather than the required quranic brackets ﴿﴾."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "items[225].text",
-          "type": "meaning",
-          "why": "Arabic says arranging (ترتيب) the gifts, but English changes it to choosing; also adds 'with you'."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "items[230].text",
-          "type": "omission",
-          "why": "English drops 'جمال الروح' (beauty of soul) and keeps only character."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "items[237].text",
-          "type": "meaning",
-          "why": "English omits 'درجات' (degrees) and renders 'به' as 'for' instead of 'by it'."
+          "why": "The English softens 'حافز' (incentive/stimulus) to 'invitation' and renders 'للسكينة' as 'to settle' rather than calm/tranquillity."
         }
       ],
       "adjudicated": [
@@ -3234,6 +3234,12 @@
           "reason": "«وُلِدتُّ» with shadda is the Hafs Uthmani spelling of Maryam 19:33 (idgham of dal into ta); check_quran_citations matches it to the mushaf. Not a corruption.",
           "by": "claude-opus-5.5 (adhkar meaning review)",
           "on": "2026-11-03"
+        },
+        {
+          "field": "items[185].text",
+          "reason": "The du'a of Yunus is al-Anbiya' 21:87 verbatim. In the English pack, check_adhkar_integrity requires quoted Arabic to sit inside «» (switching to ﴿﴾ fails it as \"Arabic outside a quotation\"), and the surah reference plus the named Saheeh International rendering mark the English as an interpretation of the meaning, as the Quran rule requires. Not an addition.",
+          "by": "claude-opus-5.5 (adhkar t_087 fix)",
+          "on": "2026-11-06"
         }
       ],
       "tool": "ops/tools/review_en_parity.py",
