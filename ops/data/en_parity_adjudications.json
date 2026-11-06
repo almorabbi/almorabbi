@@ -36,7 +36,7 @@
     ]
   },
   "adhkar:family_adhkar": {
-    "content_sha256": "de20c34b884bcb08e68ec863a0df3e9b7439af5ca857a5c87d662365b1a837da",
+    "content_sha256": "baa3c63fafdb954ad5ca03b14151489cb56c1073a67d6e62e2d540d2a51b833f",
     "overrides": [
       {
         "field": "items[145].source",
@@ -65,6 +65,12 @@
         "reason": "«وُلِدتُّ» with shadda is the Hafs Uthmani spelling of Maryam 19:33 (idgham of dal into ta); check_quran_citations matches it to the mushaf. Not a corruption.",
         "by": "claude-opus-5.5 (adhkar meaning review)",
         "on": "2026-11-03"
+      },
+      {
+        "field": "items[185].text",
+        "reason": "The du'a of Yunus is al-Anbiya' 21:87 verbatim. In the English pack, check_adhkar_integrity requires quoted Arabic to sit inside «» (switching to ﴿﴾ fails it as \"Arabic outside a quotation\"), and the surah reference plus the named Saheeh International rendering mark the English as an interpretation of the meaning, as the Quran rule requires. Not an addition.",
+        "by": "claude-opus-5.5 (adhkar t_087 fix)",
+        "on": "2026-11-06"
       }
     ]
   },
