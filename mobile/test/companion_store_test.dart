@@ -25,7 +25,7 @@ void main() {
     expect(back.dueOn, DateTime(2026, 10, 16));
     expect(back.isDue(DateTime(2026, 10, 15, 23)), isFalse);
     expect(back.isDue(DateTime(2026, 10, 16, 6)), isTrue);
-    await s.answer(p.id, 'worked');
+    await s.answer(p.id, 'worked', now: made);
     expect(
       s.read(now: made).promises.single.isDue(DateTime(2026, 10, 20)),
       isFalse,
@@ -64,8 +64,8 @@ void main() {
       lessonId: 'l1',
       now: now,
     );
-    await s.linkFollowup(p.id, 55);
-    await s.answerByFollowup(55, 'partly');
+    await s.linkFollowup(p.id, 55, now: now);
+    await s.answerByFollowup(55, 'partly', now: now);
     expect(s.read(now: now).promises.single.outcome, 'partly');
   });
 

@@ -243,16 +243,27 @@ class CompanionStore {
     return p;
   }
 
-  Future<void> linkFollowup(int promiseId, int followupId) =>
-      _updatePromise(promiseId, (p) => p.copyWith(followupId: followupId));
+  // `now` is for tests only. Every write re-reads the list, and a read drops
+  // promises older than [keepDays] against the clock — so a test pinned to a
+  // fixed date started failing three weeks after that date (2026-11-06).
+  Future<void> linkFollowup(int promiseId, int followupId, {DateTime? now}) =>
+      _updatePromise(
+        promiseId,
+        (p) => p.copyWith(followupId: followupId),
+        now: now,
+      );
 
-  Future<void> answer(int promiseId, String outcome) =>
-      _updatePromise(promiseId, (p) => p.copyWith(outcome: outcome));
+  Future<void> answer(int promiseId, String outcome, {DateTime? now}) =>
+      _updatePromise(promiseId, (p) => p.copyWith(outcome: outcome), now: now);
 
   /// A server follow-up was answered elsewhere (the sheet, a push): close
   /// the promise that carried it so Noor does not ask twice.
-  Future<void> answerByFollowup(int followupId, String outcome) async {
-    final all = read().promises;
+  Future<void> answerByFollowup(
+    int followupId,
+    String outcome, {
+    DateTime? now,
+  }) async {
+    final all = read(now: now).promises;
     if (!all.any((p) => p.followupId == followupId && !p.answered)) return;
     await _savePromises([
       for (final p in all)
@@ -289,9 +300,13 @@ class CompanionStore {
 
   // ── plumbing ────────────────────────────────────────────────────────
 
-  Future<void> _updatePromise(int id, Promise Function(Promise) f) async {
+  Future<void> _updatePromise(
+    int id,
+    Promise Function(Promise) f, {
+    DateTime? now,
+  }) async {
     await _savePromises([
-      for (final p in read().promises) p.id == id ? f(p) : p,
+      for (final p in read(now: now).promises) p.id == id ? f(p) : p,
     ]);
   }
 
