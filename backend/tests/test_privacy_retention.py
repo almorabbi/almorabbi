@@ -201,7 +201,7 @@ def _cron_at(monkeypatch, hour: int):
     monkeypatch.setattr(cpt, "datetime", _Clock)
     monkeypatch.setattr(cpt, "fold_referral_clicks", lambda dry_run=False: 0)
     monkeypatch.setattr(cpt, "_recently_pushed", lambda: set())
-    for name in ("first_lesson_activation", "streak_at_risk", "win_back"):
+    for name in ("first_lesson_activation", "day_two", "streak_at_risk", "win_back"):
         monkeypatch.setattr(cpt, name, lambda skip=None: set())
     ran: list[bool] = []
     monkeypatch.setattr(cpt, "privacy_housekeeping",

@@ -308,6 +308,7 @@ def _quiet_pushes(monkeypatch, cpt, *, failing=False):
     monkeypatch.setattr(cpt, "_recently_pushed", lambda: set())
     monkeypatch.setattr(cpt, "first_lesson_activation",
                         boom if failing else (lambda skip=None: set()))
+    monkeypatch.setattr(cpt, "day_two", lambda skip=None: set())
     monkeypatch.setattr(cpt, "streak_at_risk", lambda skip=None: set())
     monkeypatch.setattr(cpt, "win_back", lambda skip=None: set())
 
