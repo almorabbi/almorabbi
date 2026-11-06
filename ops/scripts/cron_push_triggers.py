@@ -38,6 +38,7 @@ import sqlite3
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
+from typing import NamedTuple, Optional
 
 def _parse_args(argv=None):
     parser = argparse.ArgumentParser()
@@ -66,6 +67,8 @@ sys.path.insert(0, str(BACKEND))
 
 # ruff: noqa: E402
 from app.db.init_db import db_path
+from app.core.real_traffic import e2e_devices, real_device_sql
+from app.services.family_actions import ACTION_SOURCES
 from app.services.push_sender import recently_pushed_since, send_to_device
 
 
@@ -131,13 +134,250 @@ def _deep_link_for(age_group: str | None) -> str:
     return f"/p/{path_id}" if path_id else HOME_LINK
 
 
-# Newest child on the device decides the destination; a device with several
-# children gets the most recently touched one.
-_LATEST_AGE_GROUP = """
-    (SELECT c2.age_group FROM child_profiles c2
-      WHERE c2.device_id = cp.device_id
-      ORDER BY c2.updated_at DESC LIMIT 1)
-"""
+# ── Who each device is, and when we last saw it ─────────────────────────
+#
+# Measured 2026-11-06 (14 days, real devices): 6,624 streak_at_risk pushes to
+# 2,243 devices — 98% of everything this cron sent — and 65% of them went to a
+# device not seen in the app for over 60 days. Idle was read from
+# lesson_progress alone, so a parent who asked the assistant, ticked a plan
+# step or read the daily tip that morning was "at risk" too (180 sends), and
+# a lapsed device met the condition every evening forever (CAP_DAYS only
+# spaced it out). GA4 over 30 days: 2% of FCM notifications opened, 64%
+# dismissed, 218 app_remove against 318 first_open. Every message went out in
+# Arabic — with «الحين» and «دلوقتي» in it — to the 27% of families who use the
+# app in English.
+#
+# So the audience is now built once per run from every open signal, each
+# kind has a window it can leave, re-engagement stops after a fixed number of
+# tries per absence, and the copy follows the family's language.
+
+# Rows written as a calendar date (one per day the app was opened) count as the
+# END of that day: reading 2026-11-05 as 00:00 would make a parent who opened
+# the app at 22:00 look 41 hours idle at the next evening's run.
+_DAY_END = "datetime({col}, '+1 day', '-1 second')"
+
+# (table, SQL expression of a moment the family was in the app). Missing tables
+# or columns are skipped, not fatal — the same rule as family_actions.
+_SEEN_DAYS = (("daily_login_streaks", "date"), ("coach_tips", "date"))
+_SEEN_MOMENTS = (("chat_sessions", "updated_at"), ("push_tokens", "updated_at"))
+
+# The kinds that try to bring a lapsed family back. A follow-up or a feedback
+# reply is something the family asked for; it does not count as nagging.
+_REENGAGE_KINDS = ("streak_at_risk", "win_back")
+
+NUDGE_AFTER = timedelta(hours=36)
+NUDGE_UNTIL = timedelta(days=7)        # after a week the gentle nudge stops …
+WIN_BACK_UNTIL = timedelta(days=60)    # … and win_back stops for good here
+WIN_BACK_MAX = 2                       # win_backs per absence
+REENGAGE_MAX = 4                       # every re-engagement push per absence
+WIN_BACK_GAP = timedelta(days=7)       # between two re-engagement pushes
+NEW_FAMILY = timedelta(hours=42)       # day 0 and day 1 belong to the new-family pushes
+
+
+class Device(NamedTuple):
+    device_id: str
+    first_created: datetime            # the device's first child profile
+    last_seen: datetime                # latest open signal (never before first_created)
+    lang: str                          # 'ar' | 'en'
+    child_name: str                    # the most recently touched child ('' if none)
+    age_group: Optional[str]
+    has_lesson: bool
+    reengaged: tuple                   # datetimes of re-engagement pushes since last_seen
+    win_backs: int                     # win_back pushes since last_seen
+
+
+_AUDIENCE: Optional[list] = None
+
+
+def _ts(value) -> Optional[datetime]:
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(str(value))
+    except ValueError:
+        return None
+
+
+def _columns(conn: sqlite3.Connection, table: str) -> set:
+    return {r[1] for r in conn.execute(f"PRAGMA table_info('{table}')")}
+
+
+def _lang(value: Optional[str]) -> str:
+    v = (value or "").strip().lower()
+    if v.startswith("ar"):
+        return "ar"
+    return "en" if v else "ar"
+
+
+# Names the onboarding pre-fills or a parent types instead of a name. «اليوم
+# الثاني مع طفلي» reads as the app talking about its own child; these get the
+# unnamed copy. Production, 2026-11-06: «طفلي» is on 3,576 profiles.
+_NOT_A_NAME = {"طفلي", "طفلتي", "ابني", "ابنتي", "بنتي", "ولدي", "طفل", "طفلة",
+               "my child", "child", "baby", "kid", "test child", "no username required"}
+_NAME_TRIM = " .،,!?؟-_:؛;\"'«»()"
+
+
+def _display_name(name: Optional[str]) -> str:
+    """A child's name fit for a notification title, or '' for the unnamed copy:
+    no placeholders, nothing with digits or slashes (a birth date typed into
+    the name field), nothing longer than a name."""
+    n = " ".join((name or "").split()).strip(_NAME_TRIM)
+    if not n or n.casefold() in _NOT_A_NAME or len(n) > 20:
+        return ""
+    if any(ch.isdigit() or ch in "/\\@#" for ch in n):
+        return ""
+    return n
+
+
+def _audience() -> list:
+    """Every device holding a push token and at least one child profile —
+    read once per run (the triggers below share it)."""
+    global _AUDIENCE
+    if _AUDIENCE is not None:
+        return _AUDIENCE
+    conn = sqlite3.connect(DB_PATH)
+    try:
+        cols = {t: _columns(conn, t) for t in (
+            "push_tokens", "child_profiles", "lesson_progress", "coach_tips",
+            "followups", "push_sends", "chat_sessions", "daily_login_streaks",
+            *(s.table for s in ACTION_SOURCES))}
+        if not {"device_id", "token"} <= cols["push_tokens"] or "device_id" not in cols["child_profiles"]:
+            _AUDIENCE = []
+            return _AUDIENCE
+
+        # The eval harness and the emulator E2E gate write to this database
+        # too; their installs are not families (app/core/real_traffic.py).
+        real = real_device_sql("device_id", e2e_devices(conn))
+        tokens = {r[0] for r in conn.execute(
+            f"SELECT device_id FROM push_tokens WHERE token IS NOT NULL AND token != '' AND {real}")}
+
+        first: dict = {}
+        latest: dict = {}
+        for dev, created, updated, name, age in conn.execute(
+                "SELECT device_id, datetime(created_at), datetime(COALESCE(updated_at, created_at)), "
+                "name, age_group FROM child_profiles WHERE device_id IS NOT NULL"):
+            if dev not in tokens:
+                continue
+            c = _ts(created)
+            if c is None:
+                continue
+            if dev not in first or c < first[dev]:
+                first[dev] = c
+            u = _ts(updated) or c
+            if dev not in latest or u >= latest[dev][0]:
+                latest[dev] = (u, _display_name(name), age)
+
+        seen: dict = {d: c for d, c in first.items()}
+
+        def bump(sql: str) -> None:
+            for dev, moment in conn.execute(sql):
+                t = _ts(moment)
+                if dev in seen and t is not None and t > seen[dev]:
+                    seen[dev] = t
+
+        for table, col in _SEEN_DAYS:
+            if {"device_id", col} <= cols[table]:
+                bump(f"SELECT device_id, MAX({_DAY_END.format(col=col)}) FROM {table} GROUP BY device_id")
+        for table, col in _SEEN_MOMENTS:
+            if {"device_id", col} <= cols[table]:
+                bump(f"SELECT device_id, MAX(datetime({col})) FROM {table} GROUP BY device_id")
+        for src in ACTION_SOURCES:
+            if {"device_id", src.column} <= cols[src.table]:
+                bump(f"SELECT device_id, MAX(datetime({src.column})) FROM {src.table} GROUP BY device_id")
+
+        has_lesson = (
+            {r[0] for r in conn.execute("SELECT DISTINCT device_id FROM lesson_progress")}
+            if "device_id" in cols["lesson_progress"] else set())
+
+        lang: dict = {}
+        for table, order in (("followups", "rowid"), ("coach_tips", "date, rowid")):
+            if {"device_id", "lang"} <= cols[table]:   # coach_tips last: it wins
+                for dev, lg in conn.execute(
+                        f"SELECT device_id, lang FROM {table} WHERE lang IS NOT NULL ORDER BY {order}"):
+                    lang[dev] = lg
+
+        sends: dict = {}
+        if {"device_id", "kind", "sent_at"} <= cols["push_sends"]:
+            marks = ",".join("?" * len(_REENGAGE_KINDS))
+            for dev, kind, at in conn.execute(
+                    f"SELECT device_id, kind, datetime(sent_at) FROM push_sends "
+                    f"WHERE kind IN ({marks}) AND sent_at >= datetime('now', '-120 days')",
+                    _REENGAGE_KINDS):
+                t = _ts(at)
+                if t is not None:
+                    sends.setdefault(dev, []).append((kind, t))
+    finally:
+        conn.close()
+
+    out = []
+    for dev, c in first.items():
+        last = seen[dev]
+        mine = sorted((k, t) for k, t in sends.get(dev, []) if t > last)
+        _, name, age = latest[dev]
+        out.append(Device(
+            device_id=dev, first_created=c, last_seen=last, lang=_lang(lang.get(dev)),
+            child_name=name, age_group=age, has_lesson=dev in has_lesson,
+            reengaged=tuple(sorted(t for _, t in mine)),
+            win_backs=sum(1 for k, _ in mine if k == "win_back")))
+    _AUDIENCE = out
+    return out
+
+
+# ── Copy ─────────────────────────────────────────────────────────────────
+#
+# Arabic in plain فصحى (the app's register — never a dialect), English for
+# every family that uses the app in English. Nothing that is not true of this
+# family: no «سلسلتك» to someone who never had a streak, no «درس جديد» when the
+# lesson is the one they left, no minute counts the lessons do not keep.
+# (title_named, title_plain, body_named, body_plain) per kind and language.
+TEXT = {
+    "first_lesson_activation": {
+        "ar": ("خطوتك الأولى مع {name} 🌟", "خطوتك الأولى مع طفلك 🌟",
+               "أعددنا لـ{name} أول درس تطبيقي، وهو قصير — ابدأ به الآن.",
+               "أعددنا لطفلك أول درس تطبيقي، وهو قصير — ابدأ به الآن."),
+        "en": ("Your first step with {name} 🌟", "Your first step with your child 🌟",
+               "{name}'s first practical lesson is ready — a short one to begin with.",
+               "Your child's first practical lesson is ready — a short one to begin with."),
+    },
+    "day_two": {
+        "ar": ("اليوم الثاني مع {name} 🌱", "اليوم الثاني مع طفلك 🌱",
+               "خطوة صغيرة اليوم تُثبّت ما بدأته أمس.",
+               "خطوة صغيرة اليوم تُثبّت ما بدأته أمس."),
+        "en": ("Day two with {name} 🌱", "Day two with your child 🌱",
+               "One small step today builds on what you started yesterday.",
+               "One small step today builds on what you started yesterday."),
+    },
+    "streak_at_risk": {
+        "ar": ("رحلة {name} مستمرة 🤍", "رحلتك التربوية مستمرة 🤍",
+               "درس قصير يكمل ما بدأته، في الوقت الذي يناسبك.",
+               "درس قصير يكمل ما بدأته، في الوقت الذي يناسبك."),
+        "en": ("{name}'s journey continues 🤍", "Your parenting journey continues 🤍",
+               "A short lesson picks up where you left off, whenever suits you.",
+               "A short lesson picks up where you left off, whenever suits you."),
+    },
+    "win_back": {
+        "ar": ("اشتقنا إليك 🤍", "اشتقنا إليك 🤍",
+               "طريق {name} ونصيحة اليوم في انتظارك متى عدت.",
+               "نصيحة اليوم في انتظارك متى عدت."),
+        "en": ("We miss you 🤍", "We miss you 🤍",
+               "{name}'s path and today's tip are here whenever you're ready.",
+               "Today's tip is here whenever you're ready."),
+    },
+}
+
+
+def _copy(kind: str, dev: Device) -> tuple:
+    t_named, t_plain, b_named, b_plain = TEXT[kind][dev.lang]
+    name = dev.child_name
+    if name:
+        return t_named.format(name=name), b_named.format(name=name)
+    return t_plain, b_plain
+
+
+def _push(kind: str, dev: Device) -> None:
+    title, body = _copy(kind, dev)
+    _send(device_id=dev.device_id, title=title, body=body,
+          data={"type": kind, "link": _deep_link_for(dev.age_group)})
 
 
 def _recently_pushed() -> set:
@@ -157,131 +397,79 @@ def _recently_pushed() -> set:
     return recently_pushed_since(cutoff)
 
 
-def streak_at_risk(skip: set | None = None) -> set:
-    """Send to parents whose last lesson/login was >36h ago.
-    Returns the device_ids notified so win_back can skip them (≤1 evening
-    push per device — growth plan §4.2 anti-annoyance rule).
-    `skip` carries the frequency cap; see [_recently_pushed]."""
+def first_lesson_activation(skip: set | None = None) -> set:
+    """Families whose first child was added 2–36h ago and who have not opened
+    a single lesson: point them at the first one."""
     skip = skip or set()
-    cutoff = (datetime.utcnow() - timedelta(hours=36)).isoformat()
-    rows = _query(
-        f"""
-        SELECT cp.device_id, {_LATEST_AGE_GROUP} AS age_group
-        FROM child_profiles cp
-        LEFT JOIN lesson_progress lp
-            ON lp.device_id = cp.device_id
-        WHERE cp.device_id IN (
-            SELECT device_id FROM push_tokens WHERE token IS NOT NULL AND token != ''
-        )
-        GROUP BY cp.device_id
-        HAVING MAX(COALESCE(lp.updated_at, cp.created_at)) < ?
-        """,
-        (cutoff,),
-    )
+    now = datetime.utcnow()
     sent: set = set()
-    for r in rows:
-        if r["device_id"] in skip:
+    for dev in _audience():
+        if dev.device_id in skip or dev.has_lesson:
             continue
-        _send(
-            device_id=r["device_id"],
-            title="سلسلتك في انتظارك 🤍",
-            body="درس جديد من «المربّي» ياخد دقيقتين — ادخل الحين واستمر في رحلة تربية أولادك.",
-            data={"type": "streak_at_risk", "link": _deep_link_for(r["age_group"])},
-        )
-        sent.add(r["device_id"])
+        if not (now - timedelta(hours=36) <= dev.first_created <= now - timedelta(hours=2)):
+            continue
+        _push("first_lesson_activation", dev)
+        sent.add(dev.device_id)
     return sent
 
 
-# new_content_digest() removed 2026-08-13.
-#
-# It was the broad one: every device active within a 14-day window, every
-# morning, with a body that carried no information («افتح المربّي واقرأ نصيحة
-# اليوم») and a generic destination (/go). Measured 2026-07-31 → 2026-08-12:
-# 37,393 FCM notifications to 1,567 users, 922 opened (2.5%), 25,327 dismissed
-# (68%). An aggregate like that is dominated by whichever message goes to the
-# most devices most often, which was this one.
-#
-# Those figures are FCM-only — GA4's notification_* events come from the FCM
-# SDK, so the three on-device notifications the app also scheduled were never
-# counted in them. That half was cut in the same release (v1.0.39+84).
-#
-# The evening run survives because it fires on a per-device reason rather than
-# on the calendar, is deduped to at most one push per device, and links to
-# /p/{path_id} — the only push whose effect is observable downstream as
-# lesson_opened.
-#
-# Deleted rather than left disabled, for the reason recorded above about
-# _device_ids_with_tokens: a broadcast helper sitting in the file is the path
-# of least resistance for the next broadcast someone adds.
-
-
-def win_back(skip: set | None = None):
-    """Reach parents who have not opened the app for 5+ days — skipping any
-    device already nudged by streak_at_risk in this run (max 1 evening push)."""
-    skip = skip or set()
-    cutoff = (datetime.utcnow() - timedelta(days=5)).isoformat()
-    rows = _query(
-        f"""
-        SELECT DISTINCT cp.device_id, {_LATEST_AGE_GROUP} AS age_group
-        FROM child_profiles cp
-        WHERE cp.device_id IN (
-            SELECT device_id FROM push_tokens WHERE token IS NOT NULL AND token != ''
-        )
-        AND (cp.updated_at IS NULL OR cp.updated_at < ?)
-        """,
-        (cutoff,),
-    )
-    for r in rows:
-        if r["device_id"] in skip:
-            continue
-        _send(
-            device_id=r["device_id"],
-            title="مشتاقين ليك 🤍",
-            body="رحلة تربية أولادك مستمرة — ادخل المربّي دلوقتي واكمل من حيث وقفت.",
-            data={"type": "win_back", "link": _deep_link_for(r["age_group"])},
-        )
-
-
-def first_lesson_activation(skip: set | None = None) -> set:
-    """Reach newly registered parents (registered between 2h and 36h ago)
-    who have registered a child but NEVER opened or completed a lesson.
-    Directly tackles the 55.8% drop-off in the activation funnel."""
+def day_two(skip: set | None = None) -> set:
+    """Families who started a lesson on their first day and have not been back
+    for 12h, on their second evening. 69% of new families act on day 0 and
+    ~88% are not seen on day 1 (cohorts 21 Sep – 19 Oct) — and until this,
+    nothing reached them until streak_at_risk on the third evening."""
     skip = skip or set()
     now = datetime.utcnow()
-    min_age = (now - timedelta(hours=2)).isoformat()
-    max_age = (now - timedelta(hours=36)).isoformat()
-    rows = _query(
-        f"""
-        SELECT cp.device_id, cp.name AS child_name, {_LATEST_AGE_GROUP} AS age_group
-        FROM child_profiles cp
-        WHERE cp.device_id IN (
-            SELECT device_id FROM push_tokens WHERE token IS NOT NULL AND token != ''
-        )
-        AND cp.created_at <= ? AND cp.created_at >= ?
-        AND cp.device_id NOT IN (
-            SELECT DISTINCT device_id FROM lesson_progress
-        )
-        GROUP BY cp.device_id
-        """,
-        (min_age, max_age),
-    )
     sent: set = set()
-    for r in rows:
-        if r["device_id"] in skip:
+    for dev in _audience():
+        if dev.device_id in skip or not dev.has_lesson:
             continue
-        child_name = (r["child_name"] or "").strip()
-        body = (
-            f"خصصنا أول درس تطبيقي لـ {child_name} مدته دقيقتان فقط — ابدأ الآن!"
-            if child_name
-            else "خصصنا أول درس تطبيقي لطفلك مدته دقيقتان فقط — ابدأ الآن!"
-        )
-        _send(
-            device_id=r["device_id"],
-            title="خطوتك الأولى مع طفلك 🌟",
-            body=body,
-            data={"type": "first_lesson_activation", "link": _deep_link_for(r["age_group"])},
-        )
-        sent.add(r["device_id"])
+        if not (now - NEW_FAMILY <= dev.first_created <= now - timedelta(hours=18)):
+            continue
+        if dev.last_seen > now - timedelta(hours=12):
+            continue
+        _push("day_two", dev)
+        sent.add(dev.device_id)
+    return sent
+
+
+def streak_at_risk(skip: set | None = None) -> set:
+    """The gentle nudge: not seen for 36h–7 days. (The kind keeps its old
+    name so push_sends and the reports read across the change; the copy no
+    longer mentions a streak.) At most two per absence."""
+    skip = skip or set()
+    now = datetime.utcnow()
+    sent: set = set()
+    for dev in _audience():
+        if dev.device_id in skip or dev.first_created > now - NEW_FAMILY:
+            continue
+        idle = now - dev.last_seen
+        if not (NUDGE_AFTER <= idle < NUDGE_UNTIL) or len(dev.reengaged) >= 2:
+            continue
+        _push("streak_at_risk", dev)
+        sent.add(dev.device_id)
+    return sent
+
+
+def win_back(skip: set | None = None) -> set:
+    """Not seen for 7–60 days: at most WIN_BACK_MAX win_backs and REENGAGE_MAX
+    re-engagement pushes in all per absence, a week apart. Then silence until
+    the family opens the app again — which resets the count."""
+    skip = skip or set()
+    now = datetime.utcnow()
+    sent: set = set()
+    for dev in _audience():
+        if dev.device_id in skip:
+            continue
+        idle = now - dev.last_seen
+        if not (NUDGE_UNTIL <= idle < WIN_BACK_UNTIL):
+            continue
+        if dev.win_backs >= WIN_BACK_MAX or len(dev.reengaged) >= REENGAGE_MAX:
+            continue
+        if dev.reengaged and now - dev.reengaged[-1] < WIN_BACK_GAP:
+            continue
+        _push("win_back", dev)
+        sent.add(dev.device_id)
     return sent
 
 
@@ -360,8 +548,9 @@ def privacy_housekeeping(dry_run: bool = False) -> bool:
 
 
 def main(argv=None) -> int:
-    global BASE_URL, DRY_RUN, FORCE, CAP_DAYS
+    global BASE_URL, DRY_RUN, FORCE, CAP_DAYS, _AUDIENCE
     args = _parse_args(argv)
+    _AUDIENCE = None
     BASE_URL = args.base_url.rstrip("/")
     DRY_RUN = args.dry_run
     FORCE = args.force
@@ -384,10 +573,13 @@ def main(argv=None) -> int:
     try:
         if FORCE or 17 <= hour < 18:
             skip = _recently_pushed()
-            print(f"  -> first_lesson_activation + streak_at_risk + win_back (deduped, {len(skip)} capped)")
-            act_sent = first_lesson_activation(skip=skip)
-            nudged = streak_at_risk(skip=skip | act_sent)
-            win_back(skip=nudged | act_sent | skip)
+            print(f"  -> first_lesson_activation + day_two + streak_at_risk + win_back "
+                  f"(deduped, {len(skip)} capped)")
+            done = set(skip)
+            for trigger in (first_lesson_activation, day_two, streak_at_risk, win_back):
+                got = trigger(skip=done) or set()
+                print(f"     {trigger.__name__}: {len(got)}")
+                done |= got
         else:
             print("  -> outside the 17 UTC window; no pushes (use --force to test)")
     finally:
