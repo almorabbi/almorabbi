@@ -57,11 +57,26 @@ def _check_birth_month(v: Optional[str]) -> Optional[str]:
     return programs_common.validate_birth_month(v)
 
 
+# Emoji only: rejects text, whitespace and control characters. Besides the
+# astral emoji planes this has to admit the BMP symbols that are emoji too —
+# ⭐ (U+2B50) sits in Misc Symbols and Arrows, outside 2600–27BF, and was
+# offered by the app's avatar picker while this pattern refused it, so a
+# parent who chose it could not add the child (422, 2026-11-06).
+_AVATAR_EMOJI = re.compile(
+    r"[\U0001F000-\U0010FFFF\u2190-\u21FF\u2300-\u23FF\u24C2\u25A0-\u25FF"
+    r"\u2600-\u27BF\u2900-\u297F\u2B00-\u2BFF\u3030\u303D\u3297\u3299"
+    r"\u00A9\u00AE\u203C\u2049\u2122\u2139\u200D\uFE0F]+"
+)
+# Codepoints, not graphemes: the picker's family of five (👨‍👩‍👧‍👦‍👶) is
+# nine — five people joined by four ZWJs — and the old cap of 8 refused it.
+AVATAR_EMOJI_MAX_CODEPOINTS = 16
+
+
 class ChildCreateRequest(BaseModel):
     name: str = Field(..., min_length=1, max_length=80)
     age_group: str
     gender: Optional[str] = Field(default=None, max_length=20)
-    avatar_emoji: Optional[str] = Field(default=None, max_length=8)
+    avatar_emoji: Optional[str] = Field(default=None, max_length=AVATAR_EMOJI_MAX_CODEPOINTS)
     birth_month: Optional[str] = Field(default=None, max_length=7)
 
     @field_validator("birth_month")
@@ -91,10 +106,7 @@ class ChildCreateRequest(BaseModel):
     def _validate_emoji(cls, v: Optional[str]) -> Optional[str]:
         if v is None:
             return v
-        # A simple sanity check: 1-6 grapheme-ish chars; not perfect but
-        # rejects multi-line / control-character input. Surrogate-pair
-        # emojis (4-byte) take 2 chars in UTF-16 / 1 codepoint.
-        if not re.match(r"^[\U0001F000-\U0010FFFF\U00002600-\U000027BF\U0001F300-\U0001FAFF\u2600-\u27BF\u200D\uFE0F]+$", v):
+        if not _AVATAR_EMOJI.fullmatch(v):
             raise ValueError("avatar_emoji يجب أن يكون إيموجي واحد أو أكثر")
         return v
 
@@ -107,7 +119,7 @@ class ChildUpdateRequest(BaseModel):
     name: Optional[str] = Field(default=None, min_length=1, max_length=80)
     age_group: Optional[str] = Field(default=None, max_length=10)
     gender: Optional[str] = Field(default=None, max_length=20)
-    avatar_emoji: Optional[str] = Field(default=None, max_length=8)
+    avatar_emoji: Optional[str] = Field(default=None, max_length=AVATAR_EMOJI_MAX_CODEPOINTS)
     # `"birth_month": null` clears it; leaving the key out leaves it alone.
     birth_month: Optional[str] = Field(default=None, max_length=7)
 
@@ -142,7 +154,7 @@ class ChildUpdateRequest(BaseModel):
     def _validate_emoji(cls, v: Optional[str]) -> Optional[str]:
         if v is None:
             return v
-        if not re.match(r"^[\U0001F000-\U0010FFFF\U00002600-\U000027BF\U0001F300-\U0001FAFF\u2600-\u27BF\u200D\uFE0F]+$", v):
+        if not _AVATAR_EMOJI.fullmatch(v):
             raise ValueError("avatar_emoji يجب أن يكون إيموجي واحد أو أكثر")
         return v
 
