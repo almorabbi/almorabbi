@@ -68,8 +68,15 @@ def _real(column: str = "device_id") -> str:
 
 
 def _fetch_ops_metrics() -> dict:
-    """Fetch from /api/stats/ops-llm using the ops token."""
-    base = os.environ.get("TG_API_BASE", "https://tg-api.alsaba.cloud")
+    """Fetch from /api/stats/ops-llm using the ops token.
+
+    The cron runs this inside tg_backend (`docker exec`), so the default is the
+    app itself on 127.0.0.1:8000. Through the public URL Cloudflare answered
+    every run with 403 "error code: 1010" (it bans Python-urllib's signature),
+    and the weekly report printed «مقاييس LLM: ⚠️ HTTP Error 403» — measured
+    2026-11-08: public → 403 (cf-ray), local → 200 with the same token.
+    """
+    base = os.environ.get("TG_API_BASE", "http://127.0.0.1:8000")
     token = os.environ.get("TG_OPS_METRICS_TOKEN", "")
     if not token:
         return {"error": "no token"}
