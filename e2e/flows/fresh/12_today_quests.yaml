@@ -18,16 +18,18 @@ name: fresh/12 Today quests — today's mission done without handover
       text: '${output.t.missionTodayDoneButton}'
     direction: DOWN
     timeout: 30000
-- assertVisible: '${output.t.missionTodayFor}'
+# Today merges its texts into one node: the header, the title and the done
+# line are matched as contained (`c`); the button is its own node (`t`).
+- assertVisible: '${output.c.missionTodayFor}'
 - takeScreenshot: today_quests_mission
 - tapOn: '${output.t.missionTodayDoneButton}'
 - extendedWaitUntil:
-    visible: '${output.t.missionPraiseSheetTitle}'
+    visible: '${output.c.missionPraiseSheetTitle}'
     timeout: 15000
 - tapOn: '${output.t.praiseChipProud}'
 - tapOn: '${output.t.missionPraiseSend}'
 - extendedWaitUntil:
-    visible: '${output.t.missionTodayDone}'
+    visible: '${output.c.missionTodayDone}'
     timeout: 30000
 - assertNotVisible: '${output.t.missionTodayDoneButton}'
 - assertNotVisible: '${output.c.lit_errorWidget}'
