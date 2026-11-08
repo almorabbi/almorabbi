@@ -62,6 +62,7 @@ Future<_MissionServer> _pump(WidgetTester tester, [_MissionServer? s]) async {
 
 Future<void> _tapDone(WidgetTester tester) async {
   await tester.ensureVisible(find.text('أُنجزت'));
+  await tester.pump();
   await tester.tap(find.text('أُنجزت'));
   await settle(tester);
 }
