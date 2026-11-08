@@ -261,6 +261,20 @@ class Analytics {
   static Future<void> praiseSent(String ageBand) =>
       _log('praise_sent', {'age_band': ageBand});
 
+  /// Every step of the week's plan is ticked — logged once per child per
+  /// week by the card (2026-11-08 baseline: 7 ticks ever, so this is new).
+  static Future<void> planWeekComplete() => _log('plan_week_complete');
+
+  /// Today's mission card shown to the parent on «اليوم» (no handover).
+  static Future<void> missionShownParent(String ageBand) =>
+      _log('mission_shown_parent', {'age_band': ageBand});
+
+  /// The parent pressed «عملها» on today's mission. A parenting act — the
+  /// same row lights today's lantern on the server.
+  static Future<void> missionDoneParent(String ageBand, {required bool withNote}) =>
+      _log('mission_done_parent',
+          {'age_band': ageBand, 'with_note': withNote ? 1 : 0});
+
   /// The parent committed to one doable step («تمام، سأفعلها»). `when` is the
   /// slot they chose; `source` is where: the lesson's step (`lesson`) or a
   /// step taken from an assistant answer (`chat`, «سأجرّبها مع …»).

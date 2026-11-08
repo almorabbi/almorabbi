@@ -6354,6 +6354,40 @@ class AppLocalizationsEn extends AppLocalizations {
   String get planMarkHint => 'Tap to tick it';
 
   @override
+  String planWeekComplete(String name) {
+    return 'You did all three steps with $name this week. That\'s how good habits grow.';
+  }
+
+  @override
+  String missionTodayFor(String name) {
+    return 'Today\'s mission for $name';
+  }
+
+  @override
+  String missionTodayHint(String name) {
+    return 'Tell $name about it, and mark it once it\'s done.';
+  }
+
+  @override
+  String get missionTodayDoneButton => 'Done';
+
+  @override
+  String missionTodayDone(String name) {
+    return '$name did today\'s mission';
+  }
+
+  @override
+  String missionPraiseSheetTitle(String name) {
+    return 'A kind word for $name?';
+  }
+
+  @override
+  String get missionPraiseSend => 'Send';
+
+  @override
+  String get missionPraiseSkip => 'Done, no word';
+
+  @override
   String planMarkedCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,

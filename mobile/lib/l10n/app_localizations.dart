@@ -10658,6 +10658,54 @@ abstract class AppLocalizations {
   /// **'اضغط للتعليم عليها'**
   String get planMarkHint;
 
+  /// Shown once all three steps of the week's plan are ticked, beside Noor. Easy MSA, family-neutral plural, no number, no coin, no promise of reward.
+  ///
+  /// In ar, this message translates to:
+  /// **'أتممتم الخطوات الثلاث مع {name} هذا الأسبوع. هكذا تُبنى العادات الطيبة.'**
+  String planWeekComplete(String name);
+
+  /// Heading of today's mission row on «اليوم» (parent side, no handover).
+  ///
+  /// In ar, this message translates to:
+  /// **'مهمة اليوم لـ{name}'**
+  String missionTodayFor(String name);
+
+  /// Under today's mission on «اليوم»: the parent tells the child, then marks it. Family-neutral, gender-neutral.
+  ///
+  /// In ar, this message translates to:
+  /// **'أخبروا {name} بها، وعلّموا عليها حين تُنجَز.'**
+  String missionTodayHint(String name);
+
+  /// Button: the parent marks today's mission done.
+  ///
+  /// In ar, this message translates to:
+  /// **'أُنجزت'**
+  String get missionTodayDoneButton;
+
+  /// Line once today's mission is done. Plain statement, no reward.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنجز {name} مهمة اليوم'**
+  String missionTodayDone(String name);
+
+  /// Sheet after «أُنجزت»: optional kind word the child reads next time in child mode.
+  ///
+  /// In ar, this message translates to:
+  /// **'كلمة طيبة لـ{name}؟'**
+  String missionPraiseSheetTitle(String name);
+
+  /// Sheet button when a kind word is chosen or written.
+  ///
+  /// In ar, this message translates to:
+  /// **'أرسل'**
+  String get missionPraiseSend;
+
+  /// Sheet button when no kind word was chosen: marks done without a note.
+  ///
+  /// In ar, this message translates to:
+  /// **'تمّ، بلا كلمة'**
+  String get missionPraiseSkip;
+
   /// Line on the collapsed weekly-plan card once a step is ticked. Positive only — never 'steps left'. «قناديل الأسبوع» (نور والقناديل phase 3). Easy MSA, family-neutral plural (أتممتم), no promise of reward, no missed/lost wording.
   ///
   /// In ar, this message translates to:

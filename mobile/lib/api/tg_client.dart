@@ -2911,6 +2911,52 @@ class TgClient {
     });
   }
 
+  /// Today's mission card for the parent, read-only (`mission_id` null until
+  /// someone acts on it). Null when the band has no bank, and on a server that
+  /// predates the endpoint (404) — the row on «اليوم» then hides itself.
+  Future<Map<String, dynamic>?> fetchParentMissionToday(int childId) async {
+    return _guard(() async {
+      final session = await ensureSession();
+      final uri = Uri.parse('$_baseUrl/api/children/$childId/mission/today')
+          .replace(queryParameters: {
+        'tz_offset_minutes': '${DateTime.now().timeZoneOffset.inMinutes}',
+        ..._langParam(),
+      });
+      final resp = await _http
+          .get(uri, headers: _authHeaders(session.token))
+          .timeout(AppConfig.httpTimeout);
+      if (resp.statusCode == 404) return null;
+      if (resp.statusCode != 200) throw _wrap(resp);
+      final body = jsonDecode(utf8.decode(resp.bodyBytes)) as Map<String, dynamic>;
+      return body['mission'] as Map<String, dynamic>?;
+    });
+  }
+
+  /// The parent marks today's mission done — no handover. Idempotent on the
+  /// server; false when the card can no longer be settled (409: expired).
+  Future<bool> markParentMissionDone(int childId,
+      {required String missionKey, String? note}) async {
+    return _guard(() async {
+      final session = await ensureSession();
+      final uri =
+          Uri.parse('$_baseUrl/api/children/$childId/mission/today/done');
+      final resp = await _http
+          .post(uri,
+              headers: {..._authHeaders(session.token),
+                'Content-Type': 'application/json'},
+              body: jsonEncode({
+                'mission_key': missionKey,
+                if (note != null && note.trim().isNotEmpty) 'note': note.trim(),
+                'tz_offset_minutes':
+                    DateTime.now().timeZoneOffset.inMinutes.clamp(-720, 840),
+              }))
+          .timeout(AppConfig.httpTimeout);
+      if (resp.statusCode == 409) return false;
+      if (resp.statusCode != 200) throw _wrap(resp);
+      return true;
+    });
+  }
+
   // ── Family programs (MOBILE_API §11, backend schema v34) ────────────────
   //
   // Ramadan, the Prayer Journey and the proactive milestones. Every call sends
