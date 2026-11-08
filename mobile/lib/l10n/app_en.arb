@@ -2085,7 +2085,7 @@
   "planWeekComplete": "You did all three steps with {name} this week. That's how good habits grow.",
   "missionTodayFor": "Today's mission for {name}",
   "missionTodayHint": "Tell {name} about it, and mark it once it's done.",
-  "missionTodayDoneButton": "Done",
+  "missionTodayDoneButton": "Mark done",
   "missionTodayDone": "{name} did today's mission",
   "missionPraiseSheetTitle": "A kind word for {name}?",
   "missionPraiseSend": "Send",
