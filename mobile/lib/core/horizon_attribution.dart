@@ -21,7 +21,7 @@ abstract final class HorizonAttribution {
 
   /// The events that are parenting acts — the lanterns' own list, as the
   /// app logs them: a lesson finished, a question asked, a follow-up or a
-  /// promise answered, a next step kept, praise sent.
+  /// promise answered, a next step kept, praise sent, today's mission done.
   static const acts = {
     'lesson_completed',
     'chat_message_sent',
@@ -29,6 +29,7 @@ abstract final class HorizonAttribution {
     'promise_checked',
     'next_step_committed',
     'praise_sent',
+    'mission_done_parent',
   };
 
   /// Remember a tap on [gate] (a `GateKind.wire`, or `strip`).

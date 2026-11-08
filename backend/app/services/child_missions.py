@@ -128,6 +128,22 @@ def _pick(candidates: list[dict[str, Any]], child_id: int,
 
 # ── Assignment and claiming ────────────────────────────────────────────────
 
+def _choose(conn: sqlite3.Connection, child_id: int,
+            missions: list[dict[str, Any]], local_date: str) -> dict[str, Any]:
+    """Today's pick for a child: fresh inside the no-repeat window, else any.
+
+    Pure with respect to the table — it reads, never writes — so the parent's
+    preview and the child's assignment agree on the same card.
+    """
+    cutoff = (date.fromisoformat(local_date)
+              - timedelta(days=NO_REPEAT_DAYS)).isoformat()
+    seen = _recently_assigned(conn, child_id, cutoff)
+    fresh = [m for m in missions if m["id"] not in seen]
+    # Everything used inside the window: fall back to the whole bank
+    # rather than handing the child nothing. A repeat beats a blank.
+    return _pick(fresh or missions, child_id, local_date)
+
+
 def today_mission(device_id: str, child_id: int, age_band: str,
                   local_date: str, lang: Optional[str] = None,
                   assign: bool = True) -> Optional[dict[str, Any]]:
@@ -165,13 +181,7 @@ def today_mission(device_id: str, child_id: int, age_band: str,
         if not assign:
             return None
 
-        cutoff = (date.fromisoformat(local_date)
-                  - timedelta(days=NO_REPEAT_DAYS)).isoformat()
-        seen = _recently_assigned(conn, child_id, cutoff)
-        fresh = [m for m in missions if m["id"] not in seen]
-        # Everything used inside the window: fall back to the whole bank
-        # rather than handing the child nothing. A repeat beats a blank.
-        chosen = _pick(fresh or missions, child_id, local_date)
+        chosen = _choose(conn, child_id, missions, local_date)
 
         conn.execute(
             "INSERT OR IGNORE INTO child_missions (device_id, child_id, "
@@ -258,6 +268,105 @@ def claim(child_id: int, mission_id: int) -> dict[str, Any]:
         )
         conn.commit()
         return {"ok": True, "status": "claimed"}
+    finally:
+        conn.close()
+
+
+# ── The parent's own tap (no handover) ─────────────────────────────────────
+#
+# Production, 28 days to 2026-11-08, real devices only: 4 missions confirmed.
+# The only road to a confirmation ran through child mode — PIN, handover, the
+# child's claim, the evening list — and a 2–3-year-old has no screen surface
+# at all. The parent can just tell the child about today's card and press
+# «عملها» once it is done. Two rules from the past keep this honest:
+#
+#   * Reading still mints nothing. The parent's «اليوم» renders a *preview*
+#     (`mission_id` None); a row is written only by the tap, so no card
+#     expires unseen and no lantern lights for a card nobody acted on
+#     (`assigned_at` is an act in family_actions).
+#   * The child's surface stays the authority for its own row: when the child
+#     already has today's card the preview IS that row, and the tap settles it.
+
+def preview_today(child_id: int, age_band: str, local_date: str,
+                  lang: Optional[str] = None) -> Optional[dict[str, Any]]:
+    """Today's card for the parent to read — the real row if there is one,
+    else the card the child *would* get, without writing anything."""
+    missions = load_missions(age_band, lang)
+    if not missions:
+        return None
+    conn = get_conn()
+    try:
+        existing = conn.execute(
+            "SELECT * FROM child_missions WHERE child_id = ? AND local_date = ? "
+            f"AND {_BANK_ONLY} ORDER BY id DESC LIMIT 1",
+            (child_id, local_date),
+        ).fetchone()
+        if existing is not None:
+            return _row_to_card(existing, missions)
+        chosen = _choose(conn, child_id, missions, local_date)
+    finally:
+        conn.close()
+    card = _row_to_card(
+        {"id": None, "mission_key": chosen["id"], "status": "preview",
+         "local_date": local_date, "claimed_at": None, "confirmed_at": None,
+         "source": None},
+        missions)
+    return card
+
+
+def parent_done(device_id: str, child_id: int, age_band: str, local_date: str,
+                mission_key: str, note: Optional[str] = None,
+                lang: Optional[str] = None) -> dict[str, Any]:
+    """The parent says today's card happened. Idempotent per child per day.
+
+    `mission_key` is the card the parent was shown. It must be in the band's
+    bank; when the child already holds a different card for today, the
+    child's row wins and is the one settled — the parent and child never
+    end up with two cards for one day.
+    """
+    missions = load_missions(age_band, lang)
+    if not any(m["id"] == mission_key for m in missions):
+        return {"ok": False, "reason": "unknown_mission"}
+    note = (note or "").strip()[:280] or None
+    now = _iso(_now())
+    conn = get_conn()
+    try:
+        row = conn.execute(
+            "SELECT * FROM child_missions WHERE child_id = ? AND local_date = ? "
+            f"AND {_BANK_ONLY} ORDER BY id DESC LIMIT 1",
+            (child_id, local_date),
+        ).fetchone()
+        if row is None:
+            conn.execute(
+                "INSERT OR IGNORE INTO child_missions (device_id, child_id, "
+                "mission_key, local_date, status, assigned_at, confirmed_at, "
+                "parent_note) VALUES (?, ?, ?, ?, 'confirmed', ?, ?, ?)",
+                (device_id, child_id, mission_key, local_date, now, now, note),
+            )
+            conn.commit()
+            row = conn.execute(
+                "SELECT * FROM child_missions WHERE child_id = ? AND local_date = ? "
+                f"AND {_BANK_ONLY} ORDER BY id DESC LIMIT 1",
+                (child_id, local_date),
+            ).fetchone()
+            if row["status"] == "confirmed":
+                return {"ok": True, "status": "confirmed", "mission_id": row["id"]}
+        if row["status"] == "confirmed":
+            if note and not row["parent_note"]:
+                conn.execute("UPDATE child_missions SET parent_note = ? WHERE id = ?",
+                             (note, row["id"]))
+                conn.commit()
+            return {"ok": True, "status": "confirmed", "mission_id": row["id"]}
+        if row["status"] in ("expired", "not_done"):
+            return {"ok": False, "reason": "already_settled"}
+        conn.execute(
+            "UPDATE child_missions SET status = 'confirmed', confirmed_at = ?, "
+            "parent_note = COALESCE(?, parent_note) "
+            "WHERE id = ? AND status IN ('assigned', 'claimed')",
+            (now, note, row["id"]),
+        )
+        conn.commit()
+        return {"ok": True, "status": "confirmed", "mission_id": row["id"]}
     finally:
         conn.close()
 

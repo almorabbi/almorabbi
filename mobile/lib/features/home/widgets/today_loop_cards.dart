@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 
 import '../../child_memory/widgets/today_followup_card.dart';
 import '../../child_memory/widgets/today_weekly_plan_card.dart';
+import '../../missions/today_mission_row.dart';
 import '../../onboarding/providers/onboarding_providers.dart';
 
 class TodayLoopCards extends StatelessWidget {
@@ -36,6 +37,12 @@ class TodayLoopCards extends StatelessWidget {
       children: [
         if (!hideFollowup) TodayFollowupCard(activeChildId: child.id),
         TodayWeeklyPlanCard(
+          childId: child.id,
+          childName: child.name,
+          ageGroup: child.ageGroup,
+        ),
+        TodayMissionRow(
+          key: ValueKey('mission-${child.id}'),
           childId: child.id,
           childName: child.name,
           ageGroup: child.ageGroup,

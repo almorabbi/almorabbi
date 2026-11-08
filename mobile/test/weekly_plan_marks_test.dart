@@ -256,13 +256,16 @@ void main() {
       ));
       await settle(tester);
       expect(find.text('اعرض الخطة كاملة'), findsOneWidget);
-      expect(find.text(_step2), findsNothing);
+      // Collapsed: the three steps stay tickable; the worship act waits.
+      expect(find.text(_step2), findsOneWidget);
+      expect(find.text('اختاروا معًا عملًا خيريًا صغيرًا.'), findsNothing);
     });
 
-    testWidgets('any other day: collapsed as always', (tester) async {
+    testWidgets('any other day: collapsed, the three steps one tap away', (tester) async {
       await pumpOn(tester, _thisMonday.add(const Duration(days: 2, hours: 9)));
       expect(find.text('اعرض الخطة كاملة'), findsOneWidget);
-      expect(find.text(_step2), findsNothing);
+      expect(find.text(_step2), findsOneWidget);
+      expect(find.text('اختاروا معًا عملًا خيريًا صغيرًا.'), findsNothing);
     });
 
     testWidgets('reduced motion: revealed, but with no motion', (tester) async {
@@ -271,6 +274,55 @@ void main() {
       expect(find.text('أخفِ التفاصيل'), findsOneWidget);
       expect(find.text(_step2), findsOneWidget);
       expect(find.byType(Animate), findsNothing);
+    });
+  });
+
+  group('the three steps on the collapsed card (2026-11-08)', () {
+    testWidgets('a step ticks without opening the card', (tester) async {
+      final server = FakeMemoryServer()..plans[12] = planJson(12);
+      await pumpMemoryApp(tester, _today(), server: server);
+      await settle(tester);
+      expect(find.text('اعرض الخطة كاملة'), findsOneWidget);
+      await tester.tap(find.text(_step2));
+      await settle(tester);
+      expect(_ticked(tester, _step2), isTrue);
+      expect(server.marks[12], ['a2']);
+    });
+
+    testWidgets('all three ticked: Noor says so once, with no number or coin', (
+      tester,
+    ) async {
+      final server = FakeMemoryServer()
+        ..plans[12] = (planJson(12)..['marks'] = ['a1', 'a3'])
+        ..marks[12] = ['a1', 'a3'];
+      await pumpMemoryApp(tester, _today(), server: server);
+      await settle(tester);
+      expect(find.textContaining('أتممتم الخطوات الثلاث'), findsNothing);
+      await tester.tap(find.text(_step2));
+      await settle(tester);
+      final line = find.textContaining('أتممتم الخطوات الثلاث مع أحمد');
+      expect(line, findsOneWidget);
+      final text = tester.widget<Text>(line).data!;
+      expect(RegExp(r'[0-9٠-٩]').hasMatch(text), isFalse);
+      for (final banned in ['عملة', 'نقاط', 'أجر', 'ثواب', 'فاتك']) {
+        expect(text.contains(banned), isFalse, reason: banned);
+      }
+      // Untick one: the line goes, quietly — nothing reads as lost.
+      await tester.tap(find.text(_step2));
+      await settle(tester);
+      expect(find.textContaining('أتممتم الخطوات الثلاث'), findsNothing);
+      expect(find.textContaining('فاتك'), findsNothing);
+    });
+
+    testWidgets('a plan opened already complete shows the line, without motion', (
+      tester,
+    ) async {
+      final server = FakeMemoryServer()
+        ..plans[12] = (planJson(12)..['marks'] = ['a1', 'a2', 'a3'])
+        ..marks[12] = ['a1', 'a2', 'a3'];
+      await pumpMemoryApp(tester, _today(), server: server);
+      await settle(tester);
+      expect(find.textContaining('أتممتم الخطوات الثلاث مع أحمد'), findsOneWidget);
     });
   });
 }

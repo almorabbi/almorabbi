@@ -919,6 +919,53 @@ def confirm_missions(body: MissionConfirmIn, request: Request):
     return result
 
 
+class ParentMissionDoneIn(BaseModel):
+    mission_key: str = Field(..., min_length=1, max_length=80)
+    note: Optional[str] = Field(default=None, max_length=280)
+    tz_offset_minutes: int = Field(default=0, ge=-14 * 60, le=14 * 60)
+
+
+def _owned_child_band(request: Request, child_id: int) -> tuple[str, str]:
+    device_id = _require_device_id(request)
+    conn = get_conn()
+    try:
+        _load_owned_child(conn, child_id, device_id)
+        row = conn.execute(
+            "SELECT age_group FROM child_profiles WHERE id = ?", (child_id,)
+        ).fetchone()
+    finally:
+        conn.close()
+    return device_id, map_profile_age_to_band(row["age_group"])
+
+
+@router.get("/children/{child_id}/mission/today",
+            summary="Today's mission card for the parent — read-only preview")
+def parent_mission_today(child_id: int, request: Request,
+                         tz_offset_minutes: int = 0,
+                         lang: str | None = Query(None)):
+    """The card the parent can hand on by word of mouth. Reading mints
+    nothing (see child_missions.preview_today): `mission_id` is None until
+    the parent — or the child's own surface — acts on it."""
+    _, band = _owned_child_band(request, child_id)
+    local_date = child_budget.local_date_for(datetime.now(timezone.utc),
+                                             tz_offset_minutes)
+    return {"mission": child_missions.preview_today(child_id, band, local_date, lang)}
+
+
+@router.post("/children/{child_id}/mission/today/done",
+             summary="The parent marks today's mission done, without a handover")
+def parent_mission_done(child_id: int, body: ParentMissionDoneIn, request: Request):
+    device_id, band = _owned_child_band(request, child_id)
+    local_date = child_budget.local_date_for(datetime.now(timezone.utc),
+                                             body.tz_offset_minutes)
+    result = child_missions.parent_done(
+        device_id, child_id, band, local_date, body.mission_key, body.note)
+    if not result.get("ok"):
+        code = 404 if result.get("reason") == "unknown_mission" else 409
+        raise HTTPException(status_code=code, detail=result.get("reason"))
+    return result
+
+
 @router.get("/children/{child_id}/today",
             summary="The parent's one-screen view of a child's day")
 def child_day_summary(child_id: int, request: Request,

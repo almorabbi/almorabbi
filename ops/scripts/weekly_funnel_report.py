@@ -674,8 +674,47 @@ def _pct(hit: int, eligible: int) -> str:
     return f"{hit / eligible * 100:.0f}%" if eligible else "—"
 
 
+def get_quest_metrics(db_path: Path, days: int) -> dict:
+    """The two family quests that already existed before anyone could do them
+    in one tap (2026-11-08 baseline, real devices: 7 weekly-plan marks ever,
+    4 bank missions confirmed in 28 days).
+
+    plan_devices — devices that fetched a weekly plan in the window (the card
+    rendered); plan_markers — devices that ticked at least one step.
+    missions_parent — bank missions the parent marked done straight from
+    «اليوم» (no child claim); missions_child — through the child's surface.
+    """
+    window = f"-{days} days"
+    out = {"plan_devices": 0, "plan_markers": 0,
+           "missions_parent": 0, "missions_child": 0}
+    if _has_table(db_path, "weekly_plans"):
+        out["plan_devices"] = _query(
+            db_path,
+            f"SELECT COUNT(DISTINCT device_id) AS n FROM weekly_plans "
+            f"WHERE created_at >= datetime('now', ?) AND {_real(db_path, 'device_id')}",
+            (window,))[0]["n"] or 0
+    if _has_table(db_path, "weekly_plan_marks"):
+        out["plan_markers"] = _query(
+            db_path,
+            f"SELECT COUNT(DISTINCT device_id) AS n FROM weekly_plan_marks "
+            f"WHERE created_at >= datetime('now', ?) AND {_real(db_path, 'device_id')}",
+            (window,))[0]["n"] or 0
+    if _has_table(db_path, "child_missions"):
+        bank = "source IS NULL" if "source" in _columns(db_path, "child_missions") else "1=1"
+        r = _query(
+            db_path,
+            f"SELECT SUM(claimed_at IS NULL) AS parent, SUM(claimed_at IS NOT NULL) AS child "
+            f"FROM child_missions WHERE status = 'confirmed' AND {bank} "
+            f"AND confirmed_at >= datetime('now', ?) AND {_real(db_path, 'device_id')}",
+            (window,))[0]
+        out["missions_parent"] = r["parent"] or 0
+        out["missions_child"] = r["child"] or 0
+    return out
+
+
 def format_report(days: int, north: list[dict], openers: list[dict], cohorts: list[dict],
-                  funnel: dict, qm: dict, tips: dict, fb: dict) -> str:
+                  funnel: dict, qm: dict, tips: dict, fb: dict,
+                  quests: dict | None = None) -> str:
     """Format metrics into a concise, readable HTML Telegram message."""
     now_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
@@ -770,6 +809,17 @@ def format_report(days: int, north: list[dict], openers: list[dict], cohorts: li
     if qm["top_domains"]:
         lines.append("  • أبرز المجالات: " + " · ".join(f"{d} ({n})" for d, n in qm["top_domains"]))
 
+    if quests is not None:
+        lines.extend([
+            "",
+            "🗒️ <b>مهام الأسرة (خطة الأسبوع ومهمة اليوم):</b>",
+            f"  • أجهزة ظهرت لها خطة الأسبوع: {quests['plan_devices']} | "
+            f"علّمت خطوة واحدة على الأقل: {quests['plan_markers']} "
+            f"(<b>{_pct(quests['plan_markers'], quests['plan_devices'])}</b>)",
+            f"  • مهام يوم أُنجزت: من «اليوم» مباشرة {quests['missions_parent']} | "
+            f"عبر وضع الطفل {quests['missions_child']}",
+        ])
+
     lines.extend([
         "",
         "💡 <b>تفاعل نصيحة اليوم (Coach Tips):</b>",
@@ -857,8 +907,10 @@ def main(argv: list[str] | None = None) -> int:
         qm = get_questions_and_quality(db_path, args.days, suggested, Path(args.sessions_db))
         tips = get_coach_tips_metrics(db_path, args.days)
         fb = get_feedback_metrics(db_path, args.days)
+        quests = get_quest_metrics(db_path, args.days)
 
-    report = format_report(args.days, north, openers, cohorts, funnel, qm, tips, fb)
+    report = format_report(args.days, north, openers, cohorts, funnel, qm, tips, fb,
+                           quests=quests)
 
     if args.dry_run:
         print("\n" + report)

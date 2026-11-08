@@ -6297,6 +6297,40 @@ class AppLocalizationsAr extends AppLocalizations {
   String get planMarkHint => 'اضغط للتعليم عليها';
 
   @override
+  String planWeekComplete(String name) {
+    return 'أتممتم الخطوات الثلاث مع $name هذا الأسبوع. هكذا تُبنى العادات الطيبة.';
+  }
+
+  @override
+  String missionTodayFor(String name) {
+    return 'مهمة اليوم لـ$name';
+  }
+
+  @override
+  String missionTodayHint(String name) {
+    return 'أخبروا $name بها، وعلّموا عليها حين تُنجَز.';
+  }
+
+  @override
+  String get missionTodayDoneButton => 'أُنجزت';
+
+  @override
+  String missionTodayDone(String name) {
+    return 'أنجز $name مهمة اليوم';
+  }
+
+  @override
+  String missionPraiseSheetTitle(String name) {
+    return 'كلمة طيبة لـ$name؟';
+  }
+
+  @override
+  String get missionPraiseSend => 'أرسل';
+
+  @override
+  String get missionPraiseSkip => 'تمّ، بلا كلمة';
+
+  @override
   String planMarkedCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
