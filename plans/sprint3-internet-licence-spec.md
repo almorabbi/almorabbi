@@ -163,8 +163,8 @@ CREATE INDEX IF NOT EXISTS ix_scenarios_repeat ON child_scenario_answers (child_
 6. **صفر إشارة إلى درجة أو نتيجة في أي نصّ للطفل.**
 
 **الحارس — يُكتب مع البنك لا بعده:**
-- `knowledge_base/curriculum/schema/licence_scenario.schema.json` جديد.
-- إدراج `("licence", "licence_scenario")` في `KINDS` بـ`ops/tools/check_curriculum_schema.py:43`.
+- `knowledge_base/curriculum/schema/license_scenario.schema.json` جديد (الاسم الفعلي بالتهجئة الأمريكية `license`).
+- إدراج `("license", "license_scenario")` في `KINDS` بـ`ops/tools/check_curriculum_schema.py:43`.
 - **وهذا يسدّ دَينًا قائمًا:** `agreements/` و`missions/` خارج الحراسة اليوم. أضِف مخطّطيهما في نفس التغيير — البنكان اللذان يُنسخ نمطهما هما نفساهما بلا فحص.
 - اختبار يفشل إذا: خيار `refuse` بلا إبلاغ مُصنَّف `safe` · موقف بلا `talking_point_ar` · `source_unit_id` لا يطابق وحدة موجودة و`authored != true` · أي نصّ طفل يحوي رقمًا يشبه درجة.
 

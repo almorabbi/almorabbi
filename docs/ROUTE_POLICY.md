@@ -6,6 +6,8 @@ ownership fix. It is a review/test contract; the application and middleware do
 not consume it. The table itself adds no runtime authentication, rate limits,
 feature restrictions, or production configuration.
 
+> لقطة تاريخية عند `5d566611` (كوميت في تاريخ الأرشيف، لا في هذا الريبو) — لا تُحدَّث تلقائيًا؛ العدد الحالي لتبعيات الإثبات 15 لا 14 (راجع `docs/catalog/03-interfaces.md`).
+
 The inventory contains **166 route objects / 170 method-and-path entries**:
 157 API entries, eight framework GET/HEAD entries, and five static mounts.
 

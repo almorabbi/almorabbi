@@ -1,7 +1,7 @@
 """PR #29 review — the nine adversarial scenarios, as regression tests.
 
-Each scenario is the reviewer's (backend/tests/test_review_pr29_attacks.py in
-the review scratch), with the assertion inverted: on the code before the fix
+Each scenario is the reviewer's attack script (kept in the review scratch, not
+committed), with the assertion inverted: on the code before the fix
 every one of these demonstrated a weakness; here each asserts it is closed.
 Where a scenario needs a fold to happen legitimately (7, 8, 9), the family is
 quiet — onboarded in its first minute and never used again, as production's

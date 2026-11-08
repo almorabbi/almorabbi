@@ -107,3 +107,73 @@ def test_harvest_only_rewrites_a_healed_file(gpc, monkeypatch):
                                           "lesson_good@en": UUID_A}))
     state = _run_main(gpc, monkeypatch, {}, argv=("--lang", "en", "--harvest-only"))
     assert state == {"lesson_good@en": UUID_A}
+
+
+def _exit_code(gpc, monkeypatch, outcomes, argv=("--lang", "en")):
+    async def trigger(source_id, lang, notebook=gpc.NOTEBOOK_ID):
+        return outcomes[source_id]
+
+    async def sleep(_s):
+        return None
+
+    async def poll(task_id, notebook=gpc.NOTEBOOK_ID):
+        return "pending"
+
+    monkeypatch.setattr(gpc, "trigger", trigger)
+    monkeypatch.setattr(gpc, "poll", poll)
+    monkeypatch.setattr(gpc.asyncio, "sleep", sleep)
+    monkeypatch.setattr(gpc, "_targets", lambda: [
+        (f"lesson_{sid}", sid, gpc.NOTEBOOK_ID) for sid in outcomes])
+    monkeypatch.setattr(sys, "argv", ["gen_podcasts_cron.py", *argv])
+    return asyncio.run(gpc.main())
+
+
+def test_a_run_where_every_source_is_stale_exits_4_not_0(gpc, monkeypatch, capsys):
+    code = _exit_code(gpc, monkeypatch, {"src-a": "STALE_SOURCE", "src-b": "STALE_SOURCE"})
+    assert code == 4
+    assert "2 stale source(s)" in capsys.readouterr().out
+
+
+def test_a_run_that_triggered_something_exits_0(gpc, monkeypatch):
+    assert _exit_code(gpc, monkeypatch, {"src-a": "STALE_SOURCE", "src-b": UUID_A}) == 0
+
+
+def test_auth_dead_trigger_exits_3_and_stores_nothing(gpc, monkeypatch):
+    assert _exit_code(gpc, monkeypatch, {"src-a": "AUTHDEAD", "src-b": UUID_A}) == 3
+    assert json.loads(gpc.STATE_FILE.read_text()) == {}
+
+
+def test_authdead_is_never_a_task_id(gpc):
+    assert not gpc._is_task_id("AUTHDEAD")
+
+
+def test_session_dying_during_the_bounded_poll_exits_3_and_keeps_tasks(gpc, monkeypatch):
+    monkeypatch.setattr(gpc, "POLL_BUDGET_SEC", 100)
+    polls = []
+
+    async def trigger(source_id, lang, notebook=gpc.NOTEBOOK_ID):
+        return UUID_A
+
+    async def poll(task_id, notebook=gpc.NOTEBOOK_ID):
+        polls.append(task_id)
+        return "auth"
+
+    async def sleep(_s):
+        return None
+
+    monkeypatch.setattr(gpc, "trigger", trigger)
+    monkeypatch.setattr(gpc, "poll", poll)
+    monkeypatch.setattr(gpc.asyncio, "sleep", sleep)
+    monkeypatch.setattr(gpc, "_targets", lambda: [("lesson_x", "src-x", gpc.NOTEBOOK_ID)])
+    monkeypatch.setattr(sys, "argv", ["gen_podcasts_cron.py", "--lang", "en"])
+    assert asyncio.run(gpc.main()) == 3
+    assert len(polls) == 1                       # stopped at the first dead poll
+    assert json.loads(gpc.STATE_FILE.read_text()) == {"lesson_x@en": UUID_A}
+
+
+def test_trigger_success_mentioning_a_marker_is_still_a_task(gpc, monkeypatch):
+    async def run(*a, **k):
+        return 0, f"Started: {UUID_A}", "note: login required for private notebooks"
+
+    monkeypatch.setattr(gpc, "_run", run)
+    assert asyncio.run(gpc.trigger("src-a", "en")) == UUID_A

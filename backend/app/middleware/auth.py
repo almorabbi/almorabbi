@@ -35,9 +35,6 @@ _PUBLIC_PATHS = {
     "/api/app-config",
     "/health",
     "/api/chat/sessions",  # POST (create) is public
-    "/api/docs",
-    "/api/openapi.json",
-    "/api/redoc",
     # Redeeming a QR claim code is how a browser *gets* its token; requiring
     # one here would make the web surface unreachable. The code itself is the
     # credential: single-use, 120-second lifetime, and it opens the screen
@@ -231,7 +228,7 @@ class AuthMiddleware(BaseHTTPMiddleware):
                         content={
                             "error": "child_budget_exhausted",
                             "message_key": "child_gate.budget_exhausted",
-                            "message_ar": "خلصت مدة النهارده. نكمل بكرة إن شاء الله 🌙",
+                            "message_ar": "انتهت مدة اليوم. نكمل غدًا إن شاء الله 🌙",
                         },
                     )
             return await call_next(request)

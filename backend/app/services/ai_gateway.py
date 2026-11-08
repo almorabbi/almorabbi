@@ -2,9 +2,11 @@
 AI Gateway — البوابة الموحّدة لكل نداءات الـ LLM
 =================================================
 The tutor-guardian analog of analytics-platform's ZAIService: every LLM call
-in the app goes through ONE gateway. Here it is **local-only by design**
-(Ollama) — children's/parenting/medical data never leaves the machine — but
-the provider is abstracted behind an interface so a future swap is one class.
+in the app goes through ONE gateway. The code default is local Ollama
+(LLM_PRIMARY_PROVIDER=ollama); production runs DeepSeek (cloud) as primary
+(LLM_PRIMARY_PROVIDER=deepseek) with Ollama as the local fallback. Because
+prompts can leave the machine, children's names are masked before they do
+(see docs/catalog/06-ai.md). The provider is abstracted behind an interface.
 
 Provides over the old direct-`requests` call:
   • retry with exponential backoff (was: flat retry)

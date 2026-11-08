@@ -136,7 +136,7 @@ def _refusal(result: dict) -> HTTPException:
     if result.get("parent_message_ar"):
         body["message_ar"] = result["parent_message_ar"]
     elif reason in ("budget_exhausted", "audio_budget_exhausted"):
-        body["message_ar"] = "خلصت مدة النهارده. نكمل بكرة إن شاء الله 🌙"
+        body["message_ar"] = "انتهت مدة اليوم. نكمل غدًا إن شاء الله 🌙"
         body["resets_at"] = result.get("resets_at")
     return HTTPException(status_code=403, detail=body)
 

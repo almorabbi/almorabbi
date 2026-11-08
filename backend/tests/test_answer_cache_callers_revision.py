@@ -77,25 +77,8 @@ def _warmer(path):
     return module
 
 
-@pytest.mark.parametrize("change", [False, True])
-def test_backend_offline_carries_pre_generation_revision(corpus, monkeypatch, change):
-    import requests
-
-    module = _warmer(Path("backend/ops/scripts/warm_answer_cache.py"))
-    events, writes, generate = _observe(monkeypatch, corpus, change)
-    monkeypatch.setattr(module, "QUESTIONS", [("question", "4-6", "islamic_parenting", "خفيف")])
-    monkeypatch.setattr(sys, "argv", ["warm_answer_cache", "--max", "1"])
-    monkeypatch.setattr(requests, "get", lambda *a, **k: SimpleNamespace(
-        raise_for_status=lambda: None, json=lambda: {"models": []}))
-    monkeypatch.setattr(module.time, "sleep", lambda _: None)
-
-    def fake_generate(*a, **k):
-        generate()
-        return ANSWER
-
-    monkeypatch.setattr(module, "_generate_one", fake_generate)
-    module.main()
-    assert writes == [(events[0][1], not change)]
+# The second copy (backend/ops/scripts/warm_answer_cache.py) was removed 2026-10-29:
+# the image copies the repo-root ops/scripts, never backend/ops, so it never ran.
 
 
 @pytest.mark.parametrize("change", [False, True])

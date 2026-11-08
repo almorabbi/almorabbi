@@ -118,7 +118,7 @@ GA4 — أهمها `screen` و`lesson_id` و`dwell_ms` و`age_group`):
 `analytics.readonly`، والنداء
 `analyticsdata.googleapis.com/v1beta/properties/541338024:runReport`.
 
-⚠️ **ملفّان تحتاجهما وليسا في git** — موجودان على جهاز المسؤول فقط، فلا تبحث
+⚠️ **ملفّان تحتاجهما وليسا في git** — موجودان خارج الريبو، عند المشغّل فقط، فلا تبحث
 عنهما في مستودع نظيف: `scripts/play_service_account.json` (سرّ، مستبعَد
 بـ`.gitignore`) و`plans/release_checklist.md` (غير متتبَّع).
 
@@ -183,7 +183,7 @@ GA4 — أهمها `screen` و`lesson_id` و`dwell_ms` و`age_group`):
 
 ⚠️ **الدفع إلى `main` = نشر إنتاج تلقائي** عبر runner داخل الـVPS
 (`ops/scripts/**` و`backend/**` و`knowledge_base/**` ضمن فلتر النشر).
-والموبايل يدوي: راجع `plans/release_checklist.md`.
+والموبايل يدوي: راجع `plans/release_checklist.md` (غير متتبَّعة في git — خارج الريبو، عند المشغّل فقط).
 
 ⚠️ **شجرة العمل مشتركة** — اشتغل في worktree معزول
 (`git worktree add -b <فرع> /tmp/wt-<اسم> origin/main`).

@@ -49,6 +49,11 @@ from app.media_naming import (  # noqa: E402
 sys.path.insert(0, str(BASE / "ops" / "tools"))
 from media_index import upsert_media  # noqa: E402
 
+sys.path.insert(0, str(BASE))
+from scripts.nblm_failure import (  # noqa: E402
+    EXIT_NO_OUTPUT, EXIT_SESSION_DEAD, is_auth_failure, short_reason,
+)
+
 CLI = str(BASE / "notebooklm_env" / "bin" / "notebooklm")
 
 # 🚨 Its own profile, not `default`.
@@ -137,7 +142,7 @@ def _load(p: Path, default):
 # and was never re-triggered, the harvest polled a task id that does not exist,
 # and the real cause (a stale source → ops/tools/refresh_source_map.py) was
 # never reported.
-SENTINELS = frozenset({"RATELIMIT", "STALE_SOURCE"})
+SENTINELS = frozenset({"RATELIMIT", "STALE_SOURCE", "AUTHDEAD"})
 _TASK_ID_RE = re.compile(r"^[a-fA-F0-9-]{8,}$")
 
 
@@ -189,21 +194,38 @@ async def trigger(source_id: str, lang: str, notebook: str = NOTEBOOK_ID):
     blob = out + err
     if "RateLimit" in blob or "quota" in blob.lower():
         return "RATELIMIT"
+    m = re.search(r"(?:Task|Started):\s*([a-fA-F0-9\-]+)", blob)
+    # Only a call that produced no task id can be a dead session; a successful
+    # trigger whose output happens to mention a marker word must not abort.
+    if not m and is_auth_failure(code, out, err):
+        _LAST_REASON[source_id] = short_reason(code, out, err)
+        return "AUTHDEAD"
     if "generation is unavailable" in blob.lower():
         # The message names the feature; the cause is the source reference.
         return "STALE_SOURCE"
-    m = re.search(r"(?:Task|Started):\s*([a-fA-F0-9\-]+)", blob)
+    if not m:
+        _LAST_REASON[source_id] = short_reason(code, out, err)
     return m.group(1) if m else None
+
+
+# Why the last trigger/poll of an id failed — for the log. The CLI's stderr used
+# to be thrown away, so "dead session" and "task gone" both printed "error".
+_LAST_REASON: dict[str, str] = {}
 
 
 async def poll(task_id: str, notebook: str = NOTEBOOK_ID):
     code, out, err = await _run(
         *CLI_BASE, "artifact", "poll", "-n", notebook, task_id, "--json", timeout=90)
+    _LAST_REASON.pop(task_id, None)
     if code != 0:
-        return "error"
+        _LAST_REASON[task_id] = short_reason(code, out, err)
+        # A dead session is not a dead task: callers keep the task, count no
+        # strike, and stop polling (every further poll would fail the same way).
+        return "auth" if is_auth_failure(code, out, err) else "error"
     try:
         return json.loads(out).get("status", "error")
     except Exception:
+        _LAST_REASON[task_id] = "unparseable poll output"
         return "error"
 
 
@@ -274,6 +296,8 @@ async def main():
     _errors = {k: v for k, v in _load(ERRORS_FILE, {}).items() if k in state}
 
     # 1) resolve in-flight tasks — only this language's
+    session_dead = False
+    downloaded = 0
     for key, tid in list(state.items()):
         lid, klang = _split_key(key)
         if klang != lang:
@@ -282,9 +306,18 @@ async def main():
             state.pop(key, None)
             continue
         st = await poll(tid, nb_of.get(lid, NOTEBOOK_ID))
-        print(f"[poll] {lid}: {st}")
+        why = _LAST_REASON.get(tid)
+        print(f"[poll] {lid}: {st}" + (f" — {why}" if why and st in ("error", "auth") else ""))
+        if st == "auth":
+            # A dead session is not a dead task (see nblm_failure.py): keep the
+            # task, count no strike, stop — every further poll fails the same.
+            session_dead = True
+            print(f"[harvest] ⛔ NotebookLM session is dead ({why}) — stopping; "
+                  f"in-flight tasks kept, no strikes counted")
+            break
         if st == "completed" and await download(tid, _pod_path(lid, lang), nb_of.get(lid, NOTEBOOK_ID)):
             print(f"  ✓ downloaded {lid}")
+            downloaded += 1
             register(lid, lang, _pod_path(lid, lang))
             state.pop(key, None)
         elif st == "failed":
@@ -321,7 +354,15 @@ async def main():
                                encoding="utf-8")
         left = sum(1 for k in state if _split_key(k)[1] == lang)
         print(f"\n[harvest-only] nothing triggered · {left} still in flight")
-        return
+        return _dead_exit() if session_dead else 0
+
+    if session_dead:
+        # Polling could not authenticate, so triggering cannot either.
+        STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2),
+                              encoding="utf-8")
+        ERRORS_FILE.write_text(json.dumps(_errors, ensure_ascii=False, indent=2),
+                               encoding="utf-8")
+        return _dead_exit()
 
     # 2) trigger pending — one rate-limit ends the run; cron resumes
     #
@@ -331,6 +372,8 @@ async def main():
     # run when things go wrong, which is exactly when a success-counter stops
     # counting.
     attempted = 0
+    triggered = 0
+    rate_limited = False
     stale: list[str] = []
     for lid, sid, notebook in targets:
         if args.limit and attempted >= args.limit:
@@ -344,6 +387,12 @@ async def main():
         # of them stores the sentinel as a task id (see SENTINELS above).
         if tid == "RATELIMIT":
             print(f"[trigger] {lid}: rate-limited — retry next run")
+            rate_limited = True
+            break
+        if tid == "AUTHDEAD":
+            session_dead = True
+            print(f"[trigger] {lid}: NotebookLM session is dead "
+                  f"({_LAST_REASON.get(sid)}) — stopping the batch")
             break
         if tid == "STALE_SOURCE":
             # 🚨 Not an audio outage. NotebookLM answers "Audio generation is
@@ -360,9 +409,11 @@ async def main():
         elif _is_task_id(tid):
             print(f"[trigger] {lid}: task {tid}")
             state[key] = tid
+            triggered += 1
             await asyncio.sleep(5)
         else:
-            print(f"[trigger] {lid}: no task id")
+            why = _LAST_REASON.get(sid)
+            print(f"[trigger] {lid}: no task id" + (f" — {why}" if why else ""))
 
     STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
     STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -373,15 +424,23 @@ async def main():
 
     # 3) bounded poll of freshly-triggered tasks
     deadline = time.time() + POLL_BUDGET_SEC
-    while any(_split_key(k)[1] == lang for k in state) and time.time() < deadline:
+    while (any(_split_key(k)[1] == lang for k in state)
+           and not session_dead and time.time() < deadline):
         await asyncio.sleep(45)
         for key, tid in list(state.items()):
             lid, klang = _split_key(key)
             if klang != lang:
                 continue
             st = await poll(tid, nb_of.get(lid, NOTEBOOK_ID))
+            if st == "auth":
+                # Session died after the triggers: keep every task, stop polling.
+                session_dead = True
+                print(f"[poll] ⛔ NotebookLM session is dead ({_LAST_REASON.get(tid)}) "
+                      f"— stopping; in-flight tasks kept")
+                break
             if st == "completed" and await download(tid, _pod_path(lid, lang), nb_of.get(lid, NOTEBOOK_ID)):
                 print(f"  ✓ downloaded {lid}")
+                downloaded += 1
                 register(lid, lang, _pod_path(lid, lang))
                 state.pop(key, None)
             elif st == "failed":
@@ -403,6 +462,23 @@ async def main():
     inflight = sum(1 for k in state if _split_key(k)[1] == lang)
     print(f"\n[summary] {lang}: {done}/{len(targets)} done · {inflight} in-flight")
 
+    # 🚨 exit 0 must mean "worked, or had a reason not to" — not "ran". This
+    # run printed "5 missing … STALE SOURCE …" and exited 0 for days.
+    if session_dead:
+        return _dead_exit()
+    if attempted and not (triggered or downloaded or rate_limited):
+        reasons = f"{len(stale)} stale source(s)" if stale else "no task id returned"
+        print(f"❌ {attempted} trigger(s) attempted, none accepted ({reasons}) and "
+              f"no refusal to explain it. Exit {EXIT_NO_OUTPUT}.")
+        return EXIT_NO_OUTPUT
+    return 0
+
+
+def _dead_exit() -> int:
+    print(f"❌ NotebookLM session is dead — nothing could be polled or triggered "
+          f"this run (in-flight tasks kept). Exit {EXIT_SESSION_DEAD}.")
+    return EXIT_SESSION_DEAD
+
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    sys.exit(asyncio.run(main()))

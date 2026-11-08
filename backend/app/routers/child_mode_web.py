@@ -65,7 +65,7 @@ def claim_session(request: Request, claim: str | None = Query(None, min_length=8
                 "message_key": session.get("parent_message_key")
                 or f"child_gate.{session['reason']}",
                 "message_ar": session.get("parent_message_ar")
-                or "خلصت مدة النهارده. نكمل بكرة إن شاء الله 🌙",
+                or "انتهت مدة اليوم. نكمل غدًا إن شاء الله 🌙",
             })
 
     return {
