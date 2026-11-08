@@ -46,6 +46,8 @@ name: Mobile E2E (emulator)
 #   07 force-stop → cold start → Today renders (no white screen, no spinner,
 #      not stuck in child mode)          08 the child survived that restart
 #   09 family programs list → Prayer Journey (read-only)
+#   10 child corner   11 family road   12 Today quests: today's mission
+#      marked by the parent (no handover) against the live server
 # Lineage "upgrade" — BASELINE build: 01 English onboarding + child,
 #   02 restart on the baseline (control, informational), then `adb install -r`
 #   the PR head: 03 it opens and Today renders, 04 the child is kept (skipped

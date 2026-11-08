@@ -235,6 +235,10 @@ KEYS = [
     # family_road shots — head builds only; the gallery guards its shots.
     "familyRoadHorizon", "familyRoadHere", "familyRoadLit",
     "familyRoadEntryBody",
+    # The family quests on Today (fresh/12, 1.0.80): today's mission marked
+    # by the parent without a handover, against the live server.
+    "missionTodayFor", "missionTodayDoneButton", "missionTodayDone",
+    "missionPraiseSheetTitle", "missionPraiseSend",
 ]
 
 # Strings the app hardcodes outside the ARB files.

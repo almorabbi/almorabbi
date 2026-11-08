@@ -6369,7 +6369,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get missionTodayDoneButton => 'Done';
+  String get missionTodayDoneButton => 'Mark done';
 
   @override
   String missionTodayDone(String name) {
