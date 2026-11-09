@@ -1,5 +1,6 @@
 /// The weekly loop on «اليوم», between ① and ② (plan §1.2–§1.3): the
-/// follow-up first (it is time-sensitive), then the week's plan.
+/// follow-up first (it is time-sensitive), then the week's plan, then the
+/// next «موقف بقرار» (docs/MAWAQIF.md).
 ///
 /// Neither card has a section header — the screen promises three stops above
 /// the divider, and these are part of ①'s rhythm, not a fourth stop. Each card
@@ -11,6 +12,7 @@ import 'package:flutter/material.dart';
 
 import '../../child_memory/widgets/today_followup_card.dart';
 import '../../child_memory/widgets/today_weekly_plan_card.dart';
+import '../../mawaqif/widgets/today_mawqif_card.dart';
 import '../../missions/today_mission_row.dart';
 import '../../onboarding/providers/onboarding_providers.dart';
 
@@ -37,6 +39,12 @@ class TodayLoopCards extends StatelessWidget {
       children: [
         if (!hideFollowup) TodayFollowupCard(activeChildId: child.id),
         TodayWeeklyPlanCard(
+          childId: child.id,
+          childName: child.name,
+          ageGroup: child.ageGroup,
+        ),
+        TodayMawqifCard(
+          key: ValueKey('mawqif-${child.id}'),
           childId: child.id,
           childName: child.name,
           ageGroup: child.ageGroup,

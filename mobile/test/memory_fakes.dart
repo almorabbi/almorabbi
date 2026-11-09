@@ -382,18 +382,34 @@ class FakeMemoryServer extends TgClient {
     return {'followup': f};
   }
 
+  /// «موقف بقرار» steps served for any band (docs/MAWAQIF.md). Empty by
+  /// default, so screens that do not test the card never show it.
+  List<Map<String, dynamic>> mawaqif = [];
+  bool failMawaqif = false;
+
+  @override
+  Future<List<Map<String, dynamic>>> getMawaqif(String ageGroup) async {
+    calls.add('GET /api/program/mawaqif age_group=$ageGroup');
+    if (failMawaqif) throw Exception('offline');
+    return mawaqif;
+  }
+
   @override
   Future<Map<String, dynamic>> openPromiseFollowup(int childId,
-      {required String step, required String when, String topic = 'other'}) async {
+      {required String step,
+      required String when,
+      String topic = 'other',
+      String? source}) async {
     calls.add('POST /api/children/$childId/followups '
-        'when=$when topic=$topic strategy=$step');
+        'when=$when topic=$topic strategy=$step'
+        '${source == null ? '' : ' source=$source'}');
     _requireProof();
     if (memorySwitchFields && !enabled) {
       throw coded(409, 'memory_off', message: 'الذاكرة متوقفة');
     }
     final row = followupJson(_nextId++, childId, strategy: step)
       ..['topic'] = topic
-      ..['source'] = 'lesson';
+      ..['source'] = source ?? 'lesson';
     followups[row['id'] as int] = row;
     return {'followup': row};
   }

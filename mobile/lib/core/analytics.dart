@@ -278,6 +278,18 @@ class Analytics {
   /// The parent committed to one doable step («تمام، سأفعلها»). `when` is the
   /// slot they chose; `source` is where: the lesson's step (`lesson`) or a
   /// step taken from an assistant answer (`chat`, «سأجرّبها مع …»).
+  /// «موقف بقرار» (docs/MAWAQIF.md): the card was shown on Today, opened,
+  /// a response was picked, the last screen was reached. Ids and keys only —
+  /// no text. Committing to the step is `next_step_committed` source=mawqif.
+  static Future<void> mawqifShown(String ageBand) =>
+      _log('mawqif_shown', {'age_band': ageBand});
+  static Future<void> mawqifOpened(String id) =>
+      _log('mawqif_opened', {'mawqif_id': id});
+  static Future<void> mawqifChoice(String id, String choice) =>
+      _log('mawqif_choice', {'mawqif_id': id, 'choice': choice});
+  static Future<void> mawqifFinished(String id) =>
+      _log('mawqif_finished', {'mawqif_id': id});
+
   static Future<void> nextStepCommitted({
     String when = 'tonight',
     String source = 'lesson',

@@ -11335,6 +11335,102 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'عادية'**
   String get storyRateOkay;
+
+  /// Today card label for «موقف بقرار» (docs/MAWAQIF.md): a four-minute decision step for the parent.
+  ///
+  /// In ar, this message translates to:
+  /// **'موقف بقرار · ٤ دقائق'**
+  String get mawqifCardLabel;
+
+  /// Button on the «موقف بقرار» card: open the step.
+  ///
+  /// In ar, this message translates to:
+  /// **'ابدأ'**
+  String get mawqifCardStart;
+
+  /// Stage label: the situation from the parent's day.
+  ///
+  /// In ar, this message translates to:
+  /// **'الموقف'**
+  String get mawqifSituationLabel;
+
+  /// Button after the situation: go to the three responses.
+  ///
+  /// In ar, this message translates to:
+  /// **'ماذا تفعل؟'**
+  String get mawqifWhatDoYouDo;
+
+  /// Stage title over the three responses.
+  ///
+  /// In ar, this message translates to:
+  /// **'قرارك الآن'**
+  String get mawqifChoicesTitle;
+
+  /// Under the stage title: no response is the 'right answer'; each has a gain and a cost.
+  ///
+  /// In ar, this message translates to:
+  /// **'لكل ردٍّ مكسب وثمن. اختر أقربها إلى ما كنت ستفعله.'**
+  String get mawqifChoicesHint;
+
+  /// Label: what happens now after the chosen response.
+  ///
+  /// In ar, this message translates to:
+  /// **'الآن'**
+  String get mawqifNow;
+
+  /// Label: what happens later after the chosen response.
+  ///
+  /// In ar, this message translates to:
+  /// **'بعد ذلك'**
+  String get mawqifLater;
+
+  /// Expands the now/later of all three responses.
+  ///
+  /// In ar, this message translates to:
+  /// **'قارن الردود الثلاثة'**
+  String get mawqifCompare;
+
+  /// Button and stage title: the hadith that answers the situation.
+  ///
+  /// In ar, this message translates to:
+  /// **'من السنّة'**
+  String get mawqifToEvidence;
+
+  /// Heading over the meanings of the hadith's harder words.
+  ///
+  /// In ar, this message translates to:
+  /// **'معاني الكلمات'**
+  String get mawqifWordsTitle;
+
+  /// Heading over the one-sentence idea.
+  ///
+  /// In ar, this message translates to:
+  /// **'الفكرة'**
+  String get mawqifIdeaTitle;
+
+  /// Button: go to the one step.
+  ///
+  /// In ar, this message translates to:
+  /// **'خطوتك'**
+  String get mawqifToStep;
+
+  /// Stage title over the single doable step.
+  ///
+  /// In ar, this message translates to:
+  /// **'خطوة واحدة هذا الأسبوع'**
+  String get mawqifStepTitle;
+
+  /// Button: commit to the step (then the parent picks when).
+  ///
+  /// In ar, this message translates to:
+  /// **'سأجرّبها'**
+  String get mawqifCommit;
+
+  /// Button: leave the last screen without committing.
+  ///
+  /// In ar, this message translates to:
+  /// **'ليس الآن'**
+  String get mawqifClose;
 }
 
 class _AppLocalizationsDelegate

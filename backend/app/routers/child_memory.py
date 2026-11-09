@@ -199,6 +199,9 @@ class PromiseIn(BaseModel):
     when: Literal["tonight", "tomorrow", "week"]
     topic: Literal["prayer", "anger", "sleep", "study", "screens", "fear",
                    "siblings", "eating", "lying", "other"] = "other"
+    # Where the step was read: a lesson's `try_this`, or the last screen of a
+    # «موقف بقرار» (docs/MAWAQIF.md). Older apps send nothing → lesson.
+    source: Literal["lesson", "mawqif"] = "lesson"
 
 
 _PROMISE_REFUSED = {
@@ -208,7 +211,7 @@ _PROMISE_REFUSED = {
 
 
 @router.post("/children/{child_id}/followups", status_code=201,
-             summary="A lesson promise becomes a follow-up (source='lesson')",
+             summary="A lesson or mawqif promise becomes a follow-up (source=lesson|mawqif)",
              dependencies=[Depends(require_device_proof)])
 def open_promise(child_id: int, body: PromiseIn, request: Request):
     """Same queue, limits and memory switch as the chat follow-ups.
@@ -218,7 +221,8 @@ def open_promise(child_id: int, body: PromiseIn, request: Request):
     lang = "en" if (request.headers.get("accept-language") or "")[:2] == "en" else "ar"
     try:
         fu = cm.open_promise_followup(device_id, child_id, body.strategy,
-                                      when=body.when, topic=body.topic, lang=lang)
+                                      when=body.when, topic=body.topic, lang=lang,
+                                      source=body.source)
     except cm.FactValidationError as exc:
         raise _err(422, "strategy",
                    "الخطوة فارغة أو طويلة أو مما لا يحفظه المربّي.") from exc

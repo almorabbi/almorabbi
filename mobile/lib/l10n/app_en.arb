@@ -2292,5 +2292,21 @@
   "storyRateThanks": "Thank you!",
   "storyRateLoved": "Loved it",
   "storyRateLiked": "Liked it",
-  "storyRateOkay": "It was okay"
+  "storyRateOkay": "It was okay",
+  "mawqifCardLabel": "A decision moment · 4 min",
+  "mawqifCardStart": "Start",
+  "mawqifSituationLabel": "The situation",
+  "mawqifWhatDoYouDo": "What do you do?",
+  "mawqifChoicesTitle": "Your decision",
+  "mawqifChoicesHint": "Each response has a gain and a cost. Pick the one closest to what you would do.",
+  "mawqifNow": "Now",
+  "mawqifLater": "Later",
+  "mawqifCompare": "Compare all three",
+  "mawqifToEvidence": "From the Sunnah",
+  "mawqifWordsTitle": "Word meanings",
+  "mawqifIdeaTitle": "The idea",
+  "mawqifToStep": "Your step",
+  "mawqifStepTitle": "One step this week",
+  "mawqifCommit": "I'll try it",
+  "mawqifClose": "Not now"
 }

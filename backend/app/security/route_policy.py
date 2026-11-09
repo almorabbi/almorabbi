@@ -203,6 +203,7 @@ _add(
     GET /api/program/daily-tip get_daily_tip
     GET /api/program/quiz get_quiz
     GET /api/program/story-themes story_themes
+    GET /api/program/mawaqif get_mawaqif
 """,
 )
 
