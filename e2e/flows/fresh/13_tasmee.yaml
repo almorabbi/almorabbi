@@ -1,0 +1,53 @@
+# Checkpoint 13 — «تسميع مع الوالد» (1.0.81, docs/TASMEE_WITH_PARENT.md),
+# device-only: Today → the child's journey → «حفظ القرآن» → «تسميع» on
+# al-Fatiha (7 verses, so no range sheet) → tap a word → «نسيها» → «انتهينا»
+# → the summary → «احفظ» → back on the list with one spot to review.
+# Nothing here reaches the server.
+appId: com.alsaba.almorabbi
+name: fresh/13 Tasmee — a slip marked, summarised and saved
+---
+- runScript: ../common/l10n.js
+- runFlow: ../common/home.yaml
+- scrollUntilVisible:
+    element:
+      text: '${output.c.journeyCardTitle}'
+    direction: DOWN
+    timeout: 30000
+- tapOn: '${output.c.journeyCardTitle}'
+- scrollUntilVisible:
+    element:
+      text: '${output.c.journeyQuranTitle}'
+    direction: DOWN
+    timeout: 30000
+- tapOn: '${output.c.journeyQuranTitle}'
+- extendedWaitUntil:
+    visible: '${output.t.tasmeeButton}'
+    timeout: 30000
+- assertNotVisible: '${output.c.lit_errorWidget}'
+- takeScreenshot: tasmee_1_list
+# Surah 1 is the first row: its «تسميع» is the first button.
+- tapOn:
+    text: '${output.t.tasmeeButton}'
+    index: 0
+- extendedWaitUntil:
+    visible: '${output.c.tasmeeHint}'
+    timeout: 15000
+- tapOn: '${output.t.lit_tasmeeFatihaWord}'
+- extendedWaitUntil:
+    visible: '${output.t.tasmeeSlipOmit}'
+    timeout: 10000
+- tapOn: '${output.t.tasmeeSlipOmit}'
+- waitForAnimationToEnd:
+    timeout: 2000
+- takeScreenshot: tasmee_2_marked
+- tapOn: '${output.t.tasmeeFinish}'
+- extendedWaitUntil:
+    visible: '${output.c.tasmeeSummaryTitle}'
+    timeout: 10000
+- takeScreenshot: tasmee_3_summary
+- tapOn: '${output.t.tasmeeSave}'
+- extendedWaitUntil:
+    visible: '${output.c.lit_tasmeeOneSpot}'
+    timeout: 15000
+- assertNotVisible: '${output.c.lit_errorWidget}'
+- takeScreenshot: tasmee_4_saved

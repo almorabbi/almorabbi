@@ -1,0 +1,65 @@
+# Checkpoint 14 — «موقف بقرار» (1.0.81, docs/MAWAQIF.md), against the live
+# server: the card on Today for the onboarding child's band (7-9) → the
+# situation → three responses → what happens now and later → the hadith and
+# the idea → the step → «سأجرّبها» → «الليلة». The promise it opens is a
+# follow-up of the test child (common/mark_child.yaml), excluded from every
+# production report. The 7-9 band has one situation, so once it was gone
+# through the card leaves Today.
+# The response tapped is content (knowledge_base/curriculum/mawaqif), not an
+# ARB string: lit_mawqifChoice in e2e/e2e_tool.py names it.
+appId: com.alsaba.almorabbi
+name: fresh/14 Mawqif — a decision step taken to its promise
+---
+- runScript: ../common/l10n.js
+- runFlow: ../common/home.yaml
+- scrollUntilVisible:
+    element:
+      text: '${output.c.mawqifCardLabel}'
+    direction: DOWN
+    timeout: 30000
+- takeScreenshot: mawqif_1_card
+- tapOn: '${output.c.mawqifCardLabel}'
+- extendedWaitUntil:
+    visible: '${output.t.mawqifWhatDoYouDo}'
+    timeout: 15000
+- assertNotVisible: '${output.c.lit_errorWidget}'
+- takeScreenshot: mawqif_2_situation
+- tapOn: '${output.t.mawqifWhatDoYouDo}'
+- extendedWaitUntil:
+    visible: '${output.c.mawqifChoicesHint}'
+    timeout: 10000
+- tapOn: '${output.c.lit_mawqifChoice}'
+- extendedWaitUntil:
+    visible: '${output.c.mawqifLater}'
+    timeout: 10000
+- takeScreenshot: mawqif_3_consequence
+- scrollUntilVisible:
+    element:
+      text: '${output.t.mawqifToEvidence}'
+    direction: DOWN
+    timeout: 10000
+- tapOn: '${output.t.mawqifToEvidence}'
+- extendedWaitUntil:
+    visible: '${output.c.mawqifIdeaTitle}'
+    timeout: 10000
+- assertNotVisible: '${output.c.lit_errorWidget}'
+- takeScreenshot: mawqif_4_hadith
+- scrollUntilVisible:
+    element:
+      text: '${output.t.mawqifToStep}'
+    direction: DOWN
+    timeout: 10000
+- tapOn: '${output.t.mawqifToStep}'
+- extendedWaitUntil:
+    visible: '${output.t.mawqifCommit}'
+    timeout: 10000
+- takeScreenshot: mawqif_5_step
+- tapOn: '${output.t.mawqifCommit}'
+- extendedWaitUntil:
+    visible: '${output.t.promiseTonight}'
+    timeout: 10000
+- tapOn: '${output.t.promiseTonight}'
+- runFlow: ../common/home.yaml
+- assertNotVisible: '${output.c.mawqifCardLabel}'
+- assertNotVisible: '${output.c.lit_errorWidget}'
+- takeScreenshot: mawqif_6_today_after
