@@ -239,6 +239,13 @@ KEYS = [
     # by the parent without a handover, against the live server.
     "missionTodayFor", "missionTodayDoneButton", "missionTodayDone",
     "missionPraiseSheetTitle", "missionPraiseSend",
+    # «تسميع مع الوالد» (fresh/13, 1.0.81): the child's journey → «حفظ القرآن»
+    # → «تسميع» → a slip → the summary → saved. Device-only.
+    "journeyCardTitle", "journeyQuranTitle", "tasmeeButton", "tasmeeHint",
+    "tasmeeSlipOmit", "tasmeeFinish", "tasmeeSummaryTitle", "tasmeeSave",
+    # «موقف بقرار» (fresh/14, 1.0.81), against the live server.
+    "mawqifCardLabel", "mawqifWhatDoYouDo", "mawqifChoicesHint", "mawqifLater",
+    "mawqifToEvidence", "mawqifIdeaTitle", "mawqifToStep", "mawqifCommit",
 ]
 
 # Strings the app hardcodes outside the ARB files.
@@ -259,6 +266,15 @@ LITERALS = {
     # The first story in mobile/assets/data/stories*.json (content, not ARB):
     # the «القصص» leg opens it from the shelf.
     "lit_storyFirstTitle": ("يوسف وغرسة الأمل", "Yusuf and the Seed of Hope"),
+    # fresh/13: the second word of al-Fatiha 1:2 as mobile/assets/data/quran.json
+    # spells it (a word is its own tap target on the tasmee screen), and the
+    # =1 branch of the tasmeeOpenSlips plural, which to_pattern cannot render.
+    "lit_tasmeeFatihaWord": ("ٱلۡحَمۡدُ", "ٱلۡحَمۡدُ"),
+    "lit_tasmeeOneSpot": ("موضع واحد للمراجعة", "1 spot to review"),
+    # fresh/14: the first response of the 7-9 situation, content from
+    # knowledge_base/curriculum/mawaqif (and its English twin).
+    "lit_mawqifChoice": ("أرفع صوتي عليه فورًا وأرسله إلى غرفته.",
+                         "I raise my voice at him straight away and send him to his room."),
 }
 
 _PLACEHOLDER = re.compile(r"(\{\w+\})")
