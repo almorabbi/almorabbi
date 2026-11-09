@@ -279,6 +279,16 @@ _add(
 )
 
 _add(
+    "app.routers.print_pack",
+    "public",
+    "public",
+    """
+    GET /print/ramadan ramadan_sheets
+""",
+    in_schema=False,
+)
+
+_add(
     "app.routers.seo",
     "public",
     "public",
