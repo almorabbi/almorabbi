@@ -12,6 +12,16 @@ name: fresh/14 Mawqif — a decision step taken to its promise
 ---
 - runScript: ../common/l10n.js
 - runFlow: ../common/home.yaml
+# The card sits in ① under today's step, near the top. Today keeps its
+# scroll offset across flows: 13 leaves it at the bottom (the journey
+# card), where scrolling down alone never meets it (run 42632654444).
+# Up first, then down for a list that was already at the top.
+- scrollUntilVisible:
+    element:
+      text: '${output.c.mawqifCardLabel}'
+    direction: UP
+    timeout: 20000
+    optional: true
 - scrollUntilVisible:
     element:
       text: '${output.c.mawqifCardLabel}'
@@ -60,6 +70,9 @@ name: fresh/14 Mawqif — a decision step taken to its promise
     timeout: 10000
 - tapOn: '${output.t.promiseTonight}'
 - runFlow: ../common/home.yaml
-- assertNotVisible: '${output.c.mawqifCardLabel}'
+# Gone through → the card reloads without it (the band has one situation).
+- extendedWaitUntil:
+    notVisible: '${output.c.mawqifCardLabel}'
+    timeout: 10000
 - assertNotVisible: '${output.c.lit_errorWidget}'
 - takeScreenshot: mawqif_6_today_after
