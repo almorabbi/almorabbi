@@ -885,13 +885,6 @@
    ],
    "why": "Matches Kayfa p.69 (conclusion): keep reading on upbringing, reform society to protect the child from bad influences, be wise, and remember upbringing is instruction plus a living example to imitate."
   },
-  "isl-44227dfe": {
-   "fingerprint": "10bb32d0b3e284f1",
-   "judged_on": "2026-10-04",
-   "source_file": "",
-   "flags": [],
-   "why": "Matches its source (Ibn Baz's fatwa as quoted): contact with an unrelated man before marriage without sharia limits is forbidden and must stop, handled with wisdom and good counsel, not exposure or scandal, offering the lawful alternative."
-  },
   "isl-44443cd2": {
    "fingerprint": "5f0c1b9510df4c2d",
    "judged_on": "2026-10-04",
@@ -1031,13 +1024,6 @@
     "meta_framing"
    ],
    "why": "Matches Ulwan's opening: the path to reform and a virtuous, strong society lies in tarbiya - of the individual, family, society and humanity."
-  },
-  "isl-59686545": {
-   "fingerprint": "d8d9c5e028928806",
-   "judged_on": "2026-10-04",
-   "source_file": "",
-   "flags": [],
-   "why": "Matches its source: a woman's work outside the home is not forbidden in itself, conditioned on modesty, no forbidden mixing, suitable work, not at the expense of duties; scholars differ - and the summary defers to a trusted scholar."
   },
   "isl-5a728c81": {
    "fingerprint": "0cc8a9377a1fb580",
@@ -2204,13 +2190,6 @@
    "source_file": "Alukah_Rights_of_Children.pdf",
    "flags": [],
    "why": "Actual primary PDF source recovery draft: PDF p.176, printed p.175; Selected ancient historical report, quoted as attributed to the narrator and his mother. Not a Prophetic hadith; no modern commentary quoted. Scope and checksum proof: ops/data/kb_fidelity/source_recovery/isl-d6faddeb.json. Source reading only; no scholar or translation approval."
-  },
-  "isl-d7b55818": {
-   "fingerprint": "6dd78e62cd417b68",
-   "judged_on": "2026-10-04",
-   "source_file": "",
-   "flags": [],
-   "why": "Matches its source (Ibn Baz's fatwa as quoted): a feeling of attraction is not sinful in itself, secret messaging and seclusion are forbidden and must stop, the lawful path is a proposal with the families' knowledge."
   },
   "isl-d7c56adc": {
    "fingerprint": "8c309e39c7fe5c0d",

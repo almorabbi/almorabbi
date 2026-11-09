@@ -1,10 +1,10 @@
 {
-  "total_units": 1420,
+  "total_units": 1414,
   "generated_at": "2026-11-03T07:50:14.459450+00:00",
   "by_domain": {
     "medical": 362,
     "cyber": 284,
-    "islamic_parenting": 601,
+    "islamic_parenting": 595,
     "development": 134,
     "app_help": 12,
     "aqeedah": 27
@@ -8819,18 +8819,6 @@
       "size_chars": 1217
     },
     {
-      "id": "isl-44227dfe",
-      "domain": "islamic_parenting",
-      "title": "اكتشفت علاقة عاطفية مبكرة لابنتي المراهقة... أعمل إيه؟",
-      "source_file": "",
-      "language": "mixed",
-      "original_age_group": "16-18",
-      "normalized_age_group": "16-18",
-      "behavior_type": "العلاقات العاطفية المبكرة قبل الزواج",
-      "needs_ocr": false,
-      "size_chars": 291
-    },
-    {
       "id": "isl-44443cd2",
       "domain": "islamic_parenting",
       "title": "أهمية التربية الدينية للأطفال",
@@ -9201,30 +9189,6 @@
       "behavior_type": "صلة الرحم",
       "needs_ocr": false,
       "size_chars": 1566
-    },
-    {
-      "id": "isl-59686545",
-      "domain": "islamic_parenting",
-      "title": "ابنتي تريد أن تعمل وأنا غير موافق",
-      "source_file": "",
-      "language": "ar",
-      "original_age_group": "16-18",
-      "normalized_age_group": "16-18",
-      "behavior_type": "خلاف الأهل مع رغبة الفتاة في العمل",
-      "needs_ocr": false,
-      "size_chars": 298
-    },
-    {
-      "id": "isl-59686545__en",
-      "domain": "islamic_parenting",
-      "title": "My daughter wants to work and I don’t agree",
-      "source_file": "",
-      "language": "en",
-      "original_age_group": "16-18",
-      "normalized_age_group": "16-18",
-      "behavior_type": "خلاف الأهل مع رغبة الفتاة في العمل",
-      "needs_ocr": false,
-      "size_chars": 298
     },
     {
       "id": "isl-597a1018",
@@ -9933,30 +9897,6 @@
       "behavior_type": "اصطحاب الأطفال إلى المسجد والعيد",
       "needs_ocr": false,
       "size_chars": 1303
-    },
-    {
-      "id": "isl-71d65f43",
-      "domain": "islamic_parenting",
-      "title": "رأي أكثر تحفظًا: ابن عثيمين وضوابط أشد لعمل المرأة",
-      "source_file": "",
-      "language": "ar",
-      "original_age_group": "16-18",
-      "normalized_age_group": "16-18",
-      "behavior_type": "خلاف الأهل مع رغبة الفتاة في العمل",
-      "needs_ocr": false,
-      "size_chars": 366
-    },
-    {
-      "id": "isl-71d65f43__en",
-      "domain": "islamic_parenting",
-      "title": "A More Cautious Perspective: Ibn ‘Uthaymeen and Stricter Con",
-      "source_file": "",
-      "language": "en",
-      "original_age_group": "16-18",
-      "normalized_age_group": "16-18",
-      "behavior_type": "خلاف الأهل مع رغبة الفتاة في العمل",
-      "needs_ocr": false,
-      "size_chars": 366
     },
     {
       "id": "isl-72259d18",
@@ -12309,18 +12249,6 @@
       "behavior_type": "حوار",
       "needs_ocr": false,
       "size_chars": 1391
-    },
-    {
-      "id": "isl-d7b55818",
-      "domain": "islamic_parenting",
-      "title": "ابني بيحب بنت... إيه الضابط الشرعي؟",
-      "source_file": "",
-      "language": "mixed",
-      "original_age_group": "16-18",
-      "normalized_age_group": "16-18",
-      "behavior_type": "العلاقات العاطفية المبكرة قبل الزواج",
-      "needs_ocr": false,
-      "size_chars": 319
     },
     {
       "id": "isl-d7c56adc",

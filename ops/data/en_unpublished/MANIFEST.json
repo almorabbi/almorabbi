@@ -3734,5 +3734,53 @@
     "to": "ops/data/en_unpublished/kb_units_source/gap-v6-teen-school-resentment-1315.json",
     "reason": "gap-v6 review 2026-10-15 (commit 0d18e5ec, pushed to main unreviewed): Self-cited «فريق المربّي» source that does not exist; model-written. Addresses the mother only.",
     "on": "2026-10-15"
+  },
+  {
+    "key": "isl-44227dfe",
+    "kind": "kb_units",
+    "from": "knowledge_base/units/isl-44227dfe.json",
+    "to": "ops/data/en_unpublished/kb_units_source/isl-44227dfe.json",
+    "reason": "Attributed to a named scholar's fatwa with no source document: text_original is a model-written paraphrase ending «— فتاوى …», so fidelity cannot be checked (check_scholar_quotes.py, 2026-11-09). The two cited binbaz.org.sa links are other fatwas entirely (8080: a preacher who fears preaching what he does not practise; 6005: when to stand for the prayer). No reviewer exists to vouch for the wording, so it goes.",
+    "on": "2026-11-09"
+  },
+  {
+    "key": "isl-d7b55818",
+    "kind": "kb_units",
+    "from": "knowledge_base/units/isl-d7b55818.json",
+    "to": "ops/data/en_unpublished/kb_units_source/isl-d7b55818.json",
+    "reason": "Attributed to a named scholar's fatwa with no source document: text_original is a model-written paraphrase ending «— فتاوى …», so fidelity cannot be checked (check_scholar_quotes.py, 2026-11-09). The two cited binbaz.org.sa links are other fatwas entirely (8080: a preacher who fears preaching what he does not practise; 6005: when to stand for the prayer). No reviewer exists to vouch for the wording, so it goes.",
+    "on": "2026-11-09"
+  },
+  {
+    "key": "isl-59686545",
+    "kind": "kb_units",
+    "from": "knowledge_base/units/isl-59686545.json",
+    "to": "ops/data/en_unpublished/kb_units_source/isl-59686545.json",
+    "reason": "Attributed to a named scholar's fatwa with no source document: text_original is a model-written paraphrase ending «— فتاوى …», so fidelity cannot be checked (check_scholar_quotes.py, 2026-11-09). The two cited binbaz.org.sa links are other fatwas entirely (8080: a preacher who fears preaching what he does not practise; 6005: when to stand for the prayer). No reviewer exists to vouch for the wording, so it goes.",
+    "on": "2026-11-09"
+  },
+  {
+    "key": "isl-71d65f43",
+    "kind": "kb_units",
+    "from": "knowledge_base/units/isl-71d65f43.json",
+    "to": "ops/data/en_unpublished/kb_units_source/isl-71d65f43.json",
+    "reason": "Attributed to a named scholar's fatwa with no source document: text_original is a model-written paraphrase ending «— فتاوى …», so fidelity cannot be checked (check_scholar_quotes.py, 2026-11-09). The two cited binbaz.org.sa links are other fatwas entirely (8080: a preacher who fears preaching what he does not practise; 6005: when to stand for the prayer). No reviewer exists to vouch for the wording, so it goes.",
+    "on": "2026-11-09"
+  },
+  {
+    "key": "isl-59686545__en",
+    "kind": "kb_units",
+    "from": "knowledge_base/units/isl-59686545__en.json",
+    "to": "ops/data/en_unpublished/kb_units/isl-59686545__en.json",
+    "reason": "Attributed to a named scholar's fatwa with no source document: text_original is a model-written paraphrase ending «— فتاوى …», so fidelity cannot be checked (check_scholar_quotes.py, 2026-11-09). The two cited binbaz.org.sa links are other fatwas entirely (8080: a preacher who fears preaching what he does not practise; 6005: when to stand for the prayer). No reviewer exists to vouch for the wording, so it goes.",
+    "on": "2026-11-09"
+  },
+  {
+    "key": "isl-71d65f43__en",
+    "kind": "kb_units",
+    "from": "knowledge_base/units/isl-71d65f43__en.json",
+    "to": "ops/data/en_unpublished/kb_units/isl-71d65f43__en.json",
+    "reason": "Attributed to a named scholar's fatwa with no source document: text_original is a model-written paraphrase ending «— فتاوى …», so fidelity cannot be checked (check_scholar_quotes.py, 2026-11-09). The two cited binbaz.org.sa links are other fatwas entirely (8080: a preacher who fears preaching what he does not practise; 6005: when to stand for the prayer). No reviewer exists to vouch for the wording, so it goes.",
+    "on": "2026-11-09"
   }
 ]

@@ -17,6 +17,8 @@ on:
       - 'ops/scripts/**'
       - 'ops/data/campaign_*'
       - 'ops/data/kb_fidelity/**'
+      # Scholar attributions found on turath (check_scholar_quotes.py).
+      - 'ops/data/scholar_quotes/**'
       - 'ops/data/sira/**'
       - 'ops/data/en_unpublished/**'
       - 'pytest.ini'
@@ -223,6 +225,15 @@ jobs:
         run: |
           cd "$GITHUB_WORKSPACE"
           python ops/tools/check_kb_fidelity.py check
+
+      # Scholar attributions — «قال ابن القيم…», «يجيز الشيخ ابن باز…» in what a
+      # parent reads. Each must come from the scholar's own book, be named in the
+      # unit's source text, or have been found in his book on turath.io (recorded
+      # with book and page). Offline; exit 2 = its self-tests broke.
+      - name: Run scholar attribution guard (check_scholar_quotes.py check)
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          python ops/tools/check_scholar_quotes.py check
 
   lint:
     # deploy.yml's gate requires this job BY NAME (ops/tools/deploy_gate.py).

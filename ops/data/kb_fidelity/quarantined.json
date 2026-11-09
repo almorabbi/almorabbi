@@ -4,7 +4,8 @@
   "The files live in ops/data/en_unpublished/ (moved with review_en_parity.py unpublish --with-source, which also cleared the English queue). check_kb_fidelity.py check fails if any of them, or its translation, is live again or still listed in units_index.json.",
   "retrieved = times the unit (Arabic or __en) was among the final retrieved units in production retrieval_log, 2026-06-12 → 2026-10-04 (2,397 retrievals). Sorted by it: the most-cited first.",
   "To re-publish one: fix the Arabic against its source, move the file back, and delete its entry here in the same commit — a visible decision, never a side effect.",
-  "gap-v6 entries (2026-10-15): 25 units from commit 0d18e5ec, pushed to main unreviewed on 2026-10-15 and withdrawn the same day after a unit-by-unit read. retrieved=0 is literal for the window above (they did not exist before 2026-10-14); their production hits between deploy and withdrawal were not measured."
+  "gap-v6 entries (2026-10-15): 25 units from commit 0d18e5ec, pushed to main unreviewed on 2026-10-15 and withdrawn the same day after a unit-by-unit read. retrieved=0 is literal for the window above (they did not exist before 2026-10-14); their production hits between deploy and withdrawal were not measured.",
+  "scholar-attribution entries (2026-11-09): units presenting a named scholar's fatwa whose only «source» is a model-written paraphrase; retrieved = final_ids hits in production retrieval_log (all time, Arabic + __en) up to 2026-11-09."
  ],
  "units": [
   {
@@ -820,6 +821,28 @@
    ]
   },
   {
+   "id": "isl-59686545",
+   "category": "unfaithful",
+   "retrieved": 5,
+   "source_file": "فتاوى الشيخ عبدالعزيز بن باز — حكم عمل المرأة خارج بيتها وضوابطه (binbaz.org.sa)؛ وللمسألة خلاف فقهي معتبر بين أهل العلم",
+   "title": "ابنتي تريد أن تعمل وأنا غير موافق",
+   "flags": [
+    "scholar-attribution-unsourced"
+   ],
+   "reason": "Its source_meta links binbaz.org.sa/fatwas/5631 for «a woman working outside the home and its conditions» — that fatwa is about entering ihram for umrah from Jeddah; text_original is a paraphrase signed «فتاوى ابن باز».",
+   "on": "2026-11-09",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-59686545.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-59686545.json"
+    },
+    {
+     "from": "knowledge_base/units/isl-59686545__en.json",
+     "to": "ops/data/en_unpublished/kb_units/isl-59686545__en.json"
+    }
+   ]
+  },
+  {
    "id": "isl-0ecac170",
    "category": "unfaithful",
    "retrieved": 4,
@@ -1341,6 +1364,28 @@
    ]
   },
   {
+   "id": "isl-71d65f43",
+   "category": "unfaithful",
+   "retrieved": 3,
+   "source_file": "فتاوى الشيخ محمد بن صالح العثيمين — أحكام تتعلق بالمرأة: عمل المرأة وضوابطه",
+   "title": "رأي أكثر تحفظًا: ابن عثيمين وضوابط أشد لعمل المرأة",
+   "flags": [
+    "scholar-attribution-unsourced"
+   ],
+   "reason": "Its source_meta links only binothaimeen.net (the site's home page) for «فتاوى نور على الدرب / أحكام تتعلق بالمرأة»; text_original is a paraphrase signed «من فتاوى الشيخ ابن عثيمين» — no document to check it against.",
+   "on": "2026-11-09",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-71d65f43.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-71d65f43.json"
+    },
+    {
+     "from": "knowledge_base/units/isl-71d65f43__en.json",
+     "to": "ops/data/en_unpublished/kb_units/isl-71d65f43__en.json"
+    }
+   ]
+  },
+  {
    "id": "isl-12f1f119",
    "category": "unfaithful",
    "retrieved": 2,
@@ -1759,6 +1804,24 @@
     {
      "from": "knowledge_base/units/isl-f6342250.json",
      "to": "ops/data/en_unpublished/kb_units_source/isl-f6342250.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-d7b55818",
+   "category": "unfaithful",
+   "retrieved": 2,
+   "source_file": "فتاوى الشيخ عبدالعزيز بن باز — حكم التفكير بالحب والمراسلة بين الفتاة والشاب (binbaz.org.sa/fatwas/6005)",
+   "title": "ابني بيحب بنت... إيه الضابط الشرعي؟",
+   "flags": [
+    "scholar-attribution-unsourced"
+   ],
+   "reason": "Cites binbaz.org.sa/fatwas/6005 for «love and correspondence between a girl and a young man» — that fatwa is about when to stand for the prayer.",
+   "on": "2026-11-09",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-d7b55818.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-d7b55818.json"
     }
    ]
   },
@@ -5154,6 +5217,24 @@
     {
      "from": "knowledge_base/units/gap-v6-teen-school-resentment-1315.json",
      "to": "ops/data/en_unpublished/kb_units_source/gap-v6-teen-school-resentment-1315.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-44227dfe",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "فتاوى الشيخ عبدالعزيز بن باز — حكم اتصال الرجل بالمرأة قبل الزواج وتأثيره على الزواج (binbaz.org.sa/fatwas/8080)",
+   "title": "اكتشفت علاقة عاطفية مبكرة لابنتي المراهقة... أعمل إيه؟",
+   "flags": [
+    "scholar-attribution-unsourced"
+   ],
+   "reason": "Cites binbaz.org.sa/fatwas/8080 for «contact between a man and a woman before marriage» — that fatwa is about a preacher who fears not practising what she preaches.",
+   "on": "2026-11-09",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-44227dfe.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-44227dfe.json"
     }
    ]
   }
