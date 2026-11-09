@@ -2439,5 +2439,30 @@
   "storyRateOkay": "عادية",
   "@storyRateOkay": {
     "description": "«صورة حيّة» experiment: the one question at a story's end (same in both arms); never about the motion."
-  }
+  },
+  "tasmeeButton": "تسميع",
+  "tasmeeTitle": "تسميع سورة {surah}",
+  "@tasmeeTitle": {"placeholders": {"surah": {"type": "String"}}},
+  "tasmeeHint": "اسمع من طفلك، والمس الكلمة التي تعثّر فيها.",
+  "tasmeeRangeTitle": "اختاروا المقطع",
+  "tasmeeFrom": "من الآية",
+  "tasmeeTo": "إلى الآية",
+  "tasmeeStart": "ابدأ التسميع",
+  "tasmeeSlipOmit": "نسيها",
+  "tasmeeSlipAdd": "زاد",
+  "tasmeeSlipSwap": "أبدلها",
+  "tasmeeSlipHesitate": "تردّد",
+  "tasmeeSlipClear": "إزالة العلامة",
+  "tasmeeFinish": "انتهينا",
+  "tasmeeSummaryTitle": "خلاصة التسميع",
+  "tasmeeSummaryClean": "تسميع بلا تعثّر.",
+  "tasmeeSummaryCounts": "نسيها: {omit} · زاد: {add} · أبدلها: {swap} · تردّد: {hesitate}",
+  "@tasmeeSummaryCounts": {"placeholders": {"omit": {"type": "int"}, "add": {"type": "int"}, "swap": {"type": "int"}, "hesitate": {"type": "int"}}},
+  "tasmeeSummaryAyat": "آيات فيها علامات: {ayat}",
+  "@tasmeeSummaryAyat": {"placeholders": {"ayat": {"type": "String"}}},
+  "tasmeeSave": "احفظ",
+  "tasmeeOpenSlips": "{count, plural, =1{موضع واحد للمراجعة} =2{موضعان للمراجعة} few{{count} مواضع للمراجعة} many{{count} موضعًا للمراجعة} other{{count} موضع للمراجعة}}",
+  "@tasmeeOpenSlips": {"placeholders": {"count": {"type": "int"}}},
+  "tasmeeNoSlips": "بلا مواضع للمراجعة",
+  "tasmeeDue": "راجعوها اليوم"
 }

@@ -6723,4 +6723,84 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get storyRateOkay => 'عادية';
+
+  @override
+  String get tasmeeButton => 'تسميع';
+
+  @override
+  String tasmeeTitle(String surah) {
+    return 'تسميع سورة $surah';
+  }
+
+  @override
+  String get tasmeeHint => 'اسمع من طفلك، والمس الكلمة التي تعثّر فيها.';
+
+  @override
+  String get tasmeeRangeTitle => 'اختاروا المقطع';
+
+  @override
+  String get tasmeeFrom => 'من الآية';
+
+  @override
+  String get tasmeeTo => 'إلى الآية';
+
+  @override
+  String get tasmeeStart => 'ابدأ التسميع';
+
+  @override
+  String get tasmeeSlipOmit => 'نسيها';
+
+  @override
+  String get tasmeeSlipAdd => 'زاد';
+
+  @override
+  String get tasmeeSlipSwap => 'أبدلها';
+
+  @override
+  String get tasmeeSlipHesitate => 'تردّد';
+
+  @override
+  String get tasmeeSlipClear => 'إزالة العلامة';
+
+  @override
+  String get tasmeeFinish => 'انتهينا';
+
+  @override
+  String get tasmeeSummaryTitle => 'خلاصة التسميع';
+
+  @override
+  String get tasmeeSummaryClean => 'تسميع بلا تعثّر.';
+
+  @override
+  String tasmeeSummaryCounts(int omit, int add, int swap, int hesitate) {
+    return 'نسيها: $omit · زاد: $add · أبدلها: $swap · تردّد: $hesitate';
+  }
+
+  @override
+  String tasmeeSummaryAyat(String ayat) {
+    return 'آيات فيها علامات: $ayat';
+  }
+
+  @override
+  String get tasmeeSave => 'احفظ';
+
+  @override
+  String tasmeeOpenSlips(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count موضع للمراجعة',
+      many: '$count موضعًا للمراجعة',
+      few: '$count مواضع للمراجعة',
+      two: 'موضعان للمراجعة',
+      one: 'موضع واحد للمراجعة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get tasmeeNoSlips => 'بلا مواضع للمراجعة';
+
+  @override
+  String get tasmeeDue => 'راجعوها اليوم';
 }

@@ -17,6 +17,7 @@ import '../../../state/chat_notifier.dart';
 import '../../onboarding/providers/onboarding_providers.dart';
 import '../data/journey_store.dart';
 import '../data/memorization_store.dart';
+import '../data/tasmee_store.dart';
 
 /// Feature flag — Phase 1 «رحلة الطفل». Flip to `false` to hide every
 /// entry point (Home card + child-list action) with zero other side
@@ -119,4 +120,26 @@ class MemorizedSurahsNotifier extends FamilyAsyncNotifier<Set<int>, int> {
 final memorizedSurahsProvider =
     AsyncNotifierProvider.family<MemorizedSurahsNotifier, Set<int>, int>(
   MemorizedSurahsNotifier.new,
+);
+
+final tasmeeStoreProvider = Provider<TasmeeStore>((ref) {
+  final prefs = ref.watch(sharedPreferencesProvider).requireValue;
+  return TasmeeStore(prefs);
+});
+
+/// «تسميع مع الوالد»: one child's recitation sessions, by surah.
+class TasmeeNotifier extends FamilyAsyncNotifier<Map<int, List<TasmeeSession>>, int> {
+  @override
+  Future<Map<int, List<TasmeeSession>>> build(int childId) async {
+    return ref.read(tasmeeStoreProvider).loadForChild(childId);
+  }
+
+  Future<void> add(int surah, TasmeeSession session) async {
+    state = AsyncValue.data(await ref.read(tasmeeStoreProvider).add(arg, surah, session));
+  }
+}
+
+final tasmeeProvider =
+    AsyncNotifierProvider.family<TasmeeNotifier, Map<int, List<TasmeeSession>>, int>(
+  TasmeeNotifier.new,
 );

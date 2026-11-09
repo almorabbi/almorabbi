@@ -11335,6 +11335,132 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'عادية'**
   String get storyRateOkay;
+
+  /// No description provided for @tasmeeButton.
+  ///
+  /// In ar, this message translates to:
+  /// **'تسميع'**
+  String get tasmeeButton;
+
+  /// No description provided for @tasmeeTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'تسميع سورة {surah}'**
+  String tasmeeTitle(String surah);
+
+  /// No description provided for @tasmeeHint.
+  ///
+  /// In ar, this message translates to:
+  /// **'اسمع من طفلك، والمس الكلمة التي تعثّر فيها.'**
+  String get tasmeeHint;
+
+  /// No description provided for @tasmeeRangeTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'اختاروا المقطع'**
+  String get tasmeeRangeTitle;
+
+  /// No description provided for @tasmeeFrom.
+  ///
+  /// In ar, this message translates to:
+  /// **'من الآية'**
+  String get tasmeeFrom;
+
+  /// No description provided for @tasmeeTo.
+  ///
+  /// In ar, this message translates to:
+  /// **'إلى الآية'**
+  String get tasmeeTo;
+
+  /// No description provided for @tasmeeStart.
+  ///
+  /// In ar, this message translates to:
+  /// **'ابدأ التسميع'**
+  String get tasmeeStart;
+
+  /// No description provided for @tasmeeSlipOmit.
+  ///
+  /// In ar, this message translates to:
+  /// **'نسيها'**
+  String get tasmeeSlipOmit;
+
+  /// No description provided for @tasmeeSlipAdd.
+  ///
+  /// In ar, this message translates to:
+  /// **'زاد'**
+  String get tasmeeSlipAdd;
+
+  /// No description provided for @tasmeeSlipSwap.
+  ///
+  /// In ar, this message translates to:
+  /// **'أبدلها'**
+  String get tasmeeSlipSwap;
+
+  /// No description provided for @tasmeeSlipHesitate.
+  ///
+  /// In ar, this message translates to:
+  /// **'تردّد'**
+  String get tasmeeSlipHesitate;
+
+  /// No description provided for @tasmeeSlipClear.
+  ///
+  /// In ar, this message translates to:
+  /// **'إزالة العلامة'**
+  String get tasmeeSlipClear;
+
+  /// No description provided for @tasmeeFinish.
+  ///
+  /// In ar, this message translates to:
+  /// **'انتهينا'**
+  String get tasmeeFinish;
+
+  /// No description provided for @tasmeeSummaryTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'خلاصة التسميع'**
+  String get tasmeeSummaryTitle;
+
+  /// No description provided for @tasmeeSummaryClean.
+  ///
+  /// In ar, this message translates to:
+  /// **'تسميع بلا تعثّر.'**
+  String get tasmeeSummaryClean;
+
+  /// No description provided for @tasmeeSummaryCounts.
+  ///
+  /// In ar, this message translates to:
+  /// **'نسيها: {omit} · زاد: {add} · أبدلها: {swap} · تردّد: {hesitate}'**
+  String tasmeeSummaryCounts(int omit, int add, int swap, int hesitate);
+
+  /// No description provided for @tasmeeSummaryAyat.
+  ///
+  /// In ar, this message translates to:
+  /// **'آيات فيها علامات: {ayat}'**
+  String tasmeeSummaryAyat(String ayat);
+
+  /// No description provided for @tasmeeSave.
+  ///
+  /// In ar, this message translates to:
+  /// **'احفظ'**
+  String get tasmeeSave;
+
+  /// No description provided for @tasmeeOpenSlips.
+  ///
+  /// In ar, this message translates to:
+  /// **'{count, plural, =1{موضع واحد للمراجعة} =2{موضعان للمراجعة} few{{count} مواضع للمراجعة} many{{count} موضعًا للمراجعة} other{{count} موضع للمراجعة}}'**
+  String tasmeeOpenSlips(int count);
+
+  /// No description provided for @tasmeeNoSlips.
+  ///
+  /// In ar, this message translates to:
+  /// **'بلا مواضع للمراجعة'**
+  String get tasmeeNoSlips;
+
+  /// No description provided for @tasmeeDue.
+  ///
+  /// In ar, this message translates to:
+  /// **'راجعوها اليوم'**
+  String get tasmeeDue;
 }
 
 class _AppLocalizationsDelegate
