@@ -23,6 +23,7 @@ from app.db.init_db import init_db
 from app.middleware.rate_limit import RateLimitMiddleware
 from app.middleware.auth import AuthMiddleware
 from app.middleware.client_ip import ClientIPMiddleware
+from app.middleware.security_headers import SecurityHeadersMiddleware
 from app.routers import (
     health, assistant, chat, feedback, privacy, program, children, referral, push, identity,
     web, stats, daily_routine, value_tracking, habit_templates, child_mode, child_mode_web, sync,
@@ -236,6 +237,12 @@ app.add_middleware(RateLimitMiddleware)
 # ProxyHeadersMiddleware(trusted_hosts="*") was registered first (innermost)
 # and trusted forged X-Forwarded-For entries. See middleware/client_ip.py.
 app.add_middleware(ClientIPMiddleware)
+
+# Security headers on every response (middleware/security_headers.py). Added
+# after ClientIPMiddleware, so it is the outermost layer: the 401s and 429s the
+# inner layers answer with carry the headers too. It reads nothing from the
+# request, so running before the client-IP resolution changes nothing.
+app.add_middleware(SecurityHeadersMiddleware)
 
 app.include_router(health.router)
 app.include_router(assistant.router, prefix="/api")
