@@ -5,11 +5,9 @@
   "age_group": "16-18",
   "domain": "islamic_parenting",
   "unit_ids": [
-    "isl-85efb0a3",
-    "isl-44227dfe",
-    "isl-d7b55818"
+    "isl-85efb0a3"
   ],
-  "summary": "Your university-age child’s independence in their decisions is a natural stage of growth, not a shortcoming in his dutifulness to you, as Abdullah Nasih Alwan explains in his book Tarbiyah al-Awlad fi al-Islam. Your role shifts from direct guidance to companionship and counsel, for the values you planted in their early years remain their inner reference. Birr does not mean complete dependence, but mutual respect alongside their independence. If you discover your daughter in an early emotional relationship, it calls for its termination because it lacks a Shar'i framework. However, address it with wisdom, not exposure or scandal before the family, according to the fatwas of Shaykh Ibn Baz. Speak to her calmly, clarify the potential harms, and present the lawful alternative: official engagement with the family’s knowledge if her desire is sincere. Your son’s emotional inclination toward a girl is not a sin in itself because it is not entirely his choice, as per Shaykh Ibn Baz’s fatwa, but accountability lies in the actions: secret correspondence and khalwah (seclusion) are forbidden and must be stopped. Do not punish him for mere feelings, but guide him to the lawful path: if his desire is sincere, then proceed to propose for her hand with the knowledge of both families, rather than continuing a secret relationship.",
+  "summary": "Your university-age child’s independence in their decisions is a natural stage of growth, not a shortcoming in his dutifulness to you, as Abdullah Nasih Alwan explains in his book Tarbiyah al-Awlad fi al-Islam. Your role shifts from direct guidance to companionship and counsel, for the values you planted in their early years remain their inner reference. Birr does not mean complete dependence, but mutual respect alongside their independence. If you discover your daughter in an early emotional relationship, it calls for its termination because it lacks a Shar'i framework. However, address it with wisdom, not exposure or scandal before the family. Speak to her calmly, clarify the potential harms, and present the lawful alternative: official engagement with the family’s knowledge if her desire is sincere. Your son’s emotional inclination toward a girl is not a sin in itself because it is not entirely his choice, but accountability lies in the actions: secret correspondence and khalwah (seclusion) are forbidden and must be stopped. Do not punish him for mere feelings, but guide him to the lawful path: if his desire is sincere, then proceed to propose for her hand with the knowledge of both families, rather than continuing a secret relationship.",
   "try_this": "This week: If you have a son or daughter at this stage, initiate one calm conversation (not tied to a specific incident) about the meaning of birr after independence, and about the Shar'i path if they have a sincere desire to get to know someone with the intention of marriage, instead of leaving the topic unaddressed until a surprise occurs.",
   "order": 1,
   "estimated_minutes": 10,
@@ -21,7 +19,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-09",
   "language": "en",
   "source_language": "ar",
   "translation": {
@@ -38,24 +36,18 @@
       {
         "model": "deepseek-v4-pro",
         "field": "summary",
-        "type": "meaning",
-        "why": "The Arabic addresses 'your son' specifically, while the English broadens to 'child' and 'their' before reverting to 'his' later."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "reflection_prompts",
-        "type": "meaning",
-        "why": "The Arabic says 'your son' but the English uses 'your child' and 'their', losing the specific gendered address."
+        "type": "leakage",
+        "why": "The Arabic book title is transliterated rather than translated, leaving Arabic words in the English text."
       },
       {
         "model": "glm-5.2",
         "field": "summary",
         "type": "meaning",
-        "why": "The Arabic specifically says ابنك (your son) but the English generalizes to 'child' and 'their', shifting the gender focus of the opening statement."
+        "why": "«جدّت» means 'if his desire becomes serious/arises', emphasizing the desire reaching a serious stage, whereas 'sincere' shifts the nuance toward genuineness of intent."
       }
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-09",
+    "revalidated_at": "2026-11-09T08:10:21+00:00",
     "fixed_at": "2026-08-13T17:53:46.192345+00:00",
     "fixer_model": "mistral-large-3:675b",
     "auto_review": {
@@ -63,34 +55,38 @@
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4aef7f956cfcf9a0f39c4ecaa5ed5ff3e73854a206907f48164f135e6f9140fc",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "4a14de058aced8f44073eec85af7309bd07044ccac047e70ea674f2a5b7c7318",
+      "reviewed_at": "2026-11-09T08:10:21+00:00",
       "residual_low": [
         {
           "model": "deepseek-v4-pro",
           "field": "summary",
-          "type": "meaning",
-          "why": "The Arabic addresses 'your son' specifically, while the English broadens to 'child' and 'their' before reverting to 'his' later."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "reflection_prompts",
-          "type": "meaning",
-          "why": "The Arabic says 'your son' but the English uses 'your child' and 'their', losing the specific gendered address."
+          "type": "leakage",
+          "why": "The Arabic book title is transliterated rather than translated, leaving Arabic words in the English text."
         },
         {
           "model": "glm-5.2",
           "field": "summary",
           "type": "meaning",
-          "why": "The Arabic specifically says ابنك (your son) but the English generalizes to 'child' and 'their', shifting the gender focus of the opening statement."
+          "why": "«جدّت» means 'if his desire becomes serious/arises', emphasizing the desire reaching a serious stage, whereas 'sincere' shifts the nuance toward genuineness of intent."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     }
   }
 }

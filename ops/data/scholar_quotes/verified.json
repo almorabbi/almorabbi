@@ -1,0 +1,17 @@
+{
+ "verified": {
+  "9af3fcf9b9ba461c": {
+   "file": "knowledge_base/units/shm-isl-11-wudu-step-by-step-7-9.json",
+   "scholar": "ابن باز",
+   "sentence": "وينقل عن الشيخ ابن باز رحمه الله أن من تركها ناسيًا أو جاهلًا فوضوءه صحيح، لقوله تعالى: ﴿رَبَّنَا لا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا﴾ (البقرة: ٢٨٦)، وأن من نسيها في أول الوضوء ثم ذكرها في أثنائه سمّى ولم يُعِد ما مضى.",
+   "book": "مجموع فتاوى ومقالات متنوعة - ابن باز",
+   "book_id": 21537,
+   "vol": "10",
+   "page": 100,
+   "matched": "من تركها ناسيا أو جاهلا",
+   "precision": 3,
+   "checked": "2026-11-09"
+  }
+ },
+ "note": "Scholar attributions found on turath.io in a book by that scholar — mechanical match of a contiguous run of the sentence's words; see ops/tools/check_scholar_quotes.py. Keyed by the sentence's fingerprint."
+}
