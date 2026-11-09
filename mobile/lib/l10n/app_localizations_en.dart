@@ -6855,4 +6855,53 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tasmeeDue => 'Review today';
+
+  @override
+  String get mawqifCardLabel => 'A decision moment · 4 min';
+
+  @override
+  String get mawqifCardStart => 'Start';
+
+  @override
+  String get mawqifSituationLabel => 'The situation';
+
+  @override
+  String get mawqifWhatDoYouDo => 'What do you do?';
+
+  @override
+  String get mawqifChoicesTitle => 'Your decision';
+
+  @override
+  String get mawqifChoicesHint =>
+      'Each response has a gain and a cost. Pick the one closest to what you would do.';
+
+  @override
+  String get mawqifNow => 'Now';
+
+  @override
+  String get mawqifLater => 'Later';
+
+  @override
+  String get mawqifCompare => 'Compare all three';
+
+  @override
+  String get mawqifToEvidence => 'From the Sunnah';
+
+  @override
+  String get mawqifWordsTitle => 'Word meanings';
+
+  @override
+  String get mawqifIdeaTitle => 'The idea';
+
+  @override
+  String get mawqifToStep => 'Your step';
+
+  @override
+  String get mawqifStepTitle => 'One step this week';
+
+  @override
+  String get mawqifCommit => 'I\'ll try it';
+
+  @override
+  String get mawqifClose => 'Not now';
 }

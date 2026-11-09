@@ -1236,6 +1236,8 @@ def _open_followup(
 
 # «متى ستجرّبها مع …؟» — the slot the parent picked, and the day we ask back.
 PROMISE_DUE_DAYS = {"tonight": 1, "tomorrow": 2, "week": 7}
+# The screens a promise can come from (followups.source).
+PROMISE_SOURCES = ("lesson", "mawqif")
 
 
 class FollowupRefused(RuntimeError):
@@ -1245,8 +1247,10 @@ class FollowupRefused(RuntimeError):
 
 def open_promise_followup(
     device_id: str, child_id: int, strategy: str, *, when: str, topic: str, lang: str,
+    source: str = "lesson",
 ) -> dict:
-    """A lesson promise becomes a follow-up (source='lesson').
+    """A lesson promise becomes a follow-up (source='lesson'), and so does the
+    step at the end of a «موقف بقرار» (source='mawqif', docs/MAWAQIF.md).
 
     Same queue and limits as the chat follow-ups — MAX_PENDING_FOLLOWUPS, one
     open question per topic, names redacted, sensitive text refused — so a
@@ -1254,7 +1258,8 @@ def open_promise_followup(
     switch is honoured (MemoryOffError); the build gate is not, because the
     promise comes from the app's own lesson screen, not from the chat.
     """
-    if when not in PROMISE_DUE_DAYS or topic not in FOLLOWUP_TOPICS:
+    if when not in PROMISE_DUE_DAYS or topic not in FOLLOWUP_TOPICS \
+            or source not in PROMISE_SOURCES:
         raise FactValidationError("strategy")
     conn = get_conn()
     try:
@@ -1277,7 +1282,7 @@ def open_promise_followup(
         fid = _open_followup(
             conn, device_id, child_id,
             {"strategy": cleaned, "topic": topic, "days": PROMISE_DUE_DAYS[when]},
-            lang=lang, family=family, source_message_id=None, source="lesson",
+            lang=lang, family=family, source_message_id=None, source=source,
         )
         if fid is None:
             conn.rollback()

@@ -458,7 +458,10 @@ class _FakeMemoryRepo implements MemoryRepository {
 
   @override
   Future<int?> openPromise(int childId,
-      {required String step, required String when, String topic = 'other'}) async {
+      {required String step,
+      required String when,
+      String topic = 'other',
+      String? source}) async {
     opened.add((childId: childId, step: step, when: when));
     return 42;
   }

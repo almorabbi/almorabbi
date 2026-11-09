@@ -261,6 +261,8 @@ _SPECS = [
     ("license.en", "knowledge_base/curriculum/i18n/en/license/*.json", "json"),
     ("program", "knowledge_base/curriculum/programs/*.json", "json"),
     ("program.en", "knowledge_base/curriculum/i18n/en/programs/*.json", "json"),
+    ("mawqif", "knowledge_base/curriculum/mawaqif/*.json", "json"),
+    ("mawqif.en", "knowledge_base/curriculum/i18n/en/mawaqif/*.json", "json"),
     ("adhkar", "mobile/assets/content/adhkar/*.json", "json"),
     ("game", "mobile/assets/content/games/*.json", "json"),
     ("journey", "mobile/assets/content/journey/*.json", "json"),

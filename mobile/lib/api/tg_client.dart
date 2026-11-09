@@ -1995,10 +1995,44 @@ class TgClient {
   /// مع …؟») becomes a follow-up with source='lesson'. 201 on success; 409
   /// `followup_exists` / `followups_full` / `memory_off` are not failures for
   /// the caller — the promise is still kept on the device.
+  ///
+  /// [source] is sent only for a «موقف بقرار» step (`mawqif`); without it the
+  /// server records a lesson promise, as it always has.
   Future<Map<String, dynamic>> openPromiseFollowup(int childId,
-          {required String step, required String when, String topic = 'other'}) =>
+          {required String step,
+          required String when,
+          String topic = 'other',
+          String? source}) =>
       _authedJson('POST', '/api/children/$childId/followups',
-          body: {'strategy': step, 'when': when, 'topic': topic}, ok: const {201});
+          body: {
+            'strategy': step,
+            'when': when,
+            'topic': topic,
+            'source': ?source,
+          },
+          ok: const {201});
+
+  /// `GET /api/program/mawaqif` — the «موقف بقرار» steps for one child band
+  /// (docs/MAWAQIF.md). Public content like the lessons. An older server
+  /// answers 404: then there are none, which hides the card.
+  Future<List<Map<String, dynamic>>> getMawaqif(String ageGroup) async {
+    return _guard(() async {
+      final uri = Uri.parse('$_baseUrl/api/program/mawaqif')
+          .replace(queryParameters: {'age_group': ageGroup, ..._langParam()});
+      final resp = await _http
+          .get(uri, headers: const {'Accept': 'application/json'})
+          .timeout(AppConfig.httpTimeout);
+      if (resp.statusCode == 404) return const <Map<String, dynamic>>[];
+      if (resp.statusCode != 200) throw _wrap(resp);
+      final body = jsonDecode(utf8.decode(resp.bodyBytes));
+      final items = body is Map ? body['items'] : null;
+      return [
+        if (items is List)
+          for (final i in items)
+            if (i is Map<String, dynamic>) i,
+      ];
+    });
+  }
 
   /// `POST /api/children/followups/{id}/dismiss`.
   Future<Map<String, dynamic>> dismissFollowup(int followupId) =>

@@ -6803,4 +6803,53 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get tasmeeDue => 'راجعوها اليوم';
+
+  @override
+  String get mawqifCardLabel => 'موقف بقرار · ٤ دقائق';
+
+  @override
+  String get mawqifCardStart => 'ابدأ';
+
+  @override
+  String get mawqifSituationLabel => 'الموقف';
+
+  @override
+  String get mawqifWhatDoYouDo => 'ماذا تفعل؟';
+
+  @override
+  String get mawqifChoicesTitle => 'قرارك الآن';
+
+  @override
+  String get mawqifChoicesHint =>
+      'لكل ردٍّ مكسب وثمن. اختر أقربها إلى ما كنت ستفعله.';
+
+  @override
+  String get mawqifNow => 'الآن';
+
+  @override
+  String get mawqifLater => 'بعد ذلك';
+
+  @override
+  String get mawqifCompare => 'قارن الردود الثلاثة';
+
+  @override
+  String get mawqifToEvidence => 'من السنّة';
+
+  @override
+  String get mawqifWordsTitle => 'معاني الكلمات';
+
+  @override
+  String get mawqifIdeaTitle => 'الفكرة';
+
+  @override
+  String get mawqifToStep => 'خطوتك';
+
+  @override
+  String get mawqifStepTitle => 'خطوة واحدة هذا الأسبوع';
+
+  @override
+  String get mawqifCommit => 'سأجرّبها';
+
+  @override
+  String get mawqifClose => 'ليس الآن';
 }
