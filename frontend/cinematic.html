@@ -145,6 +145,14 @@ footer .social svg{width:22px;height:22px}
   .feature:nth-of-type(even) figure{order:2}
   .features{padding-top:40px}
 }
+.faq{padding:8px 0 40px}
+.faq details{background:#fff;border:2px solid var(--iv2);border-radius:20px;box-shadow:3px 4px 0 var(--iv2);max-width:46em;margin:0 auto 12px;padding:0 18px}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:14px;cursor:pointer;list-style:none;font-weight:800;color:var(--em);font-size:17px;padding:14px 0}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;line-height:1;flex:none}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{font-size:16px;color:#26443e;padding:0 0 16px}
+.faq a{color:var(--em);font-weight:700}
 </style>
 </head>
 <body>
@@ -340,6 +348,39 @@ footer .social svg{width:22px;height:22px}
     </div>
   </section>
 
+  <!-- 2b · Questions parents ask (plain HTML, no script) -->
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>أسئلة يسألها الآباء والأمهات</h2>
+      </div>
+      <details>
+        <summary>هل المربّي مجاني فعلًا؟</summary>
+        <p>نعم، مجاني بالكامل: بلا إعلانات ولا اشتراكات ولا مشتريات داخلية. تطبيق خيري نبنيه لوجه الله، ولا نبيع بيانات المستخدمين.</p>
+      </details>
+      <details>
+        <summary>من أين تأتي الإجابات والدروس؟</summary>
+        <p>من قاعدة معرفة مأخوذة من كتب في التربية الإسلامية تُذكر بعناوينها، ومن منشورات جهات صحية مثل منظمة الصحة العالمية والأكاديمية الأمريكية لطب الأطفال، وتذكر كل إجابة مراجعها في سطر يبدأ بـ 📚. وقبل أن تصلكم الإجابة تُطابَق آياتها مع المصحف وأحاديثها مع كتب الحديث، وهذه مطابقة آلية للنصوص لا مراجعة من أهل العلم. التفاصيل في <a href="/methodology">منهجيتنا ومصادرنا</a>.</p>
+      </details>
+      <details>
+        <summary>هل يغني عن الطبيب أو المختص؟</summary>
+        <p>لا. المربّي إرشاد تربوي عام لا يشخّص، وفي الحالات الخطرة أو الطارئة يحيلكم إلى مختص أو إلى الطوارئ. ولا يُصدر فتاوى: أسئلة الحلال والحرام تُحال إلى أهل العلم.</p>
+      </details>
+      <details>
+        <summary>ماذا تعرفون عن أطفالي؟ وهل أستطيع حذف بياناتي؟</summary>
+        <p>لا يحتاج البدء إلى بريد ولا رقم هاتف. ويُخفى اسم طفلكم قبل أي معالجة سحابية لسؤالكم، والاتصال مشفّر. وتستطيعون حذف حسابكم وكل ما يرتبط بهاتفكم على خوادمنا من الإعدادات ← «حذف الحساب». التفاصيل في <a href="/privacy-policy">سياسة الخصوصية</a>.</p>
+      </details>
+      <details>
+        <summary>لأي عمر يصلح؟ وبأي لغة؟</summary>
+        <p>من الحمل حتى ١٨ سنة، بمسارات يومية لكل مرحلة عمرية. والتطبيق بالعربية والإنجليزية، والآيات تبقى بنصها العربي ويُشرح معناها إلى جانبها.</p>
+      </details>
+      <details>
+        <summary>على أي جهاز يعمل؟</summary>
+        <p>على هواتف أندرويد، من Google Play.</p>
+      </details>
+    </div>
+  </section>
+
   <!-- 3 · The one call to action -->
   <section id="download" class="close">
     <svg class="strip" aria-hidden="true"><use href="#hills" width="100%" height="100%"/></svg>
@@ -362,6 +403,7 @@ footer .social svg{width:22px;height:22px}
       <a href="#hero">الرئيسية</a>
       <a href="#features">ما الجديد</a>
       <a href="{{DOWNLOAD_URL}}">حمّله من Google Play</a>
+      <a href="#faq">أسئلة شائعة</a>
       <a href="/privacy-policy">سياسة الخصوصية</a>
     </nav>
     <div class="social">

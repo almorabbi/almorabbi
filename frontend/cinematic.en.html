@@ -150,6 +150,14 @@ footer .social svg{width:22px;height:22px}
   .feature:nth-of-type(even) figure{order:2}
   .features{padding-top:40px}
 }
+.faq{padding:8px 0 40px}
+.faq details{background:#fff;border:2px solid var(--iv2);border-radius:20px;box-shadow:3px 4px 0 var(--iv2);max-width:46em;margin:0 auto 12px;padding:0 18px}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:14px;cursor:pointer;list-style:none;font-weight:800;color:var(--em);font-size:17px;padding:14px 0}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;line-height:1;flex:none}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{font-size:16px;color:#26443e;padding:0 0 16px}
+.faq a{color:var(--em);font-weight:700}
 </style>
 </head>
 <body>
@@ -345,6 +353,39 @@ footer .social svg{width:22px;height:22px}
     </div>
   </section>
 
+  <!-- 2b · Questions parents ask (plain HTML, no script) -->
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Questions parents ask</h2>
+      </div>
+      <details>
+        <summary>Is Al-Morabbi really free?</summary>
+        <p>Yes, completely free: no ads, no subscriptions, no in-app purchases. It is a charitable app we build for the sake of Allah, and we do not sell users&#8217; data.</p>
+      </details>
+      <details>
+        <summary>Where do the answers and lessons come from?</summary>
+        <p>From a knowledge base drawn from books on Islamic parenting, named by title, and from publications of health bodies such as the WHO and the American Academy of Pediatrics; every answer lists its references on a line starting with 📚. Before an answer reaches you, its verses are matched against the Mushaf and its hadith against the hadith collections. This is mechanical text matching, not a review by people of knowledge. Details in <a href="/methodology">our methodology and sources</a>.</p>
+      </details>
+      <details>
+        <summary>Does it replace a doctor or a specialist?</summary>
+        <p>No. Al-Morabbi is general parenting guidance and does not diagnose; in serious or urgent cases it refers you to a specialist or to emergency services. It does not issue fatwas: questions of halal and haram are referred to people of knowledge.</p>
+      </details>
+      <details>
+        <summary>What do you know about my children? Can I delete my data?</summary>
+        <p>You need no email and no phone number to start. Your child&#8217;s name is hidden before any cloud processing of your question, and the connection is encrypted. You can delete your account and everything linked to your phone on our servers from Settings &#8594; &#8220;Delete Account&#8221;. Details in the <a href="/privacy-policy">privacy policy</a>.</p>
+      </details>
+      <details>
+        <summary>Which ages, and which languages?</summary>
+        <p>From pregnancy to age 18, with daily paths for each stage. The app is in Arabic and English, and the Qur&#8217;an&#8217;s verses always stay in Arabic, with their meaning explained beside them.</p>
+      </details>
+      <details>
+        <summary>Which devices does it run on?</summary>
+        <p>Android phones, from Google Play.</p>
+      </details>
+    </div>
+  </section>
+
   <!-- 3 · The one call to action -->
   <section id="download" class="close">
     <svg class="strip" aria-hidden="true"><use href="#hills" width="100%" height="100%"/></svg>
@@ -367,6 +408,7 @@ footer .social svg{width:22px;height:22px}
       <a href="#hero">Home</a>
       <a href="#features">What&#8217;s new</a>
       <a href="{{DOWNLOAD_URL}}">Get it on Google Play</a>
+      <a href="#faq">FAQ</a>
       <a href="/privacy-policy">Privacy policy</a>
     </nav>
     <div class="social">
