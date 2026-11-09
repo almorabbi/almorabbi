@@ -1123,3 +1123,26 @@ def test_reply_language(text, lang):
 ])
 def test_greeting_with_a_question_is_not_short_circuited(text):
     assert check_conversational_shortcut(text)[0] is False
+
+
+def test_streamed_answer_hadith_is_repaired_in_done_and_in_the_stored_row(pipeline):
+    """services/hadith_guard.py on the stream: the app replaces the streamed
+    text with `done`'s reply_text, so the repaired answer is the one kept —
+    and the stored row and the session log carry it too."""
+    from app.services import hadith_guard
+    if not hadith_guard.warm():
+        pytest.skip("hadith indexes not present")
+    pipeline.use_script([
+        ("token", "ابدأ بالقدوة. قال رسول الله ﷺ: «مروا أولادكم بالصلاة وهم أبناء سبع سنين». "),
+        ("token", "وقال ﷺ: «لولا أنتم لم يغفر الله». وكافئه بكلمة طيبة."),
+    ])
+    client, sid = _client_with_session()
+    try:
+        resp = _ask(client, sid, "متى أبدأ تعليم ابني الصلاة؟")
+    finally:
+        client.__exit__(None, None, None)
+    text = _done_payload(resp.text)["reply_text"]
+    assert "(سنن أبي داود — حديث ٤٩٥، وصحّحه الألباني)" in text
+    assert "لولا أنتم" not in text and "وكافئه بكلمة طيبة." in text
+    assert _rows(sid)[-1]["content"] == text
+    assert any("hadith_guard:fixed=1,removed=1" in f for f in _flags(pipeline))

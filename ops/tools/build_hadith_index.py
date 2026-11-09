@@ -99,6 +99,8 @@ SUNNAH = "https://huggingface.co/datasets/meeAtif/hadith_datasets/resolve/{sha}/
 
 OTHERS = {"abudawud": "أبو داود", "tirmidhi": "الترمذي", "nasai": "النسائي",
           "ibnmajah": "ابن ماجه", "malik": "الموطأ"}
+# The four Sunan whose al-Albani grade the assistant's guard reads (not the Muwatta).
+SUNAN = ("abudawud", "tirmidhi", "nasai", "ibnmajah")
 
 # A disagreement this small is a boundary placement; anything larger is a
 # cross-reference label (see the docstring). Classification only — both kinds
@@ -234,20 +236,31 @@ def build(cache: Path, offline: bool) -> tuple[dict, dict]:
             sys.exit(f"🔴 anchor {book}: «{phrase}» still answers to the old number {old}")
 
     others: dict[str, dict[str, str]] = {}
+    albani: dict[str, dict[str, str]] = {}
     for slug, name in OTHERS.items():
         data = _fetch(FAWAZ.format(sha=FAWAZ_SHA, book=slug), cache / f"ara-{slug}.json", offline)
         ents: dict[str, str] = {}
+        grades: dict[str, str] = {}
         for h in data["hadiths"]:
             sk = skeleton(h["text"])
             if sk:
                 ents[str(h["hadithnumber"])] = sk
+                g = next((x.get("grade", "") for x in h.get("grades") or []
+                          if x.get("name") == "Al-Albani"), "")
+                if g and slug in SUNAN:
+                    grades[str(h["hadithnumber"])] = g.strip()
         others[name] = ents
+        if slug in SUNAN:
+            albani[name] = grades
     others_index = {
-        "schema": "tg.hadith_others_index/1",
+        "schema": "tg.hadith_others_index/2",
         "source": f"fawazahmed0/hadith-api@{FAWAZ_SHA} — " + ", ".join(f"ara-{s}" for s in OTHERS),
-        "note": ("للكشف فقط: يثبت أن النص المقتبس حديثٌ خارج الصحيحين. أرقامه أرقام تلك الطبعة، "
-                 "ولا يُستشهد بها في التطبيق — التطبيق يقتبس من الصحيحين وحدهما."),
+        "note": ("books: نص كل رواية (هيكل صامت) — يثبت أن المقتبس حديثٌ خارج الصحيحين. "
+                 "albani: حكم الألباني كما في تلك الطبعة، للسنن الأربعة وحدها — يقرؤه حارس ردود "
+                 "المساعد (backend/app/services/hadith_guard.py): ما صحّحه أو حسّنه يبقى بتخريجه. "
+                 "المحتوى المكتوب يقتبس من الصحيحين وحدهما."),
         "books": others,
+        "albani": albani,
     }
     return index, others_index
 
@@ -278,6 +291,7 @@ def main() -> int:
           f"{len(cc['filled_from_sunnah_com'])}")
     print(f"✅ {OUT_OTHERS.relative_to(ROOT)}: " +
           " · ".join(f"{b} {len(e)}" for b, e in others["books"].items()))
+    print("   حكم الألباني: " + " · ".join(f"{b} {len(g)}" for b, g in others["albani"].items()))
     print(f"   المراسي: {len(ANCHORS)}/{len(ANCHORS)} ✓")
     return 0
 

@@ -43,7 +43,7 @@ from __future__ import annotations
 import gzip
 import json
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from functools import lru_cache
 from pathlib import Path
 
@@ -131,6 +131,12 @@ class Finding:
     quote: str
     why: str
     fix: str = ""    # the right citation, when there is one
+    # Where the claim sits and what it is, for a caller that repairs the text
+    # (backend/app/services/hadith_guard.py). Not part of equality: the guards
+    # compare verdicts, not offsets.
+    span: tuple[int, int] | None = field(default=None, compare=False, repr=False)
+    where: tuple | None = field(default=None, compare=False, repr=False)   # (book, n) or (sura, ayah)
+    other: bool = field(default=False, compare=False, repr=False)          # `where` is in the other books
 
 
 # ── corpora ───────────────────────────────────────────────────────────────
@@ -316,7 +322,7 @@ def scan_text(text: str) -> list[Finding]:
             where = quran_locate(frags)
             if where is None:
                 out.append(Finding("quran", "violation", q,
-                                   "نص مقدَّم على أنه آية ولا يطابق المصحف"))
+                                   "نص مقدَّم على أنه آية ولا يطابق المصحف", span=m.span()))
                 continue
             ref = AYAH_CITE.search(after[:60])
             if ref:
@@ -327,9 +333,10 @@ def scan_text(text: str) -> list[Finding]:
                     if sura != where[0] or not (where[1] <= ayah <= where[1] + span):
                         out.append(Finding("quran", "violation", q,
                                            f"الإحالة ({name} {ayah}) لا تطابق موضع النص "
-                                           f"({SURAHS[where[0] - 1]} {where[1]})"))
+                                           f"({SURAHS[where[0] - 1]} {where[1]})",
+                                           span=m.span(), where=where))
                         continue
-            out.append(Finding("quran", "ok", q, f"{where[0]}:{where[1]}"))
+            out.append(Finding("quran", "ok", q, f"{where[0]}:{where[1]}", span=m.span(), where=where))
             continue
 
         strict = bool(PROPHETIC_SPEECH.search(before) or INDEF_HADITH.search(before))
@@ -353,29 +360,30 @@ def scan_text(text: str) -> list[Finding]:
         other_cited = OTHER_CITE.search(after) or OTHER_CITE.search(before[-60:])
         bare = SAHIH_NO_NUMBER.search(after) or SAHIH_NO_NUMBER.search(before[-60:])
         right = f"«{cite(*sah)}»" if sah else ""
+        loc = {"span": m.span(), "where": sah or oth, "other": sah is None and oth is not None}
         if other_cited and not cited:
             out.append(Finding("hadith", "violation", q,
                                f"منسوب إلى {other_cited.group(1) or 'الأدب المفرد'} — التطبيق لا يقتبس إلا من الصحيحين"
-                               + (f"؛ واللفظ في {right}" if sah else ""), right))
+                               + (f"؛ واللفظ في {right}" if sah else ""), right, **loc))
         elif sah is None:
             if oth:
                 out.append(Finding("hadith", "violation", q,
-                                   f"حديث خارج الصحيحين (في {oth[0]} {oth[1]}) — لا يُقتبس"))
+                                   f"حديث خارج الصحيحين (في {oth[0]} {oth[1]}) — لا يُقتبس", **loc))
             else:
                 out.append(Finding("hadith", "violation", q,
                                    "منسوب إلى النبي ﷺ ولا يوجد بهذا اللفظ في الصحيحين — "
-                                   "إما لفظ غير ثابت أو معنى صيغ كأنه نصّ"))
+                                   "إما لفظ غير ثابت أو معنى صيغ كأنه نصّ", **loc))
         elif cited:
             book, num = cited.group(1), int(cited.group(2).translate(_AR_DIGITS))
             if sahihayn_holds(book, num, frags):
-                out.append(Finding("hadith", "ok", q, f"{book} {num}"))
+                out.append(Finding("hadith", "ok", q, f"{book} {num}", **loc))
             else:
                 out.append(Finding("hadith", "violation", q,
-                                   f"الرقم المذكور ({book} {num}) لا يحمل هذا اللفظ — الصحيح {right}", right))
+                                   f"الرقم المذكور ({book} {num}) لا يحمل هذا اللفظ — الصحيح {right}", right, **loc))
         elif bare:
-            out.append(Finding("hadith", "violation", q, f"الإسناد بلا رقم حديث — {right}", right))
+            out.append(Finding("hadith", "violation", q, f"الإسناد بلا رقم حديث — {right}", right, **loc))
         else:
-            out.append(Finding("hadith", "violation", q, f"حديث بلا إسناد — {right}", right))
+            out.append(Finding("hadith", "violation", q, f"حديث بلا إسناد — {right}", right, **loc))
     return out
 
 

@@ -229,7 +229,11 @@ def methodology_page(request: Request):
   <li><strong>لا تشخيص طبي:</strong> المربّي لا يشخّص، ويحيلك إلى مختص في الحالات الخطرة</li>
   <li><strong>لا بحث في الإنترنت:</strong> يُطلب من النموذج ألّا يضيف معلومة من خارج الوحدات المسترجَعة</li>
   <li><strong>حرّاس آليون للنصوص الشرعية:</strong> عند كل تعديل في محتوى التطبيق، تُطابَق آيات الأذكار والإشعارات مع نص المصحف، وأحاديثها مع صحيحي البخاري ومسلم لفظًا ورقمًا، ويُمنع في المحتوى الإنجليزي عرض ترجمة على أنها قرآن. وهذه مطابقة آلية للنصوص، لا مراجعة من أهل العلم.</li>
+  <li><strong>الأحاديث في إجابات المساعد:</strong> تُفحص كل إجابة قبل أن تصلك. المحتوى المكتوب في التطبيق لا يقتبس إلا من الصحيحين. أما إجابات المساعد فيبقى فيها الحديث إن كان بلفظه في صحيح البخاري أو صحيح مسلم، أو في السنن الأربعة (أبي داود والترمذي والنسائي وابن ماجه) مما صحّحه الشيخ الألباني أو حسّنه، ويُكتب تخريجه آليًا، مثل (سنن أبي داود — حديث ٤٩٥، وصحّحه الألباني). وما سوى ذلك يُحذف من الإجابة: حديث بدرجة أدنى، أو من كتاب آخر، أو لفظ منسوب إلى النبي ﷺ لا يوجد بنصه. ويُحذف كذلك ما قُدِّم على أنه آية ولا يطابق المصحف. وهذه أيضًا مطابقة آلية، لا مراجعة من أهل العلم.</li>
 </ul>
+<section lang="en" dir="ltr">
+<p><strong>Hadith in the assistant's answers.</strong> Every answer is checked before it reaches you. The app's written content quotes only the two Sahihs. In the assistant's answers, a hadith stays if it is word for word in Sahih al-Bukhari or Sahih Muslim, or in the four Sunan (Abu Dawud, al-Tirmidhi, al-Nasa'i, Ibn Majah) where al-Albani graded it sahih or hasan; its reference is then written in automatically, such as (Sunan Abi Dawud 495, graded sahih by al-Albani). Anything else is removed from the answer: a weaker grade, another book, or words attributed to the Prophet ﷺ that are not found as quoted. So is anything presented as a verse that does not match the mushaf. This too is mechanical matching, not a scholar's review.</p>
+</section>
 
 {_PROPHETS_HTML}
 
