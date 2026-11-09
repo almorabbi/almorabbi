@@ -26,7 +26,7 @@ from app.middleware.client_ip import ClientIPMiddleware
 from app.routers import (
     health, assistant, chat, feedback, privacy, program, children, referral, push, identity,
     web, stats, daily_routine, value_tracking, habit_templates, child_mode, child_mode_web, sync,
-    insights, methodology, seo, tafsir, quranic_linguistics, support, child_memory, device_proof,
+    insights, methodology, print_pack, seo, tafsir, quranic_linguistics, support, child_memory, device_proof,
     family_programs, family, story_events,
 )
 from app.services import (
@@ -245,6 +245,7 @@ app.include_router(program.router, prefix="/api")  # curriculum: paths/lessons/d
 app.include_router(privacy.router)  # /privacy-policy (no /api prefix; public)
 app.include_router(privacy.api_router, prefix="/api")  # /api/privacy/memory delete-all (auth)
 app.include_router(methodology.router)  # /methodology (public — methodology & sources page)
+app.include_router(print_pack.router)  # /print/ramadan (public — the Ramadan program as A4 sheets)
 app.include_router(seo.router, prefix="/seo")  # /seo/{slug} (public — SEO pages for pain-point questions)
 app.include_router(web.router)  # public SEO pages + share landing (/go, /l, /p; Phase 2)
 app.include_router(children.router, prefix="/api")  # child profiles + progress (auth)
