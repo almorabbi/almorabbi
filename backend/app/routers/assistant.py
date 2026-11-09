@@ -43,6 +43,7 @@ from app.core.proof import request_proven
 from app.services.privacy import Family, family_for_device, family_mentions, redact_family
 from app.services import child_memory
 from app.services import answer_cache
+from app.services import hadith_guard
 from app.services import conversation_store as store
 from app.services.tafsir_service import (
     resolve_ayah_reference, fetch_tafsir, format_tafsir_for_context,
@@ -855,6 +856,12 @@ async def _draft_answer(
         if not intervention_type:
             intervention_type = retrieved_units[0].get("intervention_type")
 
+    # ── Step 5b: the hadith and verses the answer quotes ─────────────
+    # (services/hadith_guard.py) — citations written in, unverifiable
+    # attributions removed, before the answer is stored, cached or shown.
+    guarded = await asyncio.to_thread(hadith_guard.guard, draft, detect_reply_language(query_text))
+    draft = guarded.text
+
     # ── Step 6: Apply guardrails ──────────────────────────────────────
     user_message_for_guardrails = user_message.model_copy(
         update={"domain": primary_domain}
@@ -897,7 +904,7 @@ async def _draft_answer(
         needs_human_review=reply.needs_human_review,
         reply_length=len(reply.reply_text or ""),
         retrieved_count=len(retrieved_units),
-        flag="no_results" if not retrieved_units else "",
+        flag=",".join(f for f in ("no_results" if not retrieved_units else "", guarded.flag) if f),
     )
 
     return await asyncio.to_thread(_finalize, reply, session_id)
@@ -1400,6 +1407,8 @@ async def _stream_answer(
             except Exception as exc:  # noqa: BLE001 — telemetry only
                 logger.warning("turn telemetry failed: %s", exc)
 
+        guard_flag = [""]   # set by _final_text, logged with the turn
+
         def _persist(text: str, mode: str, flag: str = "") -> None:
             """Record the assistant turn — a new row, or the row reserved when
             the reader left. Synchronous on purpose.
@@ -1428,7 +1437,7 @@ async def _stream_answer(
                             domain=primary_domain, severity=severity, mode=mode,
                             needs_human_review=decision["needs_human_review"],
                         )
-                _log(mode, flag, len(text))
+                _log(mode, ",".join(f for f in (flag, guard_flag[0]) if f), len(text))
             except Exception as exc:  # noqa: BLE001
                 logger.warning("persisting %s turn failed: %s", mode, exc)
 
@@ -1510,7 +1519,12 @@ async def _stream_answer(
             text = (chunk.result.text if chunk.result else "").strip()
             if stream_mode == "general_pivot":
                 text = strip_pivot_citation(text)
-            return clean_model_output(text)
+            # The hadith and verses it quotes (services/hadith_guard.py). The
+            # app replaces the streamed text with `done`'s reply_text, so the
+            # repaired answer is the one the parent keeps.
+            guarded = hadith_guard.guard(clean_model_output(text), reply_lang)
+            guard_flag[0] = guarded.flag
+            return guarded.text
 
         async def _complete_after_disconnect() -> None:
             """Finish an answer whose reader left, and store it whole.

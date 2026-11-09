@@ -356,6 +356,16 @@ _LANGUAGE_RULE_AR = (
 )
 
 
+# What services/hadith_guard.py enforces on the finished answer, said up front
+# so less of it has to be removed: verbatim from the Sahihayn or the four Sunan,
+# no number (the guard writes the citation), and no wording put in his mouth ﷺ.
+_HADITH_RULE_AR = (
+    "\n\nلا تقتبس حديثًا بين علامتي تنصيص إلا إذا كنت متيقنًا من لفظه كما هو في صحيح البخاري "
+    "أو صحيح مسلم أو السنن الأربعة، ولا تكتب رقمه — يُضاف التخريج آليًا. وما لم تتيقن من لفظه "
+    "فلا تنسبه إلى النبي ﷺ بصيغة القول."
+)
+
+
 def _compose_system_prompt(domain: str, question_text: str = "") -> str:
     base = (
         "أنت مساعد تربوي ذكي للأهل العرب المسلمين. تقدم إجابات عملية وآمنة بدون تشخيص طبي ملزم أو فتوى شخصية.\n\n"
@@ -383,7 +393,7 @@ def _compose_system_prompt(domain: str, question_text: str = "") -> str:
         composed = base + (
             "\n\nإذا تعارضت أي معلومة مع الثوابت الإسلامية، أشر إلى ذلك بوضوح وقدّم البديل الإسلامي."
         )
-    composed += _LANGUAGE_RULE_AR
+    composed += _HADITH_RULE_AR + _LANGUAGE_RULE_AR
     # Imported here, not at module scope: `retrieval` pulls chromadb in, and
     # this module is imported by paths that have no business loading a vector
     # store — including tests that would start failing for an unrelated reason.

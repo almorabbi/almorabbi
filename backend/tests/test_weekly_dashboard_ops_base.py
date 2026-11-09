@@ -44,3 +44,31 @@ def test_an_explicit_base_still_wins(monkeypatch):
     monkeypatch.setattr(wd.urllib.request, "urlopen", fake_urlopen)
     assert "error" in wd._fetch_ops_metrics()
     assert seen["url"].startswith("https://example.invalid/")
+
+
+def test_hadith_guard_section_counts_the_week_from_the_session_log(tmp_path, monkeypatch):
+    import sqlite3
+    from datetime import datetime, timedelta, timezone
+
+
+
+    db = tmp_path / "sessions.db"
+    conn = sqlite3.connect(db)
+    conn.execute("CREATE TABLE sessions (id TEXT PRIMARY KEY, ts TEXT, domain TEXT, behavior_type TEXT,"
+                 " age_group TEXT, severity TEXT, mode TEXT, needs_human_review INTEGER,"
+                 " reply_length INTEGER, retrieved_count INTEGER, flag TEXT)")
+    now = datetime.now(timezone.utc)
+    rows = [("a", now, "hadith_guard:fixed=1,removed=0"),
+            ("b", now, "completed_after_disconnect,hadith_guard:fixed=0,removed=2"),
+            ("c", now, ""),
+            ("d", now - timedelta(days=9), "hadith_guard:fixed=5,removed=5")]
+    for rid, ts, flag in rows:
+        conn.execute("INSERT INTO sessions VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                     (rid, ts.isoformat(), "d", "", "", "", "llm_generated", 0, 10, 1, flag))
+    conn.commit()
+    conn.close()
+    monkeypatch.setattr(wd, "_SESSIONS_DB", db)
+    hg = wd._hadith_guard_stats()
+    assert hg == {"turns": 3, "touched": 2, "fixed": 1, "removed": 2}
+    lines = wd._hadith_lines(hg)
+    assert "إجابات عدّلها الحارس: 2 من 3" in lines[1]

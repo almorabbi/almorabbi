@@ -99,6 +99,12 @@ async def lifespan(app: FastAPI):
     app.state.child_surface_policy = load_child_surface_policy()
     init_db()
     curriculum.load_curriculum()
+    # The hadith/verse guard on answers (services/hadith_guard.py): ~0.3 s and
+    # ~60 MB once, here rather than inside the first answer. A missing index
+    # logs an error and answers go out unchecked — never a failed boot.
+    from app.services import hadith_guard
+    if not hadith_guard.warm():
+        logger.error("hadith guard: corpora not loaded — assistant answers are unchecked")
 
     # ── Warm-up: eager-load embeddings + ChromaDB index ──────────────────
     # Eliminates the 30-60s cold load on the first user request.
