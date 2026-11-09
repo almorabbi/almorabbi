@@ -95,8 +95,10 @@ def _scanner():
         scripture_scan.corpora()
         scripture_scan._blobs()
         return scripture_scan
-    except Exception as exc:  # noqa: BLE001
-        logger.error("hadith guard unavailable — answers go out unchecked: %s", exc)
+    # SystemExit too: the guards' loaders `sys.exit(2)` on a missing index (a
+    # CLI's way to fail), and inside the server that would end the boot.
+    except (Exception, SystemExit) as exc:  # noqa: BLE001
+        logger.error("hadith guard unavailable — answers go out unchecked: %r", exc)
         return None
 
 
@@ -105,8 +107,12 @@ def _albani() -> dict[str, dict[str, str]]:
     ss = _scanner()
     if ss is None:
         return {}
-    with gzip.open(ss.OTHERS_INDEX, "rt", encoding="utf-8") as f:
-        return json.load(f).get("albani", {})
+    try:
+        with gzip.open(ss.OTHERS_INDEX, "rt", encoding="utf-8") as f:
+            return json.load(f).get("albani", {})
+    except (Exception, SystemExit) as exc:  # noqa: BLE001
+        logger.error("hadith guard: al-Albani grades unavailable: %r", exc)
+        return {}
 
 
 def warm() -> bool:

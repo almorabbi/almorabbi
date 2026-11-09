@@ -166,3 +166,26 @@ def test_draft_answer_is_repaired_before_it_is_returned(client):
     assert "لولا أنتم" not in text
     assert "ابدأ بالقدوة." in text and "وكافئه بكلمة طيبة." in text
     assert any("hadith_guard:fixed=1,removed=1" in (kw.get("flag") or "") for kw in client.logged)
+
+
+
+def test_a_missing_index_never_ends_the_boot(monkeypatch):
+    """The bare image has no ops/data, and the guards' loader `sys.exit(2)`s on
+    a missing index: the candidate smoke saw uvicorn exit 3 on it (PR #25)."""
+    ss = hg._scanner()
+
+    def _exit():
+        raise SystemExit(2)
+
+    hg._scanner.cache_clear()
+    hg._albani.cache_clear()
+    monkeypatch.setattr(ss, "corpora", _exit)
+    try:
+        assert hg._scanner() is None
+        assert hg.warm() is False
+        assert hg.guard("قال النبي ﷺ: «لولا أنتم لم يغفر الله».", "ar").available is False
+    finally:
+        monkeypatch.undo()
+        hg._scanner.cache_clear()
+        hg._albani.cache_clear()
+    assert hg.warm() is True
