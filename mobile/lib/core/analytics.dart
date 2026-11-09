@@ -127,6 +127,14 @@ class Analytics {
   }
 
   /// The Quran/werd tab was selected.
+  // «تسميع مع الوالد» (docs/TASMEE_WITH_PARENT.md): counts only — no text,
+  // no name, no which-word.
+  static Future<void> tasmeeStarted(int surah, int ayahCount) =>
+      _log('tasmee_started', {'surah': surah, 'ayah_count': ayahCount});
+
+  static Future<void> tasmeeFinished(int surah, int marks) =>
+      _log('tasmee_finished', {'surah': surah, 'marks': marks, 'clean': marks == 0 ? 1 : 0});
+
   static Future<void> quranOpened() {
     EngagementSignal.mark();
     return _log('quran_opened');

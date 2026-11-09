@@ -18,7 +18,9 @@ import '../../quran/models/surah_names.dart';
 import '../../share/share_service.dart';
 import '../../share/shareable_moment_card.dart';
 import '../data/journey_milestones.dart';
+import '../data/tasmee_store.dart';
 import '../providers/journey_providers.dart';
+import 'tasmee_screen.dart';
 
 class QuranMemorizationScreen extends ConsumerWidget {
   const QuranMemorizationScreen({
@@ -80,6 +82,11 @@ class QuranMemorizationScreen extends ConsumerWidget {
           data: (s) => s,
           orElse: () => const <int>{},
         );
+    final tasmee = ref.watch(tasmeeProvider(childId)).maybeWhen(
+          data: (s) => s,
+          orElse: () => const <int, List<TasmeeSession>>{},
+        );
+    final now = DateTime.now();
     return Scaffold(
       appBar: AppBar(title: Text(AppLocalizations.of(context).quranMemTitle(childName))),
       body: Column(
@@ -161,9 +168,21 @@ class QuranMemorizationScreen extends ConsumerWidget {
                       color: done ? AppTheme.textPrimary : AppTheme.textSecondary,
                     ),
                   ),
-                  trailing: Icon(
-                    done ? Icons.check_circle : Icons.radio_button_unchecked,
-                    color: done ? context.colors.successText : AppTheme.textMuted,
+                  subtitle: _tasmeeLine(context, tasmee[surah], now),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      TextButton(
+                        key: ValueKey('tasmee-$surah'),
+                        onPressed: () => startTasmee(context, ref,
+                            childId: childId, childName: childName, surah: surah),
+                        child: Text(AppLocalizations.of(context).tasmeeButton),
+                      ),
+                      Icon(
+                        done ? Icons.check_circle : Icons.radio_button_unchecked,
+                        color: done ? context.colors.successText : AppTheme.textMuted,
+                      ),
+                    ],
                   ),
                 );
               },
@@ -173,6 +192,28 @@ class QuranMemorizationScreen extends ConsumerWidget {
       ),
     );
   }
+}
+
+/// Under a surah the child has recited: how many words are still open for
+/// review, and «راجعوها اليوم» when the review day has come.
+Widget? _tasmeeLine(BuildContext context, List<TasmeeSession>? sessions, DateTime now) {
+  if (sessions == null || sessions.isEmpty) return null;
+  final l10n = AppLocalizations.of(context);
+  final open = openSlips(sessions).length;
+  final due = isDue(sessions, now);
+  final text = open == 0
+      ? l10n.tasmeeNoSlips
+      : due
+          ? '${l10n.tasmeeOpenSlips(open)} · ${l10n.tasmeeDue}'
+          : l10n.tasmeeOpenSlips(open);
+  return Text(
+    text,
+    style: TextStyle(
+      fontSize: 12.5,
+      fontWeight: due ? FontWeight.w700 : FontWeight.w500,
+      color: due ? AppTheme.primary : AppTheme.textSecondary,
+    ),
+  );
 }
 
 /// A child's first memorized surah, as the parent shares it. The du'a on the

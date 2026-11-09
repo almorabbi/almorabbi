@@ -6779,6 +6779,84 @@ class AppLocalizationsEn extends AppLocalizations {
   String get storyRateOkay => 'It was okay';
 
   @override
+  String get tasmeeButton => 'Recite';
+
+  @override
+  String tasmeeTitle(String surah) {
+    return 'Recitation check: $surah';
+  }
+
+  @override
+  String get tasmeeHint =>
+      'Listen to your child, and tap the word where they slipped.';
+
+  @override
+  String get tasmeeRangeTitle => 'Choose the passage';
+
+  @override
+  String get tasmeeFrom => 'From verse';
+
+  @override
+  String get tasmeeTo => 'To verse';
+
+  @override
+  String get tasmeeStart => 'Start';
+
+  @override
+  String get tasmeeSlipOmit => 'Left it out';
+
+  @override
+  String get tasmeeSlipAdd => 'Added';
+
+  @override
+  String get tasmeeSlipSwap => 'Swapped it';
+
+  @override
+  String get tasmeeSlipHesitate => 'Hesitated';
+
+  @override
+  String get tasmeeSlipClear => 'Remove the mark';
+
+  @override
+  String get tasmeeFinish => 'Done';
+
+  @override
+  String get tasmeeSummaryTitle => 'How it went';
+
+  @override
+  String get tasmeeSummaryClean => 'Recited with no slips.';
+
+  @override
+  String tasmeeSummaryCounts(int omit, int add, int swap, int hesitate) {
+    return 'Left out: $omit · Added: $add · Swapped: $swap · Hesitated: $hesitate';
+  }
+
+  @override
+  String tasmeeSummaryAyat(String ayat) {
+    return 'Verses with marks: $ayat';
+  }
+
+  @override
+  String get tasmeeSave => 'Save';
+
+  @override
+  String tasmeeOpenSlips(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count spots to review',
+      one: '1 spot to review',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get tasmeeNoSlips => 'Nothing to review';
+
+  @override
+  String get tasmeeDue => 'Review today';
+
+  @override
   String get mawqifCardLabel => 'A decision moment · 4 min';
 
   @override
