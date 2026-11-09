@@ -136,9 +136,9 @@ class TasmeeStore {
     final child = _loadAll()[childId.toString()];
     if (child is! Map) return {};
     final out = <int, List<TasmeeSession>>{};
-    for (final e in child.entries) {
-      final surah = int.tryParse('${e.key}');
-      final list = e.value;
+    for (final entry in child.entries) {
+      final surah = int.tryParse('${entry.key}');
+      final list = entry.value;
       if (surah == null || list is! List) continue;
       out[surah] = [for (final s in list) ?TasmeeSession.fromJson(s)]
         ..sort((a, b) => a.at.compareTo(b.at));

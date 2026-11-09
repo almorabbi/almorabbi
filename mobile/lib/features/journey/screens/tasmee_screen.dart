@@ -270,11 +270,11 @@ class _TasmeeScreenState extends ConsumerState<TasmeeScreen> {
       from: widget.from,
       to: widget.to,
       marks: [
-        for (final e in _marks.entries)
+        for (final entry in _marks.entries)
           TasmeeMark(
-            ayah: int.parse(e.key.split(':').first),
-            word: int.parse(e.key.split(':').last),
-            type: e.value,
+            ayah: int.parse(entry.key.split(':').first),
+            word: int.parse(entry.key.split(':').last),
+            type: entry.value,
           ),
       ],
     );
