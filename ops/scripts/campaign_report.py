@@ -75,6 +75,7 @@ CAMPAIGN_CHANNELS: dict[str, tuple[str, str]] = {
     "VD": ("campaign_video", "qr"),
     "MA": ("facebook", "paid"),
     "SV": ("short_video", "social"),
+    "PR": ("printable", "print"),
 }
 # Exactly two letters and two digits: no typo of a six-character personal
 # code can take this shape. Mirror of CAMPAIGN_RE.
