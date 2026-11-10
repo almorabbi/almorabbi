@@ -7,13 +7,13 @@
 
 | البند | العدد | كيف قيس |
 |---|---:|---|
-| مسارات الـAPI المعرَّفة في routers | 163 | AST على `@router.<verb>` في 29 ملف router (+`POST /api/chat/restore-key` منذ الأرشيف) |
+| مسارات الـAPI المعرَّفة في routers | 167 | AST على `@router.<verb>` في 30 ملف router (+4 منذ `2652382`: `program/mawaqif`، `mission/today` و`…/done`، `/print/ramadan`) |
 | مسار إضافي في `main.py` | 1 | `POST /api/admin/send-push` |
-| روتر مركَّب في `main.py` | 30 استدعاء `include_router` (29 وحدة؛ privacy مرتين) | قراءة `main.py` |
+| روتر مركَّب في `main.py` | 31 استدعاء `include_router` (30 وحدة؛ privacy مرتين) | قراءة `main.py` |
 | تركيبات static | 5 | `/docs` `/ui` `/assets` `/child-mode/web` `/.well-known` |
-| مسارات بمصادقة جهاز (Bearer) | 97 | |
+| مسارات بمصادقة جهاز (Bearer) | 99 | |
 | مسارات الطفل (Child-Bearer) | 15 | |
-| مسارات عامة (بينها 7 بحراسة سرّ/مفتاح داخل المعالج) | 50 | |
+| مسارات عامة (بينها 7 بحراسة سرّ/مفتاح داخل المعالج) | 52 | |
 | ناعم (جهاز اختياري) | 1 | `/api/program/story` |
 | مسارات بتبعية إثبات الجهاز (FCM) | 15 | `dependencies=[Depends(require_device_proof*)]` |
 
@@ -52,7 +52,7 @@
 | POST | `/api/children/followups/{followup_id}/answer` | جهاز + إثبات جهاز | `answer_followup` | Did the advice work? Records it as an outcome fact |
 | POST | `/api/children/followups/{followup_id}/dismiss` | جهاز + إثبات جهاز | `dismiss_followup` | Stop asking about this follow-up |
 | GET | `/api/children/{child_id}/followups` | جهاز + إثبات جهاز | `child_followups` | A child's follow-ups (pending by default) |
-| POST | `/api/children/{child_id}/followups` | جهاز + إثبات جهاز | `open_promise` | A lesson promise becomes a follow-up (source='lesson') |
+| POST | `/api/children/{child_id}/followups` | جهاز + إثبات جهاز | `open_promise` | A promise becomes a follow-up: `source` = `lesson` (default) or `mawqif` («موقف بقرار») |
 | GET | `/api/children/{child_id}/memory` | جهاز + إثبات جهاز | `list_memory` | What the assistant remembers about this child |
 | POST | `/api/children/{child_id}/memory` | جهاز + إثبات جهاز | `add_memory` | Add a fact the parent typed |
 | PATCH | `/api/children/{child_id}/memory/{fact_id}` | جهاز + إثبات جهاز | `patch_memory` | Edit, confirm (active) or reject a fact |
@@ -108,6 +108,8 @@
 | POST | `/api/children/{child_id}/agreement/sign` | جهاز | `sign_agreement_as_parent` | Parent signs the draft |
 | GET | `/api/children/missions/pending` | جهاز | `pending_missions` | Every mission across every child that is waiting on the parent |
 | POST | `/api/children/missions/confirm` | جهاز | `confirm_missions` | Settle several missions at once |
+| GET | `/api/children/{child_id}/mission/today` | جهاز | `parent_mission_today` | Today's mission card for the parent — shows it without writing a row (no handover) |
+| POST | `/api/children/{child_id}/mission/today/done` | جهاز | `parent_mission_done` | The parent marks today's mission done, with an optional kind word |
 | GET | `/api/children/{child_id}/today` | جهاز | `child_day_summary` | The parent's one-screen view of a child's day |
 | GET | `/api/children/{child_id}/license` | جهاز | `child_license_summary` | Where a child is on the internet licence |
 | POST | `/api/children/{child_id}/license/talked` | جهاز | `child_license_talked` | Record that the parent and child talked about this level |
@@ -209,6 +211,12 @@
 |---|---|---|---|---|
 | GET | `/methodology` | عام | `methodology_page` | Our methodology and sources — public page for parents and reviewers. (مخفي من OpenAPI) |
 
+### `print_pack.py` — print — أوراق الطباعة (خارج `/api`، خارج المخطط)
+
+| Method | المسار | المصادقة | المعالج | الغرض |
+|---|---|---|---|---|
+| GET | `/print/ramadan` | عام | `ramadan_sheets` | «رمضان العائلة» 12 ورقة A4 للطباعة (`?lang=en`)، تُولَّد من البرنامج نفسه؛ رمز QR بكود حملة `PR01`/`PR02` |
+
 ### `privacy.py` — privacy — الخصوصية والحذف
 
 | Method | المسار | المصادقة | المعالج | الغرض |
@@ -222,6 +230,7 @@
 
 | Method | المسار | المصادقة | المعالج | الغرض |
 |---|---|---|---|---|
+| GET | `/api/program/mawaqif` | عام | `get_mawaqif` | «موقف بقرار»: مواقف الفئة العمرية (`age_group`، `lang`) — `{age_group, items}`؛ عمر بلا مواقف = قائمة فارغة، عمر غير معروف = 422 |
 | GET | `/api/program/paths` | عام | `list_paths` | قائمة المسارات المنشورة، قابلة للفلترة. |
 | GET | `/api/program/paths/{path_id}` | عام | `get_path_detail` | تفاصيل مسار واحد. لو include=lessons، يرجع الدروس بالترتيب. |
 | GET | `/api/program/next-lesson` | عام | `get_next_lesson` | The single lesson to put in front of this parent right now. |
@@ -450,6 +459,7 @@
 | `ops/tools/check_quoted_texts.py` | يدوي | فاحص النصوص الشرعية المقتبسة — بلاغ لا تصحيح |
 | `ops/tools/check_quran_citations.py` | خطّاف git · CI | Verify every Qur'an citation in the app against the mushaf text. |
 | `ops/tools/check_quran_rendering.py` | خطّاف git | فحص: القرآن لا يُترجَم — وأي معنًى بالإنجليزية يُعلَن أنه تفسير |
+| `ops/tools/check_scholar_quotes.py` | خطّاف git · CI (`backend.yml`) | حارس نسبة الأقوال لأهل العلم (`check` بلا شبكة؛ `verify` يدوي يسأل turath.io بحدّ طلب كل 4 ثوانٍ) |
 | `ops/tools/check_scripture_coverage.py` | خطّاف git · CI | Every quoted ayah and hadith the app ships — not just the ones in one file. |
 | `ops/tools/check_served_assets.py` | CI | Verify that what lesson_index.json promises is what this host can serve. |
 | `ops/tools/check_sira_stories.py` | pre-commit · CI (`backend.yml`) | حارس قصص السيرة ضد مصادرها |
@@ -485,6 +495,7 @@
 | `ops/tools/generate_real_gap_kb_units.py` | يدوي | generate_real_gap_kb_units.py — Generates 25 schema-validated Knowledge Base units covering the top real-parent KB gaps… |
 | `ops/tools/generate_tip_cards.py` | يدوي | generate_tip_cards.py — توليد كروت نصائح يومية مربعة (1080x1080) مطابقة لتصميم ShareableMomentCard الفاخر والمعتمد في كود تطبيق… |
 | `ops/tools/generate_veo_assets.py` | يدوي | Tutor Guardian - Google Veo Video Generation Tool |
+| `ops/tools/gen_print_qr.py` | يدوي | يولّد `frontend/assets/print/qr_<CODE>.svg` لأوراق الطباعة |
 | `ops/tools/golden_ci.py` | CI | Nonblocking golden reports; offline retrieval is never answer quality. |
 | `ops/tools/golden_ci.sh` | CI | Hosted candidate only. No .env, production volume, or provider credential. |
 | `ops/tools/ingest_pdf.py` | يدوي | Unified PDF-to-knowledge-units ingest pipeline. |
@@ -667,10 +678,10 @@ git config core.hooksPath .githooks      # ⚠️ المسار المطلق في
 
 | الملف | يشتغل عند | يعمل على | الغرض |
 |---|---|---|---|
-| `backend.yml` | push/PR (مسارات الباكند/KB + `ops/data/sira/**`) + dispatch | GitHub-hosted | pytest (+golden CI) + سلامة KB + حرّاس الآيات/الأحاديث/التغطية + حارسا قصص الأنبياء والسيرة + تكافؤ الإنجليزي + ruff — بوابة النشر |
+| `backend.yml` | push/PR (مسارات الباكند/KB + `ops/data/sira/**`) + dispatch | GitHub-hosted | pytest (+golden CI) + سلامة KB + حرّاس الآيات/الأحاديث/التغطية + حارسا قصص الأنبياء والسيرة + حارس نسبة الأقوال لأهل العلم + تكافؤ الإنجليزي + ruff — بوابة النشر |
 | `deploy.yml` | push إلى main (مسارات `backend/**` · `knowledge_base/**` · `ops/tools/**` · `ops/scripts/**` · `frontend/**` · `docs/lesson_index.json` · `docs/lesson_assets/**` + ملفات compose/Dockerfile/lock) + dispatch | gate+image: GitHub · deploy+alert: self-hosted `[self-hosted, production]` (runner `vps-tg`) على الـVPS؛ الـgate مشروط بـ`github.repository == almorabbi/almorabbi` و`vars.CUTOVER_DONE == true` | gate (ينتظر backend.yml لنفس الـSHA) ← image (GHCR + smoke) ← deploy (فحص media، نسخ احتياطي، recreate، فحص /health و/privacy-policy و/api/app-config، تراجع تلقائي) ← alert تلجرام |
 | `flutter.yml` | push/PR على mobile/** + dispatch | GitHub-hosted | flutter analyze + flutter test |
-| `mobile-e2e.yml` | PR + dispatch | GitHub-hosted (KVM) | بناء APK release للرأس والأساس ثم رحلات Maestro (fresh×11 + upgrade×4) + تجربة رمضان (rehearsal) + معرض لقطات + بوابة delivery |
+| `mobile-e2e.yml` | PR + dispatch | GitHub-hosted (KVM) | بناء APK release للرأس والأساس ثم رحلات Maestro (fresh×14 + upgrade×4) + تجربة رمضان (rehearsal) + معرض لقطات + بوابة delivery |
 | `e2e-avd-cache.yml` | يومي 04:23 + push/PR + dispatch | GitHub-hosted | حفظ لقطة AVD على main |
 | `candidate-image.yml` | PR على ما يدخل الصورة + dispatch | GitHub-hosted | يبني ويفحص الصورة ويكسرها ثلاث مرات ليتأكد أن الـsmoke يرفض |
 | `release-play.yml` | dispatch فقط (main) | GitHub-hosted | AAB موقَّع ← Google Play (track + rollout) |
@@ -686,7 +697,7 @@ git config core.hooksPath .githooks      # ⚠️ المسار المطلق في
 
 | الخطّاف | يشغّل |
 |---|---|
-| `pre-commit` | بالترتيب: `check_kb_integrity` ← `check_quran_citations` ← `check_quran_rendering` (فشل self-test = إيقاف) ← `review_en_parity check --staged` ← `check_adhkar_integrity` ← `check_hadith_citations` ← `check_scripture_coverage` ← `check_anbiya_stories` ← `check_sira_stories` (exit 2 = اختباراتهما الذاتية) ← `check_curriculum_schema` ← `check_programs` ← `check_kb_fidelity check` ← ruff على `backend/ ops/ scripts/` |
+| `pre-commit` | بالترتيب: `check_kb_integrity` ← `check_quran_citations` ← `check_quran_rendering` (فشل self-test = إيقاف) ← `review_en_parity check --staged` ← `check_adhkar_integrity` ← `check_hadith_citations` ← `check_scripture_coverage` ← `check_anbiya_stories` ← `check_sira_stories` (exit 2 = اختباراتهما الذاتية) ← `check_scholar_quotes check` ← `check_curriculum_schema` ← `check_programs` ← `check_kb_fidelity check` ← ruff على `backend/ ops/ scripts/` |
 | `pre-push` | إن مسّت الدفعة `mobile/`: `flutter analyze --fatal-infos --fatal-warnings` + `flutter test` (يتخطّى `SKIP_MOBILE_CHECKS=1`) |
 
 ⚠️ في نسخة almorabbi المحلية `core.hooksPath` **غير مضبوط** (مُقاس 2026-11-08) ⇒ الخطافات لا تعمل عند الـcommit ما لم تُفعَّل؛ CI (`backend.yml`) يشغّل الحرّاس نفسها كبوابة. قبل commit محتوى شرعي شغّل `bash .githooks/pre-commit` يدويًا من جذر الشجرة (أو فعّل `git config core.hooksPath .githooks` — بمسار نسبي لا مطلق).

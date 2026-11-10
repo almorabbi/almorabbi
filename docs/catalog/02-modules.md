@@ -28,12 +28,13 @@
 | `backend/app/core/times.py` | 35 | شكل موحّد لكل طابع زمني يعيده الـAPI: ISO8601 UTC بـZ |
 | `backend/app/curriculum_loader.py` | 442 | تحميل المنهج (paths/lessons/daily_tips + i18n/en) من knowledge_base/curriculum وفهرس docs/lesson_index.json وفحص وجود الميديا (media_exists) |
 | `backend/app/data/quran.json` |  | نص المصحف (6236 آية، ~1.7MB) لفهرس الكلمات→آية في tafsir_service |
-| `backend/app/main.py` | 306 | نقطة دخول FastAPI: lifespan (إحماء embedder/Chroma/reranker/Ollama + حلقة الإشعارات المحلية-الساعة)، 4 middleware، تركيب 29 router + /api/admin/send-push + static mounts (/docs /ui /assets /child-mode/web /.well-known) |
+| `backend/app/main.py` | 320 | نقطة دخول FastAPI: lifespan (إحماء embedder/Chroma/reranker/Ollama + حلقة الإشعارات المحلية-الساعة)، 4 middleware، تركيب 29 router + /api/admin/send-push + static mounts (/docs /ui /assets /child-mode/web /.well-known) |
 | `backend/app/media_naming.py` | 120 | مصدر واحد لتسمية ملفات الميديا (لغة الملف، فيديو المسار) للـAPI والمولّدات |
 | `backend/app/middleware/__init__.py` | 0 | علامة حزمة بايثون |
 | `backend/app/middleware/auth.py` | 256 | AuthMiddleware: Bearer (جهاز) وChild-Bearer (مقصور على مسارات الطفل)، قوائم المسارات العامة/المحمية/الناعمة، فحص جلسة شاشة الطفل (403 child_budget_exhausted) |
 | `backend/app/middleware/client_ip.py` | 172 | ClientIPMiddleware: عنوان العميل الحقيقي خلف Cloudflare/nginx بقائمة وكلاء موثوقين (TRUSTED_PROXY_IPS) |
 | `backend/app/middleware/rate_limit.py` | 362 | تحديد المعدل لكل هوية (جهاز/توكن/IP): نطاقات ai/general/feedback/session/support + حصة AI يومية (AI_DAILY_LIMIT) — Redis أو ذاكرة |
+| `backend/app/middleware/security_headers.py` | 50 | SecurityHeadersMiddleware: ترويسات أمان أساسية على كل رد (nosniff، X-Frame-Options، Referrer-Policy، Permissions-Policy، HSTS) — لم يكن على tg-api أي ترويسة حتى 2026-11-09 |
 | `backend/app/models/__init__.py` | 0 | علامة حزمة بايثون |
 | `backend/app/models/api.py` | 133 | نماذج Pydantic لطلبات/ردود الـAPI الأساسية (UserMessage, AssistantReply, ConversationTurn…) |
 | `backend/app/models/daily_routine.py` | 234 | نماذج «حِساب اليوم» (أحداث النوم/الرضاعة/الحفاض) |
@@ -41,7 +42,7 @@
 | `backend/app/models/value_tracking.py` | 189 | نماذج «ميزان العادات» (عادات ديناميكية بالعمر + وضع الطفل) |
 | `backend/app/quiz_data.py` | 322 | بنك أسئلة الكويز المخدوم من GET /api/program/quiz (مؤصّل في المصادر الخام للمنهج) |
 | `backend/app/security/__init__.py` | 1 | Security review contracts; runtime guards remain in their existing modules. |
-| `backend/app/security/route_policy.py` | 745 | جدول جرد المسارات (166 route / 170 مدخل) كعقد مراجعة واختبار — لا يستهلكه التطبيق وقت التشغيل |
+| `backend/app/security/route_policy.py` | 758 | جدول جرد المسارات (170 route / 174 مدخل) كعقد مراجعة واختبار — لا يستهلكه التطبيق وقت التشغيل |
 
 ### backend/app/db/ — قاعدة البيانات والترحيلات
 
@@ -60,19 +61,19 @@
 | `backend/app/db/migrations/v16_habit_templates.py` | 43 | ⚠️ ترحيل قديم standalone (habit_templates) — لا أحد يستوردها |
 | `backend/app/db/migrations/v20_feedback_replies.py` | 50 | ⚠️ ترحيل قديم standalone (feedback_replies) — لا أحد يستوردها |
 
-### backend/app/routers/ — مسارات الـHTTP (29 وحدة)
+### backend/app/routers/ — مسارات الـHTTP (30 وحدة)
 
 كل ملف يُركَّب في `main.py`. خرائط المسارات الكاملة في `03-interfaces.md`.
 
 | الملف | أسطر | الدور |
 |---|---:|---|
 | `backend/app/routers/__init__.py` | 0 | حزمة routers (فارغة) |
-| `backend/app/routers/assistant.py` | 1728 | قلب المنتج: /api/assistant/{draft,query,stream} — سلسلة: دعم القلق الذاتي ← حظر ← طوارئ ← discipline ← fiqh ← تصنيف ← استرجاع هجين ← LLM ← guardrails؛ SSE + كاش + ذاكرة الطفل |
+| `backend/app/routers/assistant.py` | 1742 | قلب المنتج: /api/assistant/{draft,query,stream} — سلسلة: دعم القلق الذاتي ← حظر ← طوارئ ← discipline ← fiqh ← تصنيف ← استرجاع هجين ← LLM ← guardrails؛ SSE + كاش + ذاكرة الطفل |
 | `backend/app/routers/chat.py` | 212 | جلسات المحادثة: إنشاء (عام؛ يحدد الهوية بتوكن أو مفتاح استعادة ويسجّل `mint_kind`)، `POST /restore-key`، قائمة، تاريخ، إيقاف البث |
-| `backend/app/routers/child_memory.py` | 386 | ذاكرة الطفل والمتابعات وخطة الأسبوع («المربّي يعرف ابنك» v30) — 16 مسارًا |
+| `backend/app/routers/child_memory.py` | 390 | ذاكرة الطفل والمتابعات وخطة الأسبوع («المربّي يعرف ابنك» v30) — 16 مسارًا |
 | `backend/app/routers/child_mode.py` | 514 | مسارات وضع الطفل (Child-Bearer): جلسات الشاشة/نبض/اتفاقية/مهمة/رخصة/أحداث العادات |
 | `backend/app/routers/child_mode_web.py` | 145 | تطبيق QR للمراهقين: claim-session/me/refresh |
-| `backend/app/routers/children.py` | 1075 | ملفات الأطفال + التقدّم + التحدي + الاتفاقية + المهام المعلّقة + «اليوم» + رخصة الإنترنت (23 مسارًا) |
+| `backend/app/routers/children.py` | 1122 | ملفات الأطفال + التقدّم + التحدي + الاتفاقية + المهام المعلّقة + «اليوم» + رخصة الإنترنت (23 مسارًا) |
 | `backend/app/routers/daily_routine.py` | 292 | «حِساب اليوم»: أحداث الروتين اليومي (0–6 سنوات) + ملخّص |
 | `backend/app/routers/device_proof.py` | 95 | إثبات الجهاز عبر تحدّي FCM (get/start/complete) |
 | `backend/app/routers/family.py` | 32 | «قناديل الأسبوع»: GET /api/family/week |
@@ -82,9 +83,10 @@
 | `backend/app/routers/health.py` | 119 | /health و/api/health و/api/app-config (بوابة التحديث الإجباري، `latest_build_number` لبطاقة التحديث الاختيارية، store_url، STORY_MOTION_MODE) |
 | `backend/app/routers/identity.py` | 1808 | ربط Google Sign-In الاختياري بجهاز مجهول (link-google, me) + دمج العائلات المقيّد؛ التأكيد يرفض الجلسة «العارية»، والدمج يحترم شواهد الحذف (`merge_tombstones`) |
 | `backend/app/routers/insights.py` | 160 | GET /api/insights/parenting — رؤى تربوية مولّدة بالـLLM |
-| `backend/app/routers/methodology.py` | 258 | صفحة «منهجيتنا ومصادرنا» العامة /methodology (+ قسما `#prophets` و`#seerah` بلغتين) |
+| `backend/app/routers/methodology.py` | 262 | صفحة «منهجيتنا ومصادرنا» العامة /methodology (+ قسما `#prophets` و`#seerah` بلغتين) |
+| `backend/app/routers/print_pack.py` | 389 | `GET /print/ramadan` — برنامج «رمضان العائلة» أوراقًا للطباعة (12 ورقة A4، ar/en) تُولَّد وقت الطلب من `programs/ramadan_family.json`؛ لا نص جديد |
 | `backend/app/routers/privacy.py` | 616 | /privacy-policy و/delete-account (HTML عام) + حذف ذاكرة الأطفال (يسجّل شواهد حذف) + حذف الحساب كله (كل جدول فيه `device_id`) |
-| `backend/app/routers/program.py` | 969 | المنهج: مسارات/دروس/أصول/بحث/نصيحة اليوم/نصيحة المرشد/كويز/قصة مولّدة/تقدّم الدرس/تقرير شهري |
+| `backend/app/routers/program.py` | 985 | المنهج: مسارات/دروس/أصول/بحث/نصيحة اليوم/نصيحة المرشد/كويز/قصة مولّدة/تقدّم الدرس/تقرير شهري |
 | `backend/app/routers/push.py` | 151 | تسجيل توكن FCM للجهاز (+app_version/build_number)؛ تغيّر التوكن بلا إثبات يُلغي تأكيد روابط Google للجهاز |
 | `backend/app/routers/quranic_linguistics.py` | 175 | تحليل لغوي قرآني (جذور/مواضيع/قراءات) فوق خدمة Bahouth MCP — عام |
 | `backend/app/routers/referral.py` | 177 | كود الدعوة الشخصي + مطالبة (تشمل أكواد الحملات) |
@@ -97,7 +99,7 @@
 | `backend/app/routers/value_tracking.py` | 410 | «ميزان العادات» (7–18 سنة): اليوم/أحداث/ملخّص |
 | `backend/app/routers/web.py` | 455 | الصفحات العامة: الهبوط (/، /go، /ui/)، /l/{lesson}، /p/{path} (عربي/إنجليزي حسب اللغة + `Vary: Accept-Language`)، sitemap.xml، robots.txt + إسناد التثبيت |
 
-### backend/app/services/ — منطق العمل (60 ملفًا)
+### backend/app/services/ — منطق العمل (62 ملفًا)
 
 | الملف | أسطر | الدور |
 |---|---:|---|
@@ -105,12 +107,12 @@
 | `backend/app/services/age_normalization.py` | 58 | تطبيع الفئات العمرية للقيم القانونية |
 | `backend/app/services/ai_gateway.py` | 1964 | البوابة الموحّدة لكل نداءات LLM: مزوّدات (Ollama/OpenAI-compat/DeepSeek)، مسارات threads، آجال مطلقة، تتبّع البث، تيليمتري llm_calls، حجز ميزانية السحابة، aux_generate |
 | `backend/app/services/answer_cache.py` | 308 | كاش الإجابات الدلالي (تطابق مُطبَّع ثم cosine e5 ≥ 0.92) لأول سؤال في الجلسة فقط |
-| `backend/app/services/attribution.py` | 382 | إسناد التثبيت: بناء رابط Google Play بالـreferrer، تسجيل نقرات /go، مطابقة IP خلال 24 ساعة |
+| `backend/app/services/attribution.py` | 383 | إسناد التثبيت: بناء رابط Google Play بالـreferrer، تسجيل نقرات /go، مطابقة IP خلال 24 ساعة |
 | `backend/app/services/bm25_index.py` | 106 | فهرس BM25 في الذاكرة (الساق المعجمية للاسترجاع الهجين) |
 | `backend/app/services/child_budget.py` | 553 | ميزانية وقت الشاشة للطفل على الخادم (نبض لا ساعة جدار، تاريخ محلي من الخادم، أرضية 24 ساعة) |
 | `backend/app/services/child_license.py` | 473 | رخصة الإنترنت المستوى 1: مواقف تدريبية → حديث الأسرة → منح (لا صلاحية حقيقية) |
-| `backend/app/services/child_memory.py` | 1733 | ذاكرة الطفل: استخراج حقائق (LLM) + إخفاء الأسماء + سقف توكنز شهري + متابعات |
-| `backend/app/services/child_missions.py` | 454 | بطاقة المهمة اليومية بعيدًا عن الشاشة + تأكيد المساء + مهام رحلة الصلاة |
+| `backend/app/services/child_memory.py` | 1738 | ذاكرة الطفل: استخراج حقائق (LLM) + إخفاء الأسماء + سقف توكنز شهري + متابعات |
+| `backend/app/services/child_missions.py` | 563 | بطاقة المهمة اليومية بعيدًا عن الشاشة + تأكيد المساء + مهام رحلة الصلاة |
 | `backend/app/services/child_token.py` | 229 | توكنات وضع الطفل (HMAC بـCHILD_MODE_SECRET، بلا device_id) |
 | `backend/app/services/cloud_budget.py` | 1017 | دفتر ميزانية سحابية دائم لكل محاولة سلكية (حجز/تسوية/anchor/witness triggers) — اختياري CLOUD_BUDGET_ENFORCE |
 | `backend/app/services/cloud_budget_bootstrap.py` | 67 | CLI تشغيلي لتهيئة دفتر الميزانية (cutover) دون قراءة env/DB افتراضية |
@@ -134,12 +136,14 @@
 | `backend/app/services/followup_push.py` | 167 | إشعار «جرّبت النصيحة؟ نفعت؟» الساعة 19:00 بتوقيت الأسرة |
 | `backend/app/services/guardrails.py` | 296 | تطبيق سياسات المجال/الشدة على المسودة؛ طوارئ، إحالة طبية، رسالة بديلة |
 | `backend/app/services/habit_streak.py` | 142 | سلاسل العادات وشريط 7 أيام |
+| `backend/app/services/hadith_guard.py` | 262 | حارس الحديث على إجابة المساعد قبل أن تُقرأ: الصحيحان بلفظهما ← تخريج يُكتب؛ السنن الأربعة بما صحّحه/حسّنه الألباني ← تخريج + الدرجة؛ غير ذلك ← تُحذف الجملة (فوق `scripture_scan`) |
 | `backend/app/services/hijri_seasons.py` | 90 | «سماوات المواسم»: رجب/شعبان/أوائل ذي الحجة |
 | `backend/app/services/index_seed.py` | 48 | خبز فهرس المعرفة داخل الصورة (يُنفَّذ في Dockerfile) |
 | `backend/app/services/intent_guard.py` | 1408 | حارس النوايا الضارة، الطوارئ، الإساءة، الاختصارات الحوارية، لغة الرد — قبل أي LLM |
 | `backend/app/services/knowledge_loader.py` | 189 | تحميل وحدات المعرفة من القرص مع تطبيع age_group |
 | `backend/app/services/license_alert.py` | 73 | الإشعار الوحيد الذي لا ينتظر المساء (تنبيه الأب من موقف الرخصة) |
-| `backend/app/services/llm_service.py` | 462 | بناء الـprompt الكامل وتوليد الرد وتنظيفه واستشهادات المصادر (لا يُعدّ «كتاب إسلامي» مصدرًا) وتحويل pivot عام |
+| `backend/app/services/llm_service.py` | 472 | بناء الـprompt الكامل وتوليد الرد وتنظيفه واستشهادات المصادر (لا يُعدّ «كتاب إسلامي» مصدرًا) وتحويل pivot عام |
+| `backend/app/services/mawaqif.py` | 65 | «موقف بقرار» (docs/MAWAQIF.md): تحميل بنك المواقف ونسخته الإنجليزية، التحقق من اكتمال العنصر، والتصفية حسب العمر |
 | `backend/app/services/merge_tombstones.py` | 105 | **شواهد الحذف عبر الأجهزة** (v37): ما حذفه الوالد (طفل/حقيقة/ذاكرة) يبقى محذوفًا في دمج حساب Google؛ مفاتيح مُجزّأة؛ يكتبها `privacy.erase_*` و`child_memory.delete_*`، ويقرؤها `identity._merge_legacy_device_data` |
 | `backend/app/services/milestone_push.py` | 315 | إشعار المراحل قبل شهر الساعة 20:00 بتوقيت الأسرة (MILESTONES_MIN_BUILD) |
 | `backend/app/services/milestones.py` | 228 | المراحل الاستباقية («ابنك هيكمّل ٧ سنين الشهر الجاي») |
@@ -210,7 +214,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_answer_cache.py` | 71 | Semantic answer cache tests (growth plan §5.1). |
 | `backend/tests/test_answer_cache_callers_revision.py` | 103 | Real cache writes through streaming and both offline warmers, without models. |
 | `backend/tests/test_answer_cache_source_revision.py` | 252 | Quarantining a source must invalidate answers before index startup/purge. |
-| `backend/tests/test_answer_reliability.py` | 1125 | Unanswered questions — one test per mechanism, each failing without its fix. Production, 30 days to 2026-10-04: 44 of 290 parent questions (15.2%)… |
+| `backend/tests/test_answer_reliability.py` | 1148 | Unanswered questions — one test per mechanism, each failing without its fix. Production, 30 days to 2026-10-04: 44 of 290 parent questions (15.2%)… |
 | `backend/tests/test_api_smoke.py` | 195 | API smoke tests — endpoint wiring, guardrails, auth, and session persistence. The LLM gateway and the vector retrieval are mocked, so these run fast… |
 | `backend/tests/test_app_help_routing.py` | 436 | App-help questions reach the app-help units — and parenting questions never do. Before 2026-10-05 nothing in the knowledge base described the app… |
 | `backend/tests/test_app_help_stays_internal.py` | 175 | app_help` is a server-side domain: no response, stream frame or chat row a client reads ever carries it. |
@@ -232,7 +236,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_child_budget.py` | 378 | The time budget, tested from the outside in. Most of these assert a refusal. The budget's only job is to say no at the |
 | `backend/tests/test_child_deletion.py` | 134 | P3 (PR #26 review): deleting a child deletes everything tied to the child. DELETE /api/children/{id} used to remove only the child_profiles row,… |
 | `backend/tests/test_child_license.py` | 490 | The internet licence, level 1. Most of these are negative tests, because most of what this feature promises |
-| `backend/tests/test_child_memory.py` | 1047 | Child memory (schema v30) — «المربّي يعرف ابنك». What these tests pin, in the order the brief asked for them: |
+| `backend/tests/test_child_memory.py` | 1058 | Child memory (schema v30) — «المربّي يعرف ابنك». What these tests pin, in the order the brief asked for them: |
 | `backend/tests/test_child_missions.py` | 573 | The mission card and the evening that settles it. The card is where the product's central claim becomes checkable: a minute of |
 | `backend/tests/test_child_mode_web.py` | 220 | Integration tests for the QR Web App (Phase 4). |
 | `backend/tests/test_child_surface_endpoints.py` | 709 | The gate as the network sees it. test_child_budget.py proves the service refuses. This file proves the refusal |
@@ -240,7 +244,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_child_token_v2.py` | 77 | Child tokens carry no device id (PR #26 review, P1). A child's web token used to carry the parent's device id in readable base64: a |
 | `backend/tests/test_child_web_claims.py` | 92 | Audit L11: one-time QR claim codes for the teen web surface are durable, single-use under concurrency, and stored so that a copy of the table is… |
 | `backend/tests/test_child_web_page.py` | 92 | The teen QR page (backend/static/child_mode/index.html) against the API it calls and the app it belongs to (UX_UI_ROADMAP §4.3, AUDIT H8). |
-| `backend/tests/test_cinematic_landing.py` | 199 | The landing page in the «نور والقناديل» identity (Oct 2026 launch). Attribution — every Play link carrying ref/utm_* — is… |
+| `backend/tests/test_cinematic_landing.py` | 217 | The landing page in the «نور والقناديل» identity (Oct 2026 launch). Attribution — every Play link carrying ref/utm_* — is… |
 | `backend/tests/test_classifier.py` | 269 | Tests for the domain classifier — keyword fast-path + cache + LLM fallback. These tests mock the Ollama call so they're fast and need no network. |
 | `backend/tests/test_classifier_english_keywords.py` | 438 | English lexical routing, priority, and boundary regressions; no providers. A fast-path hit blocks the model classifier and the query rewrite, so these |
 | `backend/tests/test_classifier_general_veto.py` | 54 | A "general" verdict on a question about the parent's own child is vetoed. `general` is the one classification that skips retrieval entirely and… |
@@ -292,6 +296,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_followup_push.py` | 285 | The follow-up push (services/followup_push.py) — schema v30. It runs from the backend's in-process loop at 19:00 on each family's own |
 | `backend/tests/test_glossary_guard.py` | 110 | The glossary guard is a programmatic constraint, not a prompt instruction. It exists because 34 real term injections shipped across four consecutive |
 | `backend/tests/test_habit_streak.py` | 106 | Habit streak with the weekly shield, and the 7-day strip (UX-3, §3.2–3.3). |
+| `backend/tests/test_hadith_guard.py` | 191 | The assistant's answers: hadith and verses checked before anyone reads them (hadith_guard.py), on the quotes production actually produced. |
 | `backend/tests/test_health_threadpool.py` | 147 | Deep health probes must leave the event loop free for the cheap health route. |
 | `backend/tests/test_hijri_seasons.py` | 149 | «سماوات المواسم» — the three quiet months the sky on «اليوم» marks. Rajab, Sha'ban and the first days of Dhu al-Hijjah are worked out from the |
 | `backend/tests/test_honest_durations.py` | 117 | A path may only promise what its lessons can keep. A mother opened a path labelled «28 يومًا», found four lessons and finished |
@@ -309,6 +314,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_lesson_index_integrity.py` | 174 | Structural invariants of docs/lesson_index.json. These are data-level checks with no media on disk, so they run in CI and inside |
 | `backend/tests/test_lesson_progress_migration.py` | 300 | الترحيل نفسه: من مفتاح الإنتاج ذي العمودين إلى مفتاح لكل طفل. الاختبارات في `test_progress_upsert_key.py` تشتغل على قاعدة نظيفة، فتثبت |
 | `backend/tests/test_log_schema_migrations.py` | 269 | Baseline migrations for sessions.db's `sessions` and `query_rewrites`. Built only from production's copied DDL (tests/prod_schema_support.py). The |
+| `backend/tests/test_mawaqif.py` | 115 | «موقف بقرار» — the bank and GET /api/program/mawaqif (docs/MAWAQIF.md): both languages served in full and matching item by item. |
 | `backend/tests/test_media_naming.py` | 174 | Media naming is a contract between the API and the generators. Both sides used to derive it independently, which produced two live defects: |
 | `backend/tests/test_medical_gap_units.py` | 163 | The four medical units PR #23 found missing stay sourced, safe and reachable. PR #23 shipped red flags for puberty, periods and children's fasting in… |
 | `backend/tests/test_medical_no_match_referral.py` | 456 | A medical question the knowledge base cannot answer is referred to a doctor, not sent to the off-topic pivot. |
@@ -324,12 +330,14 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_nblm_session_guard.py` | 195 | scripts/lib/nblm_session.sh — the NotebookLM session guard. Drives the real bash library against a stub `notebooklm` placed first on PATH |
 | `backend/tests/test_no_hitting_endorsement.py` | 104 | No text the app serves tells a parent to hit a child. Until 2026-10-04 served knowledge units said «يمكن ضرب الأطفال على ترك الصلاة |
 | `backend/tests/test_ops_metrics_auth.py` | 94 | Route-level authentication for private operational metrics (audit M15). |
+| `backend/tests/test_parent_mission_today.py` | 193 | Today's mission from the parent's side — no handover needed: GET /children/{id}/mission/today writes nothing, POST …/done confirms it. |
 | `backend/tests/test_phase5_progress.py` | 416 | Phase 5 tests — child profiles + progress tracking. Mounts ONLY the children + program routers onto a minimal FastAPI app |
 | `backend/tests/test_phase6_streak.py` | 341 | Phase 6 tests — streak calculation + onboarding state. Mounts the children + program routers onto a minimal FastAPI app so |
 | `backend/tests/test_phase7_settings.py` | 356 | Phase 7 tests — list / update / reset-progress on /api/children/*. Mounts children + program routers on a minimal FastAPI app so the |
 | `backend/tests/test_phase8_challenge.py` | 131 | «رحلة الطفل» Phase 3 tests — the per-child "current challenge" and its integration with the proactive coach. |
 | `backend/tests/test_podcast_sentinels.py` | 179 | scripts/gen_podcasts_cron.py — trigger sentinels are outcomes, never task ids. `if tid:` used to run before `elif tid == "STALE_SOURCE"`, so the… |
 | `backend/tests/test_primary_budget.py` | 183 | Primary-provider monthly spend ceiling tests. The app is free forever, so the paid primary path (DeepSeek) needs its own |
+| `backend/tests/test_print_pack.py` | 86 | /print/ramadan — the Ramadan program as A4 sheets (routers/print_pack.py), read from the program itself. |
 | `backend/tests/test_privacy_policy_route.py` | 54 | Regression tests for GET /privacy-policy. The endpoint is a Google Play requirement, and on 2026-07-27 it was serving a |
 | `backend/tests/test_privacy_policy_truth.py` | 323 | The privacy policy must say what the code does — and keep saying it. Until 2026-10-04 docs/privacy-policy.md said child profiles and progress stayed |
 | `backend/tests/test_privacy_retention.py` | 499 | What the privacy policy promises about retention and redaction, enforced. Each test pins one sentence of docs/privacy-policy.md to the code behind it: |
@@ -370,6 +378,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_safety.py` | 166 | Safety-layer unit tests — the project's most important behavior. |
 | `backend/tests/test_safety_valve.py` | 106 | Cloud safety-valve tests — the hard-capped DeepSeek last-resort fallback. The valve must stay SHUT unless all of: flag on, key present, primary is not |
 | `backend/tests/test_search.py` | 57 | Curriculum search endpoint tests — GET /api/program/search. Additive v1 endpoint: substring search across published lessons, paths, |
+| `backend/tests/test_security_headers.py` | 59 | Security headers on every response (app/middleware/security_headers.py). |
 | `backend/tests/test_send_update_push.py` | 87 | ops/scripts/send_update_push.py — nudge only the devices that need it. The first version sent to every token ever registered: people already on the |
 | `backend/tests/test_sensitive_content.py` | 150 | What child memory must never keep (PR #26 review F6). The reviewer's probe table, row for row (Egyptian euphemisms, conjugations, |
 | `backend/tests/test_seo.py` | 57 | Smoke tests for public SEO pages added to backend/app/routers/seo.py. |
@@ -397,7 +406,8 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_twin_fold_contract.py` | 107 | PR #26 × PR #29 (final review, item 10) — whichever lands second keeps it. #29 folds a childless twin device into the family's device when the twin |
 | `backend/tests/test_v36_honest_counter.py` | 117 | Schema v36 — the honest weekly counter's shared migration (نور والقناديل). One migration adds both objects Phase 0 needs: |
 | `backend/tests/test_value_tracking.py` | 580 | Tests for the «ميزان العادات» value-tracking API. Uses a minimal FastAPI app with the value_tracking router only, plus the |
-| `backend/tests/test_weekly_funnel_report.py` | 738 | اختبارات: weekly funnel report |
+| `backend/tests/test_weekly_dashboard_ops_base.py` | 74 | The weekly dashboard reads LLM metrics from the app it runs inside (127.0.0.1), not through the public URL that answered 403. |
+| `backend/tests/test_weekly_funnel_report.py` | 809 | اختبارات: weekly funnel report |
 | `backend/tests/test_weekly_plan.py` | 229 | «خطة الأسبوع» — the bank's integrity and the plan's behaviour (schema v30). |
 | `backend/tests/test_weekly_plan_marks.py` | 256 | A weekly plan you can tick (نور والقناديل, Phase 3) — schema v36's `weekly_plan_marks` behind PUT/DELETE /api/children/{id}/weekly-plan/marks and the… |
 
@@ -449,9 +459,9 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | الملف | أسطر | الدور |
 |---|---:|---|
 | `mobile/lib/api/device_id_claim.dart` | 118 | The one-time claim of the install's device id, shared by every isolate. |
-| `mobile/lib/api/tg_client.dart` | 3610 | Thin HTTP/SSE client for the Tutor Guardian backend. Implements the v1 contract in `MOBILE_API.md`: * `createSession()` → POST /api/chat/sessions *… |
+| `mobile/lib/api/tg_client.dart` | 3690 | Thin HTTP/SSE client for the Tutor Guardian backend. Implements the v1 contract in `MOBILE_API.md`: * `createSession()` → POST /api/chat/sessions *… |
 | `mobile/lib/config/app_config.dart` | 43 | App-wide configuration constants. The base URL is read from a `--dart-define` so the same APK can target staging/production without code changes.… |
-| `mobile/lib/core/analytics.dart` | 575 | Growth analytics — thin wrapper over the (previously declared-but-unwired) firebase_analytics so we can actually measure the Phase 0 funnel and the… |
+| `mobile/lib/core/analytics.dart` | 609 | Growth analytics — thin wrapper over the (previously declared-but-unwired) firebase_analytics so we can actually measure the Phase 0 funnel and the… |
 | `mobile/lib/core/app_closer.dart` | 53 | Ending the app so that the next open is a fresh launch — and telling Android's backup that the app's data changed. Used once: after an account… |
 | `mobile/lib/core/app_routes.dart` | 631 | Central route registry. The app navigates imperatively (`Navigator.push`) rather than through a declarative router — see the note below on why. The… |
 | `mobile/lib/core/clock.dart` | 11 | The wall clock, as a provider — so a test can stand «اليوم» on a Friday or a Monday without waiting for one. Only what decides a day-of-week moment… |
@@ -460,7 +470,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `mobile/lib/core/engagement_signal.dart` | 32 | A counter of "something worthwhile just happened", read by the navigation observer to tell a finished task apart from a dead end. Lives in its own… |
 | `mobile/lib/core/failures.dart` | 148 | What a failure means to the reader — not what threw it. Both the UI (which message to show) and the data layer (whether a cached copy is a better… |
 | `mobile/lib/core/haptics.dart` | 88 | Semantic haptics — call sites say *what happened*, not which motor pulse. Haptics were ten direct `HapticFeedback.*` calls in six files (games,… |
-| `mobile/lib/core/horizon_attribution.dart` | 64 | horizon_to_action_48h` — did a tap on the horizon lead to a parenting act within two days? (عالم الأسرة, the «على الأفق» experiment's second half:… |
+| `mobile/lib/core/horizon_attribution.dart` | 65 | horizon_to_action_48h` — did a tap on the horizon lead to a parenting act within two days? (عالم الأسرة, the «على الأفق» experiment's second half:… |
 | `mobile/lib/core/local_only_files.dart` | 50 | Files the app writes for a moment and that must never reach a backup: a feedback voice note on its way to the server, an agreement image on its way… |
 | `mobile/lib/core/motion.dart` | 46 | Reduce-motion support (UX_UI_ROADMAP §5). With the system "remove animations" setting on, Flutter already runs every AnimationController at 5% of its… |
 | `mobile/lib/core/nav_observer.dart` | 242 | Navigation observer — the "where do users get lost?" probe. Multiple users reported getting lost inside the app. Rather than guess which of the ~40… |
@@ -470,9 +480,9 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `mobile/lib/firebase_options.dart` | 28 | Generated from google-services.json — do not edit manually. Re-generate by running: flutterfire configure |
 | `mobile/lib/l10n/app_ar.arb` |  | نصوص الواجهة بالعربية (المصدر الأساسي للترجمة) |
 | `mobile/lib/l10n/app_en.arb` |  | نصوص الواجهة بالإنجليزية |
-| `mobile/lib/l10n/app_localizations.dart` | 11324 | Callers can lookup localized strings with an instance of AppLocalizations returned by `AppLocalizations.of(context)`. Applications need to include… |
-| `mobile/lib/l10n/app_localizations_ar.dart` | 6692 | The translations for Arabic (`ar`). |
-| `mobile/lib/l10n/app_localizations_en.dart` | 6746 | The translations for English (`en`). |
+| `mobile/lib/l10n/app_localizations.dart` | 11594 | Callers can lookup localized strings with an instance of AppLocalizations returned by `AppLocalizations.of(context)`. Applications need to include… |
+| `mobile/lib/l10n/app_localizations_ar.dart` | 6855 | The translations for Arabic (`ar`). |
+| `mobile/lib/l10n/app_localizations_en.dart` | 6907 | The translations for English (`en`). |
 | `mobile/lib/l10n/content_direction.dart` | 134 | Text direction for **content**, decided by the content itself. Why this is not `Directionality.of(context)` The app chrome takes its direction from… |
 | `mobile/lib/l10n/l10n_global.dart` | 46 | Access to [AppLocalizations] for code that runs outside the widget tree (API-client errors, state notifiers, background services).… |
 | `mobile/lib/main.dart` | 769 | classes: TutorGuardianApp, ForceUpdateScreen, _AppBootstrapper, _ParentApp, _SplashScreen |
@@ -552,7 +562,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 |---|---:|---|
 | `mobile/lib/features/child_memory/data/local_wipe.dart` | 136 | Clearing the phone after its account was deleted (MOBILE_API §10). The server has erased the account; this erases what the phone kept: cached… |
 | `mobile/lib/features/child_memory/data/memory_models.dart` | 539 | Data shapes for «المربّي يعرف ابنك» — MOBILE_API.md §9–§10. Decoding is additive (unknown fields are ignored, missing ones fall back), the same rule… |
-| `mobile/lib/features/child_memory/data/memory_repository.dart` | 196 | «المربّي يعرف ابنك» over [TgClient] — typed, and with the proof rule applied per call (MOBILE_API §9.0). Protected calls go through… |
+| `mobile/lib/features/child_memory/data/memory_repository.dart` | 200 | «المربّي يعرف ابنك» over [TgClient] — typed, and with the proof rule applied per call (MOBILE_API §9.0). Protected calls go through… |
 | `mobile/lib/features/child_memory/data/pending_deletion.dart` | 85 | Finishing an account deletion the app did not see through (MOBILE_API §10; PR #36 reviews). Two ways a deletion can be left half-done on the phone: *… |
 | `mobile/lib/features/child_memory/data/placeholder_names.dart` | 361 | Putting the child's name back into memory text — on the device only — and taking exactly those names out again before anything is sent. The server… |
 | `mobile/lib/features/child_memory/device_proof/device_proof_service.dart` | 413 | Device proof — the FCM challenge behind every protected memory route (MOBILE_API.md §9.0.1). The server proves that a session holds the phone by… |
@@ -566,7 +576,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `mobile/lib/features/child_memory/widgets/personalised_chip.dart` | 70 | «مخصّص لأحمد» under an answer that used child memory (MOBILE_API §9.1). Tapping it opens «ما يعرفه المربّي عن أحمد»: the parent sees — and can… |
 | `mobile/lib/features/child_memory/widgets/proof_views.dart` | 275 | The three things a parent may see while a protected action waits on the device proof (MOBILE_API §9.0.1): it is under way, it is paused until a time,… |
 | `mobile/lib/features/child_memory/widgets/today_followup_card.dart` | 195 | «المتابعة» on Today — plan §1.2, the loop that brings a parent back. Shows one due follow-up (the active child's first, else the oldest of any child,… |
-| `mobile/lib/features/child_memory/widgets/today_weekly_plan_card.dart` | 557 | «خطة الأسبوع» on Today — plan §1.3 (MOBILE_API §9.5). One focus, three small actions, one act of worship together, one lesson — for the active child,… |
+| `mobile/lib/features/child_memory/widgets/today_weekly_plan_card.dart` | 648 | «خطة الأسبوع» on Today — plan §1.3 (MOBILE_API §9.5). One focus, three small actions, one act of worship together, one lesson — for the active child,… |
 
 ### mobile/lib/features/coins/
 
@@ -591,7 +601,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `mobile/lib/features/companion/data/companion_store.dart` | 361 | What «نور» keeps on the phone («نور يتذكّر», phase 2). The server already remembers facts and follow-ups; this is the small, device-only memory the… |
 | `mobile/lib/features/companion/logic/answer_step.dart` | 257 | «سأجرّبها مع …» — the one step a parent can promise from an answer (NOOR_WAL_QANADIL_PLAN, phase 4, «المساعد»). The assistant answers in a fixed… |
 | `mobile/lib/features/companion/logic/companion_brain.dart` | 485 | «نور يتذكّر» — which one line Noor says when the parent opens «اليوم». Pure and deterministic: the same inputs give the same line, no randomness and… |
-| `mobile/lib/features/companion/providers/companion_providers.dart` | 316 | Wiring for «نور يتذكّر»: real data in, one [CompanionLine] out. Every source is optional. A failure, an older server or a slow network simply removes… |
+| `mobile/lib/features/companion/providers/companion_providers.dart` | 319 | Wiring for «نور يتذكّر»: real data in, one [CompanionLine] out. Every source is optional. A failure, an older server or a slow network simply removes… |
 | `mobile/lib/features/companion/widgets/noor_face.dart` | 157 | NoorFace — «نور» in the «ورق مقصوص» paper-cut set (2026-10-14). The face used to be drawn in code on a night-navy disc; the owner chose a paper-cut… |
 | `mobile/lib/features/companion/widgets/noor_presence.dart` | 245 | NoorPresence — «نور» in a moon window (NOOR_WAL_QANADIL_PLAN, Phase 1). A framed, breathing character rather than a loose illustration: * a… |
 | `mobile/lib/features/companion/widgets/noor_today_header.dart` | 482 | «نور يتذكّر» — Noor's one line at the top of «اليوم». Replaces the static greeting row. Shows Noor, a salutation for the time of day, and one… |
@@ -674,7 +684,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `mobile/lib/features/home/widgets/today_ask_block.dart` | 172 | «اسأل المربّي» — the second of the three «اليوم» blocks. The coach tip leads it because the tip is what starts conversations: 28% of questions to the… |
 | `mobile/lib/features/home/widgets/today_child_block.dart` | 185 | «مهمة الطفل» — the third of the three «اليوم» blocks. What it shows is decided by the content banks, not by this widget: * **4-6 · 7-9 · 10-12 ·… |
 | `mobile/lib/features/home/widgets/today_focus_card.dart` | 409 | The home tab's single primary action: resume the path the child is actually in the middle of, or — when there is none — the nudge that starts the… |
-| `mobile/lib/features/home/widgets/today_loop_cards.dart` | 46 | The weekly loop on «اليوم», between ① and ② (plan §1.2–§1.3): the follow-up first (it is time-sensitive), then the week's plan. Neither card has a… |
+| `mobile/lib/features/home/widgets/today_loop_cards.dart` | 61 | The weekly loop on «اليوم», between ① and ② (plan §1.2–§1.3): the follow-up first (it is time-sensitive), then the week's plan. Neither card has a… |
 | `mobile/lib/features/home/widgets/today_rituals_row.dart` | 97 | The two daily rituals — Qur'an and the routine/habit tracker — that used to be bottom-nav tabs. They sit directly under the primary action because… |
 | `mobile/lib/features/home/widgets/today_road.dart` | 343 | «درب اليوم» (plan phase 2): the day's three stops — ① خطوة ابنك، ② اسأل المربّي، ③ مهمة الطفل — as three stations on one short paper road down the… |
 | `mobile/lib/features/home/widgets/today_section.dart` | 98 | The scaffolding of the «اليوم» tab: a titled block, and the divider below the three primary blocks. The tab was cut to three blocks (2026-10) because… |
@@ -710,9 +720,11 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `mobile/lib/features/journey/data/journey_milestones.dart` | 171 | «رحلة الطفل» — the spiritual-milestone catalogue (Phase 1, local). A curated, ordered list of Islamic milestones a parent can mark for their child.… |
 | `mobile/lib/features/journey/data/journey_store.dart` | 135 | «رحلة الطفل» — local-only, per-child milestone log (Phase 1). Backed by [SharedPreferences]. Unlike reflection notes (which are device-global), the… |
 | `mobile/lib/features/journey/data/memorization_store.dart` | 59 | «رحلة الطفل» — per-child Quran memorization tracking (Phase 4). The Quran feature itself tracks nothing memorized; this is a small, local, per-child… |
-| `mobile/lib/features/journey/providers/journey_providers.dart` | 122 | «رحلة الطفل» providers — per-child milestone log (local, Phase 1). Hierarchy: sharedPreferencesProvider (existing, onboarding_providers) │ ▼… |
+| `mobile/lib/features/journey/data/tasmee_store.dart` | 182 | «تسميع مع الوالد» — what a parent marked while their child recited (docs/TASMEE_WITH_PARENT.md): slips by kind, per child, local, with the review date. |
+| `mobile/lib/features/journey/providers/journey_providers.dart` | 145 | «رحلة الطفل» providers — per-child milestone log (local, Phase 1). Hierarchy: sharedPreferencesProvider (existing, onboarding_providers) │ ▼… |
 | `mobile/lib/features/journey/screens/child_journey_screen.dart` | 816 | «رحلة الطفل» — the per-child keepsake timeline (Phase 1). Shows the milestones a parent has logged for one child (a treasured record they build over… |
-| `mobile/lib/features/journey/screens/quran_memorization_screen.dart` | 194 | «رحلة الطفل» — Quran memorization checklist (Phase 4). A per-child list of the 114 surahs the parent can mark as memorized. Memorizing the FIRST… |
+| `mobile/lib/features/journey/screens/quran_memorization_screen.dart` | 235 | «رحلة الطفل» — Quran memorization checklist (Phase 4). A per-child list of the 114 surahs the parent can mark as memorized. Memorizing the FIRST… |
+| `mobile/lib/features/journey/screens/tasmee_screen.dart` | 432 | «تسميع مع الوالد»: the child recites, the parent follows the mushaf and taps the word where the child slipped (dropped/added/swapped/hesitated); summary, then save. |
 | `mobile/lib/features/journey/widgets/child_journey_card.dart` | 99 | «رحلة الطفل» — Home entry card (Phase 1). Modeled on [CoachTipCard]: self-hides until the active child is loaded (and when [kJourneyEnabled] is off).… |
 | `mobile/lib/features/journey/widgets/milestone_icon.dart` | 35 | Shows a milestone's custom badge illustration when one exists ([milestoneBadgeAsset]), otherwise falls back to its [emoji]. Used in the journey… |
 
@@ -740,6 +752,16 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `mobile/lib/features/license/child_license_screen.dart` | 261 | The internet licence, as a child sees it: one situation, three answers. There is no text field here and there will not be one. Scenario training does… |
 | `mobile/lib/features/license/parent_license_screen.dart` | 309 | The parent's half of the internet licence. Two things live here, and the second is the one that matters. **The talking points.** For each situation… |
 
+### mobile/lib/features/mawaqif/
+
+«موقف بقرار»: النموذج والمخزن المحلي، الشاشات الخمس، بطاقة «اليوم»
+
+| الملف | أسطر | الدور |
+|---|---:|---|
+| `mobile/lib/features/mawaqif/data/mawqif.dart` | 150 | «موقف بقرار» — the model (situation, three responses, hadith card, idea, step), the per-child device store `tg.mawaqif.v1`, and `nextMawqif`. Refuses anything the screen cannot render in full. |
+| `mobile/lib/features/mawaqif/screens/mawqif_screen.dart` | 308 | «موقف بقرار» — five short screens: the situation → the three responses → what happens now and later → the hadith, its harder words and the idea → the step («سأجرّبها» opens the lesson's «متى» sheet; the promise is a follow-up with source `mawqif`). |
+| `mobile/lib/features/mawaqif/widgets/today_mawqif_card.dart` | 170 | «موقف بقرار» on Today: the next step for the active child's band. Hides itself while loading, on any failure, on an older server, and once every step was gone through. No number. |
+
 ### mobile/lib/features/missions/
 
 بطاقة المهمة، تأكيد المساء، المعلّقة، كلمة طيبة
@@ -750,6 +772,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `mobile/lib/features/missions/mission_confirmations.dart` | 219 | The evening confirmation, independent of the screen that starts it. Two ways a confirmed prayer card's coins used to be lost for good: * the parent… |
 | `mobile/lib/features/missions/pending_missions_screen.dart` | 368 | The evening screen: every mission a child says they did, waiting on a parent who was not there when they said it. This is the second half of the… |
 | `mobile/lib/features/missions/praise_header.dart` | 219 | «كلمة طيبة» — the note a parent sends with the evening confirmation, shown to the child the next time they hold the phone. Three rules from the plan… |
+| `mobile/lib/features/missions/today_mission_row.dart` | 308 | «مهمة اليوم» on Today, for the parent — no handover needed: tell the child, mark it done, send a kind word. |
 
 ### mobile/lib/features/offscreen/
 
@@ -1099,11 +1122,12 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `mobile/test/local_timezone_test.dart` | 89 | The bug this pins: `tz.local` left at UTC, so a 6 AM reminder fired at 6 AM UTC — 9am in Riyadh, 1pm in Jakarta, 2am on the US east coast, 11pm the… |
 | `mobile/test/magic_shelf_test.dart` | 120 | رف الحكايات: رف لكل سلسلة، الكتاب التالي، نجمة المنتهي، فتح الكتاب |
 | `mobile/test/markdown_rendering_test.dart` | 69 | Every assistant reply is rendered as Markdown, so the renderer is on the app's most-used path. flutter_markdown was discontinued upstream and this… |
+| `mobile/test/mawqif_test.dart` | 198 | «موقف بقرار» (docs/MAWAQIF.md): the model, the device store, the Today card and the five screens. |
 | `mobile/test/memory_api_test.dart` | 622 | «المربّي يعرف ابنك» — the wire (MOBILE_API §9–§10) and its parsing. What each group pins: * the requests are the contract's: paths,… |
-| `mobile/test/memory_fakes.dart` | 713 | Test doubles for «المربّي يعرف ابنك» (MOBILE_API §9–§10). [FakeMemoryServer] is a TgClient whose memory, follow-up, plan, proof and deletion… |
+| `mobile/test/memory_fakes.dart` | 729 | Test doubles for «المربّي يعرف ابنك» (MOBILE_API §9–§10). [FakeMemoryServer] is a TgClient whose memory, follow-up, plan, proof and deletion… |
 | `mobile/test/missions_surface_test.dart` | 585 | The mission card, the evening confirmation, and the surfaces around them. The backend for all of this shipped complete and tested with nothing in the… |
 | `mobile/test/nav_observer_test.dart` | 129 | Unit tests for the "lostness" classifier. The interesting logic in TgNavObserver is how it decides what a finished visit *meant*. That decision is a… |
-| `mobile/test/noor_assistant_test.dart` | 484 | «نور والقناديل», phase 4 — «المساعد»: Noor beside every answer (thinking while it is written, calm once done), «سأجرّبها مع …» under the latest… |
+| `mobile/test/noor_assistant_test.dart` | 487 | «نور والقناديل», phase 4 — «المساعد»: Noor beside every answer (thinking while it is written, calm once done), «سأجرّبها مع …» under the latest… |
 | `mobile/test/noor_face_test.dart` | 340 | NoorFace — the six-state «نور» face, «ورق مقصوص» SVG since 2026-10-14 (drawn in code before, جولة الحرفة item 4). Pins: 1. Every state paints without… |
 | `mobile/test/noor_path_moments_test.dart` | 411 | «اكتمل البدر» and «درب المسار» (NOOR_WAL_QANADIL_PLAN, phase 4). The full moon is a moment, so it must be rare and earned: it rises when a path goes… |
 | `mobile/test/noor_presence_test.dart` | 159 | NoorPresence — the moon-window framing around «نور», with a drawn halo in two moods (NOOR_WAL_QANADIL_PLAN, Phase 1; «ورق مقصوص» SVG face since… |
@@ -1166,11 +1190,14 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `mobile/test/svg_assets_test.dart` | 210 | «ورق مقصوص» — every SVG the app ships is one flutter_svg can draw. The art set is hand-written SVG (assets/svg/, rules in STYLE.md). A file… |
 | `mobile/test/tafsir_provider_test.dart` | 301 | What the tafsir provider must not do, stated as tests. The feature exists to put an attributed explanation in front of a parent. Every failure mode… |
 | `mobile/test/tasbeeh_store_test.dart` | 66 | No target means it can never read as complete. |
+| `mobile/test/tasmee_screen_test.dart` | 164 | «تسميع مع الوالد» — the screen: marking a word, the kinds, the summary and saving. |
+| `mobile/test/tasmee_store_test.dart` | 170 | «تسميع مع الوالد» — the device store: slips per child and passage, review dates, corrupt data. |
 | `mobile/test/tg_client_session_test.dart` | 261 | Audit M12 / M13 / H5 (client side): one shared client, one session mint at a time, a 401 renews the session once and replays the request, and a reply… |
 | `mobile/test/tg_client_test.dart` | 224 | Phase 2 unit tests — SSE parser & model decoders. We exercise the parser by pumping synthetic event streams into a fake http.Client. The parser is… |
 | `mobile/test/today_cards_english_titles_test.dart` | 200 | Today's first-lesson card and «Continue your path» card follow the app language after it is switched — store captures of 1.0.73. The English store… |
 | `mobile/test/today_focus_card_continue_test.dart` | 274 | «واصل مسارك» → «متابعة» opens the lesson that is due, not the path overview. The maintainer on 1.0.73: the card read «أوّل ما يعرفه قلبه: الله», 2/4, «2 دروس… |
 | `mobile/test/today_focus_card_resumed_test.dart` | 126 | TodayFocusCard reads `NextLesson.resumed` — «أعطال اتلقت في الطريق». The endpoint says `resumed: true` only when the starter path is entirely done… |
+| `mobile/test/today_mission_row_test.dart` | 160 | «مهمة اليوم» on Today for the parent — no handover (2026-11-08). |
 | `mobile/test/today_three_blocks_test.dart` | 807 | «اليوم» — three blocks for the active child, then a divider, then the rest. The screen was cut down because «مش عارف أبدأ منين» was the first thing… |
 | `mobile/test/tour_test.dart` | 370 | Invariants for the first-run guided tour. The load-bearing one is the first group: the tour is a full-screen veil that swallows taps, so if it ever… |
 | `mobile/test/transient_retry_test.dart` | 124 | A read that meets the server mid-restart is tried again; a write never is, and the app's own 503s (JSON with a reason) are shown at once. |
@@ -1185,8 +1212,8 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `mobile/test/ux3_status_banner_test.dart` | 60 | E2: one app-wide line for offline and for "showing a saved copy". |
 | `mobile/test/ux4_child_surface_test.dart` | 103 | UX-4 (UX_UI_ROADMAP §4.3): the child theme and the child-mode frame. |
 | `mobile/test/week_lanterns_test.dart` | 363 | «قناديل الأسبوع» under ① on «اليوم» (نور والقناديل phase 3, MOBILE_API §12). Pinned here: the client hides everything on an older server (404) and on… |
-| `mobile/test/weekly_plan_card_test.dart` | 166 | «خطة الأسبوع» on Today (MOBILE_API §9.5). Collapsed to the focus by default (Today promises three stops); expanded: three actions, the worship act,… |
-| `mobile/test/weekly_plan_marks_test.dart` | 276 | «خطة أسبوع بتتعلّم عليها» (نور والقناديل phase 3, MOBILE_API §9.5.1). A step is ticked with one tap: the tick shows before the server answers, a… |
+| `mobile/test/weekly_plan_card_test.dart` | 177 | «خطة الأسبوع» on Today (MOBILE_API §9.5). Collapsed to the focus by default (Today promises three stops); expanded: three actions, the worship act,… |
+| `mobile/test/weekly_plan_marks_test.dart` | 328 | «خطة أسبوع بتتعلّم عليها» (نور والقناديل phase 3, MOBILE_API §9.5.1). A step is ticked with one tap: the tick shows before the server answers, a… |
 | `mobile/test/whats_new_test.dart` | 172 | The two ways a "what's new" card goes wrong, stated as tests. 1. It greets a brand-new user with a list of changes they have no "before" for. That is… |
 | `mobile/test/widget_test.dart` | 83 | Phase 1+3 smoke test — verifies the app boots into the chat screen with the Arabic title, and the chat notifier (Riverpod) builds without error when… |
 | `mobile/test/wird_notification_test.dart` | 122 | The wird reminder is back. These tests pin the three faults that killed it, so bringing it back does not bring them back with it. From the v1.0.39+84… |
@@ -1272,7 +1299,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 |---|---:|---|
 | `ops/scripts/backup_user_data.sh` | 48 | كرون 03:30 UTC: نسخ احتياطي يومي لكل قواعد SQLite بـbackup API + integrity_check + gzip (احتفاظ 14 يومًا) |
 | `ops/scripts/broadcast_push.py` | 79 | بثّ إشعار لكل جهاز له توكن FCM |
-| `ops/scripts/campaign_report.py` | 486 | تقرير الحملات: أي قناة تأتي بأسر تبقى (نقرات/تثبيتات/إضافة طفل/نشاط D7-13) |
+| `ops/scripts/campaign_report.py` | 487 | تقرير الحملات: أي قناة تأتي بأسر تبقى (نقرات/تثبيتات/إضافة طفل/نشاط D7-13) |
 | `ops/scripts/cron_push_triggers.py` | 597 | كرون 17:00 UTC داخل الحاوية: إشعارات إعادة التفاعل (first_lesson_activation → day_two → streak_at_risk → win_back؛ حد 1/جهاز/يوم، سقوف لكل غياب، لغة الأسرة ar/en) + طيّ نقرات الإحالة + privacy housekeeping |
 | `ops/scripts/delete_account.py` | 142 | تنفيذ طلب حذف وصل بالإيميل لمن بلا تطبيق |
 | `ops/scripts/deploy_model.sh` | 132 | نشر نموذج Ollama المخصّص tg-tutor (قديم) |
@@ -1286,8 +1313,8 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `ops/scripts/set_feedback_webhook.py` | 124 | تسجيل/فحص/إزالة webhook بوت تلجرام الملاحظات |
 | `ops/scripts/story_motion_verdict.py` | 86 | حكم نهاية الشهر لتجربة «صورة حيّة»: حركة مقابل ثابت |
 | `ops/scripts/warm_answer_cache.py` | 185 | كرون 03:00: تسخين كاش الإجابات بأسئلة الألم الشائعة |
-| `ops/scripts/weekly_dashboard.py` | 361 | داشبورد أسبوعي (LLM + احتفاظ + DB) إلى تلجرام |
-| `ops/scripts/weekly_funnel_report.py` | 882 | تقرير القمع والاحتفاظ الأسبوعي (السبت 07:00) إلى تلجرام — مجمّع فقط |
+| `ops/scripts/weekly_dashboard.py` | 414 | داشبورد أسبوعي (LLM + احتفاظ + DB) إلى تلجرام |
+| `ops/scripts/weekly_funnel_report.py` | 934 | تقرير القمع والاحتفاظ الأسبوعي (السبت 07:00) إلى تلجرام — مجمّع فقط |
 | `ops/scripts/weekly_kb_gap_report.py` | 519 | تقرير فجوات المعرفة الأسبوعي (السبت 06:00): أسئلة حقيقية ← استرجاع ← حكم LLM ← تلجرام |
 
 ### ops/tools/ — أدوات المعرفة والحرّاس والتقييم والتوليد
@@ -1307,7 +1334,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `ops/tools/build_commandr_trainset.py` | 75 | Format the premium QA corpus into chat-messages JSONL for fine-tuning. Model-agnostic: emits {"messages":[system,user,assistant]} so the training |
 | `ops/tools/build_final_corpus.py` | 158 | build_final_corpus — تنظيف + دمج + تقرير جودة للكوربوس النهائي. يدمج الـpremium (DeepSeek، 25k) مع qa_dataset_clean (الأقدم) بعد تنظيف صارم |
 | `ops/tools/build_golden_set.py` | 280 | Build the golden evaluation set for answer-quality benchmarking. Generates realistic parent questions from KB units via Azure DeepSeek |
-| `ops/tools/build_hadith_index.py` | 286 | Build the two hadith indexes the content guards match against. ops/data/hadith_index.json.gz — Sahih al-Bukhari + Sahih Muslim. |
+| `ops/tools/build_hadith_index.py` | 300 | Build the two hadith indexes the content guards match against. ops/data/hadith_index.json.gz — Sahih al-Bukhari + Sahih Muslim. |
 | `ops/tools/build_real_eval_set.py` | 310 | build_real_eval_set.py — Extracts a balanced, representative, and strictly anonymized eval set of ~100 real parent questions from production database. |
 | `ops/tools/build_vector_db.py` | 70 | Build / rebuild ChromaDB vector index for knowledge_base/units/*.json. Uses the ONNX embedder built into ChromaDB (no external model download… |
 | `ops/tools/candidate_smoke.py` | 315 | Fast smoke of a candidate backend image — the in-image gate of every deploy. The full suite does not run in the image. It runs on GitHub-hosted… |
@@ -1325,13 +1352,14 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `ops/tools/check_quoted_texts.py` | 232 | فاحص النصوص الشرعية المقتبسة — بلاغ لا تصحيح |
 | `ops/tools/check_quran_citations.py` | 173 | Verify every Qur'an citation in the app against the mushaf text. Verses quoted anywhere else in the app (﴿…﴾, «قال تعالى: …») are checked by |
 | `ops/tools/check_quran_rendering.py` | 199 | فحص: القرآن لا يُترجَم — وأي معنًى بالإنجليزية يُعلَن أنه تفسير |
+| `ops/tools/check_scholar_quotes.py` | 367 | check_scholar_quotes.py — «قال ابن القيم…»: هل لهذه النسبة سندٌ نراه؟ (كتاب العالم نفسه، أو اسمه في نص المصدر، أو موضع مسجَّل من turath.io)؛ `check` بلا شبكة، `verify` يسأل تراث |
 | `ops/tools/check_scripture_coverage.py` | 199 | Every quoted ayah and hadith the app ships — not just the ones in one file. Why this guard exists (2026-10-04) |
 | `ops/tools/check_served_assets.py` | 259 | Verify that what lesson_index.json promises is what this host can serve. Two production incidents motivate this, both invisible until a human noticed: |
 | `ops/tools/check_sira_stories.py` | 665 | 🛡️ حارس «من السيرة النبوية»: كل «» حرفي برقمه من الصحيحين، قائمة منع لتفاصيل غير صحيحة، دعم عائلتين؛ pre-commit + CI |
 | `ops/tools/chroma_recall_capture.py` | 261 | Build disposable indexes from frozen real vectors; never migrate a database. Only the CLI's experiment modes import ML/Chroma. The comparator remains… |
 | `ops/tools/chroma_recall_probe.py` | 232 | Compare captured retrieval IDs. Never opens Chroma, models, or the network. COMPARISON_COMPLETE describes supplied report coverage, never an upgrade… |
 | `ops/tools/chroma_runtime_probe.py` | 398 | Hosted, copied-index runtime proof. Never run against a production volume. Build uses the application's index_seed entry point. Candidate uses real |
-| `ops/tools/content_surfaces.py` | 336 | Every text the app ships to a parent or a child — as the scripture guards see it. Why one enumerator |
+| `ops/tools/content_surfaces.py` | 341 | Every text the app ships to a parent or a child — as the scripture guards see it. Why one enumerator |
 | `ops/tools/deepen_paths.py` | 1091 | تعميق المسارات بالطلب — دروس مكتوبة من الوحدات، وطعنٌ من عائلة نماذج أخرى |
 | `ops/tools/deploy_gate.py` | 360 | Deploy gate — production only gets a commit whose hosted tests passed. deploy.yml runs this on a GitHub-hosted runner, as a job the production job |
 | `ops/tools/enrich_all.py` | 97 | ⚠️ سكربت إثراء وحدات قديم (مسار نسبي، يكتب units_backup/) |
@@ -1355,6 +1383,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `ops/tools/fonts/Cairo-Regular.ttf` |  | خط |
 | `ops/tools/gen_launch.py` | 142 | gen_launch — أصول إطلاق + هيرو صفحة الهبوط (نفس هوية gen_visuals، بلا نص). الموديل الافتراضي: Recraft V3. (جُرّب Flux 2 Pro ونانو بنانا برو ورُفضا… |
 | `ops/tools/gen_lottie.py` | 273 | gen_lottie — generate lightweight, brand-aligned Lottie animations for Tutor Guardian celebrations. |
+| `ops/tools/gen_print_qr.py` | 51 | gen_print_qr — the QR code printed at the foot of every printable sheet. Writes frontend/assets/print/qr_<CODE>.svg. |
 | `ops/tools/gen_sfx.py` | 293 | gen_sfx — synthesise the app's five interface sounds from code. The owner's decision is «أصوات ناعمة بلا موسيقى»: soft sounds, no music. So |
 | `ops/tools/gen_visuals.py` | 271 | gen_visuals — توليد المحتوى البصري المخصّص لـ«المربّي» بأسلوب موحّد محتشم. الموديل الافتراضي: Recraft V3 (~$0.04/صورة). جُرّب الترقية لـFlux 2 Pro… |
 | `ops/tools/generate_dataset_v2.py` | 349 | Fine-tune dataset v2 generator — Azure DeepSeek backed. Produces ~4k instruction/output pairs in the Phase-3 structured answer |
@@ -1383,7 +1412,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `ops/tools/review_en_parity.py` | 2549 | بوابة المحتوى الإنجليزي — مراجعة آلية بنموذجين من عائلتين، ثم ختم موثَّق |
 | `ops/tools/run_gemma4_31b_real_questions_teacher.py` | 448 | run_gemma4_31b_real_questions_teacher.py — Runs `gemma4:31b` on Ollama Cloud (pure HTTP API, zero local models) over real parent questions to: |
 | `ops/tools/runtime_readiness_report.py` | 275 | Manual trusted-main diagnostic. Only ciphertext leaves the existing container. No application startup, schema migration, bootstrap, provider call or… |
-| `ops/tools/scripture_scan.py` | 473 | Find quoted scripture inside free text, and say whether it is sound. The structured guards check an item that declares itself — `kind: hadith` with |
+| `ops/tools/scripture_scan.py` | 481 | Find quoted scripture inside free text, and say whether it is sound. The structured guards check an item that declares itself — `kind: hadith` with |
 | `ops/tools/seed_vps_answer_cache_from_teacher.py` | 145 | seed_vps_answer_cache_from_teacher.py — Exports all clean, standalone `Gemma 4 31B` gold-standard answers (plus the 25 new KB gap units) into a… |
 | `ops/tools/sira_sources.py` | 224 | توثيق قصة سيرة من مصادرها (البخاري/مسلم بطبعة مثبّتة + الآيات) إلى `ops/data/sira/`؛ يدوي |
 | `ops/tools/social_media_autoposter.py` | 402 | social_media_autoposter.py — أداة النشر التلقائي لمنشورات التسويق والتربية اليومية. تقرأ النصائح من knowledge_base/curriculum/daily_tips/*.json مع… |
@@ -1471,6 +1500,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `ops/data/tip_reviews/ + program_reviews/` | 2 (json×2) | مراجعات النصائح والبرامج |
 | `ops/data/anbiya/` | 20 (json×20) | لقطات مصادر قصص الأنبياء (آيات + الميسّر) — يكتبها `anbiya_sources.py` ويقرؤها `check_anbiya_stories.py` |
 | `ops/data/sira/` | 8 (json×8) | لقطات مصادر قصص السيرة (`<id>.sources.json`) — يكتبها `sira_sources.py` ويقرؤها `check_sira_stories.py`؛ مسار يُطلق `backend.yml` |
+| `ops/data/scholar_quotes/` | 1 (json×1) | `verified.json`: نِسب لأهل العلم وُجدت في كتبهم على turath.io بالكتاب والصفحة — يكتبه `check_scholar_quotes.py verify` ويقرؤه `check` |
 | `ops/data/ (ملفات الجذر)` | 15 (json×10, gz×2, md×1, csv×1) | حالات الترجمة/البودكاست/الفيديو، أسئلة مجمّعة (collected_questions*), فهرس الأحاديث المضغوط، campaign_codes.md, campaign_spend.csv, qa_dataset_clean.jsonl |
 
 ## 6) السكربتات — `scripts/` (مولّدات المحتوى والنشر)
@@ -1610,7 +1640,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | الملف | أسطر | الدور |
 |---|---:|---|
 | `e2e/.gitignore` |  | استبعاد مخرجات E2E |
-| `e2e/e2e_tool.py` | 1588 | Helpers for the emulator E2E gate (.github/workflows/mobile-e2e.yml). Subcommands, all stdlib-only so they run on a bare GitHub runner: |
+| `e2e/e2e_tool.py` | 1608 | Helpers for the emulator E2E gate (.github/workflows/mobile-e2e.yml). Subcommands, all stdlib-only so they run on a bare GitHub runner: |
 | `e2e/flows/common/assert_today.yaml` | 32 | Today renders its primary blocks (origin/main layout, 1.0.67+112): |
 | `e2e/flows/common/enter_pin.yaml` | 8 | Four digits on the child-mode keypad (child_mode_lock_screen.dart). |
 | `e2e/flows/common/exit_child_mode.yaml` | 29 | Exit child mode cleanly back to Today using the PIN. |
@@ -1634,6 +1664,9 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `e2e/flows/fresh/09_programs.yaml` | 58 | Checkpoint 9 — «برامج الأسرة» (family programs, MOBILE_API §11). |
 | `e2e/flows/fresh/10_child_corner.yaml` | 72 | Checkpoint 10 — «ركن الطفل»: through the hand-over gate into the child's |
 | `e2e/flows/fresh/11_family_road.yaml` | 62 | Checkpoint 11 — «درب {الاسم}» and «على الأفق» (عالم الأسرة). |
+| `e2e/flows/fresh/12_today_quests.yaml` | 36 | Checkpoint 12 — the family quests on Today (1.0.80), against the live server: today's mission marked by the parent, then the kind word. |
+| `e2e/flows/fresh/13_tasmee.yaml` | 53 | Checkpoint 13 — «تسميع مع الوالد» (1.0.81), device-only: al-Fatiha, one word marked as dropped, saved, «موضع واحد للمراجعة». |
+| `e2e/flows/fresh/14_mawqif.yaml` | 78 | Checkpoint 14 — «موقف بقرار» (1.0.81), against the live server: the card on Today → a response → the hadith → the step → «الليلة»; then the card leaves. |
 | `e2e/flows/gallery/shoot.yaml` | 894 | One pass of the before/after gallery (Phase 0 of docs/NOOR_WAL_QANADIL_PLAN.md). |
 | `e2e/flows/gallery/today_shot.yaml` | 23 | The gallery's own Today capture: common/assert_today.yaml's contract, but |
 | `e2e/flows/rehearsal/expect.yaml` | 23 | Wait for PATTERN: a hard expectation on the PR head (TAG == 'after'), a |
@@ -1726,8 +1759,8 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 
 | الملف | أسطر | الدور |
 |---|---:|---|
-| `frontend/cinematic.en.html` | 385 | قالب الهبوط السينمائي الإنجليزي |
-| `frontend/cinematic.html` | 380 | قالب الهبوط السينمائي العربي (placeholders {{DOWNLOAD_URL}}…) يُقدَّم من routers/web.py |
+| `frontend/cinematic.en.html` | 427 | قالب الهبوط السينمائي الإنجليزي |
+| `frontend/cinematic.html` | 422 | قالب الهبوط السينمائي العربي (placeholders {{DOWNLOAD_URL}}…) يُقدَّم من routers/web.py |
 | `frontend/engine.js` | 666 | ⚠️ محرك تمرير فيديو (scroll-world) — لا تشير إليه أي صفحة حاليًا (يُذكر في .agents skill فقط) |
 | `frontend/icons/apple-touch-icon.png` |  | صورة/رسم |
 | `frontend/icons/favicon-32.png` |  | صورة/رسم |
@@ -1742,7 +1775,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 
 | المجموعة | عدد الملفات | ما هي |
 |---|---:|---|
-| `frontend/assets/` | 170 (jpg×150, png×9, mp4×6, woff2×3) | إطارات تمرير الفيديو (seq/*.jpg)، خطوط Cairo woff2، بانر، فيديوهات |
+| `frontend/assets/` | 172 (jpg×150, png×9, mp4×6, woff2×3, svg×2) | إطارات تمرير الفيديو (seq/*.jpg)، خطوط Cairo woff2، بانر، فيديوهات، و`print/qr_PR0{1,2}.svg` (رمز QR أسفل أوراق الطباعة — يكتبه `ops/tools/gen_print_qr.py`) |
 
 ## 10) CI/CD وخطافات git — `.github/` و `.githooks/`
 
@@ -1762,7 +1795,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `.github/ci/requirements-dev.lock` |  | قفل اعتماديات الاختبار |
 | `.github/ci/requirements-prod.lock` |  | قفل الاعتماديات المشفّر بالـhash لصورة الإنتاج |
 | `.github/dependabot.yml` | 24 | تحديثات اعتماديات آلية |
-| `.github/workflows/backend.yml` | 253 | Backend tests: pytest (+golden CI) + سلامة KB + ruff (بوابة النشر) |
+| `.github/workflows/backend.yml` | 264 | Backend tests: pytest (+golden CI) + سلامة KB + ruff (بوابة النشر) |
 | `.github/workflows/build-release-unsigned.yml` | 110 | بناء AAB غير موقَّع بمراجعة SHA محدد (التوقيع محلي) |
 | `.github/workflows/candidate-image.yml` | 155 | فحص صورة الباكند المرشّحة (smoke + كسر الصورة ثلاث مرات ليرفضها) |
 | `.github/workflows/chroma-1x-recall.yml` | 143 | تجربة يدوية: استدعاء Chroma 1.x مقابل 0.6 (غير بوابة نشر) |
@@ -1773,7 +1806,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `.github/workflows/e2e-avd-cache.yml` | 107 | يحفظ لقطة المحاكي على main يوميًا لتسريع E2E |
 | `.github/workflows/flutter.yml` | 90 | Flutter analyze + test على دفعات mobile/** |
 | `.github/workflows/golden-full.yml` | 34 | تقييم ذهبي كامل (يدوي؛ بلا مفاتيح مزوّد => UNAVAILABLE) |
-| `.github/workflows/mobile-e2e.yml` | 961 | بوابة الإصدار: APK release يُقاد بـMaestro على محاكي (13 رحلة fresh/upgrade + تجربة رمضان + معرض) |
+| `.github/workflows/mobile-e2e.yml` | 965 | بوابة الإصدار: APK release يُقاد بـMaestro على محاكي (13 رحلة fresh/upgrade + تجربة رمضان + معرض) |
 | `.github/workflows/release-play.yml` | 180 | يدوي: بناء AAB موقَّع ورفعه إلى Google Play (internal/alpha/beta/production) |
 | `.github/workflows/runtime-readiness.yml` | 91 | تشخيص جاهزية وقت التشغيل على main (runner الإنتاج، مخرجات مشفّرة) |
 
@@ -1813,7 +1846,8 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `knowledge_base/curriculum/paths/` | 43 (json×43) | المسارات التعليمية |
 | `knowledge_base/curriculum/lessons/` | 250 (json×205, md×45) | الدروس |
 | `knowledge_base/curriculum/daily_tips/` | 220 (json×220) | نصائح اليوم (مجمّع) |
-| `knowledge_base/curriculum/i18n/en/` | 485 (json×484, md×1) | ترجمة المنهج الإنجليزية (دروس/مسارات/نصائح/اتفاقيات/…) + تقارير مراجعة |
+| `knowledge_base/curriculum/mawaqif/mawaqif.json` |  | بنك «موقف بقرار»: 6 مواقف (واحد لكل عمر من 2-3 إلى 16-18)، كلٌّ بثلاثة ردود وحديث من الصحيحين وخطوة — سطح محروس في `content_surfaces.py` |
+| `knowledge_base/curriculum/i18n/en/` | 486 (json×485, md×1) | ترجمة المنهج الإنجليزية (دروس/مسارات/نصائح/اتفاقيات/مواقف/…) + تقارير مراجعة |
 | `knowledge_base/curriculum/{agreements,license,missions,programs,weekly_plan}` | 16 (json×16) | بنوك: بنود الاتفاقية، مواقف الرخصة، المهام، برامج الأسرة (رمضان/الصلاة/المراحل)، خطط الأسبوع |
 | `knowledge_base/notebooklm/` | 198 (md×198) | مصادر NotebookLM لكل فئة عمرية ومسار |
 | `knowledge_base/raw_sources/` | 9 (txt×5, log×2, json×1, part×1) | سجلات تنزيل المصادر الخام |
@@ -1872,6 +1906,8 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `docs/release_notes/1.0.77+122.json` |  | ملاحظات إصدار 1.0.77+122 (ar/en) — يقرؤها «ما الجديد» |
 | `docs/release_notes/1.0.78+123.json` |  | ملاحظات إصدار 1.0.78+123 (ar/en) — يقرؤها «ما الجديد» |
 | `docs/release_notes/1.0.79+124.json` |  | ملاحظات إصدار 1.0.79+124 (ar/en) — يقرؤها «ما الجديد» |
+| `docs/release_notes/1.0.80+125.json` |  | ملاحظات إصدار 1.0.80+125 (ar/en) — يقرؤها «ما الجديد» |
+| `docs/release_notes/1.0.81+126.json` |  | ملاحظات إصدار 1.0.81+126 (ar/en) — يقرؤها «ما الجديد» |
 | `docs/source_inventory.json` |  | ملف بيانات/إعداد JSON |
 | `docs/stories.en.json` |  | ملف بيانات/إعداد JSON |
 | `docs/stories.json` |  | ملف بيانات/إعداد JSON |
@@ -1886,6 +1922,8 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `docs/research/` | 24 (md×23, csv×1) | أبحاث تأسيسية (إطار تربوي، أوراق مراحل، ردود خام) |
 | `docs/marketing/` | 9 (webp×5, png×2, jpg×1, json×1) | رسومات الإطلاق وmanifest الريلز |
 | `docs/ (ملفات مخرجات الدروس)` | 102 (json×62, md×40) | `lesson_*_assets.md/_flashcards.json/_slides.json` و`*_assets.md`: مخرجات توليد الدروس المباشرة |
+| `docs/MAWAQIF.md` | 62 | «موقف بقرار» — المواصفة (2026-11-09) |
+| `docs/TASMEE_WITH_PARENT.md` | 71 | «تسميع مع الوالد» — المواصفة (2026-11-09) |
 
 ### docs/brand/tools/ — خط أنابيب الهوية البصرية (أدوات CLI بـargparse)
 

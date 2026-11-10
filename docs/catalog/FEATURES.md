@@ -1,7 +1,7 @@
 # FEATURES — كتالوج قدرات «المربّي الذكي» (almorabbi)
 
 > **الأهم في الكتالوج.** كل قدرة يراها مستخدم (أب/طفل/مراهق) أو مشغّل، بأين تعيش وحالتها **بحسب الأدلة في الشيفرة** (ربط بنقطة دخول؟ مُشار إليها؟ علم بيئي؟) لا بحسب الادّعاء.
-> الأساس: `origin/main` في `almorabbi/almorabbi` عند `2652382` (تطبيق **1.0.79+124**، 2026-11-06). يشمل ما كان «فجوة» في كتالوج الأرشيف (1.0.75+120) وإصدارات 1.0.76–1.0.79. وإصلاحات الأرشيف 2026-10-28/29 المنقولة 2026-11-08 (`08-gotchas.md` §0).
+> الأساس: `origin/main` في `almorabbi/almorabbi` عند `fdc0a41` (تطبيق **1.0.81+126**، 2026-11-09). يشمل ما كان «فجوة» في كتالوج الأرشيف (1.0.75+120) وإصدارات 1.0.76–1.0.79. وإصلاحات الأرشيف 2026-10-28/29 المنقولة 2026-11-08 (`08-gotchas.md` §0).
 
 **رموز الحالة:** ✅ يعمل ومربوط بنقطة دخول ويحمل اختبارات · 🟡 جزئي/مشروط (علم بيئي مطفأ افتراضيًا، أو مفعّل بخادم/بناء معيّن، أو قدرة بلا نصف) · ⚠️ غير موصول/ميت (شيفرة بلا مستهلك) · ❓ غير مُتحقَّق منه من الشيفرة وحدها (يتوقف على حالة الإنتاج الحيّة).
 
@@ -43,6 +43,7 @@
 | A26 | رؤى تربوية | تحليل نمط الطفل/الأسبوع بنص مولّد | `GET /api/insights/parenting` · `parenting_insights_screen.dart` | ✅ |
 | A27 | مجال app_help الداخلي | أسئلة «كيف أستعمل التطبيق» تذهب لوحدات مساعدة لا تُكشف للعميل | `test_app_help_routing.py` · `test_app_help_stays_internal.py` | ✅ |
 | A28 | نسخ/مشاركة إجابة نور | زرّان تحت الإجابة المكتملة: نسخ نص عادي (بلا Markdown) ومشاركة النص مع رابط التثبيت وكود الدعوة (1.0.76) | `widgets/message_bubble.dart` · `share/share_service.dart` (`plainAnswer`/`shareAnswer`) · `test/answer_share_test.dart` | ✅ |
+| A29 | حارس الحديث على الإجابة | قبل أن تصل الإجابة: حديث الصحيحين بلفظه يُكتب تخريجه؛ حديث السنن الأربعة يبقى إن صحّحه أو حسّنه الألباني ومعه درجته؛ ما سوى ذلك (ومنه لفظ منسوب للنبي ﷺ لا أصل له، وآية لا تطابق المصحف) تُحذف جملته. يعمل على `/stream` و`/draft` وما يُكمَل بعد انقطاع؛ والكاش يخزّن النص بعد الحارس | `services/hadith_guard.py` · `ops/data/hadith_others_index.json.gz` (درجات الألباني) · `test_hadith_guard.py` | ✅ (منذ 2026-11-09) |
 
 ---
 
@@ -82,7 +83,7 @@
 | B28 | المصحف + ورد | 114 سورة، ورد يومي، أخذ مكان آخر قراءة | `features/quran/` · `assets/data/quran.json` | ✅ |
 | B29 | استماع آية-آية | 4 قرّاء (الحصري، المنشاوي، المعيقلي، الغامدي) من everyayah.com | `quran/models/reciters.dart` | ✅ (تبعية خارجية) |
 | B30 | تفسير الآية | ورقة تفسير موثّق عند الضغط على آية | `quran/widgets/tafsir_sheet.dart` · `GET /api/tafsir/{surah}/{ayah}` (+`/nuzool`) | ✅ |
-| B31 | تتبّع حفظ القرآن | قائمة 114 سورة لكل طفل | `journey/screens/quran_memorization_screen.dart` | ✅ |
+| B31 | تتبّع حفظ القرآن | قائمة 114 سورة لكل طفل؛ وبجانب كل سورة زر «تسميع» (B40) وعدد المواضع التي تحتاج مراجعة | `journey/screens/quran_memorization_screen.dart` | ✅ |
 | B32 | أذكار/محتوى الأسرة | 281 عنصرًا (142 آية، 124 نصيحة، 15 حديثًا) تصفّح + إشعار يومي واحد؛ ومعنى إنجليزي ومصدر إنجليزي تحت النص العربي، والبحث يشملهما (1.0.78) | `features/adhkar/` · `assets/content/adhkar/*.json` | ✅ |
 | B33 | مسبحة | عدّاد محلي بهدف يُحفظ | `tools/screens/tasbeeh_screen.dart` | ✅ |
 | B34 | محوّل هجري↔ميلادي | حساب جدولي محلي | `tools/screens/hijri_converter_screen.dart` | ✅ |
@@ -91,6 +92,7 @@
 | B37 | بحث التفسير (API) | `search` و`search-tafsir` و`sources` | `/api/tafsir/{search,search-tafsir,sources}` | ⚠️ بلا عميل |
 | B38 | «قصص الأنبياء من القرآن» | 20 قصة (10 قصص × young/older): يونس، سليمان والنمل، نوح، إبراهيم والنار، البيت، تابوت موسى، البحر، يوسف، أيوب، زكريا — لا يُقال عن نبي إلا ما قاله القرآن، بلا تصوير أشخاص | سلسلة `anbiya_quran` في `stories.json` · `story_models.dart` (`kAnbiyaSeries`) · `docs/stories/anbiya_*` · حارس `check_anbiya_stories.py` · `/methodology#prophets` | ✅ (بلا مراجع بشري — مُعلَن في المنهجية) |
 | B39 | «من السيرة النبوية» (الموسم الثاني) | 8 قصص (4 × young/older): الغار، المسجد، الجذع، أبو عمير — القرآن والصحيحان فقط، والحديث حرفيًا برقمه | سلسلة `sira_sahih` · `kSiraSeries` · `docs/stories/sira_*` · حارس `check_sira_stories.py` · `/methodology#seerah` · `test/seerah_stories_test.dart` | ✅ |
+| B40 | «تسميع مع الوالد» | الطفل يقرأ من حفظه والوالد يتابع المصحف ويلمس الكلمة التي تعثّر عندها ويختار النوع (نسيها · زاد · أبدلها · تردّد)؛ خلاصة ثم حفظ، وموعد مراجعة للمواضع؛ بلا احتفال ولا عملات | `journey/screens/tasmee_screen.dart` · `journey/data/tasmee_store.dart` (محلي) · `docs/TASMEE_WITH_PARENT.md` | ✅ (1.0.81) |
 
 ---
 
@@ -117,6 +119,7 @@
 | C17 | يوم الأب/يوم الطفل | ما يراه الأب عن اليوم (شاشة ≠ استماع كصفّين) | `features/parent_day/` · `GET /children/{id}/today` | ✅ |
 | C18 | استماع بشاشة مطفأة | تشغيل صوت دون شاشة (يحلّ التوتر بين وقت الشاشة والاستماع) | `features/screen_off/` | 🟡 يتوقف عند خلفية Android (مقصود بعد سحب `just_audio_background`) |
 | C19 | تسجيل صوت الأب لقصة | يسجّل الأب قصة بصوته ويحتفظ بها على الجهاز | `screen_off/record_narration_screen.dart` · `narration_store.dart` | ✅ |
+| C20 | «مهمة اليوم» للوالد بلا تسليم الجهاز | صف في «اليوم»: أخبر طفلك بالمهمة، وعلّم عليها حين يُنجزها، مع كلمة طيبة اختيارية يقرؤها لاحقًا؛ العرض لا يكتب صفًّا، وصف الطفل نفسه له الأولوية | `GET /children/{id}/mission/today` · `POST …/mission/today/done` · `missions/today_mission_row.dart` | ✅ (1.0.80) |
 
 ---
 
@@ -129,8 +132,8 @@
 | D3 | قناديل الأسبوع | قنديل يُضاء لكل فعل تربوي حقيقي (عدّاد صادق، لا «فاتك») + ورقة الأفعال | `GET /api/family/week` · `family_actions.py` · `features/lanterns/` | ✅ |
 | D4 | حصاد الجمعة | بطاقة نور الجمعة تُشارَك كصورة | `lanterns/widgets/friday_harvest.dart` | ✅ |
 | D5 | درب الأسرة + «على الأفق» | طريق الأسرة مع الطفل والبوابات القادمة وما أضأتموه | `features/family_road/` | ✅ |
-| D6 | المتابعات «جرّبت النصيحة؟» | سؤال متابعة مسائي 19:00 بتوقيت الأسرة + «ذكّرني غدًا» | `followups` · `followup_push.py` · `child_memory/widgets/followup_sheet.dart` | ✅ |
-| D7 | خطة الأسبوع | تركيز واحد + 3 أفعال + عمل عبادة، علامات إنجاز | `GET /children/{id}/weekly-plan` · `PUT`/`DELETE /children/{id}/weekly-plan/marks` · `weekly_plan.py` | ✅ |
+| D6 | المتابعات «جرّبت النصيحة؟» | سؤال متابعة مسائي 19:00 بتوقيت الأسرة + «ذكّرني غدًا»؛ المصدر `lesson` أو `mawqif` (D21) | `followups` · `followup_push.py` · `child_memory/widgets/followup_sheet.dart` | ✅ |
+| D7 | خطة الأسبوع | تركيز واحد + 3 أفعال + عمل عبادة، علامات إنجاز؛ منذ 1.0.80 الأفعال الثلاثة تُعلَّم بضغطة واحدة والبطاقة مطويّة، مع لحظة «اكتمل الأسبوع» بلا عملات | `GET /children/{id}/weekly-plan` · `PUT`/`DELETE /children/{id}/weekly-plan/marks` · `weekly_plan.py` | ✅ |
 | D8 | ذاكرة الطفل | حقائق عن الطفل يعدّلها الأب ويحذفها؛ مفتاح تشغيل/إيقاف للجهاز | `child_memory.py` · `child_memory_screen.dart` · `memory_switch_tile.dart` | ✅ (يتطلب إثبات الجهاز) |
 | D9 | «رمضان العائلة» | يوم رمضان، علامات «تمّ» الأسرية، بطاقة «رمضان عائلتنا» | `ramadan_program.py` · `features/programs/screens/ramadan_*.dart` | ✅ (الموعد الصلب ≈ 8 فبراير 2027) |
 | D10 | سلّم الصيام | تدرّج صيام الطفل مع إرشاد سلامة ظاهر دائمًا | `fasting_ladder_screen.dart` · `ramadan_fasting` | ✅ |
@@ -144,6 +147,7 @@
 | D18 | التهيئة السريعة | عمر + اسم الطفل في <90 ثانية | `onboarding_screen.dart` (1286) | ✅ |
 | D19 | الشاشة الرئيسية «اليوم» (`HomeScreen`، تبويب الرئيسية) | ثلاث محطات للطفل النشط: ① خطوة اليوم (`TodayFocusCard` تفتح الدرس التالي) ② اسأل المربّي (نصيحة المرشد + مدخل سؤال دائم) ③ مهمة الطفل أو «يوم الطفل»؛ بينها بطاقة خطة الأسبوع/المتابعة وتحت ③ بطاقة برامج الأسرة (إن قدّمها الخادم)؛ وتحت الفاصل بقية الاختصارات | `mobile/lib/screens/home_screen.dart` (510) · `features/home/` · `features/companion/widgets/noor_today_header.dart` · `today_three_blocks_test.dart` | ✅ |
 | D20 | تبويب «المزيد» (`HubScreen`) | فهرس مسطّح مجمَّع بأيقونات لكل ما خارج الحلقة اليومية (الطفل · الألعاب · الإنجازات · المكتبة · الأدوات · المساعدة) مع زر مساعدة سياقي؛ المجموعات والعناصر من كتالوج بيانات واحد تُخفى عناصره بحسب العمر/توفّر البرامج | `features/hub/screens/hub_screen.dart` · `features/hub/data/hub_catalog.dart` · `widgets/hub_group_card.dart` · `widgets/help_sheet.dart` · `test/hub_catalog_test.dart` | ✅ |
+| D21 | «موقف بقرار» | بطاقة في «اليوم» (≈4 دقائق): موقف من يوم الوالد ← ثلاثة ردود معقولة لكلٍّ «الآن» و«بعد ذلك» بلا «إجابة صحيحة» ← حديث من الصحيحين جوابًا ← خطوة واحدة؛ «سأجرّبها» تفتح متابعة عادية. 6 مواقف (واحد لكل عمر 2-3…16-18)؛ البطاقة تختفي بلا مواقف أو عند فشل أو خادم قديم أو بعد المرور عليها | `GET /api/program/mawaqif` · `services/mawaqif.py` · `features/mawaqif/` · `curriculum/mawaqif/mawaqif.json` (+en) · `docs/MAWAQIF.md` | ✅ (1.0.81؛ تجربة تُقاس بعد أسبوعين) |
 
 ---
 
@@ -154,7 +158,7 @@
 | E1 | كود دعوة شخصي + مطالبة | كل أب يدعو بكوده؛ يُحسب «أثر دعوتك» | `routers/referral.py` · `invite_screen.dart` | ✅ |
 | E2 | أكواد الحملات | `/go?ref=DA01` (حرفان+رقمان) تُقرأ كحملة وتُسجَّل `campaign#CODE` | `attribution.py` · `ops/data/campaign_codes.md` · OPS_RUNBOOK §6.5 | ✅ |
 | E3 | إسناد التثبيت | Play referrer + مطابقة IP خلال 24 ساعة (`via=auto`) | `services/attribution.py` · `referral_service.dart` | ✅ |
-| E4 | صفحة الهبوط | عربي/إنجليزي سينمائي، أزرار تنقل `utm_*` إلى Google Play | `routers/web.py` · `frontend/cinematic*.html` | ✅ |
+| E4 | صفحة الهبوط | عربي/إنجليزي سينمائي، أزرار تنقل `utm_*` إلى Google Play؛ وقسم «أسئلة يسألها الآباء والأمهات» (ستة أسئلة بـ`<details>`، كل جواب يحيل إلى صفحة تثبته) | `routers/web.py` · `frontend/cinematic*.html` | ✅ |
 | E5 | صفحات مشاركة الدرس/المسار | `/l/{id}` `/p/{id}` بـOG — بالعربية أو الإنجليزية حسب لغة الزائر (1.0.78، `Vary: Accept-Language`) | `web.py` | ✅ |
 | E6 | صفحات SEO + منهجية | أسئلة الألم الشائعة + «منهجيتنا ومصادرنا» على alsaba.cloud؛ والمنهجية تشرح قصص الأنبياء والسيرة (`#prophets`، `#seerah`) | `seo.py` · `methodology.py` | ✅ (عبر وكيل analytics_nginx) |
 | E7 | روابط تطبيق Android | `https://tg-api.alsaba.cloud/{go,l,p}` تفتح التطبيق | `.well-known/assetlinks.json` · `deep_link_handler.dart` | ✅ |
@@ -170,6 +174,7 @@
 | E17 | ردود تعليقات Play | مسودات ردود للتعليقات | `scripts/play_reviews.py` · `ops/reports/PLAY_REVIEW_REPLIES.md` | ✅ |
 | E18 | بطاقة «نسخة جديدة متاحة» | بطاقة اختيارية قابلة للإغلاق في «اليوم» لمن بناؤه أقدم من آخر بناء — لا جدار إجباري؛ تُغلق مرة لكل بناء | `whats_new/widgets/update_available_card.dart` · `home_screen.dart` · `latest_build_number` في `GET /api/app-config` ← `LATEST_BUILD_NUMBER` | 🟡 (افتراضي 0 = لا تظهر؛ تتوقف على قيمة المتغير في الإنتاج) |
 | E19 | إشعارات إعادة التفاعل | أول درس (2–36 ساعة) → اليوم الثاني (18–42 ساعة) → «السلسلة في خطر» (36 ساعة–7 أيام) → «اشتقنا لك» (7–60 يومًا)؛ سقوف لكل غياب وفاصل 7 أيام، بلغة الأسرة (ar/en) — توقف إزعاج الأجهزة المنقطعة (2026-11-06) | `ops/scripts/cron_push_triggers.py` (كرون 17:00 UTC) · `test_cron_push_triggers.py` | ✅ |
+| E20 | حزمة رمضان المطبوعة | 12 ورقة A4 مجانية (ar/en) من محتوى البرنامج نفسه: تقويم التحديات، ورد القرآن، سلّم الصيام وسلامته، لوحة النيّات، العشر الأواخر، العيد… برسومات للتلوين ورمز QR بكود حملة | `GET /print/ramadan` · `routers/print_pack.py` · `frontend/assets/print/` · `ops/tools/gen_print_qr.py` | ✅ (منذ 2026-11-09) |
 
 ---
 
@@ -196,6 +201,7 @@
 | F17 | مقاييس تشغيل | p95، توكنز/مزوّد، نسبة الكاش، استهلاك الصمام | `GET /api/stats/ops-llm` (`X-Ops-Token`) | ✅ |
 | F18 | إرسال إشعار يدوي | لجهاز واحد | `POST /api/admin/send-push` (`X-Admin-Key`) | ✅ |
 | F19 | مفتاح الاستعادة | بعد إعادة التثبيت من نسخة أندرويد الاحتياطية يثبت الجهاز هويته بمفتاح `tgr_…` (الخادم يحفظ بصمته فقط) فتعود العائلة دون فتح «السكّ العاري» (1.0.77) | `POST /api/chat/restore-key` · `services/restore_keys.py` · `device_restore_keys` · `tg_client.dart` (`ensureRestoreKey`، ترويسة `X-Device-Restore`) · `backup_rules.xml` · `test_bare_mint_closure.py` · `test/restore_key_test.dart` | ✅ |
+| F20 | ترويسات الأمان | كل رد يحمل nosniff و`X-Frame-Options` و`Referrer-Policy` و`Permissions-Policy` وHSTS | `middleware/security_headers.py` · `test_security_headers.py` | ✅ (منذ 2026-11-09) |
 
 ---
 
@@ -204,7 +210,7 @@
 | # | القدرة | ما تفعله | أين تعيش | الحالة |
 |---|---|---|---|---|
 | G1 | حارس سلامة قاعدة المعرفة | يقارن الوحدات ↔ schema ↔ taxonomy ↔ Chroma | `ops/tools/check_kb_integrity.py` · `check.sh` · pre-commit · CI | ✅ |
-| G2 | حرّاس المحتوى الشرعي | مطابقة الآيات بالمصحف، الأحاديث بالصحيحين، منع ترجمة القرآن، تغطية كل نص شرعي، أصالة الأذكار | `check_quran_*`, `check_hadith_citations`, `check_scripture_coverage`, `check_adhkar_integrity`, `scripture_scan` | ✅ (لا تُعطَّل self-tests) |
+| G2 | حرّاس المحتوى الشرعي | مطابقة الآيات بالمصحف، الأحاديث بالصحيحين، منع ترجمة القرآن، تغطية كل نص شرعي، أصالة الأذكار؛ وبطاقات «موقف بقرار» سطح محروس (`content_surfaces.py`) | `check_quran_*`, `check_hadith_citations`, `check_scripture_coverage`, `check_adhkar_integrity`, `scripture_scan` | ✅ (لا تُعطَّل self-tests) |
 | G3 | بوابة تكافؤ الإنجليزي | ترجمة بنموذج + مراجعة عدائية بنموذج من عائلة أخرى + ختم | `review_en_parity.py` (2545 سطرًا) · `translate_*.py` | ✅ |
 | G4 | أمانة الوحدات لمصدرها | يكشف الوحدات المنحرفة عن مصدرها ويحجرها (210 وحدة حُجرت 2026-10-04) | `check_kb_fidelity.py` · `ops/data/kb_fidelity/` | ✅ |
 | G5 | تعميق المسارات | دروس مكتوبة من الوحدات بمراجعة عائلة نموذج أخرى | `ops/tools/deepen_paths.py` | ✅ |
@@ -213,9 +219,9 @@
 | G8 | نشر اجتماعي آلي | نصائح + صور إلى Buffer وقناة تلجرام | `ops/tools/social_media_autoposter.py` | ✅ |
 | G9 | رفع Google Play | AAB موقَّع، قائمة المتجر، التحقق والنشر 100%، ردود التعليقات | `scripts/play_upload.py`, `release_play_*.py`, `play_listing_upload.py`, `release-play.yml` | ✅ (`play_upload.py` يرفع مقطّعًا CHUNK_BYTES بعد إصلاح مهلة الحزم الكبيرة) |
 | G10 | نشر الباكند | gate→image→deploy على VPS (runner `vps-tg`) مع تراجع تلقائي؛ الصورة `ghcr.io/almorabbi/almorabbi-backend` تُسحب بتوكن المهمة؛ الـgate لا يعمل إلا في `almorabbi/almorabbi` مع `vars.CUTOVER_DONE == true` (مضبوط) | `.github/workflows/deploy.yml` | ✅ |
-| G11 | تقارير تلجرام الأسبوعية | داشبورد + قمع + فجوات معرفة | `ops/scripts/weekly_*.py` | ✅ |
+| G11 | تقارير تلجرام الأسبوعية | داشبورد + قمع + فجوات معرفة؛ الداشبورد يقرأ مقاييس LLM من `127.0.0.1` داخل الحاوية (العنوان العام كان يرد 403 من Cloudflare)، وفيه قسم «مهام الأسرة» | `ops/scripts/weekly_*.py` | ✅ |
 | G12 | نسخ احتياطي يومي | sqlite online backup + integrity_check | `ops/scripts/backup_user_data.sh` | ✅ |
-| G13 | E2E على المحاكي | رحلات Maestro fresh/upgrade + تجربة رمضان + معرض لقطات | `e2e/` · `mobile-e2e.yml` | ✅ |
+| G13 | E2E على المحاكي | رحلات Maestro fresh×14/upgrade×4 + تجربة رمضان + معرض لقطات | `e2e/` · `mobile-e2e.yml` | ✅ |
 | G14 | تقييم جودة الإجابات | مجموعة ذهبية، تقييم نماذج، تقرير CI غير حاجب | `ops/tools/golden_ci.py`, `eval_answers.py`, `build_golden_set.py` | ✅ |
 | G15 | ضبط/تقطير نموذج | بيانات QA، Kaggle/Colab LoRA لـcommand-r7b-arabic | `ops/kaggle/`, `ops/colab/`, `ops/tools/push_kaggle_v6_*.py` | ❓ تاريخي (الإنتاج على DeepSeek) |
 | G16 | تجارب Chroma 1.x | قياس استدعاء/تشغيل/ترحيل فهرس Chroma 1.x | `ops/tools/chroma_*_probe.py` · workflows `chroma-1x-*` | 🟡 تجارب يدوية (الإنتاج مثبّت على <1) |
@@ -224,6 +230,7 @@
 | G19 | حارسا قصص الأنبياء والسيرة | يمنعان الالتزام/الدمج إن خالفت قصة مصادرها: حوار مخترع، اسم/رقم غير موجود، حديث غير حرفي، جملة لم تدعمها عائلتا نماذج | `ops/tools/check_anbiya_stories.py` · `check_sira_stories.py` · `.githooks/pre-commit` · `backend.yml` | ✅ (exit 2 = اختباراته الذاتية) |
 | G20 | توثيق المصادر ومراجعة الأمانة للقصص | جلب الآيات/الميسّر/أحاديث الصحيحين إلى `ops/data/{anbiya,sira}/`، ثم حكم جملةً جملة بعائلتين | `anbiya_sources.py` · `sira_sources.py` · `anbiya_fidelity.py` | ✅ يدوي (يحتاج `OLLAMA_API_KEY` للحكم) |
 | G21 | مقياس جاهزية إغلاق السكّ العاري | أعداد فقط: أجهزة نشطة بمفتاح استعادة، وجلسات يومية حسب `mint_kind` | `ops/tools/bare_mint_readiness.py` | ✅ يدوي |
+| G22 | حارس نسبة الأقوال لأهل العلم | أي «قال فلان» في نص يقرؤه الوالد يحتاج سندًا: كتاب العالم نفسه، أو اسمه في نص المصدر، أو موضعًا مسجَّلًا بالكتاب والصفحة من turath.io. سُحبت به أربع «فتاوى» بلا مصدر | `ops/tools/check_scholar_quotes.py` (`check` على pre-commit وCI بلا شبكة؛ `verify` يدوي) · `ops/data/scholar_quotes/verified.json` | ✅ (منذ 2026-11-09) |
 
 ---
 
