@@ -53,6 +53,11 @@ from app.media_naming import (  # noqa: E402
     MIN_VIDEO_BYTES, SOURCE_LANG, VIDEO_CLI_LANG, path_video_rel,
 )
 
+sys.path.insert(0, str(BASE))
+from scripts.nblm_failure import (  # noqa: E402
+    EXIT_NO_OUTPUT, EXIT_SESSION_DEAD, is_auth_failure, short_reason,
+)
+
 CLI = str(BASE / "notebooklm_env" / "bin" / "notebooklm")
 
 # Its own profile — see the note in gen_podcasts_cron.py. Sharing one profile
@@ -237,16 +242,30 @@ async def trigger(source_id, title, path_id):
     if "RateLimit" in blob or "quota" in blob.lower():
         return "RATELIMIT"
     m = re.search(r"(?:Task|Started):\s*([a-fA-F0-9\-]+)", blob)
+    # Only a call that produced no task id can be a dead session.
+    if not m and is_auth_failure(code, out, err):
+        _LAST_REASON[source_id] = short_reason(code, out, err)
+        return "AUTHDEAD"
+    if not m:
+        _LAST_REASON[source_id] = short_reason(code, out, err)
     return m.group(1) if m else None
+
+
+# Why the last trigger/poll failed, for the log — the CLI's stderr used to be
+# discarded, so a dead session and a gone task both printed "error"/"no task id".
+_LAST_REASON = {}
 
 
 async def poll(task_id):
     code, out, err = await _run(*CLI_BASE, "artifact", "poll", "-n", NOTEBOOK_ID, task_id, "--json", timeout=90)
+    _LAST_REASON.pop(task_id, None)
     if code != 0:
-        return "error"
+        _LAST_REASON[task_id] = short_reason(code, out, err)
+        return "auth" if is_auth_failure(code, out, err) else "error"
     try:
         return json.loads(out).get("status", "error")
     except Exception:
+        _LAST_REASON[task_id] = "unparseable poll output"
         return "error"
 
 
@@ -273,6 +292,8 @@ async def main():
         print("[startup] manifest synced from disk")
 
     # 1) resolve in-flight tasks
+    session_dead = False
+    downloaded = 0
     for _state_key, task_id in list(state.items()):
         path_id = _unkey(_state_key)
         if _is_done(path_id):
@@ -281,9 +302,16 @@ async def main():
             fails.pop(_key(path_id), None)
             continue
         st = await poll(task_id)
-        print(f"[poll] {path_id}: {st}")
+        why = _LAST_REASON.get(task_id)
+        print(f"[poll] {path_id}: {st}" + (f" — {why}" if why and st in ("error", "auth") else ""))
+        if st == "auth":
+            session_dead = True
+            print(f"[harvest] ⛔ NotebookLM session is dead ({why}) — stopping; "
+                  f"in-flight tasks kept")
+            break
         if st == "completed":
             if await download(task_id, _vid_path(path_id)):
+                downloaded += 1
                 print(f"  ✓ downloaded {path_id}")
                 source_id = next((t["source_id"] for t in mapping if t["path_id"] == path_id), None)
                 _register_done(path_id, task_id=task_id, source_id=source_id)
@@ -296,7 +324,12 @@ async def main():
         # "error"/auth-expiry: keep the task and retry next run (do NOT drop)
 
     # 2) trigger paths that have no video and no in-flight task
+    attempted = 0
+    triggered = 0
+    rate_limited = False
     for t in mapping:
+        if session_dead:
+            break
         path_id = t["path_id"]
         source_id = t["source_id"]
         if _is_done(path_id):
@@ -306,29 +339,46 @@ async def main():
         if fails.get(_key(path_id), 0) >= MAX_FAILS:
             print(f"[trigger] {path_id}: skipped — {fails[_key(path_id)]} hard failures; needs manual root-cause before retry")
             continue
+        attempted += 1
         tid = await trigger(source_id, t["title"], path_id)
         if tid == "RATELIMIT":
             print(f"[trigger] {path_id}: rate-limited — will retry next run")
+            rate_limited = True
             break  # quota likely exhausted; stop triggering this run
+        if tid == "AUTHDEAD":
+            session_dead = True
+            print(f"[trigger] {path_id}: NotebookLM session is dead "
+                  f"({_LAST_REASON.get(source_id)}) — stopping")
+            break
         if tid == "DRYRUN":
+            attempted -= 1
             continue
         if tid:
             print(f"[trigger] {path_id}: task {tid}")
             state[_key(path_id)] = tid
+            triggered += 1
             await asyncio.sleep(5)
         else:
-            print(f"[trigger] {path_id}: no task id")
+            why = _LAST_REASON.get(source_id)
+            print(f"[trigger] {path_id}: no task id" + (f" — {why}" if why else ""))
 
     STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
 
     # 3) bounded poll of freshly-triggered tasks (download any that finish fast)
     deadline = time.time() + POLL_BUDGET_SEC
-    while state and time.time() < deadline:
+    while state and not session_dead and time.time() < deadline:
         await asyncio.sleep(45)
         for _state_key, task_id in list(state.items()):
             path_id = _unkey(_state_key)
             st = await poll(task_id)
+            if st == "auth":
+                # Session died after the triggers: keep every task, stop polling.
+                session_dead = True
+                print(f"[poll] ⛔ NotebookLM session is dead ({_LAST_REASON.get(task_id)}) "
+                      f"— stopping; in-flight tasks kept")
+                break
             if st == "completed" and await download(task_id, _vid_path(path_id)):
+                downloaded += 1
                 print(f"  ✓ downloaded {path_id}")
                 source_id = next((t["source_id"] for t in mapping if t["path_id"] == path_id), None)
                 _register_done(path_id, task_id=task_id, source_id=source_id)
@@ -350,6 +400,17 @@ async def main():
     benched = sum(1 for t in mapping if fails.get(_key(t["path_id"]), 0) >= MAX_FAILS and not _is_done(t["path_id"]))
     print(f"\n[summary] videos done: {done}/{len(mapping)} | in-flight: {len(state)} | benched (>= {MAX_FAILS} fails): {benched}")
 
+    # exit 0 must mean "worked, or had a reason not to" — not "ran".
+    if session_dead:
+        print(f"❌ NotebookLM session is dead — nothing could be polled or "
+              f"triggered this run (in-flight tasks kept). Exit {EXIT_SESSION_DEAD}.")
+        return EXIT_SESSION_DEAD
+    if attempted and not (triggered or downloaded or rate_limited):
+        print(f"❌ {attempted} trigger(s) attempted, none returned a task id and "
+              f"no refusal explains it — see the reasons above. Exit {EXIT_NO_OUTPUT}.")
+        return EXIT_NO_OUTPUT
+    return 0
+
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    sys.exit(asyncio.run(main()))

@@ -88,6 +88,9 @@ LANG_TAG = "" if LANG == SOURCE_LANG else f"_{LANG}"
 
 sys.path.insert(0, str(BASE_DIR))
 from scripts.infographic_prompts_lib import buildable_targets  # noqa: E402
+from scripts.nblm_failure import (  # noqa: E402
+    EXIT_NO_OUTPUT, EXIT_SESSION_DEAD, is_auth_failure, short_reason,
+)
 
 STARTED_RE = re.compile(r"(?:Started|Task):\s*([0-9a-f-]{36})")
 EMPTY_MARKERS = ("No parseable chunks", "Source not found", "Error:")
@@ -219,7 +222,20 @@ def harvest(state: dict, errors: dict, meta: dict, attach, *,
         task_id = state[key]
         _TASK_NOTEBOOK[task_id] = notebook_for_lesson(lid)
         status = poll(task_id)
-        print(f"[poll] {lid}: {status}")
+        reason = _POLL_REASON.get(task_id)
+        print(f"[poll] {lid}: {status}" + (f" — {reason}" if reason and status in ("error", "auth") else ""))
+        if status == "auth":
+            # 🚨 A dead session is not a dead task. Until 2026-10-29 this fell
+            # into the "error" branch: three of them dropped a PAID task, and
+            # every remaining poll burned ~30 s proving the same thing. Stop,
+            # keep every task, count no strike, and say so — the run exits
+            # EXIT_SESSION_DEAD instead of "0 downloaded, exit 0".
+            SESSION["dead"] = True
+            left = len(keys) - n
+            print(f"[harvest] ⛔ NotebookLM session is dead ({reason}) — stopped "
+                  f"after {n} poll(s); {left} task(s) kept, no strikes counted")
+            _persist(state, errors, meta)
+            return downloaded, left
         if status == "completed":
             asset = download(task_id, lid)
             if asset:
@@ -260,6 +276,10 @@ def harvest(state: dict, errors: dict, meta: dict, attach, *,
 
 
 _TASK_NOTEBOOK: dict[str, str] = {}
+# Why the last poll of a task failed, for the log. {task_id: one line}
+_POLL_REASON: dict[str, str] = {}
+# Set when the CLI could not authenticate (a dead session, not a dead task).
+SESSION: dict[str, bool] = {"dead": False}
 
 
 def reverse_source_map() -> dict[str, str]:
@@ -350,6 +370,41 @@ def existing_asset(lesson: dict) -> dict | None:
     }
 
 
+def live_source_ids(notebook: str) -> set[str] | None:
+    """Source ids currently on `notebook`, or None when that could not be read.
+
+    One read-only call per notebook per run. NotebookLM answers a generate call
+    that names a source no longer on the notebook with a normal-looking task id
+    (the audio CLI at least says "generation is unavailable"); the task then
+    never exists and every poll of it errors. The audio generator learned this
+    in 2026-08 (74 stale ids); this generator never checked, and 79 queued
+    "tasks" sat unpollable. None / empty = unreadable → do not filter.
+    A dead session is recorded so the run can stop instead of triggering blind.
+    """
+    try:
+        rc, out, err = _run(["source", "list", "-n", notebook, "--json"], timeout=120)
+    except subprocess.TimeoutExpired:
+        return None
+    if rc != 0:
+        if is_auth_failure(rc, out, err):
+            SESSION["dead"] = True
+            print(f"  ⛔ NotebookLM session is dead ({short_reason(rc, out, err)})")
+        return None
+    try:
+        payload = json.loads(out)
+    except (json.JSONDecodeError, ValueError):
+        return None
+    if isinstance(payload, dict) and payload.get("error"):
+        return None
+    if isinstance(payload, dict) and any(
+            payload.get(k) for k in ("next", "next_page", "next_page_token",
+                                     "next_cursor", "cursor", "has_more", "truncated")):
+        return None   # a partial page would mark valid sources STALE: do not filter
+    items = payload if isinstance(payload, list) else (payload or {}).get("sources", [])
+    ids = {i["id"] for i in items if isinstance(i, dict) and i.get("id")}
+    return ids or None
+
+
 def trigger(lesson: dict, source_id: str, notebook: str | None = None):
     """Fire one generation, --no-wait. Returns a task id, 'RATELIMIT', or None."""
     lesson_id = lesson["lesson_id"]
@@ -369,8 +424,15 @@ def trigger(lesson: dict, source_id: str, notebook: str | None = None):
         print("    ⛔ NotebookLM RATE LIMIT hit — stopping batch to resume later")
         return "RATELIMIT"
     m = STARTED_RE.search(blob)
+    if not m and is_auth_failure(rc, out, err):
+        # Every remaining trigger would fail the same way (2026-10-29: 14 in a
+        # row on "CSRF token not found"); stop the batch instead. Only when no
+        # task id came back: a success that mentions a marker word is a success.
+        print(f"    ⛔ NotebookLM session is dead ({short_reason(rc, out, err)}) "
+              f"— stopping batch")
+        return "AUTHDEAD"
     if rc != 0 or not m:
-        print(f"    ❌ trigger failed: {(err or out)[:160]}")
+        print(f"    ❌ trigger failed: {short_reason(rc, out, err)}")
         return None
     print(f"    · task {m.group(1)[:8]}… queued")
     return m.group(1)
@@ -378,12 +440,19 @@ def trigger(lesson: dict, source_id: str, notebook: str | None = None):
 
 def poll(task_id: str, notebook: str | None = None) -> str:
     nb = notebook or _TASK_NOTEBOOK.get(task_id) or NOTEBOOK_ID
-    rc, out, err = _run(["artifact", "poll", "-n", nb, task_id, "--json"], timeout=90)
-    if rc != 0:
+    try:
+        rc, out, err = _run(["artifact", "poll", "-n", nb, task_id, "--json"], timeout=90)
+    except subprocess.TimeoutExpired:
+        _POLL_REASON[task_id] = "poll timed out after 90s"
         return "error"
+    _POLL_REASON.pop(task_id, None)
+    if rc != 0:
+        _POLL_REASON[task_id] = short_reason(rc, out, err)
+        return "auth" if is_auth_failure(rc, out, err) else "error"
     try:
         return json.loads(out).get("status", "error")
     except (json.JSONDecodeError, ValueError):
+        _POLL_REASON[task_id] = "unparseable poll output"
         return "error"
 
 
@@ -473,7 +542,12 @@ def main():
         _commit(index, generated=downloaded, recovered=0, failed=[], push=args.push)
         print(f"\n[harvest-only] {downloaded} downloaded · {still_flight} still in flight"
               + (f" · {left} not polled this run (budget)" if left else ""))
-        return
+        return _session_dead_exit() if SESSION["dead"] else 0
+
+    if SESSION["dead"]:
+        # The harvest could not authenticate, so a trigger could not either.
+        _commit(index, generated=downloaded, recovered=0, failed=[], push=args.push)
+        return _session_dead_exit()
 
     # ── trigger new ones ──
     rev = reverse_source_map()
@@ -483,6 +557,9 @@ def main():
 
     triggered, recovered, failed, blocked = 0, 0, [], []
     rate_limited = False
+    attempted = 0
+    stale: list[str] = []
+    live_cache: dict[str, set[str] | None] = {}
 
     print(f"\nTriggering infographics for up to {len(lessons)} lessons. Notebook: {NOTEBOOK_ID}")
     for i, lesson in enumerate(lessons, 1):
@@ -505,6 +582,19 @@ def main():
             blocked.append(lid)
             continue
 
+        nb = notebook_for_lesson(lid)
+        if nb not in live_cache:
+            live_cache[nb] = live_source_ids(nb)
+        if SESSION["dead"]:
+            break
+        live = live_cache[nb]
+        if live is not None and src not in live:
+            print(f"  ⛔ STALE SOURCE {src[:8]} — not on notebook {nb[:8]}. "
+                  f"Run ops/tools/refresh_source_map.py")
+            stale.append(lid)
+            continue
+
+        attempted += 1
         try:
             task_id = trigger(lesson, src)
         except subprocess.TimeoutExpired:
@@ -513,6 +603,9 @@ def main():
 
         if task_id == "RATELIMIT":
             rate_limited = True
+            break
+        if task_id == "AUTHDEAD":
+            SESSION["dead"] = True
             break
         if task_id:
             state[key] = task_id
@@ -534,12 +627,31 @@ def main():
     print(f"→ Triggered this run: {triggered} (+{recovered} recovered from disk)")
     print(f"❌ Failed to trigger: {len(failed)} - {failed}")
     print(f"⛔ Blocked (no source): {len(blocked)} - {blocked}")
+    if stale:
+        print(f"🚫 Stale source (not on the notebook): {len(stale)} - {stale[:8]}")
     if rate_limited:
         print("⛔ Stopped early on NotebookLM rate limit — re-run later to resume.")
     print(f"[summary] {LANG}: in-flight now {triggered + still_flight}")
 
     _commit(index, generated=downloaded, recovered=recovered,
             failed=failed, push=args.push)
+
+    if SESSION["dead"]:
+        return _session_dead_exit()
+    if (attempted or stale) and not (triggered or recovered or downloaded or rate_limited):
+        # Tried (or refused to try: stale sources), nothing came of it, and no
+        # refusal explains it. This used to exit 0 — "ran" was indistinguishable
+        # from "worked".
+        print(f"❌ {attempted} trigger(s) attempted, {len(stale)} stale, none accepted and no "
+              f"refusal to explain it — see the reasons above. Exit {EXIT_NO_OUTPUT}.")
+        return EXIT_NO_OUTPUT
+    return 0
+
+
+def _session_dead_exit() -> int:
+    print(f"❌ NotebookLM session is dead — nothing could be polled or triggered "
+          f"this run (in-flight tasks kept). Exit {EXIT_SESSION_DEAD}.")
+    return EXIT_SESSION_DEAD
 
 
 def _commit(index: dict, generated: int, recovered: int, failed: list, push: bool) -> None:

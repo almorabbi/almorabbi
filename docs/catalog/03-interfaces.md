@@ -573,6 +573,7 @@
 | `scripts/make_youtube_short.py` | Convert a tutor-guardian path video into a YouTube Short (9:16) with captions and CTA. |
 | `scripts/migrate_age_groups.py` | ترحيل age_group في lesson_index إلى القيم القانونية |
 | `scripts/monitor_qa_v2.sh` | Monitor tutor-guardian v2 fine-tune dataset generation. |
+| `scripts/nblm_failure.py` | مكتبة يستوردها `gen_podcasts_cron.py`/`gen_path_videos_cron.py`/`generate_missing_infographics.py`: تمييز جلسة NotebookLM الميتة عن المهمة الغائبة |
 | `scripts/parse_all_assets.py` | Parse markdown asset files -> JSON flashcards + slides Updates lesson_index.json and creates JSON files in docs/lesson_assets/ |
 | `scripts/parse_generated_assets.py` | Output files |
 | `scripts/play_listing_upload.py` | Google Play — store-listing refresh (text + graphics) for المربّي. |
@@ -638,7 +639,6 @@
 | `remotion-reels/scripts/verify_videos.py` | verify_videos — check rendered reels by their effect, not by the render's exit code. |
 | `backend/scripts/debug_coach.py` | أداة تصحيح: توليد نصيحتين مع لوج مفصّل |
 | `backend/scripts/generate_coach_samples.py` | توليد ~20 عيّنة نصيحة للمراجعة البشرية (Gate #1) |
-| `backend/ops/scripts/warm_answer_cache.py` | نسخة داخل backend/ من مُسخِّن كاش الإجابات (⚠️ مكرّرة لـops/scripts/warm_answer_cache.py) |
 | `check.sh` | بوابة جودة محلية: check_kb_integrity (--full يضيف Chroma + الاختبارات) |
 | `e2e/run.sh` | Runs the E2E journeys on the emulator that reactivecircus/android-emulator-runner |
 | `e2e/rehearsal.sh` | The Ramadan rehearsal (gate G2) and the sound × recitation check, on the |

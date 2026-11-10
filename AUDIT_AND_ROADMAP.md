@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-24
 **Scope:**
-- FastAPI backend (`backend/app`): 21k LOC, 25 routers, 30+ services.
+- FastAPI backend (`backend/app`): 21k LOC, 25 routers, 30+ services (لقطة 2026-09-24؛ القياس 2026-10-29: ~44k سطر Python غير الاختبارات و29 router).
 - Local LLM and RAG pipeline: Ollama/DeepSeek gateway, ChromaDB + BM25 + cross-encoder.
 - SQLite persistence: `conversations.db` and `sessions.db`.
 - Classification and guardrails: intent guard, fiqh guard, domain classifier, policies YAML.

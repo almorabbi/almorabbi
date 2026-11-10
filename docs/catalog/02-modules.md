@@ -16,7 +16,6 @@
 | `backend/app/config/__init__.py` | 0 | علامة حزمة بايثون |
 | `backend/app/config/guardrails_loader.py` | 306 | تحميل backend/guardrails/*.yaml (سياسات المجالات + سياسة بوابة سطح الطفل العمرية) — يُوقف الإقلاع إن تعذّر |
 | `backend/app/config/llm_config.py` | 284 | إعداد كل شيء متعلق بالـLLM من env: Ollama، DeepSeek (أساسي/احتياطي)، Azure، الطبقة السحابية، سقوف الميزانية الشهرية، CLOUD_BUDGET_ENFORCE |
-| `backend/app/config/llm_config.py.bak` |  | ⚠️ نسخة احتياطية متعقَّبة بالخطأ من llm_config.py (ميتة) |
 | `backend/app/core/__init__.py` | 0 | علامة حزمة بايثون |
 | `backend/app/core/circuit_breaker.py` | 58 | قاطع دائرة للفشل المتتالي (يستعمله tier_router للطبقة السحابية) |
 | `backend/app/core/contact.py` | 5 | عنوان التواصل الوحيد للأهل (سياسة الخصوصية، /delete-account، أخطاء device-proof) |
@@ -29,10 +28,10 @@
 | `backend/app/core/times.py` | 35 | شكل موحّد لكل طابع زمني يعيده الـAPI: ISO8601 UTC بـZ |
 | `backend/app/curriculum_loader.py` | 442 | تحميل المنهج (paths/lessons/daily_tips + i18n/en) من knowledge_base/curriculum وفهرس docs/lesson_index.json وفحص وجود الميديا (media_exists) |
 | `backend/app/data/quran.json` |  | نص المصحف (6236 آية، ~1.7MB) لفهرس الكلمات→آية في tafsir_service |
-| `backend/app/main.py` | 307 | نقطة دخول FastAPI: lifespan (إحماء embedder/Chroma/reranker/Ollama + حلقة الإشعارات المحلية-الساعة)، 4 middleware، تركيب 29 router + /api/admin/send-push + static mounts (/docs /ui /assets /child-mode/web /.well-known) |
+| `backend/app/main.py` | 306 | نقطة دخول FastAPI: lifespan (إحماء embedder/Chroma/reranker/Ollama + حلقة الإشعارات المحلية-الساعة)، 4 middleware، تركيب 29 router + /api/admin/send-push + static mounts (/docs /ui /assets /child-mode/web /.well-known) |
 | `backend/app/media_naming.py` | 120 | مصدر واحد لتسمية ملفات الميديا (لغة الملف، فيديو المسار) للـAPI والمولّدات |
 | `backend/app/middleware/__init__.py` | 0 | علامة حزمة بايثون |
-| `backend/app/middleware/auth.py` | 259 | AuthMiddleware: Bearer (جهاز) وChild-Bearer (مقصور على مسارات الطفل)، قوائم المسارات العامة/المحمية/الناعمة، فحص جلسة شاشة الطفل (403 child_budget_exhausted) |
+| `backend/app/middleware/auth.py` | 256 | AuthMiddleware: Bearer (جهاز) وChild-Bearer (مقصور على مسارات الطفل)، قوائم المسارات العامة/المحمية/الناعمة، فحص جلسة شاشة الطفل (403 child_budget_exhausted) |
 | `backend/app/middleware/client_ip.py` | 172 | ClientIPMiddleware: عنوان العميل الحقيقي خلف Cloudflare/nginx بقائمة وكلاء موثوقين (TRUSTED_PROXY_IPS) |
 | `backend/app/middleware/rate_limit.py` | 362 | تحديد المعدل لكل هوية (جهاز/توكن/IP): نطاقات ai/general/feedback/session/support + حصة AI يومية (AI_DAILY_LIMIT) — Redis أو ذاكرة |
 | `backend/app/models/__init__.py` | 0 | علامة حزمة بايثون |
@@ -104,7 +103,7 @@
 |---|---:|---|
 | `backend/app/services/__init__.py` | 0 | حزمة services (فارغة) |
 | `backend/app/services/age_normalization.py` | 58 | تطبيع الفئات العمرية للقيم القانونية |
-| `backend/app/services/ai_gateway.py` | 1962 | البوابة الموحّدة لكل نداءات LLM: مزوّدات (Ollama/OpenAI-compat/DeepSeek)، مسارات threads، آجال مطلقة، تتبّع البث، تيليمتري llm_calls، حجز ميزانية السحابة، aux_generate |
+| `backend/app/services/ai_gateway.py` | 1964 | البوابة الموحّدة لكل نداءات LLM: مزوّدات (Ollama/OpenAI-compat/DeepSeek)، مسارات threads، آجال مطلقة، تتبّع البث، تيليمتري llm_calls، حجز ميزانية السحابة، aux_generate |
 | `backend/app/services/answer_cache.py` | 308 | كاش الإجابات الدلالي (تطابق مُطبَّع ثم cosine e5 ≥ 0.92) لأول سؤال في الجلسة فقط |
 | `backend/app/services/attribution.py` | 382 | إسناد التثبيت: بناء رابط Google Play بالـreferrer، تسجيل نقرات /go، مطابقة IP خلال 24 ساعة |
 | `backend/app/services/bm25_index.py` | 106 | فهرس BM25 في الذاكرة (الساق المعجمية للاسترجاع الهجين) |
@@ -174,7 +173,6 @@
 | `backend/docs/cloud-budget-reservations.md` | 882 | تصميم حجوزات الميزانية السحابية الشهرية |
 | `backend/guardrails/child_surface.v1.yaml` | 134 | بوابة سطح الطفل العمرية (أيّ أسطح لأي شريحة) — نسخة التطبيق تُختبر ضدها |
 | `backend/guardrails/policies.v1.yaml` | 206 | سياسات المجالات والشدّة (طبي/سيبراني/تربوي/تنموي) المقروءة عند كل طلب |
-| `backend/ops/scripts/warm_answer_cache.py` | 234 | نسخة داخل backend/ من مُسخِّن كاش الإجابات (⚠️ مكرّرة لـops/scripts/warm_answer_cache.py) |
 | `backend/requirements-dev.txt` | 5 | اعتماديات التطوير/الاختبار |
 | `backend/requirements.txt` | 48 | اعتماديات الباكند (chromadb<1 محجوز عمدًا) |
 | `backend/scripts/debug_coach.py` | 94 | أداة تصحيح: توليد نصيحتين مع لوج مفصّل |
@@ -210,7 +208,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_account_deletion.py` | 353 | Account deletion — DELETE /api/privacy/account (Google Play: in-app deletion). Two halves, both needed: |
 | `backend/tests/test_agreement_build_gate.py` | 107 | The agreement gate must not lock out a build that cannot sign. The gate has been finished, tested and switched **off** since 2026-08-16, for |
 | `backend/tests/test_answer_cache.py` | 71 | Semantic answer cache tests (growth plan §5.1). |
-| `backend/tests/test_answer_cache_callers_revision.py` | 120 | Real cache writes through streaming and both offline warmers, without models. |
+| `backend/tests/test_answer_cache_callers_revision.py` | 103 | Real cache writes through streaming and both offline warmers, without models. |
 | `backend/tests/test_answer_cache_source_revision.py` | 252 | Quarantining a source must invalidate answers before index startup/purge. |
 | `backend/tests/test_answer_reliability.py` | 1125 | Unanswered questions — one test per mechanism, each failing without its fix. Production, 30 days to 2026-10-04: 44 of 290 parent questions (15.2%)… |
 | `backend/tests/test_api_smoke.py` | 195 | API smoke tests — endpoint wiring, guardrails, auth, and session persistence. The LLM gateway and the vector retrieval are mocked, so these run fast… |
@@ -300,7 +298,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_identity.py` | 837 | Tests for Google identity linking with token verification and safe cross-device merge. Uses the same _AuthStubMiddleware pattern used in… |
 | `backend/tests/test_index_excludes_policy_docs.py` | 71 | وثائق الحوكمة لا تدخل فهرس الاسترجاع — وتبقى على القرص. قياس 2026-08-13 على شهر من أسئلة الآباء الحقيقية: 51% من الوحدات المسترجَعة |
 | `backend/tests/test_index_seed.py` | 126 | The knowledge index baked into the image replaces re-embedding at startup. backend/Dockerfile builds the index with the container's own startup call… |
-| `backend/tests/test_infographic_harvest.py` | 418 | scripts/generate_missing_infographics.py — the harvest must finish and remember. Until 2026-09-29 the task list was saved only after the LAST poll;… |
+| `backend/tests/test_infographic_harvest.py` | 572 | scripts/generate_missing_infographics.py — the harvest must finish and remember. Until 2026-09-29 the task list was saved only after the LAST poll;… |
 | `backend/tests/test_insights.py` | 141 | اختبارات: insights |
 | `backend/tests/test_intent_guard.py` | 994 | Regression tests for the intent guard. The emergency check used to be a substring test over the whole normalized |
 | `backend/tests/test_kb_integrity.py` | 22 | CI gate — the knowledge base must stay in sync (the drift-detector lesson). Runs the integrity guard (fast mode) on the real units as a subprocess and |
@@ -322,6 +320,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_min_build_script.py` | 153 | ops/scripts/min_build.sh — the force-update floor is decided on evidence. A floor above what Play actually serves locks everyone below it out with |
 | `backend/tests/test_monthly_report_auth.py` | 44 | Monthly report privacy tests — a child's name/progress must never be publicly enumerable (regression for the unauthenticated endpoint). |
 | `backend/tests/test_multi_child_progress.py` | 222 | Multi-child progress tracking tests. These verify the fix that makes PATCH /api/program/lessons/{id}/progress |
+| `backend/tests/test_nblm_failure.py` | 55 | `scripts/nblm_failure.py`: جلسة NotebookLM ميتة (CSRF/auth) تُميَّز عن مهمة اختفت |
 | `backend/tests/test_nblm_session_guard.py` | 195 | scripts/lib/nblm_session.sh — the NotebookLM session guard. Drives the real bash library against a stub `notebooklm` placed first on PATH |
 | `backend/tests/test_no_hitting_endorsement.py` | 104 | No text the app serves tells a parent to hit a child. Until 2026-10-04 served knowledge units said «يمكن ضرب الأطفال على ترك الصلاة |
 | `backend/tests/test_ops_metrics_auth.py` | 94 | Route-level authentication for private operational metrics (audit M15). |
@@ -329,7 +328,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_phase6_streak.py` | 341 | Phase 6 tests — streak calculation + onboarding state. Mounts the children + program routers onto a minimal FastAPI app so |
 | `backend/tests/test_phase7_settings.py` | 356 | Phase 7 tests — list / update / reset-progress on /api/children/*. Mounts children + program routers on a minimal FastAPI app so the |
 | `backend/tests/test_phase8_challenge.py` | 131 | «رحلة الطفل» Phase 3 tests — the per-child "current challenge" and its integration with the proactive coach. |
-| `backend/tests/test_podcast_sentinels.py` | 109 | scripts/gen_podcasts_cron.py — trigger sentinels are outcomes, never task ids. `if tid:` used to run before `elif tid == "STALE_SOURCE"`, so the… |
+| `backend/tests/test_podcast_sentinels.py` | 179 | scripts/gen_podcasts_cron.py — trigger sentinels are outcomes, never task ids. `if tid:` used to run before `elif tid == "STALE_SOURCE"`, so the… |
 | `backend/tests/test_primary_budget.py` | 183 | Primary-provider monthly spend ceiling tests. The app is free forever, so the paid primary path (DeepSeek) needs its own |
 | `backend/tests/test_privacy_policy_route.py` | 54 | Regression tests for GET /privacy-policy. The endpoint is a Google Play requirement, and on 2026-07-27 it was serving a |
 | `backend/tests/test_privacy_policy_truth.py` | 323 | The privacy policy must say what the code does — and keep saying it. Until 2026-10-04 docs/privacy-policy.md said child profiles and progress stayed |
@@ -502,7 +501,6 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `mobile/lib/widgets/ui/emoji_hero.dart` | 32 | Squircle tile with a big emoji on a tinted background — the app's illustration system (no image assets needed). |
 | `mobile/lib/widgets/ui/empty_state.dart` | 113 | Friendly empty/error state: big drawn icon (or legacy emoji), bold title, soft subtitle, optional action button. Replaces the bare icon+text… |
 | `mobile/lib/widgets/ui/error_retry_view.dart` | 42 | A failure the parent can act on, instead of the exception's toString(). Three screens rendered `errorGeneric(e.toString())`, which put… |
-| `mobile/lib/widgets/ui/gradient_card.dart` | 50 | Rounded gradient card with a soft colored shadow and ink ripple. The visual building block for path cards, headers and CTAs. |
 | `mobile/lib/widgets/ui/loading_view.dart` | 149 | Loading states that say something when the wait runs long (UX_UI_ROADMAP E3, E4). A bare centred spinner reads the same at one second and at fifty,… |
 | `mobile/lib/widgets/ui/night_sky.dart` | 281 | Night-sky ambience shared by the bedtime surfaces. The bedtime routine, the story bookshelf and the story reader each carried their own copy of these… |
 | `mobile/lib/widgets/ui/noor_mascot.dart` | 30 | «نور» — the app mascot, still and at rest: the calm face of the «ورق مقصوص» set (assets/svg/noor/noor_calm.svg), on a transparent ground. For a Noor… |
@@ -637,7 +635,6 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 |---|---:|---|
 | `mobile/lib/features/games/data_defender/data_defender_game.dart` | 32 | Redesigned Data Defender educational mini-game. The 50 questions moved to `assets/content/games/data_defender.ar.json` on 2026-08-13 so they can be… |
 | `mobile/lib/features/games/data_defender/game_screen.dart` | 14 | Entry screen for the Data Defender mini-game. |
-| `mobile/lib/features/games/emoji_sprite.dart` | 53 | Shared helper to render an emoji glyph as a Flame sprite — gives the mini-games recognizable "graphics" (🦸 🍎 🍬 🌳 ☁️ …) without bundling any image… |
 | `mobile/lib/features/games/emotion_maze/emotion_maze_game.dart` | 32 | Redesigned Emotion Maze educational mini-game. The 50 questions moved to `assets/content/games/emotion_maze.ar.json` on 2026-08-13 so they can be… |
 | `mobile/lib/features/games/emotion_maze/game_screen.dart` | 14 | Entry screen for the Emotion Maze mini-game. |
 | `mobile/lib/features/games/games_catalog.dart` | 70 | The four educational games, as data. The games were reachable only from inside a lesson, and only from a lesson in the matching domain — three levels… |
@@ -647,7 +644,6 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `mobile/lib/features/games/shared/edu_game_models.dart` | 504 | Base educational game models and shared configuration. This is the redesign layer for the four domain-specific mini-games. It replaces the old… |
 | `mobile/lib/features/games/shared/edu_game_shell.dart` | 866 | Generic educational game shell that hosts level selection and the game runner. Each domain-specific game only needs to provide its theme and a… |
 | `mobile/lib/features/games/shared/edu_game_ui.dart` | 603 | Shared level selection screen, pause overlay, and result dialog for the redesigned educational mini-games. |
-| `mobile/lib/features/games/shared/game_utils.dart` | 393 | Shared game utilities — P1.4 improved games. Common utilities for all educational games: level management, difficulty scaling, progress tracking, and… |
 | `mobile/lib/features/games/tree_of_deeds/game_screen.dart` | 14 | Entry screen for the Tree of Deeds mini-game. |
 | `mobile/lib/features/games/tree_of_deeds/tree_of_deeds_game.dart` | 32 | Redesigned Tree of Deeds educational mini-game. The 50 questions moved to `assets/content/games/tree_of_deeds.ar.json` on 2026-08-13 so they can be… |
 
@@ -1489,6 +1485,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `scripts/README_reels.md` | 77 | Reels Production Pipeline |
 | `scripts/add_new_lesson_podcasts.py` | 141 | One-shot: register the 25 newly-authored lessons in the podcast pipeline. Uploads ONLY the new lesson markdown sources (knowledge_base/notebooklm/**/ |
 | `scripts/adhkar_tips_en.py` | 794 | English wording for the 124 `tip` items in the family adhkar pack. Kept as a separate, reviewable table rather than generated at build time: these |
+| `scripts/archive/audit_age_groups.py` | 35 | مدقّق age_group قديم (نُقل من `knowledge_base/units/` 2026-11-08؛ مسار نسبي للريبو) |
 | `scripts/archive/cleanup_duplicate_podcasts.py` | 56 | أرشيف: حذف بودكاستات مكررة بالـmd5 |
 | `scripts/archive/download_all_podcasts.py` | 53 | أرشيف: تنزيل كل البودكاستات من دفتر NotebookLM (مسارات مطلقة) |
 | `scripts/archive/download_missing_podcasts.py` | 84 | Load missing lessons |
@@ -1511,7 +1508,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `scripts/cleanup_reports_and_indices.py` | 168 | Cleanup curriculum assets: 1. Strips LLM preamble and "Answer:" block from Markdown reports. 2. Translates English domain/topic names to Arabic in… |
 | `scripts/complete_toddler_curriculum.py` | 158 | Complete the 2-3 ("toddler") age band: generate sourced lesson bodies from the user's NotebookLM "المربي" notebook and write proper curriculum lesson… |
 | `scripts/compose_screenshots.py` | 85 | تركيب لقطات متجر Play (مسارات مطلقة) |
-| `scripts/cron_gen_en_media.sh` | 430 | Daily English media generation — harvest first, then each medium on its own |
+| `scripts/cron_gen_en_media.sh` | 477 | Daily English media generation — harvest first, then each medium on its own |
 | `scripts/cron_gen_path_videos.sh` | 56 | Periodic NotebookLM path-video generation for the 12 new paths, until done. |
 | `scripts/cron_gen_podcasts.sh` | 91 | Periodic NotebookLM podcast generation, one language per invocation. |
 | `scripts/cron_regen_podcasts.sh` | 31 | Daily retry of NotebookLM podcast regeneration until all 53 placeholder |
@@ -1527,8 +1524,8 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `scripts/gen_aqeedah_infographics_batch.py` | 131 | Generate remaining aqeedah infographics one by one with per-lesson timeout. |
 | `scripts/gen_flashcards_quizzes.py` | 180 | Generate flashcards + quizzes for the 25 new lessons (the _bNN ones) from their own text, using the local Ollama model with forced-JSON output. Saves… |
 | `scripts/gen_lesson_videos.py` | 155 | Local video generator for the new lessons (NotebookLM is rate-limited). Builds a clean title-card (domain gradient + shaped Arabic title) and renders… |
-| `scripts/gen_path_videos_cron.py` | 355 | Cron-safe path-video generator (NotebookLM video overviews), any language. python3 scripts/gen_path_videos_cron.py # Arabic (ar_eg) |
-| `scripts/gen_podcasts_cron.py` | 408 | Cron-safe podcast generator (NotebookLM audio overviews), any language. Mirror of gen_path_videos_cron.py but for audio. Idempotent (skips lessons… |
+| `scripts/gen_path_videos_cron.py` | 416 | Cron-safe path-video generator (NotebookLM video overviews), any language. python3 scripts/gen_path_videos_cron.py # Arabic (ar_eg) |
+| `scripts/gen_podcasts_cron.py` | 484 | Cron-safe podcast generator (NotebookLM audio overviews), any language. Mirror of gen_path_videos_cron.py but for audio. Idempotent (skips lessons… |
 | `scripts/gen_tts_podcasts.py` | 82 | Local-ish alternative to NotebookLM: narrate each new lesson as an MP3 using edge-tts (Microsoft free neural TTS, Arabic Egyptian voice). Reads only… |
 | `scripts/generate_all_podcasts.py` | 172 | توليد بودكاست لكل الدروس عبر notebooklm CLI |
 | `scripts/generate_all_podcasts_v2.py` | 212 | generate_all_podcasts_v2.py Upload missing lesson markdown files to NotebookLM, then trigger + poll + download podcasts. Handles both lessons with… |
@@ -1537,7 +1534,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `scripts/generate_gap_fill_units.py` | 355 | Gap-filling content generator — knowledge units for the top-9 repeated parent-question themes that retrieval failed to serve (2026-08-26 week, 215… |
 | `scripts/generate_lesson_01_assets.py` | 183 | Configuration |
 | `scripts/generate_missing_data_tables.py` | 332 | Generate missing data_table assets for lessons using NotebookLM ask. Outputs: |
-| `scripts/generate_missing_infographics.py` | 584 | Generate missing infographic assets for lessons using NotebookLM. Trigger-then-harvest, like gen_podcasts_cron.py — NOT the old blocking |
+| `scripts/generate_missing_infographics.py` | 696 | Generate missing infographic assets for lessons using NotebookLM. Trigger-then-harvest, like gen_podcasts_cron.py — NOT the old blocking |
 | `scripts/generate_missing_path_videos.py` | 144 | توليد فيديوهات المسارات الناقصة |
 | `scripts/generate_missing_podcasts.py` | 125 | Generate the NotebookLM episode for every lesson whose index entry has none. Reads docs/lesson_index.json, finds lessons with an empty `podcasts`… |
 | `scripts/generate_missing_reports.py` | 323 | Generate missing report assets for lessons using NotebookLM ask. Reads scripts/missing_reports_full.json (output with source_id, lesson_id,… |
@@ -1555,10 +1552,9 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `scripts/missing_data_tables.json` |  | ملف بيانات/إعداد JSON |
 | `scripts/missing_reports.json` |  | ملف بيانات/إعداد JSON |
 | `scripts/missing_reports_full.json` |  | ملف بيانات/إعداد JSON |
-| `scripts/missing_reports_full.json.27bak` |  | ⚠️ نسخة احتياطية متعقَّبة |
-| `scripts/missing_reports_full.json.bak` |  | ⚠️ نسخة احتياطية متعقَّبة |
 | `scripts/missing_reports_no_source.json` |  | ملف بيانات/إعداد JSON |
 | `scripts/monitor_qa_v2.sh` | 49 | Monitor tutor-guardian v2 fine-tune dataset generation. |
+| `scripts/nblm_failure.py` | 63 | تصنيف إخفاق NotebookLM: جلسة ميتة ≠ مهمة اختفت؛ يستعمله مولّدو البودكاست/الفيديو/الإنفوجراف (exit 3 = جلسة ميتة، 4 = حاول ولم يُنتج) |
 | `scripts/parse_all_assets.py` | 250 | Parse markdown asset files -> JSON flashcards + slides Updates lesson_index.json and creates JSON files in docs/lesson_assets/ |
 | `scripts/parse_generated_assets.py` | 138 | Output files |
 | `scripts/play_listing_upload.py` | 267 | Google Play — store-listing refresh (text + graphics) for المربّي. One Play edit replaces, for each language in the listing folder: |
@@ -1784,11 +1780,10 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 ## 11) قاعدة المعرفة — `knowledge_base/` و `knowledge_base_markdown/`
 
 
-### knowledge_base/units/ — سكربت تائه
+### knowledge_base/units/ — (لا سكربتات؛ نُقل `audit_age_groups.py` إلى `scripts/archive/`)
 
 | الملف | أسطر | الدور |
 |---|---:|---|
-| `knowledge_base/units/audit_age_groups.py` | 34 | ⚠️ سكربت مدقّق age_group تائه داخل مجلد البيانات (مسار مطلق لجهاز المطوّر)؛ يُنسخ مع المجلد إلى صورة Docker — مكانه ops/tools أو scripts/archive |
 
 ### knowledge_base/ — مخطط ومرجع (ملفات فردية)
 
@@ -1845,7 +1840,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `docs/OPS_RUNBOOK.md` | 516 | دليل التشغيل — المربي الذكي (Ops Runbook) |
 | `docs/PLAN_CLOSEOUT_2026-10-07.md` | 41 | Plan closeout — 7 October 2026 |
 | `docs/PLAY_STORE_LISTING.md` | 504 | المربّي الذكي — حزمة ASO كاملة (Play Console) |
-| `docs/ROUTE_POLICY.md` | 132 | Route policy inventory — Phase 3, item 2 |
+| `docs/ROUTE_POLICY.md` | 134 | Route policy inventory — Phase 3, item 2 |
 | `docs/RUNBOOK_lesson_progress_child_key.md` | 135 | Runbook — ترحيل `lesson_progress` إلى مفتاح لكل طفل |
 | `docs/SOURCES_NEEDING_REVIEW.md` | 78 | وحدات معرفية تحتاج قرارًا بشريًا |
 | `docs/STORIES_AUDIT.md` | 131 | مراجعة ميزة «القصص» — 2026-10-15 |
@@ -1942,7 +1937,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `MOBILE_API.md` | 1477 | عقد الموبايل v1+: المصادقة، enums، الجلسات، البث، ذاكرة الطفل §9، حذف الحساب §10، برامج الأسرة §11، القناديل §12 |
 | `MOBILE_APP_PLAN.md` | 202 | خطة تطبيق الموبايل (تاريخية) |
 | `PROGRAM_BUILD_PLAN.md` | 809 | خطة بناء البرامج (تاريخية) |
-| `README.md` | 141 | تعريف المشروع، التشغيل المحلي/Docker، حارس سلامة المعرفة، CI/CD |
+| `README.md` | 120 | تعريف المشروع، التشغيل المحلي/Docker، حارس سلامة المعرفة، CI/CD |
 | `ROADMAP.md` | 24 | تتبّع الدين التقني (الطابور فارغ) |
 | `UX_UI_ROADMAP.md` | 212 | خارطة UX/UI (DS/E/UX بنود) |
 | `artifact_groups.json` |  | تجميعات الأصول (v1) للتوليد |

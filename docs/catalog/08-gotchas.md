@@ -9,7 +9,7 @@
 | 🚨 **الريبو عام + الدمج في main = نشر إنتاج** | `almorabbi/almorabbi` عام. الشغل في فرع/شجرة معزولة ← PR ← دمج؛ الدمج يطلق `deploy.yml` لمسارات القائمة في §1 (الـgate مفتوح بـ`vars.CUTOVER_DONE == true`). تغيير `docs/catalog/**` وحده لا يطلق النشر. |
 | 🚨 **ممنوع أي أثر شخصي** | لا أسماء أشخاص ولا مسارات منزلية ولا حسابات شخصية ولا عناوين IP في الكود أو الكوميتات أو المستندات. للمشغّل خطوة تنضيف قبل كل commit (أداة خارج الريبو عمدًا). الهوية المحلية للكوميت ثابتة — لا تغيّرها. |
 | ⚠️ **التاريخ يبدأ من `ab3d9fbd` (2026-10-30)** | لقطة أولى نظيفة من الأرشيف (1.0.75+120)؛ كوميتات الإصدارات الأقدم **ليست** في هذا التاريخ. رموز الكوميت في §5 قبل 2026-10-30 تشير إلى تاريخ الأرشيف (ريبو خاص مؤرشف) ولن تجدها هنا. خطوط أساس E2E الافتراضية = `ab3d9fbd`، والمتغير `E2E_BASELINE_REF` يحمل وسم آخر إصدار. |
-| ⚠️ **إصلاحات الأرشيف 2026-10-28/29 لم تُنقل** | في الأرشيف أُصلحت بنود من هذا الملف بعد إنشاء الكتالوج (حذف الملفات الميتة الثلاثة و`.bak`، و`backend/ops/scripts/warm_answer_cache.py`، ونقل `audit_age_groups.py`، وإزالة `TrustedHostMiddleware` وبقايا `_PUBLIC_PATHS`، وتصحيح ترويسة `ai_gateway.py`، ورسالة ميزانية الطفل بالفصحى، وتمييز جلسة NotebookLM الميتة `scripts/nblm_failure.py`، وتحديث README/OPS_RUNBOOK). **لا شيء منها في almorabbi** (مُقاس بمقارنة الملفات 2026-11-08) — البنود أدناه ما زالت مفتوحة هنا. النقل: patch من الأرشيف ← تنضيف ← PR. |
+| ✅ **إصلاحات الأرشيف 2026-10-28/29 نُقلت (2026-11-08)** | كانت غائبة عن هذا الريبو حتى نُقلت بـpatch من الأرشيف (`6097ba18`..`0235d70e` هناك): حذف الملفات الميتة و`.bak`، ونسخة `backend/ops/scripts/warm_answer_cache.py`، ونقل `audit_age_groups.py` إلى `scripts/archive/`، وإزالة `TrustedHostMiddleware` وبقايا `_PUBLIC_PATHS`، وتصحيح ترويسة `ai_gateway.py`، ورسالة ميزانية الطفل بالفصحى، و`scripts/nblm_failure.py`، وتحديث README/OPS_RUNBOOK/الخطط. البنود المقابلة أدناه موسومة ✅. |
 | ⚠️ **docstring خاطئ في `restore_keys.py`** | يذكر `POST /api/device/restore-key`؛ المسار الحقيقي `POST /api/chat/restore-key` (`routers/chat.py`). |
 | ⚠️ **الخطافات غير مفعّلة محليًا** | `core.hooksPath` غير مضبوط في نسخة almorabbi المحلية ⇒ pre-commit لا يعمل تلقائيًا؛ CI يشغّل الحرّاس نفسها. انظر §2. |
 | ℹ️ **بوت ملاحظات مخصّص** | منذ 2026-10-29 بوت الـfeedback بوت مستقل (`FEEDBACK_TELEGRAM_BOT_TOKEN`) لا يشاركه نظام آخر — بوت واحد لا يحمل إلا webhook واحدًا. |
@@ -48,23 +48,23 @@
 
 | الملف/البند | الدليل | الحالة |
 |---|---|---|
-| `mobile/lib/features/games/emoji_sprite.dart` | لا يستورده أي ملف في lib/test | ⚠️ ميت |
-| `mobile/lib/features/games/shared/game_utils.dart` | لا يستورده أحد (فئاته `GameConfig`, `GameProgress`, `LevelCompleteOverlay`, `EmojiSizes`… بلا مرجع) | ⚠️ ميت |
-| `mobile/lib/widgets/ui/gradient_card.dart` | `GradientCard` بلا مستعمل | ⚠️ ميت |
+| `mobile/lib/features/games/emoji_sprite.dart` | لا يستورده أي ملف في lib/test | ✅ حُذف/أُصلح 2026-11-08 |
+| `mobile/lib/features/games/shared/game_utils.dart` | لا يستورده أحد (فئاته `GameConfig`, `GameProgress`, `LevelCompleteOverlay`, `EmojiSizes`… بلا مرجع) | ✅ حُذف/أُصلح 2026-11-08 |
+| `mobile/lib/widgets/ui/gradient_card.dart` | `GradientCard` بلا مستعمل | ✅ حُذف/أُصلح 2026-11-08 |
 | `mobile/lib/features/screen_off/audio_tag.dart` | ملف توثيق فقط (يشرح لماذا لا صوت خلفي) — مستورد لكن بلا شيفرة | ℹ️ مقصود |
 | `backend/app/services/crypto_sync.py` | لا مستورد في `app/` (اختبار واحد) — المزامنة ZK بلا تشفير خادمي أصلًا (الخادم يخزّن payload مشفّرًا من العميل) | ⚠️ ميت |
 | `backend/app/routers/sync.py` | `POST /api/sync/upload` و`GET /api/sync/download` بلا عميل في التطبيق | ⚠️ غير موصول |
 | `GET /api/program/{daily-tip,story-themes,monthly-report/{id}}` · `GET /api/push/token` · `/api/quranic-linguistics/*` · `/api/tafsir/{search,search-tafsir,sources}` · `/api/health` · `/api/feedback/digest` | لا مرجع في `mobile/lib` أو `frontend` أو `ops` | ⚠️ بلا عميل (بعضها أدوات/واجهات عامة مقصودة) |
-| `backend/app/config/llm_config.py.bak` | نسخة احتياطية متعقَّبة | ⚠️ |
-| `scripts/missing_reports_full.json.bak`, `.27bak` | نسخ احتياطية متعقَّبة | ⚠️ |
-| `backend/ops/scripts/warm_answer_cache.py` | نسخة ثانية من `ops/scripts/warm_answer_cache.py` (234 مقابل 185 سطرًا) — أيهما يُشغَّل؟ المُركَّب في الحاوية هو `ops/scripts` | ⚠️ ازدواج |
+| `backend/app/config/llm_config.py.bak` | نسخة احتياطية متعقَّبة | ✅ حُذف/أُصلح 2026-11-08 |
+| `scripts/missing_reports_full.json.bak`, `.27bak` | نسخ احتياطية متعقَّبة | ✅ حُذف/أُصلح 2026-11-08 |
+| `backend/ops/scripts/warm_answer_cache.py` | نسخة ثانية من `ops/scripts/warm_answer_cache.py` (234 مقابل 185 سطرًا) — أيهما يُشغَّل؟ المُركَّب في الحاوية هو `ops/scripts` | ✅ حُذف/أُصلح 2026-11-08 |
 | `backend/app/db/migrations/v16_habit_templates.py`, `v20_feedback_replies.py` | ترحيلات قديمة لا يستوردها أحد | ⚠️ تاريخية |
 | `ops/tools/enrich_{all,batch,local,local_fast,local_v3}.py`, `fix_one_unit.py` | مسارات منزلية مكتوبة (`~/projects/tutor-guardian/…` بعد التنضيف) ومعرّف وحدة مكتوب | ⚠️ تاريخية |
-| `knowledge_base/units/audit_age_groups.py` | سكربت بمسار مطلق داخل مجلد البيانات؛ يُنسخ مع `knowledge_base/` إلى الصورة | ⚠️ تائه |
+| `knowledge_base/units/audit_age_groups.py` | سكربت بمسار مطلق داخل مجلد البيانات؛ يُنسخ مع `knowledge_base/` إلى الصورة | ✅ حُذف/أُصلح 2026-11-08 |
 | `scripts/archive/*` (15 ملفًا) | مستبدَلة | ⚠️ أرشيف |
 | `frontend/engine.js`, `frontend/style.css`, `frontend/sw.js` | لا قالب حالي يستدعيها ولا يسجَّل `sw.js`؛ يذكرها `.agents/skills/create-cinematic-webpage/SKILL.md` فقط | ⚠️ يتيمة |
-| `main.py::TrustedHostMiddleware` | مستورد وغير مستعمل | ⚠️ |
-| `auth.py::_PUBLIC_PATHS` | يذكر `/api/docs` `/api/openapi.json` `/api/redoc` — مسارات لا يعرّفها التطبيق (Swagger على `/docs`) | ⚠️ بقايا |
+| `main.py::TrustedHostMiddleware` | مستورد وغير مستعمل | ✅ حُذف/أُصلح 2026-11-08 |
+| `auth.py::_PUBLIC_PATHS` | يذكر `/api/docs` `/api/openapi.json` `/api/redoc` — مسارات لا يعرّفها التطبيق (Swagger على `/docs`) | ✅ حُذف/أُصلح 2026-11-08 |
 | `docs/stories` صور 5 قصص (بدر، سارة، تميم، نورة، سلمان) | كانت مذكورة في JSON ومفقودة من المستودع والسيرفر؛ ملاحظات `STORIES_AUDIT.md` تاريخية فبعضها أُصلح بـ«ورق مقصوص» | ❓ تحقق قبل الاعتماد |
 
 ## 4) انحراف المخطط والبيانات
@@ -128,27 +128,27 @@
 | البند | الادّعاء | الواقع |
 |---|---|---|
 | `README.md` | «كل الاستدلال محلي عبر Ollama — لا تخرج أي بيانات» | الإنتاج على DeepSeek السحابي أساسيًا (مع إخفاء أسماء الأطفال) |
-| `README.md` | «22 اختبار» · «99 backend tests / 292 KB units» · deploy عبر SSH+`workflow_run` | 2573 دالة اختبار باكند · 1060 وحدة عربية · النشر الآن gate→image→self-hosted |
-| `README.md` | الخادم المحلي على المنفذ 8090 | مع compose: 8000 (`BACKEND_HOST_PORT`) |
-| `services/ai_gateway.py` (تعليق افتتاحي) | «local-only by design» | قديم (انظر 06) |
-| `AUDIT_AND_ROADMAP.md` | «21k LOC، 25 routers» | 45,333 سطر Python في `backend/` (غير الاختبارات)، 29 router |
+| `README.md` | «22 اختبار» · «99 backend tests / 292 KB units» · deploy عبر SSH+`workflow_run` | 2596 دالة اختبار باكند · 1060 وحدة عربية · النشر الآن gate→image→self-hosted ✅ أُصلح 2026-11-08 (نُقل من الأرشيف) |
+| `README.md` | الخادم المحلي على المنفذ 8090 | مع compose: 8000 (`BACKEND_HOST_PORT`) ✅ أُصلح 2026-11-08 (نُقل من الأرشيف) |
+| `services/ai_gateway.py` (تعليق افتتاحي) | «local-only by design» | قديم (انظر 06) ✅ أُصلح 2026-11-08 (نُقل من الأرشيف) |
+| `AUDIT_AND_ROADMAP.md` | «21k LOC، 25 routers» | 45,097 سطر Python في `backend/` (غير الاختبارات)، 29 router |
 | `docs/ROUTE_POLICY.md` | 166 route / 14 تبعية إثبات | القياس الآن 15 تبعية (راجع 03) — لقطة قديمة لا تُحدَّث تلقائيًا |
 | `docs/OPS_RUNBOOK.md` §4.2 | الرفع يدوي بلا أتمتة | `release-play.yml` + `play_upload.py` يرفعان برمجيًا |
-| `docs/OPS_RUNBOOK.md` | `plans/release_checklist.md` | **الملف غير موجود** (رابط مكسور؛ يتكرر في `plans/lesson-completion-brief.md`) |
-| `plans/sprint3-internet-licence-spec.md` | `knowledge_base/curriculum/schema/licence_scenario.schema.json` | الاسم الفعلي `license_scenario.schema.json` |
+| `docs/OPS_RUNBOOK.md` | `plans/release_checklist.md` | **الملف غير موجود** (رابط مكسور؛ يتكرر في `plans/lesson-completion-brief.md`) ✅ أُصلح 2026-11-08 (نُقل من الأرشيف) |
+| `plans/sprint3-internet-licence-spec.md` | `knowledge_base/curriculum/schema/licence_scenario.schema.json` | الاسم الفعلي `license_scenario.schema.json` ✅ أُصلح 2026-11-08 (نُقل من الأرشيف) |
 | `plans/okf-integration-plan.md` | `okf_loader.py`, `docs/okf/README.md`, `scripts/export_okf_bundle.py` | غير موجودة (خطة غير منفّذة) |
-| `plans/growth-master-plan-2026-07.md` | `docs/marketing/reels_output/captions.md` | غير موجود |
+| `plans/growth-master-plan-2026-07.md` | `docs/marketing/reels_output/captions.md` | غير موجود ✅ أُصلح 2026-11-08 (نُقل من الأرشيف) |
 | `docs/EN_CONTENT_STATUS.md` | `ops/data/en_parity_pending/daily_tips/tip_prenatal-1_006.json` + بودكاست lesson_10-12… | غير متعقَّب |
 | `ops/tools/*` | `enrich_*`/`gen_*` بمسارات منزلية (`~/projects/tutor-guardian/...`، `~/.hermes/...`) | تعمل على جهاز المطوّر فقط |
 | `scripts/demo_grounded_generation.py`, `archive/*` | معرّف دفتر NotebookLM `94f191e6-…` مكتوب في الشيفرة | معرّف مورد خارجي، ليس سرًّا؛ لكنه يربط السكربت بحساب واحد |
-| `backend/tests/test_device_twins_review.py` | docstring يحيل إلى `backend/tests/test_review_pr29_attacks.py` | الملف المحال إليه كان في scratch المراجعة ولم يُكوميت قط (غائب عن HEAD وorigin/main) — لا تبحث عنه. أُصلح في الأرشيف 2026-10-28 ولم يُنقل ⇒ ما زال قائمًا هنا |
+| `backend/tests/test_device_twins_review.py` | docstring يحيل إلى `backend/tests/test_review_pr29_attacks.py` | الملف المحال إليه كان في scratch المراجعة ولم يُكوميت قط (غائب عن HEAD وorigin/main) — لا تبحث عنه. أُصلح في الأرشيف 2026-10-28، ونُقل هنا 2026-11-08 ✅ |
 | `mobile/ios/RunnerTests/RunnerTests.swift` | قالب XCTest فارغ (`testExample`) — لا اختبارات iOS فعلية | **معروف ومقصود:** قالب Flutter الافتراضي يُترك كما هو (قرار 2026-10-28) — ليس عيب كود؛ اختبارات التطبيق في Dart (`mobile/test`) |
 | `deploy.yml` | «docs-index» أو `ops/frontend` كمسار نشر (صياغة قديمة في وصف الكتالوج) | غير موجودين: المسارات الفعلية في `07` §4 — `frontend/**` على الجذر و`docs/lesson_index.json` و`docs/lesson_assets/**` |
 | دفتر الميزانية السحابية | «ملف SQLite منفصل» | جداول `cloud_budget_*` تُنشأ داخل `ops/sessions.db` نفسه (المرساة وحدها ملف منفصل) — `04` §3.1 |
 
 ## 7) اللغة والمحتوى
 
-- **اللغة المطلوبة: فصحى سهلة لا مصرية** (ذاكرة المشروع)، لكن رسالة `child_budget_exhausted` في `middleware/auth.py` مكتوبة بالعامية («خلصت مدة النهارده. نكمل بكرة») ⇒ مخالفة محتملة لقاعدة اللغة.
+- **اللغة المطلوبة: فصحى سهلة لا مصرية** (ذاكرة المشروع). رسالة `child_budget_exhausted` في `middleware/auth.py` و`child_mode.py` و`child_mode_web.py` صارت «انتهت مدة اليوم. نكمل غدًا إن شاء الله» مطابقة لـ`childModeBudgetSpent` في التطبيق ✅ (2026-11-08).
 - **المستخدمون ليسوا كلهم عربًا:** ~27% إنجليزي و~11% فرنسي (ذاكرة) والتطبيق عربي/إنجليزي فقط؛ الخادم يرد بالفرنسية للأسئلة الفرنسية. أي إصلاح i18n يجب ألا يفترض عربية الجميع.
 - **القرآن لا يُترجَم:** أي إنجليزي مقابل آية = «تفسير» معلَن. حارس `check_quran_rendering.py` على pre-commit. **لا تولّد أحاديث ولا تكمل نقصًا بمتون تبدو صحيحة.**
 - **الإنجليزي «مختوم» آليًا فقط:** لا ختم بشري؛ لا تصفه كاعتماد خبير (PLAN_CLOSEOUT). ختم الإنجليزي ≠ أمانة العربي لمصدره.

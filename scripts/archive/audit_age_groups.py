@@ -1,7 +1,8 @@
 import json, os
 from pathlib import Path
 
-units_dir = Path(os.path.expanduser("~/projects/tutor-guardian/knowledge_base/units/"))
+# scripts/archive/ -> repo root is two levels up (was a hard-coded absolute home path)
+units_dir = Path(__file__).resolve().parents[2] / "knowledge_base" / "units"
 results = []
 
 for f in sorted(units_dir.glob("*.json")):

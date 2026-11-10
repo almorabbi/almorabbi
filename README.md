@@ -56,7 +56,9 @@ docker compose up -d backend
 # API: http://localhost:8000 · عميل الاختبار: http://localhost:8000/ui/
 ```
 
-الإعدادات كلها في `.env.example` (انسخه إلى `.env`). كل الاستدلال محلي عبر Ollama — لا تخرج أي بيانات.
+الإعدادات كلها في `.env.example` (انسخه إلى `.env`). الافتراضي في الكود استدلال محلي عبر Ollama (`LLM_PRIMARY_PROVIDER=ollama`)، أما **الإنتاج** فيعمل بـ DeepSeek السحابي أساسيًا (`LLM_PRIMARY_PROVIDER=deepseek`) مع Ollama احتياطيًا، وتُخفى أسماء الأطفال قبل أي نداء سحابي — التفاصيل في `docs/catalog/06-ai.md`.
+
+> **المنفذ:** أمر `uvicorn` أعلاه يستعمل `8090`، أما `docker compose` فيفتح `8000` (`BACKEND_HOST_PORT`).
 
 ---
 
@@ -89,7 +91,7 @@ python ops/tools/build_vector_db.py    # إعادة بناء الفهرس + unit
 ## الاختبارات
 
 ```bash
-python -m pytest          # 22 اختبار (السلامة، taxonomy، API، سلامة قاعدة المعرفة)
+backend/.venv/bin/python -m pytest backend/tests   # آلاف الاختبارات (انظر docs/catalog/08-gotchas.md §2 قبل الاعتماد على python المجرد)
 ```
 
 راجع `API.md` لعقد الـ API الكامل (للفريق الذي يبني تطبيق الموبايل).
@@ -98,44 +100,21 @@ python -m pytest          # 22 اختبار (السلامة، taxonomy، API، �
 
 ## CI / CD (الاختبار التلقائي)
 
-ثلاثة workflows يـ guard الـ `main` branch:
+workflows تحرس الـ `main` branch (القائمة الكاملة في `.github/workflows/` وشرحها في `docs/catalog/07-infra-deploy.md`):
 
 | Workflow | يـ guard ضد |
 |---|---|
-| `backend.yml` | regression في الـ 99 backend tests + drift في الـ 292 KB units |
+| `backend.yml` | regression في اختبارات الباكند (pytest) + سلامة قاعدة المعرفة + ruff — وهي بوابة النشر |
 | `flutter.yml` | analyzer warnings/errors + failing widget tests على الـ mobile |
 | `docker.yml` | image لا تبني أو لا تـ start — Phase 0 regression (privacy policy مفقود) |
-| `deploy.yml` | (Phase 8-D) يـ trigger بعد نجاح الـ CI ويـ SSH للـ VPS يـ `git pull` + `docker compose up` + health check |
+| `deploy.yml` | بوابة (gate) ← بناء صورة ← نشر على الـ VPS عبر runner ذاتي الاستضافة (انظر أدناه) |
 
 كل workflow يـ skip إذا الـ paths تاعته ما اتغيرتش. الـ concurrency بيـ cancel in-flight runs على نفس الـ ref. الـ `main` branch لازم يكون **protected** (Settings → Branches → Require status checks: backend, flutter, docker).
 
-Deploy automation **مفصول** عمداً (Phase 8-A) — الـ VPS rebuild يتم يدوياً عبر SSH.
+> 🚨 **`push` إلى `main` على مسارات الباكند/المعرفة/`ops/tools`/`ops/scripts`/`frontend` = نشر إنتاج** (`deploy.yml`). لا تدمج ما لست مستعدًا لرؤيته حيًّا.
 
-### Production deploy (Phase 8-D)
+### Production deploy
 
-`deploy.yml` يـ listen لـ CI via `workflow_run`. لما كل الـ 6 CI jobs (pytest، kb-integrity، analyze، test، build، smoke) ينجحوا على push لـ main، الـ deploy job يـ SSH للـ VPS ويـ:
+`deploy.yml` **لا** يستعمل `workflow_run` ولا SSH: لا يبدأ إلا في `almorabbi/almorabbi` ومع متغير المستودع `CUTOVER_DONE=true`، ثم يتحقق (job `gate`) أن "Backend tests" نجح لنفس الـ commit عبر API (`ops/tools/deploy_gate.py`)، ثم `image` يبني ويدخّن الصورة على runner مستضاف عند GitHub ويدفعها إلى GHCR، ثم `deploy` يعمل **على الـ VPS نفسه** (runner ذاتي `self-hosted, production`) فيسحب الصورة ويتحقق من `/health` و`/privacy-policy` و`/api/app-config` ويرجع تلقائيًا للصورة السابقة عند الفشل؛ و`alert` يرسل تنبيه تلجرام عند أي فشل. التفاصيل الكاملة في تعليق رأس `.github/workflows/deploy.yml` وفي `docs/OPS_RUNBOOK.md` §4.1.
 
-1. `git fetch origin main && git reset --hard origin/main` (fast-forward only)
-2. `docker compose -f docker-compose.production.yml build backend`
-3. `docker compose -f docker-compose.production.yml up -d --remove-orphans backend`
-4. ينتظر `tg_backend` يصير `healthy` (max 50s)
-5. `curl` الـ `/health` + `/privacy-policy` (الـ Phase 0 regression check)
-6. `docker image prune -f`
-
-#### GitHub Secrets المطلوبة (Repository → Settings → Secrets and variables → Actions)
-
-| Secret | الوصف | مثال |
-|---|---|---|
-| `VPS_SSH_KEY` | private SSH key للـ VPS | (محتوى `~/.ssh/id_ed25519` بـ `-----BEGIN OPENSSH PRIVATE KEY-----`) |
-| `VPS_HOST` | الـ hostname أو IP بدون `user@` | `72.62.44.131` |
-| `VPS_PORT` | SSH port (اختياري، default 22) | `22` |
-| `VPS_REMOTE_PATH` | المسار على الـ VPS (اختياري، default `/root/tutor-guardian`) | `/root/tutor-guardian` |
-| `DEPLOY_HEALTH_URL` | الـ URL للـ health check (اختياري، default `https://tg-api.alsaba.cloud/health`) | (default) |
-
-#### Manual override
-
-لو احتجت force-deploy بدون CI (emergency hotfix): `Actions → Deploy → Run workflow → skip_ci = true`. الـ `concurrency` على الـ deploy job مش بيـ cancel in-flight deploys (`cancel-in-progress: false`).
-
-#### GitHub Environment
-
-الـ deploy job بيستخدم environment `production` — يـ allow الـ GitHub UI يـ show deploy history + يـ enable reviewer approvals لو حبيت تضيفها لاحقاً (Settings → Environments → production).
+تشغيل يدوي: `Actions → Deploy → Run workflow` (على `main` فقط، ومحروس بالبوابة نفسها).

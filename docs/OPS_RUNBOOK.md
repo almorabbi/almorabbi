@@ -146,11 +146,11 @@ v1.0.30+75 دون أن يعترض شيء — لا لأن بوابة فشلت، �
 - إصلاح طارئ بدون CI: من GitHub → Actions → Deploy → Run workflow → `skip_ci=true` (للطوارئ فقط).
 - rebuild يدوي على الـVPS يتبع نفس خطوات 1–4 أعلاه.
 
-### 4.2 الموبايل — يدوي عبر Play Console
+### 4.2 الموبايل — الرفع بإطلاق يدوي لـworkflow (لا نشر تلقائي)
 
-- البناء والرفع عبر Play Console **يدويًا** (حساب المسؤول). لا أتمتة نشر للموبايل.
+- الإصدار **لا يُطلَق تلقائيًا**: `release-play.yml` (`workflow_dispatch` فقط) يبني حزمة AAB موقَّعة على runner عند GitHub ويرفعها بـ`scripts/play_upload.py`؛ والتحويل بين المسارات (internal/alpha/beta/production) واعتماد الإنتاج في Play Console يبقى قرارًا يدويًا من حساب المسؤول. لا يوجد نشر موبايل مرتبط بـpush.
 - قبل أي إصدار: `flutter analyze` صفر أخطاء + كل تستات الـwidget خضراء + مراجعة Data Safety form (تطبيق فيه وضع طفل — سياسات Google Play Families).
-- قائمة المتجر وأصول ASO في `docs/PLAY_STORE_LISTING.md`، وقائمة تدقيق الإصدار في `plans/release_checklist.md`.
+- قائمة المتجر وأصول ASO في `docs/PLAY_STORE_LISTING.md`، وقائمة تدقيق الإصدار في `plans/release_checklist.md` (⚠️ غير متتبَّعة في git — خارج الريبو، عند المشغّل فقط، فلا تبحث عنها في مستودع نظيف).
 
 ### 4.3 المحتوى المعرفي
 
@@ -513,4 +513,4 @@ python3 ops/scripts/send_update_push.py --below 111 --title "…" --body "…" -
 | `publishing-center/OPERATIONS_LOG.md` | تاريخ كل قرار تشغيلي |
 | `README.md` + `API.md` + `MOBILE_API.md` | تشغيل التطوير المحلي وعقد الـAPI |
 | `docs/PLAY_STORE_LISTING.md` | حزمة ASO ونِسخ المتجر |
-| `plans/release_checklist.md` | قائمة تدقيق إصدارات الموبايل |
+| `plans/release_checklist.md` | قائمة تدقيق إصدارات الموبايل — ⚠️ غير متتبَّعة في git (خارج الريبو، عند المشغّل فقط) |
