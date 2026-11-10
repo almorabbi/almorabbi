@@ -34,6 +34,7 @@ https://tg-api.alsaba.cloud/go?ref=<CODE>
 | `VD` | QR على فيديو الحملة أو الـteaser | `campaign_video` / `qr` | 2026-10-16 |
 | `MA` | إعلانات Meta (الوجهة `/go` دائمًا — Meta ترفض Play تحت هدف Traffic) | `facebook` / `paid` | 2026-10-16 |
 | `SV` | رابط الوصف على منصات الفيديو القصير | `short_video` / `social` | 2026-10-16 |
+| `PR` | QR في ذيل الأوراق المطبوعة (`/print/…`) | `printable` / `print` | 2026-11-09 |
 
 `VD` أخذ نفس `utm_source`/`utm_medium` اللذين حملهما QR الفيديو حين كان يشير إلى Play مباشرة، فتبقى أرقام GA4
 قبل 16 أكتوبر وبعده قابلة للمقارنة؛ الذي تغيّر هو `utm_campaign` (صار الكود بدل اسم الفيديو).
@@ -73,6 +74,16 @@ QR الفيديو يبقى كما هو أينما نُشر الفيديو؛ را
 | `SV02` | يوتيوب Shorts |
 | `SV03` | إنستجرام Reels |
 | `SV04` | فيسبوك (Reels وصفحة التطبيق) |
+
+### الأوراق المطبوعة (QR في ذيل كل ورقة)
+
+الـQR ملف SVG في `frontend/assets/print/` يولّده `ops/tools/gen_print_qr.py`، وعنوانه مكتوب في `<title>` الملف؛
+`backend/tests/test_print_pack.py` يتحقق أن كل ورقة تحمل كود لغتها المسجَّل هنا.
+
+| الكود | الأصل |
+|---|---|
+| `PR01` | حزمة رمضان المطبوعة — عربي (`/print/ramadan`) |
+| `PR02` | حزمة رمضان المطبوعة — إنجليزي (`/print/ramadan?lang=en`) |
 
 ### إعلانات Meta
 

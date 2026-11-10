@@ -1995,10 +1995,44 @@ class TgClient {
   /// مع …؟») becomes a follow-up with source='lesson'. 201 on success; 409
   /// `followup_exists` / `followups_full` / `memory_off` are not failures for
   /// the caller — the promise is still kept on the device.
+  ///
+  /// [source] is sent only for a «موقف بقرار» step (`mawqif`); without it the
+  /// server records a lesson promise, as it always has.
   Future<Map<String, dynamic>> openPromiseFollowup(int childId,
-          {required String step, required String when, String topic = 'other'}) =>
+          {required String step,
+          required String when,
+          String topic = 'other',
+          String? source}) =>
       _authedJson('POST', '/api/children/$childId/followups',
-          body: {'strategy': step, 'when': when, 'topic': topic}, ok: const {201});
+          body: {
+            'strategy': step,
+            'when': when,
+            'topic': topic,
+            'source': ?source,
+          },
+          ok: const {201});
+
+  /// `GET /api/program/mawaqif` — the «موقف بقرار» steps for one child band
+  /// (docs/MAWAQIF.md). Public content like the lessons. An older server
+  /// answers 404: then there are none, which hides the card.
+  Future<List<Map<String, dynamic>>> getMawaqif(String ageGroup) async {
+    return _guard(() async {
+      final uri = Uri.parse('$_baseUrl/api/program/mawaqif')
+          .replace(queryParameters: {'age_group': ageGroup, ..._langParam()});
+      final resp = await _http
+          .get(uri, headers: const {'Accept': 'application/json'})
+          .timeout(AppConfig.httpTimeout);
+      if (resp.statusCode == 404) return const <Map<String, dynamic>>[];
+      if (resp.statusCode != 200) throw _wrap(resp);
+      final body = jsonDecode(utf8.decode(resp.bodyBytes));
+      final items = body is Map ? body['items'] : null;
+      return [
+        if (items is List)
+          for (final i in items)
+            if (i is Map<String, dynamic>) i,
+      ];
+    });
+  }
 
   /// `POST /api/children/followups/{id}/dismiss`.
   Future<Map<String, dynamic>> dismissFollowup(int followupId) =>
@@ -2908,6 +2942,52 @@ class TgClient {
           .whereType<Map<String, dynamic>>()
           .toList();
       return (settled: body['settled'] as int? ?? 0, coins: coins);
+    });
+  }
+
+  /// Today's mission card for the parent, read-only (`mission_id` null until
+  /// someone acts on it). Null when the band has no bank, and on a server that
+  /// predates the endpoint (404) — the row on «اليوم» then hides itself.
+  Future<Map<String, dynamic>?> fetchParentMissionToday(int childId) async {
+    return _guard(() async {
+      final session = await ensureSession();
+      final uri = Uri.parse('$_baseUrl/api/children/$childId/mission/today')
+          .replace(queryParameters: {
+        'tz_offset_minutes': '${DateTime.now().timeZoneOffset.inMinutes}',
+        ..._langParam(),
+      });
+      final resp = await _http
+          .get(uri, headers: _authHeaders(session.token))
+          .timeout(AppConfig.httpTimeout);
+      if (resp.statusCode == 404) return null;
+      if (resp.statusCode != 200) throw _wrap(resp);
+      final body = jsonDecode(utf8.decode(resp.bodyBytes)) as Map<String, dynamic>;
+      return body['mission'] as Map<String, dynamic>?;
+    });
+  }
+
+  /// The parent marks today's mission done — no handover. Idempotent on the
+  /// server; false when the card can no longer be settled (409: expired).
+  Future<bool> markParentMissionDone(int childId,
+      {required String missionKey, String? note}) async {
+    return _guard(() async {
+      final session = await ensureSession();
+      final uri =
+          Uri.parse('$_baseUrl/api/children/$childId/mission/today/done');
+      final resp = await _http
+          .post(uri,
+              headers: {..._authHeaders(session.token),
+                'Content-Type': 'application/json'},
+              body: jsonEncode({
+                'mission_key': missionKey,
+                if (note != null && note.trim().isNotEmpty) 'note': note.trim(),
+                'tz_offset_minutes':
+                    DateTime.now().timeZoneOffset.inMinutes.clamp(-720, 840),
+              }))
+          .timeout(AppConfig.httpTimeout);
+      if (resp.statusCode == 409) return false;
+      if (resp.statusCode != 200) throw _wrap(resp);
+      return true;
     });
   }
 

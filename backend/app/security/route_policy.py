@@ -203,6 +203,7 @@ _add(
     GET /api/program/daily-tip get_daily_tip
     GET /api/program/quiz get_quiz
     GET /api/program/story-themes story_themes
+    GET /api/program/mawaqif get_mawaqif
 """,
 )
 
@@ -279,6 +280,16 @@ _add(
 )
 
 _add(
+    "app.routers.print_pack",
+    "public",
+    "public",
+    """
+    GET /print/ramadan ramadan_sheets
+""",
+    in_schema=False,
+)
+
+_add(
     "app.routers.seo",
     "public",
     "public",
@@ -343,6 +354,8 @@ _add(
     POST /api/children/{child_id}/agreement put_agreement_draft
     POST /api/children/{child_id}/agreement/sign sign_agreement_as_parent
     GET /api/children/{child_id}/today child_day_summary
+    GET /api/children/{child_id}/mission/today parent_mission_today
+    POST /api/children/{child_id}/mission/today/done parent_mission_done
     GET /api/children/{child_id}/license child_license_summary
     POST /api/children/{child_id}/license/talked child_license_talked
     POST /api/children/{child_id}/license/grant child_license_grant

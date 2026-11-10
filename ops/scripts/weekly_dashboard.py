@@ -68,8 +68,15 @@ def _real(column: str = "device_id") -> str:
 
 
 def _fetch_ops_metrics() -> dict:
-    """Fetch from /api/stats/ops-llm using the ops token."""
-    base = os.environ.get("TG_API_BASE", "https://tg-api.alsaba.cloud")
+    """Fetch from /api/stats/ops-llm using the ops token.
+
+    The cron runs this inside tg_backend (`docker exec`), so the default is the
+    app itself on 127.0.0.1:8000. Through the public URL Cloudflare answered
+    every run with 403 "error code: 1010" (it bans Python-urllib's signature),
+    and the weekly report printed «مقاييس LLM: ⚠️ HTTP Error 403» — measured
+    2026-11-08: public → 403 (cf-ray), local → 200 with the same token.
+    """
+    base = os.environ.get("TG_API_BASE", "http://127.0.0.1:8000")
     token = os.environ.get("TG_OPS_METRICS_TOKEN", "")
     if not token:
         return {"error": "no token"}
@@ -181,6 +188,50 @@ def _db_stats() -> dict:
     return stats
 
 
+_SESSIONS_DB = Path(os.environ.get(
+    "SESSIONS_DB", str(Path(__file__).resolve().parents[2] / "ops" / "sessions.db")))
+
+
+def _hadith_guard_stats(days: int = 7) -> dict | None:
+    """What the answer guard (backend/app/services/hadith_guard.py) did this
+    week: turns it repaired, citations written in, sentences removed. The
+    session log carries no device, so test traffic is counted too."""
+    try:
+        conn = sqlite3.connect(f"file:{_SESSIONS_DB}?mode=ro", uri=True)
+    except sqlite3.Error:
+        return None
+    since = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
+    try:
+        rows = conn.execute(
+            "SELECT flag FROM sessions WHERE ts >= ? AND flag LIKE '%hadith_guard:%'", (since,)
+        ).fetchall()
+        turns = conn.execute("SELECT COUNT(*) FROM sessions WHERE ts >= ?", (since,)).fetchone()[0]
+    except sqlite3.Error:
+        return None
+    finally:
+        conn.close()
+    fixed = removed = 0
+    for (flag,) in rows:
+        for part in (flag or "").split(","):
+            k, _, v = part.partition("=")
+            if k.endswith("fixed") and v.isdigit():
+                fixed += int(v)
+            elif k == "removed" and v.isdigit():
+                removed += int(v)
+    return {"turns": turns, "touched": len(rows), "fixed": fixed, "removed": removed}
+
+
+def _hadith_lines(hg: dict | None) -> list[str]:
+    if not hg:
+        return []
+    return [
+        "🕌 الأحاديث في إجابات المساعد:",
+        f"  • إجابات عدّلها الحارس: {hg['touched']} من {hg['turns']}",
+        f"  • تخريج كُتب أو صُحّح: {hg['fixed']} · جمل حُذفت: {hg['removed']}",
+        "",
+    ]
+
+
 def _story_experiment() -> dict | None:
     """«صورة حيّة»: the two arms over the last 7 days (and, for re-opens, the
     week before with its 7 days after). None until the app has sent any."""
@@ -221,7 +272,8 @@ def _story_lines(exp: dict | None) -> list[str]:
     return lines
 
 
-def _format_report(ops: dict, retention: dict, db: dict, stories: dict | None = None) -> str:
+def _format_report(ops: dict, retention: dict, db: dict, stories: dict | None = None,
+                   hadith: dict | None = None) -> str:
     """Format the weekly report as a Telegram-friendly message."""
     now = datetime.now(timezone.utc)
     week_start = (now - timedelta(days=7)).strftime("%Y-%m-%d")
@@ -285,6 +337,7 @@ def _format_report(ops: dict, retention: dict, db: dict, stories: dict | None = 
     lines.append("")
 
     lines.extend(_story_lines(stories))
+    lines.extend(_hadith_lines(hadith))
 
     lines.append("— المربّي الذكي · مجاني لوجه الله 🤍")
 
@@ -337,7 +390,7 @@ def main():
         stories = None
 
     # Format report
-    report = _format_report(ops, retention, db, stories)
+    report = _format_report(ops, retention, db, stories, _hadith_guard_stats())
 
     if args.dry_run:
         print(report)

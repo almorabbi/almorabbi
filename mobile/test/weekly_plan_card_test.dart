@@ -42,13 +42,17 @@ void main() {
     expect(find.text('خطة أحمد هذا الأسبوع'), findsOneWidget);
     expect(find.text('نوم كافٍ لتركيز أفضل'), findsOneWidget);
     expect(find.text('بناءً على ما أخبرتنا به عن طفلك.'), findsOneWidget);
-    // Collapsed: the actions are not on Today yet.
-    expect(find.text('ثبّت موعد النوم في أيام الدراسة.'), findsNothing);
+    // Collapsed: the three steps are on Today, one tap each (2026-11-08);
+    // the worship act and the lesson wait behind «اعرض الخطة كاملة».
+    expect(find.text('ثبّت موعد النوم في أيام الدراسة.'), findsOneWidget);
+    expect(find.text('اختاروا معًا عملًا خيريًا صغيرًا.'), findsNothing);
+    expect(find.text('النوم والتركيز'), findsNothing);
 
+    await tester.ensureVisible(find.text('اعرض الخطة كاملة'));
+    await tester.pump();
     await tester.tap(find.text('اعرض الخطة كاملة'));
     await settle(tester);
     for (final t in [
-      'ثلاث خطوات صغيرة',
       'ثبّت موعد النوم في أيام الدراسة.',
       'أوقف الشاشات قبل النوم بساعة.',
       'خفّف السكريات في المساء.',
@@ -149,17 +153,24 @@ void main() {
     expect(server.calls.where((c) => c.contains('weekly-plan')).single,
         startsWith('GET /api/children/12/weekly-plan lang=en'));
     expect(find.text("أحمد's plan this week"), findsOneWidget);
+    // The steps sit on the collapsed card, above «Show the full plan».
+    await tester.scrollUntilVisible(find.text('Fix a bedtime on school days.'), 200,
+        scrollable: find.byType(Scrollable).first);
+    expect(tester.takeException(), isNull);
+    await tester.ensureVisible(find.text('Show the full plan'));
+    await tester.pump();
     await tester.tap(find.text('Show the full plan'));
     await settle(tester);
     for (final t in [
-      'Fix a bedtime on school days.',
       'Choose a small charity together.',
       'Sleep and focus',
       'Hide details',
     ]) {
-      await tester.scrollUntilVisible(find.text(t), 200,
-          scrollable: find.byType(Scrollable).first);
+      // The card is one child of the list, so every row is built: bring each
+      // into view whichever side of the viewport the expansion left it.
+      await tester.ensureVisible(find.text(t, skipOffstage: false));
       await tester.pump();
+      expect(find.text(t), findsOneWidget, reason: t);
       expect(tester.takeException(), isNull, reason: t);
     }
   });

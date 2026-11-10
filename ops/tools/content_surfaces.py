@@ -25,7 +25,10 @@ What is deliberately NOT here — each with the reason:
 * ``knowledge_base/units/*`` → ``text_original``: the raw extraction of a source
   book (often PDF mojibake). Never served — retrieval embeds and the assistant
   reads ``text_simplified`` only (backend/app/models/knowledge.py). Rewriting it
-  would falsify the provenance record. ``title`` and ``text_simplified`` ARE here.
+  would falsify the provenance record. ``title``, ``text_simplified`` and
+  ``reference_info`` ARE here — the last one is handed to the model as
+  «📚 المصدر» and copied into the answer's sources line; until 2026-11-09 it
+  was unscanned, and a garbled «لو لا أنتم لم يغفر الله» rode it into answers.
 * ``knowledge_base/raw_sources``, ``*_backup*``, ``knowledge_base_markdown/``,
   ``docs/*_assets.md`` and ``docs/lesson_*_flashcards.json`` (pre-index drafts),
   ``reviews/``, ``plans/``: not shipped, or shipped but never served (not in
@@ -258,6 +261,8 @@ _SPECS = [
     ("license.en", "knowledge_base/curriculum/i18n/en/license/*.json", "json"),
     ("program", "knowledge_base/curriculum/programs/*.json", "json"),
     ("program.en", "knowledge_base/curriculum/i18n/en/programs/*.json", "json"),
+    ("mawqif", "knowledge_base/curriculum/mawaqif/*.json", "json"),
+    ("mawqif.en", "knowledge_base/curriculum/i18n/en/mawaqif/*.json", "json"),
     ("adhkar", "mobile/assets/content/adhkar/*.json", "json"),
     ("game", "mobile/assets/content/games/*.json", "json"),
     ("journey", "mobile/assets/content/journey/*.json", "json"),
@@ -285,7 +290,7 @@ def iter_items() -> Iterator[Text | Card]:
     # KB units: served fields only (see module docstring)
     for p in sorted((ROOT / "knowledge_base/units").glob("*.json")):
         surface = "kb_unit.en" if p.name.endswith("__en.json") else "kb_unit"
-        yield from _json_items(surface, p, fields=("title", "text_simplified"))
+        yield from _json_items(surface, p, fields=("title", "text_simplified", "reference_info"))
     # Lesson assets: only what docs/lesson_index.json serves
     served = _served_lesson_assets()
     for rel in sorted(served):

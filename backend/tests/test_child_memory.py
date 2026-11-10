@@ -1045,3 +1045,14 @@ def test_didnt_try_followup_can_schedule_tomorrow_reminder(client):
     assert CHILD_NAME not in fu["strategy"]
     assert 47 <= _hours_from_now(fu["due_at"]) <= 49
 
+
+
+def test_mawqif_promise_keeps_its_source(client):
+    """The step at the end of a «موقف بقرار» (docs/MAWAQIF.md) is the same
+    follow-up as a lesson's, told apart only by its source."""
+    h = _session(client, "dev-promise-mawqif")
+    cid = _child(client, h)
+    r = _promise(client, h, cid, source="mawqif", topic="siblings")
+    assert r.status_code == 201, r.text
+    assert r.json()["followup"]["source"] == "mawqif"
+    assert _promise(client, h, cid, source="chat", topic="sleep").status_code == 422

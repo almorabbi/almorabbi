@@ -1,0 +1,237 @@
+{
+ "version": "1.0.0",
+ "description": "A decision moment: a four-minute step for parents. A situation from their day, three reasonable responses each with what happens now and what happens later, then a hadith, then one idea, then one step. Spec: docs/MAWAQIF.md",
+ "is_published": true,
+ "language": "en",
+ "source_language": "ar",
+ "items": [
+  {
+   "id": "mawqif_2-3_market_tantrum",
+   "age_group": "2-3",
+   "topic": "anger",
+   "title": "A meltdown at the checkout",
+   "situation": "In the checkout line your child spots the sweets by the till. You say no. They throw themselves on the floor, crying and screaming, and people are looking at you.",
+   "choices": [
+    {
+     "key": "buy",
+     "text": "I buy the sweets so it ends.",
+     "now": "They calm down at once, and the embarrassment is over.",
+     "later": "They learn that crying in public turns \"no\" into \"yes\", so the meltdown comes back at every shop."
+    },
+    {
+     "key": "stay",
+     "text": "I calmly carry them aside, away from the line, and stay with them until they settle, without changing my answer.",
+     "now": "The crying lasts a few minutes, and you may lose your place in the line.",
+     "later": "They learn that their anger is allowed, that you are beside them, and that \"no\" stays \"no\"."
+    },
+    {
+     "key": "ignore",
+     "text": "I ignore them completely until they stop on their own.",
+     "now": "You don't reward the crying, but it may grow because they feel alone.",
+     "later": "They may learn not to turn to you when their feelings overwhelm them."
+    }
+   ],
+   "evidence": {
+    "id": "h_rifq_zana",
+    "kind": "hadith",
+    "text_ar": "إن الرفق لا يكون في شيء إلا زانه، ولا ينزع من شيء إلا شانه",
+    "source": "صحيح مسلم — حديث ٢٥٩٤",
+    "provenance": {"book": "مسلم", "number": 2594},
+    "context": "Narrated by Aisha (may Allah be pleased with her). In one narration in Muslim, she was riding a difficult camel, and the Prophet ﷺ told her to be gentle.",
+    "meaning": "Gentleness is not found in anything except that it adorns it, and it is not removed from anything except that it disfigures it."
+   },
+   "idea": "Gentleness does not mean taking back your \"no\". It means saying it while staying close.",
+   "step": "Before our next shopping trip, I tell my child calmly what we will buy and what we won't."
+  },
+  {
+   "id": "mawqif_4-6_broken_cup",
+   "age_group": "4-6",
+   "topic": "lying",
+   "title": "The broken cup",
+   "situation": "You hear glass breaking in the kitchen. You walk in and find your child next to a broken cup. They say quickly: \"It wasn't me, the cat did it.\"",
+   "choices": [
+    {
+     "key": "confront",
+     "text": "I confront them: \"You're lying, I saw you next to it.\"",
+     "now": "The truth is out at once, but they cling to their story out of fear.",
+     "later": "They may learn to lie better, not to stop lying."
+    },
+    {
+     "key": "together",
+     "text": "I say: \"The cup broke. Come, let's pick up the pieces together,\" then calmly ask what happened.",
+     "now": "You don't hear the confession straight away, and it may look as if you let the lie go.",
+     "later": "They learn that telling you the truth is safe, so they tell it next time."
+    },
+    {
+     "key": "punish_lie",
+     "text": "I punish the lie and let the breakage go.",
+     "now": "They understand that lying is worse than the mistake.",
+     "later": "The message is right, but fear of punishment is what made them lie in the first place."
+    }
+   ],
+   "evidence": {
+    "id": "h_sidq_birr",
+    "kind": "hadith",
+    "text_ar": "إن الصدق يهدي إلى البر، وإن البر يهدي إلى الجنة",
+    "source": "صحيح البخاري — حديث ٦٠٩٤",
+    "provenance": {"book": "البخاري", "number": 6094},
+    "context": "Narrated by Abdullah ibn Mas'ud (may Allah be pleased with him).",
+    "meaning": "Truthfulness leads to righteousness, and righteousness leads to Paradise."
+   },
+   "idea": "A child tells the truth when, with you, the truth is lighter than the lie. Make owning up the easiest road to you.",
+   "step": "When my child makes a mistake this week, I thank them for owning up first, then we fix it together."
+  },
+  {
+   "id": "mawqif_7-9_sibling_hit",
+   "age_group": "7-9",
+   "topic": "siblings",
+   "title": "He hit his brother",
+   "situation": "You hear shouting from the next room. You go in and find your older son has hit his little brother for tearing his drawing, and the little one is crying.",
+   "choices": [
+    {
+     "key": "shout",
+     "text": "I raise my voice at him straight away and send him to his room.",
+     "now": "The fight stops in a second.",
+     "later": "He sees that the loudest voice settles a quarrel, which is exactly what he did with his brother."
+    },
+    {
+     "key": "calm_first",
+     "text": "I check on the little one first, wait until I am calm myself, then talk to the older one about his anger and his drawing.",
+     "now": "The reckoning waits a few minutes, and the older one may seem to get away with it.",
+     "later": "He learns from your calm how to master himself, and feels you understood why he was angry without accepting the hitting."
+    },
+    {
+     "key": "apology",
+     "text": "I make the older one apologise to his brother in front of me, right now.",
+     "now": "It ends with an apology.",
+     "later": "A forced apology can come out empty, and his anger is left unresolved."
+    }
+   ],
+   "evidence": {
+    "id": "h_shadid_ghadab",
+    "kind": "hadith",
+    "text_ar": "ليس الشديد بالصرعة، إنما الشديد الذي يملك نفسه عند الغضب",
+    "source": "صحيح البخاري — حديث ٦١١٤",
+    "provenance": {"book": "البخاري", "number": 6114},
+    "context": "Narrated by Abu Hurayrah (may Allah be pleased with him).",
+    "meaning": "The strong one is not the one who overpowers others in wrestling; the strong one is the one who controls himself when angry."
+   },
+   "idea": "Before your child learns to manage his anger, he watches you manage yours. Your calm is the first lesson.",
+   "step": "At the first quarrel this week, I take a full minute to calm down before I speak, then I hear both of them."
+  },
+  {
+   "id": "mawqif_10-12_homework_screen",
+   "age_group": "10-12",
+   "topic": "screens",
+   "title": "The homework is still closed",
+   "situation": "You come home in the evening and find your daughter has been on the device since the afternoon. The homework hasn't been opened, and there's a test tomorrow.",
+   "choices": [
+    {
+     "key": "take_away",
+     "text": "I take the device away until the end of the week.",
+     "now": "The screen is off tonight, and she starts her homework angry.",
+     "later": "A long punishment doesn't teach her to manage her time, and may push her to use it in secret."
+    },
+    {
+     "key": "agree_rule",
+     "text": "I ask her to turn it off now, and after the test we sit down to agree together on when and where the device is used.",
+     "now": "She may object tonight, and you have to keep the promise of that talk after the test.",
+     "later": "A rule she helped make is a rule she keeps more."
+    },
+    {
+     "key": "let_go",
+     "text": "I let it go this time and remind her about the test.",
+     "now": "No argument tonight.",
+     "later": "She learns that limits change with the mood of the day."
+    }
+   ],
+   "evidence": {
+    "id": "h_ni3matan",
+    "kind": "hadith",
+    "text_ar": "نعمتان مغبون فيهما كثير من الناس: الصحة والفراغ",
+    "source": "صحيح البخاري — حديث ٦٤١٢",
+    "provenance": {"book": "البخاري", "number": 6412},
+    "context": "Narrated by Abdullah ibn Abbas (may Allah be pleased with them both).",
+    "meaning": "There are two blessings in which many people are at a loss: health and free time."
+   },
+   "idea": "Time is a blessing many adults lose before children do. Teach her to own her time, not just to have the device taken away.",
+   "step": "This week I sit with her and we write down together: when the device is on, and where it sleeps at night."
+  },
+  {
+   "id": "mawqif_13-15_open_phone",
+   "age_group": "13-15",
+   "topic": "screens",
+   "title": "The unlocked phone",
+   "situation": "Your son has started closing his door and turning his phone face down when you walk in. Today he left it on the table and went out, with the screen unlocked.",
+   "choices": [
+    {
+     "key": "read",
+     "text": "I read his messages quickly, just to be reassured.",
+     "now": "You learn what is going on, and feel reassured or more worried.",
+     "later": "If he finds out, a trust breaks that is hard to mend, and he hides more from you."
+    },
+    {
+     "key": "ask",
+     "text": "I leave the phone, pick a calm moment to ask him about his friends, and tell him honestly that I'm worried.",
+     "now": "You learn nothing tonight, and the worry stays.",
+     "later": "He knows you ask and don't spy, so he comes to you when he needs to."
+    },
+    {
+     "key": "open_rules",
+     "text": "I agree with him on open rules for the phone, including that I sometimes look at it with him present.",
+     "now": "He may object and see it as a lack of trust.",
+     "later": "Open oversight with limits he knows, instead of hidden checking that destroys trust if it is discovered."
+    }
+   ],
+   "evidence": {
+    "id": "h_zann_tajassus",
+    "kind": "hadith",
+    "text_ar": "إياكم والظن، فإن الظن أكذب الحديث، ولا تحسسوا، ولا تجسسوا",
+    "source": "صحيح البخاري — حديث ٦٠٦٤",
+    "provenance": {"book": "البخاري", "number": 6064},
+    "context": "Narrated by Abu Hurayrah (may Allah be pleased with him).",
+    "meaning": "Beware of suspicion, for suspicion is the most untruthful of speech; and do not seek out one another's faults, and do not spy."
+   },
+   "idea": "Protecting your son does not require spying on him: open oversight and conversation keep him safe and keep the trust. If a sign of real danger appears, firm action is a duty.",
+   "step": "This week I pick a calm moment to ask him about his friends, and listen without commenting."
+  },
+  {
+   "id": "mawqif_16-18_study_choice",
+   "age_group": "16-18",
+   "topic": "study",
+   "title": "A subject you didn't expect",
+   "situation": "Your daughter tells you she wants to study design, while you have pictured her as a doctor since she was small. She says: \"This is my life.\"",
+   "choices": [
+    {
+     "key": "insist",
+     "text": "I insist on my view; I know what is good for her.",
+     "now": "She may agree for now.",
+     "later": "She studies something she doesn't love, and may hold you responsible for years."
+    },
+    {
+     "key": "step_back",
+     "text": "I tell her it's her decision and step out of the discussion.",
+     "now": "She feels free.",
+     "later": "She may feel you left her alone with a big decision, and she loses your experience."
+    },
+    {
+     "key": "consult",
+     "text": "I ask that we sit together: she gives her reasons, I give mine, we ask people who know the field, and then she decides.",
+     "now": "It takes time and a conversation that may be hard.",
+     "later": "The decision is hers, but it is built on your counsel, so she comes back to you for the next ones."
+    }
+   ],
+   "evidence": {
+    "id": "h_yassiru",
+    "kind": "hadith",
+    "text_ar": "يسروا ولا تعسروا، وبشروا ولا تنفروا",
+    "source": "صحيح البخاري — حديث ٦٩",
+    "provenance": {"book": "البخاري", "number": 69},
+    "context": "Narrated by Anas ibn Malik (may Allah be pleased with him).",
+    "meaning": "Make things easy and do not make them hard; give good news and do not drive people away."
+   },
+   "idea": "At this age you move from decision-maker to first adviser. Counsel keeps your place with her.",
+   "step": "This week I sit with her and hear all her reasons before I give my view."
+  }
+ ]
+}

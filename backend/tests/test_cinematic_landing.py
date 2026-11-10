@@ -197,3 +197,21 @@ def test_official_accounts_are_footer_anchors_not_loads(client):
         social = footer[footer.index('class="social"'):]
         assert social.count("<svg") == len(_SOCIAL), path
         assert "<img" not in social and "<i " not in social, path
+
+
+def test_the_faq_answers_what_a_parent_asks_before_installing(client):
+    """Questions parents ask (2026-11-09): free? where do answers come from?
+    a doctor? my children's data? which ages? which phone? — plain <details>,
+    no script, each pointing to the page that says it in full."""
+    for path, needles in ((_PAGES[0], ("أسئلة يسألها الآباء والأمهات", "ولا مشتريات داخلية", "لا يشخّص",
+                                       "«حذف الحساب»", "على هواتف أندرويد")),
+                          (_EN_PAGES[0], ("Questions parents ask", "no in-app purchases", "does not diagnose",
+                                          "Delete Account", "Android phones"))):
+        html = client.get(path).text
+        faq = html[html.index('<section id="faq"'):html.index('<section id="download"')]
+        assert faq.count("<details>") == 6, path
+        assert 'href="/methodology"' in faq and 'href="/privacy-policy"' in faq, path
+        assert "<script" not in faq, path
+        for needle in needles:
+            assert needle in faq, (path, needle)
+        assert 'href="#faq"' in html, path

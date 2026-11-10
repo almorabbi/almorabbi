@@ -23,10 +23,11 @@ from app.db.init_db import init_db
 from app.middleware.rate_limit import RateLimitMiddleware
 from app.middleware.auth import AuthMiddleware
 from app.middleware.client_ip import ClientIPMiddleware
+from app.middleware.security_headers import SecurityHeadersMiddleware
 from app.routers import (
     health, assistant, chat, feedback, privacy, program, children, referral, push, identity,
     web, stats, daily_routine, value_tracking, habit_templates, child_mode, child_mode_web, sync,
-    insights, methodology, seo, tafsir, quranic_linguistics, support, child_memory, device_proof,
+    insights, methodology, print_pack, seo, tafsir, quranic_linguistics, support, child_memory, device_proof,
     family_programs, family, story_events,
 )
 from app.services import (
@@ -99,6 +100,12 @@ async def lifespan(app: FastAPI):
     app.state.child_surface_policy = load_child_surface_policy()
     init_db()
     curriculum.load_curriculum()
+    # The hadith/verse guard on answers (services/hadith_guard.py): ~0.3 s and
+    # ~60 MB once, here rather than inside the first answer. A missing index
+    # logs an error and answers go out unchecked — never a failed boot.
+    from app.services import hadith_guard
+    if not hadith_guard.warm():
+        logger.error("hadith guard: corpora not loaded — assistant answers are unchecked")
 
     # ── Warm-up: eager-load embeddings + ChromaDB index ──────────────────
     # Eliminates the 30-60s cold load on the first user request.
@@ -231,6 +238,12 @@ app.add_middleware(RateLimitMiddleware)
 # and trusted forged X-Forwarded-For entries. See middleware/client_ip.py.
 app.add_middleware(ClientIPMiddleware)
 
+# Security headers on every response (middleware/security_headers.py). Added
+# after ClientIPMiddleware, so it is the outermost layer: the 401s and 429s the
+# inner layers answer with carry the headers too. It reads nothing from the
+# request, so running before the client-IP resolution changes nothing.
+app.add_middleware(SecurityHeadersMiddleware)
+
 app.include_router(health.router)
 app.include_router(assistant.router, prefix="/api")
 app.include_router(chat.router, prefix="/api")
@@ -239,6 +252,7 @@ app.include_router(program.router, prefix="/api")  # curriculum: paths/lessons/d
 app.include_router(privacy.router)  # /privacy-policy (no /api prefix; public)
 app.include_router(privacy.api_router, prefix="/api")  # /api/privacy/memory delete-all (auth)
 app.include_router(methodology.router)  # /methodology (public — methodology & sources page)
+app.include_router(print_pack.router)  # /print/ramadan (public — the Ramadan program as A4 sheets)
 app.include_router(seo.router, prefix="/seo")  # /seo/{slug} (public — SEO pages for pain-point questions)
 app.include_router(web.router)  # public SEO pages + share landing (/go, /l, /p; Phase 2)
 app.include_router(children.router, prefix="/api")  # child profiles + progress (auth)

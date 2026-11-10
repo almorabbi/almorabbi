@@ -10658,6 +10658,54 @@ abstract class AppLocalizations {
   /// **'اضغط للتعليم عليها'**
   String get planMarkHint;
 
+  /// Shown once all three steps of the week's plan are ticked, beside Noor. Easy MSA, family-neutral plural, no number, no coin, no promise of reward.
+  ///
+  /// In ar, this message translates to:
+  /// **'أتممتم الخطوات الثلاث مع {name} هذا الأسبوع. هكذا تُبنى العادات الطيبة.'**
+  String planWeekComplete(String name);
+
+  /// Heading of today's mission row on «اليوم» (parent side, no handover).
+  ///
+  /// In ar, this message translates to:
+  /// **'مهمة اليوم لـ{name}'**
+  String missionTodayFor(String name);
+
+  /// Under today's mission on «اليوم»: the parent tells the child, then marks it. Family-neutral, gender-neutral.
+  ///
+  /// In ar, this message translates to:
+  /// **'أخبروا {name} بها، وعلّموا عليها حين تُنجَز.'**
+  String missionTodayHint(String name);
+
+  /// Button: the parent marks today's mission done.
+  ///
+  /// In ar, this message translates to:
+  /// **'أُنجزت'**
+  String get missionTodayDoneButton;
+
+  /// Line once today's mission is done. Plain statement, no reward.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنجز {name} مهمة اليوم'**
+  String missionTodayDone(String name);
+
+  /// Sheet after «أُنجزت»: optional kind word the child reads next time in child mode.
+  ///
+  /// In ar, this message translates to:
+  /// **'كلمة طيبة لـ{name}؟'**
+  String missionPraiseSheetTitle(String name);
+
+  /// Sheet button when a kind word is chosen or written.
+  ///
+  /// In ar, this message translates to:
+  /// **'أرسل'**
+  String get missionPraiseSend;
+
+  /// Sheet button when no kind word was chosen: marks done without a note.
+  ///
+  /// In ar, this message translates to:
+  /// **'تمّ، بلا كلمة'**
+  String get missionPraiseSkip;
+
   /// Line on the collapsed weekly-plan card once a step is ticked. Positive only — never 'steps left'. «قناديل الأسبوع» (نور والقناديل phase 3). Easy MSA, family-neutral plural (أتممتم), no promise of reward, no missed/lost wording.
   ///
   /// In ar, this message translates to:
@@ -11287,6 +11335,228 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'عادية'**
   String get storyRateOkay;
+
+  /// No description provided for @tasmeeButton.
+  ///
+  /// In ar, this message translates to:
+  /// **'تسميع'**
+  String get tasmeeButton;
+
+  /// No description provided for @tasmeeTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'تسميع سورة {surah}'**
+  String tasmeeTitle(String surah);
+
+  /// No description provided for @tasmeeHint.
+  ///
+  /// In ar, this message translates to:
+  /// **'اسمع من طفلك، والمس الكلمة التي تعثّر فيها.'**
+  String get tasmeeHint;
+
+  /// No description provided for @tasmeeRangeTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'اختاروا المقطع'**
+  String get tasmeeRangeTitle;
+
+  /// No description provided for @tasmeeFrom.
+  ///
+  /// In ar, this message translates to:
+  /// **'من الآية'**
+  String get tasmeeFrom;
+
+  /// No description provided for @tasmeeTo.
+  ///
+  /// In ar, this message translates to:
+  /// **'إلى الآية'**
+  String get tasmeeTo;
+
+  /// No description provided for @tasmeeStart.
+  ///
+  /// In ar, this message translates to:
+  /// **'ابدأ التسميع'**
+  String get tasmeeStart;
+
+  /// No description provided for @tasmeeSlipOmit.
+  ///
+  /// In ar, this message translates to:
+  /// **'نسيها'**
+  String get tasmeeSlipOmit;
+
+  /// No description provided for @tasmeeSlipAdd.
+  ///
+  /// In ar, this message translates to:
+  /// **'زاد'**
+  String get tasmeeSlipAdd;
+
+  /// No description provided for @tasmeeSlipSwap.
+  ///
+  /// In ar, this message translates to:
+  /// **'أبدلها'**
+  String get tasmeeSlipSwap;
+
+  /// No description provided for @tasmeeSlipHesitate.
+  ///
+  /// In ar, this message translates to:
+  /// **'تردّد'**
+  String get tasmeeSlipHesitate;
+
+  /// No description provided for @tasmeeSlipClear.
+  ///
+  /// In ar, this message translates to:
+  /// **'إزالة العلامة'**
+  String get tasmeeSlipClear;
+
+  /// No description provided for @tasmeeFinish.
+  ///
+  /// In ar, this message translates to:
+  /// **'انتهينا'**
+  String get tasmeeFinish;
+
+  /// No description provided for @tasmeeSummaryTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'خلاصة التسميع'**
+  String get tasmeeSummaryTitle;
+
+  /// No description provided for @tasmeeSummaryClean.
+  ///
+  /// In ar, this message translates to:
+  /// **'تسميع بلا تعثّر.'**
+  String get tasmeeSummaryClean;
+
+  /// No description provided for @tasmeeSummaryCounts.
+  ///
+  /// In ar, this message translates to:
+  /// **'نسيها: {omit} · زاد: {add} · أبدلها: {swap} · تردّد: {hesitate}'**
+  String tasmeeSummaryCounts(int omit, int add, int swap, int hesitate);
+
+  /// No description provided for @tasmeeSummaryAyat.
+  ///
+  /// In ar, this message translates to:
+  /// **'آيات فيها علامات: {ayat}'**
+  String tasmeeSummaryAyat(String ayat);
+
+  /// No description provided for @tasmeeSave.
+  ///
+  /// In ar, this message translates to:
+  /// **'احفظ'**
+  String get tasmeeSave;
+
+  /// No description provided for @tasmeeOpenSlips.
+  ///
+  /// In ar, this message translates to:
+  /// **'{count, plural, =1{موضع واحد للمراجعة} =2{موضعان للمراجعة} few{{count} مواضع للمراجعة} many{{count} موضعًا للمراجعة} other{{count} موضع للمراجعة}}'**
+  String tasmeeOpenSlips(int count);
+
+  /// No description provided for @tasmeeNoSlips.
+  ///
+  /// In ar, this message translates to:
+  /// **'بلا مواضع للمراجعة'**
+  String get tasmeeNoSlips;
+
+  /// No description provided for @tasmeeDue.
+  ///
+  /// In ar, this message translates to:
+  /// **'راجعوها اليوم'**
+  String get tasmeeDue;
+
+  /// Today card label for «موقف بقرار» (docs/MAWAQIF.md): a four-minute decision step for the parent.
+  ///
+  /// In ar, this message translates to:
+  /// **'موقف بقرار · ٤ دقائق'**
+  String get mawqifCardLabel;
+
+  /// Button on the «موقف بقرار» card: open the step.
+  ///
+  /// In ar, this message translates to:
+  /// **'ابدأ'**
+  String get mawqifCardStart;
+
+  /// Stage label: the situation from the parent's day.
+  ///
+  /// In ar, this message translates to:
+  /// **'الموقف'**
+  String get mawqifSituationLabel;
+
+  /// Button after the situation: go to the three responses.
+  ///
+  /// In ar, this message translates to:
+  /// **'ماذا تفعل؟'**
+  String get mawqifWhatDoYouDo;
+
+  /// Stage title over the three responses.
+  ///
+  /// In ar, this message translates to:
+  /// **'قرارك الآن'**
+  String get mawqifChoicesTitle;
+
+  /// Under the stage title: no response is the 'right answer'; each has a gain and a cost.
+  ///
+  /// In ar, this message translates to:
+  /// **'لكل ردٍّ مكسب وثمن. اختر أقربها إلى ما كنت ستفعله.'**
+  String get mawqifChoicesHint;
+
+  /// Label: what happens now after the chosen response.
+  ///
+  /// In ar, this message translates to:
+  /// **'الآن'**
+  String get mawqifNow;
+
+  /// Label: what happens later after the chosen response.
+  ///
+  /// In ar, this message translates to:
+  /// **'بعد ذلك'**
+  String get mawqifLater;
+
+  /// Expands the now/later of all three responses.
+  ///
+  /// In ar, this message translates to:
+  /// **'قارن الردود الثلاثة'**
+  String get mawqifCompare;
+
+  /// Button and stage title: the hadith that answers the situation.
+  ///
+  /// In ar, this message translates to:
+  /// **'من السنّة'**
+  String get mawqifToEvidence;
+
+  /// Heading over the meanings of the hadith's harder words.
+  ///
+  /// In ar, this message translates to:
+  /// **'معاني الكلمات'**
+  String get mawqifWordsTitle;
+
+  /// Heading over the one-sentence idea.
+  ///
+  /// In ar, this message translates to:
+  /// **'الفكرة'**
+  String get mawqifIdeaTitle;
+
+  /// Button: go to the one step.
+  ///
+  /// In ar, this message translates to:
+  /// **'خطوتك'**
+  String get mawqifToStep;
+
+  /// Stage title over the single doable step.
+  ///
+  /// In ar, this message translates to:
+  /// **'خطوة واحدة هذا الأسبوع'**
+  String get mawqifStepTitle;
+
+  /// Button: commit to the step (then the parent picks when).
+  ///
+  /// In ar, this message translates to:
+  /// **'سأجرّبها'**
+  String get mawqifCommit;
+
+  /// Button: leave the last screen without committing.
+  ///
+  /// In ar, this message translates to:
+  /// **'ليس الآن'**
+  String get mawqifClose;
 }
 
 class _AppLocalizationsDelegate

@@ -127,6 +127,14 @@ class Analytics {
   }
 
   /// The Quran/werd tab was selected.
+  // «تسميع مع الوالد» (docs/TASMEE_WITH_PARENT.md): counts only — no text,
+  // no name, no which-word.
+  static Future<void> tasmeeStarted(int surah, int ayahCount) =>
+      _log('tasmee_started', {'surah': surah, 'ayah_count': ayahCount});
+
+  static Future<void> tasmeeFinished(int surah, int marks) =>
+      _log('tasmee_finished', {'surah': surah, 'marks': marks, 'clean': marks == 0 ? 1 : 0});
+
   static Future<void> quranOpened() {
     EngagementSignal.mark();
     return _log('quran_opened');
@@ -261,9 +269,35 @@ class Analytics {
   static Future<void> praiseSent(String ageBand) =>
       _log('praise_sent', {'age_band': ageBand});
 
+  /// Every step of the week's plan is ticked — logged once per child per
+  /// week by the card (2026-11-08 baseline: 7 ticks ever, so this is new).
+  static Future<void> planWeekComplete() => _log('plan_week_complete');
+
+  /// Today's mission card shown to the parent on «اليوم» (no handover).
+  static Future<void> missionShownParent(String ageBand) =>
+      _log('mission_shown_parent', {'age_band': ageBand});
+
+  /// The parent pressed «عملها» on today's mission. A parenting act — the
+  /// same row lights today's lantern on the server.
+  static Future<void> missionDoneParent(String ageBand, {required bool withNote}) =>
+      _log('mission_done_parent',
+          {'age_band': ageBand, 'with_note': withNote ? 1 : 0});
+
   /// The parent committed to one doable step («تمام، سأفعلها»). `when` is the
   /// slot they chose; `source` is where: the lesson's step (`lesson`) or a
   /// step taken from an assistant answer (`chat`, «سأجرّبها مع …»).
+  /// «موقف بقرار» (docs/MAWAQIF.md): the card was shown on Today, opened,
+  /// a response was picked, the last screen was reached. Ids and keys only —
+  /// no text. Committing to the step is `next_step_committed` source=mawqif.
+  static Future<void> mawqifShown(String ageBand) =>
+      _log('mawqif_shown', {'age_band': ageBand});
+  static Future<void> mawqifOpened(String id) =>
+      _log('mawqif_opened', {'mawqif_id': id});
+  static Future<void> mawqifChoice(String id, String choice) =>
+      _log('mawqif_choice', {'mawqif_id': id, 'choice': choice});
+  static Future<void> mawqifFinished(String id) =>
+      _log('mawqif_finished', {'mawqif_id': id});
+
   static Future<void> nextStepCommitted({
     String when = 'tonight',
     String source = 'lesson',

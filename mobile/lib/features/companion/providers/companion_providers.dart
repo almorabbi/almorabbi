@@ -129,6 +129,9 @@ class CompanionMemoryNotifier extends AsyncNotifier<CompanionMemory> {
         step: wire,
         when: slot.wire,
         topic: topic,
+        // The server tells a «موقف بقرار» step apart; every other promise
+        // stays what the server has always recorded (lesson).
+        source: source == 'mawqif' ? 'mawqif' : null,
       );
       if (fid != null) await linkFollowup(p.id, fid);
       return p;

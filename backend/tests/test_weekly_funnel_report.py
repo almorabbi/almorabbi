@@ -15,6 +15,7 @@ from ops.scripts.weekly_funnel_report import (
     get_funnel_metrics,
     get_north_star,
     get_openers,
+    get_quest_metrics,
     get_questions_and_quality,
     get_stream_outcomes,
     load_suggested_questions,
@@ -736,3 +737,73 @@ def test_a_report_run_finds_the_test_devices_once(mock_db: Path, tmp_path: Path,
     assert len(calls) == 1
     assert "هذا الأسبوع: <b>1</b> أسرة" in capsys.readouterr().out
     assert wfr._RUN_E2E == {}                     # nothing outlives the run
+
+
+def test_quest_metrics_split_parent_taps_from_child_claims(mock_db: Path):
+    """2026-11-08: the weekly plan and the day's mission existed but were all
+    but never done (7 marks ever; 4 confirmations in 28 days). The report
+    shows whether the one-tap versions move that — real devices only."""
+    now = datetime.utcnow()
+    conn = sqlite3.connect(mock_db)
+    # Copied from production (sqlite_master, tg_backend, 2026-11-08).
+    conn.executescript(
+        """
+        CREATE TABLE weekly_plans (
+            id          INTEGER PRIMARY KEY AUTOINCREMENT,
+            device_id   TEXT NOT NULL,
+            child_id    INTEGER NOT NULL,
+            iso_week    TEXT NOT NULL,
+            lang        TEXT NOT NULL DEFAULT 'ar',
+            plan_json   TEXT NOT NULL,
+            created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+            personal    INTEGER NOT NULL DEFAULT 0,
+            UNIQUE (device_id, child_id, iso_week, lang, personal)
+        );
+        CREATE TABLE weekly_plan_marks (
+            id          INTEGER PRIMARY KEY AUTOINCREMENT,
+            device_id   TEXT NOT NULL,
+            child_id    INTEGER NOT NULL,
+            item_id     TEXT NOT NULL,
+            marked_on   TEXT NOT NULL,
+            created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+            UNIQUE (device_id, child_id, item_id, marked_on)
+        );
+        -- child_missions is in the base fixture; production added `source` by ALTER (v34).
+        ALTER TABLE child_missions ADD COLUMN source TEXT;
+        """
+    )
+    recent, old = _sql(now - timedelta(days=2)), _sql(now - timedelta(days=30))
+    for dev, cid in (("fam-a", 1), ("fam-b", 2), ("fam-c", 3)):
+        conn.execute("INSERT INTO weekly_plans (device_id, child_id, iso_week, plan_json, created_at) "
+                     "VALUES (?, ?, '2026-W45', '{}', ?)", (dev, cid, recent))
+    conn.execute("INSERT INTO weekly_plan_marks (device_id, child_id, item_id, marked_on, created_at) "
+                 "VALUES ('fam-a', 1, 'a1', '2026-11-03', ?)", (recent,))
+    conn.execute("INSERT INTO weekly_plan_marks (device_id, child_id, item_id, marked_on, created_at) "
+                 "VALUES ('fam-b', 2, 'a1', '2026-10-01', ?)", (old,))
+    rows = [
+        ("fam-a", 1, "m1", "confirmed", None, recent, None),        # parent tap
+        ("fam-b", 2, "m2", "confirmed", recent, recent, None),      # child claim
+        ("fam-c", 3, "m3", "confirmed", None, recent, "prayer_journey"),  # not a bank card
+        ("fam-c", 3, "m4", "confirmed", None, old, None),           # outside window
+        ("fam-c", 3, "m5", "expired", None, None, None),
+    ]
+    for dev, cid, key, st, claimed, confirmed, src in rows:
+        conn.execute("INSERT INTO child_missions (device_id, child_id, mission_key, local_date, "
+                     "status, claimed_at, confirmed_at, source) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                     (dev, cid, key, key, st, claimed, confirmed, src))
+    conn.commit()
+    conn.close()
+
+    q = get_quest_metrics(mock_db, 7)
+    assert q == {"plan_devices": 3, "plan_markers": 1,
+                 "missions_parent": 1, "missions_child": 1}
+    text = format_report(
+        7, [], [], [],
+        {"cohort_size": 0, "started_lesson": 0, "completed_lesson": 0, "asked_question": 0,
+         "started_pct": 0.0, "completed_pct": 0.0, "asked_pct": 0.0},
+        {"total_user_messages": 0, "suggested_dropped": 0, "short_dropped": 0,
+         "genuine_questions": 0, "tip_initiated_count": 0, "orphans": 0, "interrupted": 0,
+         "errors": 0, "degraded": 0, "unanswered_rate": 0.0, "top_domains": []},
+        {"tips_generated": 0, "tips_shown": 0, "tips_tapped": 0, "tips_ctr": 0.0},
+        {"ratings": {}, "total_app_feedback": 0, "voice_notes": 0}, quests=q)
+    assert "33%" in text and "مهام الأسرة" in text

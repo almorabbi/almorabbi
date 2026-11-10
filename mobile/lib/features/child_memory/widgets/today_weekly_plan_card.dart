@@ -2,8 +2,14 @@
 ///
 /// One focus, three small actions, one act of worship together, one lesson —
 /// for the active child, for the parent's local ISO week as the SERVER drew
-/// it (`week_start`). Collapsed to the focus by default: Today was cut to three
-/// stops because «مش عارف أبدأ منين», and the week's plan must not undo that.
+/// it (`week_start`). Collapsed to the focus and its three steps: Today was
+/// cut to three stops because «مش عارف أبدأ منين», and the week's plan must not
+/// undo that — the worship act and the lesson wait behind «اعرض الخطة كاملة».
+///
+/// The three steps sit on the collapsed card since 2026-11-08. Before, a tick
+/// was two taps deep (expand, then tick) and production counted 7 ticks ever
+/// against ~220 devices a week shown the card. When all three are ticked the
+/// card says so once — Noor, one line, no number and no coin.
 ///
 /// Every step can be ticked with one tap (نور والقناديل phase 3, §9.5.1): the
 /// tick shows at once, a snack bar offers «تراجع» (the DELETE), and the
@@ -37,6 +43,7 @@ import '../../../l10n/content_direction.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/design_tokens.dart';
 import '../../../widgets/ui/directional_chevron.dart';
+import '../../companion/widgets/noor_face.dart';
 import '../../lanterns/providers/lantern_providers.dart';
 import '../../onboarding/providers/onboarding_providers.dart'
     show sharedPreferencesProvider;
@@ -80,6 +87,15 @@ class _TodayWeeklyPlanCardState extends ConsumerState<TodayWeeklyPlanCard> {
   /// Only the answer to the newest tick may overwrite [_marks]: a PUT and its
   /// undo can come back in either order.
   int _seq = 0;
+
+  /// The week whose completion was already logged on this phone.
+  String? _completeLogged;
+
+  /// A tap just completed the three steps: the line fades in this once.
+  bool _justCompleted = false;
+
+  /// Where the phone remembers the week it logged complete for a child.
+  String _completeKey() => 'plan.complete.v1.${widget.childId}';
 
   /// This open brings the steps in one by one (Monday's reveal).
   bool _revealing = false;
@@ -179,9 +195,28 @@ class _TodayWeeklyPlanCardState extends ConsumerState<TodayWeeklyPlanCard> {
     }
   }
 
+  bool _allActionsDone(WeeklyPlan plan, List<String> marks) =>
+      plan.actions.isNotEmpty &&
+      plan.actions.every((a) => a.key.isNotEmpty && marks.contains(a.key));
+
+  /// Log the completed week once per child per week, on this phone.
+  void _logComplete(WeeklyPlan plan) {
+    final week = plan.weekStartWire;
+    if (week == null || _completeLogged == week) return;
+    _completeLogged = week;
+    final prefs = ref.read(sharedPreferencesProvider).valueOrNull;
+    if (prefs == null || prefs.getString(_completeKey()) == week) return;
+    unawaited(prefs.setString(_completeKey(), week));
+    unawaited(Analytics.planWeekComplete());
+  }
+
   void _tap(WeeklyPlan plan, PlanItem item) {
     final l10n = AppLocalizations.of(context);
     final marked = !_marks.contains(item.key);
+    final completes = marked &&
+        !_allActionsDone(plan, _marks) &&
+        _allActionsDone(plan, [..._marks, item.key]);
+    if (completes) _justCompleted = true;
     unawaited(Analytics.todayBlockTapped(
         'loop', marked ? 'plan_mark' : 'plan_unmark'));
     if (marked) {
@@ -228,6 +263,9 @@ class _TodayWeeklyPlanCardState extends ConsumerState<TodayWeeklyPlanCard> {
       if (plan.worship != null) plan.worship!.key,
     };
     final done = _marks.where(planKeys.contains).length;
+    final complete = _allActionsDone(plan, _marks);
+    if (complete) _logComplete(plan);
+    var row = 0;
 
     return Padding(
       padding: const EdgeInsets.only(top: 16),
@@ -302,7 +340,24 @@ class _TodayWeeklyPlanCardState extends ConsumerState<TodayWeeklyPlanCard> {
                 ],
               ),
             ],
-            if (_expanded) ..._details(context, plan, dir),
+            const SizedBox(height: 6),
+            for (var i = 0; i < plan.actions.length; i++)
+              _reveal(
+                _MarkRow(
+                  item: plan.actions[i],
+                  number: i + 1,
+                  marked: _marks.contains(plan.actions[i].key),
+                  dir: dir,
+                  onTap: () => _tap(plan, plan.actions[i]),
+                ),
+                row++,
+              ),
+            if (complete)
+              _WeekComplete(
+                childName: widget.childName,
+                animate: _justCompleted && !reduceMotion(context),
+              ),
+            if (_expanded) ..._details(context, plan, dir, row),
             Align(
               alignment: AlignmentDirectional.centerEnd,
               child: TextButton(
@@ -333,7 +388,8 @@ class _TodayWeeklyPlanCardState extends ConsumerState<TodayWeeklyPlanCard> {
         .slideY(begin: .25, end: 0, duration: Dt.base, curve: Curves.easeOut);
   }
 
-  List<Widget> _details(BuildContext context, WeeklyPlan plan, TextDirection dir) {
+  List<Widget> _details(
+      BuildContext context, WeeklyPlan plan, TextDirection dir, int firstRow) {
     final l10n = AppLocalizations.of(context);
     final colors = context.colors;
     Widget heading(String text) => Padding(
@@ -344,20 +400,8 @@ class _TodayWeeklyPlanCardState extends ConsumerState<TodayWeeklyPlanCard> {
                   fontWeight: FontWeight.w700,
                   fontSize: 12.5)),
         );
-    var row = 0;
+    var row = firstRow;
     return [
-      heading(l10n.planSteps),
-      for (var i = 0; i < plan.actions.length; i++)
-        _reveal(
-          _MarkRow(
-            item: plan.actions[i],
-            number: i + 1,
-            marked: _marks.contains(plan.actions[i].key),
-            dir: dir,
-            onTap: () => _tap(plan, plan.actions[i]),
-          ),
-          row++,
-        ),
       if (plan.adaptedFromOutcomes)
         Text(l10n.planAdapted,
             style: TextStyle(color: colors.inkSoft, fontSize: 12, height: 1.5)),
@@ -402,6 +446,53 @@ class _TodayWeeklyPlanCardState extends ConsumerState<TodayWeeklyPlanCard> {
     final m = MaterialLocalizations.of(context);
     final end = start.add(const Duration(days: 6));
     return '${m.formatShortMonthDay(start)} – ${m.formatShortMonthDay(end)}';
+  }
+}
+
+/// The week's three steps are all ticked. One warm line from Noor, about the
+/// family — never a number, a coin, or anything that could later read as lost.
+class _WeekComplete extends StatelessWidget {
+  const _WeekComplete({required this.childName, required this.animate});
+
+  final String childName;
+  final bool animate;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final colors = context.colors;
+    final Widget line = Padding(
+      padding: const EdgeInsets.only(top: 8),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+        decoration: BoxDecoration(
+          color: colors.success.withValues(alpha: colors.isDark ? .18 : .10),
+          borderRadius: BorderRadius.circular(14),
+        ),
+        child: Row(
+          children: [
+            const NoorFace(size: 36, state: NoorFaceState.happy),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                l10n.planWeekComplete(childName),
+                style: TextStyle(
+                  color: colors.successText,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 13.5,
+                  height: 1.5,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    if (!animate) return line;
+    return line
+        .animate()
+        .fadeIn(duration: Dt.base)
+        .scaleXY(begin: .96, end: 1, duration: Dt.base, curve: Curves.easeOut);
   }
 }
 

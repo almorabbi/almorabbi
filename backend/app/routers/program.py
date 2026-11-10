@@ -457,6 +457,22 @@ async def get_daily_tip(
     return _pick_tip_for_today(age_group, time_of_day, lang=resolved)
 
 
+@router.get("/mawaqif")
+async def get_mawaqif(
+    request: Request,
+    age_group: str = Query(..., description="إلزامي: عمر الطفل"),
+    lang: Optional[str] = Query(None, description="لغة المحتوى: ar/en"),
+):
+    """«موقف بقرار» — the decision steps for one child band (docs/MAWAQIF.md).
+    Public content, like the lessons; which steps a parent finished stays on
+    the device. An empty list for a band without steps, never a 404."""
+    from app.services import mawaqif
+
+    age_group = _validate_age_group(age_group)
+    return {"age_group": age_group,
+            "items": mawaqif.for_age(age_group, _resolve_lang(lang, request))}
+
+
 # ── Proactive parenting coach (Phase 8) ────────────────────────────────
 
 from app.services import coach_service

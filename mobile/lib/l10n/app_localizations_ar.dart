@@ -6297,6 +6297,40 @@ class AppLocalizationsAr extends AppLocalizations {
   String get planMarkHint => 'اضغط للتعليم عليها';
 
   @override
+  String planWeekComplete(String name) {
+    return 'أتممتم الخطوات الثلاث مع $name هذا الأسبوع. هكذا تُبنى العادات الطيبة.';
+  }
+
+  @override
+  String missionTodayFor(String name) {
+    return 'مهمة اليوم لـ$name';
+  }
+
+  @override
+  String missionTodayHint(String name) {
+    return 'أخبروا $name بها، وعلّموا عليها حين تُنجَز.';
+  }
+
+  @override
+  String get missionTodayDoneButton => 'أُنجزت';
+
+  @override
+  String missionTodayDone(String name) {
+    return 'أنجز $name مهمة اليوم';
+  }
+
+  @override
+  String missionPraiseSheetTitle(String name) {
+    return 'كلمة طيبة لـ$name؟';
+  }
+
+  @override
+  String get missionPraiseSend => 'أرسل';
+
+  @override
+  String get missionPraiseSkip => 'تمّ، بلا كلمة';
+
+  @override
   String planMarkedCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -6689,4 +6723,133 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get storyRateOkay => 'عادية';
+
+  @override
+  String get tasmeeButton => 'تسميع';
+
+  @override
+  String tasmeeTitle(String surah) {
+    return 'تسميع سورة $surah';
+  }
+
+  @override
+  String get tasmeeHint => 'اسمع من طفلك، والمس الكلمة التي تعثّر فيها.';
+
+  @override
+  String get tasmeeRangeTitle => 'اختاروا المقطع';
+
+  @override
+  String get tasmeeFrom => 'من الآية';
+
+  @override
+  String get tasmeeTo => 'إلى الآية';
+
+  @override
+  String get tasmeeStart => 'ابدأ التسميع';
+
+  @override
+  String get tasmeeSlipOmit => 'نسيها';
+
+  @override
+  String get tasmeeSlipAdd => 'زاد';
+
+  @override
+  String get tasmeeSlipSwap => 'أبدلها';
+
+  @override
+  String get tasmeeSlipHesitate => 'تردّد';
+
+  @override
+  String get tasmeeSlipClear => 'إزالة العلامة';
+
+  @override
+  String get tasmeeFinish => 'انتهينا';
+
+  @override
+  String get tasmeeSummaryTitle => 'خلاصة التسميع';
+
+  @override
+  String get tasmeeSummaryClean => 'تسميع بلا تعثّر.';
+
+  @override
+  String tasmeeSummaryCounts(int omit, int add, int swap, int hesitate) {
+    return 'نسيها: $omit · زاد: $add · أبدلها: $swap · تردّد: $hesitate';
+  }
+
+  @override
+  String tasmeeSummaryAyat(String ayat) {
+    return 'آيات فيها علامات: $ayat';
+  }
+
+  @override
+  String get tasmeeSave => 'احفظ';
+
+  @override
+  String tasmeeOpenSlips(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count موضع للمراجعة',
+      many: '$count موضعًا للمراجعة',
+      few: '$count مواضع للمراجعة',
+      two: 'موضعان للمراجعة',
+      one: 'موضع واحد للمراجعة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get tasmeeNoSlips => 'بلا مواضع للمراجعة';
+
+  @override
+  String get tasmeeDue => 'راجعوها اليوم';
+
+  @override
+  String get mawqifCardLabel => 'موقف بقرار · ٤ دقائق';
+
+  @override
+  String get mawqifCardStart => 'ابدأ';
+
+  @override
+  String get mawqifSituationLabel => 'الموقف';
+
+  @override
+  String get mawqifWhatDoYouDo => 'ماذا تفعل؟';
+
+  @override
+  String get mawqifChoicesTitle => 'قرارك الآن';
+
+  @override
+  String get mawqifChoicesHint =>
+      'لكل ردٍّ مكسب وثمن. اختر أقربها إلى ما كنت ستفعله.';
+
+  @override
+  String get mawqifNow => 'الآن';
+
+  @override
+  String get mawqifLater => 'بعد ذلك';
+
+  @override
+  String get mawqifCompare => 'قارن الردود الثلاثة';
+
+  @override
+  String get mawqifToEvidence => 'من السنّة';
+
+  @override
+  String get mawqifWordsTitle => 'معاني الكلمات';
+
+  @override
+  String get mawqifIdeaTitle => 'الفكرة';
+
+  @override
+  String get mawqifToStep => 'خطوتك';
+
+  @override
+  String get mawqifStepTitle => 'خطوة واحدة هذا الأسبوع';
+
+  @override
+  String get mawqifCommit => 'سأجرّبها';
+
+  @override
+  String get mawqifClose => 'ليس الآن';
 }

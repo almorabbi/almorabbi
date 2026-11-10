@@ -1,0 +1,36 @@
+# Checkpoint 12 — the family quests on Today (1.0.80), against the live server:
+# today's mission card for the parent, «أُنجزت» → the optional «كلمة طيبة»
+# sheet → the row says it was done, with no handover to child mode. The
+# weekly plan's three steps sit on the collapsed card above it.
+# The onboarding child is test traffic (common/mark_child.yaml), so the row
+# this writes is excluded from every production report.
+appId: com.alsaba.almorabbi
+name: fresh/12 Today quests — today's mission done without handover
+---
+- runScript: ../common/l10n.js
+- runFlow: ../common/home.yaml
+- runFlow:
+    file: ../common/assert_today.yaml
+    env:
+      SHOT: today_quests_before
+- scrollUntilVisible:
+    element:
+      text: '${output.t.missionTodayDoneButton}'
+    direction: DOWN
+    timeout: 30000
+# Today merges its texts into one node: the header, the title and the done
+# line are matched as contained (`c`); the button is its own node (`t`).
+- assertVisible: '${output.c.missionTodayFor}'
+- takeScreenshot: today_quests_mission
+- tapOn: '${output.t.missionTodayDoneButton}'
+- extendedWaitUntil:
+    visible: '${output.c.missionPraiseSheetTitle}'
+    timeout: 15000
+- tapOn: '${output.t.praiseChipProud}'
+- tapOn: '${output.t.missionPraiseSend}'
+- extendedWaitUntil:
+    visible: '${output.c.missionTodayDone}'
+    timeout: 30000
+- assertNotVisible: '${output.t.missionTodayDoneButton}'
+- assertNotVisible: '${output.c.lit_errorWidget}'
+- takeScreenshot: today_quests_done
