@@ -62,6 +62,24 @@ PY="$REPO/backend/.venv/bin/python"
 [ -x "$PY" ] || PY="/usr/bin/python3"
 
 say() { echo "$(date '+%Y-%m-%d %H:%M:%S') $*" | tee -a "$LOG"; }
+
+# 🚨 A step that produced nothing must say WHY, in the log PCC shows.
+#
+# Until 2026-10-29 every generator exited 0 with "0 downloaded" and its reason
+# (a dead session, a stale source, "no task id") lived only in lines nobody
+# summarised — 85 items stayed stuck for four weeks behind exit codes of 0.
+# The generators now exit 3 (EXIT_SESSION_DEAD) / 4 (EXIT_NO_OUTPUT); this
+# prints the top reasons from the step's own output next to its exit code.
+ANY_DEAD=0
+step_reasons() {   # $1 = step name, $2 = exit code, uses $RUN_OUT
+    [ "$2" = "3" ] && ANY_DEAD=1
+    if [ "$2" != "0" ] || ! grep -q '✓ downloaded' "$RUN_OUT" 2>/dev/null; then
+        grep -E 'STALE SOURCE|no task id|session is dead|trigger failed|❌|dropping' "$RUN_OUT" \
+            | sed -E 's/^ *\[[^]]*\] //; s/^[A-Za-z0-9_.@-]+: //; s/[0-9a-f]{8}(-[0-9a-f-]{27})?/<id>/g' \
+            | cut -c1-140 | sort | uniq -c | sort -rn | head -3 \
+            | while read -r line; do say "  reason[$1]: $line"; done
+    fi
+}
 say "===== English media run ====="
 
 # Each generator authenticates its own profile (tg-video / tg-audio). One
@@ -215,6 +233,7 @@ HARVEST_EXIT=$?
 cat "$RUN_OUT" >> "$LOG"
 say "harvest exit $HARVEST_EXIT · $(grep -c '✓ downloaded' "$RUN_OUT") downloaded, \
 $(grep -oE '[0-9]+ still in flight' "$RUN_OUT" | head -1)"
+step_reasons "audio-harvest" "$HARVEST_EXIT"
 
 # Infographic harvest, same reasoning, same slot — before video or audio can
 # spend and kill the tg-video session this needs. Without this, a day where
@@ -231,11 +250,22 @@ $(grep -oE '[0-9]+ still in flight' "$RUN_OUT" | head -1)"
 # dead tasks came back every morning. The script now saves after every poll and
 # stops itself cleanly once the budget is spent; the budget is checked between
 # tasks and one poll + download can take ~210 s, so 360 + 210 stays under 600.
-timeout 600 "$PY" scripts/generate_missing_infographics.py --lang en \
-    --harvest-only --budget-seconds 360 > "$RUN_OUT" 2>&1
-INFO_HARVEST_EXIT=$?
+#
+# 🚨 tg-video is re-verified HERE. The check at the top ran before tg-audio's
+# Chrome extraction, and the two profiles share one Google account — that
+# extraction can rotate the cookies out from under tg-video. 2026-10-29: every
+# one of the 12 polls in this step errored, with no way to tell why.
+if ensure_session tg-video; then
+    timeout 600 "$PY" scripts/generate_missing_infographics.py --lang en \
+        --harvest-only --budget-seconds 360 > "$RUN_OUT" 2>&1
+    INFO_HARVEST_EXIT=$?
+else
+    echo "❌ NotebookLM session is dead before the infographic harvest (ensure_session tg-video failed)" > "$RUN_OUT"
+    INFO_HARVEST_EXIT=3
+fi
 cat "$RUN_OUT" >> "$LOG"
 say "infographic harvest exit $INFO_HARVEST_EXIT · $(grep -c '✓ downloaded' "$RUN_OUT") downloaded"
+step_reasons "infographic-harvest" "$INFO_HARVEST_EXIT"
 
 # ── Video ──
 # 🚨 This run's output only, never "$LOG".
@@ -248,6 +278,7 @@ timeout 2700 "$PY" scripts/gen_path_videos_cron.py --lang en > "$RUN_OUT" 2>&1
 VID_EXIT=$?
 cat "$RUN_OUT" >> "$LOG"
 say "video exit $VID_EXIT"
+step_reasons "video" "$VID_EXIT"
 RATELIMITED=0
 grep -qi "rate.limit" "$RUN_OUT" && RATELIMITED=1
 
@@ -274,6 +305,7 @@ timeout 2700 "$PY" scripts/gen_podcasts_cron.py --lang en > "$RUN_OUT" 2>&1
 AUD_EXIT=$?
 cat "$RUN_OUT" >> "$LOG"
 say "audio exit $AUD_EXIT (video refused: $RATELIMITED)"
+step_reasons "audio" "$AUD_EXIT"
 grep -qi "rate.limit" "$RUN_OUT" && RATELIMITED=1
 
 # ── Infographics ──
@@ -295,17 +327,22 @@ else
     INFO_EXIT=$?
     cat "$RUN_OUT" >> "$LOG"
     say "infographics [en] exit $INFO_EXIT"
+    step_reasons "infographics-en" "$INFO_EXIT"
     grep -qi "rate.limit" "$RUN_OUT" && RATELIMITED=1
 
     # The 14 Arabic gaps. The driver ran `--lang en` only, so these were never
     # attempted by anything — and they do not show up as missing in any English
     # count, which is why they sat unnoticed. Last, because English is the
     # backlog this driver exists for; Arabic is 14 files, not 124.
-    if [ "$RATELIMITED" -eq 0 ]; then
+    # (Not when the session is already dead: 2026-10-29 spent four minutes on
+    # fourteen "CSRF token not found" failures here.)
+    if [ "$RATELIMITED" -eq 0 ] && [ "$INFO_EXIT" -ne 3 ]; then
         NOTEBOOKLM_HL=ar timeout 1200 "$PY" scripts/generate_missing_infographics.py \
             --lang ar > "$RUN_OUT" 2>&1
+        AR_EXIT=$?
         cat "$RUN_OUT" >> "$LOG"
-        say "infographics [ar] exit $?"
+        say "infographics [ar] exit $AR_EXIT"
+        step_reasons "infographics-ar" "$AR_EXIT"
         grep -qi "rate.limit" "$RUN_OUT" && RATELIMITED=1
     fi
 fi
@@ -417,6 +454,16 @@ PYEOF
 STALLED=$?
 if [ "$STALLED" -ne 0 ]; then
     say "FAIL: three runs with no progress and no rate limit — something is broken, not throttled"
+    exit 1
+fi
+
+# A generator that could not authenticate (exit 3) and no refusal to explain it:
+# fail THIS run, with the reason already in the log above, instead of waiting for
+# the three-run stall guard to notice — the session was dead at the start, not
+# throttled. The gate is deliberately after the publish steps: rsync only ships
+# files that already exist, so a dead session must not hold back finished media.
+if [ "$ANY_DEAD" -eq 1 ] && [ "$RATELIMITED" -eq 0 ]; then
+    say "FAIL: a generator exited 3 (NotebookLM session dead) and no refusal explains it — see reason[...] lines above"
     exit 1
 fi
 

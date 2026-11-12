@@ -40,6 +40,8 @@ def gmi(tmp_path, monkeypatch):
     monkeypatch.setattr(mod, "INDEX_PATH", tmp_path / "lesson_index.json")
     monkeypatch.setattr(mod, "BLOCKED_PATH", tmp_path / "blocked.json")
     monkeypatch.setattr(mod, "LANG", "en")
+    # never reach a real NotebookLM from a test: "unreadable" = do not filter
+    monkeypatch.setattr(mod, "live_source_ids", lambda nb: None)
     return mod
 
 
@@ -416,3 +418,155 @@ def test_secondary_notebook_id_from_source_map_is_passed_to_cli(gmi, tmp_path, m
         ("artifact", secondary_nb),
         ("download", secondary_nb),
     ]
+
+
+# ── 2026-10-29: a dead session is not a dead task, and "ran" is not "worked" ──
+
+
+def test_dead_session_keeps_paid_tasks_counts_no_strike_and_stops(gmi, monkeypatch, capsys):
+    state = {"a@en": "task-a", "b@en": "task-b", "c@en": "task-c"}
+    errors = {"a@en": 2, "b@en": 2, "c@en": 2}
+    meta = {k: {"first_seen": 1000, "last_polled": i} for i, k in enumerate(state)}
+    calls = []
+
+    def poll(task_id):
+        calls.append(task_id)
+        gmi._POLL_REASON[task_id] = "CSRF token not found in HTML"
+        return "auth"
+
+    monkeypatch.setattr(gmi, "poll", poll)
+    downloaded, left = gmi.harvest(state, errors, meta, lambda *a: None,
+                                   budget_seconds=0, max_age_days=0, wall=lambda: 2000)
+    assert calls == ["task-a"]            # stopped at the first dead poll
+    assert (downloaded, left) == (0, 3)
+    on_disk, errs, _m = _disk(gmi)
+    assert on_disk == {"a@en": "task-a", "b@en": "task-b", "c@en": "task-c"}
+    assert errs == {"a@en": 2, "b@en": 2, "c@en": 2}   # no third strike
+    assert gmi.SESSION["dead"] is True
+    assert "session is dead (CSRF token not found in HTML)" in capsys.readouterr().out
+
+
+def test_poll_tells_a_dead_session_from_a_gone_task(gmi, monkeypatch):
+    dead = ('{"error": true, "code": "UNEXPECTED_ERROR", "message": '
+            '"Unexpected error: CSRF token not found in HTML. Final URL: x"}')
+    monkeypatch.setattr(gmi, "_run", lambda args, timeout: (2, dead, ""))
+    assert gmi.poll("t1") == "auth"
+    assert "CSRF token not found" in gmi._POLL_REASON["t1"]
+    monkeypatch.setattr(gmi, "_run", lambda args, timeout: (1, "", "Artifact not found"))
+    assert gmi.poll("t2") == "error"
+    assert gmi._POLL_REASON["t2"] == "Artifact not found"
+
+
+def test_harvest_only_exits_3_on_a_dead_session(gmi, monkeypatch):
+    gmi.STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    gmi.STATE_FILE.write_text(json.dumps({"L1@en": "t-1"}))
+    gmi.INDEX_PATH.write_text(json.dumps({"lessons": []}))
+    monkeypatch.setattr(gmi, "poll", lambda tid: "auth")
+    monkeypatch.setattr(sys, "argv", ["x", "--lang", "en", "--harvest-only"])
+    assert gmi.main() == 3
+    assert json.loads(gmi.STATE_FILE.read_text()) == {"L1@en": "t-1"}
+
+
+def _two_lessons(gmi, monkeypatch, trigger):
+    gmi.STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    gmi.INDEX_PATH.write_text(json.dumps({"lessons": [{"lesson_id": "L1"}, {"lesson_id": "L2"}]}))
+    monkeypatch.setattr(gmi, "reverse_source_map", lambda: {"L1": "s1", "L2": "s2"})
+    monkeypatch.setattr(gmi, "missing_infographic_lessons",
+                        lambda: [{"lesson_id": "L1"}, {"lesson_id": "L2"}])
+    monkeypatch.setattr(gmi, "existing_asset", lambda lesson: None)
+    monkeypatch.setattr(gmi, "trigger", trigger)
+    monkeypatch.setattr(gmi.subprocess, "run", lambda *a, **kw: None)
+    monkeypatch.setattr(gmi, "time", types.SimpleNamespace(
+        monotonic=lambda: 0.0, time=lambda: 1.0, sleep=lambda s: None))
+    monkeypatch.setattr(sys, "argv", ["x", "--lang", "en"])
+
+
+def test_auth_dead_trigger_stops_the_batch_and_exits_3(gmi, monkeypatch):
+    seen = []
+
+    def trigger(lesson, src):
+        seen.append(lesson["lesson_id"])
+        return "AUTHDEAD"
+
+    _two_lessons(gmi, monkeypatch, trigger)
+    assert gmi.main() == 3
+    assert seen == ["L1"]                 # did not hammer the second lesson
+
+
+def test_every_trigger_failing_without_a_refusal_exits_4(gmi, monkeypatch):
+    _two_lessons(gmi, monkeypatch, lambda lesson, src: None)
+    assert gmi.main() == 4
+
+
+def test_a_rate_limited_run_that_triggered_nothing_still_exits_0(gmi, monkeypatch):
+    _two_lessons(gmi, monkeypatch, lambda lesson, src: "RATELIMIT")
+    assert gmi.main() == 0
+
+
+def test_stale_source_is_skipped_reported_and_exits_4(gmi, monkeypatch, capsys):
+    seen = []
+    _two_lessons(gmi, monkeypatch, lambda lesson, src: seen.append(src) or "t")
+    monkeypatch.setattr(gmi, "live_source_ids", lambda nb: {"someone-else"})
+    assert gmi.main() == 4
+    assert seen == []                     # never sent a phantom generate call
+    assert "STALE SOURCE" in capsys.readouterr().out
+
+
+def test_only_the_stale_lesson_is_skipped(gmi, monkeypatch):
+    seen = []
+    _two_lessons(gmi, monkeypatch, lambda lesson, src: seen.append(src) or f"t-{src}")
+    monkeypatch.setattr(gmi, "live_source_ids", lambda nb: {"s2"})
+    assert gmi.main() == 0
+    assert seen == ["s2"]
+
+
+def _real_module(monkeypatch):
+    """A second copy of the script with its real live_source_ids (the fixture
+    stubs that one out so no test ever reaches NotebookLM)."""
+    monkeypatch.setattr(sys, "argv", ["generate_missing_infographics.py"])
+    spec = importlib.util.spec_from_file_location("gmi_real_under_test", SCRIPT)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def test_live_source_ids_reads_the_cli_and_flags_a_dead_session(monkeypatch, capsys):
+    mod = _real_module(monkeypatch)
+    ok = json.dumps({"sources": [{"id": "s1", "title": "x"}, {"id": "s2"}]})
+    monkeypatch.setattr(mod, "_run", lambda args, timeout: (0, ok, ""))
+    assert mod.live_source_ids("nb") == {"s1", "s2"}
+    assert mod.SESSION["dead"] is False
+
+    dead = json.dumps({"error": True, "message": "CSRF token not found in HTML."})
+    monkeypatch.setattr(mod, "_run", lambda args, timeout: (2, dead, ""))
+    assert mod.live_source_ids("nb") is None
+    assert mod.SESSION["dead"] is True
+
+
+def test_unreadable_source_list_means_do_not_filter(monkeypatch):
+    mod = _real_module(monkeypatch)
+    monkeypatch.setattr(mod, "_run", lambda args, timeout: (1, "", "502"))
+    assert mod.live_source_ids("nb") is None
+    monkeypatch.setattr(mod, "_run", lambda args, timeout: (0, "not json", ""))
+    assert mod.live_source_ids("nb") is None
+    monkeypatch.setattr(mod, "_run", lambda args, timeout: (0, '{"sources": []}', ""))
+    assert mod.live_source_ids("nb") is None
+    assert mod.SESSION["dead"] is False
+
+
+def test_paged_source_list_means_do_not_filter(monkeypatch):
+    mod = _real_module(monkeypatch)
+    paged = json.dumps({"sources": [{"id": "s1"}], "next_page_token": "abc"})
+    monkeypatch.setattr(mod, "_run", lambda args, timeout: (0, paged, ""))
+    assert mod.live_source_ids("nb") is None
+
+
+def test_successful_trigger_mentioning_a_marker_is_not_a_dead_session(monkeypatch):
+    mod = _real_module(monkeypatch)
+    task = "12345678-1234-1234-1234-123456789abc"
+    monkeypatch.setattr(mod, "_run", lambda args, timeout: (
+        0, f"Started: {task}", "note: login required for private notebooks"))
+    lesson = {"lesson_id": "l1"}
+    monkeypatch.setattr(mod, "build_description", lambda l: "d")
+    monkeypatch.setattr(mod, "notebook_for_lesson", lambda l: "nb")
+    assert mod.trigger(lesson, "s1") == task
