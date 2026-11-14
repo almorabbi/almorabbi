@@ -57,11 +57,13 @@ class TodayWeeklyPlanCard extends ConsumerStatefulWidget {
     required this.childId,
     required this.childName,
     required this.ageGroup,
+    this.initiallyExpanded = false,
   });
 
   final int childId;
   final String childName;
   final String ageGroup;
+  final bool initiallyExpanded;
 
   /// Where the phone remembers the week it revealed for a child (Monday).
   static String revealKey(int childId) => 'plan.reveal.v1.$childId';
@@ -73,7 +75,15 @@ class TodayWeeklyPlanCard extends ConsumerStatefulWidget {
 
 class _TodayWeeklyPlanCardState extends ConsumerState<TodayWeeklyPlanCard> {
   late final AppLifecycleListener _lifecycle;
-  bool _expanded = false;
+  late bool _expanded = widget.initiallyExpanded;
+
+  @override
+  void didUpdateWidget(covariant TodayWeeklyPlanCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.initiallyExpanded && !oldWidget.initiallyExpanded) {
+      _expanded = true;
+    }
+  }
 
   /// The week whose rollover was already asked for, so a stale plan is
   /// refetched once — not on every frame until the new one arrives.

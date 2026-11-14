@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/ui/brand_glyph.dart';
 import 'app_palette.dart';
+
+/// Visual unification version tag for 2.0 release readiness checks.
+const String kVisualUnificationVersion = 'visual_unification_v2';
 
 /// Design tokens for the playful (Duolingo-style) redesign.
 ///
@@ -100,13 +104,13 @@ abstract final class Dt {
   static const int maxStaggeredItems = 10;
 }
 
-/// Per-domain visual identity: gradient pair + emoji mascot.
+/// Per-domain visual identity: gradient pair + paper-cut [BrandIcon].
 class DomainStyle {
   final Color base;
   final Color dark;
-  final String emoji;
+  final BrandIcon glyph;
 
-  const DomainStyle(this.base, this.dark, this.emoji);
+  const DomainStyle(this.base, this.dark, this.glyph);
 
   LinearGradient get gradient => LinearGradient(
         begin: AlignmentDirectional.topStart,
@@ -125,13 +129,15 @@ class DomainStyle {
 // Pinned by design_system_contrast_test.dart.
 const _domainStyles = <String, DomainStyle>{
   'islamic_parenting':
-      DomainStyle(Color(0xFF047857), Color(0xFF065F46), '🕌'),
+      DomainStyle(Color(0xFF047857), Color(0xFF065F46), BrandIcon.lantern),
   'aqeedah':
-      DomainStyle(Color(0xFF01696F), Color(0xFF014F55), '☪️'),
-  'development': DomainStyle(Color(0xFF7C3AED), Color(0xFF6D28D9), '🌱'),
-  'medical': DomainStyle(Color(0xFFB45309), Color(0xFF92400E), '🧩'),
-  'cyber': DomainStyle(Color(0xFF2563EB), Color(0xFF1D4ED8), '🛡️'),
-  'infant_pregnancy': DomainStyle(Color(0xFF0F766E), Color(0xFF115E59), '🍼'),
+      DomainStyle(Color(0xFF01696F), Color(0xFF014F55), BrandIcon.crescent),
+  'development':
+      DomainStyle(Color(0xFF7C3AED), Color(0xFF6D28D9), BrandIcon.sprig),
+  'medical': DomainStyle(Color(0xFFB45309), Color(0xFF92400E), BrandIcon.star),
+  'cyber': DomainStyle(Color(0xFF2563EB), Color(0xFF1D4ED8), BrandIcon.globe),
+  'infant_pregnancy':
+      DomainStyle(Color(0xFF0F766E), Color(0xFF115E59), BrandIcon.sun),
 };
 
 /// Domain keys with a dedicated style — exposed for the contrast test.
@@ -139,7 +145,7 @@ Iterable<String> get styledDomains => _domainStyles.keys;
 
 // Not const: it reads brand colours, which now follow the live palette.
 DomainStyle get _fallbackDomainStyle =>
-    DomainStyle(Dt.primary, Dt.primaryDeep, '📚');
+    DomainStyle(Dt.primary, Dt.primaryDeep, BrandIcon.openBook);
 
 DomainStyle styleFor(String? domain) =>
     _domainStyles[domain] ?? _fallbackDomainStyle;

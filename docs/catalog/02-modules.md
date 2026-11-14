@@ -495,7 +495,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `mobile/lib/theme/app_palette.dart` | 337 | The two palettes, and which one is live right now. «لدي اقتراح و اتمنى ان تطبقوه ألا و هو الوضع الداكن. فهو اريح للعين» — #fb_e7402eaa, 15 Aug 2026.… |
 | `mobile/lib/theme/app_theme.dart` | 414 | Theme + colour tokens for المربي الذكي. Redesigned 2026-06 to a playful, vibrant (Duolingo-style) identity: vivid teal + amber, warm cream… |
 | `mobile/lib/theme/bundled_fonts.dart` | 38 | Fonts ship inside the app (UX_UI_ROADMAP DS8). `google_fonts` used to download Cairo, Amiri Quran and Tajawal on first use. An offline first launch… |
-| `mobile/lib/theme/design_tokens.dart` | 145 | Design tokens for the playful (Duolingo-style) redesign. Everything here is code-only: gradients, radii, shadows and motion constants. No asset… |
+| `mobile/lib/theme/design_tokens.dart` | 150 | Design tokens for the playful (Duolingo-style) redesign (`kVisualUnificationVersion = 'visual_unification_v2'`), `DomainStyle.glyph` (`BrandIcon`), gradients, radii, shadows and motion constants. No emoji graphics (`VISUAL_UNIFICATION_2_0.md`). |
 | `mobile/lib/widgets/app_status_banner.dart` | 106 | One app-wide status line for "you are offline" and "this is a saved copy" (UX_UI_ROADMAP E2). Offline used to be signalled only inside the chat, and… |
 | `mobile/lib/widgets/message_bubble.dart` | 744 | One chat bubble. User bubbles are a teal gradient at the end (left in RTL); assistant bubbles are white cards at the start with Noor beside them… — ومنذ 1.0.76 صف نسخ/مشاركة تحت إجابة نور المكتملة (`ShareService.plainAnswer/shareAnswer`) |
 | `mobile/lib/widgets/safety_banner.dart` | 114 | Safety banner rendered above (or inline with) an assistant message. Driven ONLY by the structured `AssistantReply` fields — never by parsing the… |
@@ -674,6 +674,8 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | الملف | أسطر | الدور |
 |---|---:|---|
 | `mobile/lib/features/home/greeting.dart` | 45 | Time-aware greeting copy («نور والقناديل» phase 1 — النصوص). The greeting used to be one string for every hour of the day, and it told a parent on… |
+| `mobile/lib/features/home/experiment/child_home_experiment.dart` | 90 | Client arm resolution (`ChildHomeArm`: `'v2'` / `'ab'` sticky FNV-1a32 / `'classic'`) and week-1 onboarding expansion markers (`child_home_v2`). |
+| `mobile/lib/features/home/widgets/child_weekly_home.dart` | 395 | Child-centric Weekly Home body (`ChildWeeklyHome`, M2): 200%-text fold-safe header + `TodayFocusCard` first, weekly loop, birth-month nudge, and Friday harvest banner. |
 | `mobile/lib/features/home/widgets/daily_gift_moment.dart` | 167 | «هدية اليوم» as a moment, not a line (جولة الحرفة, item 2). The child's login reward used to appear as a muted sentence — a coin flow the parent… |
 | `mobile/lib/features/home/widgets/home_app_bar.dart` | 65 | Home tab AppBar, cut down to two actions. The coin chip moved into the stats row, and feedback/settings now live behind the «المزيد» tab — five… |
 | `mobile/lib/features/home/widgets/home_community_note.dart` | 60 | A quiet closing line on Home: «X أب وأمّ يربّون بثقة معنا — لست وحدك». This used to be a tinted, bordered card on Home and was dropped when the… |

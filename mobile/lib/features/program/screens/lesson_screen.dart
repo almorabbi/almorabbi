@@ -513,7 +513,7 @@ class _Hero extends ConsumerWidget {
               bottom: -20,
               child: Opacity(
                 opacity: .15,
-                child: Text(style.emoji, style: const TextStyle(fontSize: 100)),
+                child: BrandGlyph(style.glyph, size: 100),
               ),
             ),
             Padding(

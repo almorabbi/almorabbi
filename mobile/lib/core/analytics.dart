@@ -59,6 +59,10 @@ class Analytics {
   /// Onboarding finished — the user landed in the main app.
   static Future<void> onboardingDone() => _logOnce('onboarding_done');
 
+  /// Records which child-centric home experiment arm was shown ('weekly'|'classic').
+  static Future<void> childHomeArmExposed(String arm) =>
+      _logOnce('child_home_arm_exposed', {'arm': arm});
+
   /// A child profile was successfully created on the backend.
   static Future<void> childAdded(String ageGroup) =>
       _log('child_added', {'age_group': ageGroup});

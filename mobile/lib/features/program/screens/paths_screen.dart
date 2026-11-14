@@ -17,9 +17,9 @@ import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/design_tokens.dart';
 import '../../../widgets/ui/bouncy_button.dart';
+import '../../../widgets/ui/brand_glyph.dart';
 import '../../../widgets/ui/empty_state.dart';
 import '../../../widgets/ui/error_retry_view.dart';
-import '../../../widgets/ui/emoji_hero.dart';
 import '../../family_road/widgets/family_road_entry.dart';
 import '../data/models.dart';
 import '../providers/program_providers.dart';
@@ -241,7 +241,7 @@ class _DomainFilterBar extends StatelessWidget {
         children: [
           _Chip(
             label: AppLocalizations.of(context).pathsFilterAll,
-            emoji: '🗂️',
+            glyph: BrandIcon.path,
             color: Theme.of(context).colorScheme.primary,
             isSelected: selected == null,
             onTap: () => onSelect(null),
@@ -250,7 +250,7 @@ class _DomainFilterBar extends StatelessWidget {
           for (final d in domains) ...[
             _Chip(
               label: CurriculumPath.labelForDomain(d, AppLocalizations.of(context)),
-              emoji: styleFor(d).emoji,
+              glyph: styleFor(d).glyph,
               color: styleFor(d).base,
               isSelected: selected == d,
               onTap: () => onSelect(d),
@@ -266,14 +266,14 @@ class _DomainFilterBar extends StatelessWidget {
 class _Chip extends StatelessWidget {
   const _Chip({
     required this.label,
-    required this.emoji,
+    required this.glyph,
     required this.color,
     required this.isSelected,
     required this.onTap,
   });
 
   final String label;
-  final String emoji;
+  final BrandIcon glyph;
   final Color color;
   final bool isSelected;
   final VoidCallback onTap;
@@ -302,7 +302,7 @@ class _Chip extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Text(emoji, style: const TextStyle(fontSize: 15)),
+                BrandGlyph(glyph, size: 16),
                 const SizedBox(width: 6),
                 Text(
                   label,
@@ -360,7 +360,7 @@ class _PathCard extends StatelessWidget {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      EmojiHero(emoji: style.emoji, size: 56),
+                      GlyphHero(style.glyph, size: 56),
                       const SizedBox(width: 14),
                       Expanded(
                         child: Column(

@@ -26,7 +26,7 @@ from app import curriculum_loader as cl
 from app.core.taxonomy import canonical_age_group, canonical_domain, client_domain
 from app.db.init_db import get_conn
 from app.services import conversation_store as store
-from app.services import llm_service
+from app.services import llm_service, programs_common
 from app.services.ai_gateway import get_gateway
 from app.services.coach_safety import verify_tip_safety
 
@@ -511,7 +511,7 @@ async def get_proactive_tip(
         if child is None:
             raise ValueError("طفل غير موجود أو لا ينتمي لهذا الجهاز.")
 
-        age_group = canonical_age_group(child["age_group"])
+        age_group = canonical_age_group(programs_common.effective_age_group(child))
         child_name = child["name"]
         child_gender = child["gender"]
 

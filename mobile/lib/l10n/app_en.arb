@@ -2338,5 +2338,12 @@
   "monthlyReportLessons": "Lessons done",
   "monthlyReportHabits": "Habit actions",
   "monthlyReportStreak": "Current streak",
-  "monthlyReportQuestions": "Coach sessions"
+  "monthlyReportQuestions": "Coach sessions",
+  "childWeeklyHomeTitle": "{name}'s plan this week",
+  "childWeeklyHomeTitleNoName": "Your child's plan this week",
+  "childWeeklyFirstWeekBadge": "Starting week",
+  "childWeeklyBirthMonthNudge": "Add birth month to update stage automatically",
+  "fridayHarvestBannerTitle": "Friday harvest is ready",
+  "fridayHarvestBannerSubtitle": "{count} lanterns lit in your home this week",
+  "onbAddBirthMonthOptional": "Set birth month (optional)"
 }

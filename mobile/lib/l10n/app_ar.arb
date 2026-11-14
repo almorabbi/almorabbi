@@ -2506,5 +2506,25 @@
   "monthlyReportStreak": "سلسلة الاستمرار",
   "@monthlyReportStreak": {"description": "Label for current streak days in the monthly report card."},
   "monthlyReportQuestions": "استشارات الشهر",
-  "@monthlyReportQuestions": {"description": "Label for chat sessions count in the monthly report card."}
+  "@monthlyReportQuestions": {"description": "Label for chat sessions count in the monthly report card."},
+  "childWeeklyHomeTitle": "خطة {name} هذا الأسبوع",
+  "@childWeeklyHomeTitle": {
+    "description": "Weekly header title on the child-centric home screen.",
+    "placeholders": {"name": {"type": "String"}}
+  },
+  "childWeeklyHomeTitleNoName": "خطة طفلك هذا الأسبوع",
+  "@childWeeklyHomeTitleNoName": {"description": "Weekly header title on the child-centric home screen when the child has no custom name yet."},
+  "childWeeklyFirstWeekBadge": "أسبوع البداية",
+  "@childWeeklyFirstWeekBadge": {"description": "Badge shown on the weekly plan card during the child's first week."},
+  "childWeeklyBirthMonthNudge": "أضف شهر الميلاد لتحديث المرحلة تلقائياً",
+  "@childWeeklyBirthMonthNudge": {"description": "Subtle prompt on child-centric home encouraging parents to add birth month for automatic stage updates."},
+  "fridayHarvestBannerTitle": "حصاد الجمعة جاهز",
+  "@fridayHarvestBannerTitle": {"description": "Banner title shown on Friday when the week's family harvest can be opened."},
+  "fridayHarvestBannerSubtitle": "{count} قناديل أضاءت بيتكم هذا الأسبوع",
+  "@fridayHarvestBannerSubtitle": {
+    "description": "Banner subtitle on Friday showing how many lanterns were lit this week.",
+    "placeholders": {"count": {"type": "int"}}
+  },
+  "onbAddBirthMonthOptional": "تحديد شهر الميلاد (اختياري)",
+  "@onbAddBirthMonthOptional": {"description": "Optional button during onboarding to set the child's birth month for automatic stage tracking."}
 }

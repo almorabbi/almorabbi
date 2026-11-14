@@ -16,7 +16,6 @@ import '../../../theme/design_tokens.dart';
 import '../../../widgets/ui/animated_progress_bar.dart';
 import '../../../widgets/ui/bouncy_button.dart';
 import '../../../widgets/ui/brand_glyph.dart';
-import '../../../widgets/ui/emoji_hero.dart';
 import '../../program/data/models.dart';
 import '../../program/data/progress_models.dart';
 import '../../program/providers/program_providers.dart';
@@ -313,7 +312,7 @@ class TodayFocusCard extends ConsumerWidget {
         children: [
           Row(
             children: [
-              EmojiHero(emoji: style.emoji, size: 48),
+              GlyphHero(style.glyph, size: 48),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(

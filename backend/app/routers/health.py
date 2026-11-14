@@ -110,10 +110,22 @@ async def get_app_config():
         # "motion" / "static" = everyone gets that one. After the month the
         # winner is set with STORY_MOTION_MODE in .env — no release needed.
         "story_motion_mode": story_motion_mode(),
+        # «الرئيسية حول الطفل» (2.0 M2): "v2" (default) = ChildWeeklyHome,
+        # "ab" = deterministic 50/50 split on device_id, "classic" = legacy layout.
+        "child_home_v2": child_home_mode(),
         # Server-driven visibility filter for Hub tiles (`HUB_HIDDEN_ITEMS`,
         # comma-separated HubItem IDs). Empty list by default.
         "hub_hidden_items": hub_hidden_items(),
     }
+
+
+CHILD_HOME_MODES = ("ab", "v2", "classic")
+
+
+def child_home_mode() -> str:
+    """CHILD_HOME_MODE, defaulting to 'v2' for 1.2 child-centric home."""
+    raw = os.environ.get("CHILD_HOME_MODE", "v2").strip().lower()
+    return raw if raw in CHILD_HOME_MODES else "v2"
 
 
 def story_motion_mode() -> str:

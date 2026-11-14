@@ -19,14 +19,15 @@ import '../../../core/app_routes.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_theme.dart';
 import '../../../theme/design_tokens.dart';
+import '../../../widgets/ui/brand_glyph.dart';
 import '../../../widgets/ui/directional_chevron.dart';
 import '../../identity/identity_entry.dart';
 
 class _Intent {
-  const _Intent(this.id, this.emoji, this.question, this.route);
+  const _Intent(this.id, this.glyph, this.question, this.route);
 
   final String id;
-  final String emoji;
+  final BrandIcon glyph;
   final String Function(AppLocalizations l10n) question;
   final Route<void> Function() route;
 }
@@ -37,17 +38,17 @@ final _intents = <_Intent>[
   // 17 Aug 2026 complaint — «من أين أبدأ ثم الترتيب» and «سمعت المسارات أظن
   // المقصود بها المربي ليس المتربي» — sits one layer under that, and this
   // sheet could not answer it at all.
-  _Intent('who_for', '📖', (l) => l.helpWhoAreLessonsFor, AppRoutes.paths),
-  _Intent('where_start', '🧭', (l) => l.helpWhereToStart, AppRoutes.paths),
-  _Intent('games', '🎮', (l) => l.helpWhereGames, AppRoutes.games),
-  _Intent('stories', '🌙', (l) => l.helpWhereStories, AppRoutes.storyBookshelf),
-  _Intent('add_child', '👶', (l) => l.helpHowAddChild, AppRoutes.childrenList),
-  _Intent('quran', '📗', (l) => l.helpWhereQuran, AppRoutes.quran),
-  _Intent('progress', '📊', (l) => l.helpWhereProgress, AppRoutes.dailyRoutine),
-  _Intent('badges', '🏅', (l) => l.helpWhereBadges, AppRoutes.badges),
+  _Intent('who_for', BrandIcon.openBook, (l) => l.helpWhoAreLessonsFor, AppRoutes.paths),
+  _Intent('where_start', BrandIcon.path, (l) => l.helpWhereToStart, AppRoutes.paths),
+  _Intent('games', BrandIcon.star, (l) => l.helpWhereGames, AppRoutes.games),
+  _Intent('stories', BrandIcon.crescent, (l) => l.helpWhereStories, AppRoutes.storyBookshelf),
+  _Intent('add_child', BrandIcon.sprig, (l) => l.helpHowAddChild, AppRoutes.childrenList),
+  _Intent('quran', BrandIcon.openBook, (l) => l.helpWhereQuran, AppRoutes.quran),
+  _Intent('progress', BrandIcon.flame, (l) => l.helpWhereProgress, AppRoutes.dailyRoutine),
+  _Intent('badges', BrandIcon.medal, (l) => l.helpWhereBadges, AppRoutes.badges),
   if (kGoogleAccountEntryEnabled)
-    _Intent('backup', '☁️', (l) => l.helpHowBackup, AppRoutes.identity),
-  _Intent('contact', '💬', (l) => l.helpHowContact, AppRoutes.feedback),
+    _Intent('backup', BrandIcon.door, (l) => l.helpHowBackup, AppRoutes.identity),
+  _Intent('contact', BrandIcon.speechBubble, (l) => l.helpHowContact, AppRoutes.feedback),
 ];
 
 /// Opens the help sheet. [fromScreen] is a `Screens.*` constant.
@@ -89,7 +90,7 @@ class _HelpSheetBody extends StatelessWidget {
           const SizedBox(height: 16),
           for (final intent in _intents)
             _IntentRow(
-              emoji: intent.emoji,
+              glyph: intent.glyph,
               label: intent.question(l10n),
               onTap: () {
                 unawaited(Analytics.helpIntentTapped(intent.id));
@@ -107,12 +108,12 @@ class _HelpSheetBody extends StatelessWidget {
 
 class _IntentRow extends StatelessWidget {
   const _IntentRow({
-    required this.emoji,
+    required this.glyph,
     required this.label,
     required this.onTap,
   });
 
-  final String emoji;
+  final BrandIcon glyph;
   final String label;
   final VoidCallback onTap;
 
@@ -127,7 +128,7 @@ class _IntentRow extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 14),
           child: Row(
             children: [
-              Text(emoji, style: const TextStyle(fontSize: 20)),
+              ExcludeSemantics(child: BrandGlyph(glyph, size: 20)),
               const SizedBox(width: 12),
               Expanded(
                 child: Text(

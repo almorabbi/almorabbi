@@ -21,6 +21,7 @@ import '../../../core/app_routes.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/design_tokens.dart';
+import '../../../widgets/ui/brand_glyph.dart';
 import '../../onboarding/providers/onboarding_providers.dart';
 import '../providers/programs_providers.dart';
 import 'program_widgets.dart';
@@ -88,7 +89,7 @@ class _ProgramsHomeCardState extends ConsumerState<ProgramsHomeCard>
     if (child != null && overview.ramadan.isActive && ramadanLine != null) {
       lines.add(
         _Line(
-          '🌙',
+          BrandIcon.crescent,
           ramadanLine,
           () => _open(AppRoutes.ramadan(child.childId), 'ramadan'),
         ),
@@ -100,7 +101,7 @@ class _ProgramsHomeCardState extends ConsumerState<ProgramsHomeCard>
         (prayer.eligibleTrack != null || prayer.enrolled)) {
       lines.add(
         _Line(
-          '🕌',
+          BrandIcon.sun,
           prayer.enrolled
               ? '${l10n.programsPrayerTitle}: ${prayerStatusLine(l10n, prayer)}'
               : l10n.programsPrayerStartWith(name),
@@ -111,7 +112,7 @@ class _ProgramsHomeCardState extends ConsumerState<ProgramsHomeCard>
     if (child != null && (child.milestonesDue > 0 || child.needsBirthMonth)) {
       lines.add(
         _Line(
-          '🧭',
+          BrandIcon.path,
           child.milestonesDue > 0
               ? l10n.programsMilestonesDueFor(child.milestonesDue, name)
               : l10n.programsMilestonesAddBirthMonth(name),
@@ -136,14 +137,14 @@ class _ProgramsHomeCardState extends ConsumerState<ProgramsHomeCard>
             children: [
               ProgramLinkRow(
                 key: const ValueKey('programs_home_open'),
-                emoji: '✨',
+                glyph: BrandIcon.star,
                 label: l10n.programsTitle,
                 subtitle: lines.isEmpty ? l10n.programsHomeIntro : null,
                 onTap: () => _open(AppRoutes.programs(), 'open'),
               ),
               for (final line in lines.take(3))
                 ProgramLinkRow(
-                  emoji: line.emoji,
+                  glyph: line.glyph,
                   label: line.text,
                   onTap: line.onTap,
                 ),
@@ -156,8 +157,8 @@ class _ProgramsHomeCardState extends ConsumerState<ProgramsHomeCard>
 }
 
 class _Line {
-  const _Line(this.emoji, this.text, this.onTap);
-  final String emoji;
+  const _Line(this.glyph, this.text, this.onTap);
+  final BrandIcon glyph;
   final String text;
   final VoidCallback onTap;
 }

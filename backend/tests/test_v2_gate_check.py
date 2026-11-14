@@ -381,3 +381,25 @@ def test_cli_is_read_only_and_hides_device_ids(tmp_path: Path, capsys) -> None:
     assert "SecretChild" not in out
     parsed = json.loads(out)
     assert parsed["ready_for_v2_0_0"] is False
+
+
+def test_child_home_mode_app_config_flag(monkeypatch) -> None:
+    from fastapi.testclient import TestClient
+    from app.main import app
+    from app.routers.health import child_home_mode
+
+    monkeypatch.delenv("CHILD_HOME_MODE", raising=False)
+    assert child_home_mode() == "v2"
+
+    for val in ("ab", "classic", "v2"):
+        monkeypatch.setenv("CHILD_HOME_MODE", val)
+        assert child_home_mode() == val
+
+    monkeypatch.setenv("CHILD_HOME_MODE", "unexpected-value")
+    assert child_home_mode() == "v2"
+
+    monkeypatch.setenv("CHILD_HOME_MODE", "ab")
+    client = TestClient(app)
+    resp = client.get("/api/app-config")
+    assert resp.status_code == 200
+    assert resp.json()["child_home_v2"] == "ab"

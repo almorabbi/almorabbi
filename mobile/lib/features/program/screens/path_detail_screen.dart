@@ -399,16 +399,13 @@ class _Header extends ConsumerWidget {
           borderRadius: BorderRadius.circular(Dt.rCard),
           child: Stack(
             children: [
-              // Big translucent emoji watermark.
+              // Big translucent brand watermark.
               PositionedDirectional(
                 start: -16,
                 bottom: -24,
                 child: Opacity(
                   opacity: .15,
-                  child: Text(
-                    style.emoji,
-                    style: const TextStyle(fontSize: 130),
-                  ),
+                  child: BrandGlyph(style.glyph, size: 130),
                 ),
               ),
               Padding(

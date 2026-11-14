@@ -6867,4 +6867,30 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get monthlyReportQuestions => 'استشارات الشهر';
+
+  @override
+  String childWeeklyHomeTitle(String name) {
+    return 'خطة $name هذا الأسبوع';
+  }
+
+  @override
+  String get childWeeklyHomeTitleNoName => 'خطة طفلك هذا الأسبوع';
+
+  @override
+  String get childWeeklyFirstWeekBadge => 'أسبوع البداية';
+
+  @override
+  String get childWeeklyBirthMonthNudge =>
+      'أضف شهر الميلاد لتحديث المرحلة تلقائياً';
+
+  @override
+  String get fridayHarvestBannerTitle => 'حصاد الجمعة جاهز';
+
+  @override
+  String fridayHarvestBannerSubtitle(int count) {
+    return '$count قناديل أضاءت بيتكم هذا الأسبوع';
+  }
+
+  @override
+  String get onbAddBirthMonthOptional => 'تحديد شهر الميلاد (اختياري)';
 }

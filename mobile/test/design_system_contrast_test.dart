@@ -23,6 +23,8 @@ import 'package:almorabbi/theme/design_tokens.dart';
 import 'package:almorabbi/widgets/ui/bouncy_button.dart';
 import 'package:almorabbi/widgets/ui/error_retry_view.dart';
 
+import '../tool/audit_light_surfaces.dart';
+
 double contrast(Color a, Color b) {
   final la = a.computeLuminance();
   final lb = b.computeLuminance();
@@ -135,5 +137,14 @@ void main() {
     final decoration = container.decoration as BoxDecoration;
     expect(decoration.color, isNotNull);
     expect(decoration.color, Dt.primary);
+  });
+
+  test('zero hard-coded light surfaces across lib/ (audit_light_surfaces)', () {
+    final hits = scanLightSurfaces();
+    expect(
+      hits,
+      isEmpty,
+      reason: 'Hard-coded light grounds regress dark mode: $hits',
+    );
   });
 }

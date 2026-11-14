@@ -150,3 +150,32 @@ def test_a_google_relink_copies_the_month_with_the_profile():
         conn.close()
     assert [r["birth_month"] for r in rows("child_profiles", "device_id = ?", (DEVICE,))] \
         == ["2020-05"]
+
+
+def test_effective_age_group_updates_dynamically_from_birth_month(monkeypatch):
+    """A stale stored age_group must not lag once birth_month places the child
+    in a newer band across children CRUD, weekly-plan generation, and reports."""
+    from fastapi.testclient import TestClient
+    from app.routers.program import router as curriculum_router
+    from app.services import weekly_plan
+    from tests.programs_support import make_app
+
+    app = make_app()
+    app.include_router(curriculum_router, prefix="/api")
+    c = TestClient(app)
+
+    # Stored with stale "2-3", while birth_month 8 years ago puts the child in "7-9".
+    eight_years_ago = f"{date.today().year - 8}-{date.today().month:02d}"
+    cid_with_bm = add_child(c, age_group="2-3", birth_month=eight_years_ago)
+    cid_without_bm = add_child(c, age_group="2-3")
+
+    listed = {ch["id"]: ch for ch in c.get("/api/children").json()["children"]}
+    assert listed[cid_with_bm]["age_group"] == "7-9"
+    assert listed[cid_without_bm]["age_group"] == "2-3"
+
+    plan = weekly_plan.get_weekly_plan(DEVICE, cid_with_bm, lang="ar")
+    assert plan["band"] == "7-9"
+
+    report = c.get(f"/api/program/monthly-report/{cid_with_bm}")
+    assert report.status_code == 200
+    assert report.json()["child"]["age_group"] == "7-9"
