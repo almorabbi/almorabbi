@@ -324,7 +324,10 @@ def build_l10n(ar: dict, en: dict) -> tuple[dict, list[str]]:
         # destination ("Today" + "Tab 1 of 4") or a settings row (title +
         # subtitle). `tile`: optional lines, then the text — a hub tile
         # (emoji + label).
-        maps["lead"][key] = f"(?s){either}(?:\\s.*)?"
+        # Merged sibling Text nodes are joined with `\n` by Flutter semantics;
+        # matching `\r?\n` (never horizontal space) prevents `lead.navToday`
+        # ("Today" / "اليوم") from matching "Today with {name}" / "اليوم مع {name}".
+        maps["lead"][key] = f"(?s){either}(?:\\r?\\n.*)?"
         maps["tile"][key] = f"(?s)(?:.*\\s)?{either}"
         maps["ar"][key] = to_pattern(a)  # one language only — proves a switch
         maps["en"][key] = to_pattern(e)

@@ -63,6 +63,8 @@ class L10nTest(unittest.TestCase):
         self.assertTrue(re.fullmatch(p, "Today\nTab 1 of 4"))
         self.assertTrue(re.fullmatch(p, "اليوم"))
         self.assertIsNone(re.fullmatch(p, "نصيحة اليوم"))
+        self.assertIsNone(re.fullmatch(p, "اليوم مع E2E-Maestro"))
+        self.assertIsNone(re.fullmatch(p, "Today with E2E-Maestro\n⏱ 1 min of screen out of 20"))
 
     def test_tile_pattern_accepts_a_leading_emoji_line(self):
         p = self.maps["tile"]["tourSkip"]
