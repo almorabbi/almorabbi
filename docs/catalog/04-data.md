@@ -6,7 +6,7 @@
 
 | الملف | الإصدار | المحتوى | ملاحظات |
 |---|---|---|---|
-| `ops/conversations.db` (`CONVERSATIONS_DB`) | جدول `schema_version` = **37** (`SCHEMA_VERSION`)؛ `PRAGMA user_version` = 0 | بيانات المنتج والمستخدمين — **حرجة**، عليها النسخ اليومي | 54 جدولًا؛ 51 يملكها `init_db` (+32 دالة `_ensure_*`؛ v37 أضاف `device_restore_keys` و`merge_tombstones` وعمود `api_tokens.mint_kind`) |
+| `ops/conversations.db` (`CONVERSATIONS_DB`) | جدول `schema_version` = **38** (`SCHEMA_VERSION`)؛ `PRAGMA user_version` = 0 | بيانات المنتج والمستخدمين — **حرجة**، عليها النسخ اليومي | 58 جدولًا؛ 55 يملكها `init_db` (+33 دالة `_ensure_*`؛ v38 أضاف جداول حساب الأسرة الأربعة `families` و`family_members` و`family_invites` و`family_deletion_requests`) |
 | `ops/sessions.db` (مسار مكتوب في كل خدمة؛ `ANSWER_CACHE_DB` لواحدة) | سجلّ `schema_migrations` (مشغّل الترحيلات) | تيليمتري وكاشات وسجلات — قابلة نظريًا لإعادة البناء لكنها مصدر مقاييس التكلفة | الترحيلات المرقّمة تغطي 5 مالكين فقط |
 | دفتر الميزانية السحابية (جداول داخل `ops/sessions.db` نفسه — `ai_gateway._ledger()` يمرّر `_TELEMETRY_DB` — + ملف مرساة `<db>.cloud-budget-anchor` بجانبه أو حيث يشير `CLOUD_BUDGET_ANCHOR_PATH`) | — | 9 جداول دفتر + 24 trigger (انظر §3.1) | تُنشأ **كسولًا** عند أول معاملة دفتر (`CloudBudget._create_schema`)؛ مسار الطلب لا يستدعي الدفتر إلا مع `CLOUD_BUDGET_ENFORCE` مفعّلًا (افتراضيًا مطفأ)، وCLI التهيئة `cloud_budget_bootstrap` يعمل على ملف قائم. غائبة في الإنتاج بحسب جرد `docs/DB_SCHEMA_OWNERS.md` (2026-10-08، البنود 17–18) — ولم يُعاد التحقق الحيّ منذئذ (يتوقف على قيمة العلم هناك) |
 
@@ -32,6 +32,8 @@ WAL + `busy_timeout` على الكل. لا تفتح الحيّة بأدوات ك
 | `push_tokens`, `push_sends` | device_id, token, platform, app_version, build_number, token_since/vouched/first · device_id, kind, sent_at | توكنات FCM وسجل الإرسال (سقف 1/يوم) | 🔒 |
 | `device_alerts` | device_id, old_token, queued_at, sent_at | تنبيه فقدان التوكن | |
 | `device_proof_challenges/_sessions/_proofs` | token_hash, code_hash, push_token_hash, proven_at, first_proven_at | تحدّي إثبات الجهاز | 🔒 |
+| `families`, `family_members` | id, created_at, updated_at · id, family_id, device_id, role_label, display_name, status, confirmed, joined_at, updated_at | حساب الأسرة لربط هاتفَي الوالدَين (v38؛ بحد أقصى عضوين نشطين؛ بلا تعريض لمعرّف الجهاز الآخر) | 🔒 |
+| `family_invites`, `family_deletion_requests` | id, family_id, device_id, code_hash, expires_at, claimed_at, created_at · id, family_id, device_id, target_child_key, child_name, status, created_at, resolved_at | رموز دعوة الأسرة (15 دقيقة، استخدام واحد) وطلبات تأكيد حذف طفل مشترك بين الوالدَين | 🔒 |
 
 ### الأطفال والتقدّم
 | الجدول | الأعمدة | الغرض | حساس |

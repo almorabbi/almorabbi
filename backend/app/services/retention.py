@@ -142,6 +142,12 @@ def _purge_main_db(dry_run: bool = False) -> dict[str, int]:
             cur = conn.execute(f"{verb} FROM child_web_claims WHERE expires_at < ?",
                                (time.time(),))
             out["child_web_claims"] = cur.fetchone()[0] if dry_run else cur.rowcount
+        if "family_invites" in tables:
+            verb = "SELECT COUNT(*)" if dry_run else "DELETE"
+            cur = conn.execute(
+                f"{verb} FROM family_invites WHERE datetime(created_at) < datetime('now', '-1 day')"
+            )
+            out["family_invites"] = cur.fetchone()[0] if dry_run else cur.rowcount
         if not dry_run:
             conn.commit()
         return out

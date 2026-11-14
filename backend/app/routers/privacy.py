@@ -353,6 +353,9 @@ NOT_DEVICE_DATA: dict[str, str] = {
     "erased_devices": "one-way hashes (never the id) of device ids an account deletion "
                       "removed, kept so a phone backup cannot restore the account "
                       "(services/erased_devices.py, v35); nothing here names a device",
+    "families": "opaque family group header (id + timestamps only; member rows live in "
+                "family_members under device_id, and orphan headers are pruned on "
+                "account deletion)",
 }
 
 # Columns that carry "device" in their name and are NOT a device id, so the
@@ -556,6 +559,12 @@ def erase_account(device_id: str) -> dict:
                 cur = conn.execute(
                     f"DELETE FROM {table} WHERE device_id IN ({marks})", devices)
                 counts[table] += cur.rowcount
+        # 2b. Prune orphan family headers after deleting member rows (v38).
+        if "families" in tables and "family_members" in tables:
+            cur = conn.execute(
+                "DELETE FROM families WHERE id NOT IN (SELECT DISTINCT family_id FROM family_members)"
+            )
+            counts["families"] += cur.rowcount
         # 3. The device under another name.
         for table, column in OTHER_DEVICE_COLUMNS:
             if column in tables.get(table, set()):

@@ -42,6 +42,7 @@ import '../../child_memory/providers/memory_providers.dart';
 import '../../child_memory/widgets/memory_errors.dart';
 import 'package:almorabbi/core/failures.dart';
 import '../../identity/identity_entry.dart';
+import '../../family_account/providers/family_account_providers.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -164,6 +165,15 @@ class SettingsScreen extends ConsumerWidget {
                     iconColor: AppTheme.primary,
                     onTap: () =>
                         Navigator.of(context).push(AppRoutes.identity()),
+                  ),
+                if (ref.watch(familySharingEnabledProvider))
+                  _SettingsRow(
+                    icon: Icons.family_restroom_outlined,
+                    title: l10n.familyAccountTitle,
+                    subtitle: l10n.familyAccountSettingsDesc,
+                    iconColor: AppTheme.primary,
+                    onTap: () =>
+                        Navigator.of(context).push(AppRoutes.familyAccount()),
                   ),
                 _SettingsRow(
                   icon: Icons.feedback_outlined,

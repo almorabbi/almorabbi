@@ -11629,6 +11629,276 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'تحديد شهر الميلاد (اختياري)'**
   String get onbAddBirthMonthOptional;
+
+  /// Screen title and settings row label for the dual-parent family account.
+  ///
+  /// In ar, this message translates to:
+  /// **'حساب الأسرة'**
+  String get familyAccountTitle;
+
+  /// Subtitle on the settings row opening the family account screen.
+  ///
+  /// In ar, this message translates to:
+  /// **'مشاركة بيانات الأطفال والخطط بين هاتفَي الوالدَين'**
+  String get familyAccountSettingsDesc;
+
+  /// Action banner label on ChildrenListScreen opening FamilyAccountScreen.
+  ///
+  /// In ar, this message translates to:
+  /// **'اربط هاتف الوالد الآخر بمشاركة الأسرة'**
+  String get familyAccountChildrenBanner;
+
+  /// Message shown when family sharing is disabled on the backend.
+  ///
+  /// In ar, this message translates to:
+  /// **'مشاركة الأسرة غير متاحة حاليًا على هذا الخادم.'**
+  String get familyAccountLocked;
+
+  /// Introductory explanation shown before pairing two parents.
+  ///
+  /// In ar, this message translates to:
+  /// **'اربط هاتفَي الأم والأب لمشاركة ملفات الأطفال والخطط الأسبوعية والذاكرة بأمان تام. يمكنك المغادرة أو حذف حسابك دون المساس ببيانات الطرف الآخر.'**
+  String get familyAccountUnpairedIntro;
+
+  /// Section label for picking the parent's role.
+  ///
+  /// In ar, this message translates to:
+  /// **'صفتك في الأسرة'**
+  String get familyAccountRoleLabel;
+
+  /// Role option for mother.
+  ///
+  /// In ar, this message translates to:
+  /// **'الأم'**
+  String get familyAccountRoleMother;
+
+  /// Role option for father.
+  ///
+  /// In ar, this message translates to:
+  /// **'الأب'**
+  String get familyAccountRoleFather;
+
+  /// Generic role option for parent or guardian.
+  ///
+  /// In ar, this message translates to:
+  /// **'ولي أمر'**
+  String get familyAccountRoleParent;
+
+  /// Text field label for optional parent display name.
+  ///
+  /// In ar, this message translates to:
+  /// **'الاسم المعروض للشريك (اختياري)'**
+  String get familyAccountDisplayNameLabel;
+
+  /// Hint text for optional parent display name.
+  ///
+  /// In ar, this message translates to:
+  /// **'مثال: أم عمر'**
+  String get familyAccountDisplayNameHint;
+
+  /// Button label to generate a single-use 15-minute family invite code.
+  ///
+  /// In ar, this message translates to:
+  /// **'إنشاء رمز دعوة (15 دقيقة)'**
+  String get familyAccountCreateInviteCta;
+
+  /// Header of the card displaying the newly generated invite code.
+  ///
+  /// In ar, this message translates to:
+  /// **'رمز دعوة الأسرة'**
+  String get familyAccountInviteTitle;
+
+  /// Footnote explaining the 15-minute single-use lifetime of an invite code.
+  ///
+  /// In ar, this message translates to:
+  /// **'صالح لمدة 15 دقيقة لمرة واحدة فقط'**
+  String get familyAccountInviteTtlNote;
+
+  /// Button label to copy the family invite code to the clipboard.
+  ///
+  /// In ar, this message translates to:
+  /// **'نسخ الرمز'**
+  String get familyAccountCopyCode;
+
+  /// Snackbar feedback shown after copying the invite code.
+  ///
+  /// In ar, this message translates to:
+  /// **'تم نسخ رمز الدعوة'**
+  String get familyAccountCopied;
+
+  /// Heading above the invite-code input for joining a partner's family.
+  ///
+  /// In ar, this message translates to:
+  /// **'أو أدخل رمزًا من الوالد الآخر'**
+  String get familyAccountJoinSectionTitle;
+
+  /// Hint inside the invite-code input field.
+  ///
+  /// In ar, this message translates to:
+  /// **'مثال: ABCD-EFGH'**
+  String get familyAccountJoinCodeHint;
+
+  /// Button label to submit the invite code and join the family.
+  ///
+  /// In ar, this message translates to:
+  /// **'انضمّ إلى الأسرة'**
+  String get familyAccountJoinCta;
+
+  /// Status header shown when two parent phones are actively paired.
+  ///
+  /// In ar, this message translates to:
+  /// **'هاتفا الوالدَين مرتبطان'**
+  String get familyAccountPairedHeader;
+
+  /// Status header when one parent created a family and is waiting for the partner.
+  ///
+  /// In ar, this message translates to:
+  /// **'بانتظار انضمام الوالد الآخر'**
+  String get familyAccountWaitingPartnerTitle;
+
+  /// Body copy explaining how the partner parent can join.
+  ///
+  /// In ar, this message translates to:
+  /// **'أنشئ رمز دعوة وأرسله لهاتف الوالد الآخر خلال 15 دقيقة لإتمام الربط.'**
+  String get familyAccountWaitingPartnerBody;
+
+  /// Note shown when an unclaimed invite already exists for the family.
+  ///
+  /// In ar, this message translates to:
+  /// **'يوجد رمز دعوة سارٍ حاليًا — يمكنك إنشاء رمز جديد إذا احتجت.'**
+  String get familyAccountActiveInviteNote;
+
+  /// Card badge identifying the current device's parent member.
+  ///
+  /// In ar, this message translates to:
+  /// **'هذا الهاتف'**
+  String get familyAccountSelfLabel;
+
+  /// Card badge identifying the partner parent member.
+  ///
+  /// In ar, this message translates to:
+  /// **'الوالد الشريك'**
+  String get familyAccountPartnerLabel;
+
+  /// Status chip indicating the member's phone proof is confirmed.
+  ///
+  /// In ar, this message translates to:
+  /// **'موثّق'**
+  String get familyAccountConfirmedBadge;
+
+  /// Status chip indicating membership confirmation is suspended.
+  ///
+  /// In ar, this message translates to:
+  /// **'يحتاج إعادة توثيق'**
+  String get familyAccountUnconfirmedBadge;
+
+  /// Warning banner explaining why sync is paused on an unconfirmed member.
+  ///
+  /// In ar, this message translates to:
+  /// **'تغيّر رمز الإشعارات على هذا الهاتف بدون توثيق؛ أُوقفت المزامنة مؤقتًا لحماية أسرتك.'**
+  String get familyAccountUnconfirmedBanner;
+
+  /// Button label to re-confirm membership after device proof.
+  ///
+  /// In ar, this message translates to:
+  /// **'إعادة توثيق هذا الهاتف'**
+  String get familyAccountReconfirmCta;
+
+  /// Section title for pending partner child-deletion requests.
+  ///
+  /// In ar, this message translates to:
+  /// **'طلبات تأكيد حذف طفل'**
+  String get familyAccountDeletionRequestsTitle;
+
+  /// Prompt asking the partner parent to confirm or decline deleting a child profile.
+  ///
+  /// In ar, this message translates to:
+  /// **'طلب الوالد الشريك حذف ملف «{childName}» على هاتفك أيضًا.'**
+  String familyAccountDeletionRequestPrompt(String childName);
+
+  /// Destructive confirmation button to erase the named child locally too.
+  ///
+  /// In ar, this message translates to:
+  /// **'حذف الطفل من هاتفي'**
+  String get familyAccountConfirmDeletionCta;
+
+  /// Dismissal button to keep the named child on this phone.
+  ///
+  /// In ar, this message translates to:
+  /// **'إبقاء الطفل عندي'**
+  String get familyAccountDismissDeletionCta;
+
+  /// Section title allowing a parent to ask the partner to delete a child.
+  ///
+  /// In ar, this message translates to:
+  /// **'مزامنة حذف طفل مع الشريك'**
+  String get familyAccountRequestDeletionTitle;
+
+  /// Explanation that local child deletion does not auto-delete on the partner phone.
+  ///
+  /// In ar, this message translates to:
+  /// **'عند حذف طفل من هذا الهاتف يبقى عند الوالد الشريك إلا إذا طلبت منه التأكيد هنا.'**
+  String get familyAccountRequestDeletionDesc;
+
+  /// Hint for the child name field when requesting partner deletion.
+  ///
+  /// In ar, this message translates to:
+  /// **'اسم الطفل'**
+  String get familyAccountRequestDeletionHint;
+
+  /// Button label to send a child-deletion confirmation request to partner.
+  ///
+  /// In ar, this message translates to:
+  /// **'إرسال طلب تأكيد'**
+  String get familyAccountRequestDeletionCta;
+
+  /// Snackbar feedback when partner deletion request is created.
+  ///
+  /// In ar, this message translates to:
+  /// **'تم إرسال طلب التأكيد للوالد الشريك'**
+  String get familyAccountRequestDeletionSent;
+
+  /// Button label to leave the shared family.
+  ///
+  /// In ar, this message translates to:
+  /// **'مغادرة حساب الأسرة'**
+  String get familyAccountLeaveCta;
+
+  /// Confirmation dialog title before leaving the shared family.
+  ///
+  /// In ar, this message translates to:
+  /// **'مغادرة حساب الأسرة؟'**
+  String get familyAccountLeaveConfirmTitle;
+
+  /// Confirmation dialog body clarifying local data stays intact after leaving.
+  ///
+  /// In ar, this message translates to:
+  /// **'ستتوقف المزامنة بين الهاتفين فورًا، وتبقى ملفات الأطفال والتقدّم كما هي على كل هاتف.'**
+  String get familyAccountLeaveConfirmBody;
+
+  /// Confirmation button inside leave-family dialog.
+  ///
+  /// In ar, this message translates to:
+  /// **'نعم، غادر الأسرة'**
+  String get familyAccountLeaveConfirmCta;
+
+  /// Snackbar feedback shown after leaving the family.
+  ///
+  /// In ar, this message translates to:
+  /// **'تمت مغادرة حساب الأسرة'**
+  String get familyAccountLeftSuccess;
+
+  /// Validation error shown when the invite code is malformed.
+  ///
+  /// In ar, this message translates to:
+  /// **'أدخل رمز الدعوة المكوّن من 8 خانات.'**
+  String get familyAccountInvalidCode;
+
+  /// Fallback error message on unexpected family account API failure.
+  ///
+  /// In ar, this message translates to:
+  /// **'تعذّر إتمام الطلب الآن. حاول مرة أخرى.'**
+  String get familyAccountErrorGeneric;
 }
 
 class _AppLocalizationsDelegate

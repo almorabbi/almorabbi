@@ -6945,4 +6945,154 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get onbAddBirthMonthOptional => 'Set birth month (optional)';
+
+  @override
+  String get familyAccountTitle => 'Family account';
+
+  @override
+  String get familyAccountSettingsDesc =>
+      'Share child profiles and weekly plans between both parents';
+
+  @override
+  String get familyAccountChildrenBanner => 'Pair your partner parent\'s phone';
+
+  @override
+  String get familyAccountLocked =>
+      'Family sharing is not enabled on this server yet.';
+
+  @override
+  String get familyAccountUnpairedIntro =>
+      'Pair both parents\' phones to share child profiles, weekly plans, and memory safely. Either parent can leave at any time without deleting the other phone\'s data.';
+
+  @override
+  String get familyAccountRoleLabel => 'Your role';
+
+  @override
+  String get familyAccountRoleMother => 'Mother';
+
+  @override
+  String get familyAccountRoleFather => 'Father';
+
+  @override
+  String get familyAccountRoleParent => 'Parent';
+
+  @override
+  String get familyAccountDisplayNameLabel =>
+      'Display name for your partner (optional)';
+
+  @override
+  String get familyAccountDisplayNameHint => 'e.g. Omar\'s Mom';
+
+  @override
+  String get familyAccountCreateInviteCta => 'Create invite code (15 min)';
+
+  @override
+  String get familyAccountInviteTitle => 'Family invite code';
+
+  @override
+  String get familyAccountInviteTtlNote => 'Valid once for 15 minutes';
+
+  @override
+  String get familyAccountCopyCode => 'Copy code';
+
+  @override
+  String get familyAccountCopied => 'Invite code copied';
+
+  @override
+  String get familyAccountJoinSectionTitle =>
+      'Or enter a code from your partner';
+
+  @override
+  String get familyAccountJoinCodeHint => 'e.g. ABCD-EFGH';
+
+  @override
+  String get familyAccountJoinCta => 'Join family';
+
+  @override
+  String get familyAccountPairedHeader => 'Paired with partner parent';
+
+  @override
+  String get familyAccountWaitingPartnerTitle => 'Waiting for partner parent';
+
+  @override
+  String get familyAccountWaitingPartnerBody =>
+      'Create an invite code and enter it on your partner\'s phone within 15 minutes to pair.';
+
+  @override
+  String get familyAccountActiveInviteNote =>
+      'An active invite code is pending — you can generate a fresh one if needed.';
+
+  @override
+  String get familyAccountSelfLabel => 'This phone';
+
+  @override
+  String get familyAccountPartnerLabel => 'Partner parent';
+
+  @override
+  String get familyAccountConfirmedBadge => 'Verified';
+
+  @override
+  String get familyAccountUnconfirmedBadge => 'Needs verification';
+
+  @override
+  String get familyAccountUnconfirmedBanner =>
+      'This phone\'s notification token changed without proof; family sync is paused until you re-confirm.';
+
+  @override
+  String get familyAccountReconfirmCta => 'Re-confirm this phone';
+
+  @override
+  String get familyAccountDeletionRequestsTitle => 'Child deletion requests';
+
+  @override
+  String familyAccountDeletionRequestPrompt(String childName) {
+    return 'Your partner asked to delete \"$childName\" from this phone too.';
+  }
+
+  @override
+  String get familyAccountConfirmDeletionCta => 'Delete from my phone';
+
+  @override
+  String get familyAccountDismissDeletionCta => 'Keep on my phone';
+
+  @override
+  String get familyAccountRequestDeletionTitle =>
+      'Ask partner to remove a deleted child';
+
+  @override
+  String get familyAccountRequestDeletionDesc =>
+      'Deleting a child locally leaves the partner phone\'s copy untouched unless you send a confirmation request here.';
+
+  @override
+  String get familyAccountRequestDeletionHint => 'Child\'s name';
+
+  @override
+  String get familyAccountRequestDeletionCta => 'Send request';
+
+  @override
+  String get familyAccountRequestDeletionSent =>
+      'Confirmation request sent to partner';
+
+  @override
+  String get familyAccountLeaveCta => 'Leave family account';
+
+  @override
+  String get familyAccountLeaveConfirmTitle => 'Leave family account?';
+
+  @override
+  String get familyAccountLeaveConfirmBody =>
+      'Sync between both phones will stop immediately. Existing child profiles and progress stay intact on each phone.';
+
+  @override
+  String get familyAccountLeaveConfirmCta => 'Leave family';
+
+  @override
+  String get familyAccountLeftSuccess => 'You left the family account';
+
+  @override
+  String get familyAccountInvalidCode => 'Enter the 8-character invite code.';
+
+  @override
+  String get familyAccountErrorGeneric =>
+      'Could not complete this request right now. Please try again.';
 }

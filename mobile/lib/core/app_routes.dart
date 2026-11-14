@@ -38,6 +38,7 @@ import '../features/coins/covenant_screen.dart';
 import '../features/coins/exclusive_badges_screen.dart';
 import '../features/coins/story_screen.dart';
 import '../features/feedback/feedback_screen.dart';
+import '../features/family_account/screens/family_account_screen.dart';
 import '../features/games/data_defender/game_screen.dart';
 import '../features/games/emotion_maze/game_screen.dart';
 import '../features/games/healthy_hero/game_screen.dart';
@@ -195,6 +196,7 @@ abstract final class Screens {
   // Account & meta
   static const settings = 'settings';
   static const identity = 'identity';
+  static const familyAccount = 'family_account';
   static const privacyData = 'privacy_data';
   static const accountDeletion = 'account_deletion';
   static const accountDeleted = 'account_deleted';
@@ -585,6 +587,10 @@ abstract final class AppRoutes {
 
   static Route<void> identity() =>
       _r(Screens.identity, (_) => const IdentityScreen());
+
+  /// «حساب الأسرة» — dual-parent pairing, sync status & mutual deletion.
+  static Route<void> familyAccount() =>
+      _r(Screens.familyAccount, (_) => const FamilyAccountScreen());
 
   /// «الخصوصية وبياناتك»: memory, erasing it, deleting the account.
   static Route<void> privacy() =>

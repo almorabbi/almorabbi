@@ -611,6 +611,12 @@ def list_children(request: Request):
     onboarding still creates a single child, but the settings screen
     and child-switcher will read from this list."""
     device_id = _require_device_id(request)
+    from app.services.families_service import sync_for_device_if_active
+    sync_for_device_if_active(
+        device_id,
+        include_memory=False,
+        session_token=getattr(request.state, "token", None),
+    )
     conn = get_conn()
     try:
         rows = conn.execute(

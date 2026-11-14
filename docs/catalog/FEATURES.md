@@ -199,6 +199,7 @@
 | F18 | إرسال إشعار يدوي | لجهاز واحد | `POST /api/admin/send-push` (`X-Admin-Key`) | ✅ |
 | F19 | مفتاح الاستعادة | بعد إعادة التثبيت من نسخة أندرويد الاحتياطية يثبت الجهاز هويته بمفتاح `tgr_…` (الخادم يحفظ بصمته فقط) فتعود العائلة دون فتح «السكّ العاري» (1.0.77) | `POST /api/chat/restore-key` · `services/restore_keys.py` · `device_restore_keys` · `tg_client.dart` (`ensureRestoreKey`، ترويسة `X-Device-Restore`) · `backup_rules.xml` · `test_bare_mint_closure.py` · `test/restore_key_test.dart` | ✅ |
 | F20 | ترويسات الأمان | كل رد يحمل nosniff و`X-Frame-Options` و`Referrer-Policy` و`Permissions-Policy` وHSTS | `middleware/security_headers.py` · `test_security_headers.py` | ✅ (منذ 2026-11-09) |
+| F21 | حساب الأسرة (ربط الوالدَين) | مشاركة بيانات الأطفال والتقدّم والخطط والذاكرة بين هاتفَي الأب والأم برمز دعوة مؤقت (15 دقيقة) من جلسات موثّقة غير عارية؛ يحفظ الاسم المعروض والدور لكل عضو وتأكيدات الحذف المتبادل (مفصول خلفيًا بـ`FAMILY_SHARING_ENABLED` و`SESSION_MINT_ENFORCE`) | `families.py` · `services/families_service.py` · `init_db.py` (v38) · `family_account_screen.dart` · `test_families.py` | 🟡 `FAMILY_SHARING_ENABLED` مطفأ افتراضيًا (يتطلّب `SESSION_MINT_ENFORCE=1` ونشر عميل 1.3) |
 
 ---
 
@@ -234,6 +235,6 @@
 ## ملخّص الحالات
 
 - **✅ يعمل:** الأغلبية الساحقة من سطح المنتج (المساعد، المنهج، سطح الطفل، البرامج، النمو، الخصوصية).
-- **🟡 مشروط بعلم/نشر:** A10 A16 A20 B6 B8 B18 B36 C14 C18 D12 E10 E18 F4 F14 G16.
+- **🟡 مشروط بعلم/نشر:** A10 A16 A20 B6 B8 B18 B36 C14 C18 D12 E10 E18 F4 F14 F21 G16.
 - **⚠️ غير موصول/ميت:** لا يوجد — 0 قدرات في الكتالوج (حُذفت B17 وB37 وF13 وG18 ووُصلت B20 في المعلَم 1؛ والملفات الميتة السابقة و`.bak` حُذفت 2026-11-08).
 - **❓ يتوقف على الحيّ:** A18 G15 (+ قيم الأعلام الفعلية على VPS).

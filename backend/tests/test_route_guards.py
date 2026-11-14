@@ -42,6 +42,13 @@ GUARDED = {
     ("PATCH", "/api/children/{child_id}/memory/{fact_id}"): "require_device_proof",
     ("DELETE", "/api/children/{child_id}/memory/{fact_id}"): "require_device_proof",
     ("DELETE", "/api/children/{child_id}/memory"): "require_device_proof",
+    ("POST", "/api/families/invites"): "require_device_proof_irreversible",
+    ("POST", "/api/families/join"): "require_device_proof_irreversible",
+    ("POST", "/api/families/reconfirm"): "require_device_proof_irreversible",
+    ("POST", "/api/families/leave"): "require_device_proof_irreversible",
+    ("POST", "/api/families/deletions/request"): "require_device_proof_irreversible",
+    ("POST", "/api/families/deletions/{request_id}/confirm"): "require_device_proof_irreversible",
+    ("POST", "/api/families/deletions/{request_id}/dismiss"): "require_device_proof_irreversible",
 }
 
 # Touch memory or delete, and stay open on purpose.
@@ -63,6 +70,8 @@ OPEN = {
                                                               "one tick, nothing else",
     ("GET", "/api/family/week"): "reads when a follow-up was answered (time and child id) "
                                  "to light a lantern — never its text, nor any fact",
+    ("GET", "/api/families/me"): "syncs only on an eligible session and gates child memory on "
+                                 "request_proven",
     ("POST", "/api/identity/link-google"): "records whether the link is confirmed; a bare "
                                            "session cannot move a confirmed link",
     ("DELETE", "/api/daily-routine/events/{event_id}"): "pre-PR: one routine event the "
