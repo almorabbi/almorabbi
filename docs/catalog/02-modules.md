@@ -285,6 +285,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_family_actions.py` | 172 | The canonical family-action registry (نور والقناديل, Phase 0 «عدّاد صادق»). The weekly funnel report and the upcoming /api/family/week must never |
 | `backend/tests/test_family_agreement.py` | 225 | The agreement is two-sided or it is not an agreement. Most of these assert that half-formed agreements are refused: one that binds |
 | `backend/tests/test_family_week.py` | 355 | «قناديل الأسبوع» — GET /api/family/week (نور والقناديل, Phase 3). The lantern counter reads the same registry as the weekly funnel report |
+| `backend/tests/test_feature_usage_audit.py` | 150 | اختبارات قراءة فقط لجرد استعمال الجداول لمدة 30 يومًا واكتشاف انحراف العمر الثابت وجاهزية مخطط الأسرة |
 | `backend/tests/test_feedback_admin_reply.py` | 222 | Admin reply endpoint — the supported way to answer a parent off Telegram. Before this existed the only way to send a reply outside Telegram was a |
 | `backend/tests/test_feedback_reply_loop.py` | 297 | Feedback reply loop — security gates and routing. The Telegram webhook is a public, unauthenticated endpoint that writes to the |
 | `backend/tests/test_feedback_session_ownership.py` | 155 | Real HTTP feedback attribution; no external transport is permitted. |
@@ -404,6 +405,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_triage_feedback_fixes.py` | 119 | اختبارات: triage feedback fixes |
 | `backend/tests/test_turn_races_live.py` | 348 | Turn races on a real uvicorn server — PR #24 round 2 (probes2). test_answer_reliability drives the handlers in-process and closes the body |
 | `backend/tests/test_twin_fold_contract.py` | 107 | PR #26 × PR #29 (final review, item 10) — whichever lands second keeps it. #29 folds a childless twin device into the family's device when the twin |
+| `backend/tests/test_v2_gate_check.py` | 340 | اختبارات بوابات 2.0.0 الأربع (نطاق 4 أسابيع لـ D7، حدّ N≥150، توكنات pre-v37، كشف `⚠️` في الكتالوج، والقراءة فقط) |
 | `backend/tests/test_v36_honest_counter.py` | 117 | Schema v36 — the honest weekly counter's shared migration (نور والقناديل). One migration adds both objects Phase 0 needs: |
 | `backend/tests/test_value_tracking.py` | 580 | Tests for the «ميزان العادات» value-tracking API. Uses a minimal FastAPI app with the value_tracking router only, plus the |
 | `backend/tests/test_weekly_dashboard_ops_base.py` | 74 | The weekly dashboard reads LLM metrics from the app it runs inside (127.0.0.1), not through the public URL that answered 403. |
@@ -1303,6 +1305,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `ops/scripts/cron_push_triggers.py` | 597 | كرون 17:00 UTC داخل الحاوية: إشعارات إعادة التفاعل (first_lesson_activation → day_two → streak_at_risk → win_back؛ حد 1/جهاز/يوم، سقوف لكل غياب، لغة الأسرة ar/en) + طيّ نقرات الإحالة + privacy housekeeping |
 | `ops/scripts/delete_account.py` | 142 | تنفيذ طلب حذف وصل بالإيميل لمن بلا تطبيق |
 | `ops/scripts/deploy_model.sh` | 132 | نشر نموذج Ollama المخصّص tg-tutor (قديم) |
+| `ops/scripts/feature_usage_audit.py` | 692 | جرد قراءة فقط لاستعمال القدرات والجداول لمدة N يومًا (بلا PII)، قياس انحراف `age_group` عن `birth_month`، وفحص جاهزية مخطط الأسرة |
 | `ops/scripts/launch_weekly_report.py` | 766 | تقرير الإطلاق الأسبوعي: كل قرار تسويقي مقابل الاحتفاظ لكل كود |
 | `ops/scripts/migrate_schema_v27.sh` | 160 | دليل ترحيل v27 (مفتاح فريد للتحدي النشط فقط) |
 | `ops/scripts/min_build.sh` | 168 | أداة قرار حدّ التحديث الإجباري: current / census / plan / apply بفحص أمان |
@@ -1312,6 +1315,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `ops/scripts/send_update_push.py` | 116 | دفع لطيف لمن هم على بناء قديم (--below N، يرسل فقط مع --send) |
 | `ops/scripts/set_feedback_webhook.py` | 124 | تسجيل/فحص/إزالة webhook بوت تلجرام الملاحظات |
 | `ops/scripts/story_motion_verdict.py` | 86 | حكم نهاية الشهر لتجربة «صورة حيّة»: حركة مقابل ثابت |
+| `ops/scripts/v2_gate_check.py` | 693 | فاحص قراءة فقط لبوابات الترقية إلى 2.0.0 الأربع (عناوين الإنتاج، فعل D7، مفتاح الاستعادة/قفل الهوية وتوكنات pre-v37، وموتى الكتالوج `⚠️`) |
 | `ops/scripts/warm_answer_cache.py` | 185 | كرون 03:00: تسخين كاش الإجابات بأسئلة الألم الشائعة |
 | `ops/scripts/weekly_dashboard.py` | 414 | داشبورد أسبوعي (LLM + احتفاظ + DB) إلى تلجرام |
 | `ops/scripts/weekly_funnel_report.py` | 934 | تقرير القمع والاحتفاظ الأسبوعي (السبت 07:00) إلى تلجرام — مجمّع فقط |

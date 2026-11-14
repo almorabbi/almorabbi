@@ -231,6 +231,7 @@
 | G20 | توثيق المصادر ومراجعة الأمانة للقصص | جلب الآيات/الميسّر/أحاديث الصحيحين إلى `ops/data/{anbiya,sira}/`، ثم حكم جملةً جملة بعائلتين | `anbiya_sources.py` · `sira_sources.py` · `anbiya_fidelity.py` | ✅ يدوي (يحتاج `OLLAMA_API_KEY` للحكم) |
 | G21 | مقياس جاهزية إغلاق السكّ العاري | أعداد فقط: أجهزة نشطة بمفتاح استعادة، وجلسات يومية حسب `mint_kind` | `ops/tools/bare_mint_readiness.py` | ✅ يدوي |
 | G22 | حارس نسبة الأقوال لأهل العلم | أي «قال فلان» في نص يقرؤه الوالد يحتاج سندًا: كتاب العالم نفسه، أو اسمه في نص المصدر، أو موضعًا مسجَّلًا بالكتاب والصفحة من turath.io. سُحبت به أربع «فتاوى» بلا مصدر | `ops/tools/check_scholar_quotes.py` (`check` على pre-commit وCI بلا شبكة؛ `verify` يدوي) · `ops/data/scholar_quotes/verified.json` | ✅ (منذ 2026-11-09) |
+| G23 | فاحص بوابات الترقية إلى 2.0 وجرد الاستعمال (م٠) | فحص القراءة فقط لبوابات 2.0.0 الأربع (عناوين الإنتاج، فعل D7 خلال 4 أسابيع عند N≥150، نسبة مفتاح الاستعادة وقفل الهوية، قدرات `⚠️` في الكتالوج) وجرد استعمال الجداول والانحراف العمري وجاهزية مخطط الأسرة | `ops/scripts/v2_gate_check.py` · `ops/scripts/feature_usage_audit.py` · `backend/tests/test_v2_gate_check.py` · `backend/tests/test_feature_usage_audit.py` | ✅ يدوي |
 
 ---
 
