@@ -235,6 +235,8 @@ Future<void> _setActiveAndPersist(Ref ref, ChildProfile child) async {
     id: child.id,
     name: child.name,
     ageGroup: child.ageGroup,
+    avatarEmoji: child.avatarEmoji,
+    birthMonth: child.birthMonth,
   );
   ref.read(activeChildIdProvider.notifier).state = child.id;
   ref.invalidate(activeChildProfileProvider);

@@ -98,6 +98,8 @@ class UpdateChildNotifier extends AutoDisposeAsyncNotifier<ChildProfile?> {
               id: child.id,
               name: child.name,
               ageGroup: child.ageGroup,
+              avatarEmoji: child.avatarEmoji,
+              birthMonth: child.birthMonth,
             );
         // The on-disk provider we declared as Provider — let
         // consumers know to re-read.

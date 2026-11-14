@@ -36,6 +36,8 @@ import '../l10n/app_localizations.dart';
 import '../features/companion/providers/companion_providers.dart';
 import '../features/companion/widgets/noor_today_header.dart';
 import '../features/home/greeting.dart';
+import '../features/home/experiment/child_home_experiment.dart';
+import '../features/home/widgets/child_weekly_home.dart';
 import '../features/companion/widgets/noor_presence.dart';
 import '../features/home/widgets/daily_gift_moment.dart';
 import '../features/home/widgets/home_app_bar.dart';
@@ -75,6 +77,7 @@ import '../features/whats_new/widgets/update_available_card.dart';
 
 import '../core/analytics.dart';
 import '../core/app_routes.dart';
+import '../main.dart' show appConfigProvider;
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key, required this.onGoToTab, this.focusCardKey});
@@ -131,6 +134,32 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ref.listen<AsyncValue<ChildHomeArm>>(childHomeArmProvider, (_, next) {
+      final resolved = next.valueOrNull;
+      if (resolved != null) {
+        unawaited(Analytics.childHomeArmExposed(resolved.name));
+      }
+    });
+    final cfgSync = ref.watch(appConfigProvider).valueOrNull;
+    final arm =
+        ref.watch(childHomeArmProvider).valueOrNull ??
+        (cfgSync?['child_home_v2'] == 'v2' ? ChildHomeArm.weekly : null);
+    if (arm == ChildHomeArm.weekly) {
+      unawaited(Analytics.childHomeArmExposed(arm!.name));
+      return EidMomentGate(
+        child: Scaffold(
+          appBar: const HomeAppBar(),
+          body: ChildWeeklyHome(
+            onGoToTab: widget.onGoToTab,
+            focusCardKey: widget.focusCardKey,
+          ),
+        ),
+      );
+    }
+    if (arm == ChildHomeArm.classic) {
+      unawaited(Analytics.childHomeArmExposed(arm!.name));
+    }
+
     final profile = ref.watch(activeChildProfileProvider);
     final ageGroup = ref.watch(selectedAgeGroupProvider);
     final bundle = ref

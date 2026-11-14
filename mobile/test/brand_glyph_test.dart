@@ -277,6 +277,11 @@ const guardedFiles = <String>[
   'lib/features/routine/widgets/child_mode_shell.dart',
   'lib/features/routine/screens/habit_child_mode_screen.dart',
   'lib/features/routine/widgets/quiet_time_bar.dart',
+  'lib/theme/design_tokens.dart',
+  'lib/features/programs/widgets/programs_home_card.dart',
+  'lib/features/hub/widgets/help_sheet.dart',
+  'lib/features/home/widgets/child_weekly_home.dart',
+  'lib/features/home/experiment/child_home_experiment.dart',
 ];
 
 /// The emoji this tour replaced. Detected generically (any emoji range), but

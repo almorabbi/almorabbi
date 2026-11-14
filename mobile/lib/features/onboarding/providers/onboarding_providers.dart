@@ -21,8 +21,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../api/tg_client.dart';
+import '../../../core/clock.dart';
 import '../../adhkar/data/family_adhkar.dart';
 import '../../adhkar/services/notification_service.dart';
+import '../../programs/widgets/birth_month_field.dart';
 import '../../../l10n/l10n_global.dart';
 import '../data/onboarding_storage.dart';
 
@@ -68,11 +70,13 @@ class ActiveChildProfile {
   final String name;
   final String ageGroup;
   final String? avatarEmoji;
+  final String? birthMonth;
   const ActiveChildProfile({
     required this.id,
     required this.name,
     required this.ageGroup,
     this.avatarEmoji,
+    this.birthMonth,
   });
 }
 
@@ -82,8 +86,17 @@ final activeChildProfileProvider = Provider<ActiveChildProfile?>((ref) {
   final name = storage.activeChildName;
   final age = storage.activeChildAgeGroup;
   final avatar = storage.activeChildAvatar;
+  final birthMonth = storage.activeChildBirthMonth;
   if (id == null || name == null || age == null) return null;
-  return ActiveChildProfile(id: id, name: name, ageGroup: age, avatarEmoji: avatar);
+  final now = ref.watch(clockProvider)();
+  final effectiveAge = bandForBirthMonth(birthMonth, now) ?? age;
+  return ActiveChildProfile(
+    id: id,
+    name: name,
+    ageGroup: effectiveAge,
+    avatarEmoji: avatar,
+    birthMonth: birthMonth,
+  );
 });
 
 class AppLocaleNotifier extends StateNotifier<Locale?> {

@@ -35,7 +35,7 @@ from app import curriculum_loader as cl
 from app.core.taxonomy import age_equivalents, canonical_age_group
 from app.core.times import iso_z
 from app.db.init_db import get_conn
-from app.services import content_lang
+from app.services import content_lang, programs_common
 from app.services.child_memory import _similar, _tokens
 
 logger = logging.getLogger(__name__)
@@ -272,13 +272,14 @@ def build_plan(device_id: str, child_id: int, *, today: date,
     conn = get_conn()
     try:
         child = conn.execute(
-            "SELECT age_group FROM child_profiles WHERE id = ? AND device_id = ?",
+            "SELECT age_group, birth_month FROM child_profiles WHERE id = ? AND device_id = ?",
             (child_id, device_id),
         ).fetchone()
         if child is None:
             raise LookupError("child")
-        band = canonical_age_group(child["age_group"] or "")
-        group = BAND_GROUP.get(band) or BAND_GROUP.get(child["age_group"] or "", "early")
+        resolved_age = programs_common.effective_age_group(child, on=today)
+        band = canonical_age_group(resolved_age)
+        group = BAND_GROUP.get(band) or BAND_GROUP.get(resolved_age, "early")
         bank = load_bank(group, code)
         signals = _signals(conn, device_id, child_id, use_memory)
         completed = _completed_lessons(conn, device_id, child_id)

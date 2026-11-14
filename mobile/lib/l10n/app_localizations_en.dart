@@ -6919,4 +6919,30 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get monthlyReportQuestions => 'Coach sessions';
+
+  @override
+  String childWeeklyHomeTitle(String name) {
+    return '$name\'s plan this week';
+  }
+
+  @override
+  String get childWeeklyHomeTitleNoName => 'Your child\'s plan this week';
+
+  @override
+  String get childWeeklyFirstWeekBadge => 'Starting week';
+
+  @override
+  String get childWeeklyBirthMonthNudge =>
+      'Add birth month to update stage automatically';
+
+  @override
+  String get fridayHarvestBannerTitle => 'Friday harvest is ready';
+
+  @override
+  String fridayHarvestBannerSubtitle(int count) {
+    return '$count lanterns lit in your home this week';
+  }
+
+  @override
+  String get onbAddBirthMonthOptional => 'Set birth month (optional)';
 }

@@ -48,8 +48,16 @@ import '../../program/providers/program_providers.dart'
 import '../data/onboarding_storage.dart';
 import '../providers/onboarding_providers.dart';
 import 'update_splash_screen.dart' show updateSplashVersion;
+import '../../../core/clock.dart';
 import '../../../widgets/ui/error_retry_view.dart';
 import '../../../widgets/ui/art_image.dart';
+import '../../child_memory/providers/memory_providers.dart'
+    show weeklyPlanProvider;
+import '../../home/experiment/child_home_experiment.dart'
+    show firstWeekOnboardedKey, justOnboardedPlanChildProvider;
+import '../../programs/widgets/birth_month_field.dart'
+    show bandForBirthMonth, parseBirthMonth, showBirthMonthPicker;
+import '../../programs/widgets/program_widgets.dart' show programMonthYear;
 import '../widgets/welcome_hero.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
@@ -63,6 +71,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   final _pageController = PageController();
   int _page = 0;
   String? _ageGroup;
+  String? _birthMonth;
 
   /// The parent tapped the sample question on the value page: after the
   /// child is created, the shell should land on the assistant tab with the
@@ -169,6 +178,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         id: child.id,
         name: name,
         ageGroup: child.ageGroup,
+        avatarEmoji: child.avatarEmoji,
+        birthMonth: child.birthMonth,
       );
       container.invalidate(activeChildProfileProvider);
       unawaited(_saveNameOnServer(container, child, name));
@@ -191,7 +202,13 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     try {
       await container
           .read(updateChildProvider.notifier)
-          .call(childId: child.id, name: name, ageGroup: child.ageGroup);
+          .call(
+            childId: child.id,
+            name: name,
+            ageGroup: child.ageGroup,
+            avatarEmoji: child.avatarEmoji,
+            birthMonth: child.birthMonth,
+          );
     } catch (_) {
       final storage = container.read(onboardingStorageProvider);
       if (storage.activeChildId == child.id &&
@@ -200,6 +217,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
           id: child.id,
           name: child.name,
           ageGroup: child.ageGroup,
+          avatarEmoji: child.avatarEmoji,
+          birthMonth: child.birthMonth,
         );
         container.invalidate(activeChildProfileProvider);
       }
@@ -219,11 +238,34 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     setState(() => _page = page);
   }
 
+  Future<void> _pickBirthMonth() async {
+    final now = ref.read(clockProvider)();
+    final picked = await showBirthMonthPicker(
+      context,
+      initial: _birthMonth,
+      today: now,
+    );
+    if (!mounted || picked == null) return;
+    final band = bandForBirthMonth(picked, now);
+    setState(() {
+      _birthMonth = picked;
+      if (band != null && band != 'unspecified') {
+        _ageGroup = band;
+      }
+    });
+  }
+
   void _pickAge(String wire) {
     // The one decision onboarding asks for — it deserves a tick of
     // acknowledgement (semantic haptics: a choice was made).
     unawaited(Haptics.selection());
-    setState(() => _ageGroup = wire);
+    final now = ref.read(clockProvider)();
+    setState(() {
+      _ageGroup = wire;
+      if (_birthMonth != null && bandForBirthMonth(_birthMonth, now) != wire) {
+        _birthMonth = null;
+      }
+    });
     _goTo(2);
   }
 
@@ -245,12 +287,13 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       _created = false;
     });
     try {
+      final lang = Localizations.localeOf(context).languageCode;
       // Make sure prefs are hydrated before anything reads
       // onboardingStorageProvider (requireValue would throw during boot).
-      await ref.read(sharedPreferencesProvider.future);
+      final prefs = await ref.read(sharedPreferencesProvider.future);
       final child = await ref
           .read(createChildProvider.notifier)
-          .create(name: name, ageGroup: ageGroup)
+          .create(name: name, ageGroup: ageGroup, birthMonth: _birthMonth)
           // Guard against a hung backend — surface a clear error instead
           // of leaving the user on a blank/loading screen indefinitely.
           .timeout(const Duration(seconds: 45));
@@ -261,6 +304,18 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         id: child.id,
         name: child.name,
         ageGroup: child.ageGroup,
+        avatarEmoji: child.avatarEmoji,
+        birthMonth: child.birthMonth,
+      );
+      await prefs.setString(
+        firstWeekOnboardedKey(child.id),
+        ref.read(clockProvider)().toUtc().toIso8601String(),
+      );
+      ref.read(justOnboardedPlanChildProvider.notifier).state = child.id;
+      unawaited(
+        ref
+            .read(weeklyPlanProvider((childId: child.id, lang: lang)).future)
+            .then((_) {}, onError: (_) {}),
       );
       await ref.read(onboardingStorageProvider).markOnboardingCompleted();
       // A fresh install is not an update. `lastSeenVersion` defaults to null,
@@ -364,6 +419,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                         _InstantValuePage(
                           ageGroup: _ageGroup,
                           onChangeAge: () => _goTo(1),
+                          birthMonth: _birthMonth,
+                          onPickBirthMonth: _pickBirthMonth,
                           askArmed: _askAfterOnboard,
                           onAskSample: () =>
                               setState(() => _askAfterOnboard = true),
@@ -869,12 +926,16 @@ class _InstantValuePage extends StatelessWidget {
   const _InstantValuePage({
     required this.ageGroup,
     required this.onChangeAge,
+    required this.birthMonth,
+    required this.onPickBirthMonth,
     required this.askArmed,
     required this.onAskSample,
   });
 
   final String? ageGroup;
   final VoidCallback onChangeAge;
+  final String? birthMonth;
+  final VoidCallback onPickBirthMonth;
 
   /// Whether the parent tapped the sample question (arming the deferred
   /// ask), and the tap handler that arms it.
@@ -963,6 +1024,34 @@ class _InstantValuePage extends StatelessWidget {
                       l10n.onbChangeAge,
                       style: const TextStyle(fontSize: 13),
                     ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 6),
+              Wrap(
+                alignment: WrapAlignment.center,
+                children: [
+                  Builder(
+                    builder: (context) {
+                      final parsed = parseBirthMonth(birthMonth);
+                      final label = parsed != null
+                          ? programMonthYear(context, parsed.$1, parsed.$2)
+                          : l10n.onbAddBirthMonthOptional;
+                      return TextButton.icon(
+                        key: const ValueKey('onb_birth_month_btn'),
+                        onPressed: onPickBirthMonth,
+                        icon: const BrandGlyph(BrandIcon.sprig, size: 15),
+                        label: Text(
+                          label,
+                          style: const TextStyle(fontSize: 13),
+                        ),
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          minimumSize: const Size(0, 32),
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),

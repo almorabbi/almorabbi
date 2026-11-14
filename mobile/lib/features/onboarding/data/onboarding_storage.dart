@@ -16,6 +16,7 @@ class OnboardingStorage {
   static const keyActiveChildName = 'tg.active_child_name';
   static const keyActiveChildAgeGroup = 'tg.active_child_age_group';
   static const keyActiveChildAvatar = 'tg.active_child_avatar';
+  static const keyActiveChildBirthMonth = 'tg.active_child.birth_month';
 
   /// Which version of the guided tour the user has finished. An `int`, not a
   /// bool: a later restructure can raise `kTourVersion` and re-run a short
@@ -28,6 +29,7 @@ class OnboardingStorage {
   static const _kActiveChildName = keyActiveChildName;
   static const _kActiveChildAgeGroup = keyActiveChildAgeGroup;
   static const _kActiveChildAvatar = keyActiveChildAvatar;
+  static const _kActiveChildBirthMonth = keyActiveChildBirthMonth;
   static const _kLastSeenVersion = 'tg.last_seen_version';
 
     final SharedPreferences _prefs;
@@ -52,11 +54,17 @@ class OnboardingStorage {
 
     String? get activeChildAvatar => _prefs.getString(_kActiveChildAvatar);
 
+    String? get activeChildBirthMonth {
+      final raw = _prefs.getString(_kActiveChildBirthMonth)?.trim();
+      return (raw == null || raw.isEmpty) ? null : raw;
+    }
+
     Future<void> setActiveChild({
       required int id,
       required String name,
       required String ageGroup,
       String? avatarEmoji,
+      String? birthMonth,
     }) async {
       await _prefs.setInt(_kActiveChildId, id);
       await _prefs.setString(_kActiveChildName, name);
@@ -64,12 +72,19 @@ class OnboardingStorage {
       if (avatarEmoji != null) {
         await _prefs.setString(_kActiveChildAvatar, avatarEmoji);
       }
+      final trimmed = birthMonth?.trim();
+      if (trimmed != null && trimmed.isNotEmpty) {
+        await _prefs.setString(_kActiveChildBirthMonth, trimmed);
+      } else {
+        await _prefs.remove(_kActiveChildBirthMonth);
+      }
     }
 
   Future<void> clearActiveChild() async {
     await _prefs.remove(_kActiveChildId);
     await _prefs.remove(_kActiveChildName);
     await _prefs.remove(_kActiveChildAgeGroup);
+    await _prefs.remove(_kActiveChildBirthMonth);
   }
 
   /// The last app version the user has seen the update splash for.

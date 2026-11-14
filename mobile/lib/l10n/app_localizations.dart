@@ -11587,6 +11587,48 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'استشارات الشهر'**
   String get monthlyReportQuestions;
+
+  /// Weekly header title on the child-centric home screen.
+  ///
+  /// In ar, this message translates to:
+  /// **'خطة {name} هذا الأسبوع'**
+  String childWeeklyHomeTitle(String name);
+
+  /// Weekly header title on the child-centric home screen when the child has no custom name yet.
+  ///
+  /// In ar, this message translates to:
+  /// **'خطة طفلك هذا الأسبوع'**
+  String get childWeeklyHomeTitleNoName;
+
+  /// Badge shown on the weekly plan card during the child's first week.
+  ///
+  /// In ar, this message translates to:
+  /// **'أسبوع البداية'**
+  String get childWeeklyFirstWeekBadge;
+
+  /// Subtle prompt on child-centric home encouraging parents to add birth month for automatic stage updates.
+  ///
+  /// In ar, this message translates to:
+  /// **'أضف شهر الميلاد لتحديث المرحلة تلقائياً'**
+  String get childWeeklyBirthMonthNudge;
+
+  /// Banner title shown on Friday when the week's family harvest can be opened.
+  ///
+  /// In ar, this message translates to:
+  /// **'حصاد الجمعة جاهز'**
+  String get fridayHarvestBannerTitle;
+
+  /// Banner subtitle on Friday showing how many lanterns were lit this week.
+  ///
+  /// In ar, this message translates to:
+  /// **'{count} قناديل أضاءت بيتكم هذا الأسبوع'**
+  String fridayHarvestBannerSubtitle(int count);
+
+  /// Optional button during onboarding to set the child's birth month for automatic stage tracking.
+  ///
+  /// In ar, this message translates to:
+  /// **'تحديد شهر الميلاد (اختياري)'**
+  String get onbAddBirthMonthOptional;
 }
 
 class _AppLocalizationsDelegate

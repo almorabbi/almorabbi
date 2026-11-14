@@ -30,6 +30,7 @@ from app import curriculum_loader as cl
 from app.core.proof import request_proven
 from app.core.taxonomy import ACCEPTED_CHILD_AGE_INPUTS, CANONICAL_DOMAINS
 from app.db.init_db import get_conn
+from app.services import programs_common
 
 logger = logging.getLogger(__name__)
 
@@ -799,12 +800,13 @@ def monthly_report(child_id: int, request: Request):
     conn = get_conn()
     try:
         child = conn.execute(
-            "SELECT name, age_group, avatar_emoji, device_id "
+            "SELECT name, age_group, birth_month, avatar_emoji, device_id "
             "FROM child_profiles WHERE id = ?",
             (child_id,),
         ).fetchone()
         if child is None or child["device_id"] != device_id:
             raise HTTPException(status_code=404, detail="طفل غير موجود.")
+        resolved_age_group = programs_common.effective_age_group(child)
 
         # Lessons completed this month
         lessons = conn.execute(
@@ -868,7 +870,7 @@ def monthly_report(child_id: int, request: Request):
     return {
         "child": {
             "name": child["name"],
-            "age_group": child["age_group"],
+            "age_group": resolved_age_group,
             "avatar": child["avatar_emoji"] or "👶",
         },
         "period": {

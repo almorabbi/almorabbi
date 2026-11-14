@@ -18,6 +18,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../../l10n/content_direction.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/design_tokens.dart';
+import '../../../widgets/ui/brand_glyph.dart';
 import '../../../widgets/ui/directional_chevron.dart';
 import '../../../widgets/ui/empty_state.dart';
 import '../../../widgets/ui/error_retry_view.dart';
@@ -243,12 +244,14 @@ class ProgramLinkRow extends StatelessWidget {
     required this.onTap,
     this.subtitle,
     this.emoji,
+    this.glyph,
     this.badge,
   });
 
   final String label;
   final String? subtitle;
   final String? emoji;
+  final BrandIcon? glyph;
   final String? badge;
   final VoidCallback onTap;
 
@@ -272,7 +275,10 @@ class ProgramLinkRow extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
                 child: Row(
                   children: [
-                    if (emoji != null) ...[
+                    if (glyph != null) ...[
+                      ExcludeSemantics(child: BrandGlyph(glyph!, size: 20)),
+                      const SizedBox(width: 10),
+                    ] else if (emoji != null) ...[
                       ExcludeSemantics(
                         child: Text(
                           emoji!,

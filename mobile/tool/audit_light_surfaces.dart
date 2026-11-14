@@ -76,11 +76,12 @@ String _enclosing(List<String> lines, int index, int fromColumn) {
   return 'other';
 }
 
-void main(List<String> args) {
-  final verbose = args.contains('--list');
+/// Scans [libRoot] recursively for Dart files that hard-code a light surface
+/// colour outside `app_palette.dart`. Returns `filePath -> matching lines`.
+Map<String, List<String>> scanLightSurfaces([String libRoot = 'lib']) {
   final hits = <String, List<String>>{};
 
-  for (final entity in Directory('lib').listSync(recursive: true)) {
+  for (final entity in Directory(libRoot).listSync(recursive: true)) {
     if (entity is! File || !entity.path.endsWith('.dart')) continue;
     if (entity.path.contains('l10n/app_localizations')) continue;
     if (entity.path.contains('theme/app_palette.dart')) continue; // the source
@@ -129,6 +130,12 @@ void main(List<String> args) {
       }
     }
   }
+  return hits;
+}
+
+void main(List<String> args) {
+  final verbose = args.contains('--list');
+  final hits = scanLightSurfaces();
 
   final total = hits.values.fold<int>(0, (a, b) => a + b.length);
   if (total == 0) {

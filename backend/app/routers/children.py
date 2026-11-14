@@ -202,7 +202,7 @@ def _row_to_child(row: sqlite3.Row) -> ChildResponse:
     return ChildResponse(
         id=row["id"],
         name=row["name"],
-        age_group=row["age_group"],
+        age_group=programs_common.effective_age_group(row),
         gender=row["gender"],
         avatar_emoji=row["avatar_emoji"],
         birth_month=row["birth_month"] if "birth_month" in row.keys() else None,
@@ -517,10 +517,8 @@ def get_screen_usage(child_id: int, request: Request,
     device_id = _require_device_id(request)
     conn = get_conn()
     try:
-        _load_owned_child(conn, child_id, device_id)
-        age_group = conn.execute(
-            "SELECT age_group FROM child_profiles WHERE id = ?", (child_id,)
-        ).fetchone()["age_group"]
+        child = _load_owned_child(conn, child_id, device_id)
+        age_group = programs_common.effective_age_group(child)
     finally:
         conn.close()
 
@@ -811,10 +809,8 @@ def suggested_agreement_clauses(child_id: int, request: Request,
     device_id = _require_device_id(request)
     conn = get_conn()
     try:
-        _load_owned_child(conn, child_id, device_id)
-        age_group = conn.execute(
-            "SELECT age_group FROM child_profiles WHERE id = ?", (child_id,)
-        ).fetchone()["age_group"]
+        child = _load_owned_child(conn, child_id, device_id)
+        age_group = programs_common.effective_age_group(child)
     finally:
         conn.close()
     band = map_profile_age_to_band(age_group)
@@ -929,13 +925,10 @@ def _owned_child_band(request: Request, child_id: int) -> tuple[str, str]:
     device_id = _require_device_id(request)
     conn = get_conn()
     try:
-        _load_owned_child(conn, child_id, device_id)
-        row = conn.execute(
-            "SELECT age_group FROM child_profiles WHERE id = ?", (child_id,)
-        ).fetchone()
+        row = _load_owned_child(conn, child_id, device_id)
     finally:
         conn.close()
-    return device_id, map_profile_age_to_band(row["age_group"])
+    return device_id, map_profile_age_to_band(programs_common.effective_age_group(row))
 
 
 @router.get("/children/{child_id}/mission/today",
@@ -984,16 +977,13 @@ def child_day_summary(child_id: int, request: Request,
     device_id = _require_device_id(request)
     conn = get_conn()
     try:
-        _load_owned_child(conn, child_id, device_id)
-        row = conn.execute(
-            "SELECT name, age_group FROM child_profiles WHERE id = ?", (child_id,)
-        ).fetchone()
+        row = _load_owned_child(conn, child_id, device_id)
     finally:
         conn.close()
 
     policy = getattr(request.app.state, "child_surface_policy", None) \
         or load_child_surface_policy()
-    band_name = map_profile_age_to_band(row["age_group"])
+    band_name = map_profile_age_to_band(programs_common.effective_age_group(row))
     band = policy.band(band_name)
     now = datetime.now(timezone.utc)
     local_date = child_budget.local_date_for(now, tz_offset_minutes)
@@ -1073,7 +1063,7 @@ def child_license_summary(child_id: int, request: Request,
     finally:
         conn.close()
     return child_license.summary(
-        device_id, child_id, map_profile_age_to_band(row["age_group"]))
+        device_id, child_id, map_profile_age_to_band(programs_common.effective_age_group(row)))
 
 
 @router.post("/children/{child_id}/license/talked",
@@ -1107,13 +1097,8 @@ def child_license_grant(child_id: int, request: Request,
     device_id = _require_device_id(request)
     conn = get_conn()
     try:
-        _load_owned_child(conn, child_id, device_id)
-    finally:
-        conn.close()
-    conn = get_conn()
-    try:
-        band = map_profile_age_to_band(
-            _load_owned_child(conn, child_id, device_id)["age_group"])
+        row = _load_owned_child(conn, child_id, device_id)
+        band = map_profile_age_to_band(programs_common.effective_age_group(row))
     finally:
         conn.close()
     result = child_license.grant(device_id, child_id, payload.level_key, band)

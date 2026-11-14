@@ -207,6 +207,25 @@ def child_age(row: sqlite3.Row | dict, on: date) -> dict[str, Any]:
             "months": None, "years": None}
 
 
+def effective_age_group(
+    row: sqlite3.Row | dict,
+    on: Optional[date] = None,
+) -> str:
+    """Resolve the active age band for a child row.
+
+    When `birth_month` is stored, the canonical band is derived dynamically
+    from `on` (UTC date by default) so stored profiles do not drift stale as
+    the child grows; otherwise the stored `age_group` is returned as-is.
+    """
+    today = on or datetime.now(_UTC).date()
+    resolved = child_age(row, today)
+    if resolved["band"]:
+        return str(resolved["band"])
+    keys = row.keys() if hasattr(row, "keys") else ()
+    stored = row["age_group"] if "age_group" in keys else None
+    return (stored or "4-6").strip() or "4-6"
+
+
 # ── The family's clock ─────────────────────────────────────────────────────
 
 def validate_tz_offset(tz_offset_minutes: Optional[int]) -> Optional[int]:
