@@ -2551,6 +2551,18 @@ class TgClient {
     return jsonDecode(utf8.decode(resp.bodyBytes)) as Map<String, dynamic>;
   }
 
+  /// Monthly parenting report (lessons, habits, streak, chat sessions, highlights).
+  Future<Map<String, dynamic>> fetchMonthlyReport(int childId) async {
+    final session = await ensureSession();
+    final token = session.token;
+    final uri = Uri.parse('$_baseUrl/api/program/monthly-report/$childId');
+    final resp = await _http
+        .get(uri, headers: _authHeaders(token))
+        .timeout(AppConfig.httpTimeout);
+    if (resp.statusCode != 200) throw _wrap(resp);
+    return jsonDecode(utf8.decode(resp.bodyBytes)) as Map<String, dynamic>;
+  }
+
   // ── Value tracking — ميزان العادات ────────────────────────────────────
 
   Future<Map<String, dynamic>> fetchTodayHabits(int childId) async {

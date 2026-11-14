@@ -124,14 +124,6 @@ def test_daily_tip_pool_is_language_independent():
         assert ar == en, f"pool diverged for age {age}"
 
 
-def test_daily_tip_endpoint_honours_lang(client):
-    ar = client.get("/api/program/daily-tip?age_group=4-6")
-    en = client.get("/api/program/daily-tip?age_group=4-6&lang=en")
-    assert ar.status_code == en.status_code == 200
-    assert ar.json()["id"] == en.json()["id"], "same day must pick the same tip"
-    assert ar.json()["text"] != en.json()["text"]
-
-
 def test_daily_tips_fall_back_to_arabic_for_unknown_language():
     cl.load_curriculum()
     assert cl.get_daily_tips("4-6", lang="de") == cl.get_daily_tips("4-6")
@@ -352,15 +344,13 @@ def test_next_lesson_falls_back_to_arabic_for_an_untranslated_language(client):
     assert fr["path_title"] == ar["path_title"]
 
 
-def test_daily_tip_and_search_accept_a_language(client):
-    """Both already took `lang`; the client never sent it. Pin the server half
-    so the plumbing cannot regress underneath the app fix."""
+def test_mawaqif_and_search_accept_a_language(client):
+    """Both take `lang` and render translated content without changing ids."""
     hdr = _token(client)
-    ar = client.get("/api/program/daily-tip?age_group=4-6", headers=hdr)
-    en = client.get("/api/program/daily-tip?age_group=4-6&lang=en", headers=hdr)
+    ar = client.get("/api/program/mawaqif?age_group=4-6", headers=hdr)
+    en = client.get("/api/program/mawaqif?age_group=4-6&lang=en", headers=hdr)
     assert ar.status_code == 200 and en.status_code == 200
-    assert en.json()["id"] == ar.json()["id"], "language changed which tip was picked"
-    assert en.json()["text"] != ar.json()["text"], "tip still Arabic under ?lang=en"
+    assert [i["id"] for i in en.json()["items"]] == [i["id"] for i in ar.json()["items"]]
 
     s = client.get("/api/program/search?q=الصدق&limit=5&lang=en", headers=hdr)
     assert s.status_code == 200, s.text

@@ -99,12 +99,6 @@ final List<HubGroup> kHubGroups = [
         route: AppRoutes.dailyRoutine,
       ),
       HubItem(
-        id: 'habit_customize',
-        icon: Icons.tune_outlined,
-        label: (l10n, _) => l10n.hubCustomizeHabits,
-        route: AppRoutes.habitCustomize,
-      ),
-      HubItem(
         id: 'parenting_insights',
         glyph: BrandIcon.sprig,
         label: (l10n, _) => l10n.hubInsights,
@@ -168,24 +162,6 @@ final List<HubGroup> kHubGroups = [
         label: (l10n, _) => l10n.coins,
         route: AppRoutes.coins,
       ),
-      HubItem(
-        id: 'exclusive_badges',
-        glyph: BrandIcon.star,
-        label: (l10n, _) => l10n.coinsRedeemBadges,
-        route: AppRoutes.exclusiveBadges,
-      ),
-      HubItem(
-        id: 'covenant',
-        glyph: BrandIcon.openBook,
-        label: (l10n, _) => l10n.covenant,
-        route: AppRoutes.covenant,
-      ),
-      HubItem(
-        id: 'favorites',
-        glyph: BrandIcon.star,
-        label: (l10n, _) => l10n.favoritesTitle,
-        route: AppRoutes.favorites,
-      ),
     ],
   ),
   HubGroup(
@@ -211,43 +187,13 @@ final List<HubGroup> kHubGroups = [
         route: AppRoutes.quran,
       ),
       HubItem(
-        id: 'search',
-        icon: Icons.search_outlined,
-        label: (l10n, _) => l10n.search,
-        route: AppRoutes.search,
-      ),
-    ],
-  ),
-  // Small, offline, single-purpose worship tools. They sit next to the library
-  // rather than inside it: the library is things to read, these are things to
-  // use, and the adhkar pack had no surface at all before this group existed.
-  HubGroup(
-    id: 'tools',
-    title: (l10n) => l10n.hubGroupTools,
-    items: [
-      HubItem(
         id: 'adhkar',
         glyph: BrandIcon.lantern,
         label: (l10n, _) => l10n.adhkarTitle,
         route: AppRoutes.adhkar,
       ),
-      HubItem(
-        id: 'tasbeeh',
-        glyph: BrandIcon.lightDot,
-        label: (l10n, _) => l10n.tasbeehTitle,
-        route: AppRoutes.tasbeeh,
-      ),
-      HubItem(
-        id: 'hijri_converter',
-        icon: Icons.calendar_today_outlined,
-        label: (l10n, _) => l10n.hijriTitle,
-        route: AppRoutes.hijriConverter,
-      ),
     ],
   ),
-  // The individual games live behind one entry rather than five tiles: the hub
-  // is an index, and five near-identical rows here crowded out everything else
-  // in it. GamesScreen is the index for the games themselves.
   HubGroup(
     id: 'help',
     title: (l10n) => l10n.hubGroupHelp,
@@ -270,12 +216,6 @@ final List<HubGroup> kHubGroups = [
         icon: Icons.favorite_border_outlined,
         label: (l10n, _) => l10n.inviteFriend,
         route: AppRoutes.invite,
-      ),
-      HubItem(
-        id: 'feedback',
-        icon: Icons.chat_bubble_outline,
-        label: (l10n, _) => l10n.feedbackTitle,
-        route: AppRoutes.feedback,
       ),
     ],
   ),

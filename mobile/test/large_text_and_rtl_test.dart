@@ -41,7 +41,7 @@ void main() {
     tester.view.devicePixelRatio = 3.0; // 320dp wide
     addTearDown(tester.view.reset);
     final group = kHubGroups.firstWhere((g) => g.id == 'help');
-    final label = lookupAppLocalizations(const Locale('en')).feedbackTitle;
+    final label = lookupAppLocalizations(const Locale('en')).inviteFriend;
 
     Future<double> tileHeight(double scale) async {
       await tester.pumpWidget(

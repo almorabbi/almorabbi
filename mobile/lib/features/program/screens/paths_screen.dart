@@ -64,6 +64,13 @@ class _PathsScreenState extends ConsumerState<PathsScreen> {
             child: Center(child: ActiveChildChip()),
           ),
           IconButton(
+            tooltip: AppLocalizations.of(context).favoritesTitle,
+            icon: const Icon(Icons.star_border_rounded),
+            onPressed: () {
+              Navigator.of(context).push(AppRoutes.favorites());
+            },
+          ),
+          IconButton(
             tooltip: AppLocalizations.of(context).search,
             icon: const Icon(Icons.search),
             onPressed: () {

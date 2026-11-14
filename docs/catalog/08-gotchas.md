@@ -55,14 +55,16 @@
 | `mobile/lib/features/games/shared/game_utils.dart` | لا يستورده أحد (فئاته `GameConfig`, `GameProgress`, `LevelCompleteOverlay`, `EmojiSizes`… بلا مرجع) | ✅ حُذف/أُصلح 2026-11-08 |
 | `mobile/lib/widgets/ui/gradient_card.dart` | `GradientCard` بلا مستعمل | ✅ حُذف/أُصلح 2026-11-08 |
 | `mobile/lib/features/screen_off/audio_tag.dart` | ملف توثيق فقط (يشرح لماذا لا صوت خلفي) — مستورد لكن بلا شيفرة | ℹ️ مقصود |
-| `backend/app/services/crypto_sync.py` | لا مستورد في `app/` (اختبار واحد) — المزامنة ZK بلا تشفير خادمي أصلًا (الخادم يخزّن payload مشفّرًا من العميل) | ⚠️ ميت |
-| `backend/app/routers/sync.py` | `POST /api/sync/upload` و`GET /api/sync/download` بلا عميل في التطبيق | ⚠️ غير موصول |
-| `GET /api/program/{daily-tip,story-themes,monthly-report/{id}}` · `GET /api/push/token` · `/api/quranic-linguistics/*` · `/api/tafsir/{search,search-tafsir,sources}` · `/api/health` · `/api/feedback/digest` | لا مرجع في `mobile/lib` أو `frontend` أو `ops` | ⚠️ بلا عميل (بعضها أدوات/واجهات عامة مقصودة) |
+| `backend/app/services/crypto_sync.py` | كان بلا مستورد في `app/` (المزامنة ZK حُذفت في م١ لعدم وجود عميل في التطبيق) | ✅ حُذف 2026-11-14 |
+| `backend/app/routers/sync.py` | `POST /api/sync/upload` و`GET /api/sync/download` بلا عميل في التطبيق | ✅ حُذف 2026-11-14 |
+| `GET /api/program/monthly-report/{id}` | رُبط في `TgClient.fetchMonthlyReport` وشاشة «إنجازات ونمو الطفل» (`ParentingInsightsScreen`) | ✅ موصول 2026-11-14 |
+| `GET /api/program/daily-tip` · `/api/tafsir/{search,search-tafsir,sources}` | مسارات بلا عميل في التطبيق | ✅ حُذفت 2026-11-14 |
+| `GET /api/push/token` · `/api/quranic-linguistics/*` · `/api/health` · `/api/feedback/digest` | واجهات/أدوات تشغيلية أو صحة مقصودة | ℹ️ مقصود |
 | `backend/app/config/llm_config.py.bak` | نسخة احتياطية متعقَّبة | ✅ حُذف/أُصلح 2026-11-08 |
 | `scripts/missing_reports_full.json.bak`, `.27bak` | نسخ احتياطية متعقَّبة | ✅ حُذف/أُصلح 2026-11-08 |
 | `backend/ops/scripts/warm_answer_cache.py` | نسخة ثانية من `ops/scripts/warm_answer_cache.py` (234 مقابل 185 سطرًا) — أيهما يُشغَّل؟ المُركَّب في الحاوية هو `ops/scripts` | ✅ حُذف/أُصلح 2026-11-08 |
 | `backend/app/db/migrations/v16_habit_templates.py`, `v20_feedback_replies.py` | ترحيلات قديمة لا يستوردها أحد | ⚠️ تاريخية |
-| `ops/tools/enrich_{all,batch,local,local_fast,local_v3}.py`, `fix_one_unit.py` | مسارات منزلية مكتوبة (`~/projects/tutor-guardian/…` بعد التنضيف) ومعرّف وحدة مكتوب | ⚠️ تاريخية |
+| `ops/tools/enrich_{all,batch,local,local_fast,local_v3}.py`, `fix_one_unit.py` | سكربتات إثراء تاريخية بمسارات منزلية ومعرّف ثابت | ✅ حُذفت 2026-11-14 |
 | `knowledge_base/units/audit_age_groups.py` | سكربت بمسار مطلق داخل مجلد البيانات؛ يُنسخ مع `knowledge_base/` إلى الصورة | ✅ حُذف/أُصلح 2026-11-08 |
 | `scripts/archive/*` (15 ملفًا) | مستبدَلة | ⚠️ أرشيف |
 | `frontend/engine.js`, `frontend/style.css`, `frontend/sw.js` | لا قالب حالي يستدعيها ولا يسجَّل `sw.js`؛ يذكرها `.agents/skills/create-cinematic-webpage/SKILL.md` فقط | ⚠️ يتيمة |

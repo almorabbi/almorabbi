@@ -2333,5 +2333,10 @@
   "mawqifToStep": "Your step",
   "mawqifStepTitle": "One step this week",
   "mawqifCommit": "I'll try it",
-  "mawqifClose": "Not now"
+  "mawqifClose": "Not now",
+  "monthlyReportTitle": "Monthly Summary",
+  "monthlyReportLessons": "Lessons done",
+  "monthlyReportHabits": "Habit actions",
+  "monthlyReportStreak": "Current streak",
+  "monthlyReportQuestions": "Coach sessions"
 }

@@ -6,7 +6,6 @@ Read-only endpoints (public per AuthMiddleware):
   GET /api/program/paths?age_group=&domain=
   GET /api/program/paths/{id}?include=lessons
   GET /api/program/lessons/{id}
-  GET /api/program/daily-tip?age_group=&time_of_day=&id=<tip_id>
 
 Mutating endpoint (requires Bearer auth — see AuthMiddleware):
 
@@ -20,7 +19,6 @@ curriculum content.
 """
 import asyncio
 import datetime as dt
-import hashlib
 import logging
 import re
 from typing import Literal, Optional
@@ -44,7 +42,6 @@ router = APIRouter(prefix="/program", tags=["program"])
 # single source of truth; the accepted values are unchanged.
 _VALID_AGE_GROUPS = ACCEPTED_CHILD_AGE_INPUTS
 _VALID_DOMAINS = CANONICAL_DOMAINS
-_VALID_TIME_OF_DAY = {"morning", "evening", "bedtime", "anytime"}
 _VALID_PROGRESS_STATUS = {"not_started", "in_progress", "completed"}
 
 
@@ -94,30 +91,6 @@ def _base_lang(code: Optional[str]) -> Optional[str]:
     if not code:
         return None
     return code.strip().lower().replace("-", "_").split("_")[0]
-
-
-def _pick_tip_for_today(age_group: str, time_of_day: Optional[str],
-                        lang: Optional[str] = None) -> dict:
-    """Deterministic per-day tip selection so the same client sees the
-    same tip on the same day. Hash of (date + age_group) → index in pool.
-
-    `lang` translates the pool item-by-item without changing pool length or
-    order, so the index below still lands on the same tip in every language —
-    two parents in one household get the same tip on the same day.
-    """
-    pool = cl.get_daily_tips(age_group, time_of_day=time_of_day, lang=lang)
-    if not pool:
-        raise HTTPException(
-            status_code=404,
-            detail=f"لا توجد نصائح متاحة للعمر {age_group}"
-                   + (f" والوقت {time_of_day}" if time_of_day else ""),
-        )
-    # Day seed: ISO date string (UTC). Stable for a calendar day.
-    day_seed = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
-    seed_input = f"{day_seed}:{age_group}:{time_of_day or 'any'}"
-    h = hashlib.sha256(seed_input.encode("utf-8")).hexdigest()
-    idx = int(h, 16) % len(pool)
-    return pool[idx]
 
 
 # ── Endpoints ────────────────────────────────────────────────────────────
@@ -424,37 +397,6 @@ async def search_curriculum(
     """بحث نصّي في الدروس والمسارات والنصائح — additive v1 endpoint."""
     results = cl.search(q, limit=limit, lang=_resolve_lang(lang, request))
     return {"query": q, "count": len(results), "results": results}
-
-
-@router.get("/daily-tip")
-async def get_daily_tip(
-    request: Request,
-    age_group: str = Query(..., description="إلزامي: العمر لتحديد الـ pool"),
-    time_of_day: Optional[str] = Query(None, description="اختياري: morning | evening | bedtime | anytime"),
-    tip_id: Optional[str] = Query(None, description="اختياري: لو محتاج نصيحة محددة بالـ id"),
-    lang: Optional[str] = Query(None, description="لغة المحتوى: ar/en"),
-):
-    """نصيحة يومية واحدة. الافتراضي: deterministic per-day selection من pool.
-    لو tip_id موجود، يرجع النصيحة المحددة (للـ debugging أو favorites)."""
-    age_group = _validate_age_group(age_group)
-    if time_of_day is not None and time_of_day not in _VALID_TIME_OF_DAY:
-        raise HTTPException(
-            status_code=422,
-            detail=f"time_of_day غير صالح. القيم المتاحة: {sorted(_VALID_TIME_OF_DAY)}",
-        )
-
-    resolved = _resolve_lang(lang, request)
-
-    if tip_id is not None:
-        tip = cl.get_daily_tip_by_id(tip_id, lang=resolved)
-        if tip is None or tip.get("age_group") != age_group:
-            raise HTTPException(
-                status_code=404,
-                detail=f"النصيحة '{tip_id}' غير موجودة أو لا تناسب العمر {age_group}",
-            )
-        return tip
-
-    return _pick_tip_for_today(age_group, time_of_day, lang=resolved)
 
 
 @router.get("/mawaqif")

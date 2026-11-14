@@ -11557,6 +11557,36 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'ليس الآن'**
   String get mawqifClose;
+
+  /// Heading for the monthly parenting summary card in Parenting Insights.
+  ///
+  /// In ar, this message translates to:
+  /// **'ملخص الشهر'**
+  String get monthlyReportTitle;
+
+  /// Label for completed lessons count in the monthly report card.
+  ///
+  /// In ar, this message translates to:
+  /// **'دروس منجزة'**
+  String get monthlyReportLessons;
+
+  /// Label for habit completions count in the monthly report card.
+  ///
+  /// In ar, this message translates to:
+  /// **'عادات اليوم'**
+  String get monthlyReportHabits;
+
+  /// Label for current streak days in the monthly report card.
+  ///
+  /// In ar, this message translates to:
+  /// **'سلسلة الاستمرار'**
+  String get monthlyReportStreak;
+
+  /// Label for chat sessions count in the monthly report card.
+  ///
+  /// In ar, this message translates to:
+  /// **'استشارات الشهر'**
+  String get monthlyReportQuestions;
 }
 
 class _AppLocalizationsDelegate

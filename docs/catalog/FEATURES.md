@@ -69,10 +69,9 @@
 | B14 | الشارات | شارات تُحسب من التقدّم ولا تُخزَّن | `program/data/badges.dart` · `badges_screen.dart` | ✅ |
 | B15 | ملاحظات التأمّل | ملاحظة لكل درس (محلية) | `features/reflections/` · `tg.reflections.v1` | ✅ |
 | B16 | العمل بلا شبكة | نسخة آخر منهج سليمة + شريط «نسخة محفوظة» | `curriculum_cache.dart` · `app_status_banner.dart` | ✅ |
-| B17 | نصيحة اليوم (HTTP) | نصيحة حتمية يوميًا من مجموعة 220 | `GET /api/program/daily-tip` | ⚠️ لا عميل (بطاقتها حُذفت من التطبيق 2026-10-05) |
 | B18 | المرشد الاستباقي | بطاقة نصيحة مخصّصة لطفل اليوم تتدهور رشيقًا لنصيحة عادية؛ ضغطة خفيفة تُسجَّل | `GET /program/coach-tip` + `POST …/{id}/tap` · `coach_service.py` · `coach_tip_card.dart` · `COACH_TIP_ENABLED` | 🟡 (افتراضي false؛ الإنتاج مفعّل بحسب ذاكرة 2026-06) |
 | B19 | تحدّي الطفل الحالي | الأب يحدد تحديًا (عدواني، نوم…) فتتكيّف النصائح | `GET/PUT/DELETE /children/{id}/challenge` · `journey/data/challenges.dart` | ✅ |
-| B20 | تقرير شهري | تقرير تقدّم شهري للطفل | `GET /api/program/monthly-report/{child_id}` | ⚠️ لا عميل في التطبيق |
+| B20 | تقرير شهري | تقرير تقدّم شهري للطفل | `GET /api/program/monthly-report/{child_id}` · `TgClient.fetchMonthlyReport` · `parenting_insights_screen.dart` | ✅ |
 | B21 | المحتوى الإنجليزي | 818 سجلًا مختومًا (دروس/وحدات/نصائح/قصص/مسارات) وفق بوابة تكافؤ بنموذجين | `ops/tools/review_en_parity.py` · `curriculum/i18n/en` · `docs/EN_CONTENT_STATUS.md` | ✅ (مراجعة آلية لا بشرية) |
 | B22 | 4 ألعاب تعليمية | Data Defender · Emotion Maze · Healthy Hero · Tree of Deeds (Flame) بمستويات وسقف وقت؛ منذ 1.0.78 تظهر الألعاب بالإنجليزية في ركن الطفل أيضًا، ومواضع الإجابة الصحيحة موزّعة في حزم الألعاب (`balance_quiz_answer_positions.py`) | `features/games/` · `games_screen.dart` · `assets/content/games/*.json` (ar+en) | ✅ |
 | B23 | مكتبة القصص «رف الحكايات» | رف كتب ليلي برف لكل سلسلة (الأنبياء · السيرة · الحكايات) — 47 قصة؛ الكتاب التالي غير المقروء يواجه القارئ ويتوهّج، ونجمة على المنتهي (1.0.76)؛ وقارئ بصفحات | `story_bookshelf_screen.dart` → `stories/shelf/magic_shelf.dart` · `read_stories.dart` (`tg.stories.finished`) · `story_reader_screen.dart` · `mobile/assets/data/stories(.en).json` · `test/magic_shelf_test.dart` | ✅ |
@@ -89,7 +88,6 @@
 | B34 | محوّل هجري↔ميلادي | حساب جدولي محلي | `tools/screens/hijri_converter_screen.dart` | ✅ |
 | B35 | بدائل بلا شاشة | أنشطة بديلة يُحال إليها الطفل عند منع الشاشة؛ شرائح العمر مترجمة | `offscreen/offscreen_activities_screen.dart` · `assets/data/offscreen_activities*.json` | ✅ |
 | B36 | بحوث قرآنية لغوية (API) | جذور/آيات الجذر/مواضيع/قراءات | `/api/quranic-linguistics/*` · `quranic_linguistics_service.py` (Bahouth MCP) | 🟡 API عام بلا عميل (اختبارات للخدمة لا للراوتر) |
-| B37 | بحث التفسير (API) | `search` و`search-tafsir` و`sources` | `/api/tafsir/{search,search-tafsir,sources}` | ⚠️ بلا عميل |
 | B38 | «قصص الأنبياء من القرآن» | 20 قصة (10 قصص × young/older): يونس، سليمان والنمل، نوح، إبراهيم والنار، البيت، تابوت موسى، البحر، يوسف، أيوب، زكريا — لا يُقال عن نبي إلا ما قاله القرآن، بلا تصوير أشخاص | سلسلة `anbiya_quran` في `stories.json` · `story_models.dart` (`kAnbiyaSeries`) · `docs/stories/anbiya_*` · حارس `check_anbiya_stories.py` · `/methodology#prophets` | ✅ (بلا مراجع بشري — مُعلَن في المنهجية) |
 | B39 | «من السيرة النبوية» (الموسم الثاني) | 8 قصص (4 × young/older): الغار، المسجد، الجذع، أبو عمير — القرآن والصحيحان فقط، والحديث حرفيًا برقمه | سلسلة `sira_sahih` · `kSiraSeries` · `docs/stories/sira_*` · حارس `check_sira_stories.py` · `/methodology#seerah` · `test/seerah_stories_test.dart` | ✅ |
 | B40 | «تسميع مع الوالد» | الطفل يقرأ من حفظه والوالد يتابع المصحف ويلمس الكلمة التي تعثّر عندها ويختار النوع (نسيها · زاد · أبدلها · تردّد)؛ خلاصة ثم حفظ، وموعد مراجعة للمواضع؛ بلا احتفال ولا عملات | `journey/screens/tasmee_screen.dart` · `journey/data/tasmee_store.dart` (محلي) · `docs/TASMEE_WITH_PARENT.md` | ✅ (1.0.81) |
@@ -146,7 +144,7 @@
 | D17 | جولة أول تشغيل | تسليط ضوء على التبويبات (يدوية) | `features/tour/` | ✅ |
 | D18 | التهيئة السريعة | عمر + اسم الطفل في <90 ثانية | `onboarding_screen.dart` (1286) | ✅ |
 | D19 | الشاشة الرئيسية «اليوم» (`HomeScreen`، تبويب الرئيسية) | ثلاث محطات للطفل النشط: ① خطوة اليوم (`TodayFocusCard` تفتح الدرس التالي) ② اسأل المربّي (نصيحة المرشد + مدخل سؤال دائم) ③ مهمة الطفل أو «يوم الطفل»؛ بينها بطاقة خطة الأسبوع/المتابعة وتحت ③ بطاقة برامج الأسرة (إن قدّمها الخادم)؛ وتحت الفاصل بقية الاختصارات | `mobile/lib/screens/home_screen.dart` (510) · `features/home/` · `features/companion/widgets/noor_today_header.dart` · `today_three_blocks_test.dart` | ✅ |
-| D20 | تبويب «المزيد» (`HubScreen`) | فهرس مسطّح مجمَّع بأيقونات لكل ما خارج الحلقة اليومية (الطفل · الألعاب · الإنجازات · المكتبة · الأدوات · المساعدة) مع زر مساعدة سياقي؛ المجموعات والعناصر من كتالوج بيانات واحد تُخفى عناصره بحسب العمر/توفّر البرامج | `features/hub/screens/hub_screen.dart` · `features/hub/data/hub_catalog.dart` · `widgets/hub_group_card.dart` · `widgets/help_sheet.dart` · `test/hub_catalog_test.dart` | ✅ |
+| D20 | تبويب «المزيد» (`HubScreen`) | فهرس مسطّح مجمَّع بأيقونات لما خارج الحلقة اليومية في 5 مجموعات (الطفل · الألعاب · الإنجازات · المكتبة · المساعدة) و15–16 بطاقة مع زر مساعدة سياقي؛ تُخفى العناصر بحسب العمر/توفّر البرامج وقائمة `hub_hidden_items` من الخادم | `features/hub/screens/hub_screen.dart` · `features/hub/data/hub_catalog.dart` · `widgets/hub_group_card.dart` · `widgets/help_sheet.dart` · `test/hub_catalog_test.dart` | ✅ |
 | D21 | «موقف بقرار» | بطاقة في «اليوم» (≈4 دقائق): موقف من يوم الوالد ← ثلاثة ردود معقولة لكلٍّ «الآن» و«بعد ذلك» بلا «إجابة صحيحة» ← حديث من الصحيحين جوابًا ← خطوة واحدة؛ «سأجرّبها» تفتح متابعة عادية. 6 مواقف (واحد لكل عمر 2-3…16-18)؛ البطاقة تختفي بلا مواقف أو عند فشل أو خادم قديم أو بعد المرور عليها | `GET /api/program/mawaqif` · `services/mawaqif.py` · `features/mawaqif/` · `curriculum/mawaqif/mawaqif.json` (+en) · `docs/MAWAQIF.md` | ✅ (1.0.81؛ تجربة تُقاس بعد أسبوعين) |
 
 ---
@@ -194,7 +192,6 @@
 | F10 | إصلاح «توائم الجهاز» | معرّفان لتثبيت واحد (محرّكا Flutter) تُدمج صفوفهما | `device_twins.py` · `ops/tools/repair_device_twins.py` | ✅ |
 | F11 | سجل الأجهزة المحذوفة | الحساب المحذوف يبقى محذوفًا | `erased_devices.py` | ✅ |
 | F12 | نسخ/استعادة محلي | تصدير واستيراد JSON لبيانات الجهاز | `program/data/backup_service.dart` · settings | ✅ |
-| F13 | مزامنة Zero-Knowledge | رفع/تنزيل نسخة مشفّرة (AES-GCM/Scrypt) | `routers/sync.py` · `crypto_sync.py` | ⚠️ لا عميل في التطبيق؛ `crypto_sync.py` بلا مستورد؛ ونسخة جهاز آخر لا تُعاد إلا مع `IDENTITY_CROSS_DEVICE` ورابط مؤكَّد |
 | F14 | ادعم المربّي | شراء Play استهلاكي لا يفتح شيئًا + صفحة شفافية بالتكلفة | `donations.py` · `support.py` · `features/support/` | 🟡 `DONATIONS_ENABLED` مطفأ (بانتظار ملف التاجر/المنتجات/حساب خدمة مقيّد) |
 | F15 | ملاحظات المستخدم | نص أو صوت (8MB) → تلجرام؛ ردّ تلجرام يصل داخل التطبيق | `feedback.py` · `feedback_screen.dart` · `feedback_replies_section.dart` | ✅ |
 | F16 | إشعارات | تسجيل FCM + قنوات + إشعار محلي يومي + تنبيه فقدان التوكن؛ تغيّر التوكن بلا إثبات يُلغي تأكيد روابط Google | `push.py` · `push_service.dart` · `device_alerts.py` | ✅ |
@@ -226,11 +223,11 @@
 | G15 | ضبط/تقطير نموذج | بيانات QA، Kaggle/Colab LoRA لـcommand-r7b-arabic | `ops/kaggle/`, `ops/colab/`, `ops/tools/push_kaggle_v6_*.py` | ❓ تاريخي (الإنتاج على DeepSeek) |
 | G16 | تجارب Chroma 1.x | قياس استدعاء/تشغيل/ترحيل فهرس Chroma 1.x | `ops/tools/chroma_*_probe.py` · workflows `chroma-1x-*` | 🟡 تجارب يدوية (الإنتاج مثبّت على <1) |
 | G17 | تشخيص جاهزية وقت التشغيل | تقرير مشفّر يُقرأ فقط | `runtime_readiness_report.py` · `runtime-readiness.yml` | ✅ |
-| G18 | إثراء الوحدات القديم | سكربتات `enrich_*` بمسارات مطلقة | `ops/tools/enrich_*.py`, `fix_one_unit.py` | ⚠️ ميتة/تاريخية |
 | G19 | حارسا قصص الأنبياء والسيرة | يمنعان الالتزام/الدمج إن خالفت قصة مصادرها: حوار مخترع، اسم/رقم غير موجود، حديث غير حرفي، جملة لم تدعمها عائلتا نماذج | `ops/tools/check_anbiya_stories.py` · `check_sira_stories.py` · `.githooks/pre-commit` · `backend.yml` | ✅ (exit 2 = اختباراته الذاتية) |
 | G20 | توثيق المصادر ومراجعة الأمانة للقصص | جلب الآيات/الميسّر/أحاديث الصحيحين إلى `ops/data/{anbiya,sira}/`، ثم حكم جملةً جملة بعائلتين | `anbiya_sources.py` · `sira_sources.py` · `anbiya_fidelity.py` | ✅ يدوي (يحتاج `OLLAMA_API_KEY` للحكم) |
 | G21 | مقياس جاهزية إغلاق السكّ العاري | أعداد فقط: أجهزة نشطة بمفتاح استعادة، وجلسات يومية حسب `mint_kind` | `ops/tools/bare_mint_readiness.py` | ✅ يدوي |
 | G22 | حارس نسبة الأقوال لأهل العلم | أي «قال فلان» في نص يقرؤه الوالد يحتاج سندًا: كتاب العالم نفسه، أو اسمه في نص المصدر، أو موضعًا مسجَّلًا بالكتاب والصفحة من turath.io. سُحبت به أربع «فتاوى» بلا مصدر | `ops/tools/check_scholar_quotes.py` (`check` على pre-commit وCI بلا شبكة؛ `verify` يدوي) · `ops/data/scholar_quotes/verified.json` | ✅ (منذ 2026-11-09) |
+| G23 | فاحص بوابات الترقية إلى 2.0 وجرد الاستعمال (م٠) | فحص القراءة فقط لبوابات 2.0.0 الأربع (عناوين الإنتاج، فعل D7 خلال 4 أسابيع عند N≥150، نسبة مفتاح الاستعادة وقفل الهوية، قدرات `⚠️` في الكتالوج) وجرد استعمال الجداول والانحراف العمري وجاهزية مخطط الأسرة | `ops/scripts/v2_gate_check.py` · `ops/scripts/feature_usage_audit.py` · `backend/tests/test_v2_gate_check.py` · `backend/tests/test_feature_usage_audit.py` | ✅ يدوي |
 
 ---
 
@@ -238,5 +235,5 @@
 
 - **✅ يعمل:** الأغلبية الساحقة من سطح المنتج (المساعد، المنهج، سطح الطفل، البرامج، النمو، الخصوصية).
 - **🟡 مشروط بعلم/نشر:** A10 A16 A20 B6 B8 B18 B36 C14 C18 D12 E10 E18 F4 F14 G16.
-- **⚠️ غير موصول/ميت:** B17 B20 B37 F13 G18 + ملفات ميتة موثّقة في `08-gotchas.md` §3 (`crypto_sync.py`، `frontend/engine.js`… — الملفات الميتة الثلاثة و`.bak` حُذفت 2026-11-08).
+- **⚠️ غير موصول/ميت:** لا يوجد — 0 قدرات في الكتالوج (حُذفت B17 وB37 وF13 وG18 ووُصلت B20 في المعلَم 1؛ والملفات الميتة السابقة و`.bak` حُذفت 2026-11-08).
 - **❓ يتوقف على الحيّ:** A18 G15 (+ قيم الأعلام الفعلية على VPS).

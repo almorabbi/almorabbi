@@ -10,6 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/app_routes.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../main.dart' show appConfigProvider;
 import '../../program/providers/program_providers.dart';
 import '../../programs/providers/programs_providers.dart';
 import '../data/hub_catalog.dart';
@@ -39,6 +40,11 @@ class _HubScreenState extends ConsumerState<HubScreen> {
     final available = {
       if (ref.watch(programsAvailableProvider)) HubRequirement.programs,
     };
+    final cfg = ref.watch(appConfigProvider).valueOrNull;
+    final rawHidden = cfg?['hub_hidden_items'];
+    final hiddenIds = rawHidden is List
+        ? rawHidden.whereType<String>().toSet()
+        : const <String>{};
 
     return Scaffold(
       appBar: AppBar(
@@ -57,7 +63,12 @@ class _HubScreenState extends ConsumerState<HubScreen> {
         padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
         children: [
           for (final group in kHubGroups)
-            HubGroupCard(group: group, ageGroup: ageGroup, available: available),
+            HubGroupCard(
+              group: group,
+              ageGroup: ageGroup,
+              available: available,
+              hiddenIds: hiddenIds,
+            ),
         ],
       ),
     );
