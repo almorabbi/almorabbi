@@ -200,7 +200,6 @@ _add(
     GET /api/program/lesson-assets/{lesson_id} get_lesson_assets
     GET /api/program/asset-content/{asset_id} get_asset_content
     GET /api/program/search search_curriculum
-    GET /api/program/daily-tip get_daily_tip
     GET /api/program/quiz get_quiz
     GET /api/program/story-themes story_themes
     GET /api/program/mawaqif get_mawaqif
@@ -578,16 +577,6 @@ _add(
 )
 
 _add(
-    "app.routers.sync",
-    "device",
-    "device",
-    """
-    POST /api/sync/upload upload_backup
-    GET /api/sync/download download_backup
-""",
-)
-
-_add(
     "app.routers.daily_routine",
     "device",
     "device",
@@ -710,9 +699,6 @@ _add(
     GET /api/tafsir/{surah}/{ayah} get_tafsir
     GET /api/tafsir/{surah}/{ayah}/ayah-text get_ayah_text
     GET /api/tafsir/{surah}/{ayah}/nuzool get_nuzool_reason
-    GET /api/tafsir/sources get_sources
-    POST /api/tafsir/search search
-    POST /api/tafsir/search-tafsir search_tafsir
 """,
 )
 

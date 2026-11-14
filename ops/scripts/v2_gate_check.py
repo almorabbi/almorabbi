@@ -320,23 +320,30 @@ def evaluate_gate2_d7_actions(
 
     pooled_devs = [dev for dev, t0 in devices_t0.items() if pool_start <= t0 < pool_end]
     strict_hits = 0
+    sustained_hits = 0
     all_hits = 0
     strict_by_kind: Counter[str] = Counter()
+    sustained_by_kind: Counter[str] = Counter()
     d1_24_48h_hits = 0
     d1_cal_hits = 0
 
     for dev in pooled_devs:
         t0 = devices_t0[dev]
+        t24 = t0 + timedelta(hours=24)
         t7 = t0 + timedelta(days=7)
         s_kinds = {k for k, ts in strict_events.get(dev, ()) if t0 <= ts < t7}
+        sustained_kinds = {k for k, ts in strict_events.get(dev, ()) if t24 <= ts < t7}
         e_kinds = {k for k, ts in extra_events.get(dev, ()) if t0 <= ts < t7}
         if s_kinds:
             strict_hits += 1
             for k in s_kinds:
                 strict_by_kind[k] += 1
+        if sustained_kinds:
+            sustained_hits += 1
+            for k in sustained_kinds:
+                sustained_by_kind[k] += 1
         if s_kinds or e_kinds:
             all_hits += 1
-        t24 = t0 + timedelta(hours=24)
         t48 = t0 + timedelta(hours=48)
         if any(t24 <= ts < t48 for ts in open_timestamps.get(dev, ())):
             d1_24_48h_hits += 1
@@ -345,6 +352,7 @@ def evaluate_gate2_d7_actions(
 
     n_pooled = len(pooled_devs)
     strict_rate = round(strict_hits / n_pooled, 4) if n_pooled else 0.0
+    sustained_rate = round(sustained_hits / n_pooled, 4) if n_pooled else 0.0
     all_rate = round(all_hits / n_pooled, 4) if n_pooled else 0.0
     d1_24_48_rate = round(d1_24_48h_hits / n_pooled, 4) if n_pooled else 0.0
     d1_cal_rate = round(d1_cal_hits / n_pooled, 4) if n_pooled else 0.0
@@ -407,6 +415,9 @@ def evaluate_gate2_d7_actions(
         "strict_d7_hits_4w": strict_hits,
         "strict_d7_rate_4w": strict_rate,
         "strict_hits_by_kind_4w": dict(strict_by_kind),
+        "sustained_d7_hits": sustained_hits,
+        "sustained_d7_rate": sustained_rate,
+        "sustained_by_kind": dict(sustained_by_kind),
         "all_actions_d7_hits_4w": all_hits,
         "all_actions_d7_rate_4w": all_rate,
         "d1_return_4w_calendar_next_day": {
@@ -625,6 +636,10 @@ def _print_human(report: dict[str, Any]) -> None:
         print(
             f"  Strict 5 sources: {g2['strict_d7_hits_4w']}/{g2['eligible_families_4w']} "
             f"({g2['strict_d7_rate_4w']:.1%}) | by kind: {g2['strict_hits_by_kind_4w']}"
+        )
+        print(
+            f"  Sustained (24h-7d): {g2['sustained_d7_hits']}/{g2['eligible_families_4w']} "
+            f"({g2['sustained_d7_rate']:.1%}) | by kind: {g2['sustained_by_kind']}"
         )
         print(
             f"  All ACTION_SOURCES: {g2['all_actions_d7_hits_4w']}/{g2['eligible_families_4w']} "

@@ -56,11 +56,6 @@ _PROTECTED_PREFIXES = (
     "/api/value-tracking",
     "/api/habit-templates",
     "/api/child-web",
-    # Zero-knowledge backups. Missing from this list, the middleware never set
-    # request.state.device_id, so upload/download answered 401 to every caller
-    # in production (the tests stub the middleware and could not see it) — and
-    # an anonymous 50 MB body was parsed before that 401.
-    "/api/sync",
     # «صورة حيّة» experiment events: every row is the calling device's.
     "/api/stories/events",
     # Recording a support purchase. The transparency GET beside it is public.

@@ -10,36 +10,24 @@ Tafsir router — endpoints لجلب التفسير الموثّق من Tafsir M
   GET  /api/tafsir/{surah}/{ayah}           — تفسير آية (مصادر متعددة)
   GET  /api/tafsir/{surah}/{ayah}/ayah-text — نص الآية فقط
   GET  /api/tafsir/{surah}/{ayah}/nuzool    — سبب النزول
-  GET  /api/tafsir/sources                   — فهرس المصادر
-  POST /api/tafsir/search                   — بحث في الآيات
-  POST /api/tafsir/search-tafsir            — بحث في التفسير
 """
 from __future__ import annotations
 
 import logging
 
 from fastapi import APIRouter, HTTPException, Query
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 from app.services.tafsir_service import (
     fetch_tafsir,
     fetch_ayah_text,
     fetch_nuzool_reason,
-    list_tafsir_sources,
-    search_quran,
-    search_in_tafsir,
     format_tafsir_for_display,
     FALLBACK_MESSAGE,
 )
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/tafsir", tags=["tafsir"])
-
-
-class SearchRequest(BaseModel):
-    query: str = Field(..., min_length=1, max_length=500)
-    limit: int = Field(default=10, ge=1, le=50)
-    source: str = Field(default="saadi")
 
 
 class TafsirEntryResponse(BaseModel):
@@ -71,14 +59,6 @@ class NuzoolResponse(BaseModel):
     attribution: str
     text: str
     formatted: str
-
-
-class SourceListResponse(BaseModel):
-    sources: list[dict]
-
-
-class SearchResponse(BaseModel):
-    results: list[dict]
 
 
 @router.get("/{surah}/{ayah}", response_model=TafsirResponse)
@@ -150,26 +130,3 @@ async def get_nuzool_reason(surah: int, ayah: int):
         text=result.text,
         formatted=format_tafsir_for_display(result),
     )
-
-
-@router.get("/sources", response_model=SourceListResponse)
-async def get_sources():
-    """فهرس مصادر التفسير المتاحة."""
-    sources = await list_tafsir_sources()
-    return SourceListResponse(sources=sources)
-
-
-@router.post("/search", response_model=SearchResponse)
-async def search(request: SearchRequest):
-    """بحث نصي في آيات القرآن."""
-    results = await search_quran(request.query, request.limit)
-    return SearchResponse(results=results)
-
-
-@router.post("/search-tafsir", response_model=SearchResponse)
-async def search_tafsir(request: SearchRequest):
-    """بحث LIKE داخل تفسير معين."""
-    results = await search_in_tafsir(
-        request.query, source=request.source, limit=request.limit
-    )
-    return SearchResponse(results=results)

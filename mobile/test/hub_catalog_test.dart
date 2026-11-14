@@ -7,10 +7,11 @@
 /// `.arb` key, which only shows up as a crash on the device.
 library;
 
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:almorabbi/features/hub/data/hub_catalog.dart';
+import 'package:almorabbi/features/hub/widgets/hub_group_card.dart';
 import 'package:almorabbi/l10n/app_localizations.dart';
 
 void main() {
@@ -110,5 +111,36 @@ void main() {
         );
       }
     }
+  });
+
+  test('simplification keeps 5 core groups and <= 16 tiles', () {
+    final groupIds = kHubGroups.map((g) => g.id).toList();
+    expect(groupIds, ['child', 'games', 'achievements', 'library', 'help']);
+    final totalTiles =
+        kHubGroups.fold<int>(0, (sum, g) => sum + g.items.length);
+    expect(totalTiles, lessThanOrEqualTo(16));
+  });
+
+  testWidgets('HubGroupCard hides server-configured hiddenIds', (tester) async {
+    final helpGroup = kHubGroups.firstWhere((g) => g.id == 'help');
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('ar'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: Scaffold(
+          body: HubGroupCard(
+            group: helpGroup,
+            ageGroup: '4-6',
+            hiddenIds: const {'invite'},
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final l10n = locales['ar']!;
+    expect(find.text(l10n.settings), findsOneWidget);
+    expect(find.text(l10n.inviteFriend), findsNothing);
   });
 }

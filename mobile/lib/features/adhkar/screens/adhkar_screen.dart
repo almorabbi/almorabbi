@@ -17,6 +17,7 @@ library;
 
 import 'package:flutter/material.dart';
 
+import '../../../core/app_routes.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../l10n/content_direction.dart';
 import '../../../theme/app_theme.dart';
@@ -55,7 +56,26 @@ class _AdhkarScreenState extends State<AdhkarScreen> {
     final items = _filtered;
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.adhkarTitle), centerTitle: true),
+      appBar: AppBar(
+        title: Text(l10n.adhkarTitle),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            tooltip: l10n.tasbeehTitle,
+            icon: const Icon(Icons.adjust_outlined),
+            onPressed: () {
+              Navigator.of(context).push(AppRoutes.tasbeeh());
+            },
+          ),
+          IconButton(
+            tooltip: l10n.hijriTitle,
+            icon: const Icon(Icons.calendar_today_outlined),
+            onPressed: () {
+              Navigator.of(context).push(AppRoutes.hijriConverter());
+            },
+          ),
+        ],
+      ),
       body: Column(
         children: [
           Padding(

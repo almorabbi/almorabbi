@@ -110,6 +110,9 @@ async def get_app_config():
         # "motion" / "static" = everyone gets that one. After the month the
         # winner is set with STORY_MOTION_MODE in .env — no release needed.
         "story_motion_mode": story_motion_mode(),
+        # Server-driven visibility filter for Hub tiles (`HUB_HIDDEN_ITEMS`,
+        # comma-separated HubItem IDs). Empty list by default.
+        "hub_hidden_items": hub_hidden_items(),
     }
 
 
@@ -117,3 +120,9 @@ def story_motion_mode() -> str:
     """STORY_MOTION_MODE, or "ab" for anything unset or unknown."""
     mode = os.environ.get("STORY_MOTION_MODE", "ab").strip().lower()
     return mode if mode in ("ab", "motion", "static") else "ab"
+
+
+def hub_hidden_items() -> list[str]:
+    """Comma-separated HubItem IDs to hide remotely via HUB_HIDDEN_ITEMS."""
+    raw = os.environ.get("HUB_HIDDEN_ITEMS", "")
+    return [item.strip() for item in raw.split(",") if item.strip()]

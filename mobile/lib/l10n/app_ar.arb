@@ -2496,5 +2496,15 @@
   "mawqifCommit": "سأجرّبها",
   "@mawqifCommit": {"description": "Button: commit to the step (then the parent picks when)."},
   "mawqifClose": "ليس الآن",
-  "@mawqifClose": {"description": "Button: leave the last screen without committing."}
+  "@mawqifClose": {"description": "Button: leave the last screen without committing."},
+  "monthlyReportTitle": "ملخص الشهر",
+  "@monthlyReportTitle": {"description": "Heading for the monthly parenting summary card in Parenting Insights."},
+  "monthlyReportLessons": "دروس منجزة",
+  "@monthlyReportLessons": {"description": "Label for completed lessons count in the monthly report card."},
+  "monthlyReportHabits": "عادات اليوم",
+  "@monthlyReportHabits": {"description": "Label for habit completions count in the monthly report card."},
+  "monthlyReportStreak": "سلسلة الاستمرار",
+  "@monthlyReportStreak": {"description": "Label for current streak days in the monthly report card."},
+  "monthlyReportQuestions": "استشارات الشهر",
+  "@monthlyReportQuestions": {"description": "Label for chat sessions count in the monthly report card."}
 }

@@ -25,7 +25,7 @@ from app.middleware.client_ip import ClientIPMiddleware
 from app.middleware.security_headers import SecurityHeadersMiddleware
 from app.routers import (
     health, assistant, chat, feedback, privacy, program, children, referral, push, identity,
-    web, stats, daily_routine, value_tracking, habit_templates, child_mode, child_mode_web, sync,
+    web, stats, daily_routine, value_tracking, habit_templates, child_mode, child_mode_web,
     insights, methodology, print_pack, seo, tafsir, quranic_linguistics, support, child_memory, device_proof,
     family_programs, family, story_events,
 )
@@ -247,7 +247,7 @@ app.include_router(health.router)
 app.include_router(assistant.router, prefix="/api")
 app.include_router(chat.router, prefix="/api")
 app.include_router(feedback.router, prefix="/api")
-app.include_router(program.router, prefix="/api")  # curriculum: paths/lessons/daily-tip
+app.include_router(program.router, prefix="/api")  # curriculum: paths/lessons/coach-tip
 app.include_router(privacy.router)  # /privacy-policy (no /api prefix; public)
 app.include_router(privacy.api_router, prefix="/api")  # /api/privacy/memory delete-all (auth)
 app.include_router(methodology.router)  # /methodology (public — methodology & sources page)
@@ -264,7 +264,6 @@ app.include_router(support.router, prefix="/api")  # «ادعم المربّي»
 app.include_router(stats.router, prefix="/api")  # community social-proof (public; Phase 3)
 app.include_router(push.router, prefix="/api")  # FCM token storage (auth)
 app.include_router(identity.router, prefix="/api")  # optional Google Sign-In (auth)
-app.include_router(sync.router, prefix="/api")  # Zero-Knowledge user backups/sync (auth)
 app.include_router(daily_routine.router, prefix="/api")  # حساب اليوم routine tracker (auth)
 app.include_router(value_tracking.router, prefix="/api")  # ميزان العادات habit tracker (auth)
 app.include_router(story_events.router, prefix="/api")  # «صورة حيّة» experiment events (auth)

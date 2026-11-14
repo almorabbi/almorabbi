@@ -6852,4 +6852,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get mawqifClose => 'ليس الآن';
+
+  @override
+  String get monthlyReportTitle => 'ملخص الشهر';
+
+  @override
+  String get monthlyReportLessons => 'دروس منجزة';
+
+  @override
+  String get monthlyReportHabits => 'عادات اليوم';
+
+  @override
+  String get monthlyReportStreak => 'سلسلة الاستمرار';
+
+  @override
+  String get monthlyReportQuestions => 'استشارات الشهر';
 }

@@ -65,23 +65,6 @@ def test_assistant_accepts_the_callers_own_session(client):
     assert r.json()["mode"] == "banned"
 
 
-# ── H3: /api/sync goes through the real auth middleware ───────────────────
-
-def test_sync_requires_a_token_before_parsing_the_body(client):
-    r = client.post("/api/sync/upload", json={"salt": "a", "nonce": "b", "payload": "c"})
-    assert r.status_code == 401
-
-
-def test_sync_round_trip_with_a_real_token(client):
-    headers, _ = _session(client, "device-sync")
-    up = client.post("/api/sync/upload", headers=headers,
-                     json={"salt": "s", "nonce": "n", "payload": "p"})
-    assert up.status_code == 200, up.text
-    down = client.get("/api/sync/download", headers=headers)
-    assert down.status_code == 200
-    assert down.json()["payload"] == "p"
-
-
 # ── H2: challenge churn no longer hits the UNIQUE(status) key ─────────────
 
 def test_challenge_can_change_many_times_and_be_cleared(client):

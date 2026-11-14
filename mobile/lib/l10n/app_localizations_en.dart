@@ -6904,4 +6904,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get mawqifClose => 'Not now';
+
+  @override
+  String get monthlyReportTitle => 'Monthly Summary';
+
+  @override
+  String get monthlyReportLessons => 'Lessons done';
+
+  @override
+  String get monthlyReportHabits => 'Habit actions';
+
+  @override
+  String get monthlyReportStreak => 'Current streak';
+
+  @override
+  String get monthlyReportQuestions => 'Coach sessions';
 }

@@ -208,10 +208,53 @@ def test_gate2_cohort_window_exclusions_and_sample_floor(tmp_path: Path) -> None
     assert res["eligible_families_4w"] == 4
     assert res["strict_d7_hits_4w"] == 1
     assert res["strict_d7_rate_4w"] == 0.25
+    assert res["sustained_d7_hits"] == 1
+    assert res["sustained_d7_rate"] == 0.25
     assert res["all_actions_d7_hits_4w"] == 2
     assert res["d1_return_4w_calendar_next_day"]["hits"] == 1
     # Must fail when N < 150 even though rate is 25%
     assert res["passed"] is False
+
+
+def test_gate2_sustained_d7_excludes_first_24h(tmp_path: Path) -> None:
+    mod = _load_mod()
+    db_path = tmp_path / "sustained.db"
+    now = datetime(2026, 11, 14, 12, 0, 0)
+    t20 = now - timedelta(days=20)
+
+    with sqlite3.connect(db_path) as conn:
+        _create_base_schema(conn)
+        # Onboarding-hour action only (t0 + 2h): strict_d7 counts it, sustained_d7 does not
+        conn.execute(
+            "INSERT INTO child_profiles(device_id, name, age_group, created_at) VALUES (?, ?, ?, ?)",
+            ("dev-early-only", "A", "4-6", t20.strftime("%Y-%m-%d %H:%M:%S")),
+        )
+        conn.execute(
+            "INSERT INTO lesson_progress(device_id, child_id, lesson_id, status, started_at) VALUES (?, ?, ?, ?, ?)",
+            ("dev-early-only", 1, "l1", "completed", (t20 + timedelta(hours=2)).strftime("%Y-%m-%d %H:%M:%S")),
+        )
+        # Post-onboarding action (t0 + 30h): both strict_d7 and sustained_d7 count it
+        conn.execute(
+            "INSERT INTO child_profiles(device_id, name, age_group, created_at) VALUES (?, ?, ?, ?)",
+            ("dev-sustained", "B", "4-6", t20.strftime("%Y-%m-%d %H:%M:%S")),
+        )
+        conn.execute(
+            "INSERT INTO lesson_progress(device_id, child_id, lesson_id, status, started_at) VALUES (?, ?, ?, ?, ?)",
+            ("dev-sustained", 2, "l2", "completed", (t20 + timedelta(hours=30)).strftime("%Y-%m-%d %H:%M:%S")),
+        )
+
+    conn = sqlite3.connect(db_path.resolve().as_uri() + "?mode=ro", uri=True)
+    try:
+        res = mod.evaluate_gate2_d7_actions(conn, now=now, suggested_questions=set())
+    finally:
+        conn.close()
+
+    assert res["eligible_families_4w"] == 2
+    assert res["strict_d7_hits_4w"] == 2
+    assert res["strict_d7_rate_4w"] == 1.0
+    assert res["sustained_d7_hits"] == 1
+    assert res["sustained_d7_rate"] == 0.5
+    assert res["sustained_by_kind"] == {"lesson": 1}
 
 
 def test_gate2_passes_at_150_families_and_12_percent(tmp_path: Path) -> None:
@@ -316,8 +359,8 @@ def test_gate4_catalog_parser_synthetic_and_real(tmp_path: Path) -> None:
     assert r_syn["unconsumed_ids"] == ["B17"]
 
     real_res = mod.evaluate_gate4_catalog(ROOT / "docs" / "catalog" / "FEATURES.md")
-    assert real_res["passed"] is False
-    assert real_res["unconsumed_ids"] == ["B17", "B20", "B37", "F13", "G18"]
+    assert real_res["passed"] is True
+    assert real_res["unconsumed_ids"] == []
 
 
 def test_cli_is_read_only_and_hides_device_ids(tmp_path: Path, capsys) -> None:

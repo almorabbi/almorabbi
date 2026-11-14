@@ -32,6 +32,7 @@ class _ParentingInsightsScreenState extends ConsumerState<ParentingInsightsScree
   int _feedAmount = 0;
   int _diaperCount = 0;
   List<dynamic> _insights = [];
+  Map<String, dynamic>? _monthlyReport;
 
   @override
   void initState() {
@@ -92,10 +93,14 @@ class _ParentingInsightsScreenState extends ConsumerState<ParentingInsightsScree
     final results = await Future.wait<Map<String, dynamic>>([
       client.fetchRoutineSummary(childId, days: 7),
       client.fetchParentingInsights(childId),
+      client
+          .fetchMonthlyReport(childId)
+          .catchError((_) => <String, dynamic>{}),
     ]);
 
     final summary = results[0];
     final insightsData = results[1];
+    final monthly = results[2];
 
     if (mounted) {
       setState(() {
@@ -104,6 +109,7 @@ class _ParentingInsightsScreenState extends ConsumerState<ParentingInsightsScree
         _feedAmount = summary['total_feed_amount_ml'] as int? ?? 0;
         _diaperCount = summary['diaper_count'] as int? ?? 0;
         _insights = insightsData['insights'] as List<dynamic>? ?? [];
+        _monthlyReport = monthly.isNotEmpty ? monthly : null;
         _loading = false;
       });
     }
@@ -131,7 +137,7 @@ class _ParentingInsightsScreenState extends ConsumerState<ParentingInsightsScree
               ? ErrorRetryView(error: _failure!, onRetry: _loadData)
               : _error != null
                   ? _buildErrorState()
-                  : _buildContent(childName),
+                  : _buildContent(childName, activeChild?.ageGroup),
     );
   }
 
@@ -193,13 +199,24 @@ class _ParentingInsightsScreenState extends ConsumerState<ParentingInsightsScree
     );
   }
 
-  Widget _buildContent(String childName) {
+  Widget _buildContent(String childName, String? ageGroup) {
+    final l10n = AppLocalizations.of(context);
     final sleepHours = _sleepMinutes ~/ 60;
     final sleepMins = _sleepMinutes % 60;
+    final isInfantBand = ageGroup == 'prenatal-1' || ageGroup == '2-3';
+    final hasInfantData = _sleepMinutes > 0 ||
+        _feedCount > 0 ||
+        _feedAmount > 0 ||
+        _diaperCount > 0;
+    final showInfantSummary = isInfantBand || hasInfantData;
 
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
+        if (_monthlyReport != null) ...[
+          _MonthlyReportCard(report: _monthlyReport!),
+          const SizedBox(height: 16),
+        ],
         // Welcome and intro card
         Container(
           padding: const EdgeInsets.all(16),
@@ -228,55 +245,55 @@ class _ParentingInsightsScreenState extends ConsumerState<ParentingInsightsScree
         ).animate().fadeIn(duration: 400.ms).slideY(begin: 0.1, end: 0),
         const SizedBox(height: 20),
 
-        // Section: stats summary
-        Text(
-          AppLocalizations.of(context).parentingInsightsWeekly,
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w800,
+        // Section: infant stats summary (only for infant bands or when logged)
+        if (showInfantSummary) ...[
+          Text(
+            l10n.parentingInsightsWeekly,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w800,
+            ),
           ),
-        ),
-        const SizedBox(height: 12),
+          const SizedBox(height: 12),
 
-        // Stats grid
-        Row(
-          children: [
-            Expanded(
-              child: _buildMetricTile(
-                title: AppLocalizations.of(context).parentingInsightsSleep,
-                value: sleepHours > 0
-                    ? AppLocalizations.of(context)
-                        .insightHoursMinutes('$sleepHours', '$sleepMins')
-                    : AppLocalizations.of(context).insightMinutes('$sleepMins'),
-                icon: '🌙',
-                color: AppTheme.primary.withValues(alpha: .10),
-                textColor: AppTheme.primary,
+          // Stats grid
+          Row(
+            children: [
+              Expanded(
+                child: _buildMetricTile(
+                  title: l10n.parentingInsightsSleep,
+                  value: sleepHours > 0
+                      ? l10n.insightHoursMinutes('$sleepHours', '$sleepMins')
+                      : l10n.insightMinutes('$sleepMins'),
+                  icon: '🌙',
+                  color: AppTheme.primary.withValues(alpha: .10),
+                  textColor: AppTheme.primary,
+                ),
               ),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: _buildMetricTile(
-                title: AppLocalizations.of(context).parentingInsightsFeeds,
-                value: AppLocalizations.of(context)
-                    .insightTimesWithMl('$_feedCount', '$_feedAmount'),
-                icon: '🍼',
-                color: AppTheme.success.withValues(alpha: .12),
-                textColor: AppTheme.successText,
+              const SizedBox(width: 12),
+              Expanded(
+                child: _buildMetricTile(
+                  title: l10n.parentingInsightsFeeds,
+                  value: l10n.insightTimesWithMl('$_feedCount', '$_feedAmount'),
+                  icon: '🍼',
+                  color: AppTheme.success.withValues(alpha: .12),
+                  textColor: AppTheme.successText,
+                ),
               ),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: _buildMetricTile(
-                title: AppLocalizations.of(context).parentingInsightsDiapers,
-                value: AppLocalizations.of(context).insightTimes('$_diaperCount'),
-                icon: '👶',
-                color: AppTheme.warningBg,
-                textColor: AppTheme.warningFg,
+              const SizedBox(width: 12),
+              Expanded(
+                child: _buildMetricTile(
+                  title: l10n.parentingInsightsDiapers,
+                  value: l10n.insightTimes('$_diaperCount'),
+                  icon: '👶',
+                  color: AppTheme.warningBg,
+                  textColor: AppTheme.warningFg,
+                ),
               ),
-            ),
-          ],
-        ).animate().fadeIn(delay: 150.ms, duration: 400.ms).slideY(begin: 0.1, end: 0),
-        const SizedBox(height: 24),
+            ],
+          ).animate().fadeIn(delay: 150.ms, duration: 400.ms).slideY(begin: 0.1, end: 0),
+          const SizedBox(height: 24),
+        ],
 
         // Section: AI recommendations
         Text(
@@ -448,6 +465,172 @@ class _ParentingInsightsScreenState extends ConsumerState<ParentingInsightsScree
                 fontWeight: FontWeight.w600,
                 color: AppTheme.textPrimary,
               ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _MonthlyReportCard extends StatelessWidget {
+  const _MonthlyReportCard({required this.report});
+
+  final Map<String, dynamic> report;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final period = report['period'] as Map<String, dynamic>? ?? const {};
+    final monthName = (period['month_name_ar'] as String?) ??
+        (period['month'] as String?) ??
+        '';
+    final stats = report['stats'] as Map<String, dynamic>? ?? const {};
+    final highlights = (report['highlights'] as List<dynamic>? ?? const [])
+        .whereType<String>()
+        .take(2)
+        .toList();
+
+    final lessons = '${stats['lessons_completed'] ?? 0}';
+    final habits = '${stats['habit_completions'] ?? 0}';
+    final streak = '${stats['current_streak'] ?? 0}';
+    final questions = '${stats['chat_sessions'] ?? 0}';
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Dt.surface,
+        borderRadius: BorderRadius.circular(Dt.rCard),
+        border: Border.all(color: Dt.accent.withValues(alpha: .22)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.calendar_month_outlined, color: Dt.accentDeep, size: 20),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  monthName.isNotEmpty
+                      ? '${l10n.monthlyReportTitle} • $monthName'
+                      : l10n.monthlyReportTitle,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                    color: Dt.accentDeep,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              Expanded(
+                child: _ReportStatTile(
+                  icon: Icons.menu_book_outlined,
+                  label: l10n.monthlyReportLessons,
+                  value: lessons,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: _ReportStatTile(
+                  icon: Icons.check_circle_outline,
+                  label: l10n.monthlyReportHabits,
+                  value: habits,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Expanded(
+                child: _ReportStatTile(
+                  icon: Icons.local_fire_department_outlined,
+                  label: l10n.monthlyReportStreak,
+                  value: streak,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: _ReportStatTile(
+                  icon: Icons.chat_bubble_outline,
+                  label: l10n.monthlyReportQuestions,
+                  value: questions,
+                ),
+              ),
+            ],
+          ),
+          if (highlights.isNotEmpty) ...[
+            const SizedBox(height: 12),
+            for (final line in highlights)
+              Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: Text(
+                  line,
+                  style: TextStyle(
+                    fontSize: 13,
+                    height: 1.45,
+                    color: AppTheme.textSecondary,
+                  ),
+                ),
+              ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _ReportStatTile extends StatelessWidget {
+  const _ReportStatTile({
+    required this.icon,
+    required this.label,
+    required this.value,
+  });
+
+  final IconData icon;
+  final String label;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      decoration: BoxDecoration(
+        color: Dt.accent.withValues(alpha: .06),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        children: [
+          Icon(icon, size: 18, color: Dt.accentDeep),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  value,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w800,
+                    color: AppTheme.textPrimary,
+                  ),
+                ),
+                Text(
+                  label,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
+                    color: AppTheme.textSecondary,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

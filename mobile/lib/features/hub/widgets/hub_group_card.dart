@@ -19,6 +19,7 @@ class HubGroupCard extends StatelessWidget {
     required this.group,
     required this.ageGroup,
     this.available = const {},
+    this.hiddenIds = const {},
   });
 
   final HubGroup group;
@@ -30,12 +31,17 @@ class HubGroupCard extends StatelessWidget {
   /// left out (see [HubRequirement]).
   final Set<HubRequirement> available;
 
+  /// Server-configured item IDs to hide remotely via `/api/app-config`.
+  final Set<String> hiddenIds;
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final items = [
       for (final item in group.items)
-        if (item.requires == null || available.contains(item.requires)) item,
+        if ((item.requires == null || available.contains(item.requires)) &&
+            !hiddenIds.contains(item.id))
+          item,
     ];
     if (items.isEmpty) return const SizedBox.shrink();
     return Column(

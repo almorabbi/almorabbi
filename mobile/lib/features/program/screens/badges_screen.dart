@@ -7,6 +7,7 @@ import '../../../theme/app_theme.dart';
 import '../../../theme/design_tokens.dart';
 import '../../../widgets/ui/empty_state.dart';
 import '../../../widgets/ui/two_column_rows.dart';
+import '../../lanterns/widgets/week_lantern_string.dart';
 import '../../share/share_service.dart';
 import '../../share/shareable_moment_card.dart';
 import '../data/badges.dart';
@@ -70,19 +71,26 @@ class _BadgesGrid extends StatelessWidget {
           // clipped these tiles on a 360dp phone, and by far more at 200% text.
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(16),
-            child: TwoColumnRows(
-              spacing: 12,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                for (var i = 0; i < badges.length; i++)
-                  // "Unlock pop" — earned badges spring in, staggered.
-                  _BadgeTile(badge: badges[i])
-                      .animate(delay: (80 * (i % Dt.maxStaggeredItems)).ms)
-                      .scale(
-                        begin: const Offset(.5, .5),
-                        duration: Dt.base,
-                        curve: Curves.easeOutBack,
-                      )
-                      .fadeIn(duration: Dt.fast),
+                const WeekLanternString(),
+                const SizedBox(height: 12),
+                TwoColumnRows(
+                  spacing: 12,
+                  children: [
+                    for (var i = 0; i < badges.length; i++)
+                      // "Unlock pop" — earned badges spring in, staggered.
+                      _BadgeTile(badge: badges[i])
+                          .animate(delay: (80 * (i % Dt.maxStaggeredItems)).ms)
+                          .scale(
+                            begin: const Offset(.5, .5),
+                            duration: Dt.base,
+                            curve: Curves.easeOutBack,
+                          )
+                          .fadeIn(duration: Dt.fast),
+                  ],
+                ),
               ],
             ),
           ),
