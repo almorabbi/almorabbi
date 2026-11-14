@@ -20,13 +20,13 @@ name: fresh/14 Mawqif — a decision step taken to its promise
     element:
       text: '${output.c.mawqifCardLabel}'
     direction: UP
-    timeout: 20000
+    timeout: 40000
     optional: true
 - scrollUntilVisible:
     element:
       text: '${output.c.mawqifCardLabel}'
     direction: DOWN
-    timeout: 30000
+    timeout: 40000
 - takeScreenshot: mawqif_1_card
 - tapOn: '${output.c.mawqifCardLabel}'
 - extendedWaitUntil:

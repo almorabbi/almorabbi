@@ -122,6 +122,7 @@ void main() {
       'covenant': AppRoutes.covenant(),
       'settings': AppRoutes.settings(),
       'identity': AppRoutes.identity(),
+      'familyAccount': AppRoutes.familyAccount(),
       'privacy': AppRoutes.privacy(),
       'accountDeletion': AppRoutes.accountDeletion(),
       'accountDeleted': AppRoutes.accountDeleted(

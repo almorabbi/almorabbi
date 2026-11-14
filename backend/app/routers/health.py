@@ -83,6 +83,7 @@ def _support_config() -> dict:
 @router.get("/api/app-config")
 async def get_app_config():
     from app.services import erased_devices
+    from app.services.families_service import family_sharing_enabled
 
     return {
         "minimum_build_number": int(os.environ.get("MINIMUM_BUILD_NUMBER", "0")),
@@ -116,6 +117,9 @@ async def get_app_config():
         # Server-driven visibility filter for Hub tiles (`HUB_HIDDEN_ITEMS`,
         # comma-separated HubItem IDs). Empty list by default.
         "hub_hidden_items": hub_hidden_items(),
+        # «حساب الأسرة» (2.0 M3): hard-gated behind FAMILY_SHARING_ENABLED
+        # and SESSION_MINT_ENFORCE in backend config.
+        "family_sharing_enabled": family_sharing_enabled(),
     }
 
 

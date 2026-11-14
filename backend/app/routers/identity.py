@@ -325,6 +325,7 @@ def _sync_child_scoped_rows(
     new_cid: int,
     old_fam: Optional[Family] = None,
     after_fam: Optional[Family] = None,
+    sync_memory: bool = True,
 ) -> bool:
     """Idempotently and non-destructively copy/merge child-scoped rows from
     `(old_device, old_cid)` onto `(new_device, new_cid)`.
@@ -343,7 +344,7 @@ def _sync_child_scoped_rows(
     # merge_tombstones.py): memory rows from before a wipe are not copied, and
     # with memory switched off on `new_device` no facts or follow-ups are.
     wiped_at = tombs.memory_since(conn, new_device, new_cid)
-    memory_on = _memory_enabled(conn, new_device)
+    memory_on = bool(sync_memory) and _memory_enabled(conn, new_device)
 
     def wiped(row) -> bool:
         return tombs.covers(_row_val(row, "created_at"), wiped_at)
@@ -1474,7 +1475,14 @@ def _sync_child_scoped_rows(
     return memory_touched
 
 
-def _sync_device_scoped_rows(conn, old_device: str, new_device: str) -> None:
+def _sync_device_scoped_rows(
+    conn,
+    old_device: str,
+    new_device: str,
+    *,
+    sync_memory: bool = True,
+    sync_settings: bool = True,
+) -> None:
     """Idempotently and non-destructively copy/merge device-level settings and
     family-level (`child_id = 0`) rows from `old_device` to `new_device` without
     wiping or stealing `old_device`'s rows."""
@@ -1482,7 +1490,10 @@ def _sync_device_scoped_rows(conn, old_device: str, new_device: str) -> None:
         return
 
     # Sync family-level (`child_id = 0`) marks/lessons/streaks
-    _sync_child_scoped_rows(conn, old_device, 0, new_device, 0)
+    _sync_child_scoped_rows(conn, old_device, 0, new_device, 0, sync_memory=sync_memory)
+
+    if not sync_settings:
+        return
 
     # child_memory_settings — PRIMARY KEY (device_id)
     if _table_exists(conn, "child_memory_settings"):
@@ -1584,6 +1595,198 @@ def _sync_device_scoped_rows(conn, old_device: str, new_device: str) -> None:
                 )
 
 
+def _merge_device_pair_in_tx(
+    conn,
+    old_device: str,
+    current_device_id: str,
+    *,
+    sync_memory: bool = True,
+    sync_settings: bool = True,
+) -> None:
+    """Non-destructively copy/merge children and scoped data from `old_device`
+    onto `current_device_id` inside the caller's open transaction."""
+    if old_device == current_device_id or not _table_exists(conn, "child_profiles"):
+        return
+
+    profile_cols = _table_cols(conn, "child_profiles")
+    has_birth_month = "birth_month" in profile_cols
+
+    old_children = conn.execute(
+        "SELECT * FROM child_profiles WHERE device_id = ? ORDER BY id ASC",
+        (old_device,),
+    ).fetchall()
+    new_children = list(
+        conn.execute(
+            "SELECT * FROM child_profiles WHERE device_id = ? ORDER BY id ASC",
+            (current_device_id,),
+        ).fetchall()
+    )
+
+    _sync_device_scoped_rows(
+        conn,
+        old_device,
+        current_device_id,
+        sync_memory=sync_memory,
+        sync_settings=sync_settings,
+    )
+
+    if not old_children:
+        return
+
+    # A child the parent erased on this phone is not brought back from
+    # the other phone's copy — not even onto a child of the same name
+    # added again here. A child created there after the erase is new.
+    old_children = [
+        c for c in old_children
+        if not tombs.covers(_row_val(c, "created_at"), tombs.since(
+            conn, current_device_id, "child", tombs.child_key(c["name"])))
+    ]
+    if not old_children:
+        return
+
+    claimed_new_ids: set[int] = set()
+    child_id_map: dict[int, int] = {}
+
+    for old_c in old_children:
+        old_name = (old_c["name"] or "").strip().lower()
+        old_age = (old_c["age_group"] or "").strip()
+
+        # First try exact (name, age_group) match, then fallback to exact name match.
+        # Never match by age_group alone and never overwrite a child with a different name.
+        matching_new = None
+        if old_name:
+            matching_new = next(
+                (
+                    nc
+                    for nc in new_children
+                    if nc["id"] not in claimed_new_ids
+                    and (nc["name"] or "").strip().lower() == old_name
+                    and (nc["age_group"] or "").strip() == old_age
+                ),
+                None,
+            )
+            if matching_new is None:
+                matching_new = next(
+                    (
+                        nc
+                        for nc in new_children
+                        if nc["id"] not in claimed_new_ids
+                        and (nc["name"] or "").strip().lower() == old_name
+                    ),
+                    None,
+                )
+
+        if matching_new is not None:
+            target_cid = matching_new["id"]
+            claimed_new_ids.add(target_cid)
+            child_id_map[old_c["id"]] = target_cid
+            if has_birth_month:
+                conn.execute(
+                    """
+                    UPDATE child_profiles
+                    SET gender = COALESCE(gender, ?),
+                        avatar_emoji = COALESCE(avatar_emoji, ?),
+                        birth_month = COALESCE(birth_month, ?)
+                    WHERE id = ? AND device_id = ?
+                    """,
+                    (
+                        _row_val(old_c, "gender"),
+                        _row_val(old_c, "avatar_emoji"),
+                        _row_val(old_c, "birth_month"),
+                        target_cid,
+                        current_device_id,
+                    ),
+                )
+            else:
+                conn.execute(
+                    """
+                    UPDATE child_profiles
+                    SET gender = COALESCE(gender, ?),
+                        avatar_emoji = COALESCE(avatar_emoji, ?)
+                    WHERE id = ? AND device_id = ?
+                    """,
+                    (
+                        _row_val(old_c, "gender"),
+                        _row_val(old_c, "avatar_emoji"),
+                        target_cid,
+                        current_device_id,
+                    ),
+                )
+        else:
+            if has_birth_month:
+                cur = conn.execute(
+                    """
+                    INSERT INTO child_profiles
+                        (device_id, name, age_group, gender, avatar_emoji,
+                         birth_month, created_at, updated_at)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        current_device_id,
+                        old_c["name"],
+                        old_c["age_group"],
+                        _row_val(old_c, "gender"),
+                        _row_val(old_c, "avatar_emoji"),
+                        _row_val(old_c, "birth_month"),
+                        old_c["created_at"],
+                        old_c["updated_at"],
+                    ),
+                )
+            else:
+                cur = conn.execute(
+                    """
+                    INSERT INTO child_profiles
+                        (device_id, name, age_group, gender, avatar_emoji,
+                         created_at, updated_at)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        current_device_id,
+                        old_c["name"],
+                        old_c["age_group"],
+                        _row_val(old_c, "gender"),
+                        _row_val(old_c, "avatar_emoji"),
+                        old_c["created_at"],
+                        old_c["updated_at"],
+                    ),
+                )
+            target_cid = cur.lastrowid
+            claimed_new_ids.add(target_cid)
+            child_id_map[old_c["id"]] = target_cid
+
+    # Build family sibling-order mappings for re-lettering `الطفل أ/ب/...`
+    old_mapped_before = [(child_id_map[c["id"]], c["name"]) for c in old_children]
+    old_fam = _to_family(old_mapped_before)
+    after_fam = family_from_conn(conn, current_device_id)
+
+    relettered_or_copied_memory = False
+    for old_c in old_children:
+        target_cid = child_id_map[old_c["id"]]
+        if _sync_child_scoped_rows(
+            conn,
+            old_device,
+            old_c["id"],
+            current_device_id,
+            target_cid,
+            old_fam=old_fam,
+            after_fam=after_fam,
+            sync_memory=sync_memory,
+        ):
+            relettered_or_copied_memory = True
+
+    if (
+        sync_memory
+        and relettered_or_copied_memory
+        and old_fam.members
+        and old_fam.members != after_fam.members
+        and _table_exists(conn, "child_memory_settings")
+    ):
+        conn.execute(
+            "UPDATE child_memory_settings SET generation = generation + 1 WHERE device_id = ?",
+            (current_device_id,),
+        )
+
+
 def _merge_legacy_device_data(conn, current_device_id: str, google_id: str) -> None:
     """Safely copy/merge children and progress from confirmed devices linked to
     the same Google account onto `current_device_id`.
@@ -1630,177 +1833,14 @@ def _merge_legacy_device_data(conn, current_device_id: str, google_id: str) -> N
 
     conn.execute("BEGIN IMMEDIATE")
     try:
-        profile_cols = _table_cols(conn, "child_profiles")
-        has_birth_month = "birth_month" in profile_cols
-
         for old_link in old_links:
-            old_device = old_link["device_id"]
-            old_children = conn.execute(
-                "SELECT * FROM child_profiles WHERE device_id = ? ORDER BY id ASC",
-                (old_device,),
-            ).fetchall()
-            new_children = list(
-                conn.execute(
-                    "SELECT * FROM child_profiles WHERE device_id = ? ORDER BY id ASC",
-                    (current_device_id,),
-                ).fetchall()
+            _merge_device_pair_in_tx(
+                conn,
+                old_link["device_id"],
+                current_device_id,
+                sync_memory=True,
+                sync_settings=True,
             )
-
-            _sync_device_scoped_rows(conn, old_device, current_device_id)
-
-            if not old_children:
-                continue
-
-            # A child the parent erased on this phone is not brought back from
-            # the other phone's copy — not even onto a child of the same name
-            # added again here. A child created there after the erase is new.
-            old_children = [
-                c for c in old_children
-                if not tombs.covers(_row_val(c, "created_at"), tombs.since(
-                    conn, current_device_id, "child", tombs.child_key(c["name"])))
-            ]
-            if not old_children:
-                continue
-
-            claimed_new_ids: set[int] = set()
-            child_id_map: dict[int, int] = {}
-
-            for old_c in old_children:
-                old_name = (old_c["name"] or "").strip().lower()
-                old_age = (old_c["age_group"] or "").strip()
-
-                # First try exact (name, age_group) match, then fallback to exact name match.
-                # Never match by age_group alone and never overwrite a child with a different name.
-                matching_new = None
-                if old_name:
-                    matching_new = next(
-                        (
-                            nc
-                            for nc in new_children
-                            if nc["id"] not in claimed_new_ids
-                            and (nc["name"] or "").strip().lower() == old_name
-                            and (nc["age_group"] or "").strip() == old_age
-                        ),
-                        None,
-                    )
-                    if matching_new is None:
-                        matching_new = next(
-                            (
-                                nc
-                                for nc in new_children
-                                if nc["id"] not in claimed_new_ids
-                                and (nc["name"] or "").strip().lower() == old_name
-                            ),
-                            None,
-                        )
-
-                if matching_new is not None:
-                    target_cid = matching_new["id"]
-                    claimed_new_ids.add(target_cid)
-                    child_id_map[old_c["id"]] = target_cid
-                    if has_birth_month:
-                        conn.execute(
-                            """
-                            UPDATE child_profiles
-                            SET gender = COALESCE(gender, ?),
-                                avatar_emoji = COALESCE(avatar_emoji, ?),
-                                birth_month = COALESCE(birth_month, ?)
-                            WHERE id = ? AND device_id = ?
-                            """,
-                            (
-                                _row_val(old_c, "gender"),
-                                _row_val(old_c, "avatar_emoji"),
-                                _row_val(old_c, "birth_month"),
-                                target_cid,
-                                current_device_id,
-                            ),
-                        )
-                    else:
-                        conn.execute(
-                            """
-                            UPDATE child_profiles
-                            SET gender = COALESCE(gender, ?),
-                                avatar_emoji = COALESCE(avatar_emoji, ?)
-                            WHERE id = ? AND device_id = ?
-                            """,
-                            (
-                                _row_val(old_c, "gender"),
-                                _row_val(old_c, "avatar_emoji"),
-                                target_cid,
-                                current_device_id,
-                            ),
-                        )
-                else:
-                    if has_birth_month:
-                        cur = conn.execute(
-                            """
-                            INSERT INTO child_profiles
-                                (device_id, name, age_group, gender, avatar_emoji,
-                                 birth_month, created_at, updated_at)
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-                            """,
-                            (
-                                current_device_id,
-                                old_c["name"],
-                                old_c["age_group"],
-                                _row_val(old_c, "gender"),
-                                _row_val(old_c, "avatar_emoji"),
-                                _row_val(old_c, "birth_month"),
-                                old_c["created_at"],
-                                old_c["updated_at"],
-                            ),
-                        )
-                    else:
-                        cur = conn.execute(
-                            """
-                            INSERT INTO child_profiles
-                                (device_id, name, age_group, gender, avatar_emoji,
-                                 created_at, updated_at)
-                            VALUES (?, ?, ?, ?, ?, ?, ?)
-                            """,
-                            (
-                                current_device_id,
-                                old_c["name"],
-                                old_c["age_group"],
-                                _row_val(old_c, "gender"),
-                                _row_val(old_c, "avatar_emoji"),
-                                old_c["created_at"],
-                                old_c["updated_at"],
-                            ),
-                        )
-                    target_cid = cur.lastrowid
-                    claimed_new_ids.add(target_cid)
-                    child_id_map[old_c["id"]] = target_cid
-
-            # Build family sibling-order mappings for re-lettering `الطفل أ/ب/...`
-            old_mapped_before = [(child_id_map[c["id"]], c["name"]) for c in old_children]
-            old_fam = _to_family(old_mapped_before)
-            after_fam = family_from_conn(conn, current_device_id)
-
-            relettered_or_copied_memory = False
-            for old_c in old_children:
-                target_cid = child_id_map[old_c["id"]]
-                if _sync_child_scoped_rows(
-                    conn,
-                    old_device,
-                    old_c["id"],
-                    current_device_id,
-                    target_cid,
-                    old_fam=old_fam,
-                    after_fam=after_fam,
-                ):
-                    relettered_or_copied_memory = True
-
-            if (
-                relettered_or_copied_memory
-                and old_fam.members
-                and old_fam.members != after_fam.members
-                and _table_exists(conn, "child_memory_settings")
-            ):
-                conn.execute(
-                    "UPDATE child_memory_settings SET generation = generation + 1 WHERE device_id = ?",
-                    (current_device_id,),
-                )
 
         conn.commit()
     except Exception:

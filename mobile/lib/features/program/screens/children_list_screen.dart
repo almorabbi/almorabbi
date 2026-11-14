@@ -10,8 +10,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/app_routes.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../theme/app_colors.dart';
 import '../../../theme/app_palette.dart';
 import '../../../theme/app_theme.dart';
+import '../../family_account/providers/family_account_providers.dart';
 import '../../journey/providers/journey_providers.dart';
 import '../../programs/providers/programs_providers.dart';
 import '../../child_memory/widgets/memory_errors.dart';
@@ -90,6 +92,57 @@ class ChildrenListScreen extends ConsumerWidget {
             return ListView(
               padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
               children: [
+                if (ref.watch(familySharingEnabledProvider)) ...[
+                  Builder(
+                    builder: (context) {
+                      final c = context.colors;
+                      final l10n = AppLocalizations.of(context);
+                      return InkWell(
+                        key: const Key('children_family_account_banner'),
+                        borderRadius: BorderRadius.circular(12),
+                        onTap: () => Navigator.of(context)
+                            .push(AppRoutes.familyAccount()),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 14,
+                            vertical: 12,
+                          ),
+                          decoration: BoxDecoration(
+                            color: c.surfaceAlt,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color: c.primary.withValues(alpha: 0.35),
+                            ),
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.family_restroom_outlined,
+                                color: c.primary,
+                              ),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Text(
+                                  l10n.familyAccountChildrenBanner,
+                                  style: TextStyle(
+                                    color: c.ink,
+                                    fontSize: 13.5,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                              Icon(
+                                Icons.chevron_right,
+                                color: c.textSecondary,
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 12),
+                ],
                 _ChildCount(count: envelope.children.length, max: kMaxChildren),
                 const SizedBox(height: 8),
                 ...envelope.children.map(

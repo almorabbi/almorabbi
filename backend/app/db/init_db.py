@@ -126,6 +126,10 @@ Migration v37: closing the bare mint (audit H5). api_tokens.mint_kind records
                device's restore key (services/restore_keys.py); and
                merge_tombstones keeps what a parent deleted out of the
                cross-device merge (services/merge_tombstones.py). Additive.
+Migration v38: dual-parent family account (م٣ / 1.3) — families, family_members,
+               family_invites, family_deletion_requests. Every per-device row
+               carries device_id so account deletion and retention reach it,
+               and empty family headers are pruned on account deletion. Additive.
 """
 import hashlib
 import os
@@ -258,10 +262,11 @@ CREATE INDEX IF NOT EXISTS ix_referrals_referrer
 # 33 = device twins (aliases + fold log), 34 = family programs,
 # 35 = erased-device tombstones,
 # 36 = honest weekly counter: followups.source + weekly_plan_marks,
-# 37 = mint_kind + restore keys + merge tombstones.
+# 37 = mint_kind + restore keys + merge tombstones,
+# 38 = dual-parent family account (families + members + invites + deletion_requests).
 # Every _ensure_* step runs unconditionally and the stamp only ever moves up,
 # so branches can land in any order: keep the highest number.
-SCHEMA_VERSION = 37
+SCHEMA_VERSION = 38
 
 
 def db_path() -> Path:
@@ -461,6 +466,7 @@ def init_db() -> None:
     _ensure_erased_devices_v35(conn)
     _ensure_honest_counter_v36(conn)
     _ensure_restore_v37(conn)
+    _ensure_families_v38(conn)
 
     row = conn.execute("SELECT version FROM schema_version LIMIT 1").fetchone()
     if row is None:
@@ -1574,6 +1580,65 @@ def _ensure_restore_v37(conn: sqlite3.Connection) -> None:
     )
     conn.execute(restore_keys.CREATE_TABLE)
     conn.execute(merge_tombstones.CREATE_TABLE)
+
+
+# ── v38: dual-parent family account (م٣ / 1.3) ─────────────────────────────
+
+_CREATE_FAMILIES_V38: tuple[str, ...] = (
+    """
+    CREATE TABLE IF NOT EXISTS families (
+        id         INTEGER PRIMARY KEY AUTOINCREMENT,
+        created_at TEXT NOT NULL DEFAULT (datetime('now')),
+        updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+    )
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS family_members (
+        id           INTEGER PRIMARY KEY AUTOINCREMENT,
+        family_id    INTEGER NOT NULL,
+        device_id    TEXT NOT NULL,
+        role_label   TEXT NOT NULL DEFAULT 'parent',
+        display_name TEXT,
+        status       TEXT NOT NULL DEFAULT 'active',
+        confirmed    INTEGER NOT NULL DEFAULT 1,
+        joined_at    TEXT NOT NULL DEFAULT (datetime('now')),
+        updated_at   TEXT NOT NULL DEFAULT (datetime('now')),
+        UNIQUE (device_id)
+    )
+    """,
+    "CREATE INDEX IF NOT EXISTS ix_family_members_family ON family_members (family_id)",
+    """
+    CREATE TABLE IF NOT EXISTS family_invites (
+        id         INTEGER PRIMARY KEY AUTOINCREMENT,
+        family_id  INTEGER NOT NULL,
+        device_id  TEXT NOT NULL,
+        code_hash  TEXT NOT NULL UNIQUE,
+        expires_at TEXT NOT NULL,
+        claimed_at TEXT,
+        created_at TEXT NOT NULL DEFAULT (datetime('now'))
+    )
+    """,
+    "CREATE INDEX IF NOT EXISTS ix_family_invites_family ON family_invites (family_id)",
+    """
+    CREATE TABLE IF NOT EXISTS family_deletion_requests (
+        id               INTEGER PRIMARY KEY AUTOINCREMENT,
+        family_id        INTEGER NOT NULL,
+        device_id        TEXT NOT NULL,
+        target_child_key TEXT NOT NULL,
+        child_name       TEXT NOT NULL,
+        status           TEXT NOT NULL DEFAULT 'pending',
+        created_at       TEXT NOT NULL DEFAULT (datetime('now')),
+        resolved_at      TEXT
+    )
+    """,
+    "CREATE INDEX IF NOT EXISTS ix_family_del_req_device ON family_deletion_requests (device_id, status)",
+)
+
+
+def _ensure_families_v38(conn: sqlite3.Connection) -> None:
+    """v38: families, family_members, family_invites, family_deletion_requests."""
+    for statement in _CREATE_FAMILIES_V38:
+        conn.execute(statement)
 
 
 # ── v36: the honest weekly counter (نور والقناديل, Phase 0) ───────────────

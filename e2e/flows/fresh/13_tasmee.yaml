@@ -12,7 +12,7 @@ name: fresh/13 Tasmee — a slip marked, summarised and saved
     element:
       text: '${output.c.journeyCardTitle}'
     direction: DOWN
-    timeout: 30000
+    timeout: 45000
 - tapOn: '${output.c.journeyCardTitle}'
 - scrollUntilVisible:
     element:

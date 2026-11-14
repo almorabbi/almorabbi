@@ -125,7 +125,9 @@ def _upsert_push_token(conn, device_id, token, platform, app_version, build_numb
             # the link stays, but carries no data until a proven session
             # re-confirms it (routers/identity.py _link_confirmable).
             from app.routers.identity import unconfirm_device_links
+            from app.services.families_service import suspend_device_family_membership
             unconfirm_device_links(conn, device_id)
+            suspend_device_family_membership(conn, device_id)
             if old is not None:
                 device_alerts.queue(conn, device_id, old)    # a dead token hears nothing
         conn.commit()

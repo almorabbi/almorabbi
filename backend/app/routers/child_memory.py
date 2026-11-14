@@ -126,6 +126,12 @@ def followups_due(request: Request, limit: int = Query(10, ge=1, le=20),
     no items, and `memory_enabled: false` says why (PR #36 review). Nothing is
     closed or deleted — switched back on, what is still due comes back."""
     device_id = _require_device_id(request)
+    from app.services.families_service import sync_for_device_if_active
+    sync_for_device_if_active(
+        device_id,
+        include_memory=True,
+        session_token=getattr(request.state, "token", None),
+    )
     # Where the follow-up push learns the family's night (quiet hours).
     cm.record_tz_offset(device_id, tz_offset_minutes)
     enabled = cm.memory_enabled(device_id)
@@ -164,6 +170,12 @@ def answer_followup(followup_id: int, body: FollowupAnswerIn, request: Request):
         raise _fact_error(exc) from exc
     if result is None:
         raise _err(404, "followup_not_found", "متابعة غير موجودة.")
+    from app.services.families_service import sync_for_device_if_active
+    sync_for_device_if_active(
+        device_id,
+        include_memory=True,
+        session_token=getattr(request.state, "token", None),
+    )
     return result
 
 
@@ -341,6 +353,12 @@ def get_weekly_plan(child_id: int, request: Request,
     # (PR #26 final review).
     if confirmed:
         cm.record_tz_offset(device_id, tz_offset_minutes)
+    from app.services.families_service import sync_for_device_if_active
+    sync_for_device_if_active(
+        device_id,
+        include_memory=bool(confirmed),
+        session_token=getattr(request.state, "token", None),
+    )
     return weekly_plan.get_weekly_plan(
         device_id, child_id, lang=lang, tz_offset_minutes=tz_offset_minutes,
         personal=cm.memory_in_use(device_id, proven=confirmed),
@@ -377,6 +395,12 @@ def _plan_mark(request: Request, child_id: int, body: PlanMarkIn) -> tuple[str, 
 def put_weekly_plan_mark(child_id: int, body: PlanMarkIn, request: Request):
     device_id, week_start, item_key = _plan_mark(request, child_id, body)
     marks = weekly_plan.mark_item(device_id, child_id, week_start, item_key)
+    from app.services.families_service import sync_for_device_if_active
+    sync_for_device_if_active(
+        device_id,
+        include_memory=False,
+        session_token=getattr(request.state, "token", None),
+    )
     return {"child_id": child_id, "week_start": week_start.isoformat(),
             "item_key": item_key, "marked": True, "marks": marks}
 
@@ -385,6 +409,12 @@ def put_weekly_plan_mark(child_id: int, body: PlanMarkIn, request: Request):
                summary="Un-tick one step of the week's plan (idempotent)")
 def delete_weekly_plan_mark(child_id: int, body: PlanMarkIn, request: Request):
     device_id, week_start, item_key = _plan_mark(request, child_id, body)
+    from app.services.families_service import sync_for_device_if_active
+    sync_for_device_if_active(
+        device_id,
+        include_memory=False,
+        session_token=getattr(request.state, "token", None),
+    )
     marks = weekly_plan.unmark_item(device_id, child_id, week_start, item_key)
     return {"child_id": child_id, "week_start": week_start.isoformat(),
             "item_key": item_key, "marked": False, "marks": marks}

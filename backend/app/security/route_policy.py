@@ -455,6 +455,31 @@ _add(
 )
 
 _add(
+    "app.routers.families",
+    "device",
+    "device",
+    """
+    GET /api/families/me get_my_family
+""",
+)
+
+_add(
+    "app.routers.families",
+    "device",
+    "device",
+    """
+    POST /api/families/invites create_family_invite
+    POST /api/families/join join_family
+    POST /api/families/reconfirm reconfirm_family_member
+    POST /api/families/leave leave_family
+    POST /api/families/deletions/request request_partner_child_deletion
+    POST /api/families/deletions/{request_id}/confirm confirm_partner_child_deletion
+    POST /api/families/deletions/{request_id}/dismiss dismiss_partner_child_deletion
+""",
+    dependencies=(("app.core.proof.require_device_proof_irreversible", (), ()),),
+)
+
+_add(
     "app.routers.device_proof",
     "device",
     "device",

@@ -418,4 +418,22 @@ void main() {
       );
     },
   );
+
+  testWidgets(
+    'English weekly header keeps child name bounded for Today visibility check',
+    (tester) async {
+      await pumpWeeklyHome(
+        tester,
+        locale: const Locale('en'),
+        childName: 'E2E-Maestro',
+        now: DateTime(2026, 11, 14, 10),
+      );
+      const expected = "This week's plan for E2E-Maestro";
+      expect(find.text(expected), findsOneWidget);
+      expect(
+        RegExp(r'^(?:.*\s)?E2E-Maestro(?:\s.*)?$', dotAll: true).hasMatch(expected),
+        isTrue,
+      );
+    },
+  );
 }
