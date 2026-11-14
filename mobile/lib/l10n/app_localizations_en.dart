@@ -6922,11 +6922,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String childWeeklyHomeTitle(String name) {
-    return '$name\'s plan this week';
+    return 'This week\'s plan for $name';
   }
 
   @override
-  String get childWeeklyHomeTitleNoName => 'Your child\'s plan this week';
+  String get childWeeklyHomeTitleNoName => 'This week\'s plan for your child';
 
   @override
   String get childWeeklyFirstWeekBadge => 'Starting week';
