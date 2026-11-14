@@ -140,6 +140,11 @@ TABLE_DISCLOSURE = {
     "erased_devices": "one-way hash of a deleted phone's identifier",
     "device_restore_keys": "Restore key",
     "merge_tombstones": "Marks of what you deleted",
+    # Family account (2.0 M3, schema v38): dual-parent membership, short-lived
+    # invite codes and mutual child-deletion confirmations.
+    "family_members": "Family sharing",
+    "family_invites": "Family sharing",
+    "family_deletion_requests": "Family sharing",
 }
 
 

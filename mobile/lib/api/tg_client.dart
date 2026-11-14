@@ -2073,6 +2073,78 @@ class TgClient {
         'lang': ?lang,
       });
 
+  // ── Dual-parent family account (2.0 M3) ────────────────────────────────
+
+  /// `GET /api/families/me` — current family sharing status & requests.
+  Future<Map<String, dynamic>> fetchMyFamily() =>
+      _authedJson('GET', '/api/families/me');
+
+  /// `POST /api/families/invites` — single-use 15-minute pairing code.
+  Future<Map<String, dynamic>> createFamilyInvite({
+    String role = 'parent',
+    String? displayName,
+  }) =>
+      withDeviceProof(
+        () => _authedJson(
+          'POST',
+          '/api/families/invites',
+          body: {
+            'role': role,
+            if (displayName != null && displayName.trim().isNotEmpty)
+              'display_name': displayName.trim(),
+          },
+        ),
+      );
+
+  /// `POST /api/families/join` — pair this phone using an invite code.
+  Future<Map<String, dynamic>> joinFamily({
+    required String code,
+    String role = 'parent',
+    String? displayName,
+  }) =>
+      withDeviceProof(
+        () => _authedJson(
+          'POST',
+          '/api/families/join',
+          body: {
+            'code': code.trim(),
+            'role': role,
+            if (displayName != null && displayName.trim().isNotEmpty)
+              'display_name': displayName.trim(),
+          },
+        ),
+      );
+
+  /// `POST /api/families/reconfirm` — lift token-change suspension after proof.
+  Future<Map<String, dynamic>> reconfirmFamilyMember() =>
+      withDeviceProof(() => _authedJson('POST', '/api/families/reconfirm'));
+
+  /// `POST /api/families/leave` — detach without removing local children.
+  Future<Map<String, dynamic>> leaveFamily() =>
+      withDeviceProof(() => _authedJson('POST', '/api/families/leave'));
+
+  /// `POST /api/families/deletions/request` — ask partner to delete a child too.
+  Future<Map<String, dynamic>> requestPartnerChildDeletion(String childName) =>
+      withDeviceProof(
+        () => _authedJson(
+          'POST',
+          '/api/families/deletions/request',
+          body: {'child_name': childName},
+        ),
+      );
+
+  /// `POST /api/families/deletions/{id}/confirm` — confirm partner deletion.
+  Future<Map<String, dynamic>> confirmPartnerChildDeletion(int requestId) =>
+      withDeviceProof(
+        () => _authedJson('POST', '/api/families/deletions/$requestId/confirm'),
+      );
+
+  /// `POST /api/families/deletions/{id}/dismiss` — decline partner deletion.
+  Future<Map<String, dynamic>> dismissPartnerChildDeletion(int requestId) =>
+      withDeviceProof(
+        () => _authedJson('POST', '/api/families/deletions/$requestId/dismiss'),
+      );
+
   /// `DELETE /api/privacy/memory` — memory of every child of this device.
   Future<Map<String, dynamic>> deleteAllMemory() =>
       _authedJson('DELETE', '/api/privacy/memory');

@@ -100,9 +100,17 @@ _DEFAULT_COHORT_END = "2026-10-25"
 DEVICE_COLUMNS = ("device_id", "referrer_device", "referred_device")
 
 # Tables a fold never re-keys: its own bookkeeping, and the cross-device
-# credentials (a Google link, an encrypted backup) — moving the twin's onto the
-# family would hand whoever made them a way back in.
-FOLD_EXCLUDED_TABLES = frozenset({"device_aliases", "device_fold_log", "identity_links", "user_backups"})
+# credentials (a Google link, an encrypted backup, and family membership/invites)
+# — moving the twin's onto the family would hand whoever made them a way back in.
+FOLD_EXCLUDED_TABLES = frozenset({
+    "device_aliases",
+    "device_fold_log",
+    "identity_links",
+    "user_backups",
+    "family_members",
+    "family_invites",
+    "family_deletion_requests",
+})
 
 _VALID_ID = re.compile(DEVICE_ID_PATTERN)
 

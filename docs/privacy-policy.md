@@ -1,6 +1,6 @@
 # سياسة الخصوصية — المربّي
 
-**آخر تحديث:** 2026-11-01
+**آخر تحديث:** 2026-11-14
 
 ## عربي
 
@@ -29,6 +29,10 @@
   بيانات أسرتك عند إعادة التثبيت أو الانتقال إلى هاتف جديد؛ ونحفظ نحن تجزئته (hash) فقط.
 - **علامات ما حذفته:** إن ربطت أكثر من هاتف بحساب Google، نحفظ علامة مشفَّرة (hash)
   لكل طفل أو معلومة أو ذاكرة حذفتها، حتى لا تعود من نسخة الهاتف الآخر.
+- **حساب الأسرة (ربط الوالدَين):** إن فعّلت مشاركة الأسرة بين هاتفَي الوالدَين، نحفظ رقم
+  الأسرة ودور كل عضو والاسم المعروض الاختياري، وبصمة مشفَّرة (SHA-256) لرمز الدعوة المؤقت
+  لمرة واحدة (15 دقيقة)، وطلبات تأكيد حذف طفل مشترك بين الهاتفَين. لا يرى أي هاتف معرّف
+  الهاتف الآخر، وبإمكانك مغادرة الأسرة أو حذف حسابك دون حذف بيانات الهاتف الآخر.
 - **إصلاح التثبيت المنقسم:** قسمت إصدارات التطبيق 1.0.58–1.0.67 بعض التثبيتات الجديدة إلى
   معرّفين لهاتف واحد. حين يعود التطبيق بالمعرّف الثاني نضمّه إلى معرّف أسرتك، ونحفظ أيّ معرّف
   قديم صار يشير إلى أيّ معرّف (ليجد التطبيق بياناتك)، وسجلًّا بما نقله الإصلاح أو حذفه — ومعه
@@ -142,6 +146,9 @@
 - المتابعة التي لا تجيب عنها: تُغلق تلقائيًا بعد **21 يومًا** من موعدها.
 - رموز QR لوضع المراهق: تُحذف بعد انتهاء صلاحيتها (دقائق).
 - رموز التحقق من الهاتف: تنتهي صلاحيتها بعد **5 دقائق**، وتُحذف خلال **يوم**.
+- رموز دعوة حساب الأسرة وطلبات حذف الطفل المشترك: تنتهي صلاحية الرمز بعد **15 دقيقة**
+  وتُحذف الرموز المنتهية أو المستعملة خلال **يوم**؛ وتُحذف طلبات تأكيد حذف الطفل بعد
+  البتّ فيها أو مع حذف الحساب.
 - رمز الإشعارات للهاتف السابق (لتنبيه الأمان): حتى يُرسَل التنبيه، و**3 أيام** على الأكثر.
 - عنوان IP ونوع المتصفح عند فتح رابط دعوة أو حملة: **7 أيام**، ثم أعداد يومية بلا عنوان.
 - سجلّ البحث، وكلمات البحث المستخلصة، وسجلّ نداءات النموذج، وسجلّ الاستعمال (كلها دون
@@ -196,7 +203,7 @@
 
 # Privacy Policy — Almorabbi (المربّي)
 
-**Last updated:** 2026-11-01
+**Last updated:** 2026-11-14
 
 ## English
 
@@ -230,6 +237,13 @@ to your phone's random identifier:
 - **Marks of what you deleted:** if you link more than one phone to a Google
   account, we keep a hashed mark of each child, memory item or memory you
   deleted, so it does not come back from the other phone's copy.
+- **Family sharing (dual-parent account):** if you pair a second parent's phone
+  into a shared family group, we keep the group ID, each member's role label and
+  optional display name, SHA-256 hashes of short-lived single-use invite codes
+  (**15 minutes**), and mutual child-deletion confirmation requests between the two
+  phones. Neither phone ever receives the other phone's device identifier, and you
+  can leave the family or delete your account without deleting the partner phone's
+  data.
 - **Repairing a split install:** app versions 1.0.58–1.0.67 split some fresh
   installs into two phone identifiers. When the app comes back under the second
   one, we merge it into your family's identifier, keep which old identifier now
@@ -377,6 +391,9 @@ and backup files you export to a place you choose.
 - Teen QR codes: deleted once they expire (minutes).
 - Phone-verification codes: expire after **5 minutes** and are deleted within
   **a day**.
+- Family-sharing invite codes: expire after **15 minutes** and are deleted within
+  **a day**; partner child-deletion requests stay until confirmed, declined, or
+  erased with your account.
 - The previous phone's notification token (for the security notice): until the
   notice is sent, **3 days** at most.
 - IP address and browser type from an invite or campaign link: **7 days**, then

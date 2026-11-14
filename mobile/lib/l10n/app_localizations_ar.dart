@@ -6893,4 +6893,152 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get onbAddBirthMonthOptional => 'تحديد شهر الميلاد (اختياري)';
+
+  @override
+  String get familyAccountTitle => 'حساب الأسرة';
+
+  @override
+  String get familyAccountSettingsDesc =>
+      'مشاركة بيانات الأطفال والخطط بين هاتفَي الوالدَين';
+
+  @override
+  String get familyAccountChildrenBanner =>
+      'اربط هاتف الوالد الآخر بمشاركة الأسرة';
+
+  @override
+  String get familyAccountLocked =>
+      'مشاركة الأسرة غير متاحة حاليًا على هذا الخادم.';
+
+  @override
+  String get familyAccountUnpairedIntro =>
+      'اربط هاتفَي الأم والأب لمشاركة ملفات الأطفال والخطط الأسبوعية والذاكرة بأمان تام. يمكنك المغادرة أو حذف حسابك دون المساس ببيانات الطرف الآخر.';
+
+  @override
+  String get familyAccountRoleLabel => 'صفتك في الأسرة';
+
+  @override
+  String get familyAccountRoleMother => 'الأم';
+
+  @override
+  String get familyAccountRoleFather => 'الأب';
+
+  @override
+  String get familyAccountRoleParent => 'ولي أمر';
+
+  @override
+  String get familyAccountDisplayNameLabel => 'الاسم المعروض للشريك (اختياري)';
+
+  @override
+  String get familyAccountDisplayNameHint => 'مثال: أم عمر';
+
+  @override
+  String get familyAccountCreateInviteCta => 'إنشاء رمز دعوة (15 دقيقة)';
+
+  @override
+  String get familyAccountInviteTitle => 'رمز دعوة الأسرة';
+
+  @override
+  String get familyAccountInviteTtlNote => 'صالح لمدة 15 دقيقة لمرة واحدة فقط';
+
+  @override
+  String get familyAccountCopyCode => 'نسخ الرمز';
+
+  @override
+  String get familyAccountCopied => 'تم نسخ رمز الدعوة';
+
+  @override
+  String get familyAccountJoinSectionTitle => 'أو أدخل رمزًا من الوالد الآخر';
+
+  @override
+  String get familyAccountJoinCodeHint => 'مثال: ABCD-EFGH';
+
+  @override
+  String get familyAccountJoinCta => 'انضمّ إلى الأسرة';
+
+  @override
+  String get familyAccountPairedHeader => 'هاتفا الوالدَين مرتبطان';
+
+  @override
+  String get familyAccountWaitingPartnerTitle => 'بانتظار انضمام الوالد الآخر';
+
+  @override
+  String get familyAccountWaitingPartnerBody =>
+      'أنشئ رمز دعوة وأرسله لهاتف الوالد الآخر خلال 15 دقيقة لإتمام الربط.';
+
+  @override
+  String get familyAccountActiveInviteNote =>
+      'يوجد رمز دعوة سارٍ حاليًا — يمكنك إنشاء رمز جديد إذا احتجت.';
+
+  @override
+  String get familyAccountSelfLabel => 'هذا الهاتف';
+
+  @override
+  String get familyAccountPartnerLabel => 'الوالد الشريك';
+
+  @override
+  String get familyAccountConfirmedBadge => 'موثّق';
+
+  @override
+  String get familyAccountUnconfirmedBadge => 'يحتاج إعادة توثيق';
+
+  @override
+  String get familyAccountUnconfirmedBanner =>
+      'تغيّر رمز الإشعارات على هذا الهاتف بدون توثيق؛ أُوقفت المزامنة مؤقتًا لحماية أسرتك.';
+
+  @override
+  String get familyAccountReconfirmCta => 'إعادة توثيق هذا الهاتف';
+
+  @override
+  String get familyAccountDeletionRequestsTitle => 'طلبات تأكيد حذف طفل';
+
+  @override
+  String familyAccountDeletionRequestPrompt(String childName) {
+    return 'طلب الوالد الشريك حذف ملف «$childName» على هاتفك أيضًا.';
+  }
+
+  @override
+  String get familyAccountConfirmDeletionCta => 'حذف الطفل من هاتفي';
+
+  @override
+  String get familyAccountDismissDeletionCta => 'إبقاء الطفل عندي';
+
+  @override
+  String get familyAccountRequestDeletionTitle => 'مزامنة حذف طفل مع الشريك';
+
+  @override
+  String get familyAccountRequestDeletionDesc =>
+      'عند حذف طفل من هذا الهاتف يبقى عند الوالد الشريك إلا إذا طلبت منه التأكيد هنا.';
+
+  @override
+  String get familyAccountRequestDeletionHint => 'اسم الطفل';
+
+  @override
+  String get familyAccountRequestDeletionCta => 'إرسال طلب تأكيد';
+
+  @override
+  String get familyAccountRequestDeletionSent =>
+      'تم إرسال طلب التأكيد للوالد الشريك';
+
+  @override
+  String get familyAccountLeaveCta => 'مغادرة حساب الأسرة';
+
+  @override
+  String get familyAccountLeaveConfirmTitle => 'مغادرة حساب الأسرة؟';
+
+  @override
+  String get familyAccountLeaveConfirmBody =>
+      'ستتوقف المزامنة بين الهاتفين فورًا، وتبقى ملفات الأطفال والتقدّم كما هي على كل هاتف.';
+
+  @override
+  String get familyAccountLeaveConfirmCta => 'نعم، غادر الأسرة';
+
+  @override
+  String get familyAccountLeftSuccess => 'تمت مغادرة حساب الأسرة';
+
+  @override
+  String get familyAccountInvalidCode => 'أدخل رمز الدعوة المكوّن من 8 خانات.';
+
+  @override
+  String get familyAccountErrorGeneric =>
+      'تعذّر إتمام الطلب الآن. حاول مرة أخرى.';
 }
