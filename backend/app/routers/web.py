@@ -59,6 +59,7 @@ _EMERALD = "#0F6B5C"  # «نور والقناديل» sky (docs/brand, mobile/as
 # graphic by `docs/brand/tools/brand_build.py web`. PNG — flat paper-cut art is
 # smaller as PNG than as JPG, and WhatsApp previews both.
 _OG_IMAGE = "/ui/assets/og_noor.png"
+_OG_IMAGE_EN = "/ui/assets/og_noor_en.png"
 # Self-hosted, subset Cairo (frontend/assets/fonts/): no third-party font request.
 _FONT_FACES = "".join(
     f'@font-face{{font-family:Cairo;font-weight:{w};font-display:swap;'
@@ -102,7 +103,7 @@ def _page(*, title: str, desc: str, body: str, install_url: str,
     install = html.escape(install_url)
     # Escaped *after* _abs uses the raw value: request.url carries the
     # caller's path verbatim, and it lands inside href="…" below.
-    og_image = html.escape(_abs(canonical, _OG_IMAGE))
+    og_image = html.escape(_abs(canonical, _OG_IMAGE_EN if en else _OG_IMAGE))
     canonical = html.escape(canonical)
     doc = f"""<!doctype html>
 <html lang="{html_lang}" dir="{html_dir}">
@@ -288,7 +289,7 @@ def landing(request: Request) -> HTMLResponse:
     # The English page opens the store in English; the referrer is unchanged.
     install_url = attribute_visit(request, hl="en" if lang == "en" else None)
     url = str(request.url)
-    og_image = _abs(url, _OG_IMAGE)
+    og_image = _abs(url, _OG_IMAGE_EN if lang == "en" else _OG_IMAGE)
     # One canonical per language, and never the tracking query: each shared
     # ?ref= / utm_* variant would otherwise index as its own page. /go is the
     # Arabic page (Googlebot sends no Accept-Language) and the x-default.

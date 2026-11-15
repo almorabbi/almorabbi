@@ -282,6 +282,17 @@ step_reasons "video" "$VID_EXIT"
 RATELIMITED=0
 grep -qi "rate.limit" "$RUN_OUT" && RATELIMITED=1
 
+# Also run the Arabic path-video gap pass (same pattern as the Arabic
+# infographic gap pass below) so new paths missing `*_ar_eg.mp4` progress too.
+if [ "$RATELIMITED" -eq 0 ] && [ "$VID_EXIT" -ne 3 ]; then
+    timeout 2700 "$PY" scripts/gen_path_videos_cron.py > "$RUN_OUT" 2>&1
+    VID_AR_EXIT=$?
+    cat "$RUN_OUT" >> "$LOG"
+    say "video [ar] exit $VID_AR_EXIT"
+    step_reasons "video-ar" "$VID_AR_EXIT"
+    grep -qi "rate.limit" "$RUN_OUT" && RATELIMITED=1
+fi
+
 # ── Audio — always attempted, even when video was refused ──
 #
 # Whether NotebookLM meters audio and video from one pool or from separate
@@ -366,7 +377,7 @@ rsync -av --chmod=F644 --min-size=2097152 \
 say "rsync audio exit $?"
 
 rsync -av --chmod=F644 --min-size=5242880 \
-    --include='*_en_us.mp4' --include='*/' --exclude='*' \
+    --include='*_en_us.mp4' --include='*_ar_eg.mp4' --include='*/' --exclude='*' \
     -e "ssh -o BatchMode=yes -o ConnectTimeout=15" \
     docs/path_videos/ "$VPS:${VPS_DOCS}path_videos/" >> "$LOG" 2>&1
 say "rsync video exit $?"
@@ -390,7 +401,8 @@ lids = [v[2] for v in json.load(open("source_to_lesson.json")).values()
         if isinstance(v, list) and len(v) >= 3]
 pids = [t["path_id"] for t in json.load(open("scratch/path_source_mapping_new.json"))]
 a = sum(1 for x in lids if not have(podcast_rel(x, "en"), MIN_PODCAST_BYTES))
-v = sum(1 for x in pids if not have(path_video_rel(x, "en"), MIN_VIDEO_BYTES))
+v = sum(1 for x in pids for lg in ("en", "ar")
+        if not have(path_video_rel(x, lg), MIN_VIDEO_BYTES))
 # Count what is BUILDABLE, not what exists. Only 80 of 174 lessons have an
 # infographic prompt block in scripts/infographic_prompts.md; counting all of
 # them leaves 94 permanently "remaining", so the total never reaches zero, the
