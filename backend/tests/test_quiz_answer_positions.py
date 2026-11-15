@@ -166,6 +166,8 @@ def test_translated_game_packs_follow_the_arabic_option_order():
     bad = []
     for tr_path, ar_path in pairs:
         ar = json.loads(ar_path.read_text(encoding="utf-8"))
+        if ar.get("schema") != "tg.game_pack/1":
+            continue
         want = {q["id"]: [o["key"] for o in q["options"]]
                 for lv in ar["levels"] for q in lv["questions"]}
         tr = json.loads(tr_path.read_text(encoding="utf-8"))
