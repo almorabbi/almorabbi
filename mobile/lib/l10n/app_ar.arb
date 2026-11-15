@@ -2619,5 +2619,39 @@
   "familyAccountInvalidCode": "أدخل رمز الدعوة المكوّن من 8 خانات.",
   "@familyAccountInvalidCode": {"description": "Validation error shown when the invite code is malformed."},
   "familyAccountErrorGeneric": "تعذّر إتمام الطلب الآن. حاول مرة أخرى.",
-  "@familyAccountErrorGeneric": {"description": "Fallback error message on unexpected family account API failure."}
+  "@familyAccountErrorGeneric": {"description": "Fallback error message on unexpected family account API failure."},
+  "familyPuzzlesTitle": "فوازير نور العائلية",
+  "familyPuzzlesSubtitle": "ألغاز بصرية هادئة تحلّونها معًا؛ المربّي يسأل والطفل يكتشف.",
+  "familyPuzzlesCoPlayBadge": "جلسة ذكاء مشتركة",
+  "familyPuzzlesStartRound": "ابدأ جولة اليوم (3 فوازير)",
+  "familyPuzzlesReplayRound": "العب جولة أخرى معًا",
+  "familyPuzzlesRoundDoneBadge": "أتممتم جولة اليوم معًا",
+  "familyPuzzlesWhisperBtn": "همسة للمربّي",
+  "familyPuzzlesWhisperTitle": "همسة للمربّي",
+  "familyPuzzlesWhisperLead": "اقرأ هذا السؤال بهدوء لطفلك ليصل إلى الفكرة بنفسه دون كشف الحل:",
+  "familyPuzzlesWhisperGotIt": "واضح، سأسأله الآن",
+  "familyPuzzlesReset": "إعادة الترتيب",
+  "familyPuzzlesCheckAnswer": "تحقّق من الإجابة",
+  "familyPuzzlesTryAgain": "اقتربتم! حرّكوا عناصر المشهد قليلًا لتظهر المفاجأة المخفية.",
+  "familyPuzzlesDiffProgress": "الفروق المكتشفة: {found} من {total}",
+  "@familyPuzzlesDiffProgress": {
+    "description": "Progress pill for Spot the Differences puzzles.",
+    "placeholders": {
+      "found": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "familyPuzzlesNext": "الفزورة التالية",
+  "familyPuzzlesFinishRound": "إنهاء الجولة",
+  "familyPuzzlesRoundCompleteTitle": "أحسنتم التفكير معًا!",
+  "familyPuzzlesRoundCompleteBody": "أجمل ما في الفزورة الحوار الهادئ بينكم ودهشة الاكتشاف.",
+  "familyPuzzlesOffscreenTitle": "فكرة ذكاء بلا شاشة الآن",
+  "familyPuzzlesBackToLobby": "العودة إلى الفوازير",
+  "familyPuzzlesSkillObservation": "دقة الملاحظة والفروق",
+  "familyPuzzlesSkillLateral": "التفكير خارج الصندوق",
+  "familyPuzzlesSkillSpatial": "التركيب الهندسي",
+  "familyPuzzlesSkillLogic": "التسلسل ومسار الماء",
+  "todayFamilyPuzzlesTitle": "فوازير نور العائلية",
+  "todayFamilyPuzzlesBody": "3 ألغاز بصرية سريعة تفتح حوارًا ذكيًا مع طفلك.",
+  "todayFamilyPuzzlesCta": "العبوا معًا"
 }

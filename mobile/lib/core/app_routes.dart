@@ -39,6 +39,9 @@ import '../features/coins/exclusive_badges_screen.dart';
 import '../features/coins/story_screen.dart';
 import '../features/feedback/feedback_screen.dart';
 import '../features/family_account/screens/family_account_screen.dart';
+import '../features/family_puzzles/data/family_puzzle_models.dart';
+import '../features/family_puzzles/screens/family_puzzle_runner_screen.dart';
+import '../features/family_puzzles/screens/family_puzzles_screen.dart';
 import '../features/games/data_defender/game_screen.dart';
 import '../features/games/emotion_maze/game_screen.dart';
 import '../features/games/healthy_hero/game_screen.dart';
@@ -135,6 +138,8 @@ abstract final class Screens {
   static const gameEmotionMaze = 'game_emotion_maze';
   static const gameRunner = 'game_runner';
   static const games = 'games';
+  static const familyPuzzles = 'family_puzzles';
+  static const familyPuzzleRunner = 'family_puzzle_runner';
 
   // Stories
   static const storyBookshelf = 'story_bookshelf';
@@ -231,6 +236,12 @@ abstract final class GameSources {
   /// The «العب وتعلم» button inside a lesson of the matching domain.
   static const lesson = 'lesson';
 
+  /// Tapped on the child-centric Today home screen.
+  static const home = 'home';
+
+  /// Tapped in the «المزيد» Hub index.
+  static const hub = 'hub';
+
   /// A route was built without naming its source — a missing call-site update,
   /// not a real entry point. If this shows up in GA4, something new pushes a
   /// game route and did not say so.
@@ -318,6 +329,33 @@ abstract final class AppRoutes {
   /// of the matching domain, which made them invisible to a parent who just
   /// wanted to hand their child something to play.
   static Route<void> games() => _r(Screens.games, (_) => const GamesScreen());
+
+  static Route<void> familyPuzzles({String source = GameSources.unknown}) =>
+      _r(
+        Screens.familyPuzzles,
+        (_) => FamilyPuzzlesScreen(source: source),
+        arguments: {'source': source},
+      );
+
+  static Route<bool?> familyPuzzleRunner({
+    required List<FamilyPuzzle> puzzles,
+    OffscreenBrainActivity? offscreenActivity,
+    int childId = 0,
+    int initialIndex = 0,
+    bool isDailyRound = false,
+    String source = GameSources.unknown,
+  }) =>
+      _r<bool?>(
+        Screens.familyPuzzleRunner,
+        (_) => FamilyPuzzleRunnerScreen(
+          puzzles: puzzles,
+          offscreenActivity: offscreenActivity,
+          childId: childId,
+          initialIndex: initialIndex,
+          isDailyRound: isDailyRound,
+          source: source,
+        ),
+      );
 
   // Each game route carries where it was entered from in RouteSettings.
   // arguments, which EduGameShell reads back for `entry_point`. Passing it

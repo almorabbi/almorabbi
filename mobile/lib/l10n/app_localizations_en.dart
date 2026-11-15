@@ -7095,4 +7095,92 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get familyAccountErrorGeneric =>
       'Could not complete this request right now. Please try again.';
+
+  @override
+  String get familyPuzzlesTitle => 'Noor Family Brain Puzzles';
+
+  @override
+  String get familyPuzzlesSubtitle =>
+      'Calm visual puzzles you solve together — you ask, your child discovers.';
+
+  @override
+  String get familyPuzzlesCoPlayBadge => 'Co-Play Brain Session';
+
+  @override
+  String get familyPuzzlesStartRound => 'Start Today\'s Round (3 Puzzles)';
+
+  @override
+  String get familyPuzzlesReplayRound => 'Play Together Again';
+
+  @override
+  String get familyPuzzlesRoundDoneBadge => 'Today\'s family round complete';
+
+  @override
+  String get familyPuzzlesWhisperBtn => 'Parent Whisper';
+
+  @override
+  String get familyPuzzlesWhisperTitle => 'Parent Whisper';
+
+  @override
+  String get familyPuzzlesWhisperLead =>
+      'Ask your child this gentle question so they discover the idea themselves:';
+
+  @override
+  String get familyPuzzlesWhisperGotIt => 'Got it, I\'ll ask now';
+
+  @override
+  String get familyPuzzlesReset => 'Reset Puzzle';
+
+  @override
+  String get familyPuzzlesCheckAnswer => 'Check Answer';
+
+  @override
+  String get familyPuzzlesTryAgain =>
+      'Close! Gently slide the scene pieces to uncover what\'s hidden.';
+
+  @override
+  String familyPuzzlesDiffProgress(int found, int total) {
+    return 'Differences found: $found of $total';
+  }
+
+  @override
+  String get familyPuzzlesNext => 'Next Puzzle';
+
+  @override
+  String get familyPuzzlesFinishRound => 'Finish Round';
+
+  @override
+  String get familyPuzzlesRoundCompleteTitle => 'Great Thinking Together!';
+
+  @override
+  String get familyPuzzlesRoundCompleteBody =>
+      'The best part of every puzzle is your calm dialogue and shared wonder.';
+
+  @override
+  String get familyPuzzlesOffscreenTitle => 'Screen-Free Brain Idea Now';
+
+  @override
+  String get familyPuzzlesBackToLobby => 'Back to Puzzles';
+
+  @override
+  String get familyPuzzlesSkillObservation => 'Keen Observation & Differences';
+
+  @override
+  String get familyPuzzlesSkillLateral => 'Lateral Thinking';
+
+  @override
+  String get familyPuzzlesSkillSpatial => 'Spatial Assembly';
+
+  @override
+  String get familyPuzzlesSkillLogic => 'Logic & Water Flow';
+
+  @override
+  String get todayFamilyPuzzlesTitle => 'Noor Family Brain Puzzles';
+
+  @override
+  String get todayFamilyPuzzlesBody =>
+      '3 quick visual puzzles that spark smart dialogue with your child.';
+
+  @override
+  String get todayFamilyPuzzlesCta => 'Play';
 }

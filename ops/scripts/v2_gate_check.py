@@ -114,7 +114,7 @@ def evaluate_gate1_headlines(
     env: dict[str, str] | None = None,
     overrides: dict[str, bool] | None = None,
 ) -> dict[str, Any]:
-    """Check whether all three 2.0.0 headline deliverables are present."""
+    """Check whether all four 2.0.0 headline deliverables are present."""
     env_map = env if env is not None else os.environ
     ovr = overrides or {}
 
@@ -140,17 +140,26 @@ def evaluate_gate1_headlines(
     )
     visual_unification = bool(visual_marker and motion_resolved)
 
+    family_puzzles = (
+        (root / "mobile" / "lib" / "features" / "family_puzzles" / "screens" / "family_puzzles_screen.dart").is_file()
+        and (root / "mobile" / "assets" / "content" / "games" / "family_puzzles.ar.json").is_file()
+        and (root / "mobile" / "assets" / "content" / "games" / "family_puzzles.en.json").is_file()
+    )
+
     if "child_centric_home" in ovr:
         child_centric_home = bool(ovr["child_centric_home"])
     if "family_account" in ovr:
         family_account = bool(ovr["family_account"])
     if "visual_unification" in ovr:
         visual_unification = bool(ovr["visual_unification"])
+    if "family_puzzles" in ovr:
+        family_puzzles = bool(ovr["family_puzzles"])
 
     items = {
         "child_centric_home": child_centric_home,
         "family_account": family_account,
         "visual_unification": visual_unification,
+        "family_puzzles": family_puzzles,
     }
     return {
         "passed": all(items.values()),

@@ -403,3 +403,25 @@ def test_child_home_mode_app_config_flag(monkeypatch) -> None:
     resp = client.get("/api/app-config")
     assert resp.status_code == 200
     assert resp.json()["child_home_v2"] == "ab"
+
+
+def test_gate1_headlines_includes_family_puzzles(tmp_path: Path) -> None:
+    mod = _load_mod()
+    conn = sqlite3.connect(":memory:")
+    try:
+        res = mod.evaluate_gate1_headlines(conn, root=ROOT, env={"STORY_MOTION_MODE": "motion"})
+        assert res["items"]["family_puzzles"] is True
+
+        res_ovr = mod.evaluate_gate1_headlines(
+            conn,
+            root=ROOT,
+            env={"STORY_MOTION_MODE": "motion"},
+            overrides={"family_puzzles": False},
+        )
+        assert res_ovr["items"]["family_puzzles"] is False
+        assert res_ovr["passed"] is False
+
+        res_empty = mod.evaluate_gate1_headlines(conn, root=tmp_path, env={"STORY_MOTION_MODE": "motion"})
+        assert res_empty["items"]["family_puzzles"] is False
+    finally:
+        conn.close()

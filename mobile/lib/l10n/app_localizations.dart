@@ -11899,6 +11899,168 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'تعذّر إتمام الطلب الآن. حاول مرة أخرى.'**
   String get familyAccountErrorGeneric;
+
+  /// No description provided for @familyPuzzlesTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'فوازير نور العائلية'**
+  String get familyPuzzlesTitle;
+
+  /// No description provided for @familyPuzzlesSubtitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'ألغاز بصرية هادئة تحلّونها معًا؛ المربّي يسأل والطفل يكتشف.'**
+  String get familyPuzzlesSubtitle;
+
+  /// No description provided for @familyPuzzlesCoPlayBadge.
+  ///
+  /// In ar, this message translates to:
+  /// **'جلسة ذكاء مشتركة'**
+  String get familyPuzzlesCoPlayBadge;
+
+  /// No description provided for @familyPuzzlesStartRound.
+  ///
+  /// In ar, this message translates to:
+  /// **'ابدأ جولة اليوم (3 فوازير)'**
+  String get familyPuzzlesStartRound;
+
+  /// No description provided for @familyPuzzlesReplayRound.
+  ///
+  /// In ar, this message translates to:
+  /// **'العب جولة أخرى معًا'**
+  String get familyPuzzlesReplayRound;
+
+  /// No description provided for @familyPuzzlesRoundDoneBadge.
+  ///
+  /// In ar, this message translates to:
+  /// **'أتممتم جولة اليوم معًا'**
+  String get familyPuzzlesRoundDoneBadge;
+
+  /// No description provided for @familyPuzzlesWhisperBtn.
+  ///
+  /// In ar, this message translates to:
+  /// **'همسة للمربّي'**
+  String get familyPuzzlesWhisperBtn;
+
+  /// No description provided for @familyPuzzlesWhisperTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'همسة للمربّي'**
+  String get familyPuzzlesWhisperTitle;
+
+  /// No description provided for @familyPuzzlesWhisperLead.
+  ///
+  /// In ar, this message translates to:
+  /// **'اقرأ هذا السؤال بهدوء لطفلك ليصل إلى الفكرة بنفسه دون كشف الحل:'**
+  String get familyPuzzlesWhisperLead;
+
+  /// No description provided for @familyPuzzlesWhisperGotIt.
+  ///
+  /// In ar, this message translates to:
+  /// **'واضح، سأسأله الآن'**
+  String get familyPuzzlesWhisperGotIt;
+
+  /// No description provided for @familyPuzzlesReset.
+  ///
+  /// In ar, this message translates to:
+  /// **'إعادة الترتيب'**
+  String get familyPuzzlesReset;
+
+  /// No description provided for @familyPuzzlesCheckAnswer.
+  ///
+  /// In ar, this message translates to:
+  /// **'تحقّق من الإجابة'**
+  String get familyPuzzlesCheckAnswer;
+
+  /// No description provided for @familyPuzzlesTryAgain.
+  ///
+  /// In ar, this message translates to:
+  /// **'اقتربتم! حرّكوا عناصر المشهد قليلًا لتظهر المفاجأة المخفية.'**
+  String get familyPuzzlesTryAgain;
+
+  /// Progress pill for Spot the Differences puzzles.
+  ///
+  /// In ar, this message translates to:
+  /// **'الفروق المكتشفة: {found} من {total}'**
+  String familyPuzzlesDiffProgress(int found, int total);
+
+  /// No description provided for @familyPuzzlesNext.
+  ///
+  /// In ar, this message translates to:
+  /// **'الفزورة التالية'**
+  String get familyPuzzlesNext;
+
+  /// No description provided for @familyPuzzlesFinishRound.
+  ///
+  /// In ar, this message translates to:
+  /// **'إنهاء الجولة'**
+  String get familyPuzzlesFinishRound;
+
+  /// No description provided for @familyPuzzlesRoundCompleteTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'أحسنتم التفكير معًا!'**
+  String get familyPuzzlesRoundCompleteTitle;
+
+  /// No description provided for @familyPuzzlesRoundCompleteBody.
+  ///
+  /// In ar, this message translates to:
+  /// **'أجمل ما في الفزورة الحوار الهادئ بينكم ودهشة الاكتشاف.'**
+  String get familyPuzzlesRoundCompleteBody;
+
+  /// No description provided for @familyPuzzlesOffscreenTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'فكرة ذكاء بلا شاشة الآن'**
+  String get familyPuzzlesOffscreenTitle;
+
+  /// No description provided for @familyPuzzlesBackToLobby.
+  ///
+  /// In ar, this message translates to:
+  /// **'العودة إلى الفوازير'**
+  String get familyPuzzlesBackToLobby;
+
+  /// No description provided for @familyPuzzlesSkillObservation.
+  ///
+  /// In ar, this message translates to:
+  /// **'دقة الملاحظة والفروق'**
+  String get familyPuzzlesSkillObservation;
+
+  /// No description provided for @familyPuzzlesSkillLateral.
+  ///
+  /// In ar, this message translates to:
+  /// **'التفكير خارج الصندوق'**
+  String get familyPuzzlesSkillLateral;
+
+  /// No description provided for @familyPuzzlesSkillSpatial.
+  ///
+  /// In ar, this message translates to:
+  /// **'التركيب الهندسي'**
+  String get familyPuzzlesSkillSpatial;
+
+  /// No description provided for @familyPuzzlesSkillLogic.
+  ///
+  /// In ar, this message translates to:
+  /// **'التسلسل ومسار الماء'**
+  String get familyPuzzlesSkillLogic;
+
+  /// No description provided for @todayFamilyPuzzlesTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'فوازير نور العائلية'**
+  String get todayFamilyPuzzlesTitle;
+
+  /// No description provided for @todayFamilyPuzzlesBody.
+  ///
+  /// In ar, this message translates to:
+  /// **'3 ألغاز بصرية سريعة تفتح حوارًا ذكيًا مع طفلك.'**
+  String get todayFamilyPuzzlesBody;
+
+  /// No description provided for @todayFamilyPuzzlesCta.
+  ///
+  /// In ar, this message translates to:
+  /// **'العبوا معًا'**
+  String get todayFamilyPuzzlesCta;
 }
 
 class _AppLocalizationsDelegate

@@ -7041,4 +7041,92 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get familyAccountErrorGeneric =>
       'تعذّر إتمام الطلب الآن. حاول مرة أخرى.';
+
+  @override
+  String get familyPuzzlesTitle => 'فوازير نور العائلية';
+
+  @override
+  String get familyPuzzlesSubtitle =>
+      'ألغاز بصرية هادئة تحلّونها معًا؛ المربّي يسأل والطفل يكتشف.';
+
+  @override
+  String get familyPuzzlesCoPlayBadge => 'جلسة ذكاء مشتركة';
+
+  @override
+  String get familyPuzzlesStartRound => 'ابدأ جولة اليوم (3 فوازير)';
+
+  @override
+  String get familyPuzzlesReplayRound => 'العب جولة أخرى معًا';
+
+  @override
+  String get familyPuzzlesRoundDoneBadge => 'أتممتم جولة اليوم معًا';
+
+  @override
+  String get familyPuzzlesWhisperBtn => 'همسة للمربّي';
+
+  @override
+  String get familyPuzzlesWhisperTitle => 'همسة للمربّي';
+
+  @override
+  String get familyPuzzlesWhisperLead =>
+      'اقرأ هذا السؤال بهدوء لطفلك ليصل إلى الفكرة بنفسه دون كشف الحل:';
+
+  @override
+  String get familyPuzzlesWhisperGotIt => 'واضح، سأسأله الآن';
+
+  @override
+  String get familyPuzzlesReset => 'إعادة الترتيب';
+
+  @override
+  String get familyPuzzlesCheckAnswer => 'تحقّق من الإجابة';
+
+  @override
+  String get familyPuzzlesTryAgain =>
+      'اقتربتم! حرّكوا عناصر المشهد قليلًا لتظهر المفاجأة المخفية.';
+
+  @override
+  String familyPuzzlesDiffProgress(int found, int total) {
+    return 'الفروق المكتشفة: $found من $total';
+  }
+
+  @override
+  String get familyPuzzlesNext => 'الفزورة التالية';
+
+  @override
+  String get familyPuzzlesFinishRound => 'إنهاء الجولة';
+
+  @override
+  String get familyPuzzlesRoundCompleteTitle => 'أحسنتم التفكير معًا!';
+
+  @override
+  String get familyPuzzlesRoundCompleteBody =>
+      'أجمل ما في الفزورة الحوار الهادئ بينكم ودهشة الاكتشاف.';
+
+  @override
+  String get familyPuzzlesOffscreenTitle => 'فكرة ذكاء بلا شاشة الآن';
+
+  @override
+  String get familyPuzzlesBackToLobby => 'العودة إلى الفوازير';
+
+  @override
+  String get familyPuzzlesSkillObservation => 'دقة الملاحظة والفروق';
+
+  @override
+  String get familyPuzzlesSkillLateral => 'التفكير خارج الصندوق';
+
+  @override
+  String get familyPuzzlesSkillSpatial => 'التركيب الهندسي';
+
+  @override
+  String get familyPuzzlesSkillLogic => 'التسلسل ومسار الماء';
+
+  @override
+  String get todayFamilyPuzzlesTitle => 'فوازير نور العائلية';
+
+  @override
+  String get todayFamilyPuzzlesBody =>
+      '3 ألغاز بصرية سريعة تفتح حوارًا ذكيًا مع طفلك.';
+
+  @override
+  String get todayFamilyPuzzlesCta => 'العبوا معًا';
 }

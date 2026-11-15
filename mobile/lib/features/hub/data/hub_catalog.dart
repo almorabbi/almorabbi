@@ -133,6 +133,12 @@ final List<HubGroup> kHubGroups = [
     title: (l10n) => l10n.hubGroupGames,
     items: [
       HubItem(
+        id: 'family_puzzles',
+        glyph: BrandIcon.lantern,
+        label: (l10n, _) => l10n.familyPuzzlesTitle,
+        route: () => AppRoutes.familyPuzzles(source: GameSources.hub),
+      ),
+      HubItem(
         id: 'games',
         icon: Icons.sports_esports_outlined,
         label: (l10n, _) => l10n.educationalGames,

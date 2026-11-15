@@ -165,6 +165,7 @@ flutter:
     - assets/content/games/
     - assets/content/adhkar/
     - assets/content/journey/
+    - assets/images/puzzles/
     # Cairo, Amiri Quran and Tajawal — the exact files google_fonts would
     # download, bundled so the first launch renders offline and no launch
     # contacts fonts.gstatic.com (theme/bundled_fonts.dart). OFL licences

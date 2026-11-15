@@ -1,0 +1,1745 @@
+{
+  "version": 1,
+  "locale": "en",
+  "puzzles": [
+    {
+      "id": "obs_night_room",
+      "kind": "spot_diff",
+      "skill": "observation",
+      "spot_diff": {
+        "backdrop": "bg_room_night",
+        "base_items": [
+          {
+            "id": "sofa",
+            "prop": "sofa",
+            "x": 0.24,
+            "y": 0.72,
+            "scale": 0.28
+          },
+          {
+            "id": "lantern_top",
+            "prop": "lantern",
+            "x": 0.2,
+            "y": 0.24,
+            "scale": 0.16
+          },
+          {
+            "id": "star_win",
+            "prop": "star",
+            "x": 0.5,
+            "y": 0.22,
+            "scale": 0.14
+          },
+          {
+            "id": "table",
+            "prop": "table",
+            "x": 0.54,
+            "y": 0.74,
+            "scale": 0.26
+          },
+          {
+            "id": "basil",
+            "prop": "basil",
+            "x": 0.54,
+            "y": 0.54,
+            "scale": 0.15
+          },
+          {
+            "id": "chest",
+            "prop": "toy_chest",
+            "x": 0.8,
+            "y": 0.74,
+            "scale": 0.21
+          },
+          {
+            "id": "moon",
+            "prop": "moon",
+            "x": 0.82,
+            "y": 0.24,
+            "scale": 0.16
+          }
+        ],
+        "differences": [
+          {
+            "id": "d1",
+            "item_id": "lantern_top",
+            "mode": "missing",
+            "hit_x": 0.2,
+            "hit_y": 0.24
+          },
+          {
+            "id": "d2",
+            "item_id": "star_win",
+            "mode": "scale",
+            "alt_scale": 0.23,
+            "hit_x": 0.5,
+            "hit_y": 0.22
+          },
+          {
+            "id": "d3",
+            "item_id": "basil",
+            "mode": "swap",
+            "alt_prop": "flower",
+            "hit_x": 0.54,
+            "hit_y": 0.54
+          },
+          {
+            "id": "d4",
+            "item_id": "chest",
+            "mode": "swap",
+            "alt_prop": "toy_chest_open",
+            "hit_x": 0.8,
+            "hit_y": 0.74
+          },
+          {
+            "id": "d5",
+            "item_id": "sofa",
+            "mode": "flip",
+            "hit_x": 0.24,
+            "hit_y": 0.72
+          }
+        ]
+      },
+      "title": "Quiet Lantern Room",
+      "subtitle": "Find 5 subtle differences together between the two rooms",
+      "parent_whisper": "Parent whisper: Hold back from pointing right away — ask your child what changed near the ceiling or on the table.",
+      "praise": "Sharp, calm eyes! Slow observation catches details that rushing misses."
+    },
+    {
+      "id": "obs_garden_morning",
+      "kind": "spot_diff",
+      "skill": "observation",
+      "spot_diff": {
+        "backdrop": "bg_garden_day",
+        "base_items": [
+          {
+            "id": "sun",
+            "prop": "sun",
+            "x": 0.18,
+            "y": 0.2,
+            "scale": 0.18
+          },
+          {
+            "id": "cloud",
+            "prop": "cloud",
+            "x": 0.54,
+            "y": 0.2,
+            "scale": 0.22
+          },
+          {
+            "id": "olive",
+            "prop": "tree_olive",
+            "x": 0.82,
+            "y": 0.42,
+            "scale": 0.28
+          },
+          {
+            "id": "bench",
+            "prop": "bench",
+            "x": 0.26,
+            "y": 0.72,
+            "scale": 0.26
+          },
+          {
+            "id": "rose",
+            "prop": "rose",
+            "x": 0.54,
+            "y": 0.74,
+            "scale": 0.16
+          },
+          {
+            "id": "can",
+            "prop": "watering_can",
+            "x": 0.8,
+            "y": 0.78,
+            "scale": 0.18
+          }
+        ],
+        "differences": [
+          {
+            "id": "d1",
+            "item_id": "sun",
+            "mode": "scale",
+            "alt_scale": 0.11,
+            "hit_x": 0.18,
+            "hit_y": 0.2
+          },
+          {
+            "id": "d2",
+            "item_id": "cloud",
+            "mode": "shift",
+            "dx": 0.11,
+            "dy": 0.0,
+            "hit_x": 0.54,
+            "hit_y": 0.2
+          },
+          {
+            "id": "d3",
+            "item_id": "olive",
+            "mode": "swap",
+            "alt_prop": "tree",
+            "hit_x": 0.82,
+            "hit_y": 0.42
+          },
+          {
+            "id": "d4",
+            "item_id": "rose",
+            "mode": "swap",
+            "alt_prop": "basil_wilted",
+            "hit_x": 0.54,
+            "hit_y": 0.74
+          },
+          {
+            "id": "d5",
+            "item_id": "can",
+            "mode": "missing",
+            "hit_x": 0.8,
+            "hit_y": 0.78
+          }
+        ]
+      },
+      "title": "Morning Garden",
+      "subtitle": "Look closely at the trees and blooms to spot 5 differences",
+      "parent_whisper": "Parent whisper: Suggest scanning in zones — first the sky, then the garden bench and plants.",
+      "praise": "Scanning systematically turns guessing into a smart visual strategy."
+    },
+    {
+      "id": "obs_warm_kitchen",
+      "kind": "spot_diff",
+      "skill": "observation",
+      "spot_diff": {
+        "backdrop": "bg_kitchen",
+        "base_items": [
+          {
+            "id": "pot",
+            "prop": "soup_pot",
+            "x": 0.2,
+            "y": 0.34,
+            "scale": 0.2
+          },
+          {
+            "id": "fruits",
+            "prop": "fruit_plate",
+            "x": 0.52,
+            "y": 0.32,
+            "scale": 0.2
+          },
+          {
+            "id": "juice",
+            "prop": "juice",
+            "x": 0.82,
+            "y": 0.32,
+            "scale": 0.16
+          },
+          {
+            "id": "bowl",
+            "prop": "soup_bowl",
+            "x": 0.22,
+            "y": 0.74,
+            "scale": 0.18
+          },
+          {
+            "id": "sweets",
+            "prop": "sweets",
+            "x": 0.52,
+            "y": 0.76,
+            "scale": 0.18
+          },
+          {
+            "id": "water",
+            "prop": "water_glass",
+            "x": 0.82,
+            "y": 0.74,
+            "scale": 0.15
+          }
+        ],
+        "differences": [
+          {
+            "id": "d1",
+            "item_id": "pot",
+            "mode": "flip",
+            "hit_x": 0.2,
+            "hit_y": 0.34
+          },
+          {
+            "id": "d2",
+            "item_id": "juice",
+            "mode": "swap",
+            "alt_prop": "juice_tipped",
+            "hit_x": 0.82,
+            "hit_y": 0.32
+          },
+          {
+            "id": "d3",
+            "item_id": "bowl",
+            "mode": "missing",
+            "hit_x": 0.22,
+            "hit_y": 0.74
+          },
+          {
+            "id": "d4",
+            "item_id": "sweets",
+            "mode": "swap",
+            "alt_prop": "gift",
+            "hit_x": 0.52,
+            "hit_y": 0.76
+          },
+          {
+            "id": "d5",
+            "item_id": "water",
+            "mode": "scale",
+            "alt_scale": 0.23,
+            "hit_x": 0.82,
+            "hit_y": 0.74
+          }
+        ]
+      },
+      "title": "Table of Hospitality",
+      "subtitle": "Notice what changed among the bowls and cups — find all 5",
+      "parent_whisper": "Parent whisper: Invite your child to compare one object at a time from top picture to bottom.",
+      "praise": "Great focus! Careful comparison builds working memory step by step."
+    },
+    {
+      "id": "obs_courtyard_mosque",
+      "kind": "spot_diff",
+      "skill": "observation",
+      "spot_diff": {
+        "backdrop": "bg_mosque",
+        "base_items": [
+          {
+            "id": "minaret",
+            "prop": "minaret",
+            "x": 0.2,
+            "y": 0.36,
+            "scale": 0.24
+          },
+          {
+            "id": "lantern_m",
+            "prop": "lantern",
+            "x": 0.5,
+            "y": 0.24,
+            "scale": 0.16
+          },
+          {
+            "id": "star_m",
+            "prop": "star",
+            "x": 0.8,
+            "y": 0.22,
+            "scale": 0.15
+          },
+          {
+            "id": "door_m",
+            "prop": "door",
+            "x": 0.22,
+            "y": 0.74,
+            "scale": 0.2
+          },
+          {
+            "id": "rug",
+            "prop": "prayer_rug",
+            "x": 0.52,
+            "y": 0.74,
+            "scale": 0.22
+          },
+          {
+            "id": "bush",
+            "prop": "bush",
+            "x": 0.82,
+            "y": 0.74,
+            "scale": 0.2
+          }
+        ],
+        "differences": [
+          {
+            "id": "d1",
+            "item_id": "lantern_m",
+            "mode": "scale",
+            "alt_scale": 0.24,
+            "hit_x": 0.5,
+            "hit_y": 0.24
+          },
+          {
+            "id": "d2",
+            "item_id": "star_m",
+            "mode": "swap",
+            "alt_prop": "moon",
+            "hit_x": 0.8,
+            "hit_y": 0.22
+          },
+          {
+            "id": "d3",
+            "item_id": "door_m",
+            "mode": "swap",
+            "alt_prop": "door_open",
+            "hit_x": 0.22,
+            "hit_y": 0.74
+          },
+          {
+            "id": "d4",
+            "item_id": "rug",
+            "mode": "shift",
+            "dx": 0.08,
+            "dy": -0.06,
+            "hit_x": 0.52,
+            "hit_y": 0.74
+          },
+          {
+            "id": "d5",
+            "item_id": "bush",
+            "mode": "missing",
+            "hit_x": 0.82,
+            "hit_y": 0.74
+          }
+        ]
+      },
+      "title": "Minaret Courtyard",
+      "subtitle": "Compare both courtyard scenes to uncover 5 gentle changes",
+      "parent_whisper": "Parent whisper: Ask gently about the doorway, the sky light, and what sits beside the minaret.",
+      "praise": "Well spotted! Calm visual checking strengthens sustained attention."
+    },
+    {
+      "id": "lat_hidden_lanterns",
+      "kind": "trick_reveal",
+      "skill": "lateral",
+      "trick_reveal": {
+        "sub_mode": "count_hidden",
+        "backdrop": "bg_room_night",
+        "target_count": 7,
+        "under_items": [
+          {
+            "id": "u_vis_1",
+            "prop": "lantern",
+            "x": 0.16,
+            "y": 0.26,
+            "scale": 0.15
+          },
+          {
+            "id": "u_vis_2",
+            "prop": "lantern",
+            "x": 0.5,
+            "y": 0.24,
+            "scale": 0.15
+          },
+          {
+            "id": "u_hid_stack",
+            "prop": "lantern",
+            "x": 0.51,
+            "y": 0.25,
+            "scale": 0.14
+          },
+          {
+            "id": "u_vis_3",
+            "prop": "lantern",
+            "x": 0.84,
+            "y": 0.26,
+            "scale": 0.15
+          },
+          {
+            "id": "u_hid_sofa",
+            "prop": "lantern",
+            "x": 0.22,
+            "y": 0.7,
+            "scale": 0.15
+          },
+          {
+            "id": "u_hid_chest",
+            "prop": "lantern",
+            "x": 0.52,
+            "y": 0.7,
+            "scale": 0.15
+          },
+          {
+            "id": "u_hid_table",
+            "prop": "lantern",
+            "x": 0.8,
+            "y": 0.7,
+            "scale": 0.15
+          }
+        ],
+        "covers": [
+          {
+            "id": "c_mid_lantern",
+            "prop": "lantern",
+            "x": 0.5,
+            "y": 0.24,
+            "scale": 0.17,
+            "movable": true,
+            "nudge_x": 0.36,
+            "nudge_y": 0.22
+          },
+          {
+            "id": "c_sofa",
+            "prop": "sofa",
+            "x": 0.22,
+            "y": 0.7,
+            "scale": 0.28,
+            "movable": true,
+            "nudge_x": 0.22,
+            "nudge_y": 0.42
+          },
+          {
+            "id": "c_chest",
+            "prop": "toy_chest",
+            "alt_prop": "toy_chest_open",
+            "x": 0.52,
+            "y": 0.7,
+            "scale": 0.22,
+            "movable": true,
+            "nudge_x": 0.52,
+            "nudge_y": 0.45
+          },
+          {
+            "id": "c_table",
+            "prop": "table",
+            "x": 0.8,
+            "y": 0.7,
+            "scale": 0.26,
+            "movable": true,
+            "nudge_x": 0.8,
+            "nudge_y": 0.42
+          }
+        ]
+      },
+      "title": "Hidden Lanterns in the Room",
+      "subtitle": "How many lanterns are in the room? Slide or tap items before counting!",
+      "parent_whisper": "Parent whisper: If they answer 3 right away, ask: could anything be tucked behind the sofa, inside the chest, or under the middle lantern?",
+      "praise": "Clever lateral thinking! You looked behind appearances before answering."
+    },
+    {
+      "id": "lat_hidden_stars",
+      "kind": "trick_reveal",
+      "skill": "lateral",
+      "trick_reveal": {
+        "sub_mode": "count_hidden",
+        "backdrop": "bg_night_sky",
+        "target_count": 8,
+        "under_items": [
+          {
+            "id": "s1",
+            "prop": "star",
+            "x": 0.16,
+            "y": 0.24,
+            "scale": 0.13
+          },
+          {
+            "id": "s2",
+            "prop": "star",
+            "x": 0.84,
+            "y": 0.24,
+            "scale": 0.13
+          },
+          {
+            "id": "s3",
+            "prop": "star",
+            "x": 0.2,
+            "y": 0.74,
+            "scale": 0.13
+          },
+          {
+            "id": "s4",
+            "prop": "star",
+            "x": 0.8,
+            "y": 0.74,
+            "scale": 0.13
+          },
+          {
+            "id": "s5_hid",
+            "prop": "star",
+            "x": 0.44,
+            "y": 0.34,
+            "scale": 0.13
+          },
+          {
+            "id": "s6_hid",
+            "prop": "star",
+            "x": 0.57,
+            "y": 0.36,
+            "scale": 0.13
+          },
+          {
+            "id": "s7_hid",
+            "prop": "star",
+            "x": 0.28,
+            "y": 0.56,
+            "scale": 0.13
+          },
+          {
+            "id": "s8_hid",
+            "prop": "star",
+            "x": 0.72,
+            "y": 0.56,
+            "scale": 0.13
+          }
+        ],
+        "covers": [
+          {
+            "id": "cloud_big",
+            "prop": "cloud",
+            "x": 0.5,
+            "y": 0.34,
+            "scale": 0.32,
+            "movable": true,
+            "nudge_x": 0.5,
+            "nudge_y": 0.14
+          },
+          {
+            "id": "cloud_left",
+            "prop": "cloud",
+            "x": 0.28,
+            "y": 0.56,
+            "scale": 0.24,
+            "movable": true,
+            "nudge_x": 0.14,
+            "nudge_y": 0.44
+          },
+          {
+            "id": "cloud_right",
+            "prop": "cloud",
+            "x": 0.72,
+            "y": 0.56,
+            "scale": 0.24,
+            "movable": true,
+            "nudge_x": 0.86,
+            "nudge_y": 0.44
+          }
+        ]
+      },
+      "title": "Stars Behind the Clouds",
+      "subtitle": "How many golden stars are in the evening sky? Move every cloud to check!",
+      "parent_whisper": "Parent whisper: Hint that a wide cloud can easily hide more than a single star!",
+      "praise": "Great discovery! Moving obstacles aside before counting saves us from mistakes."
+    },
+    {
+      "id": "lat_hidden_gifts",
+      "kind": "trick_reveal",
+      "skill": "lateral",
+      "trick_reveal": {
+        "sub_mode": "count_hidden",
+        "backdrop": "bg_hallway",
+        "target_count": 5,
+        "under_items": [
+          {
+            "id": "g1",
+            "prop": "gift",
+            "x": 0.18,
+            "y": 0.28,
+            "scale": 0.15
+          },
+          {
+            "id": "g2",
+            "prop": "gift",
+            "x": 0.82,
+            "y": 0.28,
+            "scale": 0.15
+          },
+          {
+            "id": "g3_hid",
+            "prop": "gift",
+            "x": 0.24,
+            "y": 0.72,
+            "scale": 0.15
+          },
+          {
+            "id": "g4_hid",
+            "prop": "gift",
+            "x": 0.52,
+            "y": 0.72,
+            "scale": 0.15
+          },
+          {
+            "id": "g5_hid",
+            "prop": "gift",
+            "x": 0.78,
+            "y": 0.72,
+            "scale": 0.15
+          }
+        ],
+        "covers": [
+          {
+            "id": "c_table_g",
+            "prop": "table",
+            "x": 0.24,
+            "y": 0.72,
+            "scale": 0.26,
+            "movable": true,
+            "nudge_x": 0.24,
+            "nudge_y": 0.44
+          },
+          {
+            "id": "c_chest_g",
+            "prop": "toy_chest",
+            "alt_prop": "toy_chest_open",
+            "x": 0.52,
+            "y": 0.72,
+            "scale": 0.22,
+            "movable": true,
+            "nudge_x": 0.52,
+            "nudge_y": 0.46
+          },
+          {
+            "id": "c_sofa_g",
+            "prop": "sofa",
+            "x": 0.78,
+            "y": 0.72,
+            "scale": 0.26,
+            "movable": true,
+            "nudge_x": 0.78,
+            "nudge_y": 0.44
+          }
+        ]
+      },
+      "title": "Hidden Eid Gifts",
+      "subtitle": "How many gifts are tucked around the hallway? Check behind the furniture!",
+      "parent_whisper": "Parent whisper: Encourage checking inside the chest and sliding every piece of furniture.",
+      "praise": "Fun teamwork! Calm curiosity together beats rushing straight to an answer."
+    },
+    {
+      "id": "lat_water_basil",
+      "kind": "trick_reveal",
+      "skill": "lateral",
+      "trick_reveal": {
+        "sub_mode": "drag_solve",
+        "backdrop": "bg_garden_day",
+        "require_mode": "any",
+        "target_zone": {
+          "x": 0.5,
+          "y": 0.58,
+          "radius": 0.22,
+          "before_prop": "basil_wilted",
+          "after_prop": "basil",
+          "after_bonus_prop": "flower"
+        },
+        "under_items": [
+          {
+            "id": "sun_dec",
+            "prop": "sun",
+            "x": 0.84,
+            "y": 0.2,
+            "scale": 0.16
+          }
+        ],
+        "covers": [
+          {
+            "id": "cloud_rain",
+            "prop": "cloud",
+            "x": 0.2,
+            "y": 0.24,
+            "scale": 0.24,
+            "movable": true,
+            "solve_role": "trigger",
+            "nudge_x": 0.5,
+            "nudge_y": 0.54
+          },
+          {
+            "id": "can_tool",
+            "prop": "watering_can",
+            "x": 0.8,
+            "y": 0.72,
+            "scale": 0.2,
+            "movable": true,
+            "solve_role": "trigger",
+            "nudge_x": 0.5,
+            "nudge_y": 0.58
+          }
+        ]
+      },
+      "title": "Water the Thirsty Basil",
+      "subtitle": "The basil plant looks thirsty — drag the cloud or watering can above it!",
+      "parent_whisper": "Parent whisper: Ask playfully: what in the sky or the garden brings life back to a thirsty plant?",
+      "praise": "The basil bloomed! Linking cause and remedy is real problem-solving."
+    },
+    {
+      "id": "lat_tidy_room",
+      "kind": "trick_reveal",
+      "skill": "lateral",
+      "trick_reveal": {
+        "sub_mode": "drag_solve",
+        "backdrop": "bg_room_day",
+        "require_mode": "all",
+        "target_zone": {
+          "x": 0.5,
+          "y": 0.62,
+          "radius": 0.22,
+          "before_prop": "toy_chest_open",
+          "after_prop": "toy_chest",
+          "after_bonus_prop": "star"
+        },
+        "under_items": [
+          {
+            "id": "lan_bg",
+            "prop": "lantern",
+            "x": 0.5,
+            "y": 0.22,
+            "scale": 0.15
+          }
+        ],
+        "covers": [
+          {
+            "id": "scattered_blocks",
+            "prop": "blocks_fallen",
+            "x": 0.2,
+            "y": 0.72,
+            "scale": 0.22,
+            "movable": true,
+            "solve_role": "trigger",
+            "nudge_x": 0.5,
+            "nudge_y": 0.62
+          },
+          {
+            "id": "scattered_car",
+            "prop": "toy_car",
+            "x": 0.8,
+            "y": 0.72,
+            "scale": 0.2,
+            "movable": true,
+            "solve_role": "trigger",
+            "nudge_x": 0.5,
+            "nudge_y": 0.62
+          }
+        ]
+      },
+      "title": "Tidy Up Before Sleep",
+      "subtitle": "Put both scattered toys into the open toy chest so the room rests",
+      "parent_whisper": "Parent whisper: Connect this to real bedtime tidying — invite your child to move each scattered toy into the open chest one by one.",
+      "praise": "Neatly tidied! Order turns a messy corner into a peaceful room."
+    },
+    {
+      "id": "spa_warm_house",
+      "kind": "piece_assembly",
+      "skill": "spatial",
+      "piece_assembly": {
+        "pieces": [
+          {
+            "id": "roof",
+            "color_hex": "#F4A492",
+            "points": [
+              [
+                -0.2,
+                0.08
+              ],
+              [
+                0.0,
+                -0.1
+              ],
+              [
+                0.2,
+                0.08
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.34
+            ],
+            "start_center": [
+              0.24,
+              0.16
+            ]
+          },
+          {
+            "id": "walls",
+            "color_hex": "#FBF1DE",
+            "points": [
+              [
+                -0.16,
+                -0.11
+              ],
+              [
+                0.16,
+                -0.11
+              ],
+              [
+                0.16,
+                0.11
+              ],
+              [
+                -0.16,
+                0.11
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.53
+            ],
+            "start_center": [
+              0.76,
+              0.18
+            ]
+          },
+          {
+            "id": "door",
+            "color_hex": "#12806D",
+            "points": [
+              [
+                -0.045,
+                -0.07
+              ],
+              [
+                0.045,
+                -0.07
+              ],
+              [
+                0.045,
+                0.07
+              ],
+              [
+                -0.045,
+                0.07
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.57
+            ],
+            "start_center": [
+              0.2,
+              0.84
+            ]
+          },
+          {
+            "id": "win_l",
+            "color_hex": "#F7C548",
+            "points": [
+              [
+                -0.038,
+                -0.038
+              ],
+              [
+                0.038,
+                -0.038
+              ],
+              [
+                0.038,
+                0.038
+              ],
+              [
+                -0.038,
+                0.038
+              ]
+            ],
+            "target_center": [
+              0.4,
+              0.51
+            ],
+            "start_center": [
+              0.5,
+              0.85
+            ]
+          },
+          {
+            "id": "win_r",
+            "color_hex": "#F7C548",
+            "points": [
+              [
+                -0.038,
+                -0.038
+              ],
+              [
+                0.038,
+                -0.038
+              ],
+              [
+                0.038,
+                0.038
+              ],
+              [
+                -0.038,
+                0.038
+              ]
+            ],
+            "target_center": [
+              0.6,
+              0.51
+            ],
+            "start_center": [
+              0.8,
+              0.84
+            ]
+          }
+        ]
+      },
+      "title": "Assemble the Warm House",
+      "subtitle": "Drag each paper-cut piece into its matching outline to build the house",
+      "parent_whisper": "Parent whisper: Invite your child to match angles first — which shape belongs to the roof and which belongs inside the walls?",
+      "praise": "Solid craftsmanship! Spatial reasoning connects individual shapes into a whole."
+    },
+    {
+      "id": "spa_golden_lantern",
+      "kind": "piece_assembly",
+      "skill": "spatial",
+      "piece_assembly": {
+        "pieces": [
+          {
+            "id": "cap",
+            "color_hex": "#12806D",
+            "points": [
+              [
+                -0.08,
+                0.05
+              ],
+              [
+                0.0,
+                -0.06
+              ],
+              [
+                0.08,
+                0.05
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.29
+            ],
+            "start_center": [
+              0.22,
+              0.16
+            ]
+          },
+          {
+            "id": "body",
+            "color_hex": "#FBF1DE",
+            "points": [
+              [
+                -0.1,
+                -0.09
+              ],
+              [
+                0.1,
+                -0.09
+              ],
+              [
+                0.08,
+                0.09
+              ],
+              [
+                -0.08,
+                0.09
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.43
+            ],
+            "start_center": [
+              0.78,
+              0.22
+            ]
+          },
+          {
+            "id": "flame",
+            "color_hex": "#F7C548",
+            "points": [
+              [
+                0.0,
+                -0.055
+              ],
+              [
+                0.042,
+                0.0
+              ],
+              [
+                0.0,
+                0.055
+              ],
+              [
+                -0.042,
+                0.0
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.43
+            ],
+            "start_center": [
+              0.2,
+              0.82
+            ]
+          },
+          {
+            "id": "collar",
+            "color_hex": "#F4A492",
+            "points": [
+              [
+                -0.09,
+                -0.025
+              ],
+              [
+                0.09,
+                -0.025
+              ],
+              [
+                0.11,
+                0.025
+              ],
+              [
+                -0.11,
+                0.025
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.55
+            ],
+            "start_center": [
+              0.5,
+              0.84
+            ]
+          },
+          {
+            "id": "base",
+            "color_hex": "#0F6B5C",
+            "points": [
+              [
+                -0.11,
+                -0.035
+              ],
+              [
+                0.11,
+                -0.035
+              ],
+              [
+                0.14,
+                0.035
+              ],
+              [
+                -0.14,
+                0.035
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.62
+            ],
+            "start_center": [
+              0.8,
+              0.82
+            ]
+          }
+        ]
+      },
+      "title": "Assemble Noor's Lantern",
+      "subtitle": "Snap all 5 paper layers together to craft the glowing lantern",
+      "parent_whisper": "Parent whisper: Build from top to bottom together — crown cap, glowing frame, core flame, and stand.",
+      "praise": "The lantern shines! Breaking a shape from top to base makes geometry clear."
+    },
+    {
+      "id": "spa_paper_sailboat",
+      "kind": "piece_assembly",
+      "skill": "spatial",
+      "piece_assembly": {
+        "pieces": [
+          {
+            "id": "hull",
+            "color_hex": "#12806D",
+            "points": [
+              [
+                -0.22,
+                -0.05
+              ],
+              [
+                0.22,
+                -0.05
+              ],
+              [
+                0.14,
+                0.06
+              ],
+              [
+                -0.14,
+                0.06
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.61
+            ],
+            "start_center": [
+              0.5,
+              0.85
+            ]
+          },
+          {
+            "id": "mast",
+            "color_hex": "#094A40",
+            "points": [
+              [
+                -0.015,
+                -0.15
+              ],
+              [
+                0.015,
+                -0.15
+              ],
+              [
+                0.015,
+                0.15
+              ],
+              [
+                -0.015,
+                0.15
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.41
+            ],
+            "start_center": [
+              0.2,
+              0.18
+            ]
+          },
+          {
+            "id": "sail_main",
+            "color_hex": "#FBF1DE",
+            "points": [
+              [
+                -0.08,
+                0.11
+              ],
+              [
+                -0.08,
+                -0.11
+              ],
+              [
+                0.09,
+                0.11
+              ]
+            ],
+            "target_center": [
+              0.59,
+              0.42
+            ],
+            "start_center": [
+              0.8,
+              0.22
+            ]
+          },
+          {
+            "id": "sail_jib",
+            "color_hex": "#F7C548",
+            "points": [
+              [
+                0.07,
+                0.09
+              ],
+              [
+                0.07,
+                -0.09
+              ],
+              [
+                -0.07,
+                0.09
+              ]
+            ],
+            "target_center": [
+              0.41,
+              0.44
+            ],
+            "start_center": [
+              0.2,
+              0.8
+            ]
+          }
+        ]
+      },
+      "title": "Assemble the Paper Sailboat",
+      "subtitle": "Combine the paper hull, mast, and both sails into place",
+      "parent_whisper": "Parent whisper: Start with the boat's wide base, then see which sail faces left and which faces right.",
+      "praise": "Ready to sail! Matching triangle direction and proportion is great visual math."
+    },
+    {
+      "id": "log_single_sprout",
+      "kind": "water_path",
+      "skill": "logic",
+      "water_path": {
+        "rows": 4,
+        "cols": 4,
+        "source": {
+          "row": 0,
+          "col": 0,
+          "entry_dir": "W"
+        },
+        "targets": [
+          {
+            "row": 3,
+            "col": 3,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "sprout"
+          }
+        ],
+        "cells": [
+          [
+            {
+              "type": "corner",
+              "initial_rot": 0
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "corner",
+              "initial_rot": 3
+            },
+            {
+              "type": "straight",
+              "initial_rot": 0
+            },
+            {
+              "type": "corner",
+              "initial_rot": 0
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "corner",
+              "initial_rot": 2
+            },
+            {
+              "type": "corner",
+              "initial_rot": 1
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ]
+        ]
+      },
+      "title": "First Sprout Canal",
+      "subtitle": "Tap tiles to rotate the paper canals until fresh water reaches the sprout",
+      "parent_whisper": "Parent whisper: Trace tile-by-tile from the tap: where does water enter, and which side must open next?",
+      "praise": "Water arrived! Tracing one step ahead solves logic puzzles calmly."
+    },
+    {
+      "id": "log_twin_olives",
+      "kind": "water_path",
+      "skill": "logic",
+      "water_path": {
+        "rows": 4,
+        "cols": 4,
+        "source": {
+          "row": 1,
+          "col": 0,
+          "entry_dir": "W"
+        },
+        "targets": [
+          {
+            "row": 0,
+            "col": 3,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "tree_olive"
+          },
+          {
+            "row": 3,
+            "col": 3,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "tree_olive"
+          }
+        ],
+        "cells": [
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "corner",
+              "initial_rot": 3
+            },
+            {
+              "type": "straight",
+              "initial_rot": 0
+            },
+            {
+              "type": "basin",
+              "initial_rot": 3,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "straight",
+              "initial_rot": 0
+            },
+            {
+              "type": "tee",
+              "initial_rot": 0
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "straight",
+              "initial_rot": 1
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "corner",
+              "initial_rot": 2
+            },
+            {
+              "type": "straight",
+              "initial_rot": 0
+            },
+            {
+              "type": "basin",
+              "initial_rot": 3,
+              "fixed": true
+            }
+          ]
+        ]
+      },
+      "title": "Twin Olive Trees Flow",
+      "subtitle": "Use the T-junction wisely so water nourishes both olive trees together",
+      "parent_whisper": "Parent whisper: Look at the T-splitter first — one arm catches incoming water while the other two feed both trees.",
+      "praise": "Smart routing! One well-aligned junction fed both olive trees together."
+    },
+    {
+      "id": "log_stone_detour",
+      "kind": "water_path",
+      "skill": "logic",
+      "water_path": {
+        "rows": 4,
+        "cols": 4,
+        "source": {
+          "row": 0,
+          "col": 0,
+          "entry_dir": "W"
+        },
+        "targets": [
+          {
+            "row": 0,
+            "col": 3,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "basil"
+          }
+        ],
+        "cells": [
+          [
+            {
+              "type": "straight",
+              "initial_rot": 0
+            },
+            {
+              "type": "corner",
+              "initial_rot": 0
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 2,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "straight",
+              "initial_rot": 1
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "straight",
+              "initial_rot": 1
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "corner",
+              "initial_rot": 1
+            },
+            {
+              "type": "straight",
+              "initial_rot": 0
+            },
+            {
+              "type": "corner",
+              "initial_rot": 2
+            }
+          ],
+          [
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ]
+        ]
+      },
+      "title": "Detour Around the Rocks",
+      "subtitle": "Rocks block the straight path — steer the water safely around them",
+      "parent_whisper": "Parent whisper: When rocks block the direct route, ask what open detour lies above or below.",
+      "praise": "Flexible problem-solving! Detouring around obstacles is real resilience."
+    },
+    {
+      "id": "log_garden_three",
+      "kind": "water_path",
+      "skill": "logic",
+      "water_path": {
+        "rows": 4,
+        "cols": 4,
+        "source": {
+          "row": 1,
+          "col": 0,
+          "entry_dir": "W"
+        },
+        "targets": [
+          {
+            "row": 0,
+            "col": 1,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "sprout"
+          },
+          {
+            "row": 1,
+            "col": 3,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "basil"
+          },
+          {
+            "row": 3,
+            "col": 2,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "flower"
+          }
+        ],
+        "cells": [
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 2,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "straight",
+              "initial_rot": 0
+            },
+            {
+              "type": "cross",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "straight",
+              "initial_rot": 0
+            },
+            {
+              "type": "basin",
+              "initial_rot": 3,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "corner",
+              "initial_rot": 2
+            },
+            {
+              "type": "corner",
+              "initial_rot": 0
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ]
+        ]
+      },
+      "title": "Three-Bloom Garden",
+      "subtitle": "Family challenge: connect one canal source to all three blooms!",
+      "parent_whisper": "Parent whisper: Divide the puzzle like a team — one watches the top sprout while the other connects the lower blooms.",
+      "praise": "Masterful teamwork! One thoughtful network watered the entire garden."
+    }
+  ],
+  "offscreen_activities": [
+    {
+      "id": "off_five_room",
+      "title": "Two-Minute Room Memory",
+      "body": "Look around the room together for 30 seconds, close eyes, move one object slightly, and guess what shifted!"
+    },
+    {
+      "id": "off_tangram_paper",
+      "title": "Fold & Cut Paper Shapes",
+      "body": "Cut one scrap square into 4 triangles and a small square, then take turns crafting a house or sailboat."
+    },
+    {
+      "id": "off_reverse_count",
+      "title": "Backwards Word & Step",
+      "body": "Say a short 3-4 letter word and spell it backwards together, or name 3 green things in the room in 15 seconds."
+    },
+    {
+      "id": "off_what_missing",
+      "title": "The Five-Object Tray",
+      "body": "Place 5 safe household objects on the table, cover with a towel, slip one away secretly, and discover which vanished."
+    },
+    {
+      "id": "off_riddle_chain",
+      "title": "Three-Clue Riddle",
+      "body": "One person thinks of something at home and gives only 3 clues — from broad to specific — to guess it together."
+    },
+    {
+      "id": "off_sound_map",
+      "title": "Quiet Sound Detective",
+      "body": "Sit in calm silence for 60 seconds and share how many different gentle sounds you noticed indoors and outside."
+    },
+    {
+      "id": "off_build_bridge",
+      "title": "Three-Sheet Paper Bridge",
+      "body": "Fold scrap paper like an accordion between two books and test how many light blocks your paper bridge holds!"
+    }
+  ]
+}

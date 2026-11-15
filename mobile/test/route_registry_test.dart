@@ -93,6 +93,8 @@ void main() {
       'infographic': AppRoutes.infographic('https://x/i.png'),
       'report': AppRoutes.report('https://x/r.pdf'),
       'dataTable': AppRoutes.dataTable('https://x/d.csv'),
+      'familyPuzzles': AppRoutes.familyPuzzles(),
+      'familyPuzzleRunner': AppRoutes.familyPuzzleRunner(puzzles: const []),
       'gameDataDefender': AppRoutes.gameDataDefender(),
       'gameHealthyHero': AppRoutes.gameHealthyHero(),
       'gameTreeOfDeeds': AppRoutes.gameTreeOfDeeds(),
