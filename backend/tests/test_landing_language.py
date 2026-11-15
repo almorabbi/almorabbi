@@ -149,7 +149,7 @@ def test_an_en_code_gets_the_english_page(client):
     assert re.search(r'<meta property="og:title" content="Al-Morabbi — [^"]+">', body)
     assert re.search(r'<meta property="og:description" content="[^"]*no ads, no subscriptions', body)
     assert '<meta property="og:locale" content="en_US">' in body
-    assert re.search(r'<meta property="og:image" content="http://testserver/ui/assets/og_noor\.png">', body)
+    assert re.search(r'<meta property="og:image" content="http://testserver/ui/assets/og_noor_en\.png">', body)
     assert '<link rel="canonical" href="http://testserver/go?lang=en">' in body
     # The two languages name each other; /go is the Arabic page and the default.
     for lang, href in (("ar", "/go"), ("en", "/go?lang=en"), ("x-default", "/go")):
@@ -165,6 +165,7 @@ def test_the_arabic_page_names_the_english_one(client):
     assert '<link rel="canonical" href="http://testserver/go">' in body
     for lang, href in (("ar", "/go"), ("en", "/go?lang=en"), ("x-default", "/go")):
         assert f'<link rel="alternate" hreflang="{lang}" href="http://testserver{href}">' in body
+    assert re.search(r'<meta property="og:image" content="http://testserver/ui/assets/og_noor\.png">', body)
     assert "Al-Morabbi" not in body and _EN_HEADLINE not in body
 
 

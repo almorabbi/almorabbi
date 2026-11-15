@@ -190,7 +190,7 @@ def _save_manifest(manifest):
     MANIFEST_FILE.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def _register_done(path_id, task_id=None, source_id=None):
+def _register_done(path_id, task_id=None, source_id=None, notebook_id=None):
     """Record that a path is finished. This is the authoritative DONE gate."""
     manifest = _load_manifest()
     key = _key(path_id)
@@ -202,6 +202,7 @@ def _register_done(path_id, task_id=None, source_id=None):
         "size_bytes": _vid_path(path_id).stat().st_size,
         "task_id": task_id or entry.get("task_id"),
         "source_id": source_id or entry.get("source_id"),
+        "notebook_id": notebook_id or entry.get("notebook_id") or NOTEBOOK_ID,
     })
     manifest[key] = entry
     _save_manifest(manifest)
@@ -221,20 +222,25 @@ def _sync_manifest_from_disk(mapping):
     """
     manifest = _load_manifest()
     changed = False
-    source_by_path = {t["path_id"]: t["source_id"] for t in mapping}
-    for path_id in source_by_path:
+    meta_by_path = {t["path_id"]: t for t in mapping}
+    for path_id, meta in meta_by_path.items():
         if _has_video(path_id) and _key(path_id) not in manifest:
-            _register_done(path_id, task_id=None, source_id=source_by_path[path_id])
+            _register_done(
+                path_id,
+                task_id=None,
+                source_id=meta["source_id"],
+                notebook_id=meta.get("notebook_id") or NOTEBOOK_ID,
+            )
             changed = True
     return changed
 
 
-async def trigger(source_id, title, path_id):
+async def trigger(source_id, title, path_id, notebook_id=NOTEBOOK_ID):
     if DRY_RUN:
-        print(f"[trigger] {path_id}: DRY RUN — would trigger source {source_id}")
+        print(f"[trigger] {path_id}: DRY RUN — would trigger source {source_id} in notebook {notebook_id}")
         return "DRYRUN"
     code, out, err = await _run(
-        *CLI_BASE, "generate", "video", "-n", NOTEBOOK_ID,
+        *CLI_BASE, "generate", "video", "-n", notebook_id,
         "--language", VIDEO_CLI_LANG[LANG], "-s", source_id,
         PROMPT.format(title=title)
     )
@@ -256,8 +262,8 @@ async def trigger(source_id, title, path_id):
 _LAST_REASON = {}
 
 
-async def poll(task_id):
-    code, out, err = await _run(*CLI_BASE, "artifact", "poll", "-n", NOTEBOOK_ID, task_id, "--json", timeout=90)
+async def poll(task_id, notebook_id=NOTEBOOK_ID):
+    code, out, err = await _run(*CLI_BASE, "artifact", "poll", "-n", notebook_id, task_id, "--json", timeout=90)
     _LAST_REASON.pop(task_id, None)
     if code != 0:
         _LAST_REASON[task_id] = short_reason(code, out, err)
@@ -269,8 +275,8 @@ async def poll(task_id):
         return "error"
 
 
-async def download(task_id, out_path):
-    code, _, _ = await _run(*CLI_BASE, "download", "video", "-n", NOTEBOOK_ID, "--artifact", task_id, str(out_path), "--force")
+async def download(task_id, out_path, notebook_id=NOTEBOOK_ID):
+    code, _, _ = await _run(*CLI_BASE, "download", "video", "-n", notebook_id, "--artifact", task_id, str(out_path), "--force")
     if not (out_path.exists() and out_path.stat().st_size > MIN_SIZE):
         return False
     # The CLI writes 0600. The container runs as uid 10001 against a host bind
@@ -284,6 +290,8 @@ async def download(task_id, out_path):
 async def main():
     VIDEOS_DIR.mkdir(parents=True, exist_ok=True)
     mapping = _load(MAP_FILE, [])
+    source_by_path = {t["path_id"]: t["source_id"] for t in mapping}
+    nb_by_path = {t["path_id"]: (t.get("notebook_id") or NOTEBOOK_ID) for t in mapping}
     state = _load(STATE_FILE, {})  # path_id -> task_id (in flight)
     fails = _load(FAILS_FILE, {})  # path_id -> consecutive hard-failure count
 
@@ -296,12 +304,15 @@ async def main():
     downloaded = 0
     for _state_key, task_id in list(state.items()):
         path_id = _unkey(_state_key)
+        if _state_key != _key(path_id):
+            continue
+        nb_id = nb_by_path.get(path_id, NOTEBOOK_ID)
         if _is_done(path_id):
             print(f"[poll] {path_id}: already done on disk — dropping stale in-flight task")
             state.pop(_key(path_id), None)
             fails.pop(_key(path_id), None)
             continue
-        st = await poll(task_id)
+        st = await poll(task_id, notebook_id=nb_id)
         why = _LAST_REASON.get(task_id)
         print(f"[poll] {path_id}: {st}" + (f" — {why}" if why and st in ("error", "auth") else ""))
         if st == "auth":
@@ -310,11 +321,10 @@ async def main():
                   f"in-flight tasks kept")
             break
         if st == "completed":
-            if await download(task_id, _vid_path(path_id)):
+            if await download(task_id, _vid_path(path_id), notebook_id=nb_id):
                 downloaded += 1
                 print(f"  ✓ downloaded {path_id}")
-                source_id = next((t["source_id"] for t in mapping if t["path_id"] == path_id), None)
-                _register_done(path_id, task_id=task_id, source_id=source_id)
+                _register_done(path_id, task_id=task_id, source_id=source_by_path.get(path_id), notebook_id=nb_id)
                 state.pop(_key(path_id), None)
                 fails.pop(_key(path_id), None)
         elif st == "failed":
@@ -332,6 +342,7 @@ async def main():
             break
         path_id = t["path_id"]
         source_id = t["source_id"]
+        nb_id = nb_by_path.get(path_id, NOTEBOOK_ID)
         if _is_done(path_id):
             continue
         if _key(path_id) in state:
@@ -340,7 +351,7 @@ async def main():
             print(f"[trigger] {path_id}: skipped — {fails[_key(path_id)]} hard failures; needs manual root-cause before retry")
             continue
         attempted += 1
-        tid = await trigger(source_id, t["title"], path_id)
+        tid = await trigger(source_id, t["title"], path_id, notebook_id=nb_id)
         if tid == "RATELIMIT":
             print(f"[trigger] {path_id}: rate-limited — will retry next run")
             rate_limited = True
@@ -366,22 +377,25 @@ async def main():
 
     # 3) bounded poll of freshly-triggered tasks (download any that finish fast)
     deadline = time.time() + POLL_BUDGET_SEC
-    while state and not session_dead and time.time() < deadline:
+    while (not DRY_RUN and any(k == _key(_unkey(k)) for k in state)
+           and not session_dead and time.time() < deadline):
         await asyncio.sleep(45)
         for _state_key, task_id in list(state.items()):
             path_id = _unkey(_state_key)
-            st = await poll(task_id)
+            if _state_key != _key(path_id):
+                continue
+            nb_id = nb_by_path.get(path_id, NOTEBOOK_ID)
+            st = await poll(task_id, notebook_id=nb_id)
             if st == "auth":
                 # Session died after the triggers: keep every task, stop polling.
                 session_dead = True
                 print(f"[poll] ⛔ NotebookLM session is dead ({_LAST_REASON.get(task_id)}) "
                       f"— stopping; in-flight tasks kept")
                 break
-            if st == "completed" and await download(task_id, _vid_path(path_id)):
+            if st == "completed" and await download(task_id, _vid_path(path_id), notebook_id=nb_id):
                 downloaded += 1
                 print(f"  ✓ downloaded {path_id}")
-                source_id = next((t["source_id"] for t in mapping if t["path_id"] == path_id), None)
-                _register_done(path_id, task_id=task_id, source_id=source_id)
+                _register_done(path_id, task_id=task_id, source_id=source_by_path.get(path_id), notebook_id=nb_id)
                 state.pop(_key(path_id), None)
                 fails.pop(_key(path_id), None)
             elif st == "failed":
@@ -397,8 +411,9 @@ async def main():
 
     FAILS_FILE.write_text(json.dumps(fails, ensure_ascii=False, indent=2), encoding="utf-8")
     done = sum(1 for t in mapping if _is_done(t["path_id"]))
+    in_flight = sum(1 for k in state if k == _key(_unkey(k)))
     benched = sum(1 for t in mapping if fails.get(_key(t["path_id"]), 0) >= MAX_FAILS and not _is_done(t["path_id"]))
-    print(f"\n[summary] videos done: {done}/{len(mapping)} | in-flight: {len(state)} | benched (>= {MAX_FAILS} fails): {benched}")
+    print(f"\n[summary] videos done: {done}/{len(mapping)} | in-flight ({LANG}): {in_flight} | benched (>= {MAX_FAILS} fails): {benched}")
 
     # exit 0 must mean "worked, or had a reason not to" — not "ran".
     if session_dead:

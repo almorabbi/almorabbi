@@ -24,6 +24,7 @@ _HEADLINE = "مربٍّ يعرف طفلك، خطوة بخطوة"
 _FREE = "مجاني بالكامل"
 _CTA = "حمّله من Google Play"
 _OG_PATH = "/ui/assets/og_noor.png"
+_OG_EN_PATH = "/ui/assets/og_noor_en.png"
 _CF_BEACON = (r'<script defer src="https://static\.cloudflareinsights\.com/beacon\.min\.js/[^"]+"'
               r'[^>]*data-cf-beacon=\'\{[^\']*"token":"7a8db528beef4fe1be0eadf9d6490d25"[^>]*></script>')
 
@@ -79,16 +80,20 @@ def test_copy_rules(client):
 
 
 def test_share_image_is_the_new_1200x630(client):
-    for path in _PAGES + _EN_PAGES:
+    for path, want in (
+        *((p, _OG_PATH) for p in _PAGES),
+        *((p, _OG_EN_PATH) for p in _EN_PAGES),
+    ):
         html = client.get(path).text
         for key in ("og:image", "twitter:image"):
             url = _meta(html, key)
-            assert url.endswith(_OG_PATH), (path, key, url)
+            assert url.endswith(want), (path, key, url, want)
         assert "banner.png" not in html, path
-    r = client.get(_OG_PATH)
-    assert r.status_code == 200
-    assert _png_size(r.content) == (1200, 630)
-    assert len(r.content) < 300_000  # large previews get dropped by WhatsApp
+    for asset_path in (_OG_PATH, _OG_EN_PATH):
+        r = client.get(asset_path)
+        assert r.status_code == 200, asset_path
+        assert _png_size(r.content) == (1200, 630), asset_path
+        assert len(r.content) < 300_000, asset_path  # large previews get dropped by WhatsApp
 
 
 def test_lesson_and_path_pages_share_the_new_image(client):
