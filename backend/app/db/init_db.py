@@ -263,10 +263,11 @@ CREATE INDEX IF NOT EXISTS ix_referrals_referrer
 # 35 = erased-device tombstones,
 # 36 = honest weekly counter: followups.source + weekly_plan_marks,
 # 37 = mint_kind + restore keys + merge tombstones,
-# 38 = dual-parent family account (families + members + invites + deletion_requests).
+# 38 = dual-parent family account (families + members + invites + deletion_requests),
+# 39 = ramadan_marks.origin_hash (shared parent-lantern harmony + fawazir/pledge tags).
 # Every _ensure_* step runs unconditionally and the stamp only ever moves up,
 # so branches can land in any order: keep the highest number.
-SCHEMA_VERSION = 38
+SCHEMA_VERSION = 39
 
 
 def db_path() -> Path:
@@ -467,6 +468,7 @@ def init_db() -> None:
     _ensure_honest_counter_v36(conn)
     _ensure_restore_v37(conn)
     _ensure_families_v38(conn)
+    _ensure_ramadan_origin_v39(conn)
 
     row = conn.execute("SELECT version FROM schema_version LIMIT 1").fetchone()
     if row is None:
@@ -1639,6 +1641,17 @@ def _ensure_families_v38(conn: sqlite3.Connection) -> None:
     """v38: families, family_members, family_invites, family_deletion_requests."""
     for statement in _CREATE_FAMILIES_V38:
         conn.execute(statement)
+
+
+def _ensure_ramadan_origin_v39(conn: sqlite3.Connection) -> None:
+    """v39: nullable origin_hash on ramadan_marks so synced parent lanterns
+    remember which confirmed partner lit a day without exposing device IDs."""
+    _ensure_column(
+        conn,
+        table="ramadan_marks",
+        column="origin_hash",
+        ddl="ALTER TABLE ramadan_marks ADD COLUMN origin_hash TEXT",
+    )
 
 
 # ── v36: the honest weekly counter (نور والقناديل, Phase 0) ───────────────

@@ -225,6 +225,10 @@ class _NoorTodayHeaderState extends ConsumerState<NoorTodayHeader> {
         7 => l10n.noorRamadan7(name),
         _ => l10n.noorRamadan1,
       },
+      CompanionKind.partnerLanternLit => l10n.ramadanPartnerLanternNoor(
+        line.partnerLabel ?? l10n.ramadanPartnerRoleParent,
+        line.ramadanDays ?? 1,
+      ),
       CompanionKind.ramadanStart => l10n.noorRamadanStart(name),
       CompanionKind.seasonStart => switch (line.season) {
         'rajab' => l10n.noorSeasonRajab,

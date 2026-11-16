@@ -423,5 +423,11 @@ def test_gate1_headlines_includes_family_puzzles(tmp_path: Path) -> None:
 
         res_empty = mod.evaluate_gate1_headlines(conn, root=tmp_path, env={"STORY_MOTION_MODE": "motion"})
         assert res_empty["items"]["family_puzzles"] is False
+
+        docs_dir = tmp_path / "docs"
+        docs_dir.mkdir()
+        (docs_dir / "FAMILY_PUZZLES.md").write_text("# doc\n", encoding="utf-8")
+        res_container = mod.evaluate_gate1_headlines(conn, root=tmp_path, env={"STORY_MOTION_MODE": "motion"})
+        assert res_container["items"]["family_puzzles"] is True
     finally:
         conn.close()

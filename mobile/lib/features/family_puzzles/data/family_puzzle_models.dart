@@ -512,6 +512,8 @@ class FamilyPuzzle {
   final String subtitle;
   final String parentWhisper;
   final String praise;
+  final int? ramadanNight;
+  final String? audioPath;
   final SpotDiffData? spotDiff;
   final TrickRevealData? trickReveal;
   final PieceAssemblyData? pieceAssembly;
@@ -525,6 +527,8 @@ class FamilyPuzzle {
     required this.subtitle,
     required this.parentWhisper,
     required this.praise,
+    this.ramadanNight,
+    this.audioPath,
     this.spotDiff,
     this.trickReveal,
     this.pieceAssembly,
@@ -539,6 +543,8 @@ class FamilyPuzzle {
         subtitle: j['subtitle'] as String,
         parentWhisper: j['parent_whisper'] as String,
         praise: j['praise'] as String,
+        ramadanNight: (j['ramadan_night'] as num?)?.toInt(),
+        audioPath: j['audio_path'] as String?,
         spotDiff: j['spot_diff'] == null
             ? null
             : SpotDiffData.fromJson(j['spot_diff'] as Map<String, dynamic>),
@@ -605,6 +611,7 @@ class FamilyPuzzlePack {
 }
 
 final Map<String, FamilyPuzzlePack> _packCache = {};
+final Map<String, List<FamilyPuzzle>> _ramadanPackCache = {};
 
 Future<FamilyPuzzlePack> loadFamilyPuzzlePack(String languageCode) async {
   final base = languageCode.trim().toLowerCase().split(RegExp(r'[_-]')).first;
@@ -617,4 +624,22 @@ Future<FamilyPuzzlePack> loadFamilyPuzzlePack(String languageCode) async {
   final pack = FamilyPuzzlePack.fromJson(jsonDecode(raw) as Map<String, dynamic>);
   _packCache[lang] = pack;
   return pack;
+}
+
+/// Loads the 30 seasonal «فوازير قناديل رمضان» puzzles sorted by night (1–30).
+Future<List<FamilyPuzzle>> loadRamadanPuzzlePack(String languageCode) async {
+  final base = languageCode.trim().toLowerCase().split(RegExp(r'[_-]')).first;
+  final lang = base == 'en' ? 'en' : 'ar';
+  final cached = _ramadanPackCache[lang];
+  if (cached != null) return cached;
+  final raw = await rootBundle.loadString(
+    'assets/content/games/ramadan_puzzles.$lang.json',
+  );
+  final doc = jsonDecode(raw) as Map<String, dynamic>;
+  final list = (doc['puzzles'] as List)
+      .map((e) => FamilyPuzzle.fromJson(e as Map<String, dynamic>))
+      .toList()
+    ..sort((a, b) => (a.ramadanNight ?? 99).compareTo(b.ramadanNight ?? 99));
+  _ramadanPackCache[lang] = list;
+  return list;
 }

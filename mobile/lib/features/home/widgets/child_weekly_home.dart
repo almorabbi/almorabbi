@@ -44,6 +44,7 @@ import '../../program/providers/progress_providers.dart';
 import '../../programs/data/programs_models.dart';
 import '../../programs/providers/programs_providers.dart';
 import '../../programs/widgets/programs_home_card.dart';
+import '../../programs/widgets/shaban_welcome_card.dart';
 import '../../referral/pride_invite_card.dart';
 import '../../shell/root_tab.dart';
 import '../../whats_new/widgets/update_available_card.dart';
@@ -260,6 +261,7 @@ class ChildWeeklyHome extends ConsumerWidget {
             onAsk: () => onGoToTab(RootTab.assistant),
           ),
           const SizedBox(height: 14),
+          const ShabanWelcomeCard(),
           const ProgramsHomeCard(),
           const SizedBox(height: 18),
           TodayMoreDivider(label: l10n.todayMoreTitle),

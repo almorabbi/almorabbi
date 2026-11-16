@@ -1,0 +1,198 @@
+{
+  "version": 1,
+  "locale": "en",
+  "tales": [
+    {
+      "id": "tale_01_lantern_sunset",
+      "title": "The Little Paper Lantern and Sunset",
+      "subtitle": "A calm ten-minute tale before iftar about helping set the table together.",
+      "duration_label": "3 min · Screen-off",
+      "audio_path": "docs/ramadan_audio/en/tales/tale_01.m4a",
+      "moral": "The sweetest wait for sunset gathers small hands around kindness and remembrance.",
+      "story_paragraphs": [
+        "Beside the warm window hung a little paper lantern crafted from emerald and honey-gold paper, waiting each evening for the cool sunset breeze.",
+        "Ten minutes before Maghrib, the children gathered beside the table cloth: the youngest laid soft napkins gently, while the older arranged fresh dates in the wooden dish.",
+        "As quiet settled over the house—with phones asleep and no flashing screens—the family sat together and whispered heartfelt duas for loved ones and neighbors.",
+        "When the gentle call to prayer rose through the evening air, the lantern glowed softly and every child knew their small helping hands had warmed the whole home."
+      ]
+    },
+    {
+      "id": "tale_02_neighbor_dates",
+      "title": "The First Dish of Dates Next Door",
+      "subtitle": "A story of quiet generosity and caring for neighbors before sunset.",
+      "duration_label": "3 min · Screen-off",
+      "audio_path": "docs/ramadan_audio/en/tales/tale_02.m4a",
+      "moral": "A warm dish shared with a neighbor doubles the joy of the table.",
+      "story_paragraphs": [
+        "On the shelf sat a small white ceramic dish reserved for sharing the very best dates and cool water from the family table.",
+        "Minutes before dusk, a young child carried the dish steadily with both hands to the doorway of their elderly neighbors downstairs.",
+        "Expecting nothing in return, they offered a warm Salam and returned promptly to help pour water cups back home.",
+        "With the first sweet bite of iftar, everyone noticed how sharing kindness first makes every ordinary meal feel like a celebration."
+      ]
+    },
+    {
+      "id": "tale_03_kind_jar",
+      "title": "The Kind-Words Jar in Our Home",
+      "subtitle": "A gentle reminder about soft speech when afternoon hunger settles in.",
+      "duration_label": "3 min · Screen-off",
+      "audio_path": "docs/ramadan_audio/en/tales/tale_03.m4a",
+      "moral": "One gentle word spoken in patience brightens a whole room.",
+      "story_paragraphs": [
+        "A clear glass jar tied with a cream ribbon stood near the kitchen counter, lovingly named our Kind-Words Jar.",
+        "One warm afternoon before sunset, the siblings felt tired and hungry, and an impatient remark almost slipped out while sorting cushions.",
+        "Remembering the family promise, they paused for a quiet breath, wrote two thankful notes for one another on bright paper slips, and dropped them into the jar.",
+        "Smiles returned right away, turning that jar into a quiet witness that fasting softens hearts and tongues together."
+      ]
+    },
+    {
+      "id": "tale_04_thirsty_basil",
+      "title": "The Water Pitcher and the Little Basil",
+      "subtitle": "A story on gentleness and mercy toward living plants and creatures.",
+      "duration_label": "3 min · Screen-off",
+      "audio_path": "docs/ramadan_audio/en/tales/tale_04.m4a",
+      "moral": "Everyday mercy toward plants, birds, and neighbors builds tender hearts.",
+      "story_paragraphs": [
+        "In a terracotta pot on the balcony stood a fragrant green basil plant whose leaves leaned slightly after a sunlit day.",
+        "Lifting a small pitcher, the child learned to pour cool water drop by drop around its soil gently without flooding the saucer.",
+        "Their parent smiled softly and explained that just as refreshing water brings joy at iftar, tiny leaves thrive when cared for steadily.",
+        "Soon the basil leaves lifted toward the evening sky, sending a clean, crisp scent right beside the dinner mat."
+      ]
+    },
+    {
+      "id": "tale_05_suhoor_notebook",
+      "title": "The Suhoor Notebook and Dawn Smile",
+      "subtitle": "Closing each night with gratitude and readying a peaceful dawn.",
+      "duration_label": "3 min · Screen-off",
+      "audio_path": "docs/ramadan_audio/en/tales/tale_05.m4a",
+      "moral": "Calm evening preparation makes dawn a peaceful and welcoming family rhythm.",
+      "story_paragraphs": [
+        "After night prayers, a small gold-trimmed notebook opened in the quiet corner to hold one simple blessing everyone felt thankful for that day.",
+        "Beside it, water cups and a small basket of fruit sat neatly arranged so the early dawn hours would feel peaceful without rush.",
+        "Even young children who slept through the night tucked a paper crescent sticker beside the cups so their hearts shared in the blessing.",
+        "At morning light, they woke to calm smiles and a house filled with gratitude and peace."
+      ]
+    }
+  ],
+  "capsules": [
+    {
+      "id": "cap_01_golden_half_hour",
+      "title": "The Golden Half-Hour Before Maghrib",
+      "subtitle": "Turning the busiest pre-iftar rush into a peaceful harbor of dua and warmth.",
+      "duration_label": "90 sec",
+      "audio_path": "docs/ramadan_audio/en/capsules/cap_01.m4a",
+      "takeaways": [
+        "Wrap up heavy kitchen prep 15 minutes before sunset whenever possible.",
+        "Give every child one clear, joyful table role so restlessness fades.",
+        "Trade background screens for a 3-minute screen-off story and quiet dua together."
+      ]
+    },
+    {
+      "id": "cap_02_fasting_patience",
+      "title": "Steady Patience When Siblings Clash",
+      "subtitle": "Protecting calm parenting when energy runs low before dusk.",
+      "duration_label": "90 sec",
+      "audio_path": "docs/ramadan_audio/en/capsules/cap_02.m4a",
+      "takeaways": [
+        "Name the tiredness honestly and gently so kids feel understood rather than blamed.",
+        "Pause, sit down, or refresh with wudu before stepping into any dispute.",
+        "Channel pre-iftar energy into quiet paper-craft lanterns or sorting table dates."
+      ]
+    },
+    {
+      "id": "cap_03_screen_boundaries",
+      "title": "Screen-Free Ten Minutes Before Iftar",
+      "subtitle": "Guarding real table warmth from evening phone and TV drift.",
+      "duration_label": "90 sec",
+      "audio_path": "docs/ramadan_audio/en/capsules/cap_03.m4a",
+      "takeaways": [
+        "Set one family basket where both adult and child screens rest before Maghrib.",
+        "Use screen-off listening mode for stories and verses without visual stimulation.",
+        "Replace bans with warm alternatives: one evening puzzle or a calm family tale."
+      ]
+    },
+    {
+      "id": "cap_04_sleep_and_energy",
+      "title": "Protecting Child Sleep & Hydration",
+      "subtitle": "Keeping growing bodies well-rested during Ramadan evenings.",
+      "duration_label": "90 sec",
+      "audio_path": "docs/ramadan_audio/en/capsules/cap_04.m4a",
+      "takeaways": [
+        "Prioritize sufficient night sleep for school-age children through lighter evening routines.",
+        "Offer water in small, spaced cups between sunset and sleep rather than all at once.",
+        "Keep heavy sugary sweets light near bedtime so restful sleep comes easily."
+      ]
+    },
+    {
+      "id": "cap_05_under_seven_love",
+      "title": "Including Under-Sixes With Warmth, Not Fasting",
+      "subtitle": "Belonging to Ramadan through table service, kind words, and family rhythm.",
+      "duration_label": "90 sec",
+      "audio_path": "docs/ramadan_audio/en/capsules/cap_05.m4a",
+      "takeaways": [
+        "Under seven, worship means kindness, sweet smiles, and helping pass water or dates.",
+        "Table helper cards build deeper pride than early hunger.",
+        "Never compare one child's readiness against an older sibling or cousin."
+      ]
+    },
+    {
+      "id": "cap_06_two_minute_quran",
+      "title": "Two Joyful Minutes of Family Quran",
+      "subtitle": "Making daily recitation light, consistent, and cherished by young ears.",
+      "duration_label": "90 sec",
+      "audio_path": "docs/ramadan_audio/en/capsules/cap_06.m4a",
+      "takeaways": [
+        "Two calm minutes on a short surah daily beats infrequent, tiring sessions.",
+        "Highlight one simple Arabic word meaning in everyday warm conversation.",
+        "Keep parents' longer juz reading separate from young children's short circle."
+      ]
+    },
+    {
+      "id": "cap_07_fasting_ladder_dignity",
+      "title": "Honoring Dignity on the Fasting Ladder",
+      "subtitle": "Responding gently whenever a child breaks a practice step early for rest.",
+      "duration_label": "90 sec",
+      "audio_path": "docs/ramadan_audio/en/capsules/cap_07.m4a",
+      "takeaways": [
+        "Stopping for thirst, dizziness, or fatigue honors the body's trust with Allah.",
+        "Celebrate every hour walked in sincerity with zero scorekeeping.",
+        "Rest days between training days belong to healthy, steady growth."
+      ]
+    },
+    {
+      "id": "cap_08_kind_grandparents",
+      "title": "Warming Ties With Grandparents",
+      "subtitle": "Building lasting family memories across generations this month.",
+      "duration_label": "90 sec",
+      "audio_path": "docs/ramadan_audio/en/capsules/cap_08.m4a",
+      "takeaways": [
+        "Bring along a child-crafted paper lantern or drawing on every visit.",
+        "Let children present water cups or greetings to grandparents directly.",
+        "Ask grandparents for one favorite Ramadan memory from their own childhood."
+      ]
+    },
+    {
+      "id": "cap_09_teens_last_ten",
+      "title": "Teens in the Last Ten: Partnership First",
+      "subtitle": "Inviting older youth into worship with dignity and personal ownership.",
+      "duration_label": "90 sec",
+      "audio_path": "docs/ramadan_audio/en/capsules/cap_09.m4a",
+      "takeaways": [
+        "Invite teens to choose their own night rhythm and quiet ibadah goals.",
+        "Share calm night walks to the mosque or a charity project they lead.",
+        "Affirm sincere effort quietly without public pressure or nagging."
+      ]
+    },
+    {
+      "id": "cap_10_shawwal_bridge",
+      "title": "Carrying Two Gentle Habits Into Shawwal",
+      "subtitle": "Measuring Ramadan by the steady peace that stays in your home afterward.",
+      "duration_label": "90 sec",
+      "audio_path": "docs/ramadan_audio/en/capsules/cap_10.m4a",
+      "takeaways": [
+        "Choose just two lovable habits—like the charity box or weekly Quran circle.",
+        "Keep a quiet paper reminder visible on the fridge through the four bridge weeks.",
+        "Joyful Eid celebration anchors the memory that faith brings peace and delight."
+      ]
+    }
+  ]
+}

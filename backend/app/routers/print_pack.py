@@ -387,3 +387,18 @@ def ramadan_sheets(lang: Optional[str] = Query(None)) -> HTMLResponse:
     except Exception as exc:  # noqa: BLE001 — a missing program file is a 503, not a 500 trace
         raise HTTPException(status_code=503, detail="program unavailable") from exc
     return HTMLResponse(render(doc, lang), headers={"Cache-Control": "public, max-age=3600"})
+
+
+@router.get("/print/lantern-craft", response_class=HTMLResponse, include_in_schema=False)
+def craft_sheets(
+    lang: Optional[str] = Query(None),
+    ink: Optional[str] = Query(None),
+) -> HTMLResponse:
+    from app.services.print_craft_sheets import render_lantern_craft
+
+    resolved_lang = "en" if (lang or "").lower().startswith("en") else "ar"
+    resolved_ink = "bw" if (ink or "").lower() in ("bw", "mono", "saving") else "color"
+    return HTMLResponse(
+        render_lantern_craft(resolved_lang, resolved_ink),
+        headers={"Cache-Control": "public, max-age=3600"},
+    )

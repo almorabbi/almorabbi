@@ -1,0 +1,3102 @@
+{
+  "version": 1,
+  "locale": "en",
+  "season": "ramadan_lantern_fawazir",
+  "puzzles": [
+    {
+      "id": "ram_01_iftar_table",
+      "kind": "spot_diff",
+      "skill": "observation",
+      "ramadan_night": 1,
+      "spot_diff": {
+        "backdrop": "bg_room_night",
+        "base_items": [
+          {
+            "id": "dates",
+            "prop": "dates_bowl",
+            "x": 0.22,
+            "y": 0.72,
+            "scale": 0.19
+          },
+          {
+            "id": "ewer",
+            "prop": "ewer",
+            "x": 0.5,
+            "y": 0.72,
+            "scale": 0.19
+          },
+          {
+            "id": "lantern1",
+            "prop": "fanous_gold",
+            "x": 0.2,
+            "y": 0.24,
+            "scale": 0.17
+          },
+          {
+            "id": "moon",
+            "prop": "moon",
+            "x": 0.52,
+            "y": 0.22,
+            "scale": 0.15
+          },
+          {
+            "id": "star",
+            "prop": "star",
+            "x": 0.8,
+            "y": 0.24,
+            "scale": 0.14
+          },
+          {
+            "id": "soup",
+            "prop": "soup_bowl",
+            "x": 0.78,
+            "y": 0.74,
+            "scale": 0.19
+          }
+        ],
+        "differences": [
+          {
+            "id": "d1",
+            "item_id": "lantern1",
+            "mode": "missing",
+            "hit_x": 0.2,
+            "hit_y": 0.24
+          },
+          {
+            "id": "d2",
+            "item_id": "ewer",
+            "mode": "swap",
+            "alt_prop": "water_glass",
+            "hit_x": 0.5,
+            "hit_y": 0.72
+          },
+          {
+            "id": "d3",
+            "item_id": "moon",
+            "mode": "flip",
+            "hit_x": 0.52,
+            "hit_y": 0.22
+          },
+          {
+            "id": "d4",
+            "item_id": "star",
+            "mode": "scale",
+            "alt_scale": 0.22,
+            "hit_x": 0.8,
+            "hit_y": 0.24
+          }
+        ]
+      },
+      "title": "Crescent Night & Dates Table",
+      "subtitle": "Compare both scenes carefully and tap the 4 quiet differences.",
+      "parent_whisper": "Scan the upper night sky first, then look across the table dishes — what shifted or vanished?",
+      "praise": "Sharp eyes on the first night of Ramadan ✨",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_01.m4a"
+    },
+    {
+      "id": "ram_02_pour_dates_water",
+      "kind": "trick_reveal",
+      "skill": "lateral",
+      "ramadan_night": 2,
+      "trick_reveal": {
+        "sub_mode": "drag_solve",
+        "backdrop": "bg_room_night",
+        "require_mode": "all",
+        "target_zone": {
+          "x": 0.5,
+          "y": 0.62,
+          "radius": 0.19,
+          "before_prop": "table",
+          "after_prop": "table_food",
+          "after_bonus_prop": "fanous_gold"
+        },
+        "under_items": [
+          {
+            "id": "u1",
+            "prop": "moon",
+            "x": 0.5,
+            "y": 0.2,
+            "scale": 0.14
+          }
+        ],
+        "covers": [
+          {
+            "id": "c_dates",
+            "prop": "dates_bowl",
+            "x": 0.22,
+            "y": 0.42,
+            "scale": 0.17,
+            "movable": true,
+            "solve_role": "trigger",
+            "nudge_x": 0.5,
+            "nudge_y": 0.62
+          },
+          {
+            "id": "c_ewer",
+            "prop": "ewer",
+            "x": 0.78,
+            "y": 0.42,
+            "scale": 0.17,
+            "movable": true,
+            "solve_role": "trigger",
+            "nudge_x": 0.5,
+            "nudge_y": 0.62
+          }
+        ]
+      },
+      "title": "Preparing the Iftar Table",
+      "subtitle": "How do we ready the table gently? Slide both dates and water onto the table.",
+      "parent_whisper": "Ask your child which two blessings belong at the center of our iftar table.",
+      "praise": "Wonderful! A warm table ready for sunset 🌴",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_02.m4a"
+    },
+    {
+      "id": "ram_03_build_fanous",
+      "kind": "piece_assembly",
+      "skill": "spatial",
+      "ramadan_night": 3,
+      "piece_assembly": {
+        "pieces": [
+          {
+            "id": "cap",
+            "color_hex": "#F7C548",
+            "points": [
+              [
+                -0.14,
+                0.06
+              ],
+              [
+                0.0,
+                -0.09
+              ],
+              [
+                0.14,
+                0.06
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.34
+            ],
+            "start_center": [
+              0.22,
+              0.2
+            ]
+          },
+          {
+            "id": "glass",
+            "color_hex": "#FBF1DE",
+            "points": [
+              [
+                -0.13,
+                -0.1
+              ],
+              [
+                0.13,
+                -0.1
+              ],
+              [
+                0.16,
+                0.1
+              ],
+              [
+                -0.16,
+                0.1
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.5
+            ],
+            "start_center": [
+              0.78,
+              0.22
+            ]
+          },
+          {
+            "id": "flame",
+            "color_hex": "#F4A492",
+            "points": [
+              [
+                0.0,
+                -0.06
+              ],
+              [
+                0.05,
+                0.02
+              ],
+              [
+                0.0,
+                0.07
+              ],
+              [
+                -0.05,
+                0.02
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.5
+            ],
+            "start_center": [
+              0.2,
+              0.8
+            ]
+          },
+          {
+            "id": "base",
+            "color_hex": "#0F6B5C",
+            "points": [
+              [
+                -0.17,
+                -0.04
+              ],
+              [
+                0.17,
+                -0.04
+              ],
+              [
+                0.13,
+                0.05
+              ],
+              [
+                -0.13,
+                0.05
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.65
+            ],
+            "start_center": [
+              0.78,
+              0.8
+            ]
+          }
+        ]
+      },
+      "title": "Assemble the Emerald Lantern",
+      "subtitle": "Place the crown, glass, flame, and base cleanly to light the 3rd night.",
+      "parent_whisper": "Start with the center ivory frame, then top it with the golden crown.",
+      "praise": "Gorgeous! A Paper-Cut fanous glowing bright 🏮",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_03.m4a"
+    },
+    {
+      "id": "ram_04_dates_grove",
+      "kind": "water_path",
+      "skill": "logic",
+      "ramadan_night": 4,
+      "water_path": {
+        "rows": 3,
+        "cols": 3,
+        "source": {
+          "row": 0,
+          "col": 0,
+          "entry_dir": "W"
+        },
+        "targets": [
+          {
+            "row": 2,
+            "col": 2,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "dates_bowl"
+          }
+        ],
+        "cells": [
+          [
+            {
+              "type": "corner",
+              "initial_rot": 0
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "corner",
+              "initial_rot": 2
+            },
+            {
+              "type": "straight",
+              "initial_rot": 0
+            },
+            {
+              "type": "corner",
+              "initial_rot": 0
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ]
+        ]
+      },
+      "title": "Watering the Date Palm Grove",
+      "subtitle": "Rotate the Paper-Cut canals to guide fresh water to the date grove!",
+      "parent_whisper": "Trace one step at a time from the top-left spout downward.",
+      "praise": "The grove is watered — fresh dates ahead 🌴",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_04.m4a"
+    },
+    {
+      "id": "ram_05_lantern_alley",
+      "kind": "spot_diff",
+      "skill": "observation",
+      "ramadan_night": 5,
+      "spot_diff": {
+        "backdrop": "bg_street",
+        "base_items": [
+          {
+            "id": "l1",
+            "prop": "lantern",
+            "x": 0.18,
+            "y": 0.26,
+            "scale": 0.16
+          },
+          {
+            "id": "l2",
+            "prop": "fanous_gold",
+            "x": 0.48,
+            "y": 0.24,
+            "scale": 0.17
+          },
+          {
+            "id": "arch",
+            "prop": "minaret_arch",
+            "x": 0.8,
+            "y": 0.42,
+            "scale": 0.23
+          },
+          {
+            "id": "plant",
+            "prop": "basil",
+            "x": 0.22,
+            "y": 0.76,
+            "scale": 0.16
+          },
+          {
+            "id": "gift",
+            "prop": "charity_box",
+            "x": 0.52,
+            "y": 0.76,
+            "scale": 0.18
+          },
+          {
+            "id": "sign",
+            "prop": "sign",
+            "x": 0.8,
+            "y": 0.76,
+            "scale": 0.15
+          }
+        ],
+        "differences": [
+          {
+            "id": "d1",
+            "item_id": "l1",
+            "mode": "swap",
+            "alt_prop": "fanous_gold",
+            "hit_x": 0.18,
+            "hit_y": 0.26
+          },
+          {
+            "id": "d2",
+            "item_id": "plant",
+            "mode": "swap",
+            "alt_prop": "basil_wilted",
+            "hit_x": 0.22,
+            "hit_y": 0.76
+          },
+          {
+            "id": "d3",
+            "item_id": "arch",
+            "mode": "flip",
+            "hit_x": 0.8,
+            "hit_y": 0.42
+          },
+          {
+            "id": "d4",
+            "item_id": "sign",
+            "mode": "missing",
+            "hit_x": 0.8,
+            "hit_y": 0.76
+          }
+        ]
+      },
+      "title": "The Lantern Alleyway",
+      "subtitle": "A peaceful street dressed for Ramadan — spot all 4 changes below!",
+      "parent_whisper": "Check the colors of the lanterns, the basil pot, and the paper arch carefully.",
+      "praise": "Wonderful observation — every lantern catches the eye 🏮",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_05.m4a"
+    },
+    {
+      "id": "ram_06_count_dates",
+      "kind": "trick_reveal",
+      "skill": "lateral",
+      "ramadan_night": 6,
+      "trick_reveal": {
+        "sub_mode": "count_hidden",
+        "backdrop": "bg_kitchen",
+        "target_count": 6,
+        "under_items": [
+          {
+            "id": "u1",
+            "prop": "dates_bowl",
+            "x": 0.2,
+            "y": 0.3,
+            "scale": 0.15
+          },
+          {
+            "id": "u2",
+            "prop": "dates_bowl",
+            "x": 0.5,
+            "y": 0.3,
+            "scale": 0.15
+          },
+          {
+            "id": "u3",
+            "prop": "dates_bowl",
+            "x": 0.8,
+            "y": 0.3,
+            "scale": 0.15
+          },
+          {
+            "id": "u4",
+            "prop": "dates_bowl",
+            "x": 0.22,
+            "y": 0.72,
+            "scale": 0.15
+          },
+          {
+            "id": "u5",
+            "prop": "dates_bowl",
+            "x": 0.5,
+            "y": 0.72,
+            "scale": 0.15
+          },
+          {
+            "id": "u6",
+            "prop": "dates_bowl",
+            "x": 0.78,
+            "y": 0.72,
+            "scale": 0.15
+          }
+        ],
+        "covers": [
+          {
+            "id": "cov1",
+            "prop": "table",
+            "x": 0.22,
+            "y": 0.72,
+            "scale": 0.22,
+            "movable": true,
+            "nudge_x": 0.22,
+            "nudge_y": 0.52
+          },
+          {
+            "id": "cov2",
+            "prop": "charity_box",
+            "x": 0.5,
+            "y": 0.72,
+            "scale": 0.2,
+            "movable": true,
+            "nudge_x": 0.5,
+            "nudge_y": 0.52
+          },
+          {
+            "id": "cov3",
+            "prop": "fruit_plate",
+            "x": 0.78,
+            "y": 0.72,
+            "scale": 0.2,
+            "movable": true,
+            "nudge_x": 0.78,
+            "nudge_y": 0.52
+          }
+        ]
+      },
+      "title": "How Many Date Bowls Are Here?",
+      "subtitle": "Some bowls hide underneath the table and boxes! Slide covers aside before counting.",
+      "parent_whisper": "Encourage moving every prop first before locking in the count!",
+      "praise": "Clever! You checked underneath before answering 👍",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_06.m4a"
+    },
+    {
+      "id": "ram_07_charity_wells",
+      "kind": "water_path",
+      "skill": "logic",
+      "ramadan_night": 7,
+      "water_path": {
+        "rows": 4,
+        "cols": 4,
+        "source": {
+          "row": 0,
+          "col": 0,
+          "entry_dir": "W"
+        },
+        "targets": [
+          {
+            "row": 3,
+            "col": 1,
+            "thirsty_prop": "seed",
+            "bloomed_prop": "flower"
+          },
+          {
+            "row": 3,
+            "col": 3,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "basil"
+          }
+        ],
+        "cells": [
+          [
+            {
+              "type": "corner",
+              "initial_rot": 1
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "corner",
+              "initial_rot": 1
+            },
+            {
+              "type": "tee",
+              "initial_rot": 0
+            },
+            {
+              "type": "corner",
+              "initial_rot": 3
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "straight",
+              "initial_rot": 1
+            },
+            {
+              "type": "corner",
+              "initial_rot": 2
+            },
+            {
+              "type": "corner",
+              "initial_rot": 0
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ]
+        ]
+      },
+      "title": "Irrigating Two Neighbor Gardens",
+      "subtitle": "Turn the tee-junction wisely so water nourishes both gardens at once!",
+      "parent_whisper": "Start at the T-tile in row 2: aim it right and downward simultaneously.",
+      "praise": "Water flows generously to both gardens 💧",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_07.m4a"
+    },
+    {
+      "id": "ram_08_crescent_arch",
+      "kind": "piece_assembly",
+      "skill": "spatial",
+      "ramadan_night": 8,
+      "piece_assembly": {
+        "pieces": [
+          {
+            "id": "left_pillar",
+            "color_hex": "#0F6B5C",
+            "points": [
+              [
+                -0.06,
+                -0.16
+              ],
+              [
+                0.06,
+                -0.16
+              ],
+              [
+                0.06,
+                0.16
+              ],
+              [
+                -0.06,
+                0.16
+              ]
+            ],
+            "target_center": [
+              0.34,
+              0.62
+            ],
+            "start_center": [
+              0.18,
+              0.22
+            ]
+          },
+          {
+            "id": "right_pillar",
+            "color_hex": "#0F6B5C",
+            "points": [
+              [
+                -0.06,
+                -0.16
+              ],
+              [
+                0.06,
+                -0.16
+              ],
+              [
+                0.06,
+                0.16
+              ],
+              [
+                -0.06,
+                0.16
+              ]
+            ],
+            "target_center": [
+              0.66,
+              0.62
+            ],
+            "start_center": [
+              0.82,
+              0.22
+            ]
+          },
+          {
+            "id": "arch_top",
+            "color_hex": "#12806D",
+            "points": [
+              [
+                -0.22,
+                0.08
+              ],
+              [
+                -0.12,
+                -0.09
+              ],
+              [
+                0.12,
+                -0.09
+              ],
+              [
+                0.22,
+                0.08
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.37
+            ],
+            "start_center": [
+              0.5,
+              0.16
+            ]
+          },
+          {
+            "id": "door_leaf",
+            "color_hex": "#FBF1DE",
+            "points": [
+              [
+                -0.08,
+                -0.1
+              ],
+              [
+                0.08,
+                -0.1
+              ],
+              [
+                0.08,
+                0.1
+              ],
+              [
+                -0.08,
+                0.1
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.62
+            ],
+            "start_center": [
+              0.22,
+              0.82
+            ]
+          },
+          {
+            "id": "crescent_finial",
+            "color_hex": "#F7C548",
+            "points": [
+              [
+                0.0,
+                -0.06
+              ],
+              [
+                0.06,
+                0.0
+              ],
+              [
+                0.0,
+                0.06
+              ],
+              [
+                -0.06,
+                0.0
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.23
+            ],
+            "start_center": [
+              0.78,
+              0.82
+            ]
+          }
+        ]
+      },
+      "title": "Archway & Golden Finial",
+      "subtitle": "Fit both pillars, the arch roof, and the golden crest atop the doorway.",
+      "parent_whisper": "Build the left and right pillars first so the arch has sturdy support.",
+      "praise": "Well balanced — pure architectural harmony 🕌",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_08.m4a"
+    },
+    {
+      "id": "ram_09_mosque_courtyard",
+      "kind": "spot_diff",
+      "skill": "observation",
+      "ramadan_night": 9,
+      "spot_diff": {
+        "backdrop": "bg_mosque",
+        "base_items": [
+          {
+            "id": "arch",
+            "prop": "minaret_arch",
+            "x": 0.22,
+            "y": 0.44,
+            "scale": 0.22
+          },
+          {
+            "id": "mushaf",
+            "prop": "mushaf_stand",
+            "x": 0.52,
+            "y": 0.68,
+            "scale": 0.2
+          },
+          {
+            "id": "rug",
+            "prop": "prayer_rug",
+            "x": 0.8,
+            "y": 0.7,
+            "scale": 0.22
+          },
+          {
+            "id": "star",
+            "prop": "star",
+            "x": 0.52,
+            "y": 0.22,
+            "scale": 0.14
+          },
+          {
+            "id": "moon",
+            "prop": "moon",
+            "x": 0.82,
+            "y": 0.24,
+            "scale": 0.15
+          },
+          {
+            "id": "ewer",
+            "prop": "ewer",
+            "x": 0.22,
+            "y": 0.76,
+            "scale": 0.16
+          }
+        ],
+        "differences": [
+          {
+            "id": "d1",
+            "item_id": "mushaf",
+            "mode": "scale",
+            "alt_scale": 0.26,
+            "hit_x": 0.52,
+            "hit_y": 0.68
+          },
+          {
+            "id": "d2",
+            "item_id": "star",
+            "mode": "missing",
+            "hit_x": 0.52,
+            "hit_y": 0.22
+          },
+          {
+            "id": "d3",
+            "item_id": "ewer",
+            "mode": "swap",
+            "alt_prop": "water_bowl",
+            "hit_x": 0.22,
+            "hit_y": 0.76
+          },
+          {
+            "id": "d4",
+            "item_id": "rug",
+            "mode": "flip",
+            "hit_x": 0.8,
+            "hit_y": 0.7
+          }
+        ]
+      },
+      "title": "Quiet Mosque Courtyard",
+      "subtitle": "Look closely at the Mushaf stand and courtyard details — find 4 changes.",
+      "parent_whisper": "Compare the sky stars first, then check the stand size and water vessel.",
+      "praise": "Well done! Calm focus reveals every detail 🕌",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_09.m4a"
+    },
+    {
+      "id": "ram_10_bring_mushaf",
+      "kind": "trick_reveal",
+      "skill": "lateral",
+      "ramadan_night": 10,
+      "trick_reveal": {
+        "sub_mode": "drag_solve",
+        "backdrop": "bg_room_day",
+        "require_mode": "any",
+        "target_zone": {
+          "x": 0.72,
+          "y": 0.7,
+          "radius": 0.2,
+          "before_prop": "prayer_rug",
+          "after_prop": "mushaf_stand",
+          "after_bonus_prop": "star"
+        },
+        "under_items": [
+          {
+            "id": "u1",
+            "prop": "sun",
+            "x": 0.2,
+            "y": 0.22,
+            "scale": 0.14
+          }
+        ],
+        "covers": [
+          {
+            "id": "c_mushaf",
+            "prop": "mushaf_stand",
+            "x": 0.24,
+            "y": 0.58,
+            "scale": 0.18,
+            "movable": true,
+            "solve_role": "trigger",
+            "nudge_x": 0.72,
+            "nudge_y": 0.7
+          },
+          {
+            "id": "c_sofa",
+            "prop": "sofa",
+            "x": 0.5,
+            "y": 0.28,
+            "scale": 0.2,
+            "movable": true,
+            "solve_role": "decoy",
+            "nudge_x": 0.22,
+            "nudge_y": 0.26
+          }
+        ]
+      },
+      "title": "Setting the Quran Corner",
+      "subtitle": "The prayer mat awaits! Slide the Mushaf stand cleanly into place.",
+      "parent_whisper": "Ask which item completes the quiet corner beside the prayer mat.",
+      "praise": "Lovely! A calm nook ready for daily recitation 📖",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_10.m4a"
+    },
+    {
+      "id": "ram_11_lantern_courtyard_fountain",
+      "kind": "water_path",
+      "skill": "logic",
+      "ramadan_night": 11,
+      "water_path": {
+        "rows": 4,
+        "cols": 4,
+        "source": {
+          "row": 0,
+          "col": 0,
+          "entry_dir": "N"
+        },
+        "targets": [
+          {
+            "row": 3,
+            "col": 3,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "rose"
+          }
+        ],
+        "cells": [
+          [
+            {
+              "type": "corner",
+              "initial_rot": 1
+            },
+            {
+              "type": "straight",
+              "initial_rot": 0
+            },
+            {
+              "type": "corner",
+              "initial_rot": 1
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "corner",
+              "initial_rot": 2
+            },
+            {
+              "type": "corner",
+              "initial_rot": 3
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "straight",
+              "initial_rot": 1
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ]
+        ]
+      },
+      "title": "Courtyard Fountain Stream",
+      "subtitle": "Steer the canal neatly around courtyard stones to reach the thirsty rose.",
+      "parent_whisper": "Notice the water enters from the north — turn east along row 1 first!",
+      "praise": "Smart routing — the courtyard rose blooms 🌹",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_11.m4a"
+    },
+    {
+      "id": "ram_12_mushaf_rahle",
+      "kind": "piece_assembly",
+      "skill": "spatial",
+      "ramadan_night": 12,
+      "piece_assembly": {
+        "pieces": [
+          {
+            "id": "stand_left",
+            "color_hex": "#094A40",
+            "points": [
+              [
+                -0.14,
+                -0.08
+              ],
+              [
+                0.04,
+                0.08
+              ],
+              [
+                -0.04,
+                0.12
+              ],
+              [
+                -0.18,
+                -0.03
+              ]
+            ],
+            "target_center": [
+              0.42,
+              0.66
+            ],
+            "start_center": [
+              0.2,
+              0.2
+            ]
+          },
+          {
+            "id": "stand_right",
+            "color_hex": "#0D6A5A",
+            "points": [
+              [
+                0.14,
+                -0.08
+              ],
+              [
+                -0.04,
+                0.08
+              ],
+              [
+                0.04,
+                0.12
+              ],
+              [
+                0.18,
+                -0.03
+              ]
+            ],
+            "target_center": [
+              0.58,
+              0.66
+            ],
+            "start_center": [
+              0.8,
+              0.2
+            ]
+          },
+          {
+            "id": "left_page",
+            "color_hex": "#FBF1DE",
+            "points": [
+              [
+                -0.16,
+                -0.07
+              ],
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.12
+              ],
+              [
+                -0.16,
+                0.05
+              ]
+            ],
+            "target_center": [
+              0.41,
+              0.44
+            ],
+            "start_center": [
+              0.2,
+              0.82
+            ]
+          },
+          {
+            "id": "right_page",
+            "color_hex": "#EADBC0",
+            "points": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.16,
+                -0.07
+              ],
+              [
+                0.16,
+                0.05
+              ],
+              [
+                0.0,
+                0.12
+              ]
+            ],
+            "target_center": [
+              0.59,
+              0.44
+            ],
+            "start_center": [
+              0.8,
+              0.82
+            ]
+          }
+        ]
+      },
+      "title": "Open Mushaf & Stand",
+      "subtitle": "Assemble the crossed wooden stand and the two open ivory pages.",
+      "parent_whisper": "Place the crossed base legs first so the open pages rest squarely above.",
+      "praise": "Clean spatial fit — time for a short surah 📖",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_12.m4a"
+    },
+    {
+      "id": "ram_13_kitchen_suhoor",
+      "kind": "spot_diff",
+      "skill": "observation",
+      "ramadan_night": 13,
+      "spot_diff": {
+        "backdrop": "bg_kitchen",
+        "base_items": [
+          {
+            "id": "dates",
+            "prop": "dates_bowl",
+            "x": 0.22,
+            "y": 0.68,
+            "scale": 0.19
+          },
+          {
+            "id": "pot",
+            "prop": "soup_pot",
+            "x": 0.5,
+            "y": 0.66,
+            "scale": 0.2
+          },
+          {
+            "id": "glass",
+            "prop": "water_glass",
+            "x": 0.8,
+            "y": 0.68,
+            "scale": 0.15
+          },
+          {
+            "id": "lantern",
+            "prop": "lantern",
+            "x": 0.22,
+            "y": 0.24,
+            "scale": 0.16
+          },
+          {
+            "id": "flower",
+            "prop": "flower",
+            "x": 0.52,
+            "y": 0.28,
+            "scale": 0.15
+          },
+          {
+            "id": "fruit",
+            "prop": "fruit_plate",
+            "x": 0.8,
+            "y": 0.3,
+            "scale": 0.17
+          }
+        ],
+        "differences": [
+          {
+            "id": "d1",
+            "item_id": "dates",
+            "mode": "swap",
+            "alt_prop": "fruit_plate",
+            "hit_x": 0.22,
+            "hit_y": 0.68
+          },
+          {
+            "id": "d2",
+            "item_id": "pot",
+            "mode": "missing",
+            "hit_x": 0.5,
+            "hit_y": 0.66
+          },
+          {
+            "id": "d3",
+            "item_id": "glass",
+            "mode": "swap",
+            "alt_prop": "juice",
+            "hit_x": 0.8,
+            "hit_y": 0.68
+          },
+          {
+            "id": "d4",
+            "item_id": "flower",
+            "mode": "scale",
+            "alt_scale": 0.22,
+            "hit_x": 0.52,
+            "hit_y": 0.28
+          }
+        ]
+      },
+      "title": "The Blessed Suhoor Kitchen",
+      "subtitle": "Quiet preparation before dawn — spot the 4 differences on the counter.",
+      "parent_whisper": "Ask which vessel swapped places and which warm pot vanished.",
+      "praise": "Great teamwork before dawn ✨",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_13.m4a"
+    },
+    {
+      "id": "ram_14_count_lanterns_mid",
+      "kind": "trick_reveal",
+      "skill": "lateral",
+      "ramadan_night": 14,
+      "trick_reveal": {
+        "sub_mode": "count_hidden",
+        "backdrop": "bg_street",
+        "target_count": 7,
+        "under_items": [
+          {
+            "id": "u1",
+            "prop": "fanous_gold",
+            "x": 0.16,
+            "y": 0.24,
+            "scale": 0.15
+          },
+          {
+            "id": "u2",
+            "prop": "lantern",
+            "x": 0.4,
+            "y": 0.24,
+            "scale": 0.15
+          },
+          {
+            "id": "u3",
+            "prop": "fanous_gold",
+            "x": 0.64,
+            "y": 0.24,
+            "scale": 0.15
+          },
+          {
+            "id": "u4",
+            "prop": "lantern",
+            "x": 0.86,
+            "y": 0.24,
+            "scale": 0.15
+          },
+          {
+            "id": "u5",
+            "prop": "fanous_gold",
+            "x": 0.25,
+            "y": 0.74,
+            "scale": 0.15
+          },
+          {
+            "id": "u6",
+            "prop": "lantern",
+            "x": 0.52,
+            "y": 0.74,
+            "scale": 0.15
+          },
+          {
+            "id": "u7",
+            "prop": "fanous_gold",
+            "x": 0.78,
+            "y": 0.74,
+            "scale": 0.15
+          }
+        ],
+        "covers": [
+          {
+            "id": "c1",
+            "prop": "bush",
+            "x": 0.25,
+            "y": 0.74,
+            "scale": 0.22,
+            "movable": true,
+            "nudge_x": 0.25,
+            "nudge_y": 0.54
+          },
+          {
+            "id": "c2",
+            "prop": "minaret_arch",
+            "x": 0.52,
+            "y": 0.74,
+            "scale": 0.22,
+            "movable": true,
+            "nudge_x": 0.52,
+            "nudge_y": 0.52
+          },
+          {
+            "id": "c3",
+            "prop": "door",
+            "x": 0.78,
+            "y": 0.74,
+            "scale": 0.2,
+            "movable": true,
+            "nudge_x": 0.78,
+            "nudge_y": 0.54
+          }
+        ]
+      },
+      "title": "Fourteenth Night Lantern Hunt",
+      "subtitle": "Extra lanterns glow beneath the bushes and doorway! Uncover and count all of them.",
+      "parent_whisper": "Remind your child that lanterns can glow beneath arches and foliage.",
+      "praise": "Brilliant! All 7 lanterns accounted for 🏮",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_14.m4a"
+    },
+    {
+      "id": "ram_15_cross_bridge",
+      "kind": "water_path",
+      "skill": "logic",
+      "ramadan_night": 15,
+      "water_path": {
+        "rows": 4,
+        "cols": 4,
+        "source": {
+          "row": 0,
+          "col": 0,
+          "entry_dir": "W"
+        },
+        "targets": [
+          {
+            "row": 3,
+            "col": 1,
+            "thirsty_prop": "seed",
+            "bloomed_prop": "sprout"
+          },
+          {
+            "row": 3,
+            "col": 3,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "tree_olive"
+          }
+        ],
+        "cells": [
+          [
+            {
+              "type": "straight",
+              "initial_rot": 0
+            },
+            {
+              "type": "corner",
+              "initial_rot": 3
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "cross",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "corner",
+              "initial_rot": 1
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "straight",
+              "initial_rot": 1
+            },
+            {
+              "type": "corner",
+              "initial_rot": 2
+            },
+            {
+              "type": "corner",
+              "initial_rot": 3
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ]
+        ]
+      },
+      "title": "Mid-Ramadan Canal Crossroads",
+      "subtitle": "Guide the stream into the fixed crossroad to nourish both trees below.",
+      "parent_whisper": "Reach the center cross-tile first, then route each branch cleanly downward.",
+      "praise": "Clean logic — both olive sprout & tree thrive 🌿",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_15.m4a"
+    },
+    {
+      "id": "ram_16_charity_chest",
+      "kind": "piece_assembly",
+      "skill": "spatial",
+      "ramadan_night": 16,
+      "piece_assembly": {
+        "pieces": [
+          {
+            "id": "body",
+            "color_hex": "#0F6B5C",
+            "points": [
+              [
+                -0.18,
+                -0.1
+              ],
+              [
+                0.18,
+                -0.1
+              ],
+              [
+                0.18,
+                0.12
+              ],
+              [
+                -0.18,
+                0.12
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.58
+            ],
+            "start_center": [
+              0.22,
+              0.2
+            ]
+          },
+          {
+            "id": "lid",
+            "color_hex": "#0D6A5A",
+            "points": [
+              [
+                -0.2,
+                -0.04
+              ],
+              [
+                0.2,
+                -0.04
+              ],
+              [
+                0.18,
+                0.04
+              ],
+              [
+                -0.18,
+                0.04
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.42
+            ],
+            "start_center": [
+              0.78,
+              0.2
+            ]
+          },
+          {
+            "id": "ribbon",
+            "color_hex": "#F7C548",
+            "points": [
+              [
+                -0.04,
+                -0.14
+              ],
+              [
+                0.04,
+                -0.14
+              ],
+              [
+                0.04,
+                0.14
+              ],
+              [
+                -0.04,
+                0.14
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.54
+            ],
+            "start_center": [
+              0.22,
+              0.82
+            ]
+          },
+          {
+            "id": "heart_seal",
+            "color_hex": "#F4A492",
+            "points": [
+              [
+                0.0,
+                -0.06
+              ],
+              [
+                0.06,
+                0.0
+              ],
+              [
+                0.0,
+                0.07
+              ],
+              [
+                -0.06,
+                0.0
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.31
+            ],
+            "start_center": [
+              0.78,
+              0.82
+            ]
+          }
+        ]
+      },
+      "title": "The Kindness Charity Box",
+      "subtitle": "Join the chest, lid, golden ribbon, and warm crest together.",
+      "parent_whisper": "Anchor the main emerald chest first, then place its lid and ribbon.",
+      "praise": "Well done! Giving brings joy to every home 💛",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_16.m4a"
+    },
+    {
+      "id": "ram_17_reading_nook",
+      "kind": "spot_diff",
+      "skill": "observation",
+      "ramadan_night": 17,
+      "spot_diff": {
+        "backdrop": "bg_room_day",
+        "base_items": [
+          {
+            "id": "mushaf",
+            "prop": "mushaf_stand",
+            "x": 0.24,
+            "y": 0.68,
+            "scale": 0.2
+          },
+          {
+            "id": "sofa",
+            "prop": "sofa",
+            "x": 0.54,
+            "y": 0.72,
+            "scale": 0.24
+          },
+          {
+            "id": "box",
+            "prop": "charity_box",
+            "x": 0.82,
+            "y": 0.72,
+            "scale": 0.17
+          },
+          {
+            "id": "fanous",
+            "prop": "fanous_gold",
+            "x": 0.2,
+            "y": 0.24,
+            "scale": 0.16
+          },
+          {
+            "id": "sun",
+            "prop": "sun",
+            "x": 0.52,
+            "y": 0.22,
+            "scale": 0.15
+          },
+          {
+            "id": "basil",
+            "prop": "plant",
+            "x": 0.82,
+            "y": 0.26,
+            "scale": 0.15
+          }
+        ],
+        "differences": [
+          {
+            "id": "d1",
+            "item_id": "fanous",
+            "mode": "swap",
+            "alt_prop": "lantern",
+            "hit_x": 0.2,
+            "hit_y": 0.24
+          },
+          {
+            "id": "d2",
+            "item_id": "sun",
+            "mode": "missing",
+            "hit_x": 0.52,
+            "hit_y": 0.22
+          },
+          {
+            "id": "d3",
+            "item_id": "box",
+            "mode": "scale",
+            "alt_scale": 0.23,
+            "hit_x": 0.82,
+            "hit_y": 0.72
+          },
+          {
+            "id": "d4",
+            "item_id": "mushaf",
+            "mode": "flip",
+            "hit_x": 0.24,
+            "hit_y": 0.68
+          }
+        ]
+      },
+      "title": "Reading & Charity Nook",
+      "subtitle": "A peaceful corner with a Mushaf and charity box — find 4 changes.",
+      "parent_whisper": "Compare the charity box size, the hanging lantern, and the sunny window.",
+      "praise": "Keen eyes! Quiet corners teach patience 📖",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_17.m4a"
+    },
+    {
+      "id": "ram_18_water_basil",
+      "kind": "trick_reveal",
+      "skill": "lateral",
+      "ramadan_night": 18,
+      "trick_reveal": {
+        "sub_mode": "drag_solve",
+        "backdrop": "bg_garden_evening",
+        "require_mode": "any",
+        "target_zone": {
+          "x": 0.74,
+          "y": 0.68,
+          "radius": 0.2,
+          "before_prop": "basil_wilted",
+          "after_prop": "basil",
+          "after_bonus_prop": "flower"
+        },
+        "under_items": [
+          {
+            "id": "u1",
+            "prop": "moon",
+            "x": 0.8,
+            "y": 0.2,
+            "scale": 0.14
+          }
+        ],
+        "covers": [
+          {
+            "id": "c_ewer",
+            "prop": "ewer",
+            "x": 0.24,
+            "y": 0.62,
+            "scale": 0.18,
+            "movable": true,
+            "solve_role": "trigger",
+            "nudge_x": 0.74,
+            "nudge_y": 0.68
+          },
+          {
+            "id": "c_cloud",
+            "prop": "cloud",
+            "x": 0.36,
+            "y": 0.24,
+            "scale": 0.2,
+            "movable": true,
+            "solve_role": "decoy",
+            "nudge_x": 0.64,
+            "nudge_y": 0.24
+          }
+        ]
+      },
+      "title": "Watering the Courtyard Basil",
+      "subtitle": "The little basil plant is thirsty at dusk! How can we help it bloom?",
+      "parent_whisper": "Bring the nearby water vessel to the thirsty basil gently.",
+      "praise": "Lovely! Gentle care makes every garden thrive 🌱",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_18.m4a"
+    },
+    {
+      "id": "ram_19_twin_courtyard",
+      "kind": "water_path",
+      "skill": "logic",
+      "ramadan_night": 19,
+      "water_path": {
+        "rows": 4,
+        "cols": 4,
+        "source": {
+          "row": 0,
+          "col": 1,
+          "entry_dir": "N"
+        },
+        "targets": [
+          {
+            "row": 3,
+            "col": 0,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "basil"
+          },
+          {
+            "row": 3,
+            "col": 2,
+            "thirsty_prop": "seed",
+            "bloomed_prop": "flower"
+          }
+        ],
+        "cells": [
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "straight",
+              "initial_rot": 1
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "corner",
+              "initial_rot": 0
+            },
+            {
+              "type": "tee",
+              "initial_rot": 2
+            },
+            {
+              "type": "corner",
+              "initial_rot": 0
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "straight",
+              "initial_rot": 1
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "straight",
+              "initial_rot": 1
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ]
+        ]
+      },
+      "title": "The Balanced Twin Stream",
+      "subtitle": "Split the stream evenly left and right to refresh both garden beds.",
+      "parent_whisper": "Notice the symmetry: bring water straight down into the T, then turn both arms!",
+      "praise": "Perfect symmetry — both blooms are refreshed 💧",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_19.m4a"
+    },
+    {
+      "id": "ram_20_mosaic_star",
+      "kind": "piece_assembly",
+      "skill": "spatial",
+      "ramadan_night": 20,
+      "piece_assembly": {
+        "pieces": [
+          {
+            "id": "center_sq",
+            "color_hex": "#FBF1DE",
+            "points": [
+              [
+                -0.09,
+                -0.09
+              ],
+              [
+                0.09,
+                -0.09
+              ],
+              [
+                0.09,
+                0.09
+              ],
+              [
+                -0.09,
+                0.09
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.5
+            ],
+            "start_center": [
+              0.2,
+              0.2
+            ]
+          },
+          {
+            "id": "north_tri",
+            "color_hex": "#F7C548",
+            "points": [
+              [
+                -0.09,
+                0.04
+              ],
+              [
+                0.0,
+                -0.09
+              ],
+              [
+                0.09,
+                0.04
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.34
+            ],
+            "start_center": [
+              0.8,
+              0.2
+            ]
+          },
+          {
+            "id": "south_tri",
+            "color_hex": "#F7C548",
+            "points": [
+              [
+                -0.09,
+                -0.04
+              ],
+              [
+                0.09,
+                -0.04
+              ],
+              [
+                0.0,
+                0.09
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.66
+            ],
+            "start_center": [
+              0.5,
+              0.84
+            ]
+          },
+          {
+            "id": "east_tri",
+            "color_hex": "#0F6B5C",
+            "points": [
+              [
+                -0.04,
+                -0.09
+              ],
+              [
+                0.09,
+                0.0
+              ],
+              [
+                -0.04,
+                0.09
+              ]
+            ],
+            "target_center": [
+              0.66,
+              0.5
+            ],
+            "start_center": [
+              0.82,
+              0.8
+            ]
+          },
+          {
+            "id": "west_tri",
+            "color_hex": "#0F6B5C",
+            "points": [
+              [
+                0.04,
+                -0.09
+              ],
+              [
+                0.04,
+                0.09
+              ],
+              [
+                -0.09,
+                0.0
+              ]
+            ],
+            "target_center": [
+              0.34,
+              0.5
+            ],
+            "start_center": [
+              0.18,
+              0.8
+            ]
+          }
+        ]
+      },
+      "title": "Mosaic Star Tile",
+      "subtitle": "Snap all four pointed tips around the ivory center to finish the tile.",
+      "parent_whisper": "Watch which triangle tip points upward, downward, east, and west.",
+      "praise": "Crisp geometry as the Last Ten begin ✨",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_20.m4a"
+    },
+    {
+      "id": "ram_21_last_ten_garden",
+      "kind": "spot_diff",
+      "skill": "observation",
+      "ramadan_night": 21,
+      "spot_diff": {
+        "backdrop": "bg_garden_evening",
+        "base_items": [
+          {
+            "id": "moon",
+            "prop": "moon",
+            "x": 0.2,
+            "y": 0.22,
+            "scale": 0.15
+          },
+          {
+            "id": "star1",
+            "prop": "star",
+            "x": 0.5,
+            "y": 0.2,
+            "scale": 0.13
+          },
+          {
+            "id": "fanous",
+            "prop": "fanous_gold",
+            "x": 0.8,
+            "y": 0.24,
+            "scale": 0.16
+          },
+          {
+            "id": "tree",
+            "prop": "tree_olive",
+            "x": 0.22,
+            "y": 0.66,
+            "scale": 0.24
+          },
+          {
+            "id": "bench",
+            "prop": "bench",
+            "x": 0.54,
+            "y": 0.74,
+            "scale": 0.22
+          },
+          {
+            "id": "ewer",
+            "prop": "ewer",
+            "x": 0.82,
+            "y": 0.72,
+            "scale": 0.17
+          }
+        ],
+        "differences": [
+          {
+            "id": "d1",
+            "item_id": "moon",
+            "mode": "scale",
+            "alt_scale": 0.22,
+            "hit_x": 0.2,
+            "hit_y": 0.22
+          },
+          {
+            "id": "d2",
+            "item_id": "star1",
+            "mode": "missing",
+            "hit_x": 0.5,
+            "hit_y": 0.2
+          },
+          {
+            "id": "d3",
+            "item_id": "ewer",
+            "mode": "swap",
+            "alt_prop": "watering_can",
+            "hit_x": 0.82,
+            "hit_y": 0.72
+          },
+          {
+            "id": "d4",
+            "item_id": "tree",
+            "mode": "flip",
+            "hit_x": 0.22,
+            "hit_y": 0.66
+          }
+        ]
+      },
+      "title": "Garden of the Last Ten",
+      "subtitle": "Calm dusk under the olive tree — discover the 4 differences.",
+      "parent_whisper": "Notice the moon's size and the vessel waiting next to the garden bench.",
+      "praise": "Beautiful attention to detail 🌿",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_21.m4a"
+    },
+    {
+      "id": "ram_22_fill_charity",
+      "kind": "trick_reveal",
+      "skill": "lateral",
+      "ramadan_night": 22,
+      "trick_reveal": {
+        "sub_mode": "drag_solve",
+        "backdrop": "bg_hallway",
+        "require_mode": "any",
+        "target_zone": {
+          "x": 0.72,
+          "y": 0.66,
+          "radius": 0.2,
+          "before_prop": "charity_box",
+          "after_prop": "gift",
+          "after_bonus_prop": "heart"
+        },
+        "under_items": [
+          {
+            "id": "u1",
+            "prop": "star",
+            "x": 0.5,
+            "y": 0.22,
+            "scale": 0.14
+          }
+        ],
+        "covers": [
+          {
+            "id": "c_dates",
+            "prop": "dates_bowl",
+            "x": 0.24,
+            "y": 0.64,
+            "scale": 0.18,
+            "movable": true,
+            "solve_role": "trigger",
+            "nudge_x": 0.72,
+            "nudge_y": 0.66
+          },
+          {
+            "id": "c_sign",
+            "prop": "sign",
+            "x": 0.44,
+            "y": 0.34,
+            "scale": 0.16,
+            "movable": true,
+            "solve_role": "decoy",
+            "nudge_x": 0.22,
+            "nudge_y": 0.3
+          }
+        ]
+      },
+      "title": "Neighbor's Gift in the Last Ten",
+      "subtitle": "Share kindness during the final ten nights! Move the dates toward the gift corner.",
+      "parent_whisper": "Talk about the joy of sharing fresh dates with neighbors and grandparents.",
+      "praise": "Beautiful heart of generosity 🎁",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_22.m4a"
+    },
+    {
+      "id": "ram_23_winding_brook",
+      "kind": "water_path",
+      "skill": "logic",
+      "ramadan_night": 23,
+      "water_path": {
+        "rows": 4,
+        "cols": 4,
+        "source": {
+          "row": 0,
+          "col": 0,
+          "entry_dir": "W"
+        },
+        "targets": [
+          {
+            "row": 3,
+            "col": 2,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "flower"
+          }
+        ],
+        "cells": [
+          [
+            {
+              "type": "straight",
+              "initial_rot": 0
+            },
+            {
+              "type": "straight",
+              "initial_rot": 0
+            },
+            {
+              "type": "corner",
+              "initial_rot": 0
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "corner",
+              "initial_rot": 3
+            },
+            {
+              "type": "corner",
+              "initial_rot": 1
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "corner",
+              "initial_rot": 2
+            },
+            {
+              "type": "corner",
+              "initial_rot": 0
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ]
+        ]
+      },
+      "title": "Winding Orchard Brook",
+      "subtitle": "A thoughtful zigzag between orchard rocks — steer the brook home!",
+      "parent_whisper": "Try working backward one tile up from the flower basin!",
+      "praise": "Reverse reasoning wins — the flower shines 🌟",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_23.m4a"
+    },
+    {
+      "id": "ram_24_eid_dome",
+      "kind": "piece_assembly",
+      "skill": "spatial",
+      "ramadan_night": 24,
+      "piece_assembly": {
+        "pieces": [
+          {
+            "id": "base_hall",
+            "color_hex": "#FBF1DE",
+            "points": [
+              [
+                -0.22,
+                -0.08
+              ],
+              [
+                0.22,
+                -0.08
+              ],
+              [
+                0.22,
+                0.09
+              ],
+              [
+                -0.22,
+                0.09
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.64
+            ],
+            "start_center": [
+              0.24,
+              0.18
+            ]
+          },
+          {
+            "id": "dome_mid",
+            "color_hex": "#0F6B5C",
+            "points": [
+              [
+                -0.18,
+                0.08
+              ],
+              [
+                -0.11,
+                -0.08
+              ],
+              [
+                0.11,
+                -0.08
+              ],
+              [
+                0.18,
+                0.08
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.46
+            ],
+            "start_center": [
+              0.76,
+              0.18
+            ]
+          },
+          {
+            "id": "minaret_l",
+            "color_hex": "#12806D",
+            "points": [
+              [
+                -0.04,
+                -0.14
+              ],
+              [
+                0.04,
+                -0.14
+              ],
+              [
+                0.05,
+                0.14
+              ],
+              [
+                -0.05,
+                0.14
+              ]
+            ],
+            "target_center": [
+              0.22,
+              0.5
+            ],
+            "start_center": [
+              0.16,
+              0.8
+            ]
+          },
+          {
+            "id": "minaret_r",
+            "color_hex": "#12806D",
+            "points": [
+              [
+                -0.04,
+                -0.14
+              ],
+              [
+                0.04,
+                -0.14
+              ],
+              [
+                0.05,
+                0.14
+              ],
+              [
+                -0.05,
+                0.14
+              ]
+            ],
+            "target_center": [
+              0.78,
+              0.5
+            ],
+            "start_center": [
+              0.84,
+              0.8
+            ]
+          },
+          {
+            "id": "moon_top",
+            "color_hex": "#F7C548",
+            "points": [
+              [
+                0.0,
+                -0.06
+              ],
+              [
+                0.06,
+                0.01
+              ],
+              [
+                0.0,
+                0.06
+              ],
+              [
+                -0.06,
+                0.01
+              ]
+            ],
+            "target_center": [
+              0.5,
+              0.3
+            ],
+            "start_center": [
+              0.5,
+              0.84
+            ]
+          }
+        ]
+      },
+      "title": "Twin-Minaret Mosque Silhouette",
+      "subtitle": "Set the central dome between twin minarets and crown it with gold.",
+      "parent_whisper": "Notice the peaceful symmetry — matching towers flank the ivory hall.",
+      "praise": "Harmonious silhouette 🕌",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_24.m4a"
+    },
+    {
+      "id": "ram_25_charity_hallway",
+      "kind": "spot_diff",
+      "skill": "observation",
+      "ramadan_night": 25,
+      "spot_diff": {
+        "backdrop": "bg_hallway",
+        "base_items": [
+          {
+            "id": "arch",
+            "prop": "minaret_arch",
+            "x": 0.22,
+            "y": 0.42,
+            "scale": 0.21
+          },
+          {
+            "id": "charity",
+            "prop": "charity_box",
+            "x": 0.52,
+            "y": 0.72,
+            "scale": 0.18
+          },
+          {
+            "id": "gift",
+            "prop": "gift",
+            "x": 0.82,
+            "y": 0.72,
+            "scale": 0.17
+          },
+          {
+            "id": "door",
+            "prop": "door",
+            "x": 0.52,
+            "y": 0.34,
+            "scale": 0.19
+          },
+          {
+            "id": "lantern",
+            "prop": "lantern",
+            "x": 0.8,
+            "y": 0.24,
+            "scale": 0.16
+          },
+          {
+            "id": "rose",
+            "prop": "rose",
+            "x": 0.2,
+            "y": 0.76,
+            "scale": 0.15
+          }
+        ],
+        "differences": [
+          {
+            "id": "d1",
+            "item_id": "door",
+            "mode": "swap",
+            "alt_prop": "door_open",
+            "hit_x": 0.52,
+            "hit_y": 0.34
+          },
+          {
+            "id": "d2",
+            "item_id": "gift",
+            "mode": "scale",
+            "alt_scale": 0.24,
+            "hit_x": 0.82,
+            "hit_y": 0.72
+          },
+          {
+            "id": "d3",
+            "item_id": "lantern",
+            "mode": "swap",
+            "alt_prop": "fanous_gold",
+            "hit_x": 0.8,
+            "hit_y": 0.24
+          },
+          {
+            "id": "d4",
+            "item_id": "rose",
+            "mode": "missing",
+            "hit_x": 0.2,
+            "hit_y": 0.76
+          }
+        ]
+      },
+      "title": "Hallway of Generosity",
+      "subtitle": "Welcome and kindness — spot 4 quiet differences between scenes.",
+      "parent_whisper": "Look closely at the door state, the rose in the corner, and the gift box.",
+      "praise": "Sharp eyes and generous hearts 🤍",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_25.m4a"
+    },
+    {
+      "id": "ram_26_count_stars_odd",
+      "kind": "trick_reveal",
+      "skill": "lateral",
+      "ramadan_night": 26,
+      "trick_reveal": {
+        "sub_mode": "count_hidden",
+        "backdrop": "bg_night_sky",
+        "target_count": 8,
+        "under_items": [
+          {
+            "id": "u1",
+            "prop": "star",
+            "x": 0.16,
+            "y": 0.24,
+            "scale": 0.13
+          },
+          {
+            "id": "u2",
+            "prop": "star",
+            "x": 0.38,
+            "y": 0.22,
+            "scale": 0.13
+          },
+          {
+            "id": "u3",
+            "prop": "star",
+            "x": 0.62,
+            "y": 0.22,
+            "scale": 0.13
+          },
+          {
+            "id": "u4",
+            "prop": "star",
+            "x": 0.84,
+            "y": 0.26,
+            "scale": 0.13
+          },
+          {
+            "id": "u5",
+            "prop": "star",
+            "x": 0.24,
+            "y": 0.66,
+            "scale": 0.13
+          },
+          {
+            "id": "u6",
+            "prop": "star",
+            "x": 0.48,
+            "y": 0.66,
+            "scale": 0.13
+          },
+          {
+            "id": "u7",
+            "prop": "star",
+            "x": 0.7,
+            "y": 0.66,
+            "scale": 0.13
+          },
+          {
+            "id": "u8",
+            "prop": "star",
+            "x": 0.5,
+            "y": 0.44,
+            "scale": 0.13
+          }
+        ],
+        "covers": [
+          {
+            "id": "c1",
+            "prop": "cloud",
+            "x": 0.24,
+            "y": 0.66,
+            "scale": 0.22,
+            "movable": true,
+            "nudge_x": 0.14,
+            "nudge_y": 0.5
+          },
+          {
+            "id": "c2",
+            "prop": "cloud",
+            "x": 0.7,
+            "y": 0.66,
+            "scale": 0.22,
+            "movable": true,
+            "nudge_x": 0.82,
+            "nudge_y": 0.5
+          },
+          {
+            "id": "c3",
+            "prop": "moon",
+            "x": 0.5,
+            "y": 0.44,
+            "scale": 0.2,
+            "movable": true,
+            "nudge_x": 0.5,
+            "nudge_y": 0.28
+          }
+        ]
+      },
+      "title": "Quiet Stars of the Odd Nights",
+      "subtitle": "How many stars shimmer above the clouds and crescent? Nudge them aside first!",
+      "parent_whisper": "Count slowly once every cloud and the crescent have been slid out of the way.",
+      "praise": "Eight bright stars spotted in calm focus ✨",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_26.m4a"
+    },
+    {
+      "id": "ram_27_three_trees_last_ten",
+      "kind": "water_path",
+      "skill": "logic",
+      "ramadan_night": 27,
+      "water_path": {
+        "rows": 4,
+        "cols": 4,
+        "source": {
+          "row": 0,
+          "col": 0,
+          "entry_dir": "W"
+        },
+        "targets": [
+          {
+            "row": 3,
+            "col": 1,
+            "thirsty_prop": "seed",
+            "bloomed_prop": "sprout"
+          },
+          {
+            "row": 3,
+            "col": 2,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "basil"
+          },
+          {
+            "row": 3,
+            "col": 3,
+            "thirsty_prop": "seed",
+            "bloomed_prop": "tree"
+          }
+        ],
+        "cells": [
+          [
+            {
+              "type": "corner",
+              "initial_rot": 0
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "corner",
+              "initial_rot": 2
+            },
+            {
+              "type": "tee",
+              "initial_rot": 0
+            },
+            {
+              "type": "tee",
+              "initial_rot": 0
+            },
+            {
+              "type": "corner",
+              "initial_rot": 0
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "straight",
+              "initial_rot": 1
+            },
+            {
+              "type": "straight",
+              "initial_rot": 1
+            },
+            {
+              "type": "straight",
+              "initial_rot": 1
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ]
+        ]
+      },
+      "title": "Three Trees on an Odd Night",
+      "subtitle": "Two consecutive T-junctions can water all three trees at once!",
+      "parent_whisper": "Line up row 2 horizontally while letting each vertical stem feed a basin.",
+      "praise": "All three trees flourish together 🌳",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_27.m4a"
+    },
+    {
+      "id": "ram_28_eid_orchard_ready",
+      "kind": "water_path",
+      "skill": "logic",
+      "ramadan_night": 28,
+      "water_path": {
+        "rows": 4,
+        "cols": 4,
+        "source": {
+          "row": 0,
+          "col": 2,
+          "entry_dir": "N"
+        },
+        "targets": [
+          {
+            "row": 3,
+            "col": 1,
+            "thirsty_prop": "basil_wilted",
+            "bloomed_prop": "flower"
+          },
+          {
+            "row": 3,
+            "col": 3,
+            "thirsty_prop": "seed",
+            "bloomed_prop": "fruit_plate"
+          }
+        ],
+        "cells": [
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "straight",
+              "initial_rot": 1
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "corner",
+              "initial_rot": 3
+            },
+            {
+              "type": "tee",
+              "initial_rot": 1
+            },
+            {
+              "type": "rock",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "straight",
+              "initial_rot": 1
+            },
+            {
+              "type": "corner",
+              "initial_rot": 2
+            },
+            {
+              "type": "corner",
+              "initial_rot": 0
+            }
+          ],
+          [
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "empty",
+              "initial_rot": 0,
+              "fixed": true
+            },
+            {
+              "type": "basin",
+              "initial_rot": 0,
+              "fixed": true
+            }
+          ]
+        ]
+      },
+      "title": "Orchard Ready for Eid",
+      "subtitle": "Direct the central stream cleanly toward both the garden rose and fruit orchard.",
+      "parent_whisper": "Route the T-junction so water enters from the north and branches both west and south!",
+      "praise": "Wonderful logical thinking — ready for Eid 🌸",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_28.m4a"
+    },
+    {
+      "id": "ram_29_eid_eve_prep",
+      "kind": "spot_diff",
+      "skill": "observation",
+      "ramadan_night": 29,
+      "spot_diff": {
+        "backdrop": "bg_room_night",
+        "base_items": [
+          {
+            "id": "fanous1",
+            "prop": "fanous_gold",
+            "x": 0.2,
+            "y": 0.24,
+            "scale": 0.17
+          },
+          {
+            "id": "star",
+            "prop": "star",
+            "x": 0.5,
+            "y": 0.22,
+            "scale": 0.14
+          },
+          {
+            "id": "moon",
+            "prop": "moon",
+            "x": 0.82,
+            "y": 0.24,
+            "scale": 0.15
+          },
+          {
+            "id": "sweets",
+            "prop": "sweets",
+            "x": 0.24,
+            "y": 0.72,
+            "scale": 0.19
+          },
+          {
+            "id": "gift",
+            "prop": "gift",
+            "x": 0.54,
+            "y": 0.72,
+            "scale": 0.18
+          },
+          {
+            "id": "dates",
+            "prop": "dates_bowl",
+            "x": 0.82,
+            "y": 0.72,
+            "scale": 0.18
+          }
+        ],
+        "differences": [
+          {
+            "id": "d1",
+            "item_id": "sweets",
+            "mode": "scale",
+            "alt_scale": 0.25,
+            "hit_x": 0.24,
+            "hit_y": 0.72
+          },
+          {
+            "id": "d2",
+            "item_id": "gift",
+            "mode": "flip",
+            "hit_x": 0.54,
+            "hit_y": 0.72
+          },
+          {
+            "id": "d3",
+            "item_id": "star",
+            "mode": "missing",
+            "hit_x": 0.5,
+            "hit_y": 0.22
+          },
+          {
+            "id": "d4",
+            "item_id": "dates",
+            "mode": "swap",
+            "alt_prop": "fruit_plate",
+            "hit_x": 0.82,
+            "hit_y": 0.72
+          }
+        ]
+      },
+      "title": "Eve of Eid Preparation",
+      "subtitle": "Joy knocks at the door — spot all 4 changes before Eid morning.",
+      "parent_whisper": "Inspect the Eid sweets size, gift angle, and the bowl of dates.",
+      "praise": "Wonderful teamwork — Eid Mubarak in advance 🌙",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_29.m4a"
+    },
+    {
+      "id": "ram_30_eid_gifts",
+      "kind": "trick_reveal",
+      "skill": "lateral",
+      "ramadan_night": 30,
+      "trick_reveal": {
+        "sub_mode": "count_hidden",
+        "backdrop": "bg_room_night",
+        "target_count": 5,
+        "under_items": [
+          {
+            "id": "u1",
+            "prop": "gift",
+            "x": 0.22,
+            "y": 0.7,
+            "scale": 0.15
+          },
+          {
+            "id": "u2",
+            "prop": "gift",
+            "x": 0.46,
+            "y": 0.7,
+            "scale": 0.15
+          },
+          {
+            "id": "u3",
+            "prop": "gift",
+            "x": 0.76,
+            "y": 0.7,
+            "scale": 0.15
+          },
+          {
+            "id": "u4",
+            "prop": "gift",
+            "x": 0.34,
+            "y": 0.4,
+            "scale": 0.15
+          },
+          {
+            "id": "u5",
+            "prop": "gift",
+            "x": 0.66,
+            "y": 0.4,
+            "scale": 0.15
+          }
+        ],
+        "covers": [
+          {
+            "id": "c1",
+            "prop": "toy_chest",
+            "x": 0.22,
+            "y": 0.7,
+            "scale": 0.22,
+            "movable": true,
+            "nudge_x": 0.18,
+            "nudge_y": 0.54
+          },
+          {
+            "id": "c2",
+            "prop": "sofa",
+            "x": 0.76,
+            "y": 0.7,
+            "scale": 0.24,
+            "movable": true,
+            "nudge_x": 0.8,
+            "nudge_y": 0.54
+          }
+        ]
+      },
+      "title": "Ramadan Farewell Gifts",
+      "subtitle": "Small Eid gifts await around the room! Peek beside the chest and sofa to count all of them.",
+      "parent_whisper": "Slide the toy chest and sofa slightly before locking in the count.",
+      "praise": "Taqabbal Allahu minna wa minkum — sharp minds through the month 🎁",
+      "audio_path": "docs/ramadan_audio/en/puzzles/night_30.m4a"
+    }
+  ]
+}

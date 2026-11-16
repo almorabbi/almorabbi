@@ -24,7 +24,12 @@ from qrcode.constants import ERROR_CORRECT_M
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "frontend" / "assets" / "print"
 BASE = "https://tg-api.alsaba.cloud/go?ref="
-CODES = {"PR01": "Ramadan pack (Arabic)", "PR02": "Ramadan pack (English)"}
+CODES = {
+    "PR01": "Ramadan pack (Arabic)",
+    "PR02": "Ramadan pack (English)",
+    "PR03": "Lantern craft & fridge map (Arabic)",
+    "PR04": "Lantern craft & fridge map (English)",
+}
 BORDER = 4
 
 

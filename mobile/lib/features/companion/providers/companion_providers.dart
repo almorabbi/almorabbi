@@ -224,6 +224,18 @@ String? _realName(String? name) =>
     ? null
     : name;
 
+String? _partnerLabel(PartnerLanternNotice? p, String lang) {
+  if (p == null) return null;
+  final custom = p.partnerName?.trim();
+  if (custom != null && custom.isNotEmpty) return custom;
+  final isEn = lang == 'en';
+  return switch (p.partnerRole) {
+    'mother' => isEn ? 'Mother' : 'الأم',
+    'father' => isEn ? 'Father' : 'الأب',
+    _ => isEn ? 'Co-parent' : 'الشريك',
+  };
+}
+
 /// Noor's line for this open of «اليوم», or null (no child yet, switched
 /// off by the server, or the device memory not read yet).
 final companionLineProvider = Provider.autoDispose<CompanionLine?>((ref) {
@@ -278,6 +290,14 @@ final companionLineProvider = Provider.autoDispose<CompanionLine?>((ref) {
       ramadanYear: ramadan?.season?.hijriYear,
       ramadanDay: ramadan != null && ramadan.state == RamadanState.ramadan
           ? ramadan.day
+          : null,
+      partnerLanternDay:
+          ramadan != null && ramadan.state == RamadanState.ramadan
+          ? ramadan.partnerLantern?.day
+          : null,
+      partnerLanternLabel:
+          ramadan != null && ramadan.state == RamadanState.ramadan
+          ? _partnerLabel(ramadan.partnerLantern, _planLang(ref))
           : null,
       // Monday's line points at the plan card below; it shows only when the
       // card does (a plan this week) — read from the same provider.

@@ -7183,4 +7183,170 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get todayFamilyPuzzlesCta => 'Play';
+
+  @override
+  String get ramadanPrintKitTitle => 'Ramadan Printable Kit';
+
+  @override
+  String get ramadanPrintKitSubtitle =>
+      'Print the 30-lantern fridge street, 3D lantern pattern & table cards — personalized locally.';
+
+  @override
+  String get ramadanPrintKitInkColor => 'Noor Palette';
+
+  @override
+  String get ramadanPrintKitInkBw => 'Ink-Saver (B&W)';
+
+  @override
+  String ramadanPrintKitForChildren(String names) {
+    return 'For our children: $names';
+  }
+
+  @override
+  String get ramadanPrintKitDefaultNames => 'Our Family';
+
+  @override
+  String get ramadanPrintKitShareCta => 'Save & Share to Print';
+
+  @override
+  String get ramadanPrintKitOpenCraft => 'Open 3D Lantern Net (A4)';
+
+  @override
+  String get ramadanPrintKitOpenFullPack => 'Open Full 12-Sheet Pack';
+
+  @override
+  String get ramadanPrintKitPrivacyNote =>
+      'Your children\'s names stay on your phone and are never sent to any server.';
+
+  @override
+  String get ramadanPrintKitBannerHint =>
+      'Needs scissors, glue, and colored pencils; use a battery tea-light only.';
+
+  @override
+  String get ramadanFawazirSectionTitle =>
+      'Ramadan Lantern Fawazir (30 Nights)';
+
+  @override
+  String get ramadanFawazirSectionSubtitle =>
+      'A calm post-iftar brain puzzle that gathers the family and lights tonight\'s lantern.';
+
+  @override
+  String ramadanFawazirNightLabel(int night) {
+    return 'Night $night';
+  }
+
+  @override
+  String get ramadanFawazirListenBtn => 'Listen to Tonight\'s Puzzle';
+
+  @override
+  String get ramadanFawazirPauseBtn => 'Pause Voice';
+
+  @override
+  String get ramadanFawazirAudioOffline =>
+      'Voice is offline right now — read the puzzle aloud warmly together.';
+
+  @override
+  String get ramadanFawazirDayCardTitle => 'Tonight\'s Family Fawazir (3 min)';
+
+  @override
+  String get ramadanFawazirDayCardBody =>
+      'A calm visual puzzle that lights tonight\'s lantern when solved together.';
+
+  @override
+  String get ramadanFawazirDayCardDone => 'Tonight\'s fawazir lantern is lit ✨';
+
+  @override
+  String ramadanFawazirDayCardCta(int night) {
+    return 'Open Night $night Puzzle';
+  }
+
+  @override
+  String ramadanPartnerLanternNoor(String partner, int day) {
+    return '$partner lit Day $day\'s lantern — share a warm word together.';
+  }
+
+  @override
+  String ramadanPartnerLanternBanner(String partner, int day) {
+    return 'Day $day\'s lantern shimmered from $partner\'s phone in Family Account';
+  }
+
+  @override
+  String get ramadanPartnerRoleMother => 'Mother';
+
+  @override
+  String get ramadanPartnerRoleFather => 'Father';
+
+  @override
+  String get ramadanPartnerRoleParent => 'Co-parent';
+
+  @override
+  String shabanPrepEyebrow(int days) {
+    return 'Sha\'ban Welcome · $days days to go';
+  }
+
+  @override
+  String get shabanPrepTitle => 'Today\'s 5-Min Prep';
+
+  @override
+  String get shabanPrepDoneBtn => 'Ready for Tonight';
+
+  @override
+  String get shabanPrepMarkBtn => 'Mark Step Ready ✨';
+
+  @override
+  String get shabanPrepListTitle => '10-Day Sha\'ban Welcome Stations';
+
+  @override
+  String get shabanPrepOpenPrintCta => 'Printable Lantern Kit';
+
+  @override
+  String get ramadanAudioTitle => 'Pre-Iftar Tales & Parenting Capsules';
+
+  @override
+  String get ramadanAudioTalesTab => 'Pre-Iftar Tales (Screen-Off)';
+
+  @override
+  String ramadanAudioCapsulesTab(int count) {
+    return 'Parenting Capsules ($count)';
+  }
+
+  @override
+  String get ramadanAudioScreenOffBtn => 'Listen Screen-Off';
+
+  @override
+  String get ramadanAudioReadStoryBtn => 'Read Aloud';
+
+  @override
+  String get ramadanAudioListenCapsuleBtn => 'Play Capsule';
+
+  @override
+  String get ramadanAudioMoralLabel => 'Core Takeaway:';
+
+  @override
+  String get ramadanPledgeTitle => 'Family Promise for Shawwal';
+
+  @override
+  String get ramadanPledgeSubtitle =>
+      'Pick up to two habits from Ramadan to carry gently into Shawwal together:';
+
+  @override
+  String get ramadanPledgeSelectedBadge => 'Family promise saved ✨';
+
+  @override
+  String get ramadanPledgeActiveRibbon => 'Our chosen Shawwal habits:';
+
+  @override
+  String get eidGreetingTitle => 'Family Paper Eid Greeting';
+
+  @override
+  String get eidGreetingSubtitle =>
+      'A warm greeting card with zero child names or personal info — choose a style and share with love.';
+
+  @override
+  String get eidGreetingShareCta => 'Share Eid Greeting Card';
+
+  @override
+  String eidGreetingIncludeWord(String word) {
+    return 'Include our word: $word';
+  }
 }

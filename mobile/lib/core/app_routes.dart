@@ -85,6 +85,7 @@ import '../features/programs/screens/milestones_screen.dart';
 import '../features/programs/screens/prayer_journey_screen.dart';
 import '../features/programs/screens/programs_screen.dart';
 import '../features/programs/screens/ramadan_day_screen.dart';
+import '../features/programs/screens/ramadan_print_kit_screen.dart';
 import '../features/programs/screens/ramadan_recap_screen.dart';
 import '../features/programs/screens/ramadan_screen.dart';
 import '../features/quran/screens/quran_screen.dart';
@@ -191,6 +192,7 @@ abstract final class Screens {
   static const ramadanDay = 'ramadan_day';
   static const fastingLadder = 'fasting_ladder';
   static const ramadanRecap = 'ramadan_recap';
+  static const ramadanPrintKit = 'ramadan_print_kit';
   static const prayerJourney = 'prayer_journey';
   static const milestones = 'milestones';
   static const milestoneDetail = 'milestone_detail';
@@ -600,6 +602,10 @@ abstract final class AppRoutes {
   /// «رمضان عائلتنا» — the family's card and its in-app counters.
   static Route<void> ramadanRecap() =>
       _r(Screens.ramadanRecap, (_) => const RamadanRecapScreen());
+
+  /// «عدّة رمضان الورقية لأسرتك» — personalized local print preview & A4 craft links.
+  static Route<void> ramadanPrintKit() =>
+      _r(Screens.ramadanPrintKit, (_) => const RamadanPrintKitScreen());
 
   static Route<void> prayerJourney(int childId) =>
       _r(Screens.prayerJourney, (_) => PrayerJourneyScreen(childId: childId));

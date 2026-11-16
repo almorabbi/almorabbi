@@ -19,6 +19,7 @@ from typing import Any, Optional
 from fastapi import APIRouter, HTTPException, Query, Request
 from pydantic import BaseModel, Field
 
+from app.services import families_service
 from app.services import hijri_seasons as hs
 from app.services import milestones as ms
 from app.services import prayer_journey as pj
@@ -35,6 +36,25 @@ def _device(request: Request) -> str:
     if not device_id:
         raise HTTPException(status_code=401, detail="مطلوب توثيق.")
     return device_id
+
+
+def _session_token(request: Request) -> Optional[str]:
+    tok = getattr(request.state, "token", None)
+    if tok:
+        return str(tok)
+    auth = request.headers.get("Authorization") or ""
+    if auth.lower().startswith("bearer "):
+        return auth[7:].strip() or None
+    return None
+
+
+def _sync_family(device_id: str, request: Request) -> None:
+    try:
+        families_service.sync_for_device_if_active(
+            device_id, session_token=_session_token(request)
+        )
+    except Exception:  # noqa: BLE001 — dual-parent sync never blocks a solo phone
+        pass
 
 
 def _today(tz_offset_minutes: Optional[int], as_of: Optional[str]) -> date:
@@ -106,12 +126,24 @@ def programs_overview(request: Request, lang: Optional[str] = Query(None),
     """Each program is loaded on its own: a missing file nulls that program's
     sections and names it in `unavailable`; the others are served as usual."""
     device_id, today = _context(request, tz_offset_minutes, lang, as_of)
+    _sync_family(device_id, request)
     ramadan = _program_or_none(rp.PROGRAM, lang)
     prayer = _program_or_none(pj.PROGRAM, lang)
     miles = _program_or_none(ms.PROGRAM, lang)
     settings = pc.device_settings(device_id)
     seasons = rp.family_seasons(settings, ramadan) if ramadan else []
     where = rp.locate(today, seasons) if ramadan else None
+    shaban_today, _ = rp.shaban_prep_payload(where, lang) if where is not None else (None, [])
+    partner_lantern = (
+        rp.partner_lantern_for_day(
+            device_id,
+            where.get("season"),
+            where.get("day"),
+            session_token=_session_token(request),
+        )
+        if where is not None and where["state"] == "ramadan"
+        else None
+    )
     children = []
     for child in pc.device_children(device_id):
         age = pc.child_age(child, today)
@@ -153,6 +185,8 @@ def programs_overview(request: Request, lang: Optional[str] = Query(None),
             "after_week": where.get("week"),
             "recap_available": bool(where.get("season") is not None
                                     and today >= where["season"].eid),
+            "shaban_prep_today": shaban_today,
+            "partner_lantern": partner_lantern,
         },
         # «سماوات المواسم» (additive): rajab · shaban · dhul_hijjah, or null —
         # worked out from the same family seasons as `ramadan`, so the sky and
@@ -171,12 +205,26 @@ def ramadan_today(child_id: int, request: Request, lang: Optional[str] = Query(N
                   features: Optional[str] = Query(None),
                   as_of: Optional[str] = Query(None)):
     device_id, today = _context(request, tz_offset_minutes, lang, as_of)
+    _sync_family(device_id, request)
     child = _child(device_id, child_id)
     doc = _program(rp.PROGRAM, lang)
     _, where = _where(device_id, today, doc)
     age = pc.child_age(child, today)
     band_key = rp.variant_band(doc, age["band"])
     state = where["state"]
+    season = where.get("season")
+    in_or_post_ramadan = state in ("ramadan", "eid", "after")
+    shaban_today, shaban_stations = rp.shaban_prep_payload(where, lang)
+    partner_lantern = (
+        rp.partner_lantern_for_day(
+            device_id,
+            season,
+            where.get("day"),
+            session_token=_session_token(request),
+        )
+        if state == "ramadan"
+        else None
+    )
     out: dict[str, Any] = {
         "program": rp.PROGRAM,
         "child_id": child_id,
@@ -194,11 +242,23 @@ def ramadan_today(child_id: int, request: Request, lang: Optional[str] = Query(N
         "after_week": where.get("week"),
         "kickoff": None, "content": None, "eid": None, "after": None,
         "marks": None, "fasting": None,
-        "recap_available": bool(where.get("season") is not None
-                                and today >= where["season"].eid),
+        "recap_available": bool(season is not None and today >= season.eid),
         # The lantern street (additive): the days the family marked anything.
-        "days_marked": (rp.days_marked(device_id, where["season"])
-                        if state in ("ramadan", "eid", "after") else []),
+        "days_marked": (rp.days_marked(device_id, season)
+                        if in_or_post_ramadan and season is not None else []),
+        "shaban_prep": shaban_today,
+        "shaban_stations": shaban_stations,
+        "partner_lantern": partner_lantern,
+        "fawazir_days_lit": (rp.fawazir_days_lit(device_id, season)
+                             if in_or_post_ramadan else []),
+        "pledged_habits": (rp.pledged_habits(device_id, season)
+                           if in_or_post_ramadan else []),
+        "keep_habits": (rp.keep_habits_payload(doc)
+                        if in_or_post_ramadan else []),
+        "family_word": (rp.picked_family_word(doc, device_id, season)
+                        if in_or_post_ramadan and season is not None else None),
+        "eid_greetings": (rp.eid_greetings_payload(lang)
+                          if in_or_post_ramadan else []),
     }
     if state == "upcoming":
         out["kickoff"] = rp.kickoff_payload(doc)
@@ -230,6 +290,7 @@ def ramadan_day(child_id: int, day: int, request: Request, lang: Optional[str] =
     if not 1 <= day <= 30:
         raise HTTPException(status_code=404, detail={"error": "no_such_day"})
     device_id, today = _context(request, tz_offset_minutes, lang, as_of)
+    _sync_family(device_id, request)
     child = _child(device_id, child_id)
     doc = _program(rp.PROGRAM, lang)
     _, where = _where(device_id, today, doc)
@@ -249,6 +310,7 @@ def ramadan_fasting(child_id: int, request: Request, lang: Optional[str] = Query
                     tz_offset_minutes: Optional[int] = Query(None),
                     as_of: Optional[str] = Query(None)):
     device_id, today = _context(request, tz_offset_minutes, lang, as_of)
+    _sync_family(device_id, request)
     child = _child(device_id, child_id)
     doc = _program(rp.PROGRAM, lang)
     _, where = _where(device_id, today, doc)
@@ -282,6 +344,7 @@ def ramadan_set_fasting(child_id: int, body: FastingIn, request: Request,
                                 step_key=body.step_key, puberty=body.reached_puberty)
     except rp.RamadanError as exc:
         raise _refuse(exc) from None
+    _sync_family(device_id, request)
     return {"child_id": child_id, "climbed": result["climbed"],
             **rp.fasting_state(doc, device_id, child, age, where)}
 
@@ -305,6 +368,7 @@ def ramadan_practice(child_id: int, body: PracticeIn, request: Request,
         day = rp.set_practised(device_id, child, where, day=body.day, done=body.done)
     except rp.RamadanError as exc:
         raise _refuse(exc) from None
+    _sync_family(device_id, request)
     age = pc.child_age(child, today)
     fasting = rp.fasting_state(doc, device_id, child, age, where)
     return {"child_id": child_id, "day": day, "done": body.done,
@@ -331,8 +395,60 @@ def ramadan_mark(body: MarkIn, request: Request, lang: Optional[str] = Query(Non
                                  done=body.done, choice_index=body.choice_index)
     except rp.RamadanError as exc:
         raise _refuse(exc) from None
+    _sync_family(device_id, request)
     return {"hijri_year": where["season"].hijri_year, "day": day,
             "marks": rp.day_marks(doc, device_id, where["season"], day)}
+
+
+class FawazirIn(BaseModel):
+    day: Optional[int] = Field(default=None, ge=1, le=30)
+    done: bool = True
+
+
+@router.post("/programs/ramadan/fawazir",
+             summary="Mark a Ramadan evening Fawazir puzzle solved and light that day's lantern")
+def ramadan_fawazir(body: FawazirIn, request: Request, lang: Optional[str] = Query(None),
+                    tz_offset_minutes: Optional[int] = Query(None),
+                    as_of: Optional[str] = Query(None)):
+    device_id, today = _context(request, tz_offset_minutes, lang, as_of)
+    doc = _program(rp.PROGRAM, lang)
+    _, where = _where(device_id, today, doc)
+    try:
+        day = rp.set_fawazir_mark(device_id, where, day=body.day, done=body.done)
+    except rp.RamadanError as exc:
+        raise _refuse(exc) from None
+    _sync_family(device_id, request)
+    season = where["season"]
+    return {
+        "hijri_year": season.hijri_year,
+        "day": day,
+        "done": body.done,
+        "fawazir_days_lit": rp.fawazir_days_lit(device_id, season),
+        "days_marked": rp.days_marked(device_id, season),
+    }
+
+
+class PledgeIn(BaseModel):
+    habit_keys: list[str] = Field(default_factory=list, max_length=2)
+
+
+@router.put("/programs/ramadan/pledge",
+            summary="Save up to two Shawwal keep-habits from «وصية العشر»")
+def ramadan_pledge(body: PledgeIn, request: Request, lang: Optional[str] = Query(None),
+                   tz_offset_minutes: Optional[int] = Query(None),
+                   as_of: Optional[str] = Query(None)):
+    device_id, today = _context(request, tz_offset_minutes, lang, as_of)
+    doc = _program(rp.PROGRAM, lang)
+    _, where = _where(device_id, today, doc)
+    try:
+        clean = rp.set_pledged_habits(doc, device_id, where, body.habit_keys)
+    except rp.RamadanError as exc:
+        raise _refuse(exc) from None
+    _sync_family(device_id, request)
+    return {
+        "hijri_year": where["season"].hijri_year,
+        "pledged_habits": clean,
+    }
 
 
 class SeasonSettingsIn(BaseModel):
@@ -360,6 +476,7 @@ def ramadan_settings(body: SeasonSettingsIn, request: Request,
         shift_days=body.start_shift_days if "start_shift_days" in sent else None,
         month_days=body.month_days, set_month_days="month_days" in sent,
     )
+    _sync_family(device_id, request)
     _, where = _where(device_id, today, doc)
     return {"state": where["state"], "season": _season_dict(where), "day": where.get("day")}
 
@@ -370,6 +487,7 @@ def ramadan_recap(request: Request, lang: Optional[str] = Query(None),
                   hijri_year: Optional[int] = Query(None),
                   as_of: Optional[str] = Query(None)):
     device_id, today = _context(request, tz_offset_minutes, lang, as_of)
+    _sync_family(device_id, request)
     doc = _program(rp.PROGRAM, lang)
     settings = pc.device_settings(device_id)
     seasons = rp.family_seasons(settings, doc)

@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "locale": "en",
+  "shaban_prep": [
+    {
+      "days_left": 10,
+      "key": "quran_corner",
+      "title": "A Quiet Quran Corner at Home",
+      "subtitle": "Preparing a gentle family nook where reading feels welcoming and calm",
+      "minutes": 5,
+      "steps": [
+        "Choose a clean, calm spot with your child for the Mushaf and a small prayer mat.",
+        "Tidy it together with a warm smile and give each child a paper bookmark in their favorite color."
+      ],
+      "child_role": "Straighten the prayer mat and place your bookmark in the family surah."
+    },
+    {
+      "days_left": 9,
+      "key": "paper_lantern_craft",
+      "title": "Our Paper Lantern Made by Hand",
+      "subtitle": "Welcoming Ramadan with a warm, screen-free paper craft",
+      "minutes": 5,
+      "steps": [
+        "Open the Ramadan Printable Kit to cut out one paper lantern or hang the 30-Lantern Street sheet.",
+        "Share one kind hope for the month together without pressure or scorecards."
+      ],
+      "child_role": "Pick the brightest spot to tape or hang your first paper lantern."
+    },
+    {
+      "days_left": 8,
+      "key": "gentle_fasting_chat",
+      "title": "A Reassuring Chat on the Fasting Ladder",
+      "subtitle": "Agreeing gently ahead of time around health, age, and readiness",
+      "minutes": 5,
+      "steps": [
+        "Review the Fasting Ladder together and notice your child's comfortable step.",
+        "Remind them that resting or eating whenever tired or unwell is caring for the trust of their body."
+      ],
+      "child_role": "Pick a gentle goal—or a helping role at home if you are under seven."
+    },
+    {
+      "days_left": 7,
+      "key": "kind_words_and_charity",
+      "title": "The Kind-Words Jar & Charity Box",
+      "subtitle": "Readying a generous heart and gentle speech before Ramadan arrives",
+      "minutes": 5,
+      "steps": [
+        "Place a small charity box alongside an empty jar for thankful notes.",
+        "Invite everyone to place one thank-you drawing or kind note inside before bedtime."
+      ],
+      "child_role": "Decorate the box and jar with simple paper cutouts."
+    },
+    {
+      "days_left": 6,
+      "key": "iftar_wird_surahs",
+      "title": "Short Surahs for the Iftar Table",
+      "subtitle": "Warming up the family wird so little hearts recognize it with joy",
+      "minutes": 5,
+      "steps": [
+        "Browse the short surahs of the family wird and listen softly to one surah after Isha.",
+        "Share one simple meaning of an ayah in warm, everyday words."
+      ],
+      "child_role": "Repeat two short verses gently alongside a parent before sleep."
+    },
+    {
+      "days_left": 5,
+      "key": "grandparents_peace",
+      "title": "Reaching Out to Grandparents",
+      "subtitle": "Entering the blessed month with soft hearts and family warmth",
+      "minutes": 5,
+      "steps": [
+        "Make a brief call to grandparents or close relatives where your child shares a warm greeting.",
+        "End the evening with a forgiving word among siblings at home."
+      ],
+      "child_role": "Send a cheerful voice greeting to grandparents."
+    },
+    {
+      "days_left": 4,
+      "key": "iftar_ambassador",
+      "title": "Iftar Table Ambassador Card",
+      "subtitle": "Giving every child a meaningful, joyful helper role before Maghrib",
+      "minutes": 5,
+      "steps": [
+        "Ask each child which small table task they enjoy most: dates, water cups, napkins, or Bismillah.",
+        "Keep their card near the table so they take pride in serving every evening."
+      ],
+      "child_role": "Practice passing a water cup or dates dish gently with Bismillah."
+    },
+    {
+      "days_left": 3,
+      "key": "pre_iftar_calm_agreement",
+      "title": "Calm Ten Minutes Before Sunset",
+      "subtitle": "Swapping pre-iftar screen restlessness for quiet audio storytelling",
+      "minutes": 5,
+      "steps": [
+        "Agree together that the final fifteen minutes before Maghrib stay screen-free.",
+        "Try one short screen-off audio story together so calm becomes the house rhythm."
+      ],
+      "child_role": "Rest the phone down and listen with calm eyes for two minutes."
+    },
+    {
+      "days_left": 2,
+      "key": "three_family_duas",
+      "title": "Three Duas Tucked Away for Ramadan",
+      "subtitle": "Connecting the child's heart to hopeful dua before the crescent",
+      "minutes": 5,
+      "steps": [
+        "Each family member picks one heartfelt dua to repeat before breaking fast.",
+        "Speak simply about how near and responsive Allah is to sincere whispers."
+      ],
+      "child_role": "Choose a warm dua you want to ask Allah for yourself and your family."
+    },
+    {
+      "days_left": 1,
+      "key": "crescent_night_welcome",
+      "title": "Crescent Watch & Joyful Welcome",
+      "subtitle": "Welcoming Ramadan with gratitude, calm, and readiness",
+      "minutes": 5,
+      "steps": [
+        "Look at the evening sky together and give thanks for reaching another Ramadan in health.",
+        "Prepare a light suhoor while asking Allah for gentleness and steadiness."
+      ],
+      "child_role": "Dim the bright lights early and help ready the suhoor table."
+    }
+  ],
+  "eid_greetings": [
+    {
+      "key": "family_lanterns",
+      "eyebrow": "From Our Family Home to Yours",
+      "headline": "Eid Mubarak — May Allah Accept From Us & You",
+      "lines": [
+        "Throughout Ramadan we lit quiet lanterns of Quran, kindness, and dua together.",
+        "We send warm prayers that Allah fills your home with lasting peace and joy."
+      ],
+      "closing": "Warmest wishes for a blessed Eid"
+    },
+    {
+      "key": "grandparents_blessing",
+      "eyebrow": "Warm Eid Greeting for Loved Ones",
+      "headline": "May Allah Accept Your Deeds & Bless You",
+      "lines": [
+        "Eid joy is brighter with your warmth, your wisdom, and your dua.",
+        "We pray Allah grants you lasting health, comfort, and serenity."
+      ],
+      "closing": "Eid Fitr Mubarak"
+    },
+    {
+      "key": "shawwal_light",
+      "eyebrow": "A Gentle Card Carrying Ramadan Light",
+      "headline": "May Your Lanterns Shine Through Shawwal",
+      "lines": [
+        "We stepped out of Ramadan holding two small habits close with love.",
+        "May Allah bless your household and nurture every good intention."
+      ],
+      "closing": "Taqabbal Allahu Minna wa Minkum"
+    },
+    {
+      "key": "peaceful_home",
+      "eyebrow": "Warmth Without Extravagance",
+      "headline": "Wishing Your Home Peace & Faith",
+      "lines": [
+        "Worship and shared tables gathered us in Ramadan, and gratitude gathers us on Eid.",
+        "May Allah make it a feast of harmony and bright hearts."
+      ],
+      "closing": "Blessed Eid to your entire family"
+    },
+    {
+      "key": "neighborhood_gift",
+      "eyebrow": "For Relatives & Dear Neighbors",
+      "headline": "Eid Joy, Ease, and Kindness",
+      "lines": [
+        "A quiet Eid greeting sent with sincere affection on this bright morning.",
+        "May your days ahead overflow with goodness and gentle companionship."
+      ],
+      "closing": "Eid Mubarak"
+    },
+    {
+      "key": "gratitude_eid",
+      "eyebrow": "Gratitude for Completing the Month",
+      "headline": "Praise Be to Allah for His Blessings",
+      "lines": [
+        "Thankful to Allah who brought us through Ramadan in health, Quran, and reflection.",
+        "May He accept our small steps and bring your family countless blessings."
+      ],
+      "closing": "Taqabbal Allahu Minna wa Minkum — Eid Mubarak"
+    }
+  ]
+}

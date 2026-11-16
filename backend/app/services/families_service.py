@@ -134,6 +134,43 @@ def _active_partner_row(conn: sqlite3.Connection, family_id: int, device_id: str
     ).fetchone()
 
 
+def active_confirmed_partner_info(
+    device_id: str,
+    *,
+    session_token: Optional[str] = None,
+) -> Optional[dict]:
+    """Return internal info about an active, confirmed dual-parent partner.
+
+    NOTE: Contains internal `device_id` so callers can compute a one-way
+    `origin_tag(partner["device_id"])` — NEVER serialize `device_id` to HTTP!
+    """
+    if not device_id or not family_sharing_enabled():
+        return None
+    if session_token is not None and not session_eligible_for_family(session_token):
+        return None
+
+    conn = get_conn()
+    try:
+        me = conn.execute(
+            "SELECT family_id, confirmed, status FROM family_members WHERE device_id = ?",
+            (device_id,),
+        ).fetchone()
+        if me is None or me["status"] != "active" or int(me["confirmed"] or 0) != 1:
+            return None
+        partner = _active_partner_row(conn, me["family_id"], device_id)
+        if partner is None or int(partner["confirmed"] or 0) != 1:
+            return None
+        return {
+            "device_id": partner["device_id"],
+            "role": partner["role_label"],
+            "display_name": partner["display_name"],
+        }
+    except sqlite3.Error:
+        return None
+    finally:
+        conn.close()
+
+
 def sync_pair_between_devices(
     conn: sqlite3.Connection,
     dev_a: str,

@@ -12061,6 +12061,288 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'العبوا معًا'**
   String get todayFamilyPuzzlesCta;
+
+  /// No description provided for @ramadanPrintKitTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'عدّة رمضان الورقية لأسرتك'**
+  String get ramadanPrintKitTitle;
+
+  /// No description provided for @ramadanPrintKitSubtitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'اطبع خريطة القناديل الـ ٣٠ وباترون الفانوس وبطاقات السفرة — بأسماء أطفالك محليًا دون إرسال أي اسم.'**
+  String get ramadanPrintKitSubtitle;
+
+  /// No description provided for @ramadanPrintKitInkColor.
+  ///
+  /// In ar, this message translates to:
+  /// **'ألوان نور والقناديل'**
+  String get ramadanPrintKitInkColor;
+
+  /// No description provided for @ramadanPrintKitInkBw.
+  ///
+  /// In ar, this message translates to:
+  /// **'توفير الحبر (للتلوين)'**
+  String get ramadanPrintKitInkBw;
+
+  /// Local-only header on printable kit showing children's names.
+  ///
+  /// In ar, this message translates to:
+  /// **'لأطفال أسرتنا: {names}'**
+  String ramadanPrintKitForChildren(String names);
+
+  /// No description provided for @ramadanPrintKitDefaultNames.
+  ///
+  /// In ar, this message translates to:
+  /// **'أبطال بيتنا'**
+  String get ramadanPrintKitDefaultNames;
+
+  /// No description provided for @ramadanPrintKitShareCta.
+  ///
+  /// In ar, this message translates to:
+  /// **'حفظ ومشاركة للطباعة الفورية'**
+  String get ramadanPrintKitShareCta;
+
+  /// No description provided for @ramadanPrintKitOpenCraft.
+  ///
+  /// In ar, this message translates to:
+  /// **'فتح باترون الفانوس ثلاثي الأبعاد (A4)'**
+  String get ramadanPrintKitOpenCraft;
+
+  /// No description provided for @ramadanPrintKitOpenFullPack.
+  ///
+  /// In ar, this message translates to:
+  /// **'فتح أوراق رمضان الكاملة (١٢ ورقة)'**
+  String get ramadanPrintKitOpenFullPack;
+
+  /// No description provided for @ramadanPrintKitPrivacyNote.
+  ///
+  /// In ar, this message translates to:
+  /// **'تبقى أسماء أطفالك على هاتفك فقط ولا تُرسل إلى أي خادم.'**
+  String get ramadanPrintKitPrivacyNote;
+
+  /// No description provided for @ramadanPrintKitBannerHint.
+  ///
+  /// In ar, this message translates to:
+  /// **'تحتاج إلى مقصّ وصمغ وألوان خشبية؛ ولا يُستعمل إلا ضوء بطارية آمن داخل الفانوس.'**
+  String get ramadanPrintKitBannerHint;
+
+  /// No description provided for @ramadanFawazirSectionTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'فوازير قناديل رمضان (٣٠ ليلة)'**
+  String get ramadanFawazirSectionTitle;
+
+  /// No description provided for @ramadanFawazirSectionSubtitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'لغز سهرة هادئ بعد الإفطار يجمع العائلة ويضيء قنديل الليلة.'**
+  String get ramadanFawazirSectionSubtitle;
+
+  /// Night number chip in Ramadan Fawazir grid.
+  ///
+  /// In ar, this message translates to:
+  /// **'ليلة {night}'**
+  String ramadanFawazirNightLabel(int night);
+
+  /// No description provided for @ramadanFawazirListenBtn.
+  ///
+  /// In ar, this message translates to:
+  /// **'اسمع الفزورة بصوت الحكواتي'**
+  String get ramadanFawazirListenBtn;
+
+  /// No description provided for @ramadanFawazirPauseBtn.
+  ///
+  /// In ar, this message translates to:
+  /// **'إيقاف الصوت'**
+  String get ramadanFawazirPauseBtn;
+
+  /// No description provided for @ramadanFawazirAudioOffline.
+  ///
+  /// In ar, this message translates to:
+  /// **'الصوت غير متاح الآن — اقرأ الفزورة بصوتك الدافئ لطفلك.'**
+  String get ramadanFawazirAudioOffline;
+
+  /// No description provided for @ramadanFawazirDayCardTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'فزورة السهرة العائلية (٣ دقائق)'**
+  String get ramadanFawazirDayCardTitle;
+
+  /// No description provided for @ramadanFawazirDayCardBody.
+  ///
+  /// In ar, this message translates to:
+  /// **'تحدٍّ بصري هادئ يضيف توهّجًا لقنديل الليلة عند حلّه معًا.'**
+  String get ramadanFawazirDayCardBody;
+
+  /// No description provided for @ramadanFawazirDayCardDone.
+  ///
+  /// In ar, this message translates to:
+  /// **'أُضيئت فزورة الليلة ✨'**
+  String get ramadanFawazirDayCardDone;
+
+  /// CTA button to open tonight's Ramadan Fawazir puzzle.
+  ///
+  /// In ar, this message translates to:
+  /// **'افتح فزورة ليلة {night}'**
+  String ramadanFawazirDayCardCta(int night);
+
+  /// Noor header whisper when partner parent lit today's Ramadan lantern.
+  ///
+  /// In ar, this message translates to:
+  /// **'أضاء {partner} قنديل اليوم {day} — بارك لهما بكلمة دافئة.'**
+  String ramadanPartnerLanternNoor(String partner, int day);
+
+  /// Warm banner inside RamadanScreen showing co-parent lantern harmony.
+  ///
+  /// In ar, this message translates to:
+  /// **'توهّج قنديل اليوم {day} من هاتف {partner} في حساب الأسرة'**
+  String ramadanPartnerLanternBanner(String partner, int day);
+
+  /// No description provided for @ramadanPartnerRoleMother.
+  ///
+  /// In ar, this message translates to:
+  /// **'الأم'**
+  String get ramadanPartnerRoleMother;
+
+  /// No description provided for @ramadanPartnerRoleFather.
+  ///
+  /// In ar, this message translates to:
+  /// **'الأب'**
+  String get ramadanPartnerRoleFather;
+
+  /// No description provided for @ramadanPartnerRoleParent.
+  ///
+  /// In ar, this message translates to:
+  /// **'الشريك'**
+  String get ramadanPartnerRoleParent;
+
+  /// Header badge during the final 10 days of Sha'ban.
+  ///
+  /// In ar, this message translates to:
+  /// **'عشر الاستقبال في شعبان · باقي {days} أيام'**
+  String shabanPrepEyebrow(int days);
+
+  /// No description provided for @shabanPrepTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'تهيئة اليوم (٥ دقائق)'**
+  String get shabanPrepTitle;
+
+  /// No description provided for @shabanPrepDoneBtn.
+  ///
+  /// In ar, this message translates to:
+  /// **'أتممنا تهيئة اليوم'**
+  String get shabanPrepDoneBtn;
+
+  /// No description provided for @shabanPrepMarkBtn.
+  ///
+  /// In ar, this message translates to:
+  /// **'جهّزنا هذه الخطوة ✨'**
+  String get shabanPrepMarkBtn;
+
+  /// No description provided for @shabanPrepListTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'محطات عشر الاستقبال في شعبان'**
+  String get shabanPrepListTitle;
+
+  /// No description provided for @shabanPrepOpenPrintCta.
+  ///
+  /// In ar, this message translates to:
+  /// **'عدّة رمضان الورقية والطباعة'**
+  String get shabanPrepOpenPrintCta;
+
+  /// No description provided for @ramadanAudioTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'حكواتي قبل المدفع وكبسولات المربّي'**
+  String get ramadanAudioTitle;
+
+  /// No description provided for @ramadanAudioTalesTab.
+  ///
+  /// In ar, this message translates to:
+  /// **'حكايات قبل المغرب (بلا شاشة)'**
+  String get ramadanAudioTalesTab;
+
+  /// Tab title showing count of short parenting audio capsules.
+  ///
+  /// In ar, this message translates to:
+  /// **'كبسولات المربّي الصائم ({count})'**
+  String ramadanAudioCapsulesTab(int count);
+
+  /// No description provided for @ramadanAudioScreenOffBtn.
+  ///
+  /// In ar, this message translates to:
+  /// **'استمع مع إطفاء الشاشة'**
+  String get ramadanAudioScreenOffBtn;
+
+  /// No description provided for @ramadanAudioReadStoryBtn.
+  ///
+  /// In ar, this message translates to:
+  /// **'اقرأ الحكاية لطفلك'**
+  String get ramadanAudioReadStoryBtn;
+
+  /// No description provided for @ramadanAudioListenCapsuleBtn.
+  ///
+  /// In ar, this message translates to:
+  /// **'استمع للكبسولة'**
+  String get ramadanAudioListenCapsuleBtn;
+
+  /// No description provided for @ramadanAudioMoralLabel.
+  ///
+  /// In ar, this message translates to:
+  /// **'المغزى التربوي:'**
+  String get ramadanAudioMoralLabel;
+
+  /// No description provided for @ramadanPledgeTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'وصية العشر لشوال'**
+  String get ramadanPledgeTitle;
+
+  /// No description provided for @ramadanPledgeSubtitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'اختارا عادتين جميلتين من رمضان نكملهما بحبّ بعد العيد:'**
+  String get ramadanPledgeSubtitle;
+
+  /// No description provided for @ramadanPledgeSelectedBadge.
+  ///
+  /// In ar, this message translates to:
+  /// **'تم حفظ وصية أسرتنا ✨'**
+  String get ramadanPledgeSelectedBadge;
+
+  /// No description provided for @ramadanPledgeActiveRibbon.
+  ///
+  /// In ar, this message translates to:
+  /// **'وصيتنا التي نكملها في شوال:'**
+  String get ramadanPledgeActiveRibbon;
+
+  /// No description provided for @eidGreetingTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'عيدية العائلة الورقية للأهل والأحباب'**
+  String get eidGreetingTitle;
+
+  /// No description provided for @eidGreetingSubtitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'بطاقة تهنئة دافئة خالية تمامًا من أسماء الأطفال ومعلوماتهم — اختر تصميمًا وشاركه بحبّ.'**
+  String get eidGreetingSubtitle;
+
+  /// No description provided for @eidGreetingShareCta.
+  ///
+  /// In ar, this message translates to:
+  /// **'مشاركة بطاقة العيد'**
+  String get eidGreetingShareCta;
+
+  /// Toggle label to show family's Ramadan word on the Eid greeting card.
+  ///
+  /// In ar, this message translates to:
+  /// **'أضِف «كلمة رمضاننا»: {word}'**
+  String eidGreetingIncludeWord(String word);
 }
 
 class _AppLocalizationsDelegate

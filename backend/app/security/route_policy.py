@@ -284,6 +284,7 @@ _add(
     "public",
     """
     GET /print/ramadan ramadan_sheets
+    GET /print/lantern-craft craft_sheets
 """,
     in_schema=False,
 )
@@ -497,6 +498,8 @@ _add(
     """
     GET /api/programs programs_overview
     POST /api/programs/ramadan/marks ramadan_mark
+    POST /api/programs/ramadan/fawazir ramadan_fawazir
+    PUT /api/programs/ramadan/pledge ramadan_pledge
     PUT /api/programs/ramadan/settings ramadan_settings
     GET /api/programs/ramadan/recap ramadan_recap
 """,

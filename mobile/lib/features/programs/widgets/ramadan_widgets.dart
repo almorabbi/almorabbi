@@ -21,6 +21,7 @@ import '../../../state/chat_notifier.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/design_tokens.dart';
 import '../../../widgets/ui/paper_lantern.dart';
+import '../../family_puzzles/data/family_puzzle_models.dart';
 import '../../program/data/story_models.dart';
 import '../data/programs_models.dart';
 import '../providers/programs_providers.dart';
@@ -78,6 +79,8 @@ class RamadanDayCard extends ConsumerWidget {
     this.marks,
     this.markable = false,
     this.onMarksChanged,
+    this.fawazirDone = false,
+    this.onFawazirSolved,
   });
 
   final int childId;
@@ -91,6 +94,9 @@ class RamadanDayCard extends ConsumerWidget {
   /// The day's marks as the parent leaves them, on every tap (and again if
   /// the server refuses one and it is put back).
   final ValueChanged<RamadanMarks>? onMarksChanged;
+
+  final bool fawazirDone;
+  final VoidCallback? onFawazirSolved;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -184,6 +190,12 @@ class RamadanDayCard extends ConsumerWidget {
             child: RamadanQuranBlock(quran: content.quran),
           ),
         if (content.storyId != null) _StoryRow(storyId: content.storyId!),
+        _DayFawazirRow(
+          childId: childId,
+          day: content.day,
+          done: fawazirDone,
+          onReturn: onFawazirSolved,
+        ),
         if (marks != null && markable)
           RamadanMarksPanel(
             day: content.day,
@@ -279,6 +291,77 @@ class RamadanQuranBlock extends StatelessWidget {
         ],
         if (quran.parentJuz != null) JuzLink(juz: quran.parentJuz!),
       ],
+    );
+  }
+}
+
+class _DayFawazirRow extends StatelessWidget {
+  const _DayFawazirRow({
+    required this.childId,
+    required this.day,
+    required this.done,
+    this.onReturn,
+  });
+
+  final int childId;
+  final int day;
+  final bool done;
+  final VoidCallback? onReturn;
+
+  Future<void> _openTonightPuzzle(BuildContext context) async {
+    final lang = Localizations.localeOf(context).languageCode;
+    final puzzles = await loadRamadanPuzzlePack(lang);
+    FamilyPuzzle? tonight;
+    for (final p in puzzles) {
+      if (p.ramadanNight == day) {
+        tonight = p;
+        break;
+      }
+    }
+    if (tonight == null || !context.mounted) return;
+    unawaited(Analytics.programAction('ramadan', 'fawazir'));
+    await Navigator.of(context).push(
+      AppRoutes.familyPuzzleRunner(
+        puzzles: [tonight],
+        childId: childId,
+        source: GameSources.index,
+      ),
+    );
+    onReturn?.call();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final c = context.colors;
+    return ProgramSection(
+      key: const ValueKey('ramadan_day_fawazir_card'),
+      title: l10n.ramadanFawazirDayCardTitle,
+      emoji: '🏮',
+      tone: done ? SectionTone.highlight : SectionTone.plain,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            done ? l10n.ramadanFawazirDayCardDone : l10n.ramadanFawazirDayCardBody,
+            style: TextStyle(
+              color: done ? c.primary : c.textSecondary,
+              fontWeight: done ? FontWeight.w800 : FontWeight.w500,
+              height: 1.5,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: OutlinedButton.icon(
+              key: ValueKey('ramadan_day_fawazir_cta_$day'),
+              icon: PaperLantern(lit: done, height: 22),
+              label: Text(l10n.ramadanFawazirDayCardCta(day)),
+              onPressed: () => _openTonightPuzzle(context),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

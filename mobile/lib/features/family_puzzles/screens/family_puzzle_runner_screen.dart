@@ -10,12 +10,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:just_audio/just_audio.dart';
 
+import '../../../config/app_config.dart';
 import '../../../core/analytics.dart';
 import '../../../core/app_routes.dart';
 import '../../../core/clock.dart';
 import '../../../core/sound_fx.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../state/chat_notifier.dart' show tgClientProvider;
 import '../../../theme/app_colors.dart';
 import '../../../theme/app_palette.dart';
 import '../../../theme/design_tokens.dart';
@@ -59,12 +62,62 @@ class _FamilyPuzzleRunnerScreenState
   bool _solved = false;
   int _resetEpoch = 0;
   bool _roundFinished = false;
+  AudioPlayer? _voicePlayer;
+  StreamSubscription<PlayerState>? _voiceSub;
+  bool _playingAudio = false;
 
   @override
   void initState() {
     super.initState();
     final maxIdx = widget.puzzles.isEmpty ? 0 : widget.puzzles.length - 1;
     _index = widget.initialIndex.clamp(0, maxIdx);
+  }
+
+  @override
+  void dispose() {
+    unawaited(_voiceSub?.cancel());
+    unawaited(_voicePlayer?.dispose());
+    super.dispose();
+  }
+
+  Future<void> _stopAudio() async {
+    try {
+      await _voicePlayer?.stop();
+    } catch (_) {
+      // Ignore platform player shutdown issues in tests/offline.
+    }
+    if (mounted) setState(() => _playingAudio = false);
+  }
+
+  Future<void> _toggleAudio(FamilyPuzzle puzzle, AppLocalizations l10n) async {
+    final path = puzzle.audioPath;
+    if (path == null || path.isEmpty) return;
+    if (_playingAudio) {
+      await _stopAudio();
+      return;
+    }
+    try {
+      final player = _voicePlayer ??= AudioPlayer();
+      _voiceSub ??= player.playerStateStream.listen((st) {
+        if (st.processingState == ProcessingState.completed && mounted) {
+          setState(() => _playingAudio = false);
+        }
+      });
+      final cleanBase = AppConfig.apiBaseUrl.endsWith('/')
+          ? AppConfig.apiBaseUrl.substring(0, AppConfig.apiBaseUrl.length - 1)
+          : AppConfig.apiBaseUrl;
+      final cleanPath = path.startsWith('/') ? path.substring(1) : path;
+      await player.setUrl('$cleanBase/$cleanPath');
+      if (!mounted) return;
+      setState(() => _playingAudio = true);
+      await player.play();
+    } catch (_) {
+      if (!mounted) return;
+      setState(() => _playingAudio = false);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.ramadanFawazirAudioOffline)),
+      );
+    }
   }
 
   int get _effectiveChildId {
@@ -89,9 +142,19 @@ class _FamilyPuzzleRunnerScreenState
     unawaited(
       FamilyPuzzleStore.markSolved(puzzle.id, childId: _effectiveChildId),
     );
+    final night = puzzle.ramadanNight;
+    if (night != null && night >= 1 && night <= 30) {
+      try {
+        final f = ref.read(tgClientProvider).markRamadanFawazir(day: night);
+        unawaited(f.catchError((Object _) => <String, dynamic>{}));
+      } catch (_) {
+        // Offline or stubbed client without markRamadanFawazir never blocks solving.
+      }
+    }
   }
 
   Future<void> _advanceOrFinish() async {
+    await _stopAudio();
     if (_index + 1 < widget.puzzles.length) {
       setState(() {
         _index++;
@@ -247,38 +310,80 @@ class _FamilyPuzzleRunnerScreenState
                   ),
                 ],
               ),
-              OutlinedButton.icon(
-                key: const ValueKey('family_puzzle_whisper_btn'),
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: colors.ink,
-                  backgroundColor: colors.surfaceAlt,
-                  side: BorderSide(
-                    color: colors.accent.withValues(alpha: 0.65),
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 8,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(Dt.rChip),
-                  ),
-                ),
-                onPressed: () => showParentWhisperSheet(
-                  context,
-                  whisperText: puzzle.parentWhisper,
-                ),
-                icon: BrandGlyph(
-                  BrandIcon.lantern,
-                  size: 18,
-                  color: colors.accentDeep,
-                ),
-                label: Text(
-                  l10n.familyPuzzlesWhisperBtn,
-                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                        fontWeight: FontWeight.w800,
-                        color: colors.ink,
+              Wrap(
+                spacing: 8,
+                runSpacing: 6,
+                children: [
+                  if (puzzle.audioPath != null)
+                    OutlinedButton.icon(
+                      key: const ValueKey('family_puzzle_audio_btn'),
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: colors.primary,
+                        backgroundColor: _playingAudio
+                            ? colors.primary.withValues(alpha: 0.14)
+                            : colors.surfaceAlt,
+                        side: BorderSide(
+                          color: colors.primary.withValues(alpha: 0.55),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 8,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(Dt.rChip),
+                        ),
                       ),
-                ),
+                      onPressed: () => _toggleAudio(puzzle, l10n),
+                      icon: Icon(
+                        _playingAudio
+                            ? Icons.pause_rounded
+                            : Icons.volume_up_rounded,
+                        size: 18,
+                      ),
+                      label: Text(
+                        _playingAudio
+                            ? l10n.ramadanFawazirPauseBtn
+                            : l10n.ramadanFawazirListenBtn,
+                        style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                              fontWeight: FontWeight.w800,
+                              color: colors.ink,
+                            ),
+                      ),
+                    ),
+                  OutlinedButton.icon(
+                    key: const ValueKey('family_puzzle_whisper_btn'),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: colors.ink,
+                      backgroundColor: colors.surfaceAlt,
+                      side: BorderSide(
+                        color: colors.accent.withValues(alpha: 0.65),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 8,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(Dt.rChip),
+                      ),
+                    ),
+                    onPressed: () => showParentWhisperSheet(
+                      context,
+                      whisperText: puzzle.parentWhisper,
+                    ),
+                    icon: BrandGlyph(
+                      BrandIcon.lantern,
+                      size: 18,
+                      color: colors.accentDeep,
+                    ),
+                    label: Text(
+                      l10n.familyPuzzlesWhisperBtn,
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                            fontWeight: FontWeight.w800,
+                            color: colors.ink,
+                          ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

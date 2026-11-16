@@ -3154,6 +3154,22 @@ class TgClient {
         'choice_index': ?choiceIndex,
       });
 
+  /// `POST /api/programs/ramadan/fawazir` — light a night's lantern from Fawazir.
+  Future<Map<String, dynamic>> markRamadanFawazir({
+    int? day,
+    bool done = true,
+  }) =>
+      _programsCall('POST', '/api/programs/ramadan/fawazir', body: {
+        'day': ?day,
+        'done': done,
+      });
+
+  /// `PUT /api/programs/ramadan/pledge` — save up to two Shawwal keep-habits.
+  Future<Map<String, dynamic>> saveRamadanPledge(List<String> habitKeys) =>
+      _programsCall('PUT', '/api/programs/ramadan/pledge', body: {
+        'habit_keys': habitKeys,
+      });
+
   /// `GET /api/children/{id}/ramadan/fasting` — the ladder and its guidance.
   Future<Map<String, dynamic>> fetchFastingLadder(int childId) =>
       _programsCall('GET', '/api/children/$childId/ramadan/fasting');

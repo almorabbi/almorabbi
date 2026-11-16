@@ -2653,5 +2653,102 @@
   "familyPuzzlesSkillLogic": "التسلسل ومسار الماء",
   "todayFamilyPuzzlesTitle": "فوازير نور العائلية",
   "todayFamilyPuzzlesBody": "3 ألغاز بصرية سريعة تفتح حوارًا ذكيًا مع طفلك.",
-  "todayFamilyPuzzlesCta": "العبوا معًا"
+  "todayFamilyPuzzlesCta": "العبوا معًا",
+  "ramadanPrintKitTitle": "عدّة رمضان الورقية لأسرتك",
+  "ramadanPrintKitSubtitle": "اطبع خريطة القناديل الـ ٣٠ وباترون الفانوس وبطاقات السفرة — بأسماء أطفالك محليًا دون إرسال أي اسم.",
+  "ramadanPrintKitInkColor": "ألوان نور والقناديل",
+  "ramadanPrintKitInkBw": "توفير الحبر (للتلوين)",
+  "ramadanPrintKitForChildren": "لأطفال أسرتنا: {names}",
+  "@ramadanPrintKitForChildren": {
+    "description": "Local-only header on printable kit showing children's names.",
+    "placeholders": {
+      "names": {"type": "String"}
+    }
+  },
+  "ramadanPrintKitDefaultNames": "أبطال بيتنا",
+  "ramadanPrintKitShareCta": "حفظ ومشاركة للطباعة الفورية",
+  "ramadanPrintKitOpenCraft": "فتح باترون الفانوس ثلاثي الأبعاد (A4)",
+  "ramadanPrintKitOpenFullPack": "فتح أوراق رمضان الكاملة (١٢ ورقة)",
+  "ramadanPrintKitPrivacyNote": "تبقى أسماء أطفالك على هاتفك فقط ولا تُرسل إلى أي خادم.",
+  "ramadanPrintKitBannerHint": "تحتاج إلى مقصّ وصمغ وألوان خشبية؛ ولا يُستعمل إلا ضوء بطارية آمن داخل الفانوس.",
+  "ramadanFawazirSectionTitle": "فوازير قناديل رمضان (٣٠ ليلة)",
+  "ramadanFawazirSectionSubtitle": "لغز سهرة هادئ بعد الإفطار يجمع العائلة ويضيء قنديل الليلة.",
+  "ramadanFawazirNightLabel": "ليلة {night}",
+  "@ramadanFawazirNightLabel": {
+    "description": "Night number chip in Ramadan Fawazir grid.",
+    "placeholders": {
+      "night": {"type": "int"}
+    }
+  },
+  "ramadanFawazirListenBtn": "اسمع الفزورة بصوت الحكواتي",
+  "ramadanFawazirPauseBtn": "إيقاف الصوت",
+  "ramadanFawazirAudioOffline": "الصوت غير متاح الآن — اقرأ الفزورة بصوتك الدافئ لطفلك.",
+  "ramadanFawazirDayCardTitle": "فزورة السهرة العائلية (٣ دقائق)",
+  "ramadanFawazirDayCardBody": "تحدٍّ بصري هادئ يضيف توهّجًا لقنديل الليلة عند حلّه معًا.",
+  "ramadanFawazirDayCardDone": "أُضيئت فزورة الليلة ✨",
+  "ramadanFawazirDayCardCta": "افتح فزورة ليلة {night}",
+  "@ramadanFawazirDayCardCta": {
+    "description": "CTA button to open tonight's Ramadan Fawazir puzzle.",
+    "placeholders": {
+      "night": {"type": "int"}
+    }
+  },
+  "ramadanPartnerLanternNoor": "أضاء {partner} قنديل اليوم {day} — بارك لهما بكلمة دافئة.",
+  "@ramadanPartnerLanternNoor": {
+    "description": "Noor header whisper when partner parent lit today's Ramadan lantern.",
+    "placeholders": {
+      "partner": {"type": "String"},
+      "day": {"type": "int"}
+    }
+  },
+  "ramadanPartnerLanternBanner": "توهّج قنديل اليوم {day} من هاتف {partner} في حساب الأسرة",
+  "@ramadanPartnerLanternBanner": {
+    "description": "Warm banner inside RamadanScreen showing co-parent lantern harmony.",
+    "placeholders": {
+      "partner": {"type": "String"},
+      "day": {"type": "int"}
+    }
+  },
+  "ramadanPartnerRoleMother": "الأم",
+  "ramadanPartnerRoleFather": "الأب",
+  "ramadanPartnerRoleParent": "الشريك",
+  "shabanPrepEyebrow": "عشر الاستقبال في شعبان · باقي {days} أيام",
+  "@shabanPrepEyebrow": {
+    "description": "Header badge during the final 10 days of Sha'ban.",
+    "placeholders": {
+      "days": {"type": "int"}
+    }
+  },
+  "shabanPrepTitle": "تهيئة اليوم (٥ دقائق)",
+  "shabanPrepDoneBtn": "أتممنا تهيئة اليوم",
+  "shabanPrepMarkBtn": "جهّزنا هذه الخطوة ✨",
+  "shabanPrepListTitle": "محطات عشر الاستقبال في شعبان",
+  "shabanPrepOpenPrintCta": "عدّة رمضان الورقية والطباعة",
+  "ramadanAudioTitle": "حكواتي قبل المدفع وكبسولات المربّي",
+  "ramadanAudioTalesTab": "حكايات قبل المغرب (بلا شاشة)",
+  "ramadanAudioCapsulesTab": "كبسولات المربّي الصائم ({count})",
+  "@ramadanAudioCapsulesTab": {
+    "description": "Tab title showing count of short parenting audio capsules.",
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "ramadanAudioScreenOffBtn": "استمع مع إطفاء الشاشة",
+  "ramadanAudioReadStoryBtn": "اقرأ الحكاية لطفلك",
+  "ramadanAudioListenCapsuleBtn": "استمع للكبسولة",
+  "ramadanAudioMoralLabel": "المغزى التربوي:",
+  "ramadanPledgeTitle": "وصية العشر لشوال",
+  "ramadanPledgeSubtitle": "اختارا عادتين جميلتين من رمضان نكملهما بحبّ بعد العيد:",
+  "ramadanPledgeSelectedBadge": "تم حفظ وصية أسرتنا ✨",
+  "ramadanPledgeActiveRibbon": "وصيتنا التي نكملها في شوال:",
+  "eidGreetingTitle": "عيدية العائلة الورقية للأهل والأحباب",
+  "eidGreetingSubtitle": "بطاقة تهنئة دافئة خالية تمامًا من أسماء الأطفال ومعلوماتهم — اختر تصميمًا وشاركه بحبّ.",
+  "eidGreetingShareCta": "مشاركة بطاقة العيد",
+  "eidGreetingIncludeWord": "أضِف «كلمة رمضاننا»: {word}",
+  "@eidGreetingIncludeWord": {
+    "description": "Toggle label to show family's Ramadan word on the Eid greeting card.",
+    "placeholders": {
+      "word": {"type": "String"}
+    }
+  }
 }
