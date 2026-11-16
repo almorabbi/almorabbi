@@ -326,13 +326,15 @@ class Cli(unittest.TestCase):
         self.assertNotIn('commit', [c[0] for c in play.calls])
 
     def test_the_real_folder_passes_local_checks(self):
-        folder = ROOT / 'docs/brand/store/listing_1.0.73'
-        if not folder.exists():
-            self.skipTest('listing folder not generated yet')
-        listings = self.tool.load_listing(folder)
-        self.assertEqual({lang: len(v['images']['phoneScreenshots']) for lang, v in listings.items()},
-                         {'ar': 8, 'en-US': 8})
-        self.assertTrue(listings['ar']['text']['fullDescription'].startswith('مجاني 100% — بلا إعلانات ولا اشتراكات'))
+        for rel in ('docs/brand/store/listing_1.0.73', 'docs/brand/store/listing_2.0.0'):
+            folder = ROOT / rel
+            if not folder.exists():
+                self.skipTest(f'{rel} folder not generated yet')
+            listings = self.tool.load_listing(folder)
+            self.assertEqual({lang: len(v['images']['phoneScreenshots']) for lang, v in listings.items()},
+                             {'ar': 8, 'en-US': 8})
+            self.assertTrue(listings['ar']['text']['fullDescription'].startswith('مجاني 100% — بلا إعلانات ولا اشتراكات'))
+            self.assertTrue(listings['en-US']['text']['fullDescription'].startswith('100% free — no ads, no subscriptions'))
 
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 # المربّي الذكي — حزمة ASO كاملة (Play Console)
 
-> **مصدر الحقيقة من 1.0.73 «نور والقناديل»:** `docs/brand/store/listing_1.0.73/listing.json`
-> (العنوان والوصفان بالعربية وen-US) + الصور في `docs/brand/store/listing_1.0.73/{ar,en}/`.
+> **مصدر الحقيقة من 2.0.0 («المربّي ٢.٠» — حزمة الأسرة والفوازير ورمضان):** `docs/brand/store/listing_2.0.0/listing.json`
+> (العنوان والوصفان بالعربية وen-US) + الصور في `docs/brand/store/listing_2.0.0/{ar,en}/`.
 > الأقسام ١–٣ والقائمة الإنجليزية تحت منسوخة منه — **عدّل الملف أولًا ثم انسخ هنا.**
 > الرفع: `scripts/play_listing_upload.py` — `--validate-only` آمن ويُعاد، و`--commit` وقت الإصدار فقط
 > (بعد commit تعديل الإصدار نفسه، لأن commit أي edit يُبطل الـedits المفتوحة الأخرى).
@@ -12,21 +12,21 @@
 > ```
 > لو مرّرت الناتج في `tee`/`tail` فاقرأ `${PIPESTATUS[0]}` لا `$?`.
 
-### لقطات 1.0.73 — ٨ لكل لغة، لقطات CI حقيقية في إطارات «ورق مقصوص»
+### لقطات 2.0.0 — ٨ لكل لغة، لقطات CI حقيقية (التشغيل `43831677815`) في إطارات «ورق مقصوص»
 
-مولّدة بـ`docs/brand/tools/store_listing.py build` من `manifest.json` (رقم التشغيل والملف وبصمته لكل لقطة).
-التعديل الوحيد على أي لقطة قصّ لوحة المفاتيح من لقطة المساعد العربية.
+مولّدة بـ`docs/brand/tools/store_listing.py build` من `docs/brand/store/listing_2.0.0/manifest.json` (رقم التشغيل والملف وبصمته لكل لقطة).
+التعديل الوحيد على أي لقطة قصّ لوحة المفاتيح من لقطة المساعد العربية (`keep_top: 1508`).
 
 | # | الشاشة | العنوان (ar) | Headline (en) | الإطار |
 |---|---|---|---|---|
-| 1 | `today` | خطوة صغيرة كل يوم — مجاني 100% — بلا إعلانات ولا اشتراكات | One small step a day — 100% free — no ads, no subscriptions | `frame_1_rising` |
-| 2 | `family_road` | درب أسرتكم — أين أنتم الآن، وما ينتظركم على الأفق | Your family road — Where you are, and what's on the horizon | `frame_2_ivory` |
-| 3 | `child_corner` | ركن الطفل — حكاية أو لعبة، ثم مهمة بعيدًا عن الشاشة | A child's corner — A story or game, then a task off-screen | `frame_3_bubble` |
-| 4 | `week_lanterns` | كل خطوة تضيء قنديلًا — قناديل الأسبوع — بلا مقارنة ولا لوم | Every step lights a lantern — The week's lanterns — no streaks, no comparisons | `frame_2_ivory` |
-| 5 | `story_reader` | حكايات يرويها نور — وفيها وقفة حوار مع طفلكم | Stories narrated by Noor — With a pause to talk together | `frame_1_rising` |
-| 6 | `noor_follow_up` | نور يتذكّر معكم — اختاروا موعد التجربة، ثم يسألكم كيف جرت | Noor remembers with you — Pick when to try it; Noor asks how it went | `frame_2_ivory` |
-| 7 | `ramadan_street` | شارع القناديل في رمضان — يضيء بما تفعلونه معًا يومًا بعد يوم | A Ramadan lantern street — Lit by what you do together, day by day | `frame_1_rising` |
-| 8 | `assistant` | اسألوا عن تربية طفلكم — إجابة عملية وخطوة تجرّبونها | Ask about raising your child — A practical answer, in your language | `frame_3_bubble` |
+| 1 | `today` | الإصدار ٢.٠ — خطوة كل يوم — مجاني 100% — بلا إعلانات ولا اشتراكات | Version 2.0 — One step a day — 100% free — no ads, no subscriptions | `frame_1_rising` |
+| 2 | `family_road` | درب الأسرة وحساب الوالدَين — متابعة مشتركة هادئة بين هاتفَي الأب والأم | Family road & shared account — Calm co-parenting across both parents' phones | `frame_2_ivory` |
+| 3 | `ramadan_street` | رمضان ٢.٠: قناديل وفوازير وحكواتي — ٣٠ ليلة وصوتيات بلا شاشة وعدّة فانوس للطباعة | Ramadan 2.0: lanterns, riddles & audio — 30 nights, screen-off tales & printable craft | `frame_1_rising` |
+| 4 | `child_corner` | ركن الطفل وفوازير نور العائلية — تفكير ذكي مشترك، وحكاية ومهمة بعيدًا عن الشاشة | Child's corner & brain puzzles — Co-play logic riddles, a story & a task off-screen | `frame_3_bubble` |
+| 5 | `week_lanterns` | كل خطوة تضيء قنديلًا — قناديل الأسبوع — بلا عدّاد يلومكم ولا مقارنة | Every step lights a lantern — The week's lanterns — no streaks, no comparisons | `frame_2_ivory` |
+| 6 | `story_reader` | حكايات يرويها نور — وفي وسطها وقفة حوار دافئة مع طفلكم | Stories narrated by Noor — With a warm pause to talk together | `frame_1_rising` |
+| 7 | `noor_follow_up` | نور يتذكّر معكم — اختاروا موعد التجربة، ثم يسألكم كيف جرت | Noor remembers with you — Pick when to try it; Noor asks how it went | `frame_2_ivory` |
+| 8 | `assistant` | اسألوا عن تربية طفلكم — إجابة عملية موثّقة وخطوة تجرّبونها | Ask about raising your child — A practical sourced answer, in your language | `frame_3_bubble` |
 
 > **أول سطر في أي نسخة:** «مجاني 100% — بلا إعلانات ولا اشتراكات، مدى الحياة.»
 > هذه الجملة هي أقوى ميزة تنافسية (كل المنافسين المدفوعين) وكلمة «مجاني» كلمة بحث عالية الحجم.
@@ -48,7 +48,7 @@
 ## 2) الوصف القصير (Short description — ≤ 80 حرفًا)
 
 ```
-مجاني 100%: درب تربوي يومي لأسرتك ومساعد ذكي — من الحمل حتى ١٨ سنة
+مجاني 100%: رفيق تربية إسلامية للأسرة ومساعد ذكي — من الحمل حتى ١٨ سنة
 ```
 
 ---
@@ -62,14 +62,14 @@
 
 «المربّي» رفيق تربوي إسلامي يسير مع أسرتكم من الحمل حتى ١٨ سنة: خطوة صغيرة كل يوم، تفهمونها وتطبّقونها مع طفلكم.
 
-🌙 جديد: «نور والقناديل»
-• «اليوم» دربٌ من ثلاث محطات تحت سماء تتبع ساعة اليوم والمواسم، برسوم الورق المقصوص.
-• «درب الأسرة»: أين أنتم الآن، وما ينتظركم «على الأفق» — رمضان، ومحطات العمر، والمسار التالي.
+🌙 جديد الإصدار ٢.٠ الكبير:
+• حساب الأسرة المشترك: شاركوا متابعة أطفالكم وقناديلهم بهدوء وأمان بين هاتفَي الأب والأم برمز دعوة مؤقّت، دون بريد أو رقم هاتف.
+• «فوازير نور العائلية»: ألغاز تفكير بصري، ومسارات مياه، وفروق صور، وتفكير جانبي تحلّونها مع طفلكم بعيدًا عن الإعلانات وضغط الوقت.
+• حزمة رمضان ٢.٠ الإبداعية: فوازير قناديل رمضان لـ ٣٠ ليلة، وحكايات الحكواتي وكبسولات المربّي الصوتية بلا شاشة، وعدّة الفانوس الورقية ثلاثية الأبعاد للطباعة، وتعهّد شوال.
+• «اليوم» ودرب «نور والقناديل»: ثلاث محطات واضحة تحت سماء تتبع ساعة اليوم والمواسم، برسوم الورق المقصوص.
 • قناديل الأسبوع: كل خطوة تربوية تتمّونها تضيء قنديلًا، بلا عدّاد يلومكم ولا مقارنة بأحد.
-• شارع القناديل في رمضان: يضيء بما تفعلونه معًا يومًا بعد يوم.
-• «ركن الطفل»: حكاية قصيرة أو لعبة، ثم مهمة بعيدًا عن الشاشة. الوقت شمعة ورقية تقصر، ولا يعود الجهاز إلا برمز الأهل.
-• حكايات قبل النوم يرويها نور، وفيها وقفة حوار مع الطفل.
-• نور يتذكّر ما قررتم تجربته، ثم يسألكم كيف جرى.
+• «ركن الطفل»: حكاية قصيرة أو لغز عائلي، ثم مهمة بعيدًا عن الشاشة. الوقت شمعة ورقية تقصر، ولا يعود الجهاز إلا برمز الأهل.
+• حكايات قبل النوم يرويها نور، وفيها وقفة حوار مع الطفل، وميزة تذكّر التجارب.
 
 📚 منهج لكل مرحلة عمرية
 مسارات يومية متدرّجة لكل فئة عمرية (الحمل–سنة، ٢–٣، ٤–٦، ٧–٩، ١٠–١٢، ١٣–١٥، ١٦–١٨) تشمل:
@@ -85,10 +85,10 @@
 دروس مكتوبة، وبودكاست صوتي، وبطاقات تعليمية، واختبارات قصيرة.
 
 📖 القرآن والأذكار
-تلاوة القرآن، وأذكار وأدعية للطفل في مكان واحد.
+تلاوة القرآن مع إبقاء الآيات بنصّها العربي دائمًا وشرح معناها إلى جانبها، وأذكار وأدعية للطفل في مكان واحد.
 
 —
-ابدؤوا بسؤال واحد: «طفلي عنيد»، «طفلي لا يصلي»، «نوبات الغضب»… وستجدون خطة عملية في ثوانٍ، مجانًا.
+ابدؤوا بسؤال واحد: «طفلي عنيد»، «طفلي لا يصلي»، «نوبات الغضب»… وستجدون خطة عملية في ثوانٍ، مجانًا لوجه الله.
 ```
 
 > **ملاحظة سياسة المحتوى الصحي (Google Play):** هذا التطبيق تعليمي/تربوي وليس تطبيقًا صحيًا. في نموذج بيانات التطبيقات المختصة بالصحة اختر «لا توجد ميزات متعلقة بالصحة».
@@ -425,8 +425,8 @@ Scroll سريع عبر: مسارات تربوية → بودكاست → اخت�
 نُشرت عبر `androidpublisher` (`edits().listings().update(language='en-US')`)،
 والصور تُورَث من القائمة العربية إذ لا صور إنجليزية بعد.
 
-**من 1.0.73:** للقائمة الإنجليزية صورها — أيقونة وصورة مميزة إنجليزية و٨ لقطات من رحلات CI الإنجليزية
-(`docs/brand/store/listing_1.0.73/en/`). لقطة المساعد الإنجليزية داكنة: لا توجد لقطة فاتحة له في الـCI.
+**في 2.0.0:** للقائمة الإنجليزية صورها — أيقونة وصورة مميزة إنجليزية و٨ لقطات من رحلات CI الإنجليزية
+(`docs/brand/store/listing_2.0.0/en/`). لقطة المساعد الإنجليزية داكنة: لا توجد لقطة فاتحة له في الـCI.
 
 **لم تُنشر قبل اليوم عن قصد:** المساعد كان يجيب بالعربية على السؤال الإنجليزي
 حتى `0f709b09`. الإعلان بالإنجليزية قبل ذلك كان وعدًا لا يفي به التطبيق.
@@ -437,27 +437,27 @@ Scroll سريع عبر: مسارات تربوية → بودكاست → اخت�
 Al-Morabbi: Islamic Parenting
 ```
 
-### الوصف القصير (73/80)
+### الوصف القصير (75/80)
 
 ```
-100% free: a daily Islamic parenting path + AI guide, pregnancy to age 18
+100% free: shared Islamic parenting paths, family puzzles & AI guide (0–18)
 ```
 
-### الوصف الكامل (2177/4000)
+### الوصف الكامل (2144/4000)
 
 ```
 100% free — no ads, no subscriptions.
 
 Al-Morabbi is an Islamic parenting companion that walks with your family from pregnancy to age 18: one small step a day that you understand and can try with your child.
 
-🌙 New: Noor and the Lanterns
-• Today is a path of three stops under a sky that follows the hour and the seasons, in paper-cut art.
-• Your family road: where you are now, and what's on the horizon — Ramadan, age milestones, the next path.
-• The week's lanterns: each parenting step you complete lights a lantern. No streak to break, no comparison with anyone.
-• A Ramadan lantern street for your family, lit by what you do together, day by day.
-• A child's corner: a short story or game, then a task away from the screen. Time is a paper candle that burns down, and only your PIN unlocks the device again.
-• Bedtime stories narrated by Noor, with a pause to talk together.
-• Noor remembers what you planned to try, and later asks how it went.
+🌙 New in Version 2.0:
+• Shared Family Account: co-parent calmly across both parents' phones using a short-lived invite code — with no email or phone number required.
+• Noor Family Brain Puzzles: co-play visual logic, water paths, spot-the-difference scenes, and lateral-thinking riddles designed to spark thoughtful conversation with zero ads and zero timers.
+• Creative Ramadan 2.0 Suite: 30-night lantern riddles with Socratic parent whispers, calm screen-off Hakawati audio tales & coaching capsules, printable 3D paper lantern craft sheets, and Shawwal habit continuity.
+• Noor & the Lanterns: Today is a clear path of three stops under a paper-cut sky following the hour and seasons.
+• The week's lanterns: each parenting step lights a lantern — no streak to break, no comparison with anyone.
+• Child's corner: a short story or puzzle, then an off-screen mission bounded by a burning paper candle and parent PIN.
+• Bedtime stories narrated by Noor, with a dialogue pause and gentle follow-up reminders.
 
 📚 A curriculum for every stage
 Step-by-step daily paths for each age band (pregnancy–1, 2–3, 4–6, 7–9, 10–12, 13–15, 16–18), covering:
@@ -467,20 +467,15 @@ Step-by-step daily paths for each age band (pregnancy–1, 2–3, 4–6, 7–9, 
 • Life skills
 
 💬 An assistant that answers in your language
-Ask about defiance, missed prayers, screen habits or sibling jealousy, and get a practical answer grounded in documented sources, with one small step to try with your child. Write in English and the answer comes back in English.
+Ask about defiance, missed prayers, screen habits or sibling jealousy, and get a practical answer grounded in documented sources, with one small step to try with your child.
 
 Qur'an and hadith are always quoted in Arabic, as revealed and as narrated, with the meaning explained alongside. A translation is never presented as scripture.
 
 🎧 More than one way to learn
-Written lessons, audio podcasts, flashcards and short quizzes. English audio is being produced lesson by lesson; the written curriculum is complete in English.
-
-📖 Qur'an and adhkar
-Recitation, and adhkar and du'a for children, in one place.
+Written lessons, audio podcasts, flashcards and short quizzes, plus calm Qur'an recitation and adhkar for children in one place.
 
 —
-Start with one question: "my child is defiant", "my child won't pray", "tantrums"… and get a practical plan in seconds, free.
-
-Note on language: the app, the curriculum, the stories, the daily reminders & adhkar, the interactive games and the assistant are in English.
+Start with one question: "my child is defiant", "my child won't pray", "tantrums"… and get a practical plan in seconds, 100% free.
 ```
 
 ### ما لا يجوز ادّعاؤه بالإنجليزية — تحقّق قبل أي تعديل
@@ -493,7 +488,7 @@ Note on language: the app, the curriculum, the stories, the daily reminders & ad
 | الفلاش كاردز والاختبارات | ✅ موجودة في أصول الدرس الإنجليزية | `GET /api/program/lesson-assets/{id}?lang=en` |
 | الأذكار والإشعار اليومي | ✅ **إنجليزي كامل** — `family_adhkar.en.json` (١٢٤ نصيحة إنجليزية + ١٤٢ آية و١٥ حديثًا بنصّها العربي ومعناها وتخريجها بالإنجليزية) + أذكار النوم بالنطق والمعنى الإنجليزي | `mobile/assets/content/adhkar/family_adhkar.en.json` |
 | الألعاب | ✅ **إنجليزي كامل** — ٤ ألعاب (٢٠٠ سؤال و٨٠٠ خيار) | `mobile/assets/content/games/*.en.json` |
-| القصص و«ركن الطفل» وشارع رمضان | ✅ إنجليزي (1.0.73) — ١٩ قصة | لقطات CI الإنجليزية في `listing_1.0.73/manifest.json` |
+| القصص و«ركن الطفل» وشارع رمضان | ✅ إنجليزي (2.0.0) — ١٩ قصة + فوازير نور + ٣٠ ليلة رمضان | لقطات CI الإنجليزية في `listing_2.0.0/manifest.json` |
 | صفحات الهبوط والمشاركة (`/go`, `/l/`, `/p/`) | ✅ إنجليزي كامل (`cinematic.en.html` + عرض الدروس والمسارات بالإنجليزية) | `backend/tests/test_landing_language.py` |
 
 الصفّان الأخيران مذكوران صراحةً في آخر الوصف. **من يترجم محتوى جديدًا يحدّث هذا

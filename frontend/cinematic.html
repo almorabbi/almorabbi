@@ -52,6 +52,8 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{font-family:Cairo,"Noto Naskh Arabic",Tahoma,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased}
+h1,.sec-head h2,.feature h3,.close h2{text-wrap:balance}
+.lead,.feature p,.faq details p,.close p{text-wrap:pretty}
 svg{display:block}
 a{color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
@@ -149,8 +151,8 @@ footer .social svg{width:22px;height:22px}
 .faq details{background:#fff;border:2px solid var(--iv2);border-radius:20px;box-shadow:3px 4px 0 var(--iv2);max-width:46em;margin:0 auto 12px;padding:0 18px}
 .faq summary{display:flex;justify-content:space-between;align-items:center;gap:14px;cursor:pointer;list-style:none;font-weight:800;color:var(--em);font-size:17px;padding:14px 0}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-size:24px;line-height:1;flex:none}
-.faq details[open] summary::after{content:"\2212"}
+.faq summary::after{content:"+";content:"+" / "";font-size:24px;line-height:1;flex:none}
+.faq details[open] summary::after{content:"\2212";content:"\2212" / ""}
 .faq details p{font-size:16px;color:#26443e;padding:0 0 16px}
 .faq a{color:var(--em);font-weight:700}
 </style>
@@ -188,7 +190,7 @@ footer .social svg{width:22px;height:22px}
   <section id="hero" class="hero">
     <div class="wrap hero-grid">
       <div class="hero-text">
-        <span class="eyebrow"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#lantern-body"/><use href="#lantern-flame" class="flame"/></svg>جديد: نور والقناديل</span>
+        <span class="eyebrow"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#lantern-body"/><use href="#lantern-flame" class="flame"/></svg>الإصدار ٢.٠ — نور والقناديل وحساب الأسرة</span>
         <h1>مربٍّ يعرف طفلك، خطوة بخطوة</h1>
         <div class="free"><b>مجاني بالكامل</b> — بلا إعلانات ولا اشتراكات</div>
         <p class="lead">«المربّي» رفيق تربوي إسلامي يسير مع أسرتكم من الحمل حتى ١٨ سنة: خطوة صغيرة كل يوم، تفهمونها وتطبّقونها مع طفلكم.</p>
@@ -298,7 +300,7 @@ footer .social svg{width:22px;height:22px}
           <span class="kicker">«قناديل الأسبوع» و«شارع القناديل»</span>
           <h3>كل خطوة تتمّونها تضيء قنديلًا</h3>
           <p>سبعة قناديل للأسبوع، يضيء واحد منها مع كل خطوة تربوية تتمّونها. لا عدّاد يلومكم إن فاتكم يوم.</p>
-          <p>وفي رمضان يصير لأسرتكم شارعٌ من القناديل، يضيء بما تفعلونه معًا يومًا بعد يوم.</p>
+          <p>وفي رمضان يصير لأسرتكم شارعٌ من القناديل يضيء بما تفعلونه معًا يومًا بعد يوم، مع فوازير الـ ٣٠ ليلة، وحكايات الحكواتي بلا شاشة، وعدّة الفانوس الورقية للطباعة وتعهّد شوال.</p>
         </div>
       </article>
 
@@ -336,6 +338,48 @@ footer .social svg{width:22px;height:22px}
           <h3>حكايات يرويها نور</h3>
           <p>حكاية هادئة قبل النوم بصوت نور، وفي وسطها وقفة حوار قصيرة تسألون فيها طفلكم وتسمعون منه.</p>
           <p>ونور يتذكّر ما قررتم تجربته، ثم يسألكم بعد أيام: كيف جرى؟</p>
+        </div>
+      </article>
+
+      <!-- Shared Family Account (2.0) -->
+      <article class="feature">
+        <figure>
+          <svg viewBox="0 0 320 220" role="img" aria-label="تلال ورقية، وقنديلان مضاءان يربطهما قوس منقط تحت نجمة ذهبية">
+            <use href="#star-deco" x="28" y="26" width="16" height="16"/><use href="#star-deco" x="276" y="32" width="14" height="14"/>
+            <use href="#star8" class="twinkle" x="142" y="18" width="36" height="36"/>
+            <path d="M54 114 Q160 54 266 114" fill="none" stroke="#F7C548" stroke-width="3" stroke-dasharray="4 8" stroke-linecap="round"/>
+            <path d="M-10 156 C70 128 150 132 230 148 C275 157 305 150 330 142 V230 H-10 Z" fill="#094A40" transform="translate(0 6)"/>
+            <path d="M-10 156 C70 128 150 132 230 148 C275 157 305 150 330 142 V230 H-10 Z" fill="#0D6A5A"/>
+            <path d="M-10 176 C80 158 170 164 250 176 C290 182 315 178 330 174 V230 H-10 Z" fill="#094A40" transform="translate(0 6)"/>
+            <path d="M-10 176 C80 158 170 164 250 176 C290 182 315 178 330 174 V230 H-10 Z" fill="#12806D"/>
+            <g><circle cx="62" cy="118" r="28" fill="#094A40" transform="translate(3 4)"/><circle cx="62" cy="118" r="28" fill="#FBF1DE"/><use href="#lantern-body" x="40" y="96" width="44" height="44"/><use href="#lantern-flame" class="flame" x="40" y="96" width="44" height="44"/></g>
+            <g><circle cx="258" cy="118" r="28" fill="#094A40" transform="translate(3 4)"/><circle cx="258" cy="118" r="28" fill="#FBF1DE"/><use href="#lantern-body" x="236" y="96" width="44" height="44"/><use href="#lantern-flame" class="flame d2" x="236" y="96" width="44" height="44"/></g>
+            <circle cx="160" cy="84" r="7" fill="#F4A492"/>
+          </svg>
+        </figure>
+        <div>
+          <span class="kicker">«حساب الأسرة»</span>
+          <h3>متابعة هادئة مشتركة بين هاتفَي الوالدَين</h3>
+          <p>يربط الأب والأم حسابًا عائليًا واحدًا برمز دعوة مؤقّت، فيتابعان خطوات طفلهما وقناديله معًا بهدوء وخصوصية، دون بريد إلكتروني ولا رقم هاتف.</p>
+        </div>
+      </article>
+
+      <!-- Noor Family Brain Puzzles (2.0) -->
+      <article class="feature">
+        <figure>
+          <svg viewBox="0 0 320 220" role="img" aria-label="تلال ورقية وعليها بطاقات ألغاز بصرية مترابطة ومسار مياه ذهبي تحت نجمة">
+            <use href="#star-deco" x="24" y="24" width="16" height="16"/><use href="#star-deco" x="274" y="28" width="14" height="14"/>
+            <use href="#star8" class="twinkle d2" x="242" y="28" width="32" height="32"/>
+            <path d="M-10 158 C80 142 180 146 330 158 V230 H-10 Z" fill="#094A40" transform="translate(0 6)"/>
+            <path d="M-10 158 C80 142 180 146 330 158 V230 H-10 Z" fill="#12806D"/>
+            <g transform="translate(46 48)"><rect x="4" y="5" width="96" height="96" rx="20" fill="#094A40"/><rect x="0" y="0" width="96" height="96" rx="20" fill="#FBF1DE"/><path d="M22 24 H52 Q66 24 66 38 V58 Q66 72 80 72" fill="none" stroke="#7ED3A6" stroke-width="11" stroke-linecap="round"/><circle cx="22" cy="24" r="9" fill="#0F6B5C"/><circle cx="80" cy="72" r="9" fill="#F7C548"/></g>
+            <g transform="translate(174 60)"><rect x="4" y="5" width="98" height="84" rx="20" fill="#094A40"/><rect x="0" y="0" width="98" height="84" rx="20" fill="#EADBC0"/><circle cx="30" cy="30" r="14" fill="#F4A492"/><polygon points="66,18 82,46 50,46" fill="#0F6B5C"/><rect x="20" y="56" width="58" height="12" rx="6" fill="#F7C548"/></g>
+          </svg>
+        </figure>
+        <div>
+          <span class="kicker">«فوازير نور العائلية»</span>
+          <h3>تحديات تفكير ذكي تجمع الوالدَين والطفل</h3>
+          <p>ألغاز بصرية ومسارات مياه وتفكير جانبي تحلّونها جنبًا إلى جنب مع طفلكم في دقائق هادئة تنمّي الملاحظة والحوار، بلا إعلانات ولا ضغط وقت.</p>
         </div>
       </article>
 
