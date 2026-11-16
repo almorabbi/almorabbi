@@ -1150,6 +1150,16 @@ Query: `lang`, `tz_offset_minutes`, `hijri_year` (default: the latest season tha
 * **`family_only` never goes on the card or into the share** — the children's fasting is the
   family's business. Show it inside the app only.
 
+#### 11.3.8 `POST /api/programs/ramadan/fawazir` — evening Fawazir lantern
+
+Body: `{"day": 3, "done": true}` (`day` optional during Ramadan — defaults to today; `done: false` clears). Marks that night's Ramadan Fawazir puzzle solved and lights that day's lantern (`days_marked`). Syncs across paired family devices when family sharing is active.
+Response: `{"hijri_year": 1448, "day": 3, "done": true, "fawazir_days_lit": [3], "days_marked": [1, 3]}`.
+
+#### 11.3.9 `PUT /api/programs/ramadan/pledge` — Shawwal continuity pledge
+
+Body: `{"habit_keys": ["charity_box", "quran_circle"]}` (0–2 keys from `keep_habits`). Stores the family's chosen habits from «وصية العشر» to carry forward into Shawwal (`pledged_habits` on `ramadan/today`).
+Response: `{"hijri_year": 1448, "pledged_habits": ["charity_box", "quran_circle"]}`.
+
 ### 11.4 «رحلة الصلاة» — the Prayer Journey
 
 #### 11.4.1 Tracks

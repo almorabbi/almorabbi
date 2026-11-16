@@ -106,7 +106,7 @@ class _RamadanPrintKitScreenState extends ConsumerState<RamadanPrintKitScreen> {
       final widgetToCapture = Directionality(
         textDirection: isAr ? TextDirection.rtl : TextDirection.ltr,
         child: Material(
-          color: Colors.white,
+          color: Colors.white, // audit-ok: physical A4 paper sheet exported for printing
           child: SizedBox(
             width: 1080,
             height: 1528,
@@ -386,7 +386,7 @@ class _PrintablePosterCard extends StatelessWidget {
                       vertical: compact ? 5 : 10,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.white, // audit-ok: printable role card on physical paper sheet
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: border),
                     ),
@@ -408,7 +408,7 @@ class _PrintablePosterCard extends StatelessWidget {
               QrImageView(
                 data: qrUrl,
                 size: compact ? 54 : 112,
-                backgroundColor: Colors.white,
+                backgroundColor: Colors.white, // audit-ok: optical QR quiet zone for camera scanners
                 eyeStyle: QrEyeStyle(color: ink, eyeShape: QrEyeShape.square),
                 dataModuleStyle: QrDataModuleStyle(
                   color: ink,

@@ -102,23 +102,28 @@ class _RamadanScreenState extends ConsumerState<RamadanScreen> {
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
             physics: const AlwaysScrollableScrollPhysics(),
             children: [
-              _ChildSwitcher(
-                selected: _childId,
-                onSelected: (id) => setState(() => _childId = id),
-              ),
-              if (t.subtitle != null)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
-                  child: ContentText(
-                    t.subtitle!,
-                    style: TextStyle(
-                      color: context.colors.textSecondary,
-                      height: 1.5,
-                    ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  _ChildSwitcher(
+                    selected: _childId,
+                    onSelected: (id) => setState(() => _childId = id),
                   ),
-                ),
-              ..._stateBody(context, t),
-              if (t.bandsText != null) _WhoSeesWhat(text: t.bandsText!),
+                  if (t.subtitle != null)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 12),
+                      child: ContentText(
+                        t.subtitle!,
+                        style: TextStyle(
+                          color: context.colors.textSecondary,
+                          height: 1.5,
+                        ),
+                      ),
+                    ),
+                  ..._stateBody(context, t),
+                  if (t.bandsText != null) _WhoSeesWhat(text: t.bandsText!),
+                ],
+              ),
             ],
           ),
         ),
@@ -176,6 +181,13 @@ class _RamadanScreenState extends ConsumerState<RamadanScreen> {
                   setState(() => _live = (day: content.day, marks: m)),
             ),
           if (t.day == 29) _EidTomorrowCard(season: t.season),
+          if (t.season != null)
+            RamadanLanternStreet(
+              childId: _childId,
+              season: t.season!,
+              today: t.day,
+              lit: _litDays(t),
+            ),
           const RamadanAudioShelf(),
           const _PrintKitRow(),
           ?fastingCard,
@@ -193,13 +205,6 @@ class _RamadanScreenState extends ConsumerState<RamadanScreen> {
               templates: t.eidGreetings,
               hijriYear: t.season!.hijriYear,
               familyWord: t.familyWord,
-            ),
-          if (t.season != null)
-            RamadanLanternStreet(
-              childId: _childId,
-              season: t.season!,
-              today: t.day,
-              lit: _litDays(t),
             ),
           _RecapLink(soFar: true),
         ];

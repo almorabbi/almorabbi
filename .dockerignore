@@ -28,6 +28,7 @@ knowledge_base/raw_sources/
 docs/*.mp3
 docs/*.mp4
 docs/path_videos/
+docs/ramadan_audio/
 # Keep lightweight lesson-asset JSON (flashcards, quizzes, reports,
 # data_tables) inside the image so asset-content tests run without mounts.
 # Heavy infographics and any stray media stay out.
