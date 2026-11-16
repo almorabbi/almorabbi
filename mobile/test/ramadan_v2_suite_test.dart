@@ -13,6 +13,7 @@ library;
 
 import 'dart:convert';
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:almorabbi/features/companion/data/companion_store.dart';
 import 'package:almorabbi/features/companion/logic/companion_brain.dart';
@@ -28,9 +29,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:screenshot/screenshot.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'programs_support.dart';
+
+const _dumpPrintKitDir = String.fromEnvironment('DUMP_PRINT_KIT_DIR');
 
 final _missWords = RegExp(
   r'miss|fail|behind|late|فات|فائت|تأخّر|فشل',
@@ -355,5 +359,179 @@ void main() {
       await scrollTo(tester, find.byKey(const ValueKey('ramadan_after_pledge_ribbon')));
       expect(find.text('Our chosen Shawwal habits:'), findsOneWidget);
     });
+  });
+
+  group('RamadanPrintKitScreen off-tree 3-sheet capture', () {
+    testWidgets('switching sheet tabs and tapping Share throws no exceptions', (
+      tester,
+    ) async {
+      GoogleFonts.config.allowRuntimeFetching = false;
+      SharedPreferences.setMockInitialValues({
+        OnboardingStorage.keyActiveChildId: kChildId,
+        OnboardingStorage.keyActiveChildName: 'سارة',
+        OnboardingStorage.keyActiveChildAgeGroup: '7-9',
+        OnboardingStorage.keyOnboardingCompleted: true,
+      });
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [tgClientProvider.overrideWithValue(FakeProgramsClient())],
+          child: const MaterialApp(
+            locale: Locale('ar'),
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            home: RamadanPrintKitScreen(),
+          ),
+        ),
+      );
+      await tester.runAsync(
+        () => Future<void>.delayed(const Duration(milliseconds: 120)),
+      );
+      await tester.pumpAndSettle();
+
+      for (final idx in [0, 1, 2]) {
+        await tester.tap(find.byKey(ValueKey('print_kit_sheet_$idx')));
+        await tester.pumpAndSettle();
+        expect(find.byType(ErrorWidget), findsNothing);
+        expect(find.textContaining('سارة'), findsWidgets);
+      }
+
+      await scrollTo(tester, find.byKey(const ValueKey('print_kit_share_cta')));
+      await tester.tap(find.byKey(const ValueKey('print_kit_share_cta')));
+      await tester.runAsync(
+        () => Future<void>.delayed(const Duration(milliseconds: 400)),
+      );
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets(
+      'captures all 3 A4 sheets off-tree (ar color/bw & en color) with zero ErrorWidget',
+      (tester) async {
+        GoogleFonts.config.allowRuntimeFetching = false;
+        final ar = lookupAppLocalizations(const Locale('ar'));
+        final en = lookupAppLocalizations(const Locale('en'));
+        const kids = [
+          LocalPrintChild(name: 'سارة', ageGroup: '7-9'),
+          LocalPrintChild(name: 'عمر', ageGroup: '4-6'),
+        ];
+
+        final variants = <({String slug, bool isAr, bool bw, AppLocalizations l10n})>[
+          (slug: 'ar_color', isAr: true, bw: false, l10n: ar),
+          (slug: 'ar_bw', isAr: true, bw: true, l10n: ar),
+          (slug: 'en_color', isAr: false, bw: false, l10n: en),
+        ];
+
+        final controller = ScreenshotController();
+        if (_dumpPrintKitDir.isNotEmpty) {
+          Directory(_dumpPrintKitDir).createSync(recursive: true);
+        }
+
+        for (final v in variants) {
+          final namesText = kids.map((k) => k.name).join(v.isAr ? '، ' : ', ');
+          final sheets = buildRamadanKitSheets(
+            isAr: v.isAr,
+            bwInk: v.bw,
+            kids: kids,
+            kitHeadline: v.l10n.ramadanPrintKitTitle,
+            namesBanner: v.l10n.ramadanPrintKitForChildren(namesText),
+            footerTitle: v.l10n.ramadanPrintKitBannerHint,
+          );
+          expect(sheets, hasLength(3));
+
+          for (var idx = 0; idx < sheets.length; idx++) {
+            final sheet = sheets[idx];
+            tester.view.physicalSize = RamadanPrintableSheet.a4Size;
+            tester.view.devicePixelRatio = 1.0;
+            addTearDown(() {
+              tester.view.resetPhysicalSize();
+              tester.view.resetDevicePixelRatio();
+            });
+
+            await tester.pumpWidget(
+              Directionality(
+                textDirection: TextDirection.ltr,
+                child: SizedBox(
+                  width: RamadanPrintableSheet.a4Size.width,
+                  height: RamadanPrintableSheet.a4Size.height,
+                  child: sheet,
+                ),
+              ),
+            );
+            await tester.pump();
+            expect(
+              tester.takeException(),
+              isNull,
+              reason: '${v.slug} sheet ${idx + 1} threw while pumping without MediaQuery/View',
+            );
+            expect(find.byType(ErrorWidget), findsNothing);
+            expect(find.textContaining('تعذّر عرض هذا الجزء'), findsNothing);
+            expect(find.textContaining('سارة'), findsWidgets);
+
+            final png = (await tester.runAsync(
+              () => controller.captureFromWidget(
+                sheet,
+                targetSize: RamadanPrintableSheet.a4Size,
+                pixelRatio: 1.0,
+                delay: const Duration(milliseconds: 120),
+              ),
+            ))!;
+            expect(
+              tester.takeException(),
+              isNull,
+              reason: '${v.slug} sheet ${idx + 1} threw during captureFromWidget',
+            );
+
+            final image = (await tester.runAsync(() => decodeImageFromList(png)))!;
+            addTearDown(image.dispose);
+            expect(image.width, 1080);
+            expect(image.height, 1528);
+
+            final rgba = (await tester.runAsync(
+              () => image.toByteData(format: ui.ImageByteFormat.rawStraightRgba),
+            ))!;
+
+            double inkRatio(int yStart, int yEnd) {
+              var nonWhite = 0;
+              var total = 0;
+              for (var y = yStart; y < yEnd; y += 3) {
+                for (var x = 48; x < 1032; x += 3) {
+                  final i = (y * image.width + x) * 4;
+                  final r = rgba.getUint8(i);
+                  final g = rgba.getUint8(i + 1);
+                  final b = rgba.getUint8(i + 2);
+                  total++;
+                  if (r < 245 || g < 245 || b < 245) nonWhite++;
+                }
+              }
+              return nonWhite / total;
+            }
+
+            final headInk = inkRatio(45, 225);
+            final bodyInk = inkRatio(260, 1280);
+            final footInk = inkRatio(1315, 1480);
+            expect(
+              headInk,
+              greaterThan(0.01),
+              reason: '${v.slug} sheet ${idx + 1}: empty header ($headInk)',
+            );
+            expect(
+              bodyInk,
+              greaterThan(0.01),
+              reason: '${v.slug} sheet ${idx + 1}: empty body ($bodyInk)',
+            );
+            expect(
+              footInk,
+              greaterThan(0.01),
+              reason: '${v.slug} sheet ${idx + 1}: empty QR footer ($footInk)',
+            );
+
+            if (_dumpPrintKitDir.isNotEmpty) {
+              File('$_dumpPrintKitDir/${v.slug}_sheet_${idx + 1}.png')
+                  .writeAsBytesSync(png);
+            }
+          }
+        }
+      },
+    );
   });
 }
