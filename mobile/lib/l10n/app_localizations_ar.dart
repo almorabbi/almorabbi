@@ -7129,4 +7129,170 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get todayFamilyPuzzlesCta => 'العبوا معًا';
+
+  @override
+  String get ramadanPrintKitTitle => 'عدّة رمضان الورقية لأسرتك';
+
+  @override
+  String get ramadanPrintKitSubtitle =>
+      'اطبع خريطة القناديل الـ ٣٠ وباترون الفانوس وبطاقات السفرة — بأسماء أطفالك محليًا دون إرسال أي اسم.';
+
+  @override
+  String get ramadanPrintKitInkColor => 'ألوان نور والقناديل';
+
+  @override
+  String get ramadanPrintKitInkBw => 'توفير الحبر (للتلوين)';
+
+  @override
+  String ramadanPrintKitForChildren(String names) {
+    return 'لأطفال أسرتنا: $names';
+  }
+
+  @override
+  String get ramadanPrintKitDefaultNames => 'أبطال بيتنا';
+
+  @override
+  String get ramadanPrintKitShareCta => 'حفظ ومشاركة للطباعة الفورية';
+
+  @override
+  String get ramadanPrintKitOpenCraft =>
+      'فتح باترون الفانوس ثلاثي الأبعاد (A4)';
+
+  @override
+  String get ramadanPrintKitOpenFullPack => 'فتح أوراق رمضان الكاملة (١٢ ورقة)';
+
+  @override
+  String get ramadanPrintKitPrivacyNote =>
+      'تبقى أسماء أطفالك على هاتفك فقط ولا تُرسل إلى أي خادم.';
+
+  @override
+  String get ramadanPrintKitBannerHint =>
+      'تحتاج إلى مقصّ وصمغ وألوان خشبية؛ ولا يُستعمل إلا ضوء بطارية آمن داخل الفانوس.';
+
+  @override
+  String get ramadanFawazirSectionTitle => 'فوازير قناديل رمضان (٣٠ ليلة)';
+
+  @override
+  String get ramadanFawazirSectionSubtitle =>
+      'لغز سهرة هادئ بعد الإفطار يجمع العائلة ويضيء قنديل الليلة.';
+
+  @override
+  String ramadanFawazirNightLabel(int night) {
+    return 'ليلة $night';
+  }
+
+  @override
+  String get ramadanFawazirListenBtn => 'اسمع الفزورة بصوت الحكواتي';
+
+  @override
+  String get ramadanFawazirPauseBtn => 'إيقاف الصوت';
+
+  @override
+  String get ramadanFawazirAudioOffline =>
+      'الصوت غير متاح الآن — اقرأ الفزورة بصوتك الدافئ لطفلك.';
+
+  @override
+  String get ramadanFawazirDayCardTitle => 'فزورة السهرة العائلية (٣ دقائق)';
+
+  @override
+  String get ramadanFawazirDayCardBody =>
+      'تحدٍّ بصري هادئ يضيف توهّجًا لقنديل الليلة عند حلّه معًا.';
+
+  @override
+  String get ramadanFawazirDayCardDone => 'أُضيئت فزورة الليلة ✨';
+
+  @override
+  String ramadanFawazirDayCardCta(int night) {
+    return 'افتح فزورة ليلة $night';
+  }
+
+  @override
+  String ramadanPartnerLanternNoor(String partner, int day) {
+    return 'أضاء $partner قنديل اليوم $day — بارك لهما بكلمة دافئة.';
+  }
+
+  @override
+  String ramadanPartnerLanternBanner(String partner, int day) {
+    return 'توهّج قنديل اليوم $day من هاتف $partner في حساب الأسرة';
+  }
+
+  @override
+  String get ramadanPartnerRoleMother => 'الأم';
+
+  @override
+  String get ramadanPartnerRoleFather => 'الأب';
+
+  @override
+  String get ramadanPartnerRoleParent => 'الشريك';
+
+  @override
+  String shabanPrepEyebrow(int days) {
+    return 'عشر الاستقبال في شعبان · باقي $days أيام';
+  }
+
+  @override
+  String get shabanPrepTitle => 'تهيئة اليوم (٥ دقائق)';
+
+  @override
+  String get shabanPrepDoneBtn => 'أتممنا تهيئة اليوم';
+
+  @override
+  String get shabanPrepMarkBtn => 'جهّزنا هذه الخطوة ✨';
+
+  @override
+  String get shabanPrepListTitle => 'محطات عشر الاستقبال في شعبان';
+
+  @override
+  String get shabanPrepOpenPrintCta => 'عدّة رمضان الورقية والطباعة';
+
+  @override
+  String get ramadanAudioTitle => 'حكواتي قبل المدفع وكبسولات المربّي';
+
+  @override
+  String get ramadanAudioTalesTab => 'حكايات قبل المغرب (بلا شاشة)';
+
+  @override
+  String ramadanAudioCapsulesTab(int count) {
+    return 'كبسولات المربّي الصائم ($count)';
+  }
+
+  @override
+  String get ramadanAudioScreenOffBtn => 'استمع مع إطفاء الشاشة';
+
+  @override
+  String get ramadanAudioReadStoryBtn => 'اقرأ الحكاية لطفلك';
+
+  @override
+  String get ramadanAudioListenCapsuleBtn => 'استمع للكبسولة';
+
+  @override
+  String get ramadanAudioMoralLabel => 'المغزى التربوي:';
+
+  @override
+  String get ramadanPledgeTitle => 'وصية العشر لشوال';
+
+  @override
+  String get ramadanPledgeSubtitle =>
+      'اختارا عادتين جميلتين من رمضان نكملهما بحبّ بعد العيد:';
+
+  @override
+  String get ramadanPledgeSelectedBadge => 'تم حفظ وصية أسرتنا ✨';
+
+  @override
+  String get ramadanPledgeActiveRibbon => 'وصيتنا التي نكملها في شوال:';
+
+  @override
+  String get eidGreetingTitle => 'عيدية العائلة الورقية للأهل والأحباب';
+
+  @override
+  String get eidGreetingSubtitle =>
+      'بطاقة تهنئة دافئة خالية تمامًا من أسماء الأطفال ومعلوماتهم — اختر تصميمًا وشاركه بحبّ.';
+
+  @override
+  String get eidGreetingShareCta => 'مشاركة بطاقة العيد';
+
+  @override
+  String eidGreetingIncludeWord(String word) {
+    return 'أضِف «كلمة رمضاننا»: $word';
+  }
 }

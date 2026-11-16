@@ -33,12 +33,16 @@ it is returned separately, for the family's eyes, in `family_only`.
 """
 from __future__ import annotations
 
+import hashlib
+import json
 import logging
 import os
 import re
 import sqlite3
 from dataclasses import dataclass, replace
 from datetime import date, timedelta
+from functools import lru_cache
+from pathlib import Path
 from typing import Any, Optional
 
 from app.db.init_db import get_conn
@@ -50,14 +54,63 @@ PROGRAM = "ramadan_family"
 FAMILY = 0                 # child_id of a row that belongs to the whole family
 BRIDGE_WEEKS = 4           # after_ramadan.weeks
 DEFAULT_MONTH_DAYS = 30
+SHABAN_PREP_DAYS = 10
 
 FAMILY_MARKS = ("challenge_done", "wird_done", "story_heard", "juz_read",
                 "night_joined", "family_word")
+FAWAZIR_MARK = "fawazir_done"
+PLEDGE_MARKS = ("pledge_habit_1", "pledge_habit_2")
 STEP_UP = "fasting_step_up"
 PRACTISED = "fasting_practised"
 
+_DATA_DIR = Path(__file__).resolve().parents[1] / "data"
 _ESTIMATE_KEY = re.compile(r"^expected_start_(\d{4})$")
 _ENV_START = re.compile(r"^RAMADAN_START_(\d{4})$")
+
+
+def origin_tag(device_id: str) -> str:
+    """One-way irreversible tag for recording which confirmed parent device lit a mark."""
+    return hashlib.sha256(f"tg_lantern:{device_id}".encode("utf-8")).hexdigest()[:16]
+
+
+@lru_cache(maxsize=4)
+def _parse_companion(path_str: str, mtime_ns: int) -> dict[str, Any]:  # noqa: ARG001
+    return json.loads(Path(path_str).read_text(encoding="utf-8"))
+
+
+def load_companion(lang: Optional[str]) -> dict[str, Any]:
+    """Load `ramadan_companion.{ar,en}.json` cleanly with Arabic fallback."""
+    code = pc.lang_code(lang)
+    for candidate in (code, "ar"):
+        path = _DATA_DIR / f"ramadan_companion.{candidate}.json"
+        if path.is_file():
+            try:
+                return _parse_companion(str(path), path.stat().st_mtime_ns)
+            except (OSError, ValueError) as exc:
+                logger.warning("companion file unreadable (%s): %s", path.name, exc)
+    return {}
+
+
+def shaban_prep_payload(
+    where: dict[str, Any],
+    lang: Optional[str],
+) -> tuple[Optional[dict[str, Any]], list[dict[str, Any]]]:
+    """Return `(today_station, all_10_stations)` when in Sha'ban welcome window."""
+    if where.get("state") != "upcoming":
+        return None, []
+    days_until = where.get("days_until_start")
+    if not isinstance(days_until, int) or not 1 <= days_until <= SHABAN_PREP_DAYS:
+        return None, []
+    comp = load_companion(lang)
+    stations = [dict(s) for s in (comp.get("shaban_prep") or []) if isinstance(s, dict)]
+    today_station = next((s for s in stations if s.get("days_left") == days_until), None)
+    return today_station, stations
+
+
+def eid_greetings_payload(lang: Optional[str]) -> list[dict[str, Any]]:
+    """Return bilingual name-free paper Eid greeting templates."""
+    comp = load_companion(lang)
+    return [dict(g) for g in (comp.get("eid_greetings") or []) if isinstance(g, dict)]
 
 
 class RamadanError(Exception):
@@ -672,13 +725,14 @@ def set_family_mark(doc: dict, device_id: str, where: dict[str, Any], *, mark: s
             raise RamadanError("choice_index_required", 422, choices=len(choices))
         value = str(choice_index)
     conn = get_conn()
+    tag = origin_tag(device_id)
     try:
         if done:
             conn.execute(
-                "INSERT INTO ramadan_marks (device_id, child_id, hijri_year, day, mark, value) "
-                "VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(device_id, child_id, hijri_year, day, mark) "
-                "DO UPDATE SET value = excluded.value",
-                (device_id, FAMILY, season.hijri_year, day, mark, value),
+                "INSERT INTO ramadan_marks (device_id, child_id, hijri_year, day, mark, value, origin_hash) "
+                "VALUES (?, ?, ?, ?, ?, ?, ?) ON CONFLICT(device_id, child_id, hijri_year, day, mark) "
+                "DO UPDATE SET value = excluded.value, origin_hash = excluded.origin_hash",
+                (device_id, FAMILY, season.hijri_year, day, mark, value, tag),
             )
         else:
             conn.execute(
@@ -690,6 +744,207 @@ def set_family_mark(doc: dict, device_id: str, where: dict[str, Any], *, mark: s
     finally:
         conn.close()
     return day
+
+
+def set_fawazir_mark(
+    device_id: str,
+    where: dict[str, Any],
+    *,
+    day: Optional[int],
+    done: bool,
+) -> int:
+    """Tick/untick `fawazir_done` on a Ramadan night, lighting that day's lantern."""
+    season = where.get("season")
+    limit = markable_days(where)
+    if season is None or limit == 0:
+        raise RamadanError("not_in_season")
+    if day is None:
+        if where["state"] != "ramadan":
+            raise RamadanError("day_required", 422)
+        day = where["day"]
+    if not 1 <= day <= limit:
+        raise RamadanError("day_not_markable", 422, markable_up_to=limit)
+    conn = get_conn()
+    tag = origin_tag(device_id)
+    try:
+        if done:
+            conn.execute(
+                "INSERT INTO ramadan_marks (device_id, child_id, hijri_year, day, mark, value, origin_hash) "
+                "VALUES (?, ?, ?, ?, ?, '1', ?) ON CONFLICT(device_id, child_id, hijri_year, day, mark) "
+                "DO UPDATE SET value = '1', origin_hash = excluded.origin_hash",
+                (device_id, FAMILY, season.hijri_year, day, FAWAZIR_MARK, tag),
+            )
+        else:
+            conn.execute(
+                "DELETE FROM ramadan_marks WHERE device_id = ? AND child_id = ? "
+                "AND hijri_year = ? AND day = ? AND mark = ?",
+                (device_id, FAMILY, season.hijri_year, day, FAWAZIR_MARK),
+            )
+        conn.commit()
+    finally:
+        conn.close()
+    return day
+
+
+def fawazir_days_lit(device_id: str, season: Optional[Season]) -> list[int]:
+    """Sorted days 1..days where the family solved the evening Fawazir puzzle."""
+    if season is None:
+        return []
+    conn = get_conn()
+    try:
+        rows = conn.execute(
+            "SELECT DISTINCT day FROM ramadan_marks WHERE device_id = ? AND child_id = ? "
+            "AND hijri_year = ? AND mark = ? AND day BETWEEN 1 AND ? ORDER BY day",
+            (device_id, FAMILY, season.hijri_year, FAWAZIR_MARK, season.days),
+        ).fetchall()
+    finally:
+        conn.close()
+    return [int(r["day"]) for r in rows]
+
+
+def _allowed_keep_habit_keys(doc: dict) -> list[str]:
+    habits = ((doc.get("after_ramadan") or {}).get("keep_habits") or [])
+    return [str(h["key"]) for h in habits if isinstance(h, dict) and h.get("key")]
+
+
+def keep_habits_payload(doc: dict) -> list[dict[str, Any]]:
+    """Return all keep-habit definitions for «وصية العشر لشوال» selection."""
+    return [
+        dict(h)
+        for h in ((doc.get("after_ramadan") or {}).get("keep_habits") or [])
+        if isinstance(h, dict)
+    ]
+
+
+def picked_family_word(
+    doc: dict,
+    device_id: str,
+    season: Optional[Season],
+) -> Optional[str]:
+    """Return the family's chosen Ramadan word for the given season, if picked."""
+    if season is None:
+        return None
+    choices = _family_word_choices(doc)
+    if not choices:
+        return None
+    conn = get_conn()
+    try:
+        row = conn.execute(
+            "SELECT value FROM ramadan_marks "
+            "WHERE device_id = ? AND child_id = ? AND hijri_year = ? AND mark = ? "
+            "ORDER BY day DESC LIMIT 1",
+            (device_id, FAMILY, season.hijri_year, "family_word"),
+        ).fetchone()
+    finally:
+        conn.close()
+    if not row or row["value"] is None:
+        return None
+    try:
+        idx = int(row["value"])
+    except (ValueError, TypeError):
+        return None
+    return choices[idx] if 0 <= idx < len(choices) else None
+
+
+def set_pledged_habits(
+    doc: dict,
+    device_id: str,
+    where: dict[str, Any],
+    habit_keys: list[str],
+) -> list[str]:
+    """Persist up to 2 Shawwal keep-habits from `keep_habits` at `day = 0`."""
+    season = where.get("season")
+    if season is None or where.get("state") not in ("ramadan", "eid", "after"):
+        raise RamadanError("not_in_season")
+    allowed = set(_allowed_keep_habit_keys(doc))
+    clean: list[str] = []
+    for k in habit_keys:
+        if k not in allowed:
+            raise RamadanError("unknown_habit", 422, allowed=sorted(allowed))
+        if k not in clean:
+            clean.append(k)
+        if len(clean) >= 2:
+            break
+
+    conn = get_conn()
+    tag = origin_tag(device_id)
+    try:
+        for idx, mark_name in enumerate(PLEDGE_MARKS):
+            val = clean[idx] if idx < len(clean) else ""
+            conn.execute(
+                "INSERT INTO ramadan_marks (device_id, child_id, hijri_year, day, mark, value, origin_hash, created_at) "
+                "VALUES (?, ?, ?, 0, ?, ?, ?, datetime('now')) "
+                "ON CONFLICT(device_id, child_id, hijri_year, day, mark) "
+                "DO UPDATE SET value = excluded.value, origin_hash = excluded.origin_hash, "
+                "created_at = excluded.created_at",
+                (device_id, FAMILY, season.hijri_year, mark_name, val, tag),
+            )
+        conn.commit()
+    finally:
+        conn.close()
+    return clean
+
+
+def pledged_habits(device_id: str, season: Optional[Season]) -> list[str]:
+    """Return the 0..2 Shawwal habit keys pledged by the family for this season."""
+    if season is None:
+        return []
+    conn = get_conn()
+    try:
+        rows = conn.execute(
+            "SELECT mark, value FROM ramadan_marks "
+            "WHERE device_id = ? AND child_id = ? AND hijri_year = ? AND day = 0 "
+            "AND mark IN (?, ?) ORDER BY mark ASC",
+            (device_id, FAMILY, season.hijri_year, PLEDGE_MARKS[0], PLEDGE_MARKS[1]),
+        ).fetchall()
+    finally:
+        conn.close()
+    out: list[str] = []
+    for r in rows:
+        val = (r["value"] or "").strip()
+        if val and val not in out:
+            out.append(val)
+    return out
+
+
+def partner_lantern_for_day(
+    device_id: str,
+    season: Optional[Season],
+    day_no: Optional[int],
+    *,
+    session_token: Optional[str] = None,
+) -> Optional[dict[str, Any]]:
+    """Return partner lantern metadata if the confirmed co-parent lit `day_no`."""
+    if season is None or not isinstance(day_no, int) or day_no < 1:
+        return None
+    from app.services import families_service
+
+    partner = families_service.active_confirmed_partner_info(
+        device_id, session_token=session_token
+    )
+    if not partner:
+        return None
+    partner_tag = origin_tag(partner["device_id"])
+    conn = get_conn()
+    try:
+        row = conn.execute(
+            """
+            SELECT 1 FROM ramadan_marks
+            WHERE device_id IN (?, ?) AND child_id = ? AND hijri_year = ?
+              AND day = ? AND origin_hash = ?
+            LIMIT 1
+            """,
+            (device_id, partner["device_id"], FAMILY, season.hijri_year, day_no, partner_tag),
+        ).fetchone()
+    finally:
+        conn.close()
+    if row is None:
+        return None
+    return {
+        "day": day_no,
+        "partner_role": partner["role"],
+        "partner_name": partner["display_name"],
+    }
 
 
 # ── «رمضان عائلتنا» — the card ─────────────────────────────────────────────

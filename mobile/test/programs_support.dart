@@ -501,6 +501,32 @@ class FakeProgramsClient extends TgClient {
   }
 
   @override
+  Future<Map<String, dynamic>> markRamadanFawazir({int? day, bool done = true}) async {
+    calls.add('fawazir');
+    bodies.add({'day': day, 'done': done});
+    final d = day ?? 3;
+    final curLit = List<int>.from((ramadanToday['fawazir_days_lit'] as List?) ?? const <int>[]);
+    final marked = List<int>.from((ramadanToday['days_marked'] as List?) ?? const <int>[]);
+    if (done) {
+      if (!curLit.contains(d)) curLit.add(d);
+      if (!marked.contains(d)) marked.add(d);
+    } else {
+      curLit.remove(d);
+    }
+    ramadanToday = {...ramadanToday, 'fawazir_days_lit': curLit, 'days_marked': marked};
+    return {'hijri_year': 1448, 'day': d, 'done': done, 'fawazir_days_lit': curLit, 'days_marked': marked};
+  }
+
+  @override
+  Future<Map<String, dynamic>> saveRamadanPledge(List<String> habitKeys) async {
+    calls.add('pledge');
+    bodies.add({'habit_keys': habitKeys});
+    final clean = habitKeys.take(2).toList();
+    ramadanToday = {...ramadanToday, 'pledged_habits': clean};
+    return {'hijri_year': 1448, 'pledged_habits': clean};
+  }
+
+  @override
   Future<Map<String, dynamic>> fetchFastingLadder(int childId) async {
     calls.add('ladder');
     return ladder;

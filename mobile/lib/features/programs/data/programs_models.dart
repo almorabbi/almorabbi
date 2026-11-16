@@ -231,6 +231,101 @@ enum RamadanState {
   };
 }
 
+class ShabanPrepStation {
+  const ShabanPrepStation({
+    required this.daysLeft,
+    required this.key,
+    required this.title,
+    this.subtitle,
+    this.minutes,
+    this.steps = const [],
+    this.childRole,
+  });
+
+  final int daysLeft;
+  final String key;
+  final String title;
+  final String? subtitle;
+  final int? minutes;
+  final List<String> steps;
+  final String? childRole;
+
+  static ShabanPrepStation? fromJson(Object? v) {
+    final j = _map(v);
+    final daysLeft = _int(j?['days_left']);
+    final key = _str(j?['key']);
+    final title = _str(j?['title']);
+    if (j == null || daysLeft == null || key == null || title == null) {
+      return null;
+    }
+    return ShabanPrepStation(
+      daysLeft: daysLeft,
+      key: key,
+      title: title,
+      subtitle: _str(j['subtitle']),
+      minutes: _int(j['minutes']),
+      steps: _strings(j['steps']),
+      childRole: _str(j['child_role']),
+    );
+  }
+
+  static List<ShabanPrepStation> listFrom(Object? v) => [
+    for (final item in (v is List ? v : const []))
+      ?ShabanPrepStation.fromJson(item),
+  ];
+}
+
+class PartnerLanternNotice {
+  const PartnerLanternNotice({
+    required this.day,
+    this.partnerRole = 'parent',
+    this.partnerName,
+  });
+
+  final int day;
+  final String partnerRole;
+  final String? partnerName;
+
+  static PartnerLanternNotice? fromJson(Object? v) {
+    final j = _map(v);
+    final day = _int(j?['day']);
+    if (j == null || day == null) return null;
+    return PartnerLanternNotice(
+      day: day,
+      partnerRole: _str(j['partner_role']) ?? 'parent',
+      partnerName: _str(j['partner_name']),
+    );
+  }
+}
+
+class EidGreetingTemplate {
+  const EidGreetingTemplate({
+    required this.key,
+    required this.eyebrow,
+    required this.headline,
+    this.lines = const [],
+    this.closing,
+  });
+
+  final String key;
+  final String eyebrow;
+  final String headline;
+  final List<String> lines;
+  final String? closing;
+
+  static List<EidGreetingTemplate> listFrom(Object? v) => [
+    for (final j in _maps(v))
+      if (_str(j['key']) != null && _str(j['headline']) != null)
+        EidGreetingTemplate(
+          key: j['key'] as String,
+          eyebrow: _str(j['eyebrow']) ?? '',
+          headline: j['headline'] as String,
+          lines: _strings(j['lines']),
+          closing: _str(j['closing']),
+        ),
+  ];
+}
+
 class RamadanOverview {
   const RamadanOverview({
     required this.state,
@@ -239,6 +334,8 @@ class RamadanOverview {
     this.daysUntilStart,
     this.afterWeek,
     this.recapAvailable = false,
+    this.shabanPrepToday,
+    this.partnerLantern,
   });
 
   final RamadanState state;
@@ -247,6 +344,8 @@ class RamadanOverview {
   final int? daysUntilStart;
   final int? afterWeek;
   final bool recapAvailable;
+  final ShabanPrepStation? shabanPrepToday;
+  final PartnerLanternNotice? partnerLantern;
 
   /// Worth a card at all: a season the server knows, not yet over.
   bool get isActive => season != null && state != RamadanState.offSeason;
@@ -260,6 +359,8 @@ class RamadanOverview {
       daysUntilStart: _int(j?['days_until_start']),
       afterWeek: _int(j?['after_week']),
       recapAvailable: _bool(j?['recap_available']),
+      shabanPrepToday: ShabanPrepStation.fromJson(j?['shaban_prep_today']),
+      partnerLantern: PartnerLanternNotice.fromJson(j?['partner_lantern']),
     );
   }
 }
@@ -863,6 +964,14 @@ class RamadanToday {
     this.fasting,
     this.recapAvailable = false,
     this.daysMarked = const {},
+    this.shabanPrep,
+    this.shabanStations = const [],
+    this.partnerLantern,
+    this.fawazirDaysLit = const {},
+    this.pledgedHabits = const [],
+    this.keepHabits = const [],
+    this.eidGreetings = const [],
+    this.familyWord,
   });
 
   final int childId;
@@ -893,6 +1002,15 @@ class RamadanToday {
   /// Empty from a server older than the street.
   final Set<int> daysMarked;
 
+  final ShabanPrepStation? shabanPrep;
+  final List<ShabanPrepStation> shabanStations;
+  final PartnerLanternNotice? partnerLantern;
+  final Set<int> fawazirDaysLit;
+  final List<String> pledgedHabits;
+  final List<TitledText> keepHabits;
+  final List<EidGreetingTemplate> eidGreetings;
+  final String? familyWord;
+
   factory RamadanToday.fromJson(Map<String, dynamic> j) => RamadanToday(
     childId: _int(j['child_id']) ?? -1,
     state: RamadanState.fromWire(_str(j['state'])),
@@ -918,6 +1036,19 @@ class RamadanToday {
           : const <Object?>[])
         ?_int(d),
     },
+    shabanPrep: ShabanPrepStation.fromJson(j['shaban_prep']),
+    shabanStations: ShabanPrepStation.listFrom(j['shaban_stations']),
+    partnerLantern: PartnerLanternNotice.fromJson(j['partner_lantern']),
+    fawazirDaysLit: {
+      for (final d in j['fawazir_days_lit'] is List
+          ? j['fawazir_days_lit'] as List
+          : const <Object?>[])
+        ?_int(d),
+    },
+    pledgedHabits: _strings(j['pledged_habits']),
+    keepHabits: TitledText.listFrom(j['keep_habits']),
+    eidGreetings: EidGreetingTemplate.listFrom(j['eid_greetings']),
+    familyWord: _str(j['family_word']),
   );
 }
 

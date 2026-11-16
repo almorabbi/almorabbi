@@ -95,6 +95,7 @@ void main() {
       'dataTable': AppRoutes.dataTable('https://x/d.csv'),
       'familyPuzzles': AppRoutes.familyPuzzles(),
       'familyPuzzleRunner': AppRoutes.familyPuzzleRunner(puzzles: const []),
+      'ramadanPrintKit': AppRoutes.ramadanPrintKit(),
       'gameDataDefender': AppRoutes.gameDataDefender(),
       'gameHealthyHero': AppRoutes.gameHealthyHero(),
       'gameTreeOfDeeds': AppRoutes.gameTreeOfDeeds(),

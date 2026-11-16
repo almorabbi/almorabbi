@@ -46,6 +46,7 @@ enum CompanionKind {
   prayerInvite,
   milestoneDue,
   birthMonthAsk,
+  partnerLanternLit,
   ramadanCountdown,
   ramadanStart,
   seasonStart,
@@ -122,6 +123,8 @@ class CompanionInputs {
     this.ramadanDaysUntil,
     this.ramadanYear,
     this.ramadanDay,
+    this.partnerLanternDay,
+    this.partnerLanternLabel,
     this.hasWeeklyPlan = false,
     this.weekActs = 0,
     this.firstDay = false,
@@ -165,6 +168,8 @@ class CompanionInputs {
   /// `ramadan.day` from /api/programs while the month is on (1–30), with
   /// the family's own sighting already applied by the server.
   final int? ramadanDay;
+  final int? partnerLanternDay;
+  final String? partnerLanternLabel;
   final bool hasWeeklyPlan;
 
   /// This week's lantern-lighting acts (`/api/family/week`); 0 when there
@@ -185,6 +190,7 @@ class CompanionLine {
     this.step,
     this.count,
     this.ramadanDays,
+    this.partnerLabel,
     this.variant = 1,
     this.promise,
     this.followup,
@@ -206,6 +212,7 @@ class CompanionLine {
   final String? step;
   final int? count;
   final int? ramadanDays;
+  final String? partnerLabel;
 
   /// Which of the four rotated greeting lines (1–4).
   final int variant;
@@ -366,6 +373,24 @@ CompanionLine? pickLine(CompanionInputs i) {
       ),
   ].whereType<CompanionLine>();
   if (noticed.isNotEmpty) return noticed.first;
+
+  // 4b ── co-parent lit today's shared Ramadan lantern, once per day.
+  final pDay = i.partnerLanternDay;
+  if (pDay != null && pDay >= 1) {
+    final key = 'partner-lantern:${i.ramadanYear ?? i.now.year}:$pDay';
+    if (open(key) && !mem.seenKeys.contains(key)) {
+      return CompanionLine(
+        key: key,
+        kind: CompanionKind.partnerLanternLit,
+        mood: CompanionMood.happy,
+        name: i.childName,
+        ramadanDays: pDay,
+        partnerLabel: i.partnerLanternLabel,
+        actions: const [CompanionAction.openRamadan],
+        onceOnly: true,
+      );
+    }
+  }
 
   // 5 ── the Ramadan countdown, on its four days only, once each.
   final d = i.ramadanDaysUntil;

@@ -20,7 +20,10 @@ import '../../../theme/design_tokens.dart';
 import '../../../widgets/ui/bouncy_button.dart';
 import '../../../widgets/ui/brand_glyph.dart';
 import '../../../widgets/ui/directional_chevron.dart';
+import '../../../widgets/ui/paper_lantern.dart';
 import '../../onboarding/providers/onboarding_providers.dart';
+import '../../programs/data/programs_models.dart';
+import '../../programs/providers/programs_providers.dart';
 import '../../routine/providers/child_mode_providers.dart';
 import '../data/family_puzzle_models.dart';
 import '../data/family_puzzle_store.dart';
@@ -40,6 +43,7 @@ class FamilyPuzzlesScreen extends ConsumerStatefulWidget {
 
 class _FamilyPuzzlesScreenState extends ConsumerState<FamilyPuzzlesScreen> {
   FamilyPuzzlePack? _pack;
+  List<FamilyPuzzle> _ramadanPuzzles = const [];
   FamilyPuzzleProgress _progress = const FamilyPuzzleProgress();
   String? _loadedLang;
   bool _loading = true;
@@ -69,10 +73,17 @@ class _FamilyPuzzlesScreenState extends ConsumerState<FamilyPuzzlesScreen> {
   Future<void> _loadData(String lang) async {
     try {
       final pack = await loadFamilyPuzzlePack(lang);
+      List<FamilyPuzzle> ramadan = const [];
+      try {
+        ramadan = await loadRamadanPuzzlePack(lang);
+      } catch (_) {
+        ramadan = const [];
+      }
       final progress = await FamilyPuzzleStore.load(childId: _effectiveChildId);
       if (!mounted) return;
       setState(() {
         _pack = pack;
+        _ramadanPuzzles = ramadan;
         _progress = progress;
         _loading = false;
       });
@@ -172,6 +183,14 @@ class _FamilyPuzzlesScreenState extends ConsumerState<FamilyPuzzlesScreen> {
     final pack = _pack;
     final roundDone = _progress.isRoundDoneOn(now);
     final puzzles = pack?.puzzles ?? const <FamilyPuzzle>[];
+    final ramadanOv = ref.exists(programsOverviewProvider)
+        ? ref.watch(programsOverviewProvider).valueOrNull?.ramadan
+        : null;
+    final hoistRamadan = ramadanOv != null &&
+        (ramadanOv.state == RamadanState.ramadan ||
+            ramadanOv.state == RamadanState.eid ||
+            (ramadanOv.state == RamadanState.upcoming &&
+                (ramadanOv.daysUntilStart ?? 99) <= 10));
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 14, 16, 28),
@@ -325,6 +344,10 @@ class _FamilyPuzzlesScreenState extends ConsumerState<FamilyPuzzlesScreen> {
           ),
         ),
         const SizedBox(height: 20),
+        if (hoistRamadan && _ramadanPuzzles.isNotEmpty) ...[
+          _buildRamadanFawazirSection(context, l10n, colors, now, spent),
+          const SizedBox(height: 20),
+        ],
         for (final skill in PuzzleSkill.values) ...[
           _buildSkillSection(
             context,
@@ -339,7 +362,118 @@ class _FamilyPuzzlesScreenState extends ConsumerState<FamilyPuzzlesScreen> {
             spent,
           ),
         ],
+        if (!hoistRamadan && _ramadanPuzzles.isNotEmpty) ...[
+          const SizedBox(height: 6),
+          _buildRamadanFawazirSection(context, l10n, colors, now, spent),
+        ],
       ],
+    );
+  }
+
+  Widget _buildRamadanFawazirSection(
+    BuildContext context,
+    AppLocalizations l10n,
+    AppPalette colors,
+    DateTime now,
+    bool spent,
+  ) {
+    return Container(
+      key: const ValueKey('ramadan_fawazir_section'),
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: colors.surfaceAlt,
+        borderRadius: BorderRadius.circular(Dt.rCard),
+        border: Border.all(color: colors.paperGold.withValues(alpha: 0.55)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              const PaperLantern(lit: true, height: 28),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  l10n.ramadanFawazirSectionTitle,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: colors.ink,
+                        fontWeight: FontWeight.w800,
+                      ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 4),
+          Text(
+            l10n.ramadanFawazirSectionSubtitle,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: colors.textSecondary,
+                  height: 1.45,
+                ),
+          ),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              for (final p in _ramadanPuzzles)
+                if (p.ramadanNight != null)
+                  SizedBox(
+                    width: 96,
+                    child: Material(
+                      color: _progress.solvedIds.contains(p.id)
+                          ? colors.primary.withValues(alpha: 0.12)
+                          : colors.surface,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                        side: BorderSide(
+                          color: _progress.solvedIds.contains(p.id)
+                              ? colors.paperGold
+                              : colors.track,
+                        ),
+                      ),
+                      child: InkWell(
+                        key: ValueKey(
+                          'ramadan_fawazir_night_${p.ramadanNight}',
+                        ),
+                        borderRadius: BorderRadius.circular(14),
+                        onTap: spent ? null : () => _launchSinglePuzzle(p, now),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 6,
+                            vertical: 8,
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              PaperLantern(
+                                lit: _progress.solvedIds.contains(p.id),
+                                height: 32,
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                l10n.ramadanFawazirNightLabel(p.ramadanNight!),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .labelSmall
+                                    ?.copyWith(
+                                      color: colors.ink,
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 

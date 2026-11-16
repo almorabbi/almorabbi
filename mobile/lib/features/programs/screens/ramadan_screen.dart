@@ -20,13 +20,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/analytics.dart';
 import '../../../core/app_routes.dart';
+import '../../../core/haptics.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../state/chat_notifier.dart';
 import '../../../theme/app_colors.dart';
 import '../../../widgets/ui/loading_view.dart';
 import '../../../widgets/ui/paper_lantern.dart';
 import '../data/programs_models.dart';
 import '../providers/programs_providers.dart';
+import '../widgets/eid_greeting_card.dart';
 import '../widgets/program_widgets.dart';
+import '../widgets/ramadan_audio_shelf.dart';
 import '../widgets/ramadan_widgets.dart';
 
 class RamadanScreen extends ConsumerStatefulWidget {
@@ -45,9 +49,10 @@ class _RamadanScreenState extends ConsumerState<RamadanScreen> {
   ({int day, RamadanMarks marks})? _live;
 
   /// The lit days of the street: what the server says the family marked,
+  /// plus nights where the evening Fawazir lantern was solved,
   /// with today taken from the marks on screen.
   Set<int> _litDays(RamadanToday t) {
-    final lit = {...t.daysMarked};
+    final lit = {...t.daysMarked, ...t.fawazirDaysLit};
     final day = t.state == RamadanState.ramadan ? t.day : null;
     if (day == null) return lit;
     final live = _live;
@@ -55,12 +60,15 @@ class _RamadanScreenState extends ConsumerState<RamadanScreen> {
     if (marks != null) {
       if (marks.anyDone) {
         lit.add(day);
-      } else {
+      } else if (!t.fawazirDaysLit.contains(day)) {
         lit.remove(day);
       }
     }
     return lit;
   }
+
+  List<TitledText> _pledgeHabits(RamadanToday t) =>
+      t.keepHabits.isNotEmpty ? t.keepHabits : (t.after?.keepHabits ?? const []);
 
   @override
   Widget build(BuildContext context) {
@@ -94,23 +102,28 @@ class _RamadanScreenState extends ConsumerState<RamadanScreen> {
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
             physics: const AlwaysScrollableScrollPhysics(),
             children: [
-              _ChildSwitcher(
-                selected: _childId,
-                onSelected: (id) => setState(() => _childId = id),
-              ),
-              if (t.subtitle != null)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
-                  child: ContentText(
-                    t.subtitle!,
-                    style: TextStyle(
-                      color: context.colors.textSecondary,
-                      height: 1.5,
-                    ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  _ChildSwitcher(
+                    selected: _childId,
+                    onSelected: (id) => setState(() => _childId = id),
                   ),
-                ),
-              ..._stateBody(context, t),
-              if (t.bandsText != null) _WhoSeesWhat(text: t.bandsText!),
+                  if (t.subtitle != null)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 12),
+                      child: ContentText(
+                        t.subtitle!,
+                        style: TextStyle(
+                          color: context.colors.textSecondary,
+                          height: 1.5,
+                        ),
+                      ),
+                    ),
+                  ..._stateBody(context, t),
+                  if (t.bandsText != null) _WhoSeesWhat(text: t.bandsText!),
+                ],
+              ),
             ],
           ),
         ),
@@ -135,6 +148,13 @@ class _RamadanScreenState extends ConsumerState<RamadanScreen> {
       case RamadanState.upcoming:
         return [
           _UpcomingHeader(today: t),
+          if (t.shabanStations.isNotEmpty)
+            _ShabanStationsSection(
+              stations: t.shabanStations,
+              todayDaysLeft: t.daysUntilStart,
+            ),
+          const _PrintKitRow(),
+          if ((t.daysUntilStart ?? 99) <= 10) const RamadanAudioShelf(),
           if (t.kickoff != null) _KickoffCard(kickoff: t.kickoff!),
           ?fastingCard,
           // After 1448's bridge this is the 1449 countdown, and last season's
@@ -143,7 +163,10 @@ class _RamadanScreenState extends ConsumerState<RamadanScreen> {
         ];
       case RamadanState.ramadan:
         final content = t.content;
+        final pledgeChoices = _pledgeHabits(t);
         return [
+          if (t.partnerLantern != null)
+            _PartnerLanternBanner(notice: t.partnerLantern!),
           if (content != null)
             RamadanDayCard(
               childId: _childId,
@@ -151,11 +174,13 @@ class _RamadanScreenState extends ConsumerState<RamadanScreen> {
               content: content,
               marks: t.marks,
               markable: t.marks != null,
+              fawazirDone: t.fawazirDaysLit.contains(content.day),
+              onFawazirSolved: () =>
+                  ref.invalidate(ramadanTodayProvider(_childId)),
               onMarksChanged: (m) =>
                   setState(() => _live = (day: content.day, marks: m)),
             ),
           if (t.day == 29) _EidTomorrowCard(season: t.season),
-          ?fastingCard,
           if (t.season != null)
             RamadanLanternStreet(
               childId: _childId,
@@ -163,11 +188,42 @@ class _RamadanScreenState extends ConsumerState<RamadanScreen> {
               today: t.day,
               lit: _litDays(t),
             ),
+          const RamadanAudioShelf(),
+          const _PrintKitRow(),
+          ?fastingCard,
+          if (t.day != null && t.day! >= 20 && pledgeChoices.isNotEmpty)
+            _ShawwalPledgeSection(
+              habits: pledgeChoices,
+              initialPledged: t.pledgedHabits,
+              onSaved: () => ref.invalidate(ramadanTodayProvider(_childId)),
+            ),
+          if (t.day != null &&
+              t.day! >= 29 &&
+              t.eidGreetings.isNotEmpty &&
+              t.season != null)
+            RamadanEidGreetingCard(
+              templates: t.eidGreetings,
+              hijriYear: t.season!.hijriYear,
+              familyWord: t.familyWord,
+            ),
           _RecapLink(soFar: true),
         ];
       case RamadanState.eid:
+        final eidPledgeChoices = _pledgeHabits(t);
         return [
           if (t.eid != null) _EidCard(eid: t.eid!, childName: name),
+          if (t.eidGreetings.isNotEmpty && t.season != null)
+            RamadanEidGreetingCard(
+              templates: t.eidGreetings,
+              hijriYear: t.season!.hijriYear,
+              familyWord: t.familyWord,
+            ),
+          if (eidPledgeChoices.isNotEmpty)
+            _ShawwalPledgeSection(
+              habits: eidPledgeChoices,
+              initialPledged: t.pledgedHabits,
+              onSaved: () => ref.invalidate(ramadanTodayProvider(_childId)),
+            ),
           _RecapLink(soFar: false, prominent: true),
           if (t.season != null)
             RamadanLanternStreet(
@@ -179,7 +235,12 @@ class _RamadanScreenState extends ConsumerState<RamadanScreen> {
         ];
       case RamadanState.after:
         return [
-          if (t.after != null) _AfterCard(after: t.after!, childId: _childId),
+          if (t.after != null)
+            _AfterCard(
+              after: t.after!,
+              childId: _childId,
+              pledgedHabits: t.pledgedHabits,
+            ),
           if (t.recapAvailable) _RecapLink(soFar: false),
           if (t.season != null)
             RamadanLanternStreet(
@@ -734,15 +795,25 @@ class _EidCard extends StatelessWidget {
 }
 
 class _AfterCard extends StatelessWidget {
-  const _AfterCard({required this.after, required this.childId});
+  const _AfterCard({
+    required this.after,
+    required this.childId,
+    this.pledgedHabits = const [],
+  });
   final RamadanAfter after;
   final int childId;
+  final List<String> pledgedHabits;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final c = context.colors;
     final week = after.week;
+    final pledgedSet = pledgedHabits.toSet();
+    final matchedPledges = [
+      for (final h in after.keepHabits)
+        if (h.key != null && pledgedSet.contains(h.key)) h,
+    ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -758,6 +829,43 @@ class _AfterCard extends StatelessWidget {
             ],
           ),
         ),
+        if (matchedPledges.isNotEmpty)
+          ProgramSection(
+            key: const ValueKey('ramadan_after_pledge_ribbon'),
+            tone: SectionTone.highlight,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  children: [
+                    const PaperLantern(lit: true, height: 24),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        l10n.ramadanPledgeActiveRibbon,
+                        style: TextStyle(
+                          color: c.primary,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                for (final p in matchedPledges)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    child: ContentText(
+                      '✨ ${p.title}',
+                      style: TextStyle(
+                        color: c.ink,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
         if (week != null)
           ProgramSection(
             title: l10n.ramadanAfterThisWeek,
@@ -869,6 +977,246 @@ class _WhoSeesWhat extends StatelessWidget {
           ),
           children: [ContentText(text)],
         ),
+      ),
+    );
+  }
+}
+
+class _PrintKitRow extends StatelessWidget {
+  const _PrintKitRow();
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return ProgramSection(
+      child: ProgramLinkRow(
+        key: const ValueKey('ramadan_open_print_kit'),
+        emoji: '🖨️',
+        label: l10n.shabanPrepOpenPrintCta,
+        subtitle: l10n.ramadanPrintKitSubtitle,
+        onTap: () {
+          unawaited(Analytics.programAction('ramadan', 'print_kit'));
+          Navigator.of(context).push(AppRoutes.ramadanPrintKit());
+        },
+      ),
+    );
+  }
+}
+
+class _PartnerLanternBanner extends StatelessWidget {
+  const _PartnerLanternBanner({required this.notice});
+
+  final PartnerLanternNotice notice;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final c = context.colors;
+    final custom = notice.partnerName?.trim();
+    final partnerLabel = (custom != null && custom.isNotEmpty)
+        ? custom
+        : switch (notice.partnerRole) {
+            'mother' => l10n.ramadanPartnerRoleMother,
+            'father' => l10n.ramadanPartnerRoleFather,
+            _ => l10n.ramadanPartnerRoleParent,
+          };
+    return ProgramSection(
+      key: const ValueKey('ramadan_partner_lantern_banner'),
+      tone: SectionTone.highlight,
+      child: Row(
+        children: [
+          const PaperLantern(lit: true, height: 34),
+          const SizedBox(width: 10),
+          Expanded(
+            child: ContentText(
+              l10n.ramadanPartnerLanternBanner(partnerLabel, notice.day),
+              style: TextStyle(
+                color: c.ink,
+                fontWeight: FontWeight.w800,
+                height: 1.45,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ShabanStationsSection extends StatelessWidget {
+  const _ShabanStationsSection({
+    required this.stations,
+    this.todayDaysLeft,
+  });
+
+  final List<ShabanPrepStation> stations;
+  final int? todayDaysLeft;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final c = context.colors;
+    return ProgramSection(
+      key: const ValueKey('ramadan_shaban_stations_section'),
+      title: l10n.shabanPrepListTitle,
+      emoji: '🌙',
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          for (final st in stations)
+            Container(
+              margin: const EdgeInsets.only(bottom: 8),
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: st.daysLeft == todayDaysLeft
+                    ? c.primary.withValues(alpha: 0.1)
+                    : c.surfaceAlt,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: st.daysLeft == todayDaysLeft ? c.primary : c.track,
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ContentText(
+                          st.title,
+                          style: TextStyle(
+                            color: c.ink,
+                            fontWeight: FontWeight.w800,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
+                      CountBadge(l10n.shabanPrepEyebrow(st.daysLeft)),
+                    ],
+                  ),
+                  if (st.subtitle != null) ...[
+                    const SizedBox(height: 4),
+                    ContentText(
+                      st.subtitle!,
+                      style: TextStyle(color: c.textSecondary, fontSize: 12.5),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ShawwalPledgeSection extends ConsumerStatefulWidget {
+  const _ShawwalPledgeSection({
+    required this.habits,
+    required this.initialPledged,
+    required this.onSaved,
+  });
+
+  final List<TitledText> habits;
+  final List<String> initialPledged;
+  final VoidCallback onSaved;
+
+  @override
+  ConsumerState<_ShawwalPledgeSection> createState() =>
+      _ShawwalPledgeSectionState();
+}
+
+class _ShawwalPledgeSectionState extends ConsumerState<_ShawwalPledgeSection> {
+  late List<String> _picked = List<String>.from(widget.initialPledged);
+  bool _saving = false;
+
+  @override
+  void didUpdateWidget(covariant _ShawwalPledgeSection oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.initialPledged != widget.initialPledged && !_saving) {
+      _picked = List<String>.from(widget.initialPledged);
+    }
+  }
+
+  Future<void> _toggleHabit(String key) async {
+    if (_saving) return;
+    final next = List<String>.from(_picked);
+    if (next.contains(key)) {
+      next.remove(key);
+    } else {
+      if (next.length >= 2) next.removeAt(0);
+      next.add(key);
+    }
+    setState(() {
+      _picked = next;
+      _saving = true;
+    });
+    Haptics.selection();
+    try {
+      await ref.read(tgClientProvider).saveRamadanPledge(next);
+      unawaited(Analytics.programAction('ramadan', 'shawwal_pledge'));
+      widget.onSaved();
+    } catch (e) {
+      if (mounted) {
+        final l10n = AppLocalizations.of(context);
+        showProgramSnack(context, programChangeError(l10n, e));
+      }
+    } finally {
+      if (mounted) setState(() => _saving = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final c = context.colors;
+    return ProgramSection(
+      key: const ValueKey('ramadan_shawwal_pledge_section'),
+      title: l10n.ramadanPledgeTitle,
+      emoji: '🤝',
+      tone: _picked.isNotEmpty ? SectionTone.highlight : SectionTone.plain,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            l10n.ramadanPledgeSubtitle,
+            style: TextStyle(color: c.textSecondary, height: 1.5),
+          ),
+          const SizedBox(height: 10),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              for (final h in widget.habits)
+                if (h.key != null)
+                  FilterChip(
+                    key: ValueKey('ramadan_pledge_chip_${h.key}'),
+                    label: Text(h.title),
+                    selected: _picked.contains(h.key),
+                    onSelected: _saving ? null : (_) => _toggleHabit(h.key!),
+                  ),
+            ],
+          ),
+          if (_picked.isNotEmpty) ...[
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                const PaperLantern(lit: true, height: 22),
+                const SizedBox(width: 6),
+                Expanded(
+                  child: Text(
+                    l10n.ramadanPledgeSelectedBadge,
+                    style: TextStyle(
+                      color: c.primary,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 13,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ],
       ),
     );
   }

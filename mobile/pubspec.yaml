@@ -163,6 +163,7 @@ flutter:
     # (`extract_app_content.py verify --rev <commit-before>`). A translation is
     # a sibling file — `*.en.json` — never an edit to the Arabic one.
     - assets/content/games/
+    - assets/content/programs/
     - assets/content/adhkar/
     - assets/content/journey/
     - assets/images/puzzles/

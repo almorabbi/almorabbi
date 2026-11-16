@@ -703,27 +703,97 @@ def _sync_child_scoped_rows(
 
     # 8. ramadan_marks — UNIQUE(device_id, child_id, hijri_year, day, mark)
     if _table_exists(conn, "ramadan_marks"):
+        mark_cols = _table_cols(conn, "ramadan_marks")
+        has_origin = "origin_hash" in mark_cols
         old_rows = conn.execute(
             "SELECT * FROM ramadan_marks WHERE device_id = ? AND child_id = ?",
             (old_device, old_cid),
         ).fetchall()
         for old_r in old_rows:
-            conn.execute(
-                """
-                INSERT OR IGNORE INTO ramadan_marks
-                    (device_id, child_id, hijri_year, day, mark, value, created_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
-                """,
-                (
-                    new_device,
-                    new_cid,
-                    old_r["hijri_year"],
-                    old_r["day"],
-                    old_r["mark"],
-                    _row_val(old_r, "value"),
-                    old_r["created_at"],
-                ),
-            )
+            mark_name = old_r["mark"]
+            if mark_name in ("pledge_habit_1", "pledge_habit_2"):
+                existing = conn.execute(
+                    """
+                    SELECT created_at FROM ramadan_marks
+                    WHERE device_id = ? AND child_id = ? AND hijri_year = ?
+                      AND day = ? AND mark = ?
+                    """,
+                    (new_device, new_cid, old_r["hijri_year"], old_r["day"], mark_name),
+                ).fetchone()
+                if existing is not None and (old_r["created_at"] or "") > (existing["created_at"] or ""):
+                    if has_origin:
+                        conn.execute(
+                            """
+                            UPDATE ramadan_marks
+                            SET value = ?, origin_hash = ?, created_at = ?
+                            WHERE device_id = ? AND child_id = ? AND hijri_year = ?
+                              AND day = ? AND mark = ?
+                            """,
+                            (
+                                _row_val(old_r, "value"),
+                                _row_val(old_r, "origin_hash"),
+                                old_r["created_at"],
+                                new_device,
+                                new_cid,
+                                old_r["hijri_year"],
+                                old_r["day"],
+                                mark_name,
+                            ),
+                        )
+                    else:
+                        conn.execute(
+                            """
+                            UPDATE ramadan_marks
+                            SET value = ?, created_at = ?
+                            WHERE device_id = ? AND child_id = ? AND hijri_year = ?
+                              AND day = ? AND mark = ?
+                            """,
+                            (
+                                _row_val(old_r, "value"),
+                                old_r["created_at"],
+                                new_device,
+                                new_cid,
+                                old_r["hijri_year"],
+                                old_r["day"],
+                                mark_name,
+                            ),
+                        )
+                    continue
+            if has_origin:
+                conn.execute(
+                    """
+                    INSERT OR IGNORE INTO ramadan_marks
+                        (device_id, child_id, hijri_year, day, mark, value, origin_hash, created_at)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        new_device,
+                        new_cid,
+                        old_r["hijri_year"],
+                        old_r["day"],
+                        mark_name,
+                        _row_val(old_r, "value"),
+                        _row_val(old_r, "origin_hash"),
+                        old_r["created_at"],
+                    ),
+                )
+            else:
+                conn.execute(
+                    """
+                    INSERT OR IGNORE INTO ramadan_marks
+                        (device_id, child_id, hijri_year, day, mark, value, created_at)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        new_device,
+                        new_cid,
+                        old_r["hijri_year"],
+                        old_r["day"],
+                        mark_name,
+                        _row_val(old_r, "value"),
+                        old_r["created_at"],
+                    ),
+                )
 
     # 9. prayer_journeys — ux_prayer_journeys_active ON (child_id) WHERE status = 'active'
     if _table_exists(conn, "prayer_journeys") and new_cid > 0:

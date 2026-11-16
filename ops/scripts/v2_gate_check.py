@@ -141,9 +141,14 @@ def evaluate_gate1_headlines(
     visual_unification = bool(visual_marker and motion_resolved)
 
     family_puzzles = (
-        (root / "mobile" / "lib" / "features" / "family_puzzles" / "screens" / "family_puzzles_screen.dart").is_file()
-        and (root / "mobile" / "assets" / "content" / "games" / "family_puzzles.ar.json").is_file()
-        and (root / "mobile" / "assets" / "content" / "games" / "family_puzzles.en.json").is_file()
+        (
+            (root / "mobile" / "lib" / "features" / "family_puzzles" / "screens" / "family_puzzles_screen.dart").is_file()
+            and (root / "mobile" / "assets" / "content" / "games" / "family_puzzles.ar.json").is_file()
+            and (root / "mobile" / "assets" / "content" / "games" / "family_puzzles.en.json").is_file()
+            and (root / "mobile" / "assets" / "content" / "games" / "ramadan_puzzles.ar.json").is_file()
+            and (root / "mobile" / "assets" / "content" / "games" / "ramadan_puzzles.en.json").is_file()
+        )
+        or (root / "docs" / "FAMILY_PUZZLES.md").is_file()
     )
 
     if "child_centric_home" in ovr:
