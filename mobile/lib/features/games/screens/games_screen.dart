@@ -14,7 +14,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/app_routes.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../theme/app_colors.dart';
 import '../../../theme/design_tokens.dart';
+import '../../../widgets/ui/brand_glyph.dart';
 import '../../../widgets/ui/directional_chevron.dart';
 import '../../routine/providers/child_mode_providers.dart';
 import '../games_catalog.dart';
@@ -47,6 +49,13 @@ class GamesScreen extends ConsumerWidget {
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 14),
+            child: _FamilyPuzzlesHeroCard(
+              key: const ValueKey('games_family_puzzles_hero'),
+              locked: spent,
+            ),
+          ),
           for (final game in kGames)
             Padding(
               padding: const EdgeInsets.only(bottom: 12),
@@ -118,6 +127,128 @@ class _GameCard extends StatelessWidget {
                   const DirectionalChevron(size: 22),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _FamilyPuzzlesHeroCard extends StatelessWidget {
+  const _FamilyPuzzlesHeroCard({super.key, required this.locked});
+
+  final bool locked;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final colors = context.colors;
+
+    return Material(
+      color: colors.surfaceAlt,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(Dt.rCard),
+        side: BorderSide(color: colors.track),
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: locked
+            ? null
+            : () => Navigator.of(context).push(
+                  AppRoutes.familyPuzzles(source: GameSources.index),
+                ),
+        child: Opacity(
+          opacity: locked ? 0.45 : 1,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                height: 132,
+                child: Image.asset(
+                  'assets/images/puzzles/family_puzzles_hero.png',
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => ColoredBox(
+                    color: colors.paperEmerald.withValues(alpha: 0.2),
+                    child: Center(
+                      child: BrandGlyph(
+                        BrandIcon.lantern,
+                        size: 44,
+                        color: colors.paperEmerald,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(14, 12, 14, 14),
+                child: Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: colors.accent.withValues(alpha: 0.16),
+                        borderRadius: BorderRadius.circular(Dt.rButton),
+                      ),
+                      child: BrandGlyph(
+                        BrandIcon.lantern,
+                        size: 24,
+                        color: colors.accentDeep,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            l10n.familyPuzzlesCoPlayBadge,
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelSmall
+                                ?.copyWith(
+                                  color: colors.accentDeep,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            l10n.familyPuzzlesTitle,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall
+                                ?.copyWith(
+                                  color: colors.ink,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            l10n.familyPuzzlesSubtitle,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall
+                                ?.copyWith(
+                                  color: colors.textSecondary,
+                                ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    if (locked)
+                      Icon(
+                        Icons.bedtime_outlined,
+                        size: 20,
+                        color: Theme.of(context).colorScheme.outline,
+                      )
+                    else
+                      const DirectionalChevron(size: 22),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),

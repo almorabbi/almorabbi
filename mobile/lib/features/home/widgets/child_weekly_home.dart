@@ -28,6 +28,7 @@ import '../../coins/coins_providers.dart';
 import '../../companion/providers/companion_providers.dart';
 import '../../companion/widgets/noor_presence.dart';
 import '../../companion/widgets/noor_today_header.dart';
+import '../../family_puzzles/widgets/today_family_puzzles_card.dart';
 import '../../family_road/providers/family_road_providers.dart';
 import '../../family_road/widgets/horizon_strip.dart';
 import '../../journey/widgets/child_journey_card.dart';
@@ -264,6 +265,10 @@ class ChildWeeklyHome extends ConsumerWidget {
           TodayMoreDivider(label: l10n.todayMoreTitle),
           const UpdateAvailableCard(),
           const WhatsNewCard(),
+          if (kMissionBands.contains(ageGroup))
+            const TodayFamilyPuzzlesCard(
+              key: ValueKey('today_family_puzzles_card'),
+            ),
           TodayRitualsRow(ageGroup: ageGroup),
           const SizedBox(height: 16),
           HomeStatsRow(bundle: bundle),

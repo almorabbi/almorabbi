@@ -604,6 +604,22 @@ class Analytics {
         'game': game ? 1 : 0,
       });
 
+  static Future<void> familyPuzzlesOpened(String source) =>
+      _log('family_puzzles_opened', {'entry_point': source});
+
+  static Future<void> familyPuzzleSolved(String puzzleId, String kind) {
+    EngagementSignal.mark();
+    return _log('family_puzzle_solved', {'puzzle_id': puzzleId, 'kind': kind});
+  }
+
+  static Future<void> familyRoundCompleted(int roundsCompleted, String source) {
+    EngagementSignal.mark();
+    return _log('family_round_completed', {
+      'rounds_completed': roundsCompleted,
+      'entry_point': source,
+    });
+  }
+
   /// Catch-all user property setter (best-effort).
   static Future<void> setAnalyticsUserProperty(String name, String value) async {
     try {

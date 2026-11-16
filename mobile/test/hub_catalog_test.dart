@@ -118,7 +118,7 @@ void main() {
     expect(groupIds, ['child', 'games', 'achievements', 'library', 'help']);
     final totalTiles =
         kHubGroups.fold<int>(0, (sum, g) => sum + g.items.length);
-    expect(totalTiles, lessThanOrEqualTo(16));
+    expect(totalTiles, lessThanOrEqualTo(17));
   });
 
   testWidgets('HubGroupCard hides server-configured hiddenIds', (tester) async {

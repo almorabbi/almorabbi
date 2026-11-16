@@ -14,10 +14,11 @@ python3 ops/scripts/v2_gate_check.py --json
 
 ولا يرتفع رقم الإصدار في `mobile/pubspec.yaml` إلى `2.0.0` إلا عندما تعود النتيجة `"ready_for_v2_0_0": true` عبر تحقّق البوابات الأربع معًا:
 
-1. **`gate1_headlines` — العناوين الثلاثة على الإنتاج:**
+1. **`gate1_headlines` — العناوين الأربعة على الإنتاج:**
    - `child_centric_home`: واجهة «الرئيسية حول الطفل» (`child_home_v2`).
    - `family_account`: جداول حساب الأسرة (`families` و`family_members`) وموجّه `backend/app/routers/families.py`.
    - `visual_unification`: توثيق `docs/catalog/VISUAL_UNIFICATION_2_0.md` وحسم `STORY_MOTION_MODE` على الإنتاج إلى `motion` أو `static`.
+   - `family_puzzles`: حزمة «فوازير نور العائلية» (`mobile/lib/features/family_puzzles/` و`family_puzzles.{ar,en}.json`).
 2. **`gate2_d7_action` — الفعل التربوي في الأسبوع الأول:**
    - معدل `strict_d7_rate_4w >= 12%` مع حجم عينة `eligible_families_4w >= 150` عبر ٤ أسابيع ناضجة.
 3. **`gate3_identity_lock` — قفل الهوية ومفتاح الاستعادة:**
