@@ -752,27 +752,21 @@ class ShootOrderTest(unittest.TestCase):
         return (s["element"]["text"], s.get("direction")) if s else None
 
     def test_lantern_search_scrolls_back_up_to_the_mission(self):
-        # Run 38688818497 (#112): production has no /api/family/week, so the
-        # lantern search ran Today to its bottom. Tapping the Today tab keeps
-        # that offset, the praise leg's DOWN search for ③ («افتح مهمة اليوم»)
-        # never found it, and every 7–12 praise shot (and at 200% font the
-        # 4–6 one too) came out blank in both lineages.
+        # Station 2 («افتح مهمة اليوم») sits above `weekLanternsTitle` on v2.0.2+
+        # and below it on earlier baselines; at 200% font (`ar_font2x`) either
+        # leg can start below ③. Every search for ③ must look UP before DOWN.
         import yaml
         flow = Path(__file__).resolve().parent / "flows" / "gallery" / "shoot.yaml"
         steps = list(yaml.safe_load_all(flow.read_text(encoding="utf-8")))[-1]
         lanterns = "${output.c.weekLanternsTitle}"
         mission = "${output.t.todayMissionOpen}"
         start = next(i for i, c in enumerate(steps) if self.scroll(c) == (lanterns, "DOWN"))
-        praise = next(i for i, c in enumerate(steps)
-                      if i > start and self.scroll(c) == (mission, "DOWN"))
-        restores = [
-            c for c in steps[start + 1:praise]
-            if isinstance(c, dict) and "runFlow" in c
-            and c["runFlow"].get("when", {}).get("notVisible") == lanterns
-            and any(self.scroll(x) == (mission, "UP") for x in c["runFlow"].get("commands", []))
-        ]
-        self.assertTrue(restores, "a missed lantern row must scroll Today back UP to ③ "
-                        "before the praise leg searches DOWN for it")
+        searches = [(i, self.scroll(c)[1]) for i, c in enumerate(steps)
+                    if self.scroll(c) and self.scroll(c)[0] == mission]
+        self.assertGreaterEqual(len(searches), 4)
+        self.assertGreater(searches[0][0], start)
+        for (_, up_dir), (_, down_dir) in zip(searches[::2], searches[1::2]):
+            self.assertEqual((up_dir, down_dir), ("UP", "DOWN"))
 
 
 class HierarchyVerificationTest(unittest.TestCase):

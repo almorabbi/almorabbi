@@ -3,6 +3,8 @@
 // widget was disposed» from dispose() — the CI rehearsal's logcat gate caught
 // it after its sound check closed the reader — and the final save never ran.
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -62,5 +64,59 @@ void main() {
     final prefs = await SharedPreferences.getInstance();
     expect(prefs.getInt('quran_last_read_chapter'), 2);
     expect(prefs.getInt('quran_last_read_verse'), 3);
+  });
+
+  testWidgets('pausing during in-flight ayah load keeps pill on listen',
+      (tester) async {
+    final container = ProviderContainer();
+    addTearDown(container.dispose);
+    final completer = Completer<void>();
+    await tester.pumpWidget(UncontrolledProviderScope(
+      container: container,
+      child: MaterialApp(
+        locale: const Locale('ar'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: SurahReadingScreen(
+          chapterNumber: 1,
+          initialVerse: 1,
+          quranData: _quran,
+          debugLoadUrl: (_) => completer.future,
+        ),
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    final pill = find.byKey(const Key('quran_listen_pill'));
+    expect(find.descendant(of: pill, matching: find.text('استماع')),
+        findsOneWidget);
+
+    // Tap to start loading ayah 1 -> pill switches to «إيقاف».
+    await tester.tap(pill);
+    await tester.pump();
+    expect(
+        find.descendant(of: pill, matching: find.text('إيقاف')), findsOneWidget);
+
+    // Tap again while setUrl/debugLoadUrl is still awaiting -> cancels intent
+    // immediately and reverts to «استماع».
+    await tester.tap(pill);
+    await tester.pump();
+    expect(find.descendant(of: pill, matching: find.text('استماع')),
+        findsOneWidget);
+
+    // Completing the in-flight load afterward must not re-arm playback.
+    completer.complete();
+    await tester.pumpAndSettle();
+    expect(find.descendant(of: pill, matching: find.text('استماع')),
+        findsOneWidget);
+    expect(
+        find.descendant(of: pill, matching: find.text('إيقاف')), findsNothing);
+
+    // Unmount while the container is still alive so dispose()'s async save finishes cleanly.
+    await tester.pumpWidget(UncontrolledProviderScope(
+      container: container,
+      child: const SizedBox(),
+    ));
+    await tester.pumpAndSettle();
   });
 }

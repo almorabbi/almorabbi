@@ -22,12 +22,15 @@ class SurahReadingScreen extends ConsumerStatefulWidget {
   final int chapterNumber;
   final int initialVerse;
   final Map<String, List<dynamic>> quranData;
+  @visibleForTesting
+  final Future<void> Function(String url)? debugLoadUrl;
 
   const SurahReadingScreen({
     super.key,
     required this.chapterNumber,
     required this.initialVerse,
     required this.quranData,
+    this.debugLoadUrl,
   });
 
   @override
@@ -45,6 +48,7 @@ class _SurahReadingScreenState extends ConsumerState<SurahReadingScreen> {
   StreamSubscription<PlayerState>? _stateSub;
   int? _playingVerse; // 1-based verse currently reciting; null when stopped
   int _playToken = 0; // guards against stale async plays (rapid taps)
+  bool _wantsPlaying = false;
 
   late int _currentChapter;
   int _currentVerse = 1; // 1-based; the top-most visible verse
@@ -69,11 +73,12 @@ class _SurahReadingScreenState extends ConsumerState<SurahReadingScreen> {
 
     // Auto-advance the recitation ayah-by-ayah down the surah.
     _stateSub = _player.playerStateStream.listen((state) {
-      if (state.processingState == ProcessingState.completed) {
+      if (state.processingState == ProcessingState.completed && _wantsPlaying) {
         final cur = _playingVerse;
         if (cur != null && cur < _verses.length) {
           _playFrom(cur + 1);
         } else {
+          _wantsPlaying = false;
           if (mounted) setState(() => _playingVerse = null);
         }
       }
@@ -193,18 +198,28 @@ class _SurahReadingScreenState extends ConsumerState<SurahReadingScreen> {
     if (verse < 1 || verse > _verses.length) return;
     final token = ++_playToken;
     setState(() {
+      _wantsPlaying = true;
       _playingVerse = verse;
     });
     _scrollToPlaying(verse);
     try {
       // Stable streaming source (everyayah CDN). Kept on the non-experimental
       // just_audio API on purpose — correctness/reliability first for Quran.
-      await _player.setUrl(_ayahUrl(_currentChapter, verse));
-      if (token != _playToken || !mounted) return; // superseded by a newer tap
-      await _player.play();
+      final url = _ayahUrl(_currentChapter, verse);
+      final loader = widget.debugLoadUrl;
+      if (loader != null) {
+        await loader(url);
+      } else {
+        await _player.setUrl(url);
+      }
+      if (token != _playToken || !_wantsPlaying || !mounted) return;
+      if (loader == null) {
+        await _player.play();
+      }
     } catch (_) {
       if (mounted && token == _playToken) {
         setState(() {
+          _wantsPlaying = false;
           _playingVerse = null;
         });
         final messenger = ScaffoldMessenger.maybeOf(context);
@@ -215,17 +230,24 @@ class _SurahReadingScreenState extends ConsumerState<SurahReadingScreen> {
   }
 
   void _toggleAudio() {
-    if (_player.playing) {
+    if (_wantsPlaying || _player.playing) {
+      _wantsPlaying = false;
+      _playToken++; // cancel any in-flight ayah setUrl so it cannot restart playback
       _player.pause();
+      setState(() {});
     } else if (_playingVerse != null &&
-        _player.processingState != ProcessingState.completed) {
+        _player.processingState != ProcessingState.completed &&
+        _player.processingState != ProcessingState.idle) {
+      _wantsPlaying = true;
+      setState(() {});
       _player.play(); // resume current ayah
     } else {
-      _playFrom(_currentVerse); // start from the verse at the top of the screen
+      _playFrom(_playingVerse ?? _currentVerse);
     }
   }
 
   void _stopAudio() {
+    _wantsPlaying = false;
     _playToken++; // invalidate any in-flight play
     _player.stop();
     setState(() => _playingVerse = null);
@@ -270,7 +292,7 @@ class _SurahReadingScreenState extends ConsumerState<SurahReadingScreen> {
     final wirdProgress =
         ((_currentVerse - _wirdStart).clamp(0, kDailyWirdVerses)) /
             kDailyWirdVerses;
-    final isPlaying = _player.playing;
+    final isPlaying = _wantsPlaying || _player.playing;
 
     return Scaffold(
       backgroundColor: AppPalette.current.isDark
