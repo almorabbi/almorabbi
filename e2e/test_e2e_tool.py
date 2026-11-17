@@ -746,10 +746,41 @@ class GalleryTest(unittest.TestCase):
 class ShootOrderTest(unittest.TestCase):
     """What one leg of gallery/shoot.yaml leaves on screen is where the next starts."""
 
+    MISSION = "${output.t.todayMissionOpen}"
+
     @staticmethod
     def scroll(cmd):
         s = cmd.get("scrollUntilVisible") if isinstance(cmd, dict) else None
         return (s["element"]["text"], s.get("direction")) if s else None
+
+    @classmethod
+    def _scroll_step(cls, direction, text=MISSION):
+        return {"scrollUntilVisible": {"element": {"text": text}, "direction": direction}}
+
+    def assert_mission_scroll_pairs(self, steps, element=MISSION):
+        searches = [
+            (i, self.scroll(c)[1])
+            for i, c in enumerate(steps)
+            if self.scroll(c) and self.scroll(c)[0] == element
+        ]
+        self.assertGreater(len(searches), 0, "expected at least one mission scroll pair")
+        self.assertEqual(
+            len(searches) % 2,
+            0,
+            f"expected an even number of mission scrolls, got {searches}",
+        )
+        for (up_idx, up_dir), (down_idx, down_dir) in zip(searches[::2], searches[1::2]):
+            self.assertEqual(
+                (up_dir, down_dir),
+                ("UP", "DOWN"),
+                f"expected (UP, DOWN) mission scroll pair, got {searches}",
+            )
+            self.assertEqual(
+                down_idx,
+                up_idx + 1,
+                f"DOWN scroll at step {down_idx} must immediately follow UP at {down_idx - 1}",
+            )
+        return searches
 
     def test_lantern_search_scrolls_back_up_to_the_mission(self):
         # Station 2 («افتح مهمة اليوم») sits above `weekLanternsTitle` on v2.0.2+
@@ -759,14 +790,24 @@ class ShootOrderTest(unittest.TestCase):
         flow = Path(__file__).resolve().parent / "flows" / "gallery" / "shoot.yaml"
         steps = list(yaml.safe_load_all(flow.read_text(encoding="utf-8")))[-1]
         lanterns = "${output.c.weekLanternsTitle}"
-        mission = "${output.t.todayMissionOpen}"
         start = next(i for i, c in enumerate(steps) if self.scroll(c) == (lanterns, "DOWN"))
-        searches = [(i, self.scroll(c)[1]) for i, c in enumerate(steps)
-                    if self.scroll(c) and self.scroll(c)[0] == mission]
+        searches = self.assert_mission_scroll_pairs(steps, self.MISSION)
         self.assertGreaterEqual(len(searches), 4)
         self.assertGreater(searches[0][0], start)
-        for (_, up_dir), (_, down_dir) in zip(searches[::2], searches[1::2]):
-            self.assertEqual((up_dir, down_dir), ("UP", "DOWN"))
+
+    def test_unpaired_or_separated_mission_down_scroll_fails(self):
+        with self.assertRaises(AssertionError):
+            self.assert_mission_scroll_pairs([
+                self._scroll_step("UP"),
+                self._scroll_step("DOWN"),
+                self._scroll_step("DOWN"),
+            ])
+        with self.assertRaises(AssertionError):
+            self.assert_mission_scroll_pairs([
+                self._scroll_step("UP"),
+                {"tapOn": "intervening"},
+                self._scroll_step("DOWN"),
+            ])
 
 
 class HierarchyVerificationTest(unittest.TestCase):
