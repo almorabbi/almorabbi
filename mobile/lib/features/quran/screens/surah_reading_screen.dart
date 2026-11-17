@@ -232,10 +232,14 @@ class _SurahReadingScreenState extends ConsumerState<SurahReadingScreen> {
 
   void _onReciterSelected(Reciter reciter) {
     ref.read(reciterProvider.notifier).select(reciter);
+    _loadedCurrentVerse = false;
     setState(() {});
-    // If a recitation is in progress, restart the current ayah in the new voice.
+    // Restart immediately only when actively reciting; if paused, keep quiet
+    // and reload the current ayah in the new voice on the next Listen tap.
     final cur = _playingVerse;
-    if (cur != null) _playFrom(cur);
+    if (_wantsPlaying && cur != null) {
+      unawaited(_playFrom(cur));
+    }
   }
 
   void _handlePlayFailure() {

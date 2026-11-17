@@ -342,4 +342,68 @@ void main() {
     ));
     await tester.pumpAndSettle();
   });
+
+  testWidgets('switching reciter while paused stays silent until listen',
+      (tester) async {
+    final container = ProviderContainer();
+    addTearDown(container.dispose);
+    final player = _FakeRecitationPlayer();
+    await tester.pumpWidget(UncontrolledProviderScope(
+      container: container,
+      child: MaterialApp(
+        locale: const Locale('ar'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: SurahReadingScreen(
+          chapterNumber: 1,
+          initialVerse: 1,
+          quranData: _quran,
+          debugPlayer: player,
+        ),
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    final pill = find.byKey(const Key('quran_listen_pill'));
+    await tester.tap(pill);
+    await tester.pump();
+    player.loadCompleters[0].complete();
+    await tester.pump();
+    expect(player.loadedUrls.single, contains('Husary_128kbps/001001.mp3'));
+    expect(player.playCalls, 1);
+
+    // Pause recitation before choosing another reciter.
+    await tester.tap(pill);
+    await tester.pump();
+    expect(find.descendant(of: pill, matching: find.text('استماع')),
+        findsOneWidget);
+
+    await tester.tap(find.byKey(const Key('quran_reciter_button')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('محمد صديق المنشاوي'));
+    await tester.pumpAndSettle();
+
+    expect(player.loadedUrls.length, 1);
+    expect(player.playCalls, 1);
+    expect(find.descendant(of: pill, matching: find.text('استماع')),
+        findsOneWidget);
+
+    // Next Listen tap loads the newly selected reciter instead of resuming old audio.
+    await tester.tap(pill);
+    await tester.pump();
+    expect(player.loadedUrls.length, 2);
+    expect(player.loadedUrls.last, contains('Minshawy_Murattal_128kbps/001001.mp3'));
+    expect(
+        find.descendant(of: pill, matching: find.text('إيقاف')), findsOneWidget);
+
+    for (final c in player.loadCompleters) {
+      if (!c.isCompleted) c.complete();
+    }
+    await tester.pumpAndSettle();
+    await tester.pumpWidget(UncontrolledProviderScope(
+      container: container,
+      child: const SizedBox(),
+    ));
+    await tester.pumpAndSettle();
+  });
 }
