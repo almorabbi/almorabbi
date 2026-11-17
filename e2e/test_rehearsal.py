@@ -18,7 +18,17 @@ echo "$*" >> "$ADB_LOG"
 case "$*" in
   'shell dumpsys package '*) echo 'versionCode=120 minSdk=24'; echo 'firstInstallTime=2026-10-15 10:00:00'; echo 'userId=10190' ;;
   'shell cmd package list packages -U '*) echo 'package:com.alsaba.almorabbi uid:10190' ;;
-  'shell dumpsys audio') echo 'players:' ;;
+  'shell dumpsys audio')
+    count_file="$(dirname "$ADB_LOG")/audio_dumps.count"
+    c=0; [ -f "$count_file" ] && c=$(cat "$count_file")
+    c=$((c + 1)); echo "$c" > "$count_file"
+    if [ "$c" -le "${BEFORE_GAP_COUNT:-0}" ]; then
+      echo 'players:'
+      echo '  AudioPlaybackConfiguration piid:31 deviceId:2 type:android.media.AudioTrack u/pid:10190/4321 state:stopped attr:AudioAttributes: usage=USAGE_MEDIA'
+    else
+      echo 'players:'
+      echo '  AudioPlaybackConfiguration piid:31 deviceId:2 type:android.media.AudioTrack u/pid:10190/4321 state:started attr:AudioAttributes: usage=USAGE_MEDIA'
+    fi ;;
 esac
 exit 0
 ''',
@@ -131,6 +141,13 @@ class RehearsalRunnerTest(unittest.TestCase):
         night = [self.adb_calls.index(c) for c in ('shell cmd uimode night yes', 'shell cmd uimode night no')]
         self.assertTrue(dumps[0] < night[0] < night[1] < dumps[1], self.adb_calls[dumps[0]:dumps[1] + 1])
         self.assertIn('shell input keyevent KEYCODE_F12', self.adb_calls[dumps[0]:dumps[1]])
+
+    def test_before_dump_waits_past_ayah_gap_before_firing_ticks(self):
+        self.run_runner(BEFORE_GAP_COUNT='2')
+        dumps = [i for i, c in enumerate(self.adb_calls) if c == 'shell dumpsys audio']
+        self.assertEqual(len(dumps), 6)  # three before (two stopped, one started), three after
+        night = [self.adb_calls.index(c) for c in ('shell cmd uimode night yes', 'shell cmd uimode night no')]
+        self.assertTrue(dumps[2] < night[0] < night[1] < dumps[3], self.adb_calls[dumps[2]:dumps[3] + 1])
 
     def test_no_play_build_tick_no_expectation(self):
         rc, rows, calls, _, output = self.run_runner(FAIL_FLOW='b_day1')

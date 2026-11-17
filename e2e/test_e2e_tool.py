@@ -1337,6 +1337,13 @@ class AudioVerdictTest(unittest.TestCase):
                              events=(23, 23))
         self.assertEqual(t.audio_verdict(self.before(), [gap, playing], UID)[0], "PASS")
 
+    def test_one_sample_between_two_ayat_before_ticks_is_not_inconclusive(self):
+        gap_before = self.before(players=(TICKS_IDLE,))
+        playing_before = audio_dump(at="12:00:01:000", players=(RECITING, TICKS_IDLE))
+        after = after_dump(players=(RECITING, TICKS_ON), events=(23,))
+        self.assertEqual(t.audio_verdict([gap_before, playing_before], [after], UID)[0], "PASS")
+        self.assertEqual(t.audio_verdict([gap_before, gap_before], [after], UID)[0], "INCONCLUSIVE")
+
     def test_a_paused_recitation_fails(self):
         paused = (31, "android.media.AudioTrack", UID, "paused", "USAGE_MEDIA")
         after = after_dump(players=(paused, TICKS_ON), events=(23,))

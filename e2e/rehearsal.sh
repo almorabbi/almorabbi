@@ -235,7 +235,16 @@ if [ "$HEAD_INSTALLED" = yes ] && l10n_for rehearsal-head \
   uid=$(adb shell cmd package list packages -U "$PKG" | tr -d '\r' | grep -m1 -oE 'uid:[0-9]+' | cut -d: -f2)
   [ -n "$uid" ] || uid=$(adb shell dumpsys package "$PKG" | tr -d '\r' | grep -m1 -oE '(userId|appId)=[0-9]+' | cut -d= -f2)
   say "app uid: $uid"
-  audio_dump "$R/audio_before.txt"
+  before_args=()
+  for n in $(seq 1 10); do
+    audio_dump "$R/audio_before_$n.txt"
+    cp "$R/audio_before_$n.txt" "$R/audio_before.txt"
+    before_args+=(--before "$R/audio_before_$n.txt")
+    if grep -qE "AudioPlaybackConfiguration[[:space:]]+piid:[0-9]+.*u/pid:${uid}/[0-9]+.*state:started.*usage=USAGE_MEDIA" "$R/audio_before_$n.txt"; then
+      break
+    fi
+    [ "$n" -lt 10 ] && sleep 1
+  done
   # The ticks. F12 reaches the probe only if the key reaches the Flutter view
   # (on run 38714154049 three presses produced none), so it stays as a
   # witness; the system light/dark mode, there and back, reaches the app
@@ -254,7 +263,7 @@ if [ "$HEAD_INSTALLED" = yes ] && l10n_for rehearsal-head \
   echo "- the probe's own log: $(grep -o 'tg.e2e: tick ([^)]*)' "$OUT/logcat/logcat.txt" 2>/dev/null | sort | uniq -c | sed 's/^ *//' | paste -sd';' - || true)" \
     > "$R/probe.md"
   verdict=0
-  python3 "$E2E/e2e_tool.py" audio-focus --uid "$uid" --before "$R/audio_before.txt" \
+  python3 "$E2E/e2e_tool.py" audio-focus --uid "$uid" "${before_args[@]}" \
     --after "$R/audio_after_1.txt" --after "$R/audio_after_2.txt" --after "$R/audio_after_3.txt" \
     --out "$R/sound.md" || verdict=$?
   printf 'sound\taudio_focus\t%s\t0\t\n' "$verdict" >> "$OUT/results.tsv"
