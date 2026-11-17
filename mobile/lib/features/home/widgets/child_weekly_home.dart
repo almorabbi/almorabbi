@@ -241,7 +241,6 @@ class ChildWeeklyHome extends ConsumerWidget {
               childId: profile.id,
               childName: childNameForCards,
               ageGroup: ageGroup,
-              initiallyExpanded: false,
               summaryCollapsed: true,
             ),
 

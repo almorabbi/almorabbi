@@ -65,6 +65,9 @@ class TodayWeeklyPlanCard extends ConsumerStatefulWidget {
   final String childName;
   final String ageGroup;
   final bool initiallyExpanded;
+
+  /// Renders the compact 2-line summary bar until tapped and intentionally
+  /// disables the Monday auto-reveal ([_checkReveal]) so «اليوم» stays calm.
   final bool summaryCollapsed;
 
   /// Where the phone remembers the week it revealed for a child (Monday).

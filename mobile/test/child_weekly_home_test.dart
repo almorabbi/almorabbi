@@ -679,4 +679,30 @@ void main() {
       await tester.pump(const Duration(seconds: 1));
     },
   );
+
+  testWidgets(
+    'Monday week_start keeps summaryCollapsed weekly plan bar collapsed without Monday auto-reveal',
+    (tester) async {
+      final monday = DateTime(2026, 11, 9, 10);
+      expect(monday.weekday, DateTime.monday);
+      final container = await pumpWeeklyHome(
+        tester,
+        phone: const Size(420, 1200),
+        now: monday,
+      );
+      final prefs = await container.read(sharedPreferencesProvider.future);
+      expect(prefs.getString(TodayWeeklyPlanCard.revealKey(1)), isNull);
+
+      expect(
+        find.byKey(const ValueKey('weekly_plan_summary_bar')),
+        findsOneWidget,
+      );
+      expect(find.text('الاستماع الهادئ'), findsOneWidget);
+      expect(find.text('دقيقتان من الإنصات'), findsNothing);
+      expect(find.text('دعاء المساء معاً'), findsNothing);
+
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump(const Duration(seconds: 1));
+    },
+  );
 }
