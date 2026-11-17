@@ -208,7 +208,11 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
         // between "I'll do it" and doing it spends the moment on the wrong
         // thing. The threshold stays at 2 — with 4 reviews from 3,252 users,
         // raising it would cost more than the interruption does.
-        if (mounted && !committed) await ReviewPrompt.maybeAsk(context);
+        if (committed) {
+          await ReviewPrompt.recordMoment();
+        } else if (mounted) {
+          await ReviewPrompt.maybeAsk(context, source: 'lesson_complete');
+        }
         if (mounted) Navigator.of(context).pop();
       }
     } catch (e) {

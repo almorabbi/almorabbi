@@ -212,7 +212,9 @@ class ChildJourneyScreen extends ConsumerWidget {
           );
         },
       );
-      if (context.mounted) await ReviewPrompt.maybeAsk(context);
+      if (context.mounted) {
+        await ReviewPrompt.maybeAsk(context, source: 'journey_milestone');
+      }
     }
   }
 }

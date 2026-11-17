@@ -16,6 +16,7 @@ import '../../quran/models/surah_names.dart';
 import '../../quran/providers/quran_providers.dart';
 import '../data/tasmee_store.dart';
 import '../providers/journey_providers.dart';
+import '../../program/data/review_prompt.dart';
 
 /// Longest passage offered whole; above it the parent picks a range.
 const int kTasmeeWholeSurahMax = 20;
@@ -282,6 +283,7 @@ class _TasmeeScreenState extends ConsumerState<TasmeeScreen> {
         .read(tasmeeProvider(widget.childId).notifier)
         .add(widget.surah, session);
     Analytics.tasmeeFinished(widget.surah, _marks.length);
+    await ReviewPrompt.recordMoment();
     if (mounted) Navigator.of(context).pop();
   }
 

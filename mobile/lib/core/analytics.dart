@@ -620,6 +620,26 @@ class Analytics {
     });
   }
 
+  static Future<void> reviewPromptShown({
+    required String source,
+    required int showNumber,
+  }) =>
+      _log('review_prompt_shown', {
+        'source': source,
+        'show_number': showNumber,
+      });
+
+  static Future<void> reviewPromptAnswered({
+    required String action,
+    required String source,
+    required int showNumber,
+  }) =>
+      _log('review_prompt_answered', {
+        'action': action,
+        'source': source,
+        'show_number': showNumber,
+      });
+
   /// Catch-all user property setter (best-effort).
   static Future<void> setAnalyticsUserProperty(String name, String value) async {
     try {

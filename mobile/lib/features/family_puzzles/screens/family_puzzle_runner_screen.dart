@@ -25,6 +25,7 @@ import '../../../theme/design_tokens.dart';
 import '../../../widgets/ui/bouncy_button.dart';
 import '../../../widgets/ui/brand_glyph.dart';
 import '../../onboarding/providers/onboarding_providers.dart';
+import '../../program/data/review_prompt.dart';
 import '../data/family_puzzle_models.dart';
 import '../data/family_puzzle_store.dart';
 import '../widgets/parent_whisper_sheet.dart';
@@ -139,6 +140,7 @@ class _FamilyPuzzleRunnerScreenState
     setState(() => _solved = true);
     unawaited(SoundFx.lantern());
     unawaited(Analytics.familyPuzzleSolved(puzzle.id, puzzle.kind.wire));
+    unawaited(ReviewPrompt.recordMoment());
     unawaited(
       FamilyPuzzleStore.markSolved(puzzle.id, childId: _effectiveChildId),
     );
@@ -179,6 +181,7 @@ class _FamilyPuzzleRunnerScreenState
       );
       if (!mounted) return;
       setState(() => _roundFinished = true);
+      unawaited(ReviewPrompt.maybeAsk(context, source: 'family_puzzles'));
       return;
     }
 
