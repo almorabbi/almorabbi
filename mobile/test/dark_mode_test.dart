@@ -172,5 +172,16 @@ void main() {
       await notifier.set(ThemeMode.light);
       expect(ThemeModeNotifier(prefs).state, ThemeMode.light);
     });
+
+    test('set(ThemeMode.system) resolves to light and stores light', () async {
+      SharedPreferences.setMockInitialValues({'tg.theme_mode': 'dark'});
+      final prefs = await SharedPreferences.getInstance();
+      final notifier = ThemeModeNotifier(prefs);
+      expect(notifier.state, ThemeMode.dark);
+
+      await notifier.set(ThemeMode.system);
+      expect(notifier.state, ThemeMode.light);
+      expect(prefs.getString('tg.theme_mode'), 'light');
+    });
   });
 }

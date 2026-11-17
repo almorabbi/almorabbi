@@ -185,6 +185,8 @@ class ThemeModeNotifier extends StateNotifier<ThemeMode> {
   static const _key = 'tg.theme_mode';
   final SharedPreferences? _prefs;
 
+  /// Persists [ThemeMode.dark] when explicitly chosen; any other mode
+  /// (including [ThemeMode.system]) resolves to and stores [ThemeMode.light].
   Future<void> set(ThemeMode mode) async {
     final resolved = mode == ThemeMode.dark ? ThemeMode.dark : ThemeMode.light;
     state = resolved;
