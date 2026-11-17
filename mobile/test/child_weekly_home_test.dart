@@ -1,4 +1,8 @@
+import 'dart:io';
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
@@ -10,8 +14,12 @@ import 'package:almorabbi/core/clock.dart';
 import 'package:almorabbi/features/child_memory/widgets/today_weekly_plan_card.dart';
 import 'package:almorabbi/features/home/experiment/child_home_experiment.dart';
 import 'package:almorabbi/features/home/widgets/child_weekly_home.dart';
+import 'package:almorabbi/features/home/widgets/daily_gift_moment.dart';
+import 'package:almorabbi/features/home/widgets/home_shortcuts_grid.dart';
+import 'package:almorabbi/features/home/widgets/home_stats_row.dart';
 import 'package:almorabbi/features/home/widgets/sky_band.dart';
 import 'package:almorabbi/features/home/widgets/today_focus_card.dart';
+import 'package:almorabbi/features/home/widgets/today_section.dart';
 import 'package:almorabbi/features/onboarding/data/onboarding_storage.dart';
 import 'package:almorabbi/features/onboarding/providers/onboarding_providers.dart';
 import 'package:almorabbi/features/program/providers/progress_providers.dart';
@@ -24,6 +32,8 @@ import 'package:almorabbi/theme/app_theme.dart';
 import 'package:almorabbi/widgets/ui/bouncy_button.dart';
 
 import 'lantern_fakes.dart' show act, familyWeekJson;
+
+const _dumpTodayDir = String.fromEnvironment('DUMP_TODAY_PREVIEW');
 
 class _FakeWeeklyClient extends TgClient {
   _FakeWeeklyClient()
@@ -207,7 +217,7 @@ void main() {
   );
 
   testWidgets(
-    'Week 1 after onboarding shows badge and auto-expands TodayWeeklyPlanCard',
+    'Week 1 after onboarding shows badge and keeps TodayWeeklyPlanCard collapsed as sleek summary until tapped',
     (tester) async {
       await pumpWeeklyHome(
         tester,
@@ -215,6 +225,18 @@ void main() {
         now: DateTime(2026, 11, 14, 10),
       );
       expect(find.text('أسبوع البداية'), findsOneWidget);
+      await tester.scrollUntilVisible(
+        find.byKey(const ValueKey('weekly_plan_summary_bar')),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.pump(const Duration(milliseconds: 250));
+      expect(find.text('الاستماع الهادئ'), findsOneWidget);
+      expect(find.text('دعاء المساء معاً'), findsNothing);
+
+      // Tapping the sleek summary bar expands the full weekly plan on demand.
+      await tester.tap(find.byKey(const ValueKey('weekly_plan_summary_bar')));
+      await tester.pump(const Duration(milliseconds: 300));
       await tester.scrollUntilVisible(
         find.text('دعاء المساء معاً'),
         200,
@@ -434,6 +456,73 @@ void main() {
         RegExp(r'^(?:.*\s)?E2E-Maestro(?:\s.*)?$', dotAll: true).hasMatch(expected),
         isTrue,
       );
+    },
+  );
+
+  testWidgets(
+    '3-station layout drops legacy coin/shortcut clutter and unifies family time',
+    (tester) async {
+      for (final dark in [false, true]) {
+        await tester.pumpWidget(const SizedBox());
+        await pumpWeeklyHome(
+          tester,
+          locale: const Locale('ar'),
+          dark: dark,
+          childName: 'سارة',
+          birthMonth: '2018-05',
+          now: DateTime(2026, 11, 14, 10),
+        );
+
+        expect(find.byType(DailyGiftMoment), findsNothing);
+        expect(find.byType(HomeStatsRow), findsNothing);
+        expect(find.byType(HomeShortcutsGrid), findsNothing);
+        expect(find.byType(TodayMoreDivider), findsNothing);
+        // No duplicate "مهمة سارة اليوم" header alongside TodayMissionRow.
+        expect(find.text('مهمة سارة اليوم'), findsNothing);
+
+        Future<void> snap(String tag) async {
+          if (_dumpTodayDir.isEmpty) return;
+          Directory(_dumpTodayDir).createSync(recursive: true);
+          final boundary = find.ancestor(
+            of: find.byType(HomeScreen),
+            matching: find.byType(RepaintBoundary),
+          ).first;
+          final ro = boundary.evaluate().single.findRenderObject()!
+              as RenderRepaintBoundary;
+          final img = await tester.runAsync(() => ro.toImage(pixelRatio: 2.0));
+          final bd = await tester.runAsync(
+            () => img!.toByteData(format: ui.ImageByteFormat.png),
+          );
+          img!.dispose();
+          File('$_dumpTodayDir/today_${dark ? "dark" : "light"}_$tag.png')
+              .writeAsBytesSync(bd!.buffer.asUint8List());
+        }
+
+        await snap('top');
+
+        await tester.scrollUntilVisible(
+          find.byKey(const ValueKey('today_family_puzzles_card')),
+          220,
+          scrollable: find.byType(Scrollable).first,
+        );
+        expect(
+          find.byKey(const ValueKey('today_family_puzzles_card')),
+          findsOneWidget,
+        );
+        await tester.scrollUntilVisible(
+          find.byKey(const ValueKey('today_child_corner_handover')),
+          220,
+          scrollable: find.byType(Scrollable).first,
+        );
+        expect(
+          find.byKey(const ValueKey('today_child_corner_handover')),
+          findsOneWidget,
+        );
+        expect(tester.takeException(), isNull);
+        await snap('mid');
+      }
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump(const Duration(seconds: 1));
     },
   );
 }

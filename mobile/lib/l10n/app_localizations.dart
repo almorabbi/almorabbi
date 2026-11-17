@@ -11612,6 +11612,30 @@ abstract class AppLocalizations {
   /// **'أضف شهر الميلاد لتحديث المرحلة تلقائياً'**
   String get childWeeklyBirthMonthNudge;
 
+  /// Section header for the unified shared family time block on Today.
+  ///
+  /// In ar, this message translates to:
+  /// **'وقتكم العائلي مع {name}'**
+  String todayFamilyTimeTitle(String name);
+
+  /// Section header for the unified shared family time block on Today when child has no custom name.
+  ///
+  /// In ar, this message translates to:
+  /// **'وقتكم العائلي اليوم'**
+  String get todayFamilyTimeTitleNoName;
+
+  /// Distinct title on Today clarifying that this row hands the phone to Child Corner.
+  ///
+  /// In ar, this message translates to:
+  /// **'ركن {name} الآمن (تسليم الهاتف)'**
+  String todayChildCornerHandoverTitle(String name);
+
+  /// Subtitle explaining Child Corner safe handover on Today.
+  ///
+  /// In ar, this message translates to:
+  /// **'قصة ومهمة هادئة بوقت محدّد ورمز للأهل'**
+  String get todayChildCornerHandoverSubtitle;
+
   /// Banner title shown on Friday when the week's family harvest can be opened.
   ///
   /// In ar, this message translates to:

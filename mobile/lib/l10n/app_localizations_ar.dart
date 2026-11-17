@@ -6884,6 +6884,23 @@ class AppLocalizationsAr extends AppLocalizations {
       'أضف شهر الميلاد لتحديث المرحلة تلقائياً';
 
   @override
+  String todayFamilyTimeTitle(String name) {
+    return 'وقتكم العائلي مع $name';
+  }
+
+  @override
+  String get todayFamilyTimeTitleNoName => 'وقتكم العائلي اليوم';
+
+  @override
+  String todayChildCornerHandoverTitle(String name) {
+    return 'ركن $name الآمن (تسليم الهاتف)';
+  }
+
+  @override
+  String get todayChildCornerHandoverSubtitle =>
+      'قصة ومهمة هادئة بوقت محدّد ورمز للأهل';
+
+  @override
   String get fridayHarvestBannerTitle => 'حصاد الجمعة جاهز';
 
   @override
