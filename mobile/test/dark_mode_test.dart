@@ -151,18 +151,26 @@ void main() {
   });
 
   group('themeModeProvider', () {
-    test('defaults to system so a dark phone needs no setting found', () async {
-      // Held at ThemeMode.light through 1.0.49+94 while the theme was only
-      // half converted. Restored once `tool/audit_light_surfaces.dart` exited
-      // zero — that tool, not a walk through some screens, is what earns this.
+    test('defaults to light regardless of OS theme', () async {
       final prefs = await SharedPreferences.getInstance();
-      expect(ThemeModeNotifier(prefs).state, ThemeMode.system);
+      expect(ThemeModeNotifier(prefs).state, ThemeMode.light);
     });
 
-    test('persists the choice across instances', () async {
+    test('resolves legacy system value to light unless dark is chosen',
+        () async {
+      SharedPreferences.setMockInitialValues({'tg.theme_mode': 'system'});
       final prefs = await SharedPreferences.getInstance();
-      await ThemeModeNotifier(prefs).set(ThemeMode.dark);
+      expect(ThemeModeNotifier(prefs).state, ThemeMode.light);
+    });
+
+    test('persists explicit dark and light choices across instances', () async {
+      final prefs = await SharedPreferences.getInstance();
+      final notifier = ThemeModeNotifier(prefs);
+      await notifier.set(ThemeMode.dark);
       expect(ThemeModeNotifier(prefs).state, ThemeMode.dark);
+
+      await notifier.set(ThemeMode.light);
+      expect(ThemeModeNotifier(prefs).state, ThemeMode.light);
     });
   });
 }

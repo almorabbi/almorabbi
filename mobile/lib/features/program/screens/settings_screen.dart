@@ -217,10 +217,8 @@ class SettingsScreen extends ConsumerWidget {
                   },
                 ),
                 const SizedBox(height: 24),
-                // «لدي اقتراح و اتمنى ان تطبقوه ألا و هو الوضع الداكن. فهو
-                // اريح للعين» — #fb_e7402eaa, 15 Aug 2026. Cycles
-                // system → light → dark, defaulting to system so a phone
-                // already in dark mode needs no setting found at all.
+                // Defaults to Light; tapping toggles directly Light ↔ Dark
+                // so switching on or off takes a single tap on any phone.
                 _SettingsRow(
                   icon: switch (ref.watch(themeModeProvider)) {
                     ThemeMode.light => Icons.light_mode_outlined,
@@ -234,13 +232,9 @@ class SettingsScreen extends ConsumerWidget {
                     ThemeMode.system => l10n.settingsThemeSystem,
                   },
                   onTap: () {
-                    const order = [
-                      ThemeMode.system,
-                      ThemeMode.light,
-                      ThemeMode.dark,
-                    ];
                     final now = ref.read(themeModeProvider);
-                    final next = order[(order.indexOf(now) + 1) % order.length];
+                    final next =
+                        now == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
                     ref.read(themeModeProvider.notifier).set(next);
                   },
                 ),

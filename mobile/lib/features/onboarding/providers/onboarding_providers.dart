@@ -166,33 +166,19 @@ final appLocaleProvider =
 });
 
 
-/// Light / dark / follow-the-system, persisted.
+/// Light / dark theme preference, persisted.
 ///
-/// «لدي اقتراح و اتمنى ان تطبقوه ألا و هو الوضع الداكن. فهو اريح للعين» —
-/// #fb_e7402eaa, 15 Aug 2026. The app had no `darkTheme` and no `ThemeMode`
-/// at all; `design_tokens.dart` said "light mode only for now" in a comment.
-///
-/// Defaults to [ThemeMode.system], so a parent whose phone is already dark
-/// gets it without having to find a setting — the point of the request.
-///
-/// It shipped that way in 1.0.48+93 before the theme was ready: 161 surfaces
-/// across 49 files still hard-coded a light colour, so the Qur'an screen, the
-/// lesson sections and the assistant bubble stayed light with light text on
-/// them. 1.0.49+94 dropped the default to [ThemeMode.light] to stop that
-/// reaching anyone who had not asked for it.
-///
-/// Restored here because `dart run tool/audit_light_surfaces.dart` now exits
-/// zero — every remaining white is either translucent over a brand colour or
-/// annotated `audit-ok:` with its reason. Do not restore this default again
-/// on the strength of having looked at some screens; the audit is the gate.
+/// Defaults to [ThemeMode.light] so every family opens onto the warm cream
+/// «نور والقناديل» palette regardless of OS dark-mode state; parents who
+/// prefer dark mode switch it on explicitly in Settings → Appearance.
+/// `dart run tool/audit_light_surfaces.dart` still guards dark-surface safety.
 class ThemeModeNotifier extends StateNotifier<ThemeMode> {
-  ThemeModeNotifier(this._prefs) : super(ThemeMode.system) {
+  ThemeModeNotifier(this._prefs) : super(ThemeMode.light) {
     final stored = _prefs?.getString(_key);
-    if (stored != null) {
-      state = ThemeMode.values.firstWhere(
-        (m) => m.name == stored,
-        orElse: () => ThemeMode.system,
-      );
+    if (stored == ThemeMode.dark.name) {
+      state = ThemeMode.dark;
+    } else {
+      state = ThemeMode.light;
     }
   }
 
@@ -200,8 +186,9 @@ class ThemeModeNotifier extends StateNotifier<ThemeMode> {
   final SharedPreferences? _prefs;
 
   Future<void> set(ThemeMode mode) async {
-    state = mode;
-    await _prefs?.setString(_key, mode.name);
+    final resolved = mode == ThemeMode.dark ? ThemeMode.dark : ThemeMode.light;
+    state = resolved;
+    await _prefs?.setString(_key, resolved.name);
   }
 }
 
