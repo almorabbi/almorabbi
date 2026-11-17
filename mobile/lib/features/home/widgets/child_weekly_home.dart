@@ -1,7 +1,8 @@
 /// Child-centric Home screen variant (`child_home_v2`), streamlined into
 /// three calm daily stations:
 ///   1. Your parenting step today ([TodayFocusCard], a single reflection card
-///      — follow-up OR Mawaqif — and a sleek collapsible [TodayWeeklyPlanCard]).
+///      per active child — follow-up OR Mawaqif, plus sibling follow-up when due
+///      for another child — and a sleek collapsible [TodayWeeklyPlanCard]).
 ///   2. Shared family time ([TodayMissionRow], [TodayFamilyPuzzlesCard], and
 ///      clear Child Corner handover tile inside [ChildDayCard]).
 ///   3. Companion & seasonal corner ([TodayAskBlock], optional Friday harvest,
@@ -118,8 +119,15 @@ class ChildWeeklyHome extends ConsumerWidget {
     final horizon = ref.watch(horizonStripGateProvider);
     final now = ref.watch(clockProvider)();
     final week = ref.watch(familyWeekProvider).valueOrNull;
-    final hasDueFollowup =
-        (ref.watch(dueFollowupsProvider).valueOrNull ?? const []).isNotEmpty;
+    final dueFollowupsAsync = ref.watch(dueFollowupsProvider);
+    final dueFollowups = dueFollowupsAsync.valueOrNull;
+    final followupsSettled =
+        dueFollowupsAsync.hasValue || dueFollowupsAsync.hasError;
+    final showFollowupCard = dueFollowups != null && dueFollowups.isNotEmpty;
+    final hasActiveChildFollowup = profile != null &&
+        dueFollowups != null &&
+        dueFollowups.any((f) => f.childId == profile.id);
+    final showMawqifCard = followupsSettled && !hasActiveChildFollowup;
     final largeText = MediaQuery.textScalerOf(context).scale(10) > 13;
     final stripOnHills = horizon != null && !largeText;
 
@@ -216,10 +224,11 @@ class ChildWeeklyHome extends ConsumerWidget {
             ageGroup: ageGroup,
             onStartFirstPath: () => onGoToTab(RootTab.learn),
           ),
-          if (hasDueFollowup) ...[
+          if (showFollowupCard) ...[
             const SizedBox(height: 12),
             TodayFollowupCard(activeChildId: profile?.id),
-          ] else if (profile != null) ...[
+          ],
+          if (profile != null && showMawqifCard) ...[
             const SizedBox(height: 12),
             TodayMawqifCard(
               childId: profile.id,
