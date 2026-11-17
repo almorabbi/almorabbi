@@ -28,6 +28,7 @@ import '../features/child_memory/providers/memory_providers.dart'
 import '../features/companion/logic/answer_step.dart';
 import '../features/companion/providers/companion_providers.dart';
 import '../features/onboarding/providers/onboarding_providers.dart';
+import '../features/program/data/review_prompt.dart';
 import '../features/program/providers/program_providers.dart';
 import '../features/program/widgets/next_step_sheet.dart';
 import '../features/program/providers/progress_providers.dart'
@@ -412,6 +413,14 @@ class _ChatScreenState extends ConsumerState<ChatScreen>
                               next == null || next.role != m.role,
                           onFeedback: (rating) {
                             notifier.submitFeedback(m.id, rating);
+                            if (rating == 'up') {
+                              unawaited(
+                                ReviewPrompt.maybeAsk(
+                                  context,
+                                  source: 'chat_thumbs_up',
+                                ),
+                              );
+                            }
                           },
                           onRetry: next == null && m.error != null
                               ? notifier.retryLastTurn

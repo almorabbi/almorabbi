@@ -20,6 +20,7 @@ import '../../share/shareable_moment_card.dart';
 import '../data/journey_milestones.dart';
 import '../data/tasmee_store.dart';
 import '../providers/journey_providers.dart';
+import '../../program/data/review_prompt.dart';
 import 'tasmee_screen.dart';
 
 class QuranMemorizationScreen extends ConsumerWidget {
@@ -37,9 +38,17 @@ class QuranMemorizationScreen extends ConsumerWidget {
     WidgetRef ref,
     int surah,
   ) async {
+    final wasAlreadyMemorized =
+        (ref.read(memorizedSurahsProvider(childId)).value ?? const <int>{})
+            .contains(surah);
     final wasFirst =
         await ref.read(memorizedSurahsProvider(childId).notifier).toggle(surah);
-    if (!wasFirst) return;
+    if (!wasFirst) {
+      if (!wasAlreadyMemorized && context.mounted) {
+        await ReviewPrompt.maybeAsk(context, source: 'quran_memorized');
+      }
+      return;
+    }
 
     // First surah ever → log the spiritual milestone + celebrate once.
     // Null only if the milestone pack failed to load; the surah is already
@@ -73,6 +82,9 @@ class QuranMemorizationScreen extends ConsumerWidget {
           );
         },
       );
+      if (context.mounted) {
+        await ReviewPrompt.maybeAsk(context, source: 'quran_first_surah');
+      }
     }
   }
 

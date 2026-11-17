@@ -47,6 +47,7 @@ import '../../stories/narration/story_narration.dart';
 import '../../stories/narration/word_cues.dart';
 import '../../stories/scene/story_scene.dart';
 import '../../stories/scene/story_scene_catalog.dart';
+import '../data/review_prompt.dart';
 import '../data/story_models.dart';
 import '../providers/progress_providers.dart';
 import '../services/bedtime_audio_service.dart';
@@ -601,7 +602,12 @@ class StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
         story: widget.story,
         rating: StoryRatingCard(
           storyId: widget.story.id,
-          onRated: (r) => _event('story_rated', rating: r, page: _lastPage),
+          onRated: (r) {
+            _event('story_rated', rating: r, page: _lastPage);
+            if (r >= 2 && mounted) {
+              unawaited(ReviewPrompt.maybeAsk(context, source: 'story_loved'));
+            }
+          },
         ),
         childName: _childName(),
         questionsShown: _questionsShown,

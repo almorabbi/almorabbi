@@ -10,6 +10,7 @@
 ///   * Version footer
 library;
 
+import 'dart:async';
 import 'dart:io';
 import 'dart:convert';
 
@@ -28,6 +29,7 @@ import '../../../theme/app_theme.dart';
 import '../../../theme/design_tokens.dart';
 import '../../onboarding/providers/onboarding_providers.dart';
 import '../data/progress_models.dart';
+import '../data/review_prompt.dart';
 import '../providers/settings_providers.dart';
 import '../providers/backup_provider.dart';
 import 'children_list_screen.dart';
@@ -264,6 +266,7 @@ class SettingsScreen extends ConsumerWidget {
                   title: l10n.settingsRate,
                   subtitle: l10n.settingsRateDesc,
                   onTap: () async {
+                    unawaited(ReviewPrompt.markCompletedFromSettings());
                     final market = Uri.parse(
                       'market://details?id=com.alsaba.almorabbi',
                     );
