@@ -65,6 +65,19 @@ LOGCAT_PID=$!
 demo() { adb shell am broadcast -a com.android.systemui.demo "$@" >/dev/null 2>&1 || true; }
 demo_on() {
   adb shell settings put global sysui_demo_allowed 1 >/dev/null 2>&1 || true
+  # SystemUI makes its Wi-Fi view the first time a Wi-Fi icon is ever shown,
+  # and when that first time falls inside demo mode the demo bar gets the view
+  # twice (IconManager.onDemoModeStarted, then addNewWifiIcon — Android 15):
+  # two Wi-Fi icons on every picture of the first pass, whenever the hosted
+  # emulator had sat on mobile data until then (third and fourth run of this
+  # job; the second had one). So the icon is shown once in a bar nobody
+  # photographs, and the bar is built again: the view is known by then, and
+  # the new bar gets one.
+  demo -e command enter
+  demo -e command network -e wifi show -e level 4 -e fully true
+  sleep 2
+  demo -e command exit
+  sleep 1
   demo -e command enter
   # Demo mode freezes the clock where it stood; give it the device's own time.
   demo -e command clock -e hhmm "$(adb shell date +%H%M 2>/dev/null | tr -d '\r')"

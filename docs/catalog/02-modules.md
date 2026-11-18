@@ -1641,7 +1641,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | الملف | أسطر | الدور |
 |---|---:|---|
 | `e2e/.gitignore` |  | استبعاد مخرجات E2E |
-| `e2e/e2e_tool.py` | 1698 | Helpers for the emulator E2E gate (.github/workflows/mobile-e2e.yml). Subcommands, all stdlib-only so they run on a bare GitHub runner: |
+| `e2e/e2e_tool.py` | 1697 | Helpers for the emulator E2E gate (.github/workflows/mobile-e2e.yml). Subcommands, all stdlib-only so they run on a bare GitHub runner: |
 | `e2e/flows/common/assert_today.yaml` | 32 | Today renders its primary blocks (origin/main layout, 1.0.67+112): |
 | `e2e/flows/common/enter_pin.yaml` | 8 | Four digits on the child-mode keypad (child_mode_lock_screen.dart). |
 | `e2e/flows/common/exit_child_mode.yaml` | 29 | Exit child mode cleanly back to Today using the PIN. |
@@ -1671,8 +1671,9 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `e2e/flows/gallery/shoot.yaml` | 894 | One pass of the before/after gallery (Phase 0 of docs/NOOR_WAL_QANADIL_PLAN.md). |
 | `e2e/flows/gallery/today_shot.yaml` | 23 | The gallery's own Today capture: common/assert_today.yaml's contract, but |
 | `e2e/flows/listing/ask.yaml` | 71 | One question for the picture, typed in a NEW conversation, and the whole answer waited for; ends with no keyboard up and the question at the top of the screen. |
+| `e2e/flows/listing/ask_again.yaml` | 50 | A second question in the conversation ask.yaml left on screen, and back up to the first: the English pass's header then reads "2 questions" (the count has no singular form). |
 | `e2e/flows/listing/guards.js` | 39 | What a picture on the Play page must never carry (the test marker, the review banner, the other language as running text) — one definition for shot.yaml and shoot.yaml. |
-| `e2e/flows/listing/shoot.yaml` | 350 | The store-listing shots: the seven app screens of the Play page, one pass per language, with a listing child (real name, birth month) added beside the marked one and a typed question in the pass's language (job `listing`). |
+| `e2e/flows/listing/shoot.yaml` | 354 | The store-listing shots: the seven app screens of the Play page, one pass per language, with a listing child (real name, birth month) added beside the marked one and a typed question in the pass's language (job `listing`). |
 | `e2e/flows/listing/shot.yaml` | 29 | One store-listing capture; refuses, by name, each thing guards.js says a picture on the Play page must never carry. |
 | `e2e/flows/rehearsal/expect.yaml` | 23 | Wait for PATTERN: a hard expectation on the PR head (TAG == 'after'), a |
 | `e2e/flows/rehearsal/sound_after.yaml` | 15 | Sound × recitation, part 2: after the ticks the reader is still reciting — |
@@ -1686,12 +1687,12 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `e2e/flows/upgrade/04_child_kept.yaml` | 11 | Upgrade test — the upgraded app still has the child the baseline created. |
 | `e2e/install_system_image.sh` | 68 | Installs the emulator system image before reactivecircus/android-emulator-runner |
 | `e2e/logcat_allowlist.txt` | 4 | ملف نصي |
-| `e2e/listing.sh` | 169 | The store-listing shots, on the emulator of job `listing`: two fresh installs of the PR head (ar, en), status bar in demo mode, red when a slot has no picture. Artifact `e2e-listing`. |
+| `e2e/listing.sh` | 182 | The store-listing shots, on the emulator of job `listing`: two fresh installs of the PR head (ar, en), status bar in demo mode, red when a slot has no picture. Artifact `e2e-listing`. |
 | `e2e/rehearsal.sh` | 304 | The Ramadan rehearsal (gate G2) and the sound × recitation check, on the |
 | `e2e/run.sh` | 271 | Runs the E2E journeys on the emulator that reactivecircus/android-emulator-runner |
 | `e2e/test_e2e_tool.py` | 1499 | Tests for e2e/e2e_tool.py — run: python3 -m unittest discover -s e2e -v |
 | `e2e/test_install_system_image.py` | 95 | install_system_image.sh against a stub sdkmanager: corrupt downloads are retried from scratch, and only a complete image counts as installed. |
-| `e2e/test_listing.py` | 484 | The store-listing lineage: the runner with fake device/CLI boundaries, the slot check, and what the flow may and may not put in a picture. No builds. |
+| `e2e/test_listing.py` | 539 | The store-listing lineage: the runner with fake device/CLI boundaries, the slot check, and what the flow may and may not put in a picture. No builds. |
 | `e2e/test_rehearsal.py` | 174 | Exercise the real rehearsal runner (e2e/rehearsal.sh) with fake device, CLI and tool boundaries; no builds, no emulator, no server. |
 | `e2e/test_run.py` | 138 | Exercise the real shell runner with fake device/CLI boundaries; no builds. |
 | `e2e/test_workflow.py` | 594 | Parse the workflow and execute its final verdict without builds or devices. |
