@@ -20,6 +20,7 @@ import e2e_tool as t  # noqa: E402
 FLOW = E2E / 'flows/listing/shoot.yaml'
 SHOT = E2E / 'flows/listing/shot.yaml'
 ASK = E2E / 'flows/listing/ask.yaml'
+ASK_AGAIN = E2E / 'flows/listing/ask_again.yaml'
 GUARDS = E2E / 'flows/listing/guards.js'
 PNG = b'\x89PNG\r\n\x1a\n' + b'\0' * 30_000
 
@@ -128,6 +129,22 @@ exit 0
         self.assertTrue(any(l.startswith(demo + 'clock -e hhmm') for l in log))
         self.assertIn('shell date +%H%M', log)
 
+    def test_the_photographed_bar_is_built_after_the_wifi_icon_was_first_shown(self):
+        # Shown for the first time inside the bar that gets photographed, the
+        # Wi-Fi icon is there twice (the Arabic pass of two runs).
+        _, _, _, log = self.run_listing()
+        demo = 'shell am broadcast -a com.android.systemui.demo -e command '
+        wifi = demo + 'network -e wifi show -e level 4 -e fully true'
+        for lang in ('ar', 'en'):
+            onboard = log.index(f'maestro {lang}_onboard {lang} 01_onboarding.yaml')
+            shoot = log.index(f'maestro {lang} {lang} shoot.yaml')
+            bar = [l[len(demo):] for l in log[onboard:shoot] if l.startswith(demo)]
+            self.assertEqual(bar[:4], ['enter', wifi[len(demo):], 'exit', 'enter'], lang)
+            # ... and that second bar is the one still up when the shoot starts.
+            self.assertNotIn('exit', bar[4:], lang)
+            self.assertIn(wifi[len(demo):], bar[4:], lang)
+            self.assertIn('network -e mobile hide', bar[4:], lang)
+
     def test_the_install_is_marked_like_every_other_lineage(self):
         marker = re.compile(r'^CHILD_NAME="\$\{E2E_CHILD_NAME:-([^}]+)\}"$', re.M)
         mine = marker.search((E2E / 'listing.sh').read_text()).group(1)
@@ -210,6 +227,7 @@ class ListingFlowTest(unittest.TestCase):
         cls.commands = _walk(cls.steps, [])
         cls.shot_steps = list(yaml.safe_load_all(SHOT.read_text(encoding='utf-8')))[-1]
         cls.ask_steps = list(yaml.safe_load_all(ASK.read_text(encoding='utf-8')))[-1]
+        cls.again_steps = list(yaml.safe_load_all(ASK_AGAIN.read_text(encoding='utf-8')))[-1]
         cls.flat = [json.dumps(s, ensure_ascii=False) for s in cls.steps]
 
     def shots(self):
@@ -222,7 +240,8 @@ class ListingFlowTest(unittest.TestCase):
         self.assertEqual(tuple(self.shots()), t.LISTING_SHOTS)
 
     def test_every_picture_goes_through_the_guard(self):
-        for name, steps in (('shoot.yaml', self.steps), ('ask.yaml', self.ask_steps)):
+        for name, steps in (('shoot.yaml', self.steps), ('ask.yaml', self.ask_steps),
+                            ('ask_again.yaml', self.again_steps)):
             self.assertFalse([c for c in _walk(steps, []) if 'takeScreenshot' in c],
                              f'{name} takes no screenshot of its own — shot.yaml does')
         takes = [i for i, s in enumerate(self.shot_steps) if isinstance(s, dict) and 'takeScreenshot' in s]
@@ -253,7 +272,8 @@ class ListingFlowTest(unittest.TestCase):
         # Two things are typed here: the child's name, then the marked
         # question. ask.yaml types the question for the picture.
         self.assertEqual(typed, ['${output.listingChild}', '${QUESTION}'])
-        self.assertEqual([c['inputText'] for c in _walk(self.ask_steps, []) if 'inputText' in c], ['${ASK}'])
+        for steps in (self.ask_steps, self.again_steps):
+            self.assertEqual([c['inputText'] for c in _walk(steps, []) if 'inputText' in c], ['${ASK}'])
 
     def test_the_typed_name_is_proven_on_screen_before_the_child_is_saved(self):
         typed = self.index({'inputText': '${output.listingChild}'})
@@ -293,8 +313,8 @@ class ListingFlowTest(unittest.TestCase):
         sheet = between[-1]['extendedWaitUntil']
         self.assertEqual(sheet['visible'], '${output.c.weekActsTitle}')
         self.assertNotIn('optional', sheet)
+        # Today's lantern row is not what is photographed any more.
         self.assertNotIn('weekLanternsTitle', self.text)
-        self.assertNotIn("navToday}'\n- scrollUntilVisible", self.text)
 
     def test_the_marked_question_is_asked_first_and_never_photographed(self):
         marked = self.index({'inputText': '${QUESTION}'})
@@ -304,7 +324,10 @@ class ListingFlowTest(unittest.TestCase):
         self.assertLess(marked, asks[0])
         self.assertFalse([i for i in shots if marked < i < asks[-1]],
                          'no picture while the marked conversation can be on screen')
-        self.assertEqual([i for i in shots if i > marked], [asks[-1] + 1])
+        # Only the English pass's second question stands between the last
+        # of them and the one picture taken here.
+        self.assertEqual(_flow_file(self.steps[asks[-1] + 1]), 'ask_again.yaml')
+        self.assertEqual([i for i in shots if i > marked], [asks[-1] + 2])
         # The assistant is the last leg: answers from production can cost no
         # other picture.
         self.assertEqual(self.shots()[-1], 'assistant')
@@ -339,6 +362,36 @@ class ListingFlowTest(unittest.TestCase):
         # the tab and returns, scrolls up to the question, and insists on it.
         tail = self.ask_steps[self.ask_steps.index({'runFlow': '../common/home.yaml'}):]
         self.assertEqual(tail[1], {'tapOn': '${output.lead.navAssistant}'})
+        self.assertEqual(tail[-1], {'extendedWaitUntil': {'visible': '${output.listingAsked}', 'timeout': 10000}})
+
+    def test_the_english_conversation_holds_two_questions_and_the_arabic_one(self):
+        """The header counts the questions with a string that has no singular:
+        «1 سؤال» reads right, "1 questions" (the 2.0.0 page) does not."""
+        arb = {lang: json.loads((ROOT / f'mobile/lib/l10n/app_{lang}.arb').read_text(encoding='utf-8'))
+               for lang in ('ar', 'en')}
+        self.assertEqual((arb['ar']['chatTurnsCount'], arb['en']['chatTurnsCount']),
+                         ('{count} سؤال', '{count} questions'),
+                         'the count has a plural form now: one question is enough in both sets — drop ask_again.yaml')
+        self.assertIn('chatTurnsCount(state.turnCount)',
+                      (ROOT / 'mobile/lib/screens/chat_screen.dart').read_text(encoding='utf-8'))
+        again = [s['runFlow'] for s in self.steps if _flow_file(s) == 'ask_again.yaml']
+        self.assertEqual(len(again), 1)
+        # English only, and only under an answer fit for a picture: a bad one
+        # is left for shot.yaml to refuse by name.
+        self.assertEqual(again[0]['when'], {True: "${UI_LANG == 'en'}", 'notVisible': '${output.listingBadAnswer}'})
+        self.assertEqual(again[0]['env'], {'ASK': '${LISTING_ASK_EN_AGAIN}'})
+        question = self.config['env']['LISTING_ASK_EN_AGAIN']
+        self.assertRegex(question, r"^[A-Za-z0-9 ,?'-]+$")
+        self.assertNotIn(question, self.questions()['en'])
+        # Same conversation, and the picture is still the first question:
+        # nothing here starts a new one or re-points the pattern scrolled to.
+        flat = json.dumps(self.again_steps, ensure_ascii=False)
+        self.assertNotIn('chatNewConversation', flat)
+        self.assertFalse([c for c in _walk(self.again_steps, []) if 'evalScript' in c])
+        tail = self.again_steps[self.again_steps.index({'runFlow': '../common/home.yaml'}):]
+        self.assertEqual(tail[1], {'tapOn': '${output.lead.navAssistant}'})
+        self.assertEqual(tail[2]['scrollUntilVisible']['element'], {'text': '${output.listingAsked}'})
+        self.assertEqual(tail[2]['scrollUntilVisible']['direction'], 'UP')
         self.assertEqual(tail[-1], {'extendedWaitUntil': {'visible': '${output.listingAsked}', 'timeout': 10000}})
 
     def test_the_questions_are_filed_under_the_one_domain_without_the_banner(self):

@@ -1,0 +1,50 @@
+# A second question in the conversation ask.yaml left on screen, and back up to
+# the first: the picture stays the first question and its answer, only the
+# count in the header changes (shoot.yaml says which pass wants that, and why).
+# Env: ASK. Requires l10n.js, and ask.yaml right before it — output.listingAsked
+# is still the first question's pattern; the Assistant tab is open, no keyboard.
+appId: com.alsaba.almorabbi
+---
+- tapOn: '${output.t.chatTypeHint}'
+- inputText: '${ASK}'
+- tapOn: '${output.t.a11ySendQuestion}'
+- extendedWaitUntil:
+    visible: '${output.t.chatStop}'
+    timeout: 20000
+    optional: true
+- extendedWaitUntil:
+    notVisible: '${output.t.chatStop}'
+    timeout: 180000
+- runFlow:
+    file: ../common/server_retry.yaml
+    env:
+      READY: '${output.t.feedbackHelpful}'
+      SHOT: assistant_again_server_error_retry
+- extendedWaitUntil:
+    notVisible: '${output.t.chatStop}'
+    timeout: 180000
+- scrollUntilVisible:
+    element:
+      text: '${output.t.feedbackHelpful}'
+    direction: DOWN
+    timeout: 20000
+- assertNotVisible: '${output.t.chatRetry}'
+- runFlow: ../common/home.yaml
+- tapOn: '${output.lead.navAssistant}'
+# Two answers to climb now, not one.
+- scrollUntilVisible:
+    element:
+      text: '${output.listingAsked}'
+    direction: UP
+    timeout: 120000
+- swipe:
+    start: '50%,35%'
+    end: '50%,75%'
+- swipe:
+    start: '50%,35%'
+    end: '50%,75%'
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: '${output.listingAsked}'
+    timeout: 10000
