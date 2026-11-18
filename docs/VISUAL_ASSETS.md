@@ -87,7 +87,17 @@ python3 docs/brand/tools/brand_build.py frame --frame frame_1_rising \
 - ختم الإنفوجراف المنزَّل **اتصلّح (نوفمبر 2026):** بيترسم من `assets/svg/art/logo_mark.svg` نفسه
   (`features/program/services/infographic_stamp.dart`) و`assets/images/logo.png` القديم اتمسح من التطبيق.
   `test/infographic_stamp_test.dart` بيقرا بكسلات الصورة المختومة وبيمنع رجوع الملف القديم للحزمة.
-- الريلز لسه بالشعار القديم: `remotion-reels/public/logo.png` (بيقراه `scripts/reel_from_video.py` و`reel.json`).
+- أدوات التسويق **اتصلّحت (نوفمبر 2026):** كروت النصائح (`ops/tools/generate_tip_cards.py`) وختم الإنفوجراف المصدَّر
+  (`ops/tools/watermark_infographics.py`) ومصنع الريلز (`scripts/reel_from_video.py`: شارة الركن وبطاقة النهاية)
+  وتكوين Remotion `Reel` (`logoPath`) بقوا كلهم بيقروا ملف واحد: `remotion-reels/public/noor/app_logo_round.png` —
+  أيقونة المتجر مقصوصة دايرة بحافة ناعمة وخلفية شفافة (بيولّدها `remotion-reels/scripts/make_round_logo.py`، ونفس
+  علامة ريلز حملة «نور»). نسخ الشعار القديم التلاتة (`facebook_profile_logo.png` و`remotion-reels/public/logo.png`
+  و`frontend/assets/logo.png`) اتمسحت، و`backend/tests/test_marketing_logo.py` بيمنع رجوعها بالبايت.
+  - العلامة شفافة الحواف: الصقها بـ`alpha_composite` مش `paste(img, box, mask)` — الأخيرة بتخلط قناة الألفا نفسها
+    فتطلع الحافة شبه شفافة (كرت النصيحة بيرفض الكرت ده صراحةً).
+  - ⚠️ كرون PCC `tutor_reels` لسه بيشتغل من نسخة الأرشيف `~/projects/tutor-guardian` (للقراءة بس)، ومصنع الريلز هناك
+    بيقرا `mobile/assets/images/logo.png` **القديم**؛ و`reels_v2/` هناك فيها ٢٧ ريل متولّدين بالشعار القديم. أي ريل
+    يتولّد أو يتنشر من هناك (`reels_pipeline.py --publish`) هيطلع بالشعار القديم لحد ما الكرون يتنقل لـ`almorabbi` أو يتقفل.
 - أيقونة Play (512×512) **مش بتطلع من البناء** — بتترفع باليد في Play Console: `docs/brand/store/play_icon_512.png`
   (مربّع كامل؛ Play بيقصّه بنفسه).
 

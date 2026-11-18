@@ -313,6 +313,7 @@ pytest (`pytest.ini` في الجذر)؛ المحلي يجب `backend/.venv/bin/p
 | `backend/tests/test_lesson_index_integrity.py` | 174 | Structural invariants of docs/lesson_index.json. These are data-level checks with no media on disk, so they run in CI and inside |
 | `backend/tests/test_lesson_progress_migration.py` | 300 | الترحيل نفسه: من مفتاح الإنتاج ذي العمودين إلى مفتاح لكل طفل. الاختبارات في `test_progress_upsert_key.py` تشتغل على قاعدة نظيفة، فتثبت |
 | `backend/tests/test_log_schema_migrations.py` | 269 | Baseline migrations for sessions.db's `sessions` and `query_rewrites`. Built only from production's copied DDL (tests/prod_schema_support.py). The |
+| `backend/tests/test_marketing_logo.py` | 102 | Marketing tools stamp the current mark, never the old logo: tip cards, watermarked infographics, reel_from_video and the Remotion Reel all read `remotion-reels/public/noor/app_logo_round.png` (round, clear corners), and no tracked file carries the bytes of a deleted old-logo copy. |
 | `backend/tests/test_mawaqif.py` | 115 | «موقف بقرار» — the bank and GET /api/program/mawaqif (docs/MAWAQIF.md): both languages served in full and matching item by item. |
 | `backend/tests/test_media_naming.py` | 174 | Media naming is a contract between the API and the generators. Both sides used to derive it independently, which produced two live defects: |
 | `backend/tests/test_medical_gap_units.py` | 163 | The four medical units PR #23 found missing stay sourced, safe and reachable. PR #23 shipped red flags for puberty, periods and children's fasting in… |
@@ -1388,7 +1389,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `ops/tools/generate_dataset_v2.py` | 349 | Fine-tune dataset v2 generator — Azure DeepSeek backed. Produces ~4k instruction/output pairs in the Phase-3 structured answer |
 | `ops/tools/generate_qa_dataset.py` | 266 | Generate QA dataset for Tutor Guardian fine-tuning. Reads knowledge units from the KB and uses an LLM to generate realistic parent questions +… |
 | `ops/tools/generate_real_gap_kb_units.py` | 870 | generate_real_gap_kb_units.py — Generates 25 schema-validated Knowledge Base units covering the top real-parent KB gaps discovered by `Gemma 4 31B`… |
-| `ops/tools/generate_tip_cards.py` | 369 | generate_tip_cards.py — توليد كروت نصائح يومية مربعة (1080x1080) مطابقة لتصميم ShareableMomentCard الفاخر والمعتمد في كود تطبيق المربّي الذكي. يستخدم… |
+| `ops/tools/generate_tip_cards.py` | 373 | generate_tip_cards.py — توليد كروت نصائح يومية مربعة (1080x1080) مطابقة لتصميم ShareableMomentCard الفاخر والمعتمد في كود تطبيق المربّي الذكي. يستخدم… |
 | `ops/tools/generate_veo_assets.py` | 141 | Tutor Guardian - Google Veo Video Generation Tool This tool generates high-quality camera zoom-in/fly-through video clips |
 | `ops/tools/golden_ci.py` | 303 | Nonblocking golden reports; offline retrieval is never answer quality. Full mode delegates generation and judging to eval_answers, only after an |
 | `ops/tools/golden_ci.sh` | 26 | Hosted candidate only. No .env, production volume, or provider credential. |
@@ -1425,7 +1426,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `ops/tools/upload_ultra_bundle_to_hf.py` | 63 | upload_ultra_bundle_to_hf.py — Uploads the anonymized & Teacher-distilled Google Colab Ultra bundle (`tg_colab_ultra_bundle.zip` + individual… |
 | `ops/tools/validate_age_groups.py` | 42 | Validate that every age_group in knowledge_base/units/*.json maps to a canonical value. Exits with code 1 if any unknown age_group is found without a… |
 | `ops/tools/validate_knowledge_units.py` | 69 | التحقق من ملفات وحدات المعرفة مقابل JSON schema (يُذكر في README) |
-| `ops/tools/watermark_infographics.py` | 86 | watermark_infographics.py — سكربت لإضافة لوجو التطبيق تلقائياً وعلامة مائية على الانفوجرافات المولدة مسبقاً وتصديرها لمجلد التسويق لتكون جاهزة للنشر. |
+| `ops/tools/watermark_infographics.py` | 88 | watermark_infographics.py — سكربت لإضافة لوجو التطبيق تلقائياً وعلامة مائية على الانفوجرافات المولدة مسبقاً وتصديرها لمجلد التسويق لتكون جاهزة للنشر. |
 | `ops/tools/write_infographic_prompts.py` | 319 | كتابة بلوكات برومبت الإنفوجراف للدروس التي لا تملك واحدًا |
 
 ### ops/ — بقية الملفات النصية (kaggle/colab/eval/ollama/تقارير)
@@ -1595,7 +1596,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `scripts/prepare_play_assets.py` | 63 | 1. Copy App Icon |
 | `scripts/publish_reels_to_buffer.py` | 279 | Publish generated tutor-guardian reels to Buffer (Instagram/TikTok/Facebook). Flow: |
 | `scripts/reel` |  | اختصار bash لمصنع الريلز من أي مجلد |
-| `scripts/reel_from_video.py` | 655 | مصنع الريلز — v2: يقصّ من فيديوهات المنهج بدل توليد صورة ثابتة |
+| `scripts/reel_from_video.py` | 654 | مصنع الريلز — v2: يقصّ من فيديوهات المنهج بدل توليد صورة ثابتة |
 | `scripts/reels_pipeline.py` | 51 | tutor_reels: generate reels. Publishing is a separate, deliberate step. It used to generate and publish in one run, which meant the first time anyone |
 | `scripts/regen_podcasts.py` | 133 | Regenerate REAL NotebookLM audio for lessons whose local docs/ file is an edge-tts placeholder, then download + place it at the correct path. |
 | `scripts/release_bundle.py` | 180 | Inspect unsigned hosted AABs and locally signed copies. Never signs or uploads. |
@@ -1748,7 +1749,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 
 | المجموعة | عدد الملفات | ما هي |
 |---|---:|---|
-| `remotion-reels/public/` | 66 (mp3×46, svg×9, wav×7, png×2) | أصوات VO/SFX وأصول ورق مقصوص منسوخة من التطبيق (sync_app_art.sh) وشعار |
+| `remotion-reels/public/` | 65 (mp3×46, svg×9, wav×7, png×1, json×1, jpg×1) | أصوات VO/SFX وأصول ورق مقصوص منسوخة من التطبيق (sync_app_art.sh) والعلامة الدائرية `noor/app_logo_round.png` — مصدر الشعار الوحيد لأدوات التسويق (كروت النصائح، ختم الإنفوجراف، مصنع الريلز، Remotion) |
 
 ## 9) الواجهة الويب — `frontend/`
 
@@ -1774,7 +1775,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 
 | المجموعة | عدد الملفات | ما هي |
 |---|---:|---|
-| `frontend/assets/` | 172 (jpg×150, png×9, mp4×6, woff2×3, svg×2) | إطارات تمرير الفيديو (seq/*.jpg)، خطوط Cairo woff2، بانر، فيديوهات، و`print/qr_PR0{1,2}.svg` (رمز QR أسفل أوراق الطباعة — يكتبه `ops/tools/gen_print_qr.py`) |
+| `frontend/assets/` | 174 (jpg×150, png×9, mp4×6, svg×4, woff2×3, txt×2) | إطارات تمرير الفيديو (seq/*.jpg)، خطوط Cairo woff2، بانر، فيديوهات، و`print/qr_PR0{1,2}.svg` (رمز QR أسفل أوراق الطباعة — يكتبه `ops/tools/gen_print_qr.py`) |
 
 ## 10) CI/CD وخطافات git — `.github/` و `.githooks/`
 
@@ -1919,7 +1920,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `docs/stories/` | 302 (png×287, mp4×15) | رسوم وفيديوهات القصص (png/mp4) — أغلفة وصفحات؛ منها 168 png لقصص الأنبياء (`anbiya_*`) والسيرة (`sira_*`)، نسختا young/older لكل قصة |
 | `docs/brand/` | 42 (png×31, svg×7, json×2, py×2 — الـpy الاثنان لهما صفّان فرديان في «docs/brand/tools/» أدناه) | الهوية البصرية: أيقونات/سِيَل/أدوات متجر |
 | `docs/research/` | 24 (md×23, csv×1) | أبحاث تأسيسية (إطار تربوي، أوراق مراحل، ردود خام) |
-| `docs/marketing/` | 9 (webp×5, png×2, jpg×1, json×1) | رسومات الإطلاق وmanifest الريلز |
+| `docs/marketing/` | 8 (webp×5, png×1, jpg×1, json×1) | رسومات الإطلاق وmanifest الريلز |
 | `docs/ (ملفات مخرجات الدروس)` | 102 (json×62, md×40) | `lesson_*_assets.md/_flashcards.json/_slides.json` و`*_assets.md`: مخرجات توليد الدروس المباشرة |
 | `docs/MAWAQIF.md` | 62 | «موقف بقرار» — المواصفة (2026-11-09) |
 | `docs/TASMEE_WITH_PARENT.md` | 71 | «تسميع مع الوالد» — المواصفة (2026-11-09) |

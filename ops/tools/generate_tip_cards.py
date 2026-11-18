@@ -26,7 +26,10 @@ except ImportError:
 ROOT = Path(__file__).resolve().parents[2]
 DOCS_DIR = ROOT / "docs"
 TIPS_FILE = DOCS_DIR / "marketing" / "02_content_arsenal.md"
-LOGO_PATH = DOCS_DIR / "marketing" / "launch_graphics" / "facebook_profile_logo.png"
+# العلامة الحالية: أيقونة المتجر (icon_c_hills) مقصوصةً دائرةً بحافة ناعمة وخلفية شفافة —
+# نفس الملف الذي تختم به ريلز حملة «نور» و`scripts/reel_from_video.py`. يولّده
+# remotion-reels/scripts/make_round_logo.py من SVG الهوية؛ لا نسخة ثانية تُحفظ هنا.
+LOGO_PATH = ROOT / "remotion-reels" / "public" / "noor" / "app_logo_round.png"
 OUTPUT_DIR = DOCS_DIR / "marketing" / "daily_tips_cards"
 BG_IMAGE_PATH = ROOT / "mobile" / "assets" / "images" / "generated" / "share_bg_celebration.webp"
 
@@ -244,8 +247,9 @@ def generate_card(tip: dict, output_path: Path):
         logo = Image.open(LOGO_PATH).convert("RGBA")
         logo_top_size = 120
         logo_top_resized = logo.resize((logo_top_size, logo_top_size), Image.Resampling.LANCZOS)
-        # ممركز في الأعلى
-        img.paste(logo_top_resized, (540 - 60, 80), logo_top_resized)
+        # ممركز في الأعلى. alpha_composite لا paste: العلامة دائرية بحافة ناعمة، وpaste بقناعٍ
+        # يمزج قناة الألفا نفسها فتخرج الحافة شبه شفافة ويرفض فحص الألفا أسفل الدالة الكارت.
+        img.alpha_composite(logo_top_resized, (540 - 60, 80))
     
     # ب) رسم الـ Eyebrow (نصيحة اليوم) بداخل كبسولة/شيب.
     # الكبسولة فاتحة (أبيض ~92%) بحدّ تركوازي خفيف ونص تركوازي، وتُدمج بـalpha_composite

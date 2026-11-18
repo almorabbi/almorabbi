@@ -9,7 +9,9 @@ from PIL import Image
 
 # تحديد المسارات
 ROOT = Path(__file__).resolve().parents[2]
-LOGO_PATH = ROOT / "docs" / "marketing" / "launch_graphics" / "facebook_profile_logo.png"
+# العلامة الحالية مقصوصةً دائرةً (خلفية شفافة) — نفس ملف ريلز «نور» وكروت النصائح؛
+# يولّده remotion-reels/scripts/make_round_logo.py.
+LOGO_PATH = ROOT / "remotion-reels" / "public" / "noor" / "app_logo_round.png"
 INFOGRAPHICS_DIR = ROOT / "docs" / "lesson_assets" / "infographics"
 OUTPUT_DIR = ROOT / "docs" / "marketing" / "watermarked_infographics"
 
