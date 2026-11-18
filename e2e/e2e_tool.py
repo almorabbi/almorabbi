@@ -251,14 +251,13 @@ KEYS = [
     "mawqifToEvidence", "mawqifIdeaTitle", "mawqifToStep", "mawqifCommit",
     # The store-listing shots (e2e/flows/listing/, job `listing`) — PR head
     # only. The listing child is added by hand, with a birth month, and its
-    # snackbar must be gone before the first picture. Today's tip of the day
-    # is scrolled out of the lantern picture by its last line. The assistant
-    # is asked in new conversations (chatQ_study, a 7-9 child's first
-    # suggestion, marks the empty state), and an answer under the review
-    # banner is not photographed. Noor's line marks the story reader's first
-    # leaf.
+    # snackbar must be gone before the first picture. The week's steps are
+    # opened from the road's «هذا الأسبوع» card. The assistant is asked in
+    # new conversations (chatQ_study, a 7-9 child's first suggestion, marks
+    # the empty state), and an answer under the review banner is not
+    # photographed. Noor's line marks the story reader's first leaf.
     "addChildAdded", "birthMonthChoose", "birthMonthPickerTitle",
-    "birthMonthChange", "coachAskAboutTip",
+    "birthMonthChange", "familyRoadThisWeek", "weekActsTitle",
     "chatNewConversation", "chatNewConfirmTitle", "chatContinue",
     "chatQ_study", "safetyGeneralGuidance", "storyNoorIntro",
 ]
@@ -760,7 +759,7 @@ LISTING_LANGS = ("ar", "en")
 # «ramadan_street» is the manifest's eighth slot and is not here: it needs a
 # date in Ramadan and comes from the rehearsal's artifact.
 LISTING_SHOTS = (
-    "today", "noor_follow_up", "week_lanterns", "family_road",
+    "today", "noor_follow_up", "family_road", "week_lanterns",
     "child_corner", "story_reader", "assistant",
 )
 
