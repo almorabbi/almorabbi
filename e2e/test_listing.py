@@ -277,22 +277,24 @@ class ListingFlowTest(unittest.TestCase):
         self.assertEqual(saved['visible'], '${output.t.birthMonthChange}')
         self.assertNotIn('optional', saved)
 
-    def test_the_tip_of_the_day_is_scrolled_out_of_the_lantern_picture(self):
+    def test_the_lantern_picture_is_taken_on_the_road_not_on_today(self):
+        """Today's own lantern row sits between the tip of the day (server
+        text, different every day) and the count of families (known to
+        overcount), and Today is too short to scroll either away."""
         lanterns = next(i for i, s in enumerate(self.steps)
                         if _flow_file(s) == 'shot.yaml' and s['runFlow']['env']['SHOT'] == 'week_lanterns')
-        loop = self.steps[lanterns - 3]['repeat']
-        self.assertEqual(loop['while'], {'visible': '${output.c.coachAskAboutTip}'})
-        drag = loop['commands'][0]['swipe']
-        y = lambda point: int(point.split(',')[1].rstrip('%'))
-        # Upward, and 8% of a 2400 px screen: 192 px less the pan slop. A
-        # shorter drag never leaves the slop; a longer one can pass the
-        # lantern row, which starts ~320 px under the tip's last line.
-        self.assertEqual(y(drag['start']) - y(drag['end']), 8)
-        # The tip is gone, or there is no picture; and the lanterns are there.
-        self.assertEqual(self.steps[lanterns - 2], {'assertNotVisible': '${output.c.coachAskAboutTip}'})
-        still_there = self.steps[lanterns - 1]['extendedWaitUntil']
-        self.assertEqual(still_there['visible'], '${output.c.weekLanternsTitle}')
-        self.assertNotIn('optional', still_there)
+        road = next(i for i, s in enumerate(self.steps)
+                    if _flow_file(s) == 'shot.yaml' and s['runFlow']['env']['SHOT'] == 'family_road')
+        between = self.steps[road + 1:lanterns]
+        # Nothing leaves the road between the two pictures…
+        self.assertFalse([s for s in between if s == 'back' or 'runFlow' in (s if isinstance(s, dict) else {})])
+        self.assertIn({'tapOn': '${output.c.familyRoadThisWeek}'}, between)
+        # …and the sheet is up, or there is no picture.
+        sheet = between[-1]['extendedWaitUntil']
+        self.assertEqual(sheet['visible'], '${output.c.weekActsTitle}')
+        self.assertNotIn('optional', sheet)
+        self.assertNotIn('weekLanternsTitle', self.text)
+        self.assertNotIn("navToday}'\n- scrollUntilVisible", self.text)
 
     def test_the_marked_question_is_asked_first_and_never_photographed(self):
         marked = self.index({'inputText': '${QUESTION}'})

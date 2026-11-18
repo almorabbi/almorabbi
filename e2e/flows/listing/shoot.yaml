@@ -38,9 +38,9 @@
 # other language as running text, or a dialog — every picture goes through it.
 #
 # Order: Today is photographed first (a first-day Today, before the lesson
-# changes its card), the lesson lights the week's first lantern for the
-# lantern row and the road, and the assistant is last — answers from
-# production, the slowest and least certain leg, can then cost no other shot.
+# changes its card), the lesson lights the week's first lantern for the road
+# and the week's steps, and the assistant is last — answers from production,
+# the slowest and least certain leg, can then cost no other shot.
 # SHOT names are the slot ids of docs/brand/store/listing_*/manifest.json
 # (e2e_tool.py LISTING_SHOTS; test_listing.py holds the three together).
 # Env: UI_LANG (ar|en), CHILD_NAME, QUESTION. Runs right after
@@ -171,41 +171,6 @@ env:
 - waitForAnimationToEnd:
     timeout: 3000
 - runFlow: ../common/home.yaml
-# ── ⑤ «قناديل أسبوعكم», the lesson above having lit the first ─────────────
-- scrollUntilVisible:
-    element:
-      text: '${output.c.weekLanternsTitle}'
-    direction: DOWN
-    timeout: 30000
-# «نصيحة اليوم» sits right above the lanterns and is the server's text of
-# the day — on the first run it told the parent to see a doctor, in the
-# Arabic set only. A picture should not depend on the day: drag until the
-# tip's last line («اسأل المربّي عن هذه») has left the screen, and insist on
-# it. A drag moves the list by its length less the pan slop (~90 px on this
-# screen, measured on run 44290275313), so these move it ~100 px each: the
-# lantern row, the next card but one, cannot be overshot.
-# The other end of this picture is the frame's: the count of families at the
-# foot of Today («… يربّون بثقة») comes up to ~1800 px, and the listing frames
-# this slot in one that shows the capture down to ~1690 (test_listing.py).
-- repeat:
-    times: 30
-    while:
-      visible: '${output.c.coachAskAboutTip}'
-    commands:
-      - swipe:
-          start: '50%,60%'
-          end: '50%,52%'
-          duration: 600
-      - waitForAnimationToEnd:
-          timeout: 1500
-- assertNotVisible: '${output.c.coachAskAboutTip}'
-- extendedWaitUntil:
-    visible: '${output.c.weekLanternsTitle}'
-    timeout: 10000
-- runFlow:
-    file: shot.yaml
-    env:
-      SHOT: week_lanterns
 # ── ② «درب {الاسم}»: the horizon, «أنتم هنا» and what the family has lit ──
 - tapOn: '${output.lead.navLearn}'
 - extendedWaitUntil:
@@ -224,6 +189,31 @@ env:
     file: shot.yaml
     env:
       SHOT: family_road
+# ── ⑤ the week's lanterns: «خطوات هذا الأسبوع», opened from the road ──────
+# The lesson above lit the first. The same sheet opens from «قناديل أسبوعكم»
+# on Today, and that is where the first runs photographed it — between the
+# tip of the day above (the server's text of the day: it told the Arabic
+# parent to see a doctor that morning) and the count of families at the foot
+# of Today (known to overcount). Today ends too soon to scroll either off the
+# screen, so neither can be kept out of a picture taken there. The road's
+# «هذا الأسبوع» card carries nothing of the day but the lanterns themselves.
+- scrollUntilVisible:
+    element:
+      text: '${output.c.familyRoadThisWeek}'
+    direction: DOWN
+    timeout: 20000
+- tapOn: '${output.c.familyRoadThisWeek}'
+- extendedWaitUntil:
+    visible: '${output.c.weekActsTitle}'
+    timeout: 15000
+- runFlow:
+    file: shot.yaml
+    env:
+      SHOT: week_lanterns
+# Back closes the sheet, back again leaves the road.
+- back
+- waitForAnimationToEnd:
+    timeout: 2000
 - back
 - runFlow: ../common/home.yaml
 # ── ④ «ركن الطفل», through the hand-over gate (fresh/10's way in) ────────
