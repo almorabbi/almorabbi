@@ -21,7 +21,6 @@ import e2e_tool as t  # noqa: E402
 FLOW = E2E / 'flows/listing/shoot.yaml'
 SHOT = E2E / 'flows/listing/shot.yaml'
 ASK = E2E / 'flows/listing/ask.yaml'
-ASK_AGAIN = E2E / 'flows/listing/ask_again.yaml'
 GUARDS = E2E / 'flows/listing/guards.js'
 PNG = b'\x89PNG\r\n\x1a\n' + b'\0' * 30_000
 
@@ -242,7 +241,6 @@ class ListingFlowTest(unittest.TestCase):
         cls.commands = _walk(cls.steps, [])
         cls.shot_steps = list(yaml.safe_load_all(SHOT.read_text(encoding='utf-8')))[-1]
         cls.ask_steps = list(yaml.safe_load_all(ASK.read_text(encoding='utf-8')))[-1]
-        cls.again_steps = list(yaml.safe_load_all(ASK_AGAIN.read_text(encoding='utf-8')))[-1]
         cls.flat = [json.dumps(s, ensure_ascii=False) for s in cls.steps]
 
     def shots(self):
@@ -255,9 +253,8 @@ class ListingFlowTest(unittest.TestCase):
         self.assertEqual(tuple(self.shots()), t.LISTING_SHOTS)
 
     def test_every_picture_goes_through_the_guard(self):
-        for name, steps in (('ask.yaml', self.ask_steps), ('ask_again.yaml', self.again_steps)):
-            self.assertFalse([c for c in _walk(steps, []) if 'takeScreenshot' in c],
-                             f'{name} takes no screenshot of its own — shot.yaml does')
+        self.assertFalse([c for c in _walk(self.ask_steps, []) if 'takeScreenshot' in c],
+                         'ask.yaml takes no screenshot of its own — shot.yaml does')
         # shoot.yaml's own are the answers it refused, kept to say why: never a
         # slot's name, and "retry" in it, which the runner warns on.
         own = [c['takeScreenshot'] for c in _walk(self.steps, []) if 'takeScreenshot' in c]
@@ -292,8 +289,7 @@ class ListingFlowTest(unittest.TestCase):
         # Two things are typed here: the child's name, then the marked
         # question. ask.yaml types the question for the picture.
         self.assertEqual(typed, ['${output.listingChild}', '${QUESTION}'])
-        for steps in (self.ask_steps, self.again_steps):
-            self.assertEqual([c['inputText'] for c in _walk(steps, []) if 'inputText' in c], ['${ASK}'])
+        self.assertEqual([c['inputText'] for c in _walk(self.ask_steps, []) if 'inputText' in c], ['${ASK}'])
 
     def test_the_typed_name_is_proven_on_screen_before_the_child_is_saved(self):
         typed = self.index({'inputText': '${output.listingChild}'})
@@ -344,10 +340,10 @@ class ListingFlowTest(unittest.TestCase):
         self.assertLess(marked, asks[0])
         self.assertFalse([i for i in shots if marked < i < asks[-1]],
                          'no picture while the marked conversation can be on screen')
-        # Only the English pass's second question stands between the last
-        # of them and the one picture taken here.
-        self.assertEqual(_flow_file(self.steps[asks[-1] + 1]), 'ask_again.yaml')
-        self.assertEqual([i for i in shots if i > marked], [asks[-1] + 2])
+        # One after the other, and the one picture taken here right behind
+        # the last: nothing else is typed into the conversation photographed.
+        self.assertEqual(asks, list(range(asks[0], asks[0] + 3)))
+        self.assertEqual([i for i in shots if i > marked], [asks[-1] + 1])
         # The assistant is the last leg: answers from production can cost no
         # other picture.
         self.assertEqual(self.shots()[-1], 'assistant')
@@ -387,35 +383,23 @@ class ListingFlowTest(unittest.TestCase):
         self.assertEqual(tail[1], {'tapOn': '${output.lead.navAssistant}'})
         self.assertEqual(tail[-1], {'extendedWaitUntil': {'visible': '${output.listingAsked}', 'timeout': 10000}})
 
-    def test_the_english_conversation_holds_two_questions_and_the_arabic_one(self):
-        """The header counts the questions with a string that has no singular:
-        «1 سؤال» reads right, "1 questions" (the 2.0.0 page) does not."""
+    def test_one_question_is_enough_for_the_count_in_both_sets(self):
+        """The header counts the conversation's questions. Until 2.0.3 the
+        string had no singular — "1 questions" stood on the 2.0.0 page — and
+        the English pass asked a second question to read "2 questions". Now
+        both languages have one («سؤال واحد», "1 question")."""
         arb = {lang: json.loads((ROOT / f'mobile/lib/l10n/app_{lang}.arb').read_text(encoding='utf-8'))
                for lang in ('ar', 'en')}
-        self.assertEqual((arb['ar']['chatTurnsCount'], arb['en']['chatTurnsCount']),
-                         ('{count} سؤال', '{count} questions'),
-                         'the count has a plural form now: one question is enough in both sets — drop ask_again.yaml')
+        lost = 'the count lost its singular: a one-question conversation would read wrong on the picture'
+        self.assertIn('=1{سؤال واحد}', arb['ar']['chatTurnsCount'], lost)
+        self.assertIn('=1{1 question}', arb['en']['chatTurnsCount'], lost)
         self.assertIn('chatTurnsCount(state.turnCount)',
                       (ROOT / 'mobile/lib/screens/chat_screen.dart').read_text(encoding='utf-8'))
-        again = [s['runFlow'] for s in self.steps if _flow_file(s) == 'ask_again.yaml']
-        self.assertEqual(len(again), 1)
-        # English only, and only under an answer fit for a picture: a bad one
-        # is left for shot.yaml to refuse by name.
-        self.assertEqual(again[0]['when'], {True: "${UI_LANG == 'en'}", 'notVisible': '${output.listingBadAnswer}'})
-        self.assertEqual(again[0]['env'], {'ASK': '${LISTING_ASK_EN_AGAIN}'})
-        question = self.config['env']['LISTING_ASK_EN_AGAIN']
-        self.assertRegex(question, r"^[A-Za-z0-9 ,?'-]+$")
-        self.assertNotIn(question, self.questions()['en'])
-        # Same conversation, and the picture is still the first question:
-        # nothing here starts a new one or re-points the pattern scrolled to.
-        flat = json.dumps(self.again_steps, ensure_ascii=False)
-        self.assertNotIn('chatNewConversation', flat)
-        self.assertFalse([c for c in _walk(self.again_steps, []) if 'evalScript' in c])
-        tail = self.again_steps[self.again_steps.index({'runFlow': '../common/home.yaml'}):]
-        self.assertEqual(tail[1], {'tapOn': '${output.lead.navAssistant}'})
-        self.assertEqual(tail[2]['scrollUntilVisible']['element'], {'text': '${output.listingAsked}'})
-        self.assertEqual(tail[2]['scrollUntilVisible']['direction'], 'UP')
-        self.assertEqual(tail[-1], {'extendedWaitUntil': {'visible': '${output.listingAsked}', 'timeout': 10000}})
+        # So every question for the picture is ask.yaml's, alone in a new
+        # conversation, and no flow asks a second one in it.
+        self.assertEqual(sorted(p.name for p in FLOW.parent.glob('ask*.yaml')), ['ask.yaml'])
+        self.assertFalse([k for k in self.config['env'] if k.startswith('LISTING_ASK_')
+                          and not re.fullmatch(r'LISTING_ASK_(AR|EN)_[123]', k)])
 
     def test_the_questions_are_filed_under_the_one_domain_without_the_banner(self):
         """The app sends every question at «متوسط» (its only severity), and at

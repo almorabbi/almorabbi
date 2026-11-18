@@ -56,7 +56,6 @@ env:
   LISTING_ASK_EN_1: "How do I limit my child's screen time?"
   LISTING_ASK_EN_2: 'How much screen time is right for an 8-year-old?'
   LISTING_ASK_EN_3: 'My child watches YouTube all day, what should I do?'
-  LISTING_ASK_EN_AGAIN: 'What can we do together instead of screens?'
 ---
 - runScript: ../common/l10n.js
 - runScript: guards.js
@@ -343,19 +342,8 @@ env:
           file: ask.yaml
           env:
             ASK: "${UI_LANG == 'en' ? LISTING_ASK_EN_3 : LISTING_ASK_AR_3}"
-# The header counts the conversation's questions with a string that has no
-# singular: «1 سؤال» reads right, "1 questions" does not (it stood on the
-# 2.0.0 page). So the English conversation gets a second question — only
-# under an answer fit for a picture; a bad one goes to shot.yaml as it is, to
-# be refused by name — and the picture is still the first one. Arabic stays
-# at one: «2 سؤال» would be the wrong one there.
-- runFlow:
-    when:
-      true: "${UI_LANG == 'en'}"
-      notVisible: '${output.listingBadAnswer}'
-    file: ask_again.yaml
-    env:
-      ASK: '${LISTING_ASK_EN_AGAIN}'
+# One question in the conversation photographed, in both sets: the header's
+# count has a singular since 2.0.3 («سؤال واحد», "1 question").
 - runFlow:
     file: shot.yaml
     env:
