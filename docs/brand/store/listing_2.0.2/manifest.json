@@ -1,0 +1,207 @@
+{
+  "release": "2.0.2+130",
+  "note": "Real CI captures from Mobile E2E (emulator) run 44310758823 on PR #44 head 9843655d79ce095f58c65cbfb5587faf6a302685 (app tree = main at 2.0.2+130), framed by docs/brand/tools/store_listing.py. The seven app screens come from job `listing` (e2e/listing.sh, artifact e2e-listing): a listing child with a real name in each language beside the marked test child, and a typed question in the set's own language. Ramadan's street comes from the rehearsal (day 27). The story reader is photographed by the same job and left out of this folder: the story's cover is a child's face, and nothing that goes out as marketing shows a person.",
+  "runs": {
+    "44310758823": {
+      "what": "Mobile E2E (emulator) for PR #44 at 9843655d — jobs listing and rehearsal"
+    }
+  },
+  "slots": [
+    {
+      "id": "today",
+      "frame": "frame_1_rising",
+      "source": {
+        "ar": {
+          "run": 44310758823,
+          "artifact": "e2e-listing",
+          "file": "screens/listing__ar__today.png",
+          "sha256": "660cd6cafaee442ae5892ff4c063eae7002386b8c91b21c84e76d0d9acfd5070"
+        },
+        "en": {
+          "run": 44310758823,
+          "artifact": "e2e-listing",
+          "file": "screens/listing__en__today.png",
+          "sha256": "5a7f622687398aa45049b29c108bfc33fc31257acf0dd684902fdaf553062d44"
+        }
+      },
+      "text": {
+        "ar": {
+          "title": "الإصدار ٢.٠ — خطوة كل يوم",
+          "subtitle": "مجاني 100% — بلا إعلانات ولا اشتراكات"
+        },
+        "en": {
+          "title": "Version 2.0 — One step a day",
+          "subtitle": "100% free — no ads, no subscriptions"
+        }
+      }
+    },
+    {
+      "id": "family_road",
+      "frame": "frame_2_ivory",
+      "source": {
+        "ar": {
+          "run": 44310758823,
+          "artifact": "e2e-listing",
+          "file": "screens/listing__ar__family_road.png",
+          "sha256": "49cf1eb442701d923f33383b031bcdf84c465275908b143f25c13ec8e3d25dd8"
+        },
+        "en": {
+          "run": 44310758823,
+          "artifact": "e2e-listing",
+          "file": "screens/listing__en__family_road.png",
+          "sha256": "5ba585b286ad36765afb1e5a44128c5ef535b3e83ea74a4fe96b9fd95a0f831c"
+        }
+      },
+      "text": {
+        "ar": {
+          "title": "درب الأسرة وحساب الوالدَين",
+          "subtitle": "متابعة مشتركة هادئة بين هاتفَي الأب والأم"
+        },
+        "en": {
+          "title": "Family road & shared account",
+          "subtitle": "Calm co-parenting across both parents' phones"
+        }
+      }
+    },
+    {
+      "id": "ramadan_street",
+      "frame": "frame_1_rising",
+      "source": {
+        "ar": {
+          "run": 44310758823,
+          "artifact": "e2e-rehearsal",
+          "file": "screens/rehearsal__ar_day27__after__ar__day27_street.png",
+          "sha256": "6ae9068770540fe8ed5dd9946e76e8c264cfb1d85e59f3d02eab61220e0c3d4a"
+        },
+        "en": {
+          "run": 44310758823,
+          "artifact": "e2e-rehearsal",
+          "file": "screens/rehearsal__en_day27__after__en__day27_street.png",
+          "sha256": "41e72ea73553d4a6bea1732da83bc110a667df7448341e6429f1c06a1aef20c0"
+        }
+      },
+      "text": {
+        "ar": {
+          "title": "رمضان ٢.٠: قناديل وفوازير وحكواتي",
+          "subtitle": "٣٠ ليلة وصوتيات بلا شاشة وعدّة فانوس للطباعة"
+        },
+        "en": {
+          "title": "Ramadan 2.0: lanterns, riddles & audio",
+          "subtitle": "30 nights, screen-off tales & printable craft"
+        }
+      }
+    },
+    {
+      "id": "child_corner",
+      "frame": "frame_3_bubble",
+      "source": {
+        "ar": {
+          "run": 44310758823,
+          "artifact": "e2e-listing",
+          "file": "screens/listing__ar__child_corner.png",
+          "sha256": "8ad50784fef0f8d8e27836176146788a815ee307401522c5e071b61404820134"
+        },
+        "en": {
+          "run": 44310758823,
+          "artifact": "e2e-listing",
+          "file": "screens/listing__en__child_corner.png",
+          "sha256": "96bd3c097cce783a8bab537fb92dc203199b74f867b3089a5eddc5533a5141d0"
+        }
+      },
+      "text": {
+        "ar": {
+          "title": "ركن الطفل وفوازير نور العائلية",
+          "subtitle": "تفكير ذكي مشترك، وحكاية ومهمة بعيدًا عن الشاشة"
+        },
+        "en": {
+          "title": "Child's corner & brain puzzles",
+          "subtitle": "Co-play logic riddles, a story & a task off-screen"
+        }
+      }
+    },
+    {
+      "id": "week_lanterns",
+      "frame": "frame_2_ivory",
+      "source": {
+        "ar": {
+          "run": 44310758823,
+          "artifact": "e2e-listing",
+          "file": "screens/listing__ar__week_lanterns.png",
+          "sha256": "2a8882bc6635e26650e8af72cfdec745fd63c2c09e94172c8b10cae9411989e3"
+        },
+        "en": {
+          "run": 44310758823,
+          "artifact": "e2e-listing",
+          "file": "screens/listing__en__week_lanterns.png",
+          "sha256": "5d9f9910d34ceea93f6d08f14612117db00d04002693399525cac14893f2415c"
+        }
+      },
+      "text": {
+        "ar": {
+          "title": "كل خطوة تضيء قنديلًا",
+          "subtitle": "قناديل الأسبوع — بلا عدّاد يلومكم ولا مقارنة"
+        },
+        "en": {
+          "title": "Every step lights a lantern",
+          "subtitle": "The week's lanterns — no streaks, no comparisons"
+        }
+      }
+    },
+    {
+      "id": "noor_follow_up",
+      "frame": "frame_2_ivory",
+      "source": {
+        "ar": {
+          "run": 44310758823,
+          "artifact": "e2e-listing",
+          "file": "screens/listing__ar__noor_follow_up.png",
+          "sha256": "69137b76903f69239939deda5796931e411dfef7dc192a9cb45b525e75a33c24"
+        },
+        "en": {
+          "run": 44310758823,
+          "artifact": "e2e-listing",
+          "file": "screens/listing__en__noor_follow_up.png",
+          "sha256": "4d3d940f8e1778e5971e28c2bc8b967a357ff7507554204dc8f41ee02bc173fe"
+        }
+      },
+      "text": {
+        "ar": {
+          "title": "نور يتذكّر معكم",
+          "subtitle": "اختاروا موعد التجربة، ثم يسألكم كيف جرت"
+        },
+        "en": {
+          "title": "Noor remembers with you",
+          "subtitle": "Pick when to try it; Noor asks how it went"
+        }
+      }
+    },
+    {
+      "id": "assistant",
+      "frame": "frame_3_bubble",
+      "source": {
+        "ar": {
+          "run": 44310758823,
+          "artifact": "e2e-listing",
+          "file": "screens/listing__ar__assistant.png",
+          "sha256": "aca266957630f1dee767e636c34198388add3d66f9f2cca961dcf489b2ff2594"
+        },
+        "en": {
+          "run": 44310758823,
+          "artifact": "e2e-listing",
+          "file": "screens/listing__en__assistant.png",
+          "sha256": "015329bcc3c0655f4aa5eaf2956920c6079f9b9a0700abcde0134d69351bf862"
+        }
+      },
+      "text": {
+        "ar": {
+          "title": "اسألوا عن تربية طفلكم",
+          "subtitle": "إجابة عملية موثّقة وخطوة تجرّبونها"
+        },
+        "en": {
+          "title": "Ask about raising your child",
+          "subtitle": "A practical sourced answer, in your language"
+        }
+      }
+    }
+  ]
+}

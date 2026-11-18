@@ -29,7 +29,7 @@ Two modes, one of them required:
 
 Piping through tee/tail hides the exit code — check ${PIPESTATUS[0]}, not $?.
 
-The folder (default docs/brand/store/listing_2.0.0/) holds listing.json and one
+The folder (default docs/brand/store/listing_2.0.2/) holds listing.json and one
 sub-folder per language:  ar/ → «ar»,  en/ → «en-US»  (LANG_DIRS below). Each has
 icon.png, feature_graphic.png and phone_01*.png … phone_08*.png.
 
@@ -49,7 +49,7 @@ from pathlib import Path
 PACKAGE = 'com.alsaba.almorabbi'
 SCOPES = ['https://www.googleapis.com/auth/androidpublisher']
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_DIR = REPO_ROOT / 'docs/brand/store/listing_2.0.0'
+DEFAULT_DIR = REPO_ROOT / 'docs/brand/store/listing_2.0.2'
 DEFAULT_SA = REPO_ROOT / 'scripts/play_service_account.json'
 LANG_DIRS = {'ar': 'ar', 'en': 'en-US'}  # folder → Play language code
 # Image types this tool never uploads to; see --clear-tablet-screenshots.

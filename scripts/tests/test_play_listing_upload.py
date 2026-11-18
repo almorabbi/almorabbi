@@ -409,15 +409,23 @@ class Cli(unittest.TestCase):
             self.assertEqual(receipt['tablet_screenshots']['ar']['tenInchScreenshots'], expect)
 
     def test_the_real_folder_passes_local_checks(self):
-        for rel in ('docs/brand/store/listing_1.0.73', 'docs/brand/store/listing_2.0.0'):
+        # 2.0.2 has seven: the story reader's cover is a child's face (e2e/test_listing.py).
+        for rel, shots in (('docs/brand/store/listing_1.0.73', 8), ('docs/brand/store/listing_2.0.0', 8),
+                           ('docs/brand/store/listing_2.0.2', 7)):
             folder = ROOT / rel
             if not folder.exists():
                 self.skipTest(f'{rel} folder not generated yet')
             listings = self.tool.load_listing(folder)
             self.assertEqual({lang: len(v['images']['phoneScreenshots']) for lang, v in listings.items()},
-                             {'ar': 8, 'en-US': 8})
+                             {'ar': shots, 'en-US': shots})
             self.assertTrue(listings['ar']['text']['fullDescription'].startswith('مجاني 100% — بلا إعلانات ولا اشتراكات'))
             self.assertTrue(listings['en-US']['text']['fullDescription'].startswith('100% free — no ads, no subscriptions'))
+
+    def test_the_default_folder_is_the_newest_listing(self):
+        def version(folder):
+            return tuple(int(n) for n in folder.name.split('_', 1)[1].split('.'))
+        newest = max((p for p in (ROOT / 'docs/brand/store').glob('listing_*') if p.is_dir()), key=version)
+        self.assertEqual(self.tool.DEFAULT_DIR, newest)
 
 
 if __name__ == '__main__':
