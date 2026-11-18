@@ -1,11 +1,9 @@
-# One of the app's own suggested questions, asked in a NEW conversation, and
-# the whole answer waited for. Ends with the question at the top of the screen
-# and its answer under it — the picture, if the answer is one for a picture.
-# The empty state offers three questions for the active child's age
-# (chat_screen.dart, _EmptyState); they come from the ARB in the interface's
-# language, so nothing is typed and the answer is in that language.
-# Env: CHIP (the suggestion, whole text), CHIP_IN (the same, contained).
-# Requires l10n.js; the Assistant tab is open, no keyboard up.
+# One question for the picture, typed in a NEW conversation, and the whole
+# answer waited for. Ends on the Assistant tab with no keyboard up, the
+# question at the top of the screen and its answer under it — the picture, if
+# the answer is one for a picture (shoot.yaml decides).
+# Env: ASK (the question, in the interface's language). Requires l10n.js; the
+# Assistant tab is open, no keyboard up.
 appId: com.alsaba.almorabbi
 ---
 - tapOn: '${output.t.chatNewConversation}'
@@ -13,12 +11,15 @@ appId: com.alsaba.almorabbi
     visible: '${output.t.chatNewConfirmTitle}'
     timeout: 15000
 - tapOn: '${output.t.chatContinue}'
+# The empty state is back: it offers the suggested questions again.
 - extendedWaitUntil:
-    visible: '${CHIP}'
+    visible: '${output.t.chatQ_study}'
     timeout: 30000
 # The marked conversation is gone from the screen before anything else is sent.
 - assertNotVisible: '(?s).*E2E test.*'
-- tapOn: '${CHIP}'
+- tapOn: '${output.t.chatTypeHint}'
+- inputText: '${ASK}'
+- tapOn: '${output.t.a11ySendQuestion}'
 # While the reply streams, the send button turns into "stop reply".
 - extendedWaitUntil:
     visible: '${output.t.chatStop}'
@@ -43,12 +44,18 @@ appId: com.alsaba.almorabbi
     direction: DOWN
     timeout: 20000
 - assertNotVisible: '${output.t.chatRetry}'
-# Back up to the question, then to the very top: the search stops as soon as
-# the bubble's lower edge shows under the app bar (the English pass was
-# photographed that way once), and a new conversation has nothing above it.
+# home.yaml's back press closes the keyboard the question left open; the tab
+# comes back without it.
+- runFlow: ../common/home.yaml
+- tapOn: '${output.lead.navAssistant}'
+# Back up to the question — its text as a pattern, punctuation loosened — and
+# then to the very top: the search stops as soon as the bubble's lower edge
+# shows under the app bar (the English pass was photographed that way once),
+# and a new conversation has nothing above its question.
+- evalScript: "${output.listingAsked = '(?s).*' + ASK.replace(/[?.()*+|]/g, '.') + '.*'}"
 - scrollUntilVisible:
     element:
-      text: '${CHIP_IN}'
+      text: '${output.listingAsked}'
     direction: UP
     timeout: 30000
 - swipe:
@@ -59,3 +66,6 @@ appId: com.alsaba.almorabbi
     end: '50%,75%'
 - waitForAnimationToEnd:
     timeout: 3000
+- extendedWaitUntil:
+    visible: '${output.listingAsked}'
+    timeout: 10000

@@ -250,9 +250,10 @@ class ListingFlowTest(unittest.TestCase):
             self.assertNotIn('E2E', name)
         self.assertIn("UI_LANG == 'en' ? LISTING_CHILD_EN : LISTING_CHILD_AR", self.text)
         typed = [c['inputText'] for c in self.commands if 'inputText' in c]
-        # Two things are typed: the child's name, then the marked question.
+        # Two things are typed here: the child's name, then the marked
+        # question. ask.yaml types the question for the picture.
         self.assertEqual(typed, ['${output.listingChild}', '${QUESTION}'])
-        self.assertFalse([c for c in _walk(self.ask_steps, []) if 'inputText' in c])
+        self.assertEqual([c['inputText'] for c in _walk(self.ask_steps, []) if 'inputText' in c], ['${ASK}'])
 
     def test_the_typed_name_is_proven_on_screen_before_the_child_is_saved(self):
         typed = self.index({'inputText': '${output.listingChild}'})
@@ -279,9 +280,16 @@ class ListingFlowTest(unittest.TestCase):
     def test_the_tip_of_the_day_is_scrolled_out_of_the_lantern_picture(self):
         lanterns = next(i for i, s in enumerate(self.steps)
                         if _flow_file(s) == 'shot.yaml' and s['runFlow']['env']['SHOT'] == 'week_lanterns')
-        loop = self.steps[lanterns - 2]['repeat']
+        loop = self.steps[lanterns - 3]['repeat']
         self.assertEqual(loop['while'], {'visible': '${output.c.coachAskAboutTip}'})
-        self.assertIn('swipe', loop['commands'][0])
+        drag = loop['commands'][0]['swipe']
+        y = lambda point: int(point.split(',')[1].rstrip('%'))
+        # Upward, and 8% of a 2400 px screen: 192 px less the pan slop. A
+        # shorter drag never leaves the slop; a longer one can pass the
+        # lantern row, which starts ~320 px under the tip's last line.
+        self.assertEqual(y(drag['start']) - y(drag['end']), 8)
+        # The tip is gone, or there is no picture; and the lanterns are there.
+        self.assertEqual(self.steps[lanterns - 2], {'assertNotVisible': '${output.c.coachAskAboutTip}'})
         still_there = self.steps[lanterns - 1]['extendedWaitUntil']
         self.assertEqual(still_there['visible'], '${output.c.weekLanternsTitle}')
         self.assertNotIn('optional', still_there)
@@ -299,33 +307,85 @@ class ListingFlowTest(unittest.TestCase):
         # other picture.
         self.assertEqual(self.shots()[-1], 'assistant')
         self.assertGreater(marked, max(i for i in shots if i < asks[0]))
-        # Every suggestion opens a NEW conversation and checks the marked one
-        # has left the screen before it sends anything.
+        # Every question for the picture opens a NEW conversation and checks
+        # the marked one has left the screen before it sends anything.
         self.assertEqual(self.ask_steps[0], {'tapOn': '${output.t.chatNewConversation}'})
         gone = self.ask_steps.index({'assertNotVisible': '(?s).*E2E test.*'})
-        self.assertLess(gone, self.ask_steps.index({'tapOn': '${CHIP}'}))
+        self.assertLess(gone, self.ask_steps.index({'inputText': '${ASK}'}))
 
-    def test_another_suggestion_is_asked_only_instead_of_a_bad_answer(self):
+    def questions(self):
+        env = self.config['env']
+        return {lang: [env[f'LISTING_ASK_{lang.upper()}_{n}'] for n in (1, 2, 3)] for lang in ('ar', 'en')}
+
+    def test_another_question_is_asked_only_instead_of_a_bad_answer(self):
         asks = [s['runFlow'] for s in self.steps if _flow_file(s) == 'ask.yaml']
         self.assertNotIn('when', asks[0])
         for flow in asks[1:]:
             self.assertEqual(flow['when'], {'visible': '${output.listingBadAnswer}'})
-        chips = [re.fullmatch(r'\$\{output\.t\.(chatQ_\w+)\}', f['env']['CHIP']).group(1) for f in asks]
-        self.assertEqual(len(set(chips)), 3)
-        for flow, chip in zip(asks, chips):
-            self.assertEqual(flow['env']['CHIP_IN'], '${output.c.%s}' % chip)
-        # They are exactly what a 7-9 child's empty chat offers, in the ARB of
-        # the interface's language — nothing is typed for the picture.
-        chat = (ROOT / 'mobile/lib/screens/chat_screen.dart').read_text(encoding='utf-8')
-        offered = re.search(r"'7-9': \[([^\]]*)\]", chat).group(1)
-        self.assertEqual(sorted(re.findall(r"'(chatQ_\w+)'", offered)), sorted(chips))
-        self.assertIn("tapOn: '${output.t.ageGroup7to9}'", self.text)
-        ar = json.loads((ROOT / 'mobile/lib/l10n/app_ar.arb').read_text(encoding='utf-8'))
-        en = json.loads((ROOT / 'mobile/lib/l10n/app_en.arb').read_text(encoding='utf-8'))
-        for chip in chips:
-            self.assertRegex(ar[chip], r'[ء-ي]')
-            self.assertNotRegex(ar[chip], r'[A-Za-z]')
-            self.assertNotRegex(en[chip], r'[ء-ي]')
+        for n, flow in enumerate(asks, 1):
+            self.assertEqual(flow['env'], {'ASK': "${UI_LANG == 'en' ? LISTING_ASK_EN_%d : LISTING_ASK_AR_%d}" % (n, n)})
+        questions = self.questions()
+        self.assertEqual(len(set(questions['ar'] + questions['en'])), 6)
+        # Each in its set's script, start to end: the answer follows it.
+        for q in questions['ar']:
+            self.assertRegex(q, r'^[ء-يً-ْ0-9 ،؟]+$')
+        for q in questions['en']:
+            self.assertRegex(q, r"^[A-Za-z0-9 ,?'-]+$")
+        for q in questions['ar'] + questions['en']:
+            self.assertNotIn('E2E', q)
+        # ask.yaml ends with the question on screen and no keyboard: it leaves
+        # the tab and returns, scrolls up to the question, and insists on it.
+        tail = self.ask_steps[self.ask_steps.index({'runFlow': '../common/home.yaml'}):]
+        self.assertEqual(tail[1], {'tapOn': '${output.lead.navAssistant}'})
+        self.assertEqual(tail[-1], {'extendedWaitUntil': {'visible': '${output.listingAsked}', 'timeout': 10000}})
+
+    def test_the_questions_are_filed_under_the_one_domain_without_the_banner(self):
+        """The app sends every question at «متوسط» (its only severity), and at
+        that severity the server puts the review banner over an answer in
+        every knowledge domain but «cyber» (guardrails/policies.v1.yaml). The
+        server's keyword list — not a model — must file these six there, or
+        the banner is a matter of luck."""
+        enums = (ROOT / 'mobile/lib/models/enums.dart').read_text(encoding='utf-8')
+        self.assertIn('static const Severity defaultValue = Severity.moderate;', enums)
+        self.assertIn("moderate('متوسط')", enums)
+        mobile = ROOT / 'mobile/lib'
+        setters = [p.name for p in mobile.rglob('*.dart')
+                   if 'setSeverity(' in p.read_text(encoding='utf-8') and p.name != 'chat_notifier.dart']
+        self.assertEqual(setters, [], 'the parent now chooses a severity: revisit which domains draw the banner')
+        policies = yaml.safe_load((ROOT / 'backend/guardrails/policies.v1.yaml').read_text(encoding='utf-8'))
+        banner = {}
+        for domain, policy in policies['domains'].items():
+            override = (policy.get('severity_overrides') or {}).get('متوسط', {})
+            banner[domain] = override.get('require_human_review',
+                                          policy.get('default_policy', {}).get('require_human_review', False))
+        self.assertFalse(banner['cyber'])
+        for domain in ('fiqh', 'medical', 'development', 'aqeedah'):
+            self.assertTrue(banner[domain], domain)
+        # The classifier, as the server runs it. Its module imports two HTTP
+        # clients it never uses on the keyword path: stand-ins keep this
+        # runnable on the E2E job's bare runner.
+        probe = (
+            'import json, sys, types\n'
+            'class _Any:\n'
+            '    def __init__(self, *a, **k): pass\n'
+            '    def __call__(self, *a, **k): return _Any()\n'
+            '    def __getattr__(self, name): return _Any()\n'
+            'for name in ("httpx", "requests"):\n'
+            '    try:\n'
+            '        __import__(name)\n'
+            '    except ImportError:\n'
+            '        m = types.ModuleType(name); m.__getattr__ = lambda attr: _Any; sys.modules[name] = m\n'
+            'sys.path.insert(0, sys.argv[1])\n'
+            'from app.services import domain_classifier as dc\n'
+            'print(json.dumps([dc._keyword_fast_path(q) for q in json.loads(sys.argv[2])]))\n'
+        )
+        questions = self.questions()
+        every = questions['ar'] + questions['en']
+        proc = subprocess.run([sys.executable, '-c', probe, str(ROOT / 'backend'), json.dumps(every)],
+                              capture_output=True, text=True, timeout=60)
+        self.assertEqual(proc.returncode, 0, proc.stderr[-800:])
+        for question, domains in zip(every, json.loads(proc.stdout)):
+            self.assertEqual(domains, ['cyber'], question)
 
     def test_only_the_assistant_may_quote_arabic_in_the_english_set(self):
         allowed = [s['runFlow']['env']['SHOT'] for s in self.steps

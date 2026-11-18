@@ -16,15 +16,21 @@
 #     is the active child in every picture. Maestro types Arabic since 2.7
 #     (its own IME, mobile-dev-inc/maestro#3211); the name is asserted on
 #     screen right after typing, so a build of Maestro that cannot type it
-#     stops here instead of photographing the wrong child. The child is given
-#     a birth month too: without one Noor's line on Today, a row under it and
-#     the road's first card all ask for it, and a page of prompts is not what
-#     a family that uses the app sees;
-#   · the assistant is asked the app's OWN suggested questions for the child's
-#     age (the ARB's chatQ_* in this language — nothing typed), so question
-#     and answer are in the interface's language by construction. Up to three
-#     are tried, each in a new conversation, until an answer is one for a
-#     picture (guards.js: no review banner, no word of the other language).
+#     stops here instead of photographing the wrong child. A boy's name: the
+#     form asks no gender and the app's copy then speaks of «him» («سجّل
+#     محطات نموّه», "his faith milestones") — beside «سلمى» that read as a
+#     mistake. The child is given a birth month too: without one Noor's line
+#     on Today, a row under it and the road's first card all ask for it, and
+#     a page of prompts is not what a family that uses the app sees;
+#   · the assistant is asked a question in the pass's own language
+#     (LISTING_ASK_*), so the answer is in that language: the server answers
+#     in the question's. About screen time, and worded to be filed under
+#     «cyber» by the server's keyword list — the one knowledge domain whose
+#     answers do not open with the review banner at the app's fixed severity
+#     (the app's own three suggestions for this age all drew it, run
+#     44290275313; test_listing.py runs the classifier on these strings).
+#     Up to three are tried, each in a new conversation, until an answer is
+#     one for a picture (guards.js: no banner, no word of the other language).
 #     The marked question (QUESTION, «E2E test …») is still asked FIRST, in a
 #     conversation of its own that is never photographed: app/core/
 #     real_traffic.py finds an install's twin device by that message alone.
@@ -42,8 +48,14 @@
 appId: com.alsaba.almorabbi
 name: listing/shoot
 env:
-  LISTING_CHILD_AR: 'سلمى'
-  LISTING_CHILD_EN: 'Salma'
+  LISTING_CHILD_AR: 'آدم'
+  LISTING_CHILD_EN: 'Adam'
+  LISTING_ASK_AR_1: 'كيف أنظّم وقت الشاشة لطفلي؟'
+  LISTING_ASK_AR_2: 'كم ساعة شاشة تناسب طفلًا في الثامنة؟'
+  LISTING_ASK_AR_3: 'ابني يقضي ساعات على ألعاب الهاتف، كيف أنظّم وقته؟'
+  LISTING_ASK_EN_1: "How do I limit my child's screen time?"
+  LISTING_ASK_EN_2: 'How much screen time is right for an 8-year-old?'
+  LISTING_ASK_EN_3: 'My child watches YouTube all day, what should I do?'
 ---
 - runScript: ../common/l10n.js
 - runScript: guards.js
@@ -167,20 +179,26 @@ env:
     timeout: 30000
 # «نصيحة اليوم» sits right above the lanterns and is the server's text of
 # the day — on the first run it told the parent to see a doctor, in the
-# Arabic set only. A picture should not depend on the day: short drags until
-# the tip's last line («اسأل المربّي عن هذه») has left the screen. The lantern
-# row is the next card but one, so it is still there.
+# Arabic set only. A picture should not depend on the day: drag until the
+# tip's last line («اسأل المربّي عن هذه») has left the screen, and insist on
+# it. A drag moves the list by its length less the pan slop (~90 px on this
+# screen, measured on run 44290275313), so these move it ~100 px each: the
+# lantern row, the next card but one, cannot be overshot.
+# The other end of this picture is the frame's: the count of families at the
+# foot of Today («… يربّون بثقة») comes up to ~1800 px, and the listing frames
+# this slot in one that shows the capture down to ~1690 (test_listing.py).
 - repeat:
-    times: 14
+    times: 30
     while:
       visible: '${output.c.coachAskAboutTip}'
     commands:
       - swipe:
-          start: '50%,58%'
+          start: '50%,60%'
           end: '50%,52%'
-          duration: 800
+          duration: 600
       - waitForAnimationToEnd:
           timeout: 1500
+- assertNotVisible: '${output.c.coachAskAboutTip}'
 - extendedWaitUntil:
     visible: '${output.c.weekLanternsTitle}'
     timeout: 10000
@@ -307,29 +325,24 @@ env:
 # comes back without it.
 - runFlow: ../common/home.yaml
 - tapOn: '${output.lead.navAssistant}'
-# The three questions a 7-9 child's empty chat offers, in the order least
-# likely to draw the review banner (it follows the answer's domain: study is
-# upbringing, prayer is worship, fear is development — policies.v1.yaml).
-# Each is asked only while the answer on screen is not one for a picture.
+# The question for the picture, and two more in case its answer is not one
+# for a picture. Each is asked only while the answer on screen is a bad one.
 - runFlow:
     file: ask.yaml
     env:
-      CHIP: '${output.t.chatQ_study}'
-      CHIP_IN: '${output.c.chatQ_study}'
+      ASK: "${UI_LANG == 'en' ? LISTING_ASK_EN_1 : LISTING_ASK_AR_1}"
 - runFlow:
     when:
       visible: '${output.listingBadAnswer}'
     file: ask.yaml
     env:
-      CHIP: '${output.t.chatQ_prayRegular}'
-      CHIP_IN: '${output.c.chatQ_prayRegular}'
+      ASK: "${UI_LANG == 'en' ? LISTING_ASK_EN_2 : LISTING_ASK_AR_2}"
 - runFlow:
     when:
       visible: '${output.listingBadAnswer}'
     file: ask.yaml
     env:
-      CHIP: '${output.t.chatQ_fears}'
-      CHIP_IN: '${output.c.chatQ_fears}'
+      ASK: "${UI_LANG == 'en' ? LISTING_ASK_EN_3 : LISTING_ASK_AR_3}"
 - runFlow:
     file: shot.yaml
     env:
