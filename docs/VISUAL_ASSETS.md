@@ -122,6 +122,7 @@ python3 docs/brand/tools/brand_build.py frame --frame frame_1_rising \
   من نفس مصدر العلامة اللي جوّه التطبيق.
 - **ليه أرضية التطبيق مش الزمردي:** عشان التسليم من الشاشة الأصلية لـFlutter مايبانش. التطبيق فاتح افتراضيًا مهما كان وضع
   النظام، فاللي جهازه داكن هيشوف أرضية `#0A1210` وبعدها الكريمي — بس نفس العلامة في نفس المكان.
+- **قبل/بعد على المحاكي** (API 34، إقلاع بارد، فاتح وداكن): `docs/brand/review/native_splash_before_after.png`.
 - **الحارس:** `mobile/test/native_splash_test.dart` بيفشل لو رجعت أي PNG للـsplash، أو `flutter_native_splash` رجع
   `pubspec.yaml`، أو `logo_mark.svg` اتغيّر من غير ما الـvector يتولّد، أو لون الأرضية بعد عن `AppPalette`، أو مقاس العلامة
   بعد عن `_SplashScreen`، أو `android:icon` رجع لـ`ic_launcher`.
