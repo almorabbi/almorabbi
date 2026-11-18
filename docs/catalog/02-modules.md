@@ -1919,7 +1919,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 |---|---:|---|
 | `docs/lesson_assets/` | 912 (json×330, md×291, csv×291) | أصول الدروس المولَّدة: flashcards/slides/quizzes/reports/data tables (json/csv/md) حسب معرّف الدرس |
 | `docs/stories/` | 302 (png×287, mp4×15) | رسوم وفيديوهات القصص (png/mp4) — أغلفة وصفحات؛ منها 168 png لقصص الأنبياء (`anbiya_*`) والسيرة (`sira_*`)، نسختا young/older لكل قصة |
-| `docs/brand/` | 42 (png×31, svg×7, json×2, py×2 — الـpy الاثنان لهما صفّان فرديان في «docs/brand/tools/» أدناه) | الهوية البصرية: أيقونات/سِيَل/أدوات متجر |
+| `docs/brand/` | 43 (png×32, svg×7, json×2, py×2 — الـpy الاثنان لهما صفّان فرديان في «docs/brand/tools/» أدناه) | الهوية البصرية: أيقونات/سِيَل/أدوات متجر؛ `review/native_splash_before_after.png` لقطات قبل/بعد شاشة البداية الأصلية |
 | `docs/research/` | 24 (md×23, csv×1) | أبحاث تأسيسية (إطار تربوي، أوراق مراحل، ردود خام) |
 | `docs/marketing/` | 8 (webp×5, png×1, jpg×1, json×1) | رسومات الإطلاق وmanifest الريلز |
 | `docs/ (ملفات مخرجات الدروس)` | 102 (json×62, md×40) | `lesson_*_assets.md/_flashcards.json/_slides.json` و`*_assets.md`: مخرجات توليد الدروس المباشرة |
