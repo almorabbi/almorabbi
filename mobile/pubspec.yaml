@@ -132,10 +132,11 @@ flutter:
     # does not see an error — they see Arabic. Anything whose absence is
     # invisible at runtime is worth making visible here.
     - assets/data/stories_en.json
+    # Holds no file of its own since the old logo PNG left it (2026-11): the
+    # infographic stamp now draws assets/svg/art/logo_mark.svg. A file dropped
+    # here ships with the app — test/infographic_stamp_test.dart keeps the old
+    # logo from coming back that way.
     - assets/images/
-    # Still a PNG on purpose: the infographic watermark needs raw PNG bytes
-    # (infographic_screen.dart). Nothing else in the app paints it any more.
-    - assets/images/logo.png
     - assets/images/stories/
     # «ورق مقصوص» (2026-10-14) — the whole in-app art set, as SVG. Rules in
     # assets/svg/STYLE.md; test/svg_assets_test.dart parses every file.
