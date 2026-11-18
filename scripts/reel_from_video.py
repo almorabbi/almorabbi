@@ -35,10 +35,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "docs" / "marketing" / "reels_v2"
 HOOKS_FILE = ROOT / "docs" / "marketing" / "reel_hooks.json"
-# نفس الملف الذي كان في mobile/assets/images/ (مطابق بايت ببايت): الأصل هناك حُذف
-# لأن التطبيق لم يعد يحمله، ونسخة Remotion هي الباقية لأدوات الريلز.
-# ⚠️ هذا هو الشعار القديم لا العلامة الحالية — تحديث علامة الريلز مهمة مستقلة.
-LOGO = ROOT / "remotion-reels" / "public" / "logo.png"
+# العلامة الحالية: أيقونة المتجر (icon_c_hills) مقصوصةً دائرةً بحافة ناعمة وخلفية شفافة —
+# نفس الملف الذي تختم به ريلز حملة «نور» (Remotion)، فينتهي الريل من المصنعين بنفس العلامة.
+# يولّده remotion-reels/scripts/make_round_logo.py من SVG الهوية.
+LOGO = ROOT / "remotion-reels" / "public" / "noor" / "app_logo_round.png"
 FONT_BOLD = "/usr/share/fonts/truetype/noto/NotoSansArabic-Bold.ttf"
 FONT_REG = "/usr/share/fonts/truetype/noto/NotoSansArabic-Regular.ttf"
 
@@ -277,12 +277,11 @@ def frame_band(video: Path) -> tuple[int, int]:
 
 
 def _circle(idx: str, size: int, label: str) -> str:
-    """The square app icon as a round badge — a hard-edged square over footage
-    reads as a pasted-on screenshot."""
-    r = size / 2
-    return (f"[{idx}]scale={size}:{size},format=rgba,"
-            f"geq=r='r(X,Y)':g='g(X,Y)':b='b(X,Y)':"
-            f"a='if(lte(hypot(X-{r:.1f}\\,Y-{r:.1f})\\,{r - 1:.1f})\\,255\\,0)'[{label}]")
+    """The app mark as a round badge — a hard-edged square over footage reads as
+    a pasted-on screenshot. LOGO is already cut to a circle with an anti-aliased
+    edge, so it is only scaled; its own alpha is kept (a geq cut here used to
+    throw that edge away and leave a stair-stepped rim)."""
+    return f"[{idx}]format=rgba,scale={size}:{size}:flags=lanczos[{label}]"
 
 
 def _chrome(last: str, accent: str, band: tuple[int, int]) -> tuple[list[str], str]:

@@ -38,7 +38,7 @@ def generate(path_id: str | None = None):
         "title": title,
         "subtitle": "",
         "scenes": scenes,
-        "logoPath": "logo.png",
+        "logoPath": "noor/app_logo_round.png",
         "screenshotPath": "screenshot.jpg",
     }
 

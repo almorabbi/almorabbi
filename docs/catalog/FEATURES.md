@@ -214,7 +214,7 @@
 | G4 | أمانة الوحدات لمصدرها | يكشف الوحدات المنحرفة عن مصدرها ويحجرها (210 وحدة حُجرت 2026-10-04) | `check_kb_fidelity.py` · `ops/data/kb_fidelity/` | ✅ |
 | G5 | تعميق المسارات | دروس مكتوبة من الوحدات بمراجعة عائلة نموذج أخرى | `ops/tools/deepen_paths.py` | ✅ |
 | G6 | خط وسائط الدروس | تحويل الدروس إلى NotebookLM ثم بودكاست/فيديو/إنفوجراف/تقرير/جدول | `scripts/*podcast*`, `generate_missing_*`, `cron_gen_*.sh`, `lib/nblm_session.sh` | ✅ (حصص يومية؛ جلسة تنتهي) |
-| G7 | مصنع الريلز | قصّ بودكاست/فيديو إلى 9:16 + نشر Buffer؛ ريلز حملة «نور» بـRemotion | `scripts/reel_from_video.py`, `podcast_to_reel.py`, `publish_reels_to_buffer.py`, `remotion-reels/` | ✅ |
+| G7 | مصنع الريلز | قصّ بودكاست/فيديو إلى 9:16 + نشر Buffer؛ ريلز حملة «نور» بـRemotion؛ شارة الركن وبطاقة النهاية بالعلامة الحالية `remotion-reels/public/noor/app_logo_round.png` (لا الشعار القديم — `test_marketing_logo.py`) | `scripts/reel_from_video.py`, `podcast_to_reel.py`, `publish_reels_to_buffer.py`, `remotion-reels/` | ✅ |
 | G8 | نشر اجتماعي آلي | نصائح + صور إلى Buffer وقناة تلجرام | `ops/tools/social_media_autoposter.py` | ✅ |
 | G9 | رفع Google Play | AAB موقَّع، قائمة المتجر، التحقق والنشر 100%، ردود التعليقات | `scripts/play_upload.py`, `release_play_*.py`, `play_listing_upload.py`, `release-play.yml` | ✅ (`play_upload.py` يرفع مقطّعًا CHUNK_BYTES بعد إصلاح مهلة الحزم الكبيرة) |
 | G10 | نشر الباكند | gate→image→deploy على VPS (runner `vps-tg`) مع تراجع تلقائي؛ الصورة `ghcr.io/almorabbi/almorabbi-backend` تُسحب بتوكن المهمة؛ الـgate لا يعمل إلا في `almorabbi/almorabbi` مع `vars.CUTOVER_DONE == true` (مضبوط) | `.github/workflows/deploy.yml` | ✅ |
