@@ -5,6 +5,14 @@ One Play edit replaces, for each language in the listing folder:
   icon, featureGraphic, phoneScreenshots (all of them, in file order)
   and patches the listing text (title, shortDescription, fullDescription).
 
+The tablet slots (sevenInchScreenshots, tenInchScreenshots) are NOT part of a
+listing folder, so by default they are only counted and reported: whatever
+sits there stays on the store, and Play's web page shows it in the same strip,
+right after the phone screenshots. On 2026-11-18 the Arabic page showed 24
+pictures that way — the 8 of listing_2.0.0, then 16 raw captures of a June
+build. --clear-tablet-screenshots empties both slots in the same edit (tablets
+then get the phone screenshots, as the English listing already does).
+
 Two modes, one of them required:
 
   --validate-only   open an edit, upload everything, check Play's own image
@@ -44,6 +52,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DIR = REPO_ROOT / 'docs/brand/store/listing_2.0.0'
 DEFAULT_SA = REPO_ROOT / 'scripts/play_service_account.json'
 LANG_DIRS = {'ar': 'ar', 'en': 'en-US'}  # folder → Play language code
+# Image types this tool never uploads to; see --clear-tablet-screenshots.
+TABLET_KINDS = ('sevenInchScreenshots', 'tenInchScreenshots')
 
 # Play Console limits (Store listing → graphics / text).
 TITLE_MAX, SHORT_MAX, FULL_MAX = 30, 80, 4000
@@ -153,6 +163,33 @@ def _upload_media(path):
     return MediaFileUpload(str(path), mimetype='image/png', resumable=False)
 
 
+def _held(edits, edit_id, lang, kind):
+    return edits.images().list(packageName=PACKAGE, editId=edit_id, language=lang,
+                               imageType=kind).execute().get('images', [])
+
+
+def stage_tablets(edits, edit_id, listings, clear, log=print):
+    """The tablet slots: counted and left alone, or emptied and proven empty.
+    Returns {lang: {kind: how many remain}}."""
+    left = {}
+    for lang in listings:
+        left[lang] = {}
+        for kind in TABLET_KINDS:
+            n = len(_held(edits, edit_id, lang, kind))
+            if clear and n:
+                edits.images().deleteall(packageName=PACKAGE, editId=edit_id, language=lang,
+                                         imageType=kind).execute()
+                if _held(edits, edit_id, lang, kind):
+                    raise ListingError(f'{lang}/{kind}: still holds images after deleteall')
+                log(f'  {lang}: {kind} ×{n} removed')
+                n = 0
+            elif n:
+                log(f'  {lang}: {kind} ×{n} LEFT ON THE STORE — not in this folder '
+                    '(--clear-tablet-screenshots removes them)')
+            left[lang][kind] = n
+    return left
+
+
 def stage(edits, edit_id, listings, media=None, log=print):
     """Upload text and graphics into the open edit and prove Play holds exactly them."""
     media = media or _upload_media
@@ -184,11 +221,15 @@ def stage(edits, edit_id, listings, media=None, log=print):
             log(f'  {lang}: {kind} ×{len(files)} — Play hashes match')
 
 
-def verify_live(edits, listings, log=print):
+def verify_live(edits, listings, log=print, tablets_cleared=False):
     """After commit: read the live listing through a throw-away edit and compare."""
     edit_id = edits.insert(packageName=PACKAGE, body={}).execute()['id']
     try:
         for lang, data in listings.items():
+            if tablets_cleared:
+                for kind in TABLET_KINDS:
+                    if _held(edits, edit_id, lang, kind):
+                        raise ListingError(f'{lang}/{kind}: live listing still has images after commit')
             live = edits.listings().get(packageName=PACKAGE, editId=edit_id, language=lang).execute()
             for key, value in data['text'].items():
                 if live.get(key) != value:
@@ -203,13 +244,14 @@ def verify_live(edits, listings, log=print):
         edits.delete(packageName=PACKAGE, editId=edit_id).execute()
 
 
-def run(service, listings, *, commit, media=None, log=print):
+def run(service, listings, *, commit, media=None, log=print, clear_tablets=False):
     """Returns a receipt dict. Never commits unless commit=True; always deletes an uncommitted edit."""
     edits = service.edits()
     edit_id = edits.insert(packageName=PACKAGE, body={}).execute()['id']
     committed = False
     try:
         stage(edits, edit_id, listings, media=media, log=log)
+        tablets = stage_tablets(edits, edit_id, listings, clear_tablets, log=log)
         edits.validate(packageName=PACKAGE, editId=edit_id).execute()
         log('  edits.validate: OK')
         if commit:
@@ -222,9 +264,10 @@ def run(service, listings, *, commit, media=None, log=print):
             edits.delete(packageName=PACKAGE, editId=edit_id).execute()
             log('  edit deleted — nothing published')
     if committed:
-        verify_live(edits, listings, log=log)
+        verify_live(edits, listings, log=log, tablets_cleared=clear_tablets)
     return {'package': PACKAGE, 'languages': sorted(listings), 'validated': True,
-            'committed': committed, 'edit_deleted': not committed}
+            'committed': committed, 'edit_deleted': not committed,
+            'tablet_screenshots': tablets}
 
 
 def _describe(exc):
@@ -250,12 +293,15 @@ def main(argv=None, service_factory=build_service):
     p.add_argument('--dir', type=Path, default=DEFAULT_DIR, help=f'listing folder (default: {DEFAULT_DIR})')
     p.add_argument('--sa', type=Path, default=Path(os.environ.get('PLAY_SERVICE_ACCOUNT', DEFAULT_SA)),
                    help='service-account JSON path (env PLAY_SERVICE_ACCOUNT)')
+    p.add_argument('--clear-tablet-screenshots', action='store_true',
+                   help='also empty the 7-inch and 10-inch screenshot slots (default: count and report them)')
     args = p.parse_args(argv)
     try:
         listings = load_listing(args.dir)
         counts = ', '.join(f'{lang} ({len(v["images"]["phoneScreenshots"])} shots)' for lang, v in listings.items())
         print(f'Local checks OK: {counts}')
-        receipt = run(service_factory(args.sa), listings, commit=args.commit)
+        receipt = run(service_factory(args.sa), listings, commit=args.commit,
+                      clear_tablets=args.clear_tablet_screenshots)
     except Exception as exc:  # noqa: BLE001 — report class/status/reason only
         print(f'FAILED: {_describe(exc)}' + ('' if args.commit else ' — nothing committed'), file=sys.stderr)
         return 1

@@ -1,0 +1,308 @@
+# The store-listing shots: the seven app screens of the Play page, one pass
+# per language (e2e/listing.sh, job `listing` of mobile-e2e.yml). The eighth
+# slot, Ramadan's lantern street, needs a date in Ramadan and comes from the
+# rehearsal (rehearsal/stage.yaml, day 27).
+#
+# Why its own lineage. The 2.0.0 listing was assembled from the journeys' and
+# the gallery's checkpoints, which exist to TEST and say so on screen: the
+# child is «E2E-Maestro» (the marker production excludes test traffic by — it
+# cannot change), the assistant's question is the marked English one, so the
+# Arabic set showed an English answer, and the gallery's second child was
+# typed «Salma» in both languages. Here the same marked install photographs a
+# family a parent can read:
+#   · the onboarding child stays E2E-Maestro (the install is test traffic to
+#     production exactly as before), and a second child with a real name in
+#     the pass's language — LISTING_CHILD_AR / LISTING_CHILD_EN — is added and
+#     is the active child in every picture. Maestro types Arabic since 2.7
+#     (its own IME, mobile-dev-inc/maestro#3211); the name is asserted on
+#     screen right after typing, so a build of Maestro that cannot type it
+#     stops here instead of photographing the wrong child;
+#   · the assistant is asked the app's OWN suggested question for the child's
+#     age (chatQ_prayRegular, from the ARB in this language — nothing typed),
+#     so question and answer are in the interface's language by construction.
+#     The marked question (QUESTION, «E2E test …») is still asked FIRST, in a
+#     conversation of its own that is never photographed: app/core/
+#     real_traffic.py finds an install's twin device by that message alone.
+# shot.yaml refuses a capture that shows the marker, the other language as
+# running text, or a dialog — every picture goes through it.
+#
+# Order: Today is photographed first (a first-day Today, before the lesson
+# changes its card), the lesson lights the week's first lantern for the
+# lantern row and the road, and the assistant is last — two answers from
+# production, the slowest and least certain leg, can then cost no other shot.
+# SHOT names are the slot ids of docs/brand/store/listing_*/manifest.json
+# (e2e_tool.py LISTING_SHOTS; test_listing.py holds the three together).
+# Env: UI_LANG (ar|en), CHILD_NAME, QUESTION. Runs right after
+# fresh/01_onboarding.yaml on a fresh install of the PR head.
+appId: com.alsaba.almorabbi
+name: listing/shoot
+env:
+  LISTING_CHILD_AR: 'سلمى'
+  LISTING_CHILD_EN: 'Salma'
+---
+- runScript: ../common/l10n.js
+- evalScript: "${output.listingChild = UI_LANG == 'en' ? LISTING_CHILD_EN : LISTING_CHILD_AR}"
+- runFlow: ../common/home.yaml
+# ── the child in the pictures ────────────────────────────────────────────
+# Settings → «تبديل الطفل النشط» → «إضافة طفل جديد». Creating needs no device
+# proof (a rename does — see common/mark_child.yaml), and the new child is the
+# active one as soon as it exists. 7-9, like the onboarding child: the band
+# with habits, missions, the corner and the suggested question asked below.
+- runFlow: ../common/open_settings.yaml
+- scrollUntilVisible:
+    element:
+      text: '${output.lead.settingsSwitchChild}'
+    direction: DOWN
+    timeout: 20000
+- tapOn: '${output.lead.settingsSwitchChild}'
+- extendedWaitUntil:
+    visible: '${output.t.childrenAddNew}'
+    timeout: 20000
+- tapOn: '${output.t.childrenAddNew}'
+- extendedWaitUntil:
+    visible: '${output.t.addChildNameHint}'
+    timeout: 20000
+- runFlow:
+    file: ../common/tap_field_end.yaml
+    env:
+      FIELD: '${output.t.addChildNameHint}'
+- inputText: '${output.listingChild}'
+# The field now reads the name, in its own script — or nothing was typed.
+- extendedWaitUntil:
+    visible: '${output.listingChild}'
+    timeout: 15000
+- tapOn: '${output.t.ageGroup7to9}'
+# The app-bar «إضافة»: the bottom button sits under the keyboard.
+- tapOn: '${output.t.add}'
+# Back on «إدارة الأطفال», the new row carries the name (and «نشط»).
+- extendedWaitUntil:
+    visible: '${output.t.childrenAddNew}'
+    timeout: 45000
+- extendedWaitUntil:
+    visible: '(?s).*${output.listingChild}.*'
+    timeout: 20000
+# «تمّت إضافة …» stays a few seconds; it must not ride into the first picture.
+- extendedWaitUntil:
+    notVisible: '${output.t.addChildAdded}'
+    timeout: 15000
+- runFlow: ../common/home.yaml
+# ── ① Today, as the family's first day ───────────────────────────────────
+- extendedWaitUntil:
+    visible: '(?s).*${output.listingChild}.*'
+    timeout: 30000
+- extendedWaitUntil:
+    visible: '${output.t.startThisLesson}'
+    timeout: 30000
+- runFlow:
+    file: shot.yaml
+    env:
+      SHOT: today
+# ── ⑦ the lesson's step for tonight («متى ستجرّبها مع …؟») ───────────────
+- tapOn: '${output.t.startThisLesson}'
+- extendedWaitUntil:
+    visible: '(?:${output.t.lessonMarkComplete}|${output.t.lessonCompleted}|${output.t.lessonErrorLoading})'
+    timeout: 45000
+# A 5xx from production is the server's moment (common/server_retry.yaml).
+- runFlow:
+    file: ../common/server_retry.yaml
+    env:
+      READY: '(?:${output.t.lessonMarkComplete}|${output.t.lessonCompleted})'
+      SHOT: lesson_server_error_retry
+- extendedWaitUntil:
+    visible: '${output.t.lessonMarkComplete}'
+    timeout: 30000
+- tapOn: '${output.t.lessonMarkComplete}'
+- extendedWaitUntil:
+    visible: '(?:${output.t.lessonCelebrationTitle}|${output.t.continueBtn})'
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+# The celebration's own button is the same «متابعة» / Continue.
+- tapOn: '${output.t.continueBtn}'
+- extendedWaitUntil:
+    visible: '${output.c.lessonNextStepTitle}'
+    timeout: 20000
+- runFlow:
+    file: shot.yaml
+    env:
+      SHOT: noor_follow_up
+- tapOn: '${output.t.promiseTonight}'
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: ../common/home.yaml
+# ── ⑤ «قناديل أسبوعكم», the lesson above having lit the first ─────────────
+- scrollUntilVisible:
+    element:
+      text: '${output.c.weekLanternsTitle}'
+    direction: DOWN
+    timeout: 30000
+    centerElement: true
+- runFlow:
+    file: shot.yaml
+    env:
+      SHOT: week_lanterns
+# ── ② «درب {الاسم}»: the horizon, «أنتم هنا» and what the family has lit ──
+- tapOn: '${output.lead.navLearn}'
+- extendedWaitUntil:
+    visible: '${output.t.pathsTitle}'
+    timeout: 30000
+- extendedWaitUntil:
+    visible: '${output.c.familyRoadEntryBody}'
+    timeout: 30000
+- tapOn: '${output.c.familyRoadEntryBody}'
+- extendedWaitUntil:
+    visible: '${output.c.familyRoadHorizon}'
+    timeout: 30000
+- extendedWaitUntil:
+    visible: '${output.c.familyRoadLit}'
+    timeout: 20000
+- runFlow:
+    file: shot.yaml
+    env:
+      SHOT: family_road
+- back
+- runFlow: ../common/home.yaml
+# ── ④ «ركن الطفل», through the hand-over gate (fresh/10's way in) ────────
+- tapOn: '${output.lead.navMore}'
+# The hub keeps the offset the Settings visit left it at — its bottom.
+- scrollUntilVisible:
+    element:
+      text: '${output.tile.routineTitle}'
+    direction: UP
+    timeout: 20000
+- tapOn: '${output.tile.routineTitle}'
+- extendedWaitUntil:
+    visible: '${output.t.routineChildMode}'
+    timeout: 30000
+- tapOn: '${output.t.routineChildMode}'
+- extendedWaitUntil:
+    visible: '${output.t.handoverTitle}'
+    timeout: 20000
+- tapOn: '${output.lead.childCornerTileTitle}'
+- runFlow: ../common/unlock_child_mode.yaml
+- extendedWaitUntil:
+    visible: '${output.c.childCornerGreeting}'
+    timeout: 30000
+- runFlow:
+    file: shot.yaml
+    env:
+      SHOT: child_corner
+- runFlow: ../common/exit_child_mode.yaml
+- extendedWaitUntil:
+    visible: '${output.lead.navToday}'
+    timeout: 30000
+- runFlow: ../common/home.yaml
+# ── ⑥ a story, on its first leaf with Noor ───────────────────────────────
+- tapOn: '${output.lead.navMore}'
+- scrollUntilVisible:
+    element:
+      text: '${output.tile.bedtimeStories}'
+    direction: UP
+    timeout: 8000
+    optional: true
+- scrollUntilVisible:
+    element:
+      text: '${output.tile.bedtimeStories}'
+    direction: DOWN
+    timeout: 20000
+- tapOn: '${output.tile.bedtimeStories}'
+- extendedWaitUntil:
+    visible: '${output.c.lit_storyFirstTitle}'
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- tapOn: '${output.c.lit_storyFirstTitle}'
+- extendedWaitUntil:
+    visible: '${output.t.storyReadTogether}'
+    timeout: 20000
+- tapOn: '${output.t.storyReadTogether}'
+# Noor's line is on the reader's first leaf only (the shelf's preview has the
+# same «نقرؤها معًا»). The cover comes from the server: let it land.
+- extendedWaitUntil:
+    visible: '${output.c.storyNoorIntro}'
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 5000
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow:
+    file: shot.yaml
+    env:
+      SHOT: story_reader
+- runFlow: ../common/home.yaml
+# ── ⑧ the assistant ──────────────────────────────────────────────────────
+# First the marked question, as fresh/03 asks it: this install's chat is test
+# traffic to production before anything unmarked is sent. Never photographed.
+- tapOn: '${output.lead.navAssistant}'
+- tapOn: '${output.t.chatTypeHint}'
+- inputText: '${QUESTION}'
+- tapOn: '${output.t.a11ySendQuestion}'
+- extendedWaitUntil:
+    visible: '${output.t.chatStop}'
+    timeout: 20000
+    optional: true
+- extendedWaitUntil:
+    notVisible: '${output.t.chatStop}'
+    timeout: 180000
+- runFlow:
+    file: ../common/server_retry.yaml
+    env:
+      READY: '${output.t.feedbackHelpful}'
+      SHOT: assistant_marked_server_error_retry
+- extendedWaitUntil:
+    notVisible: '${output.t.chatStop}'
+    timeout: 180000
+- scrollUntilVisible:
+    element:
+      text: '${output.t.feedbackHelpful}'
+    direction: DOWN
+    timeout: 20000
+# home.yaml's back press closes the keyboard the question left open; the tab
+# comes back without it.
+- runFlow: ../common/home.yaml
+- tapOn: '${output.lead.navAssistant}'
+# A new conversation: the empty state returns, with the suggested questions
+# for the active child's age, in the interface's language.
+- tapOn: '${output.t.chatNewConversation}'
+- extendedWaitUntil:
+    visible: '${output.t.chatNewConfirmTitle}'
+    timeout: 15000
+- tapOn: '${output.t.chatContinue}'
+- extendedWaitUntil:
+    visible: '${output.t.chatQ_prayRegular}'
+    timeout: 30000
+- assertNotVisible: '(?s).*E2E test.*'
+- tapOn: '${output.t.chatQ_prayRegular}'
+- extendedWaitUntil:
+    visible: '${output.t.chatStop}'
+    timeout: 20000
+    optional: true
+- extendedWaitUntil:
+    notVisible: '${output.t.chatStop}'
+    timeout: 180000
+- runFlow:
+    file: ../common/server_retry.yaml
+    env:
+      READY: '${output.t.feedbackHelpful}'
+      SHOT: assistant_server_error_retry
+- extendedWaitUntil:
+    notVisible: '${output.t.chatStop}'
+    timeout: 180000
+# The feedback row renders only under a completed reply; then back up to the
+# question, so the picture reads question first, answer under it.
+- scrollUntilVisible:
+    element:
+      text: '${output.t.feedbackHelpful}'
+    direction: DOWN
+    timeout: 20000
+- assertNotVisible: '${output.t.chatRetry}'
+- scrollUntilVisible:
+    element:
+      text: '${output.c.chatQ_prayRegular}'
+    direction: UP
+    timeout: 30000
+- runFlow:
+    file: shot.yaml
+    env:
+      SHOT: assistant
+      LISTING_QUOTES: 'true'

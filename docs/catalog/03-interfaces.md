@@ -587,7 +587,7 @@
 | `scripts/nblm_failure.py` | مكتبة يستوردها `gen_podcasts_cron.py`/`gen_path_videos_cron.py`/`generate_missing_infographics.py`: تمييز جلسة NotebookLM الميتة عن المهمة الغائبة |
 | `scripts/parse_all_assets.py` | Parse markdown asset files -> JSON flashcards + slides Updates lesson_index.json and creates JSON files in docs/lesson_assets/ |
 | `scripts/parse_generated_assets.py` | Output files |
-| `scripts/play_listing_upload.py` | Google Play — store-listing refresh (text + graphics) for المربّي. |
+| `scripts/play_listing_upload.py` | Google Play — store-listing refresh (text + graphics) for المربّي: `--validate-only` \| `--commit`، `--dir`، `--sa`، و`--clear-tablet-screenshots` (يفرّغ خانتَي لقطات اللوحي؛ الافتراضي عدّها والتبليغ عنها فقط) |
 | `scripts/play_reviews.py` | تعليقات Google Play — قراءة والرد |
 | `scripts/play_upload.py` | Google Play Store — رفع AAB تلقائي |
 | `scripts/podcast_to_reel.py` | podcast_to_reel.py — convert a tutor-guardian podcast into a 9:16 marketing Reel. |
@@ -652,6 +652,7 @@
 | `backend/scripts/generate_coach_samples.py` | توليد ~20 عيّنة نصيحة للمراجعة البشرية (Gate #1) |
 | `check.sh` | بوابة جودة محلية: check_kb_integrity (--full يضيف Chroma + الاختبارات) |
 | `e2e/run.sh` | Runs the E2E journeys on the emulator that reactivecircus/android-emulator-runner |
+| `e2e/listing.sh` | لقطات المتجر على محاكي مهمة `listing`: `E2E_APKS` (head) و`E2E_OUT` ← `screens/listing__<lang>__<slot>.png` (artifact `e2e-listing`) |
 | `e2e/rehearsal.sh` | The Ramadan rehearsal (gate G2) and the sound × recitation check, on the |
 | `e2e/install_system_image.sh` | Installs the emulator system image before reactivecircus/android-emulator-runner |
 | `.github/ci/lock-backend-deps.py` | إعادة توليد requirements-prod.lock من constraints الإنتاج |
@@ -681,7 +682,7 @@ git config core.hooksPath .githooks      # ⚠️ المسار المطلق في
 | `backend.yml` | push/PR (مسارات الباكند/KB + `ops/data/sira/**`) + dispatch | GitHub-hosted | pytest (+golden CI) + سلامة KB + حرّاس الآيات/الأحاديث/التغطية + حارسا قصص الأنبياء والسيرة + حارس نسبة الأقوال لأهل العلم + تكافؤ الإنجليزي + ruff — بوابة النشر |
 | `deploy.yml` | push إلى main (مسارات `backend/**` · `knowledge_base/**` · `ops/tools/**` · `ops/scripts/**` · `frontend/**` · `docs/lesson_index.json` · `docs/lesson_assets/**` + ملفات compose/Dockerfile/lock) + dispatch | gate+image: GitHub · deploy+alert: self-hosted `[self-hosted, production]` (runner `vps-tg`) على الـVPS؛ الـgate مشروط بـ`github.repository == almorabbi/almorabbi` و`vars.CUTOVER_DONE == true` | gate (ينتظر backend.yml لنفس الـSHA) ← image (GHCR + smoke) ← deploy (فحص media، نسخ احتياطي، recreate، فحص /health و/privacy-policy و/api/app-config، تراجع تلقائي) ← alert تلجرام |
 | `flutter.yml` | push/PR على mobile/** + dispatch | GitHub-hosted | flutter analyze + flutter test |
-| `mobile-e2e.yml` | PR + dispatch | GitHub-hosted (KVM) | بناء APK release للرأس والأساس ثم رحلات Maestro (fresh×14 + upgrade×4) + تجربة رمضان (rehearsal) + معرض لقطات + بوابة delivery |
+| `mobile-e2e.yml` | PR + dispatch | GitHub-hosted (KVM) | بناء APK release للرأس والأساس ثم رحلات Maestro (fresh×14 + upgrade×4) + تجربة رمضان (rehearsal) + معرض لقطات + بوابة delivery؛ ومهمة `listing` (خارج البوابة) تلتقط لقطات صفحة المتجر بالعربية والإنجليزية ← artifact `e2e-listing` |
 | `e2e-avd-cache.yml` | يومي 04:23 + push/PR + dispatch | GitHub-hosted | حفظ لقطة AVD على main |
 | `candidate-image.yml` | PR على ما يدخل الصورة + dispatch | GitHub-hosted | يبني ويفحص الصورة ويكسرها ثلاث مرات ليتأكد أن الـsmoke يرفض |
 | `release-play.yml` | dispatch فقط (main) | GitHub-hosted | AAB موقَّع ← Google Play (track + rollout) |

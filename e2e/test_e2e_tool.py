@@ -179,6 +179,7 @@ class CiChildNameTest(unittest.TestCase):
         names = dict(re.findall(r"- variant: (\S+)\n(?:            .*\n)*?            child_name: (\S+)\n", workflow))
         self.assertEqual(set(names), {"head", "baseline", "rehearsal-head", "rehearsal-baseline"})
         for script, variants in (("run.sh", ("head", "baseline")),
+                                 ("listing.sh", ("head",)),
                                  ("rehearsal.sh", ("rehearsal-head", "rehearsal-baseline"))):
             default = re.search(r'^CHILD_NAME="\$\{E2E_CHILD_NAME:-([^}]+)\}"$',
                                 (self.ROOT / "e2e" / script).read_text(), re.M).group(1)

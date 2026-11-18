@@ -1588,7 +1588,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `scripts/nblm_failure.py` | 63 | تصنيف إخفاق NotebookLM: جلسة ميتة ≠ مهمة اختفت؛ يستعمله مولّدو البودكاست/الفيديو/الإنفوجراف (exit 3 = جلسة ميتة، 4 = حاول ولم يُنتج) |
 | `scripts/parse_all_assets.py` | 250 | Parse markdown asset files -> JSON flashcards + slides Updates lesson_index.json and creates JSON files in docs/lesson_assets/ |
 | `scripts/parse_generated_assets.py` | 138 | Output files |
-| `scripts/play_listing_upload.py` | 267 | Google Play — store-listing refresh (text + graphics) for المربّي. One Play edit replaces, for each language in the listing folder: |
+| `scripts/play_listing_upload.py` | 313 | Google Play — store-listing refresh (text + graphics) for المربّي. One Play edit replaces, for each language in the listing folder: icon, featureGraphic, phoneScreenshots + the text. The tablet slots (7-inch, 10-inch) are counted and reported, and emptied only with `--clear-tablet-screenshots` |
 | `scripts/play_reviews.py` | 170 | تعليقات Google Play — قراءة والرد |
 | `scripts/play_upload.py` | 312 | Google Play Store — رفع AAB تلقائي الاستخدام: |
 | `scripts/podcast_prompt.txt` | 6 | ملف نصي |
@@ -1618,7 +1618,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `scripts/test_app_flow.py` | 46 | اختبارات: app flow |
 | `scripts/test_navigation.py` | 41 | اختبارات: navigation |
 | `scripts/tests/test_landing_copy.py` | 34 | Focused copy guards; no server startup or external services. |
-| `scripts/tests/test_play_listing_upload.py` | 339 | Store-listing refresh; fake Play client, no network, no credentials. |
+| `scripts/tests/test_play_listing_upload.py` | 424 | Store-listing refresh; fake Play client, no network, no credentials. |
 | `scripts/tests/test_program_review_metadata.py` | 27 | Program reviewer metadata must describe model review without specialist approval. |
 | `scripts/tests/test_release_bundle.py` | 287 | Offline synthetic ZIP tests; never compile, sign, or contact Play. |
 | `scripts/tests/test_release_play_publish.py` | 209 | Exact-artifact production publication; fake Play transport, no signing/network. |
@@ -1641,7 +1641,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | الملف | أسطر | الدور |
 |---|---:|---|
 | `e2e/.gitignore` |  | استبعاد مخرجات E2E |
-| `e2e/e2e_tool.py` | 1608 | Helpers for the emulator E2E gate (.github/workflows/mobile-e2e.yml). Subcommands, all stdlib-only so they run on a bare GitHub runner: |
+| `e2e/e2e_tool.py` | 1690 | Helpers for the emulator E2E gate (.github/workflows/mobile-e2e.yml). Subcommands, all stdlib-only so they run on a bare GitHub runner: |
 | `e2e/flows/common/assert_today.yaml` | 32 | Today renders its primary blocks (origin/main layout, 1.0.67+112): |
 | `e2e/flows/common/enter_pin.yaml` | 8 | Four digits on the child-mode keypad (child_mode_lock_screen.dart). |
 | `e2e/flows/common/exit_child_mode.yaml` | 29 | Exit child mode cleanly back to Today using the PIN. |
@@ -1670,6 +1670,8 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `e2e/flows/fresh/14_mawqif.yaml` | 78 | Checkpoint 14 — «موقف بقرار» (1.0.81), against the live server: the card on Today → a response → the hadith → the step → «الليلة»; then the card leaves. |
 | `e2e/flows/gallery/shoot.yaml` | 894 | One pass of the before/after gallery (Phase 0 of docs/NOOR_WAL_QANADIL_PLAN.md). |
 | `e2e/flows/gallery/today_shot.yaml` | 23 | The gallery's own Today capture: common/assert_today.yaml's contract, but |
+| `e2e/flows/listing/shoot.yaml` | 308 | The store-listing shots: the seven app screens of the Play page, one pass per language, with a listing child added beside the marked one and the app's own suggested question (job `listing`). |
+| `e2e/flows/listing/shot.yaml` | 40 | One store-listing capture, and what a picture on the Play page must never carry: the test marker, the other language as running text, a dialog. |
 | `e2e/flows/rehearsal/expect.yaml` | 23 | Wait for PATTERN: a hard expectation on the PR head (TAG == 'after'), a |
 | `e2e/flows/rehearsal/sound_after.yaml` | 15 | Sound × recitation, part 2: after the ticks the reader is still reciting — |
 | `e2e/flows/rehearsal/sound_start.yaml` | 49 | Sound × recitation, part 1 (plan phase 2 gate: «الأصوات مابتوقفش التلاوة»). |
@@ -1682,13 +1684,15 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `e2e/flows/upgrade/04_child_kept.yaml` | 11 | Upgrade test — the upgraded app still has the child the baseline created. |
 | `e2e/install_system_image.sh` | 68 | Installs the emulator system image before reactivecircus/android-emulator-runner |
 | `e2e/logcat_allowlist.txt` | 4 | ملف نصي |
+| `e2e/listing.sh` | 166 | The store-listing shots, on the emulator of job `listing`: two fresh installs of the PR head (ar, en), status bar in demo mode, red when a slot has no picture. Artifact `e2e-listing`. |
 | `e2e/rehearsal.sh` | 304 | The Ramadan rehearsal (gate G2) and the sound × recitation check, on the |
 | `e2e/run.sh` | 271 | Runs the E2E journeys on the emulator that reactivecircus/android-emulator-runner |
-| `e2e/test_e2e_tool.py` | 1454 | Tests for e2e/e2e_tool.py — run: python3 -m unittest discover -s e2e -v |
+| `e2e/test_e2e_tool.py` | 1499 | Tests for e2e/e2e_tool.py — run: python3 -m unittest discover -s e2e -v |
 | `e2e/test_install_system_image.py` | 95 | install_system_image.sh against a stub sdkmanager: corrupt downloads are retried from scratch, and only a complete image counts as installed. |
+| `e2e/test_listing.py` | 330 | The store-listing lineage: the runner with fake device/CLI boundaries, the slot check, and what the flow may and may not put in a picture. No builds. |
 | `e2e/test_rehearsal.py` | 174 | Exercise the real rehearsal runner (e2e/rehearsal.sh) with fake device, CLI and tool boundaries; no builds, no emulator, no server. |
 | `e2e/test_run.py` | 138 | Exercise the real shell runner with fake device/CLI boundaries; no builds. |
-| `e2e/test_workflow.py` | 525 | Parse the workflow and execute its final verdict without builds or devices. |
+| `e2e/test_workflow.py` | 594 | Parse the workflow and execute its final verdict without builds or devices. |
 | `e2e/testdata/dumpsys_audio_run38722537691_after.txt` | 703 | ملف نصي |
 | `e2e/testdata/dumpsys_audio_run38722537691_before.txt` | 702 | ملف نصي |
 
@@ -1807,7 +1811,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `.github/workflows/e2e-avd-cache.yml` | 107 | يحفظ لقطة المحاكي على main يوميًا لتسريع E2E |
 | `.github/workflows/flutter.yml` | 90 | Flutter analyze + test على دفعات mobile/** |
 | `.github/workflows/golden-full.yml` | 34 | تقييم ذهبي كامل (يدوي؛ بلا مفاتيح مزوّد => UNAVAILABLE) |
-| `.github/workflows/mobile-e2e.yml` | 965 | بوابة الإصدار: APK release يُقاد بـMaestro على محاكي (13 رحلة fresh/upgrade + تجربة رمضان + معرض) |
+| `.github/workflows/mobile-e2e.yml` | 1095 | بوابة الإصدار: APK release يُقاد بـMaestro على محاكي (رحلات fresh/upgrade + تجربة رمضان + معرض) + مهمة `listing` خارج البوابة تلتقط لقطات المتجر |
 | `.github/workflows/release-play.yml` | 180 | يدوي: بناء AAB موقَّع ورفعه إلى Google Play (internal/alpha/beta/production) |
 | `.github/workflows/runtime-readiness.yml` | 91 | تشخيص جاهزية وقت التشغيل على main (runner الإنتاج، مخرجات مشفّرة) |
 

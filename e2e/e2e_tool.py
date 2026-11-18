@@ -16,6 +16,8 @@ Subcommands, all stdlib-only so they run on a bare GitHub runner:
                run.sh) into gallery-summary.md + an images/ folder, uploaded
                as the e2e-gallery artifact — one download, every pair side
                by side.
+  listing-check  The store-listing shots (job `listing`, e2e/listing.sh): every
+               slot was photographed in both languages, or the job is red.
 
 The Ramadan rehearsal (job `rehearsal`, e2e/rehearsal.sh):
   as-of-proxy      Stand between the CI-only APKs and the candidate backend
@@ -247,6 +249,13 @@ KEYS = [
     # «موقف بقرار» (fresh/14, 1.0.81), against the live server.
     "mawqifCardLabel", "mawqifWhatDoYouDo", "mawqifChoicesHint", "mawqifLater",
     "mawqifToEvidence", "mawqifIdeaTitle", "mawqifToStep", "mawqifCommit",
+    # The store-listing shots (e2e/flows/listing/shoot.yaml, job `listing`) —
+    # PR head only. The listing child is added by hand: its snackbar must be
+    # gone before the first picture. The assistant is asked the app's own
+    # suggested question for a 7-9 child, in a new conversation; and Noor's
+    # line marks the story reader's first leaf.
+    "addChildAdded", "chatNewConversation", "chatNewConfirmTitle",
+    "chatContinue", "chatQ_prayRegular", "storyNoorIntro",
 ]
 
 # Strings the app hardcodes outside the ARB files.
@@ -728,6 +737,67 @@ def cmd_gallery(args: argparse.Namespace) -> int:
     return 0
 
 
+# ── the store-listing shots ──────────────────────────────────────────────
+#
+# Job `listing` (e2e/listing.sh) photographs the Play page's app screens with
+# a family a parent can read — see e2e/flows/listing/shoot.yaml for why the
+# journeys' own checkpoints cannot be used. run_flow flattens them to
+#   listing__<lang>__<slot>.png
+# and docs/brand/store/listing_<version>/manifest.json names them by slot.
+
+LISTING_LANGS = ("ar", "en")
+
+# The slot ids, in the order shoot.yaml takes them. The same ids are the SHOT
+# values in that flow and the slot ids in the manifest (test_listing.py).
+# «ramadan_street» is the manifest's eighth slot and is not here: it needs a
+# date in Ramadan and comes from the rehearsal's artifact.
+LISTING_SHOTS = (
+    "today", "noor_follow_up", "week_lanterns", "family_road",
+    "child_corner", "story_reader", "assistant",
+)
+
+_PNG_SIG = b"\x89PNG\r\n\x1a\n"
+# A real 1080x2400 capture is hundreds of kB; a blank or truncated one is not.
+_LISTING_MIN_BYTES = 20_000
+
+
+def listing_missing(screens: Path) -> list[str]:
+    """The listing shots that are absent or not a plausible capture."""
+    missing = []
+    for lang in LISTING_LANGS:
+        for shot in LISTING_SHOTS:
+            path = screens / f"listing__{lang}__{shot}.png"
+            try:
+                with path.open("rb") as f:
+                    head = f.read(len(_PNG_SIG))
+                ok = head == _PNG_SIG and path.stat().st_size >= _LISTING_MIN_BYTES
+            except OSError:
+                ok = False
+            if not ok:
+                missing.append(f"{lang}/{shot}")
+    return missing
+
+
+def cmd_listing_check(args: argparse.Namespace) -> int:
+    screens = Path(args.screens)
+    missing = listing_missing(screens)
+    total = len(LISTING_LANGS) * len(LISTING_SHOTS)
+    lines = ["## Store-listing shots", "",
+             f"{total - len(missing)} of {total} taken "
+             f"({', '.join(LISTING_LANGS)} × {', '.join(LISTING_SHOTS)})."]
+    if missing:
+        lines += ["", "Missing: " + ", ".join(missing)]
+    if args.out:
+        out = Path(args.out)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print("\n".join(lines))
+    if missing:
+        print("::error title=Store-listing shots::لقطات المتجر ناقصة: " + ", ".join(missing))
+        return 1
+    return 0
+
+
 # ── summary ──────────────────────────────────────────────────────────────
 
 def cmd_summary(args: argparse.Namespace) -> int:
@@ -761,7 +831,7 @@ def cmd_summary(args: argparse.Namespace) -> int:
     gate = out / "logcat" / "gate.txt"
     md += ["", "### logcat gate", "```", gate.read_text(encoding="utf-8").strip() if gate.exists() else "not run", "```"]
     shots = sorted((out / "screens").glob("*.png")) if (out / "screens").exists() else []
-    md += ["", f"Screenshots: {len(shots)} (artifact `e2e-screenshots`)"]
+    md += ["", f"Screenshots: {len(shots)} (artifact `{getattr(args, 'artifact', None) or 'e2e-screenshots'}`)"]
     gallery = out / "gallery" / "gallery-summary.md"
     if gallery.exists():
         m = re.search(r"<!-- gallery: (.+?) -->", gallery.read_text(encoding="utf-8"))
@@ -1558,9 +1628,15 @@ def main(argv: list[str] | None = None) -> int:
                    help="fail (exit 1) if any non-guarded screen lacks an «after» shot")
     s.set_defaults(func=cmd_gallery)
 
+    s = sub.add_parser("listing-check", help="every store-listing slot was photographed, both languages")
+    s.add_argument("screens", help="dir with the flattened e2e screenshots")
+    s.add_argument("--out", help="Markdown report")
+    s.set_defaults(func=cmd_listing_check)
+
     s = sub.add_parser("summary", help="render the Markdown summary")
     s.add_argument("out_dir")
     s.add_argument("--title", help="heading (default: Mobile E2E (emulator))")
+    s.add_argument("--artifact", help="the artifact holding the screenshots (default: e2e-screenshots)")
     s.set_defaults(func=cmd_summary)
 
     s = sub.add_parser("as-of-proxy", help="forward to the candidate, adding the stage's as_of")

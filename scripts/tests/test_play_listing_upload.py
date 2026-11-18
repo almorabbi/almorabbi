@@ -59,8 +59,9 @@ class Request:
 class Play:
     """Just enough of androidpublisher v3 edits(): it stores uploads like Play does."""
 
-    def __init__(self, languages=('ar', 'en-US'), fail_at=None, tamper=False):
+    def __init__(self, languages=('ar', 'en-US'), fail_at=None, tamper=False, sticky=()):
         self.calls, self.fail_at, self.tamper = [], fail_at, tamper
+        self.sticky = set(sticky)   # image kinds deleteall leaves in place
         self.languages = list(languages)
         self.stored = {}   # (lang, kind) -> [sha256]
         self.text = {}
@@ -112,7 +113,8 @@ class Play:
 
     def deleteall(self, **kw):
         def apply():
-            self.stored[(kw['language'], kw['imageType'])] = []
+            if kw['imageType'] not in self.sticky:
+                self.stored[(kw['language'], kw['imageType'])] = []
             return {}
         return self._r('images.deleteall', kw, apply)
 
@@ -202,8 +204,8 @@ class EditFlow(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
-    def run_tool(self, play, commit):
-        return self.tool.run(play, self.listings, commit=commit, media=lambda p: p, log=self.log.append)
+    def run_tool(self, play, commit, **kw):
+        return self.tool.run(play, self.listings, commit=commit, media=lambda p: p, log=self.log.append, **kw)
 
     def names(self, play):
         return [c[0] for c in play.calls]
@@ -215,8 +217,10 @@ class EditFlow(unittest.TestCase):
         self.assertNotIn('commit', names)
         self.assertEqual(names[0], 'insert')
         self.assertEqual(names[-2:], ['validate', 'delete'])
+        nothing = {'sevenInchScreenshots': 0, 'tenInchScreenshots': 0}
         self.assertEqual(receipt, {'package': 'com.alsaba.almorabbi', 'languages': ['ar', 'en-US'],
-                                   'validated': True, 'committed': False, 'edit_deleted': True})
+                                   'validated': True, 'committed': False, 'edit_deleted': True,
+                                   'tablet_screenshots': {'ar': nothing, 'en-US': nothing}})
 
     def test_every_call_targets_our_package_and_edit(self):
         play = Play()
@@ -237,6 +241,65 @@ class EditFlow(unittest.TestCase):
         deletes = [(kw['language'], kw['imageType']) for n, kw in play.calls if n == 'images.deleteall']
         self.assertEqual(len(deletes), 6)
         self.assertEqual(len(set(deletes)), 6)
+
+    # The store's Arabic page on 2026-11-18: 8 phone screenshots of 2.0.0, then
+    # the same 8 raw captures of a June build in each tablet slot.
+    def stale_tablets(self, play):
+        play.stored[('ar', 'sevenInchScreenshots')] = [f'june-7in-{i}' for i in range(8)]
+        play.stored[('ar', 'tenInchScreenshots')] = [f'june-10in-{i}' for i in range(8)]
+        return play
+
+    def test_tablet_slots_are_counted_and_left_alone_by_default(self):
+        play = self.stale_tablets(Play())
+        receipt = self.run_tool(play, commit=False)
+        self.assertEqual(len(play.stored[('ar', 'sevenInchScreenshots')]), 8)
+        self.assertEqual(len(play.stored[('ar', 'tenInchScreenshots')]), 8)
+        touched = {kw['imageType'] for n, kw in play.calls if n in ('images.deleteall', 'images.upload')}
+        self.assertEqual(touched, {'icon', 'featureGraphic', 'phoneScreenshots'})
+        self.assertEqual(receipt['tablet_screenshots'],
+                         {'ar': {'sevenInchScreenshots': 8, 'tenInchScreenshots': 8},
+                          'en-US': {'sevenInchScreenshots': 0, 'tenInchScreenshots': 0}})
+        said = [line for line in self.log if 'LEFT ON THE STORE' in line]
+        self.assertEqual(len(said), 2)
+        self.assertTrue(all('--clear-tablet-screenshots' in line and '×8' in line for line in said))
+
+    def test_clear_tablet_screenshots_empties_both_slots_in_the_same_edit(self):
+        play = self.stale_tablets(Play())
+        receipt = self.run_tool(play, commit=False, clear_tablets=True)
+        for kind in self.tool.TABLET_KINDS:
+            self.assertEqual(play.stored[('ar', kind)], [])
+        cleared = [(kw['language'], kw['imageType'], kw['editId']) for n, kw in play.calls
+                   if n == 'images.deleteall' and kw['imageType'] in self.tool.TABLET_KINDS]
+        # Only where something was there; the English listing had none.
+        self.assertEqual(cleared, [('ar', 'sevenInchScreenshots', 'our-edit'), ('ar', 'tenInchScreenshots', 'our-edit')])
+        names = self.names(play)
+        self.assertLess(max(i for i, n in enumerate(names) if n == 'images.deleteall'), names.index('validate'))
+        self.assertEqual(receipt['tablet_screenshots']['ar'], {'sevenInchScreenshots': 0, 'tenInchScreenshots': 0})
+        # Nothing is uploaded to a tablet slot, and the phone set is untouched by this.
+        self.assertFalse([kw for n, kw in play.calls if n == 'images.upload' and kw['imageType'] in self.tool.TABLET_KINDS])
+        self.assertEqual(len(play.stored[('ar', 'phoneScreenshots')]), 8)
+
+    def test_tablets_that_survive_deleteall_fail_before_validate(self):
+        play = self.stale_tablets(Play(sticky=['tenInchScreenshots']))
+        with self.assertRaisesRegex(self.tool.ListingError, 'tenInchScreenshots: still holds'):
+            self.run_tool(play, commit=True, clear_tablets=True)
+        names = self.names(play)
+        self.assertNotIn('validate', names)
+        self.assertNotIn('commit', names)
+        self.assertEqual(names[-1], 'delete')
+
+    def test_after_a_commit_the_cleared_slots_are_reread_live(self):
+        play = self.stale_tablets(Play())
+        self.run_tool(play, commit=True, clear_tablets=True)
+        after = play.calls[self.names(play).index('commit') + 1:]
+        reread = [kw['imageType'] for n, kw in after if n == 'images.list']
+        for kind in self.tool.TABLET_KINDS:
+            self.assertEqual(reread.count(kind), 2, kind)   # once per language
+        # Left alone, they are not what the commit promised: not re-read.
+        play = self.stale_tablets(Play())
+        self.run_tool(play, commit=True)
+        after = play.calls[self.names(play).index('commit') + 1:]
+        self.assertFalse([kw for n, kw in after if n == 'images.list' and kw['imageType'] in self.tool.TABLET_KINDS])
 
     def test_text_patched_not_put_for_both_languages(self):
         play = Play()
@@ -324,6 +387,26 @@ class Cli(unittest.TestCase):
                 self.tool._upload_media = orig
         self.assertEqual(rc, 0)
         self.assertNotIn('commit', [c[0] for c in play.calls])
+
+    def test_clear_tablet_screenshots_is_opt_in_on_the_command_line(self):
+        for flag, expect in (([], 8), (['--clear-tablet-screenshots'], 0)):
+            play = Play()
+            play.stored[('ar', 'tenInchScreenshots')] = ['june'] * 8
+            with tempfile.TemporaryDirectory() as t:
+                make_folder(Path(t))
+                orig = self.tool._upload_media
+                self.tool._upload_media = lambda p: p
+                out = io.StringIO()
+                try:
+                    with contextlib.redirect_stdout(out):
+                        rc = self.tool.main(['--validate-only', '--dir', t, '--sa', '/nonexistent'] + flag,
+                                            service_factory=lambda sa: play)
+                finally:
+                    self.tool._upload_media = orig
+            self.assertEqual(rc, 0, out.getvalue())
+            self.assertEqual(len(play.stored[('ar', 'tenInchScreenshots')]), expect, flag)
+            receipt = json.loads(out.getvalue().strip().splitlines()[-1])
+            self.assertEqual(receipt['tablet_screenshots']['ar']['tenInchScreenshots'], expect)
 
     def test_the_real_folder_passes_local_checks(self):
         for rel in ('docs/brand/store/listing_1.0.73', 'docs/brand/store/listing_2.0.0'):
