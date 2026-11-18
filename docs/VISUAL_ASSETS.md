@@ -82,8 +82,12 @@ python3 docs/brand/tools/brand_build.py frame --frame frame_1_rising \
 
 ### فخاخ لازم تعرفها
 - `notification_service.dart` بيستخدم `@mipmap/ic_launcher` (القديمة) — **ماتمسحش الموارد القديمة** من غير ما تغيّره.
-- شاشة البداية (`flutter_native_splash`) لسه بالشعار القديم من `frontend/icons/icon-512.png`، و`assets/images/logo.png`
-  (علامة الإنفوجرافيك) قديم برضه، وأيقونات iOS قديمة (iOS لسه مانزلش). دول خطوة بعدين.
+- شاشة البداية (`flutter_native_splash`) لسه بالشعار القديم من `frontend/icons/icon-512.png`، وأيقونات iOS قديمة
+  (iOS لسه مانزلش). دول خطوة بعدين.
+- ختم الإنفوجراف المنزَّل **اتصلّح (نوفمبر 2026):** بيترسم من `assets/svg/art/logo_mark.svg` نفسه
+  (`features/program/services/infographic_stamp.dart`) و`assets/images/logo.png` القديم اتمسح من التطبيق.
+  `test/infographic_stamp_test.dart` بيقرا بكسلات الصورة المختومة وبيمنع رجوع الملف القديم للحزمة.
+- الريلز لسه بالشعار القديم: `remotion-reels/public/logo.png` (بيقراه `scripts/reel_from_video.py` و`reel.json`).
 - أيقونة Play (512×512) **مش بتطلع من البناء** — بتترفع باليد في Play Console: `docs/brand/store/play_icon_512.png`
   (مربّع كامل؛ Play بيقصّه بنفسه).
 

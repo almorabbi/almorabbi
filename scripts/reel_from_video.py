@@ -35,7 +35,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "docs" / "marketing" / "reels_v2"
 HOOKS_FILE = ROOT / "docs" / "marketing" / "reel_hooks.json"
-LOGO = ROOT / "mobile" / "assets" / "images" / "logo.png"
+# نفس الملف الذي كان في mobile/assets/images/ (مطابق بايت ببايت): الأصل هناك حُذف
+# لأن التطبيق لم يعد يحمله، ونسخة Remotion هي الباقية لأدوات الريلز.
+# ⚠️ هذا هو الشعار القديم لا العلامة الحالية — تحديث علامة الريلز مهمة مستقلة.
+LOGO = ROOT / "remotion-reels" / "public" / "logo.png"
 FONT_BOLD = "/usr/share/fonts/truetype/noto/NotoSansArabic-Bold.ttf"
 FONT_REG = "/usr/share/fonts/truetype/noto/NotoSansArabic-Regular.ttf"
 

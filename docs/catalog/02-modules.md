@@ -841,7 +841,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `mobile/lib/features/program/screens/edit_child_screen.dart` | 346 | Edit child screen — same fields as onboarding, but PATCHes the existing child instead of creating a new one. |
 | `mobile/lib/features/program/screens/favorites_screen.dart` | 384 | Favorites screen — P1 launch item #1 (local-only). Shows all favorited lessons and daily tips in a simple list. Tapping a lesson navigates to the… |
 | `mobile/lib/features/program/screens/flashcards_screen.dart` | 346 | Interactive flashcards viewer — replaces the Phase-4 placeholder. Loads one or more decks (their ids come from the lesson-assets metadata), merges… |
-| `mobile/lib/features/program/screens/infographic_screen.dart` | 154 | Full-screen, zoomable viewer for a lesson infographic image. Adds a rotate-screen toggle and a download button that stamps the app logo onto the… |
+| `mobile/lib/features/program/screens/infographic_screen.dart` | 128 | Full-screen, zoomable viewer for a lesson infographic image. Adds a rotate-screen toggle and a download button that stamps the app's mark onto the… |
 | `mobile/lib/features/program/screens/lesson_screen.dart` | 1191 | Lesson screen — reads a single lesson, renders: 1. Hero (title + estimated minutes + warning chips) 2. Status chip (Phase 5 — driven by… |
 | `mobile/lib/features/program/screens/path_detail_screen.dart` | 1161 | Path detail screen — shows the full path description + the lessons as «درب المسار» (a zigzag of stations on a paper road under a paper sky), then a… |
 | `mobile/lib/features/program/screens/paths_screen.dart` | 479 | Path list screen — "مساراتي" tab. Reads [pathsListProvider] (filtered by the current [selectedAgeGroupProvider]). Renders a scrollable list of cards,… |
@@ -855,6 +855,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `mobile/lib/features/program/screens/story_reader_screen.dart` | 1610 | The story reader — «ورق مقصوص» (2026-10, docs/STORIES_AUDIT.md). A story is a short stack of paper leaves: 1. Noor's opening leaf — the cover scene,… |
 | `mobile/lib/features/program/screens/video_player_screen.dart` | 469 | Video Player Screen — improved with better controls visibility and thumbnail support |
 | `mobile/lib/features/program/services/bedtime_audio_service.dart` | 27 | Keeps the device awake while a story or the bedtime adhkar is open, then lets it sleep again. This file used to hold `BedtimeAudioService` too — a… |
+| `mobile/lib/features/program/services/infographic_stamp.dart` | 69 | The mark burnt into the copy of an infographic a parent downloads. It is the only piece of the brand that leaves the app with the user's own share, so it is drawn from the same file the… |
 | `mobile/lib/features/program/widgets/active_child_chip.dart` | 118 | Phase 8-B — shows the active child (emoji + name) in the PathsScreen AppBar. Tap → opens [ChildrenListScreen] to switch / add a child. |
 | `mobile/lib/features/program/widgets/coach_tip_card.dart` | 239 | Proactive parenting coach card — the day's tip on Home. Fetches a personalized (or gracefully-degraded) coach tip for the active child via… |
 | `mobile/lib/features/program/widgets/follow_us_row.dart` | 174 | «تابعنا» — one quiet row of the app's own channels, in Settings. A row of chips rather than three more full-width settings rows: these are the least… |
@@ -1113,6 +1114,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `mobile/test/horizon_attribution_test.dart` | 74 | horizon_to_action_48h`: a parenting act within two days of a horizon tap fires once; worship, other events, and acts after 48 hours do not. |
 | `mobile/test/hub_catalog_test.dart` | 114 | Invariants for the «المزيد» hub. The hub is the app's index of everything outside the daily loop, so a tile that resolves to a missing translation or… |
 | `mobile/test/identity_error_messages_test.dart` | 138 | How google_sign_in_android 7.x reports "no Google account on the phone". |
+| `mobile/test/infographic_stamp_test.dart` | 190 | The stamp on a downloaded infographic is the app's current mark. The stamp is the one piece of the brand that leaves the app: it is burnt into the copy a parent downloads and shares, so a… |
 | `mobile/test/integration_smoke_test.dart` | 129 | Phase 2 integration smoke test — runs against the real local backend on http://localhost:8090 (Tutor Guardian FastAPI). Skipped automatically when… |
 | `mobile/test/invite_reward_test.dart` | 82 | «أثر دعوتك» — the invite screen says only what is true. The screen leads with how many families the parent's sharing reached, and keeps the coins to… |
 | `mobile/test/journey_milestone_assets_test.dart` | 56 | «أعطال اتلقت في الطريق» — the milestone badge asset builder. The keys already start with `first_` (`first_prayer`), and the builder prepended another… |
@@ -1593,7 +1595,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `scripts/prepare_play_assets.py` | 63 | 1. Copy App Icon |
 | `scripts/publish_reels_to_buffer.py` | 279 | Publish generated tutor-guardian reels to Buffer (Instagram/TikTok/Facebook). Flow: |
 | `scripts/reel` |  | اختصار bash لمصنع الريلز من أي مجلد |
-| `scripts/reel_from_video.py` | 652 | مصنع الريلز — v2: يقصّ من فيديوهات المنهج بدل توليد صورة ثابتة |
+| `scripts/reel_from_video.py` | 655 | مصنع الريلز — v2: يقصّ من فيديوهات المنهج بدل توليد صورة ثابتة |
 | `scripts/reels_pipeline.py` | 51 | tutor_reels: generate reels. Publishing is a separate, deliberate step. It used to generate and publish in one run, which meant the first time anyone |
 | `scripts/regen_podcasts.py` | 133 | Regenerate REAL NotebookLM audio for lessons whose local docs/ file is an edge-tts placeholder, then download + place it at the correct path. |
 | `scripts/release_bundle.py` | 180 | Inspect unsigned hosted AABs and locally signed copies. Never signs or uploads. |

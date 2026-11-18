@@ -59,7 +59,7 @@
 | B4 | «الدرس التالي»/متابعة | زر واحد يفتح الدرس الذي عليه الدور (رفع فتح أول درس 39%→54%) | `GET /program/next-lesson` · `TodayFocusCard` | ✅ |
 | B5 | بودكاست الدرس | مشغّل صوت (179 عربي / 135 إنجليزي) | `GET /program/lesson-assets/{id}` · `podcast_player_screen.dart` | ✅ |
 | B6 | فيديو | فيديو المسارات (وليس الدروس: الفهرس بلا فيديو دروس) | `video_player_screen.dart` · `docs/path_videos` | 🟡 |
-| B7 | إنفوجراف | عرض مكبَّر قابل للتدوير والتنزيل (165 عربي / 47 إنجليزي) | `infographic_screen.dart` | ✅ |
+| B7 | إنفوجراف | عرض مكبَّر قابل للتدوير والتنزيل (165 عربي / 47 إنجليزي)؛ النسخة المنزَّلة فقط تُختم بعلامة التطبيق الحالية (`logo_mark.svg`) في الركن السفلي الأيمن | `infographic_screen.dart` · `infographic_stamp.dart` | ✅ |
 | B8 | تقرير + جدول بيانات | تقرير Markdown وجدول CSV للدرس (160 عربي، **0 إنجليزي**) | `report_screen.dart` · `data_table_screen.dart` | 🟡 |
 | B9 | بطاقات فلاش + اختبارات | مراجعة تفاعلية لـ165 درسًا | `GET /program/asset-content/{id}` · `flashcards_screen.dart` · `quiz_screen.dart` | ✅ |
 | B10 | كويز «اختبر معلوماتك» | أسئلة عشوائية بمؤقّت ونقاط (مواضع الإجابة موزّعة) | `GET /program/quiz` · `quiz_game_screen.dart` · `quiz_data.py` | ✅ |
