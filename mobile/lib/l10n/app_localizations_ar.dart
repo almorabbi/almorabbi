@@ -751,8 +751,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get chatMessage => 'رسالة';
 
   @override
-  String chatTurns(Object count) {
-    return '$count سؤال';
+  String chatTurns(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count سؤال',
+      many: '$count سؤالًا',
+      few: '$count أسئلة',
+      two: 'سؤالان',
+      one: 'سؤال واحد',
+      zero: 'لا أسئلة',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -793,8 +803,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get chatTitle => '🛡️  المربي الذكي';
 
   @override
-  String chatTurnsCount(Object count) {
-    return '$count سؤال';
+  String chatTurnsCount(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count سؤال',
+      many: '$count سؤالًا',
+      few: '$count أسئلة',
+      two: 'سؤالان',
+      one: 'سؤال واحد',
+      zero: 'لا أسئلة',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -807,8 +827,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get chatNewChatBtn => 'محادثة جديدة';
 
   @override
-  String chatSessionMessages(Object count) {
-    return '$count رسالة';
+  String chatSessionMessages(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count رسالة',
+      many: '$count رسالة',
+      few: '$count رسائل',
+      two: 'رسالتان',
+      one: 'رسالة واحدة',
+      zero: 'لا رسائل',
+    );
+    return '$_temp0';
   }
 
   @override

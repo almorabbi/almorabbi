@@ -763,8 +763,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chatMessage => 'message';
 
   @override
-  String chatTurns(Object count) {
-    return '$count questions';
+  String chatTurns(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count questions',
+      one: '1 question',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -806,8 +812,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chatTitle => '🛡️ Al-Murabbi AI';
 
   @override
-  String chatTurnsCount(Object count) {
-    return '$count questions';
+  String chatTurnsCount(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count questions',
+      one: '1 question',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -820,8 +832,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chatNewChatBtn => 'New Chat';
 
   @override
-  String chatSessionMessages(Object count) {
-    return '$count messages';
+  String chatSessionMessages(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count messages',
+      one: '1 message',
+    );
+    return '$_temp0';
   }
 
   @override
