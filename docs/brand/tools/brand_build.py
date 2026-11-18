@@ -8,6 +8,8 @@ things from them:
   android <a|b|c>   adaptive icon (vector drawables) + legacy PNGs for one direction,
                     written under NEW names (ic_launcher_paper*) so the shipped icon
                     is untouched until the manifest is pointed at them
+  splash            native launch-screen mark (VectorDrawable) from the in-app logo
+                    mark mobile/assets/svg/art/logo_mark.svg -> drawable/splash_mark.xml
   store             feature graphic, empty screenshot frames, Play 512 icon,
                     example filled frames -> docs/brand/store/
   web               landing-page art from the same sources: the 1200x630 share
@@ -545,6 +547,25 @@ def _layer_in_108(direction, layer):
             f'<g transform="translate(18 18) scale(0.3)">{inner}</g></svg>')
 
 
+def _aapt2_compile(files):
+    """aapt2 accepts every XML in {res-relative path: body} (compile only — no APK is linked)."""
+    aapt2 = sorted((Path.home() / 'Android' / 'Sdk' / 'build-tools').glob('*/aapt2'))
+    with tempfile.TemporaryDirectory() as tmp:
+        for rel, body in files.items():
+            p = Path(tmp) / 'res' / rel
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text(body, encoding='utf-8')
+        if aapt2:
+            for rel in files:
+                r = subprocess.run([str(aapt2[-1]), 'compile', str(Path(tmp) / 'res' / rel), '-o', tmp],
+                                   capture_output=True, text=True)
+                if r.returncode != 0:
+                    sys.exit(f'aapt2 compile rejected {rel}:\n{r.stderr}')
+            print(f'  aapt2 compile ({aapt2[-1].parent.name}): {len(files)} XML files OK')
+        else:
+            print('  aapt2 not found — skipped the resource compile check')
+
+
 def android(direction, verify_only=False):
     name = 'ic_launcher_paper'
     label = DIRECTIONS[direction][1]
@@ -577,21 +598,7 @@ def android(direction, verify_only=False):
         sys.exit('VectorDrawable does not match its SVG source — not writing anything')
 
     # Verification 2: aapt2 accepts every XML (compile only — no APK is linked).
-    aapt2 = sorted((Path.home() / 'Android' / 'Sdk' / 'build-tools').glob('*/aapt2'))
-    with tempfile.TemporaryDirectory() as tmp:
-        for rel, body in files.items():
-            p = Path(tmp) / 'res' / rel
-            p.parent.mkdir(parents=True, exist_ok=True)
-            p.write_text(body, encoding='utf-8')
-        if aapt2:
-            for rel in files:
-                r = subprocess.run([str(aapt2[-1]), 'compile', str(Path(tmp) / 'res' / rel), '-o', tmp],
-                                   capture_output=True, text=True)
-                if r.returncode != 0:
-                    sys.exit(f'aapt2 compile rejected {rel}:\n{r.stderr}')
-            print(f'  aapt2 compile ({aapt2[-1].parent.name}): {len(files)} XML files OK')
-        else:
-            print('  aapt2 not found — skipped the resource compile check')
+    _aapt2_compile(files)
     if verify_only:
         return
 
@@ -606,6 +613,81 @@ def android(direction, verify_only=False):
             draw_masked(cairo.Context(s), full, 0, 0, px, kind)
             surface_to_pil(s).save(RES / f'mipmap-{dens}' / f'{name}{suffix}.png', optimize=True)
     print(f'  wrote {len(files)} XML + 10 PNG under {RES.relative_to(ROOT)}')
+
+
+# ---------------------------------------------------------------- native splash
+
+# The Android launch screen shows the same mark Flutter's _SplashScreen
+# (mobile/lib/main.dart) draws right after it, at the same size, so the two read
+# as one screen. Until 2026-11 it was a flutter_native_splash PNG of the retired
+# shield/teal logo on #01696F; that tool is gone from pubspec.yaml so it cannot
+# put it back. Background colours are not generated here: they are
+# @color/splash_background in values{,-night}/colors.xml and must equal
+# AppPalette.light/.dark.background (test/native_splash_test.dart holds both).
+LOGO_MARK = ROOT / 'mobile' / 'assets' / 'svg' / 'art' / 'logo_mark.svg'
+SPLASH_BOX = 288    # dp — Android 12+ icon view for an icon without an icon background...
+SPLASH_SAFE = 192   # dp — ...of which only this centred circle is shown
+SPLASH_MARK = 96    # dp — ArtImage(logo_mark, width: 96) in _SplashScreen
+
+
+def _logo_mark_in_box():
+    raw = LOGO_MARK.read_text(encoding='utf-8')
+    if 'viewBox="0 0 240 240"' not in raw:
+        sys.exit(f'{LOGO_MARK.relative_to(ROOT)}: expected viewBox 0 0 240 240')
+    inner = re.sub(r'</svg>\s*$', '', re.sub(r'^\s*<svg[^>]*>', '', raw))
+    off, s = (SPLASH_BOX - SPLASH_MARK) / 2, SPLASH_MARK / 240
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {SPLASH_BOX} {SPLASH_BOX}">'
+            f'<g transform="translate({_n(off)} {_n(off)}) scale({_n(s)})">{inner}</g></svg>')
+
+
+def splash_vd():
+    body = []
+    _vd_walk(ET.parse(LOGO_MARK).getroot(), {}, 8, body)
+    off, s = (SPLASH_BOX - SPLASH_MARK) / 2, SPLASH_MARK / 240
+    return ('<?xml version="1.0" encoding="utf-8"?>\n'
+            '<!-- Native launch-screen mark: android:windowSplashScreenAnimatedIcon on Android 12+\n'
+            '     (values{,-night}-v31/styles.xml) and the centre of drawable/launch_background.xml\n'
+            '     below that. Generated by docs/brand/tools/brand_build.py splash from\n'
+            '     mobile/assets/svg/art/logo_mark.svg. Edit the SVG and regenerate; do not hand-edit. -->\n'
+            '<vector xmlns:android="http://schemas.android.com/apk/res/android"\n'
+            f'    android:width="{SPLASH_BOX}dp"\n    android:height="{SPLASH_BOX}dp"\n'
+            f'    android:viewportWidth="{SPLASH_BOX}"\n    android:viewportHeight="{SPLASH_BOX}">\n'
+            f'    <group android:translateX="{_n(off)}" android:translateY="{_n(off)}"'
+            f' android:scaleX="{_n(s)}" android:scaleY="{_n(s)}">\n'
+            + ''.join(body) +
+            '    </group>\n</vector>\n')
+
+
+def splash(verify_only=False):
+    rel = 'drawable/splash_mark.xml'
+    vd = splash_vd()
+    px = SPLASH_BOX * 4  # xxxhdpi
+
+    # Verification 1: the VectorDrawable, drawn back, matches logo_mark.svg pixel for pixel.
+    a = surface_to_pil(svg_surface(_logo_mark_in_box(), px))
+    b = surface_to_pil(svg_surface(vd_to_svg(vd), px))
+    diff = ImageChops.difference(a, b)
+    changed = sum(1 for p in diff.getdata() if max(p) > 16)
+    print(f'  verify splash_mark VD vs SVG: max channel diff {max(hi for _, hi in diff.getextrema())}, '
+          f'pixels off by >16: {changed}')
+    if changed > 40:
+        sys.exit('VectorDrawable does not match logo_mark.svg — not writing anything')
+
+    # Verification 2: nothing is drawn outside the circle Android 12+ shows.
+    c, r = px / 2, SPLASH_SAFE * 2  # radius in xxxhdpi px
+    alpha = b.getchannel('A')
+    far = max((math.hypot(x + .5 - c, y + .5 - c)
+               for y in range(px) for x in range(px) if alpha.getpixel((x, y))), default=0)
+    print(f'  safe zone: farthest drawn pixel {far / 4:.1f}dp from centre, circle radius {SPLASH_SAFE / 2:.0f}dp')
+    if far > r:
+        sys.exit('the mark reaches outside the Android 12 splash circle — it would be clipped')
+
+    # Verification 3: aapt2.
+    _aapt2_compile({rel: vd})
+    if verify_only:
+        return
+    (RES / rel).write_text(vd, encoding='utf-8')
+    print(f'  wrote {(RES / rel).relative_to(ROOT)}')
 
 
 # ---------------------------------------------------------------- store art
@@ -747,6 +829,8 @@ def main():
     a = sub.add_parser('android')
     a.add_argument('direction', choices=sorted(DIRECTIONS))
     a.add_argument('--verify-only', action='store_true')
+    sp = sub.add_parser('splash')
+    sp.add_argument('--verify-only', action='store_true')
     sub.add_parser('store')
     sub.add_parser('web')
     fr = sub.add_parser('frame')
@@ -764,6 +848,8 @@ def main():
         print('  boards written to', REVIEW_DIR.relative_to(ROOT))
     elif args.cmd == 'android':
         android(args.direction, args.verify_only)
+    elif args.cmd == 'splash':
+        splash(args.verify_only)
     elif args.cmd == 'store':
         store()
     elif args.cmd == 'web':
