@@ -1,19 +1,21 @@
-/// Child-centric Home screen variant (`child_home_v2` / 1.2 milestone).
-///
-/// Centres the Today tab around the active child's week:
-/// 1. Sky / Noor greeting (omitted when text scale > 130% to protect the fold).
-/// 2. Child weekly header (`child_weekly_home_header`) with first-week badge.
-/// 3. [TodayFocusCard] immediately below the header so its primary CTA fits
-///    above the fold on 360x800 even at 200% text scaling.
-/// 4. Memory follow-up, Mawaqif decision, Weekly Plan (expanded in week 1),
-///    Today Mission row, optional birth-month nudge, and Friday harvest banner.
-/// 5. Week lantern string, Child block, Ask block, Programs card, and the
-///    remaining secondary cards under [TodayMoreDivider].
+/// Child-centric Home screen variant (`child_home_v2`), streamlined into
+/// three calm daily stations:
+///   1. Your parenting step today ([TodayFocusCard], a single reflection card
+///      per active child — follow-up OR Mawaqif, plus sibling follow-up when due
+///      for another child — and a sleek collapsible [TodayWeeklyPlanCard]).
+///   2. Shared family time ([TodayMissionRow], [TodayFamilyPuzzlesCard], and
+///      clear Child Corner handover tile inside [ChildDayCard]).
+///   3. Companion & seasonal corner ([TodayAskBlock], optional Friday harvest,
+///      [WeekLanternString], [ShabanWelcomeCard], [ProgramsHomeCard]), followed
+///      by a quiet rituals/journey footer.
 library;
+
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/analytics.dart';
 import '../../../core/app_routes.dart';
 import '../../../core/clock.dart';
 import '../../../l10n/app_localizations.dart';
@@ -24,7 +26,6 @@ import '../../child_memory/data/placeholder_names.dart';
 import '../../child_memory/providers/memory_providers.dart';
 import '../../child_memory/widgets/today_followup_card.dart';
 import '../../child_memory/widgets/today_weekly_plan_card.dart';
-import '../../coins/coins_providers.dart';
 import '../../companion/providers/companion_providers.dart';
 import '../../companion/widgets/noor_presence.dart';
 import '../../companion/widgets/noor_today_header.dart';
@@ -38,6 +39,7 @@ import '../../lanterns/widgets/week_lantern_string.dart';
 import '../../mawaqif/widgets/today_mawqif_card.dart';
 import '../../missions/today_mission_row.dart';
 import '../../onboarding/providers/onboarding_providers.dart';
+import '../../parent_day/child_day_card.dart';
 import '../../program/data/progress_models.dart';
 import '../../program/providers/program_providers.dart';
 import '../../program/providers/progress_providers.dart';
@@ -50,10 +52,7 @@ import '../../shell/root_tab.dart';
 import '../../whats_new/widgets/update_available_card.dart';
 import '../../whats_new/widgets/whats_new_card.dart';
 import '../experiment/child_home_experiment.dart';
-import 'daily_gift_moment.dart';
 import 'home_community_note.dart';
-import 'home_shortcuts_grid.dart';
-import 'home_stats_row.dart';
 import 'sky_band.dart';
 import 'today_ask_block.dart';
 import 'today_child_block.dart';
@@ -112,7 +111,6 @@ class ChildWeeklyHome extends ConsumerWidget {
     final bundle = ref
         .watch(activeChildProgressProvider)
         ?.maybeWhen(data: (b) => b, orElse: () => null);
-    final gift = ref.watch(dailyGiftProvider).valueOrNull;
     final noorOn = ref.watch(noorHeaderEnabledProvider);
     final inRamadan =
         ref.watch(programsOverviewProvider).valueOrNull?.ramadan.state ==
@@ -121,6 +119,15 @@ class ChildWeeklyHome extends ConsumerWidget {
     final horizon = ref.watch(horizonStripGateProvider);
     final now = ref.watch(clockProvider)();
     final week = ref.watch(familyWeekProvider).valueOrNull;
+    final dueFollowupsAsync = ref.watch(dueFollowupsProvider);
+    final dueFollowups = dueFollowupsAsync.valueOrNull;
+    final followupsSettled =
+        dueFollowupsAsync.hasValue || dueFollowupsAsync.hasError;
+    final showFollowupCard = dueFollowups != null && dueFollowups.isNotEmpty;
+    final hasActiveChildFollowup = profile != null &&
+        dueFollowups != null &&
+        dueFollowups.any((f) => f.childId == profile.id);
+    final showMawqifCard = followupsSettled && !hasActiveChildFollowup;
     final largeText = MediaQuery.textScalerOf(context).scale(10) > 13;
     final stripOnHills = horizon != null && !largeText;
 
@@ -158,6 +165,26 @@ class ChildWeeklyHome extends ConsumerWidget {
       ],
     );
 
+    final handoverTile = profile == null
+        ? null
+        : _ChildCornerHandoverTile(
+            key: const ValueKey('today_child_corner_handover'),
+            title: l10n.todayChildCornerHandoverTitle(childNameForCards),
+            subtitle: l10n.todayChildCornerHandoverSubtitle,
+            ctaLabel: l10n.todayMissionOpen,
+            onTap: () {
+              unawaited(Analytics.todayBlockTapped('mission', 'child_mode'));
+              Navigator.of(context).push(
+                AppRoutes.handoverGate(
+                  childId: profile.id,
+                  childName: profile.name,
+                  ageGroup: profile.ageGroup,
+                  surface: 'mission',
+                ),
+              );
+            },
+          );
+
     return RefreshIndicator(
       onRefresh: () => _refresh(ref, profile, lang),
       child: ListView(
@@ -189,41 +216,89 @@ class ChildWeeklyHome extends ConsumerWidget {
             compact: largeText,
           ),
           SizedBox(height: sectionGap),
+
+          // Station 1: Today's focus + single reflection slot + collapsible weekly plan.
           TodayFocusCard(
             key: focusCardKey,
             bundle: bundle,
             ageGroup: ageGroup,
             onStartFirstPath: () => onGoToTab(RootTab.learn),
           ),
-          if (gift != null && gift > 0) ...[
+          if (showFollowupCard) ...[
             const SizedBox(height: 12),
-            DailyGiftMoment(gift: gift),
+            TodayFollowupCard(activeChildId: profile?.id),
           ],
-          const SizedBox(height: 12),
-          TodayFollowupCard(activeChildId: profile?.id),
-          if (profile != null) ...[
+          if (profile != null && showMawqifCard) ...[
             const SizedBox(height: 12),
             TodayMawqifCard(
               childId: profile.id,
               childName: childNameForCards,
               ageGroup: ageGroup,
             ),
-            const SizedBox(height: 12),
+          ],
+          if (profile != null)
             TodayWeeklyPlanCard(
               childId: profile.id,
               childName: childNameForCards,
               ageGroup: ageGroup,
-              initiallyExpanded: isFirstWeek,
+              summaryCollapsed: true,
             ),
-            const SizedBox(height: 12),
+
+          // Station 2: Shared family time (mission, puzzles, Safe Child Corner).
+          const SizedBox(height: 22),
+          if (profile != null && kMissionBands.contains(ageGroup)) ...[
+            TodaySectionHeader(
+              icon: BrandIcon.lantern,
+              title: hasCustomName
+                  ? l10n.todayFamilyTimeTitle(rawName)
+                  : l10n.todayFamilyTimeTitleNoName,
+            ),
             TodayMissionRow(
               childId: profile.id,
               childName: childNameForCards,
               ageGroup: ageGroup,
             ),
+            const TodayFamilyPuzzlesCard(
+              key: ValueKey('today_family_puzzles_card'),
+            ),
+            const SizedBox(height: 12),
+            ChildDayCard(
+              whenEmpty: handoverTile,
+              whenNoMission: handoverTile,
+              onOpened: () =>
+                  unawaited(Analytics.todayBlockTapped('mission', 'open_day')),
+            ),
+          ] else
+            TodayChildBlock(profile: profile),
+
+          // Station 3: Noor assistant, week lanterns, and seasonal programs.
+          const SizedBox(height: 22),
+          TodayAskBlock(
+            childName: hasCustomName ? rawName : null,
+            onAsk: () => onGoToTab(RootTab.assistant),
+          ),
+          if (showFridayBanner) ...[
+            const SizedBox(height: 12),
+            _FridayHarvestBanner(
+              key: const ValueKey('friday_harvest_banner'),
+              title: l10n.fridayHarvestBannerTitle,
+              subtitle: l10n.fridayHarvestBannerSubtitle(week.lanterns),
+              onTap: () => showFridayHarvest(context, week),
+            ),
           ],
+          if (profile != null) ...[
+            const SizedBox(height: 12),
+            const WeekLanternString(),
+          ],
+          const SizedBox(height: 12),
+          const ShabanWelcomeCard(),
+          const ProgramsHomeCard(),
+
+          // Quiet footer: optional system cards, daily rituals, child journey.
+          const UpdateAvailableCard(),
+          const WhatsNewCard(),
           if (needsBirthMonthNudge) ...[
-            const SizedBox(height: 10),
+            const SizedBox(height: 12),
             _BirthMonthNudge(
               label: l10n.childWeeklyBirthMonthNudge,
               onTap: () => Navigator.of(context).push(
@@ -240,48 +315,102 @@ class ChildWeeklyHome extends ConsumerWidget {
               ),
             ),
           ],
-          if (showFridayBanner) ...[
-            const SizedBox(height: 12),
-            _FridayHarvestBanner(
-              key: const ValueKey('friday_harvest_banner'),
-              title: l10n.fridayHarvestBannerTitle,
-              subtitle: l10n.fridayHarvestBannerSubtitle(week.lanterns),
-              onTap: () => showFridayHarvest(context, week),
-            ),
-          ],
-          if (profile != null) ...[
-            const SizedBox(height: 12),
-            const WeekLanternString(),
-            const SizedBox(height: 12),
-            TodayChildBlock(profile: profile),
-          ],
-          const SizedBox(height: 12),
-          TodayAskBlock(
-            childName: hasCustomName ? rawName : null,
-            onAsk: () => onGoToTab(RootTab.assistant),
-          ),
-          const SizedBox(height: 14),
-          const ShabanWelcomeCard(),
-          const ProgramsHomeCard(),
           const SizedBox(height: 18),
-          TodayMoreDivider(label: l10n.todayMoreTitle),
-          const UpdateAvailableCard(),
-          const WhatsNewCard(),
-          if (kMissionBands.contains(ageGroup))
-            const TodayFamilyPuzzlesCard(
-              key: ValueKey('today_family_puzzles_card'),
-            ),
           TodayRitualsRow(ageGroup: ageGroup),
-          const SizedBox(height: 16),
-          HomeStatsRow(bundle: bundle),
-          const SizedBox(height: 16),
-          const HomeShortcutsGrid(),
-          const SizedBox(height: 20),
+          const SizedBox(height: 14),
           const ChildJourneyCard(),
-          const SizedBox(height: 20),
+          const SizedBox(height: 16),
           PrideInviteCard(streakDays: bundle?.dailyLoginStreak ?? 0),
           const HomeCommunityNote(),
         ],
+      ),
+    );
+  }
+}
+
+class _ChildCornerHandoverTile extends StatelessWidget {
+  const _ChildCornerHandoverTile({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.ctaLabel,
+    required this.onTap,
+  });
+
+  final String title;
+  final String subtitle;
+  final String ctaLabel;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    return Material(
+      color: colors.surface,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(Dt.rCard),
+        side: BorderSide(color: colors.track),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: colors.primary.withValues(alpha: 0.12),
+                    borderRadius: BorderRadius.circular(Dt.rButton),
+                  ),
+                  child: Icon(
+                    Icons.phonelink_lock_outlined,
+                    size: 20,
+                    color: colors.primary,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: colors.ink,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        subtitle,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: colors.textSecondary,
+                          height: 1.4,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: FilledButton.tonalIcon(
+                onPressed: onTap,
+                icon: const Icon(Icons.explore_outlined, size: 18),
+                label: Text(ctaLabel),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

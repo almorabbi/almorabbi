@@ -58,12 +58,17 @@ class TodayWeeklyPlanCard extends ConsumerStatefulWidget {
     required this.childName,
     required this.ageGroup,
     this.initiallyExpanded = false,
+    this.summaryCollapsed = false,
   });
 
   final int childId;
   final String childName;
   final String ageGroup;
   final bool initiallyExpanded;
+
+  /// Renders the compact 2-line summary bar until tapped and intentionally
+  /// disables the Monday auto-reveal ([_checkReveal]) so «اليوم» stays calm.
+  final bool summaryCollapsed;
 
   /// Where the phone remembers the week it revealed for a child (Monday).
   static String revealKey(int childId) => 'plan.reveal.v1.$childId';
@@ -145,6 +150,7 @@ class _TodayWeeklyPlanCardState extends ConsumerState<TodayWeeklyPlanCard> {
   /// Monday, and this is the new week's plan, and this phone has not shown
   /// it yet: open the card and bring the steps in one after another.
   void _checkReveal(WeeklyPlan plan) {
+    if (widget.summaryCollapsed) return;
     if (!mounted || _revealChecked == plan.week) return;
     _revealChecked = plan.week;
     final now = ref.read(clockProvider)();
@@ -275,6 +281,93 @@ class _TodayWeeklyPlanCardState extends ConsumerState<TodayWeeklyPlanCard> {
     final done = _marks.where(planKeys.contains).length;
     final complete = _allActionsDone(plan, _marks);
     if (complete) _logComplete(plan);
+
+    if (widget.summaryCollapsed && !_expanded) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 12),
+        child: Material(
+          color: colors.surface,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(Dt.rCard),
+            side: BorderSide(color: colors.track),
+          ),
+          child: InkWell(
+            key: const ValueKey('weekly_plan_summary_bar'),
+            borderRadius: BorderRadius.circular(Dt.rCard),
+            onTap: () {
+              unawaited(Analytics.todayBlockTapped('loop', 'plan_expand'));
+              setState(() {
+                _expanded = true;
+                _revealing = false;
+              });
+            },
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.calendar_month_outlined,
+                        color: colors.primary,
+                        size: 20,
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          plan.focusTitle,
+                          textDirection: dir,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: colors.ink,
+                            fontWeight: FontWeight.w800,
+                            fontSize: 15,
+                            height: 1.3,
+                          ),
+                        ),
+                      ),
+                      if (done > 0)
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(end: 4),
+                          child: Icon(
+                            Icons.check_circle_rounded,
+                            color: colors.success,
+                            size: 16,
+                          ),
+                        ),
+                      Icon(
+                        Icons.expand_more_rounded,
+                        color: colors.primary,
+                        size: 22,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(start: 28),
+                    child: Text(
+                      done > 0
+                          ? l10n.planMarkedCount(done)
+                          : '${l10n.planSteps} · ${l10n.planShowAll}',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: done > 0 ? colors.successText : colors.accentDeep,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12.5,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     var row = 0;
 
     return Padding(

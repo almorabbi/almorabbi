@@ -2518,6 +2518,20 @@
   "@childWeeklyFirstWeekBadge": {"description": "Badge shown on the weekly plan card during the child's first week."},
   "childWeeklyBirthMonthNudge": "أضف شهر الميلاد لتحديث المرحلة تلقائياً",
   "@childWeeklyBirthMonthNudge": {"description": "Subtle prompt on child-centric home encouraging parents to add birth month for automatic stage updates."},
+  "todayFamilyTimeTitle": "وقتكم العائلي مع {name}",
+  "@todayFamilyTimeTitle": {
+    "description": "Section header for the unified shared family time block on Today.",
+    "placeholders": {"name": {"type": "String"}}
+  },
+  "todayFamilyTimeTitleNoName": "وقتكم العائلي اليوم",
+  "@todayFamilyTimeTitleNoName": {"description": "Section header for the unified shared family time block on Today when child has no custom name."},
+  "todayChildCornerHandoverTitle": "ركن {name} الآمن (تسليم الهاتف)",
+  "@todayChildCornerHandoverTitle": {
+    "description": "Distinct title on Today clarifying that this row hands the phone to Child Corner.",
+    "placeholders": {"name": {"type": "String"}}
+  },
+  "todayChildCornerHandoverSubtitle": "قصة ومهمة هادئة بوقت محدّد ورمز للأهل",
+  "@todayChildCornerHandoverSubtitle": {"description": "Subtitle explaining Child Corner safe handover on Today."},
   "fridayHarvestBannerTitle": "حصاد الجمعة جاهز",
   "@fridayHarvestBannerTitle": {"description": "Banner title shown on Friday when the week's family harvest can be opened."},
   "fridayHarvestBannerSubtitle": "{count} قناديل أضاءت بيتكم هذا الأسبوع",

@@ -746,33 +746,68 @@ class GalleryTest(unittest.TestCase):
 class ShootOrderTest(unittest.TestCase):
     """What one leg of gallery/shoot.yaml leaves on screen is where the next starts."""
 
+    MISSION = "${output.t.todayMissionOpen}"
+
     @staticmethod
     def scroll(cmd):
         s = cmd.get("scrollUntilVisible") if isinstance(cmd, dict) else None
         return (s["element"]["text"], s.get("direction")) if s else None
 
+    @classmethod
+    def _scroll_step(cls, direction, text=MISSION):
+        return {"scrollUntilVisible": {"element": {"text": text}, "direction": direction}}
+
+    def assert_mission_scroll_pairs(self, steps, element=MISSION):
+        searches = [
+            (i, self.scroll(c)[1])
+            for i, c in enumerate(steps)
+            if self.scroll(c) and self.scroll(c)[0] == element
+        ]
+        self.assertGreater(len(searches), 0, "expected at least one mission scroll pair")
+        self.assertEqual(
+            len(searches) % 2,
+            0,
+            f"expected an even number of mission scrolls, got {searches}",
+        )
+        for (up_idx, up_dir), (down_idx, down_dir) in zip(searches[::2], searches[1::2]):
+            self.assertEqual(
+                (up_dir, down_dir),
+                ("UP", "DOWN"),
+                f"expected (UP, DOWN) mission scroll pair, got {searches}",
+            )
+            self.assertEqual(
+                down_idx,
+                up_idx + 1,
+                f"DOWN scroll at step {down_idx} must immediately follow UP at {down_idx - 1}",
+            )
+        return searches
+
     def test_lantern_search_scrolls_back_up_to_the_mission(self):
-        # Run 38688818497 (#112): production has no /api/family/week, so the
-        # lantern search ran Today to its bottom. Tapping the Today tab keeps
-        # that offset, the praise leg's DOWN search for ③ («افتح مهمة اليوم»)
-        # never found it, and every 7–12 praise shot (and at 200% font the
-        # 4–6 one too) came out blank in both lineages.
+        # Station 2 («افتح مهمة اليوم») sits above `weekLanternsTitle` on v2.0.2+
+        # and below it on earlier baselines; at 200% font (`ar_font2x`) either
+        # leg can start below ③. Every search for ③ must look UP before DOWN.
         import yaml
         flow = Path(__file__).resolve().parent / "flows" / "gallery" / "shoot.yaml"
         steps = list(yaml.safe_load_all(flow.read_text(encoding="utf-8")))[-1]
         lanterns = "${output.c.weekLanternsTitle}"
-        mission = "${output.t.todayMissionOpen}"
         start = next(i for i, c in enumerate(steps) if self.scroll(c) == (lanterns, "DOWN"))
-        praise = next(i for i, c in enumerate(steps)
-                      if i > start and self.scroll(c) == (mission, "DOWN"))
-        restores = [
-            c for c in steps[start + 1:praise]
-            if isinstance(c, dict) and "runFlow" in c
-            and c["runFlow"].get("when", {}).get("notVisible") == lanterns
-            and any(self.scroll(x) == (mission, "UP") for x in c["runFlow"].get("commands", []))
-        ]
-        self.assertTrue(restores, "a missed lantern row must scroll Today back UP to ③ "
-                        "before the praise leg searches DOWN for it")
+        searches = self.assert_mission_scroll_pairs(steps, self.MISSION)
+        self.assertGreaterEqual(len(searches), 4)
+        self.assertGreater(searches[0][0], start)
+
+    def test_unpaired_or_separated_mission_down_scroll_fails(self):
+        with self.assertRaises(AssertionError):
+            self.assert_mission_scroll_pairs([
+                self._scroll_step("UP"),
+                self._scroll_step("DOWN"),
+                self._scroll_step("DOWN"),
+            ])
+        with self.assertRaises(AssertionError):
+            self.assert_mission_scroll_pairs([
+                self._scroll_step("UP"),
+                {"tapOn": "intervening"},
+                self._scroll_step("DOWN"),
+            ])
 
 
 class HierarchyVerificationTest(unittest.TestCase):
@@ -1301,6 +1336,13 @@ class AudioVerdictTest(unittest.TestCase):
         playing = after_dump(players=((32, "android.media.AudioTrack", UID, "started", "USAGE_MEDIA"), TICKS_ON),
                              events=(23, 23))
         self.assertEqual(t.audio_verdict(self.before(), [gap, playing], UID)[0], "PASS")
+
+    def test_one_sample_between_two_ayat_before_ticks_is_not_inconclusive(self):
+        gap_before = self.before(players=(TICKS_IDLE,))
+        playing_before = audio_dump(at="12:00:01:000", players=(RECITING, TICKS_IDLE))
+        after = after_dump(players=(RECITING, TICKS_ON), events=(23,))
+        self.assertEqual(t.audio_verdict([gap_before, playing_before], [after], UID)[0], "PASS")
+        self.assertEqual(t.audio_verdict([gap_before, gap_before], [after], UID)[0], "INCONCLUSIVE")
 
     def test_a_paused_recitation_fails(self):
         paused = (31, "android.media.AudioTrack", UID, "paused", "USAGE_MEDIA")

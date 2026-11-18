@@ -18,16 +18,60 @@ import '../../../theme/design_tokens.dart';
 /// The daily wird (portion) target — at least this many verses.
 const int kDailyWirdVerses = 10;
 
+/// Minimal audio-player contract used by [SurahReadingScreen] so playback state
+/// transitions and error recovery can be tested deterministically.
+abstract interface class RecitationPlayer {
+  Stream<PlayerState> get playerStateStream;
+  bool get playing;
+  ProcessingState get processingState;
+  Future<void> setUrl(String url);
+  Future<void> play();
+  Future<void> pause();
+  Future<void> stop();
+  Future<void> dispose();
+}
+
+class _JustAudioRecitationPlayer implements RecitationPlayer {
+  final AudioPlayer _inner = AudioPlayer();
+
+  @override
+  Stream<PlayerState> get playerStateStream => _inner.playerStateStream;
+
+  @override
+  bool get playing => _inner.playing;
+
+  @override
+  ProcessingState get processingState => _inner.processingState;
+
+  @override
+  Future<void> setUrl(String url) => _inner.setUrl(url).then((_) {});
+
+  @override
+  Future<void> play() => _inner.play();
+
+  @override
+  Future<void> pause() => _inner.pause();
+
+  @override
+  Future<void> stop() => _inner.stop();
+
+  @override
+  Future<void> dispose() => _inner.dispose();
+}
+
 class SurahReadingScreen extends ConsumerStatefulWidget {
   final int chapterNumber;
   final int initialVerse;
   final Map<String, List<dynamic>> quranData;
+  @visibleForTesting
+  final RecitationPlayer? debugPlayer;
 
   const SurahReadingScreen({
     super.key,
     required this.chapterNumber,
     required this.initialVerse,
     required this.quranData,
+    this.debugPlayer,
   });
 
   @override
@@ -41,10 +85,13 @@ class _SurahReadingScreenState extends ConsumerState<SurahReadingScreen> {
   // ── Audio (recitation) ────────────────────────────────────────────────────
   // Per-ayah recitation streamed from everyayah.com (no API key, stable CDN).
   // Reciter is user-selectable via reciterProvider (defaults to Husary).
-  final AudioPlayer _player = AudioPlayer();
+  late final RecitationPlayer _player =
+      widget.debugPlayer ?? _JustAudioRecitationPlayer();
   StreamSubscription<PlayerState>? _stateSub;
   int? _playingVerse; // 1-based verse currently reciting; null when stopped
   int _playToken = 0; // guards against stale async plays (rapid taps)
+  bool _wantsPlaying = false;
+  bool _loadedCurrentVerse = false;
 
   late int _currentChapter;
   int _currentVerse = 1; // 1-based; the top-most visible verse
@@ -69,11 +116,13 @@ class _SurahReadingScreenState extends ConsumerState<SurahReadingScreen> {
 
     // Auto-advance the recitation ayah-by-ayah down the surah.
     _stateSub = _player.playerStateStream.listen((state) {
-      if (state.processingState == ProcessingState.completed) {
+      if (state.processingState == ProcessingState.completed && _wantsPlaying) {
         final cur = _playingVerse;
         if (cur != null && cur < _verses.length) {
           _playFrom(cur + 1);
         } else {
+          _wantsPlaying = false;
+          _loadedCurrentVerse = false;
           if (mounted) setState(() => _playingVerse = null);
         }
       }
@@ -183,16 +232,33 @@ class _SurahReadingScreenState extends ConsumerState<SurahReadingScreen> {
 
   void _onReciterSelected(Reciter reciter) {
     ref.read(reciterProvider.notifier).select(reciter);
+    _loadedCurrentVerse = false;
     setState(() {});
-    // If a recitation is in progress, restart the current ayah in the new voice.
+    // Restart immediately only when actively reciting; if paused, keep quiet
+    // and reload the current ayah in the new voice on the next Listen tap.
     final cur = _playingVerse;
-    if (cur != null) _playFrom(cur);
+    if (_wantsPlaying && cur != null) {
+      unawaited(_playFrom(cur));
+    }
+  }
+
+  void _handlePlayFailure() {
+    _loadedCurrentVerse = false;
+    setState(() {
+      _wantsPlaying = false;
+      _playingVerse = null;
+    });
+    final messenger = ScaffoldMessenger.maybeOf(context);
+    final msg = AppLocalizations.of(context).quranPlayError;
+    messenger?.showSnackBar(SnackBar(content: Text(msg)));
   }
 
   Future<void> _playFrom(int verse) async {
     if (verse < 1 || verse > _verses.length) return;
     final token = ++_playToken;
+    _loadedCurrentVerse = false;
     setState(() {
+      _wantsPlaying = true;
       _playingVerse = verse;
     });
     _scrollToPlaying(verse);
@@ -200,34 +266,49 @@ class _SurahReadingScreenState extends ConsumerState<SurahReadingScreen> {
       // Stable streaming source (everyayah CDN). Kept on the non-experimental
       // just_audio API on purpose — correctness/reliability first for Quran.
       await _player.setUrl(_ayahUrl(_currentChapter, verse));
-      if (token != _playToken || !mounted) return; // superseded by a newer tap
+      if (token != _playToken || !_wantsPlaying || !mounted) return;
+      _loadedCurrentVerse = true;
       await _player.play();
     } catch (_) {
       if (mounted && token == _playToken) {
-        setState(() {
-          _playingVerse = null;
-        });
-        final messenger = ScaffoldMessenger.maybeOf(context);
-        final msg = AppLocalizations.of(context).quranPlayError;
-        messenger?.showSnackBar(SnackBar(content: Text(msg)));
+        _handlePlayFailure();
+      }
+    }
+  }
+
+  Future<void> _resumeCurrentVerse() async {
+    final token = ++_playToken;
+    setState(() => _wantsPlaying = true);
+    try {
+      await _player.play();
+    } catch (_) {
+      if (mounted && token == _playToken) {
+        _handlePlayFailure();
       }
     }
   }
 
   void _toggleAudio() {
-    if (_player.playing) {
-      _player.pause();
+    if (_wantsPlaying || _player.playing) {
+      _wantsPlaying = false;
+      _playToken++; // cancel any in-flight ayah setUrl so it cannot restart playback
+      unawaited(_player.pause().catchError((_) {}));
+      setState(() {});
     } else if (_playingVerse != null &&
-        _player.processingState != ProcessingState.completed) {
-      _player.play(); // resume current ayah
+        _loadedCurrentVerse &&
+        _player.processingState != ProcessingState.completed &&
+        _player.processingState != ProcessingState.idle) {
+      unawaited(_resumeCurrentVerse());
     } else {
-      _playFrom(_currentVerse); // start from the verse at the top of the screen
+      unawaited(_playFrom(_playingVerse ?? _currentVerse));
     }
   }
 
   void _stopAudio() {
+    _wantsPlaying = false;
+    _loadedCurrentVerse = false;
     _playToken++; // invalidate any in-flight play
-    _player.stop();
+    unawaited(_player.stop().catchError((_) {}));
     setState(() => _playingVerse = null);
   }
 
@@ -270,7 +351,7 @@ class _SurahReadingScreenState extends ConsumerState<SurahReadingScreen> {
     final wirdProgress =
         ((_currentVerse - _wirdStart).clamp(0, kDailyWirdVerses)) /
             kDailyWirdVerses;
-    final isPlaying = _player.playing;
+    final isPlaying = _wantsPlaying || _player.playing;
 
     return Scaffold(
       backgroundColor: AppPalette.current.isDark

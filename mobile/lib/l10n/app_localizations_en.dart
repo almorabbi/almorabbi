@@ -6936,6 +6936,23 @@ class AppLocalizationsEn extends AppLocalizations {
       'Add birth month to update stage automatically';
 
   @override
+  String todayFamilyTimeTitle(String name) {
+    return 'Shared time with $name';
+  }
+
+  @override
+  String get todayFamilyTimeTitleNoName => 'Family time today';
+
+  @override
+  String todayChildCornerHandoverTitle(String name) {
+    return '$name\'s Safe Corner (Hand over)';
+  }
+
+  @override
+  String get todayChildCornerHandoverSubtitle =>
+      'Timed story & calm mission behind parent PIN';
+
+  @override
   String get fridayHarvestBannerTitle => 'Friday harvest is ready';
 
   @override

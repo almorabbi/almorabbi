@@ -46,6 +46,7 @@ import xml.etree.ElementTree as ET
 import re
 import sys
 from collections import Counter
+from collections.abc import Sequence
 from datetime import date, timedelta
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -1345,23 +1346,25 @@ def _tick_starts(dump: dict, uid: str, since: str) -> int:
                and dump["usage_of"][e["piid"]][1] in SONIFICATION)
 
 
-def audio_verdict(before: str, afters: list[str], uid: int | str) -> tuple[str, list[str]]:
+def audio_verdict(before: str | Sequence[str], afters: list[str], uid: int | str) -> tuple[str, list[str]]:
     """PASS · FAIL · INCONCLUSIVE, with the evidence. A check that cannot
     show the recitation playing, or cannot show a tick sounding, proves
     nothing — that is INCONCLUSIVE, never PASS."""
     uid = str(uid)
-    b = parse_audio_dump(before)
+    bs = [parse_audio_dump(before)] if isinstance(before, str) else [parse_audio_dump(t) for t in before]
     a = [parse_audio_dump(t) for t in afters]
     notes: list[str] = []
-    reciting = _playing(b, uid, MEDIA)
-    if not reciting:
+    reciting_dump = next((d for d in reversed(bs) if _playing(d, uid, MEDIA)), None)
+    if reciting_dump is None:
         return "INCONCLUSIVE", ["no media player of the app was playing before the ticks — "
                                 "the recitation never started, so there was nothing to protect"]
+    reciting = _playing(reciting_dump, uid, MEDIA)
     notes.append("before: recitation playing — " + ", ".join(
         f"piid {p['piid']} ({p['type']})" for p in reciting))
+    last_b = bs[-1]
     fails: list[str] = []
-    since = b["last_ts"]
-    focus_before = [r for r in b["focus_requests"] if r["uid"] == uid and r["usage"] in SONIFICATION]
+    since = last_b["last_ts"]
+    focus_before = [r for r in last_b["focus_requests"] if r["uid"] == uid and r["usage"] in SONIFICATION]
     for i, d in enumerate(a, 1):
         now = _playing(d, uid, MEDIA)
         notes.append(f"after #{i}: " + ("recitation playing — " + ", ".join(
@@ -1382,10 +1385,10 @@ def audio_verdict(before: str, afters: list[str], uid: int | str) -> tuple[str, 
         fails.append("the recitation stopped: no media player of the app was playing in any dump after the ticks")
     starts = max((_tick_starts(d, uid, since) for d in a), default=0)
     heard = starts > 0 or any(
-        _playing(d, uid, SONIFICATION) and not _playing(b, uid, SONIFICATION) for d in a)
+        _playing(d, uid, SONIFICATION) and not _playing(last_b, uid, SONIFICATION) for d in a)
     notes.append(f"ticks seen by the audio service: {starts} new start(s)"
                  if heard else "ticks seen by the audio service: none")
-    holds = [e for e in b["focus_stack"] if e["uid"] == uid]
+    holds = [e for e in (last_b["focus_stack"] or reciting_dump["focus_stack"]) if e["uid"] == uid]
     notes.append("the recitation holds audio focus (usage " + holds[0]["usage"] + ")" if holds
                  else "the app holds no audio focus at all (the recitation plays without requesting it)")
     if fails:
@@ -1398,7 +1401,7 @@ def audio_verdict(before: str, afters: list[str], uid: int | str) -> tuple[str, 
 
 def cmd_audio_focus(args: argparse.Namespace) -> int:
     read = lambda p: Path(p).read_text(encoding="utf-8", errors="replace")
-    verdict, evidence = audio_verdict(read(args.before), [read(p) for p in args.after], args.uid)
+    verdict, evidence = audio_verdict([read(p) for p in args.before], [read(p) for p in args.after], args.uid)
     line = f"SOUND×RECITATION CHECKPOINT: {verdict}"
     text = "\n".join([f"### {line}", ""] + [f"- {e}" for e in evidence]) + "\n"
     if args.out:
@@ -1582,7 +1585,7 @@ def main(argv: list[str] | None = None) -> int:
     s.set_defaults(func=cmd_as_of_report)
 
     s = sub.add_parser("audio-focus", help="judge dumpsys audio before/after the ticks")
-    s.add_argument("--before", required=True)
+    s.add_argument("--before", required=True, action="append", help="one or more dumps before the ticks")
     s.add_argument("--after", required=True, action="append", help="one or more dumps after the ticks")
     s.add_argument("--uid", required=True, help="the app's uid")
     s.add_argument("--out", help="Markdown verdict")

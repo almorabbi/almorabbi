@@ -8,7 +8,14 @@ name: rehearsal/sound — still reciting after the ticks
 - runScript: ../common/l10n.js
 - assertVisible: '${output.t.quranStop}'
 - takeScreenshot: sound_2_still_reciting
-- tapOn: '${output.t.quranStop}'
+- repeat:
+    times: 3
+    while:
+      visible: '${output.t.quranStop}'
+    commands:
+      - tapOn: '${output.t.quranStop}'
+      - waitForAnimationToEnd:
+          timeout: 2000
 - extendedWaitUntil:
     visible: '${output.t.quranListen}'
     timeout: 15000

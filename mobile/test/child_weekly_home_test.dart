@@ -1,4 +1,9 @@
+import 'dart:async';
+import 'dart:io';
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
@@ -7,11 +12,19 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:almorabbi/api/tg_client.dart';
 import 'package:almorabbi/core/clock.dart';
+import 'package:almorabbi/features/child_memory/data/memory_models.dart';
+import 'package:almorabbi/features/child_memory/providers/memory_providers.dart';
+import 'package:almorabbi/features/child_memory/widgets/today_followup_card.dart';
 import 'package:almorabbi/features/child_memory/widgets/today_weekly_plan_card.dart';
 import 'package:almorabbi/features/home/experiment/child_home_experiment.dart';
 import 'package:almorabbi/features/home/widgets/child_weekly_home.dart';
+import 'package:almorabbi/features/home/widgets/daily_gift_moment.dart';
+import 'package:almorabbi/features/home/widgets/home_shortcuts_grid.dart';
+import 'package:almorabbi/features/home/widgets/home_stats_row.dart';
 import 'package:almorabbi/features/home/widgets/sky_band.dart';
 import 'package:almorabbi/features/home/widgets/today_focus_card.dart';
+import 'package:almorabbi/features/home/widgets/today_section.dart';
+import 'package:almorabbi/features/mawaqif/widgets/today_mawqif_card.dart';
 import 'package:almorabbi/features/onboarding/data/onboarding_storage.dart';
 import 'package:almorabbi/features/onboarding/providers/onboarding_providers.dart';
 import 'package:almorabbi/features/program/providers/progress_providers.dart';
@@ -25,6 +38,8 @@ import 'package:almorabbi/widgets/ui/bouncy_button.dart';
 
 import 'lantern_fakes.dart' show act, familyWeekJson;
 
+const _dumpTodayDir = String.fromEnvironment('DUMP_TODAY_PREVIEW');
+
 class _FakeWeeklyClient extends TgClient {
   _FakeWeeklyClient()
       : super.forTesting(
@@ -34,7 +49,15 @@ class _FakeWeeklyClient extends TgClient {
 
   Map<String, dynamic>? progress;
   Map<String, dynamic>? familyWeek;
+  List<Map<String, dynamic>>? mawaqif;
+  int mawaqifCalls = 0;
   bool includePlan = true;
+
+  @override
+  Future<List<Map<String, dynamic>>> getMawaqif(String ageGroup) async {
+    mawaqifCalls++;
+    return mawaqif ?? const <Map<String, dynamic>>[];
+  }
 
   @override
   Future<Map<String, dynamic>> getChildProgress(
@@ -109,6 +132,27 @@ class _FakeWeeklyClient extends TgClient {
       throw const TgApiError(503, 'offline');
 }
 
+Map<String, dynamic> _sampleMawqifJson({String ageGroup = '7-9'}) => {
+      'id': 'm1',
+      'age_group': ageGroup,
+      'topic': 'calm',
+      'title': 'موقف للنقاش العائلي',
+      'situation': 'موقف يومي مع الطفل',
+      'choices': const [
+        {'key': 'a', 'text': 'خيار ١', 'now': 'الآن ١', 'later': 'لاحقًا ١'},
+        {'key': 'b', 'text': 'خيار ٢', 'now': 'الآن ٢', 'later': 'لاحقًا ٢'},
+        {'key': 'c', 'text': 'خيار ٣', 'now': 'الآن ٣', 'later': 'لاحقًا ٣'},
+      ],
+      'evidence': const {
+        'id': 'ev1',
+        'kind': 'hadith',
+        'text_ar': 'حديث تجريبي صحيح',
+        'source': 'رواه البخاري',
+      },
+      'idea': 'فكرة هادئة',
+      'step': 'خطوة عملية',
+    };
+
 void main() {
   tearDown(() => AppPalette.current = AppPalette.light);
 
@@ -123,15 +167,20 @@ void main() {
     Size phone = const Size(360, 800),
     DateTime? now,
     Map<String, dynamic>? familyWeek,
+    List<Map<String, dynamic>>? mawaqif,
+    Override? dueFollowupsOverride,
     bool justOnboarded = false,
     String? firstWeekRecordedIso,
     Map<String, dynamic>? appConfig,
+    _FakeWeeklyClient? client,
   }) async {
     tester.view.physicalSize = phone * 3.0;
     tester.view.devicePixelRatio = 3.0;
     addTearDown(tester.view.reset);
 
-    final fake = _FakeWeeklyClient()..familyWeek = familyWeek;
+    final fake = (client ?? _FakeWeeklyClient())
+      ..familyWeek = familyWeek
+      ..mawaqif = mawaqif;
     SharedPreferences.setMockInitialValues({
       OnboardingStorage.keyActiveChildId: 1,
       OnboardingStorage.keyActiveChildName: childName,
@@ -148,11 +197,13 @@ void main() {
         appConfigProvider.overrideWith(
           (_) async => appConfig ?? const {'child_home_v2': 'v2'},
         ),
+        ?dueFollowupsOverride,
         if (now != null) clockProvider.overrideWithValue(() => now),
       ],
     );
     addTearDown(container.dispose);
     await container.read(sharedPreferencesProvider.future);
+    await container.read(childHomeArmProvider.future);
     container.read(activeChildIdProvider.notifier).state = 1;
     if (justOnboarded) {
       container.read(justOnboardedPlanChildProvider.notifier).state = 1;
@@ -207,7 +258,7 @@ void main() {
   );
 
   testWidgets(
-    'Week 1 after onboarding shows badge and auto-expands TodayWeeklyPlanCard',
+    'Week 1 after onboarding shows badge and keeps TodayWeeklyPlanCard collapsed as sleek summary until tapped',
     (tester) async {
       await pumpWeeklyHome(
         tester,
@@ -215,6 +266,18 @@ void main() {
         now: DateTime(2026, 11, 14, 10),
       );
       expect(find.text('أسبوع البداية'), findsOneWidget);
+      await tester.scrollUntilVisible(
+        find.byKey(const ValueKey('weekly_plan_summary_bar')),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.pump(const Duration(milliseconds: 250));
+      expect(find.text('الاستماع الهادئ'), findsOneWidget);
+      expect(find.text('دعاء المساء معاً'), findsNothing);
+
+      // Tapping the sleek summary bar expands the full weekly plan on demand.
+      await tester.tap(find.byKey(const ValueKey('weekly_plan_summary_bar')));
+      await tester.pump(const Duration(milliseconds: 300));
       await tester.scrollUntilVisible(
         find.text('دعاء المساء معاً'),
         200,
@@ -434,6 +497,212 @@ void main() {
         RegExp(r'^(?:.*\s)?E2E-Maestro(?:\s.*)?$', dotAll: true).hasMatch(expected),
         isTrue,
       );
+    },
+  );
+
+  testWidgets(
+    '3-station layout drops legacy coin/shortcut clutter and unifies family time',
+    (tester) async {
+      for (final dark in [false, true]) {
+        await tester.pumpWidget(const SizedBox());
+        await pumpWeeklyHome(
+          tester,
+          locale: const Locale('ar'),
+          dark: dark,
+          childName: 'سارة',
+          birthMonth: '2018-05',
+          now: DateTime(2026, 11, 14, 10),
+        );
+
+        expect(find.byType(DailyGiftMoment), findsNothing);
+        expect(find.byType(HomeStatsRow), findsNothing);
+        expect(find.byType(HomeShortcutsGrid), findsNothing);
+        expect(find.byType(TodayMoreDivider), findsNothing);
+        // No duplicate "مهمة سارة اليوم" header alongside TodayMissionRow.
+        expect(find.text('مهمة سارة اليوم'), findsNothing);
+
+        Future<void> snap(String tag) async {
+          if (_dumpTodayDir.isEmpty) return;
+          Directory(_dumpTodayDir).createSync(recursive: true);
+          final boundary = find.ancestor(
+            of: find.byType(HomeScreen),
+            matching: find.byType(RepaintBoundary),
+          ).first;
+          final ro = boundary.evaluate().single.findRenderObject()!
+              as RenderRepaintBoundary;
+          final img = await tester.runAsync(() => ro.toImage(pixelRatio: 2.0));
+          final bd = await tester.runAsync(
+            () => img!.toByteData(format: ui.ImageByteFormat.png),
+          );
+          img!.dispose();
+          File('$_dumpTodayDir/today_${dark ? "dark" : "light"}_$tag.png')
+              .writeAsBytesSync(bd!.buffer.asUint8List());
+        }
+
+        await snap('top');
+
+        await tester.scrollUntilVisible(
+          find.byKey(const ValueKey('today_family_puzzles_card')),
+          220,
+          scrollable: find.byType(Scrollable).first,
+        );
+        expect(
+          find.byKey(const ValueKey('today_family_puzzles_card')),
+          findsOneWidget,
+        );
+        await tester.scrollUntilVisible(
+          find.byKey(const ValueKey('today_child_corner_handover')),
+          220,
+          scrollable: find.byType(Scrollable).first,
+        );
+        expect(
+          find.byKey(const ValueKey('today_child_corner_handover')),
+          findsOneWidget,
+        );
+        expect(tester.takeException(), isNull);
+        await snap('mid');
+      }
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump(const Duration(seconds: 1));
+    },
+  );
+
+  testWidgets(
+    'reflection slot stays empty while loading and never builds TodayMawqifCard for active child followup',
+    (tester) async {
+      final completer = Completer<List<Followup>>();
+      final client = _FakeWeeklyClient();
+      await pumpWeeklyHome(
+        tester,
+        phone: const Size(420, 1200),
+        client: client,
+        mawaqif: [_sampleMawqifJson()],
+        dueFollowupsOverride:
+            dueFollowupsProvider.overrideWith((_) => completer.future),
+      );
+
+      // While dueFollowupsProvider is loading: neither card builds in any frame.
+      expect(find.byType(TodayFollowupCard, skipOffstage: false), findsNothing);
+      expect(find.byType(TodayMawqifCard, skipOffstage: false), findsNothing);
+      expect(client.mawaqifCalls, 0);
+
+      // Resolving with a due followup for active child (id 1): only TodayFollowupCard shows.
+      completer.complete(const [
+        Followup(
+          id: 1,
+          childId: 1,
+          strategy: 'التنفس الهادئ عند الغضب',
+          status: 'pending',
+        ),
+      ]);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+
+      expect(find.byType(TodayFollowupCard), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byType(TodayFollowupCard),
+          matching: find.textContaining('التنفس الهادئ عند الغضب'),
+        ),
+        findsOneWidget,
+      );
+      expect(find.byType(TodayMawqifCard, skipOffstage: false), findsNothing);
+      expect(client.mawaqifCalls, 0);
+
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump(const Duration(seconds: 1));
+    },
+  );
+
+  testWidgets(
+    'reflection slot shows TodayMawqifCard when dueFollowupsProvider settles empty or errors',
+    (tester) async {
+      await pumpWeeklyHome(
+        tester,
+        phone: const Size(420, 1200),
+        mawaqif: [_sampleMawqifJson()],
+        dueFollowupsOverride:
+            dueFollowupsProvider.overrideWith((_) async => const <Followup>[]),
+      );
+      expect(find.byType(TodayFollowupCard), findsNothing);
+      expect(find.byType(TodayMawqifCard), findsOneWidget);
+      expect(find.byKey(const ValueKey('today-mawqif')), findsOneWidget);
+
+      await tester.pumpWidget(const SizedBox());
+      await pumpWeeklyHome(
+        tester,
+        phone: const Size(420, 1200),
+        mawaqif: [_sampleMawqifJson()],
+        dueFollowupsOverride: dueFollowupsProvider
+            .overrideWith((_) => Future<List<Followup>>.error(StateError('offline'))),
+      );
+      expect(find.byType(TodayFollowupCard), findsNothing);
+      expect(find.byType(TodayMawqifCard), findsOneWidget);
+      expect(find.byKey(const ValueKey('today-mawqif')), findsOneWidget);
+
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump(const Duration(seconds: 1));
+    },
+  );
+
+  testWidgets(
+    'sibling due followup shows both TodayFollowupCard and active child TodayMawqifCard',
+    (tester) async {
+      await pumpWeeklyHome(
+        tester,
+        phone: const Size(420, 1400),
+        mawaqif: [_sampleMawqifJson()],
+        dueFollowupsOverride: dueFollowupsProvider.overrideWith(
+          (_) async => const [
+            Followup(
+              id: 2,
+              childId: 2,
+              strategy: 'قصة قصيرة قبل النوم',
+              status: 'pending',
+            ),
+          ],
+        ),
+      );
+
+      expect(find.byType(TodayFollowupCard), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byType(TodayFollowupCard),
+          matching: find.textContaining('قصة قصيرة قبل النوم'),
+        ),
+        findsOneWidget,
+      );
+      expect(find.byType(TodayMawqifCard), findsOneWidget);
+      expect(find.byKey(const ValueKey('today-mawqif')), findsOneWidget);
+
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump(const Duration(seconds: 1));
+    },
+  );
+
+  testWidgets(
+    'Monday week_start keeps summaryCollapsed weekly plan bar collapsed without Monday auto-reveal',
+    (tester) async {
+      final monday = DateTime(2026, 11, 9, 10);
+      expect(monday.weekday, DateTime.monday);
+      final container = await pumpWeeklyHome(
+        tester,
+        phone: const Size(420, 1200),
+        now: monday,
+      );
+      final prefs = await container.read(sharedPreferencesProvider.future);
+      expect(prefs.getString(TodayWeeklyPlanCard.revealKey(1)), isNull);
+
+      expect(
+        find.byKey(const ValueKey('weekly_plan_summary_bar')),
+        findsOneWidget,
+      );
+      expect(find.text('الاستماع الهادئ'), findsOneWidget);
+      expect(find.text('دقيقتان من الإنصات'), findsNothing);
+      expect(find.text('دعاء المساء معاً'), findsNothing);
+
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump(const Duration(seconds: 1));
     },
   );
 }
