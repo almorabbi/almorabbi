@@ -1670,9 +1670,9 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `e2e/flows/fresh/14_mawqif.yaml` | 78 | Checkpoint 14 — «موقف بقرار» (1.0.81), against the live server: the card on Today → a response → the hadith → the step → «الليلة»; then the card leaves. |
 | `e2e/flows/gallery/shoot.yaml` | 894 | One pass of the before/after gallery (Phase 0 of docs/NOOR_WAL_QANADIL_PLAN.md). |
 | `e2e/flows/gallery/today_shot.yaml` | 23 | The gallery's own Today capture: common/assert_today.yaml's contract, but |
-| `e2e/flows/listing/ask.yaml` | 61 | One of the app's own suggested questions, asked in a NEW conversation, and the whole answer waited for; ends with the question at the top of the screen. |
+| `e2e/flows/listing/ask.yaml` | 71 | One question for the picture, typed in a NEW conversation, and the whole answer waited for; ends with no keyboard up and the question at the top of the screen. |
 | `e2e/flows/listing/guards.js` | 39 | What a picture on the Play page must never carry (the test marker, the review banner, the other language as running text) — one definition for shot.yaml and shoot.yaml. |
-| `e2e/flows/listing/shoot.yaml` | 337 | The store-listing shots: the seven app screens of the Play page, one pass per language, with a listing child (real name, birth month) added beside the marked one and the app's own suggested questions (job `listing`). |
+| `e2e/flows/listing/shoot.yaml` | 350 | The store-listing shots: the seven app screens of the Play page, one pass per language, with a listing child (real name, birth month) added beside the marked one and a typed question in the pass's language (job `listing`). |
 | `e2e/flows/listing/shot.yaml` | 29 | One store-listing capture; refuses, by name, each thing guards.js says a picture on the Play page must never carry. |
 | `e2e/flows/rehearsal/expect.yaml` | 23 | Wait for PATTERN: a hard expectation on the PR head (TAG == 'after'), a |
 | `e2e/flows/rehearsal/sound_after.yaml` | 15 | Sound × recitation, part 2: after the ticks the reader is still reciting — |
@@ -1691,7 +1691,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `e2e/run.sh` | 271 | Runs the E2E journeys on the emulator that reactivecircus/android-emulator-runner |
 | `e2e/test_e2e_tool.py` | 1499 | Tests for e2e/e2e_tool.py — run: python3 -m unittest discover -s e2e -v |
 | `e2e/test_install_system_image.py` | 95 | install_system_image.sh against a stub sdkmanager: corrupt downloads are retried from scratch, and only a complete image counts as installed. |
-| `e2e/test_listing.py` | 424 | The store-listing lineage: the runner with fake device/CLI boundaries, the slot check, and what the flow may and may not put in a picture. No builds. |
+| `e2e/test_listing.py` | 484 | The store-listing lineage: the runner with fake device/CLI boundaries, the slot check, and what the flow may and may not put in a picture. No builds. |
 | `e2e/test_rehearsal.py` | 174 | Exercise the real rehearsal runner (e2e/rehearsal.sh) with fake device, CLI and tool boundaries; no builds, no emulator, no server. |
 | `e2e/test_run.py` | 138 | Exercise the real shell runner with fake device/CLI boundaries; no builds. |
 | `e2e/test_workflow.py` | 594 | Parse the workflow and execute its final verdict without builds or devices. |

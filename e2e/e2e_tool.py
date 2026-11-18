@@ -253,14 +253,14 @@ KEYS = [
     # only. The listing child is added by hand, with a birth month, and its
     # snackbar must be gone before the first picture. Today's tip of the day
     # is scrolled out of the lantern picture by its last line. The assistant
-    # is asked the app's own suggested questions for a 7-9 child, each in a
-    # new conversation, and an answer under the review banner is not
-    # photographed. Noor's line marks the story reader's first leaf.
+    # is asked in new conversations (chatQ_study, a 7-9 child's first
+    # suggestion, marks the empty state), and an answer under the review
+    # banner is not photographed. Noor's line marks the story reader's first
+    # leaf.
     "addChildAdded", "birthMonthChoose", "birthMonthPickerTitle",
     "birthMonthChange", "coachAskAboutTip",
     "chatNewConversation", "chatNewConfirmTitle", "chatContinue",
-    "chatQ_study", "chatQ_prayRegular", "chatQ_fears",
-    "safetyGeneralGuidance", "storyNoorIntro",
+    "chatQ_study", "safetyGeneralGuidance", "storyNoorIntro",
 ]
 
 # Strings the app hardcodes outside the ARB files.
