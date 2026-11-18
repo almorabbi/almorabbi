@@ -317,7 +317,10 @@ env:
 - runFlow: ../common/home.yaml
 - tapOn: '${output.lead.navAssistant}'
 # The question for the picture, and two more in case its answer is not one
-# for a picture. Each is asked only while the answer on screen is a bad one.
+# for a picture. Each is asked only while the answer on screen is a bad one,
+# and the bad one is kept first — beside the pictures, never among them: its
+# name is no slot's, and listing.sh warns on *retry*. (The Arabic pass once
+# went through all three and left nothing to say why.)
 - runFlow:
     file: ask.yaml
     env:
@@ -325,15 +328,21 @@ env:
 - runFlow:
     when:
       visible: '${output.listingBadAnswer}'
-    file: ask.yaml
-    env:
-      ASK: "${UI_LANG == 'en' ? LISTING_ASK_EN_2 : LISTING_ASK_AR_2}"
+    commands:
+      - takeScreenshot: assistant_answer_1_refused_retry
+      - runFlow:
+          file: ask.yaml
+          env:
+            ASK: "${UI_LANG == 'en' ? LISTING_ASK_EN_2 : LISTING_ASK_AR_2}"
 - runFlow:
     when:
       visible: '${output.listingBadAnswer}'
-    file: ask.yaml
-    env:
-      ASK: "${UI_LANG == 'en' ? LISTING_ASK_EN_3 : LISTING_ASK_AR_3}"
+    commands:
+      - takeScreenshot: assistant_answer_2_refused_retry
+      - runFlow:
+          file: ask.yaml
+          env:
+            ASK: "${UI_LANG == 'en' ? LISTING_ASK_EN_3 : LISTING_ASK_AR_3}"
 # The header counts the conversation's questions with a string that has no
 # singular: «1 سؤال» reads right, "1 questions" does not (it stood on the
 # 2.0.0 page). So the English conversation gets a second question — only

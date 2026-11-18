@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import re
 import shutil
+import struct
 import subprocess
 import sys
 import tempfile
@@ -216,6 +217,20 @@ def _flow_file(step):
     return flow.get('file') if isinstance(flow, dict) else None
 
 
+def _ask(step):
+    """A step that asks a question for the picture → (when, env, what it does
+    before asking); None for any other step."""
+    flow = step.get('runFlow') if isinstance(step, dict) else None
+    if not isinstance(flow, dict):
+        return None
+    if flow.get('file') == 'ask.yaml':
+        return flow.get('when'), flow['env'], []
+    inner = flow.get('commands') or []
+    if inner and _flow_file(inner[-1]) == 'ask.yaml':
+        return flow.get('when'), inner[-1]['runFlow']['env'], inner[:-1]
+    return None
+
+
 class ListingFlowTest(unittest.TestCase):
     """What the Play page showed for 2.0.0 and must not show again: a test
     name, a Latin name in the Arabic set, an English answer in the Arabic set."""
@@ -240,10 +255,15 @@ class ListingFlowTest(unittest.TestCase):
         self.assertEqual(tuple(self.shots()), t.LISTING_SHOTS)
 
     def test_every_picture_goes_through_the_guard(self):
-        for name, steps in (('shoot.yaml', self.steps), ('ask.yaml', self.ask_steps),
-                            ('ask_again.yaml', self.again_steps)):
+        for name, steps in (('ask.yaml', self.ask_steps), ('ask_again.yaml', self.again_steps)):
             self.assertFalse([c for c in _walk(steps, []) if 'takeScreenshot' in c],
                              f'{name} takes no screenshot of its own — shot.yaml does')
+        # shoot.yaml's own are the answers it refused, kept to say why: never a
+        # slot's name, and "retry" in it, which the runner warns on.
+        own = [c['takeScreenshot'] for c in _walk(self.steps, []) if 'takeScreenshot' in c]
+        self.assertEqual(own, ['assistant_answer_1_refused_retry', 'assistant_answer_2_refused_retry'])
+        self.assertFalse(set(own) & set(t.LISTING_SHOTS))
+        self.assertIn("-name '*retry*.png'", (E2E / 'listing.sh').read_text(encoding='utf-8'))
         takes = [i for i, s in enumerate(self.shot_steps) if isinstance(s, dict) and 'takeScreenshot' in s]
         self.assertEqual(len(takes), 1)
         self.assertEqual(takes[0], len(self.shot_steps) - 1, 'nothing after the capture')
@@ -318,7 +338,7 @@ class ListingFlowTest(unittest.TestCase):
 
     def test_the_marked_question_is_asked_first_and_never_photographed(self):
         marked = self.index({'inputText': '${QUESTION}'})
-        asks = [i for i, s in enumerate(self.steps) if _flow_file(s) == 'ask.yaml']
+        asks = [i for i, s in enumerate(self.steps) if _ask(s)]
         shots = [i for i, s in enumerate(self.steps) if _flow_file(s) == 'shot.yaml']
         self.assertEqual(len(asks), 3)
         self.assertLess(marked, asks[0])
@@ -343,12 +363,15 @@ class ListingFlowTest(unittest.TestCase):
         return {lang: [env[f'LISTING_ASK_{lang.upper()}_{n}'] for n in (1, 2, 3)] for lang in ('ar', 'en')}
 
     def test_another_question_is_asked_only_instead_of_a_bad_answer(self):
-        asks = [s['runFlow'] for s in self.steps if _flow_file(s) == 'ask.yaml']
-        self.assertNotIn('when', asks[0])
-        for flow in asks[1:]:
-            self.assertEqual(flow['when'], {'visible': '${output.listingBadAnswer}'})
-        for n, flow in enumerate(asks, 1):
-            self.assertEqual(flow['env'], {'ASK': "${UI_LANG == 'en' ? LISTING_ASK_EN_%d : LISTING_ASK_AR_%d}" % (n, n)})
+        asks = [_ask(s) for s in self.steps if _ask(s)]
+        self.assertEqual(asks[0][0], None)
+        self.assertEqual(asks[0][2], [])
+        for n, (when, _, before) in enumerate(asks[1:], 1):
+            self.assertEqual(when, {'visible': '${output.listingBadAnswer}'})
+            # The refused answer is kept before it is replaced.
+            self.assertEqual(before, [{'takeScreenshot': f'assistant_answer_{n}_refused_retry'}])
+        for n, (_, env, _) in enumerate(asks, 1):
+            self.assertEqual(env, {'ASK': "${UI_LANG == 'en' ? LISTING_ASK_EN_%d : LISTING_ASK_AR_%d}" % (n, n)})
         questions = self.questions()
         self.assertEqual(len(set(questions['ar'] + questions['en'])), 6)
         # Each in its set's script, start to end: the answer follows it.
@@ -533,6 +556,74 @@ class ListingGuardPatternsTest(unittest.TestCase):
         bad = self.guards['en']['listingBadAnswer']
         self.assertIsNone(bad.fullmatch('Abu Hurayrah narrated: «مروا أولادكم بالصلاة وهم أبناء سبع سنين» — begin at seven.'))
         self.assertTrue(bad.fullmatch('This guidance is general — It is best to consult a human specialist.'))
+
+
+class ListingManifestTest(unittest.TestCase):
+    """The folder the upload tool sends to Play is built from this lineage's
+    pictures — not from the journeys' or the gallery's checkpoints, which is
+    how the 2.0.0 page came to show the test child."""
+
+    @classmethod
+    def setUpClass(cls):
+        def version(folder):
+            return tuple(int(n) for n in folder.name.split('_', 1)[1].split('.'))
+        cls.folder = max((p for p in (ROOT / 'docs/brand/store').glob('listing_*') if p.is_dir()), key=version)
+        cls.manifest = json.loads((cls.folder / 'manifest.json').read_text(encoding='utf-8'))
+        cls.slots = {s['id']: s for s in cls.manifest['slots']}
+
+    def test_the_upload_tool_sends_the_newest_folder(self):
+        tool = (ROOT / 'scripts/play_listing_upload.py').read_text(encoding='utf-8')
+        default = re.search(r"^DEFAULT_DIR = REPO_ROOT / '([^']+)'$", tool, re.M).group(1)
+        self.assertEqual(default, f'docs/brand/store/{self.folder.name}')
+
+    # Photographed, and left out of the folder: the story's cover is a child's
+    # face, and nothing that goes out as marketing shows a person (the
+    # owner's rule; the Play page is marketing). It comes back when the story
+    # photographed has a cover without people.
+    LEFT_OUT = ('story_reader',)
+
+    def test_every_app_screen_is_this_lineages_picture(self):
+        framed = tuple(s for s in t.LISTING_SHOTS if s not in self.LEFT_OUT)
+        self.assertEqual(sorted(self.slots), sorted(framed + ('ramadan_street',)))
+        self.assertEqual(len(self.manifest['slots']), len(framed) + 1)
+        for slot in framed:
+            for lang in t.LISTING_LANGS:
+                src = self.slots[slot]['source'][lang]
+                self.assertEqual((src['artifact'], src['file']),
+                                 ('e2e-listing', f'screens/listing__{lang}__{slot}.png'))
+                # What shot.yaml let through is what is framed: nothing is cut away.
+                self.assertNotIn('keep_top', src)
+
+    def test_no_story_cover_goes_to_play(self):
+        self.assertTrue(set(self.LEFT_OUT) <= set(t.LISTING_SHOTS))
+        for lang in t.LISTING_LANGS:
+            pictures = sorted(p.name for p in (self.folder / lang).glob('phone_*.png'))
+            self.assertEqual(len(pictures), len(self.manifest['slots']), pictures)
+            self.assertFalse([name for name in pictures if any(slot in name for slot in self.LEFT_OUT)])
+
+    def test_ramadans_street_is_the_rehearsals(self):
+        # It needs a date in Ramadan; the listing job has no such build.
+        for lang in t.LISTING_LANGS:
+            src = self.slots['ramadan_street']['source'][lang]
+            self.assertEqual((src['artifact'], src['file']),
+                             ('e2e-rehearsal', f'screens/rehearsal__{lang}_day27__after__{lang}__day27_street.png'))
+
+    def test_the_weeks_steps_are_framed_whole(self):
+        # The sheet is the capture's bottom quarter, and only this frame shows
+        # a capture down to its last row.
+        self.assertEqual(self.slots['week_lanterns']['frame'], 'frame_2_ivory')
+
+    def test_each_capture_is_pinned_and_each_picture_is_there(self):
+        runs = set(self.manifest['runs'])
+        for n, slot in enumerate(self.manifest['slots'], 1):
+            for lang in t.LISTING_LANGS:
+                src = slot['source'][lang]
+                self.assertRegex(src['sha256'], r'^[0-9a-f]{64}$')
+                self.assertIn(str(src['run']), runs)
+                picture = self.folder / lang / f'phone_{n:02d}_{slot["id"]}.png'
+                self.assertTrue(picture.is_file(), picture)
+                with picture.open('rb') as f:
+                    self.assertEqual(struct.unpack('>II', f.read(24)[16:]), (1080, 1920), picture)
 
 
 if __name__ == '__main__':

@@ -1618,7 +1618,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `scripts/test_app_flow.py` | 46 | اختبارات: app flow |
 | `scripts/test_navigation.py` | 41 | اختبارات: navigation |
 | `scripts/tests/test_landing_copy.py` | 34 | Focused copy guards; no server startup or external services. |
-| `scripts/tests/test_play_listing_upload.py` | 424 | Store-listing refresh; fake Play client, no network, no credentials. |
+| `scripts/tests/test_play_listing_upload.py` | 432 | Store-listing refresh; fake Play client, no network, no credentials. |
 | `scripts/tests/test_program_review_metadata.py` | 27 | Program reviewer metadata must describe model review without specialist approval. |
 | `scripts/tests/test_release_bundle.py` | 287 | Offline synthetic ZIP tests; never compile, sign, or contact Play. |
 | `scripts/tests/test_release_play_publish.py` | 209 | Exact-artifact production publication; fake Play transport, no signing/network. |
@@ -1673,7 +1673,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `e2e/flows/listing/ask.yaml` | 71 | One question for the picture, typed in a NEW conversation, and the whole answer waited for; ends with no keyboard up and the question at the top of the screen. |
 | `e2e/flows/listing/ask_again.yaml` | 50 | A second question in the conversation ask.yaml left on screen, and back up to the first: the English pass's header then reads "2 questions" (the count has no singular form). |
 | `e2e/flows/listing/guards.js` | 39 | What a picture on the Play page must never carry (the test marker, the review banner, the other language as running text) — one definition for shot.yaml and shoot.yaml. |
-| `e2e/flows/listing/shoot.yaml` | 354 | The store-listing shots: the seven app screens of the Play page, one pass per language, with a listing child (real name, birth month) added beside the marked one and a typed question in the pass's language (job `listing`). |
+| `e2e/flows/listing/shoot.yaml` | 363 | The store-listing shots: the seven app screens of the Play page, one pass per language, with a listing child (real name, birth month) added beside the marked one and a typed question in the pass's language (job `listing`). |
 | `e2e/flows/listing/shot.yaml` | 29 | One store-listing capture; refuses, by name, each thing guards.js says a picture on the Play page must never carry. |
 | `e2e/flows/rehearsal/expect.yaml` | 23 | Wait for PATTERN: a hard expectation on the PR head (TAG == 'after'), a |
 | `e2e/flows/rehearsal/sound_after.yaml` | 15 | Sound × recitation, part 2: after the ticks the reader is still reciting — |
@@ -1692,7 +1692,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `e2e/run.sh` | 271 | Runs the E2E journeys on the emulator that reactivecircus/android-emulator-runner |
 | `e2e/test_e2e_tool.py` | 1499 | Tests for e2e/e2e_tool.py — run: python3 -m unittest discover -s e2e -v |
 | `e2e/test_install_system_image.py` | 95 | install_system_image.sh against a stub sdkmanager: corrupt downloads are retried from scratch, and only a complete image counts as installed. |
-| `e2e/test_listing.py` | 539 | The store-listing lineage: the runner with fake device/CLI boundaries, the slot check, and what the flow may and may not put in a picture. No builds. |
+| `e2e/test_listing.py` | 630 | The store-listing lineage: the runner with fake device/CLI boundaries, the slot check, what the flow may and may not put in a picture, and that the newest `docs/brand/store/listing_*` (the upload tool's default) is built from this lineage's captures. No builds. |
 | `e2e/test_rehearsal.py` | 174 | Exercise the real rehearsal runner (e2e/rehearsal.sh) with fake device, CLI and tool boundaries; no builds, no emulator, no server. |
 | `e2e/test_run.py` | 138 | Exercise the real shell runner with fake device/CLI boundaries; no builds. |
 | `e2e/test_workflow.py` | 594 | Parse the workflow and execute its final verdict without builds or devices. |
