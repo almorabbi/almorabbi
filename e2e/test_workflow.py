@@ -18,6 +18,7 @@ WORKFLOW = Path(__file__).resolve().parent.parent / '.github/workflows/mobile-e2
 HEAVY = {'keystore', 'build', 'build_rehearsal', 'e2e', 'rehearsal'}
 APP_ONLY = {'build', 'e2e'}                                # the journeys' half
 CANDIDATE = {'keystore', 'build_rehearsal', 'rehearsal'}   # the rehearsal's half
+INFORMATIONAL = {'listing'}                                # runs beside the gate, never in it
 STATUSES = ('success', 'failure', 'cancelled', 'skipped')
 
 
@@ -51,7 +52,7 @@ class DeliveryWorkflowTest(unittest.TestCase):
         self.assertEqual(gate['if'], '${{ always() }}')
         self.assertNotIn('needs.changes', gate['if'])
         self.assertEqual(set(gate['needs']), HEAVY | {'changes'})
-        self.assertEqual(set(self.workflow['jobs']), HEAVY | {'changes', 'delivery_gate'})
+        self.assertEqual(set(self.workflow['jobs']), HEAVY | INFORMATIONAL | {'changes', 'delivery_gate'})
         jobs = self.workflow['jobs']
         self.assertNotIn('needs', jobs['changes'])
         self.assertNotIn('if', jobs['changes'])
@@ -427,6 +428,74 @@ class GalleryArtifactTest(unittest.TestCase):
         # 75 covered the 13 journeys; the gallery lineage (a third onboarding
         # and six shoots) needs the headroom the workflow now grants.
         self.assertGreaterEqual(int(self.e2e['timeout-minutes']), 90)
+
+
+class ListingJobTest(unittest.TestCase):
+    """Job `listing` photographs the Play page's screens (e2e/listing.sh). It
+    drives the journeys' emulator and the journeys' APK, is red when a picture
+    is missing — and can never hold a merge: the journeys are the gate."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.workflow = yaml.load(WORKFLOW.read_text(), Loader=yaml.BaseLoader)
+        cls.job = cls.workflow['jobs']['listing']
+
+    def test_runs_with_the_journeys_and_outside_the_gate(self):
+        self.assertEqual(self.job['needs'], ['changes', 'build'])
+        self.assertEqual(self.job['if'], "needs.changes.outputs.app == 'true'")
+        gate = self.workflow['jobs']['delivery_gate']
+        self.assertNotIn('listing', gate['needs'])
+        self.assertNotIn('listing', gate['steps'][0]['run'])
+        # Nothing waits for it either: it cannot delay another job's verdict.
+        for job_id, job in self.workflow['jobs'].items():
+            needs = job.get('needs', [])
+            self.assertNotIn('listing', [needs] if isinstance(needs, str) else needs, job_id)
+
+    def test_a_missing_picture_is_a_red_job(self):
+        # Informational to the gate, not to itself: no continue-on-error, and
+        # the script's exit code is the step's.
+        self.assertNotIn('continue-on-error', self.job)
+        for step in self.job['steps']:
+            self.assertNotIn('continue-on-error', step, step.get('name'))
+        script = (WORKFLOW.parent.parent.parent / 'e2e/listing.sh').read_text()
+        self.assertIn('listing-check "$OUT/screens"', script)
+        self.assertTrue(script.rstrip().endswith('exit "$FAILED"'))
+
+    def test_the_head_apk_of_the_journeys_and_no_other(self):
+        downloaded = [s['with']['name'] for s in self.job['steps']
+                      if s.get('uses', '').startswith('actions/download-artifact@')]
+        self.assertEqual(downloaded, ['e2e-apk-head'])
+
+    def test_same_emulator_as_the_journeys(self):
+        e2e = {s.get('name'): s for s in self.workflow['jobs']['e2e']['steps']}
+        mine = {s.get('name'): s for s in self.job['steps']}
+        for name in ('Enable KVM', 'Install the system image (retried, verified)',
+                     f"Install Maestro {'${{ env.MAESTRO_VERSION }}'}"):
+            self.assertEqual(mine[name]['run'], e2e[name]['run'], name)
+        self.assertEqual(mine['Create the AVD and a boot snapshot']['with'],
+                         e2e['Create the AVD and a boot snapshot']['with'])
+        self.assertEqual(mine['Restore the AVD']['with'], e2e['Restore the AVD']['with'])
+        # Saving the AVD is the journeys' and e2e-avd-cache.yml's business.
+        self.assertFalse([s for s in self.job['steps'] if s.get('uses', '').startswith('actions/cache/save@')])
+        run, journeys = mine['Photograph the store listing']['with'], e2e['Run the journeys']['with']
+        self.assertEqual({k: v for k, v in run.items() if k != 'script'},
+                         {k: v for k, v in journeys.items() if k != 'script'})
+        self.assertEqual(run['script'], 'bash e2e/listing.sh')
+        names = [s.get('name') or s.get('uses', '') for s in self.job['steps']]
+        install = names.index('Install the system image (retried, verified)')
+        runners = [i for i, s in enumerate(self.job['steps'])
+                   if s.get('uses', '').startswith('reactivecircus/android-emulator-runner@')]
+        self.assertLess(install, min(runners))
+
+    def test_the_pictures_are_uploaded_even_from_a_red_run(self):
+        uploads = [s for s in self.job['steps'] if s.get('uses', '').startswith('actions/upload-artifact@')]
+        self.assertEqual([s['with']['name'] for s in uploads], ['e2e-listing'])
+        self.assertEqual(uploads[0]['if'], 'always()')
+        # manifest.json names files as screens/listing__<lang>__<slot>.png
+        # inside this artifact: the folder must be uploaded under its own name.
+        for part in ('/screens', '/maestro', '/logcat', '/summary.md'):
+            self.assertIn(part, uploads[0]['with']['path'])
+        self.assertGreaterEqual(int(uploads[0]['with']['retention-days']), 14)
 
 
 class RehearsalJobTest(unittest.TestCase):

@@ -79,7 +79,7 @@
 | صور/فيديو القصص | 302 (134) | `docs/stories/` |
 | ألعاب تعليمية | 4 (ar + en) | `mobile/assets/content/games/` |
 | workflows | 14 | `.github/workflows` |
-| رحلات E2E (Maestro) | fresh 14 + upgrade 4 + rehearsal + gallery | `e2e/flows` |
+| رحلات E2E (Maestro) | fresh 14 + upgrade 4 + rehearsal + gallery + listing (لقطات المتجر) | `e2e/flows` |
 | أدوات تنفيذية في الجذر: `ops/tools` / `ops/scripts` / `scripts` | 100 (92) / 19 / 83 | ملفات py/sh في المجلد نفسه (بلا فرعية) |
 | حاويات الإنتاج / volumes / شبكات | 2 / 3 / 2 | compose |
 | متغيرات البيئة المرصودة في الشيفرة | 223 (222؛ الجديد `LATEST_BUILD_NUMBER`) | `07` §8 |
