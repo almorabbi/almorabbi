@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- The old launcher icon (@mipmap/ic_launcher), still used for notifications. -->
     <color name="ic_launcher_background">#01696F</color>
+    <!-- Launch-screen ground = AppPalette.light.background, so the native splash and
+         Flutter's _SplashScreen are one screen. test/native_splash_test.dart. -->
+    <color name="splash_background">#FAF8F5</color>
 </resources>

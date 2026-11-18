@@ -628,7 +628,7 @@
 | الأداة | الغرض |
 |---|---|
 | `mobile/tool/audit_light_surfaces.dart` |  |
-| `docs/brand/tools/brand_build.py` | خط الهوية البصرية — أوامر فرعية `review` · `android <a\|b\|c>` · `store` · `web` · `frame` (argparse) |
+| `docs/brand/tools/brand_build.py` | خط الهوية البصرية — أوامر فرعية `review` · `android <a\|b\|c>` · `splash` · `store` · `web` · `frame` (argparse) |
 | `docs/brand/tools/store_listing.py` | مجموعة قائمة متجر Play — `build --listing … --captures <run_id>=<dir>` و`contact` (argparse) |
 | `mobile/tool/gen_story_narration.py` | «اسمعها من نور» — record a story, one file per page, with sentence timings. |
 | `mobile/tool/real_recitation.py` | Real recitation for a ﴿verse﴾ quoted in a story — no TTS voice ever recites the Qur'an. |

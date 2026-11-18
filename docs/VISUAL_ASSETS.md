@@ -43,6 +43,7 @@ Cairo من `mobile/assets/google_fonts/` من غير ما يسطّب حاجة ع
 ```bash
 python3 docs/brand/tools/brand_build.py review        # لوحات المقارنة
 python3 docs/brand/tools/brand_build.py android b     # أيقونة Android من الاتجاه b (أو a / c)
+python3 docs/brand/tools/brand_build.py splash        # علامة شاشة البداية الأصلية (Android) من logo_mark.svg
 python3 docs/brand/tools/brand_build.py store         # صور المتجر + أمثلة الإطارات
 python3 docs/brand/tools/brand_build.py frame --frame frame_1_rising \
         --shot shot.png --title "يومك مع طفلك" --subtitle "خطوة صغيرة كل يوم" --out out.png
@@ -82,8 +83,8 @@ python3 docs/brand/tools/brand_build.py frame --frame frame_1_rising \
 
 ### فخاخ لازم تعرفها
 - `notification_service.dart` بيستخدم `@mipmap/ic_launcher` (القديمة) — **ماتمسحش الموارد القديمة** من غير ما تغيّره.
-- شاشة البداية (`flutter_native_splash`) لسه بالشعار القديم من `frontend/icons/icon-512.png`، وأيقونات iOS قديمة
-  (iOS لسه مانزلش). دول خطوة بعدين.
+- شاشة البداية الأصلية اتصلحت (القسم الجاي) — `flutter_native_splash` **اتشال** من `pubspec.yaml`؛ ماترجّعوش.
+- أيقونات iOS لسه قديمة (iOS لسه مانزلش).
 - ختم الإنفوجراف المنزَّل **اتصلّح (نوفمبر 2026):** بيترسم من `assets/svg/art/logo_mark.svg` نفسه
   (`features/program/services/infographic_stamp.dart`) و`assets/images/logo.png` القديم اتمسح من التطبيق.
   `test/infographic_stamp_test.dart` بيقرا بكسلات الصورة المختومة وبيمنع رجوع الملف القديم للحزمة.
@@ -100,6 +101,30 @@ python3 docs/brand/tools/brand_build.py frame --frame frame_1_rising \
     يتولّد أو يتنشر من هناك (`reels_pipeline.py --publish`) هيطلع بالشعار القديم لحد ما الكرون يتنقل لـ`almorabbi` أو يتقفل.
 - أيقونة Play (512×512) **مش بتطلع من البناء** — بتترفع باليد في Play Console: `docs/brand/store/play_icon_512.png`
   (مربّع كامل؛ Play بيقصّه بنفسه).
+
+### شاشة البداية الأصلية (Android)
+لحد 2026-11 كل إقلاع بارد كان بيعرض **شعارين ورا بعض**: شاشة Android الأصلية بالشعار القديم (وش طفل في هلال على
+`#01696F` — PNG ولّدها `flutter_native_splash` في يونيو وماحدش ولّدها تاني)، وبعدها شاشة Flutter (`_SplashScreen` في
+`main.dart`) بالعلامة الحالية على الكريمي. دلوقتي الاتنين شاشة واحدة:
+
+| | المصدر |
+|---|---|
+| العلامة | `drawable/splash_mark.xml` — VectorDrawable من `mobile/assets/svg/art/logo_mark.svg` (نفس اللي Flutter بيرسمه)، 96dp في النص (نفس مقاس `ArtImage` في `_SplashScreen`) |
+| الأرضية | `@color/splash_background` في `values/colors.xml` (`#FAF8F5` = `AppPalette.light.background`) و`values-night/colors.xml` (`#0A1210` = `AppPalette.dark.background`) |
+| Android 12+ | `values{,-night}-v31/styles.xml`: `windowSplashScreenAnimatedIcon` + `windowSplashScreenBackground`، من غير `IconBackgroundColor` |
+| قبل 12 | `drawable/launch_background.xml`: لون + نفس الـvector في النص |
+
+- **التوليد:** `brand_build.py splash` — بيرفض يكتب لو الـvector مش مطابق للـSVG بكسل ببكسل، أو لو أي بكسل مرسوم طلع برّه دايرة
+  الـ192dp اللي Android 12 بيقصّ عليها (الأيقونة من غير خلفية بتترسم في 288dp وبيبان منها دايرة 192dp بس)، وبيعدّي
+  الـXML على `aapt2 compile`. العلامة دلوقتي أبعد نقطة فيها 59dp من المركز — هامش كبير.
+- **ليه مش `flutter_native_splash` تاني:** بيطلّع PNG (مصدر 512px اتمطّ لـ288dp على Android 12 فبقى مغبّش)، وكل تشغيلة
+  بتكتب فوق `styles.xml` الأربعة بألوان حرفية — نفس فخ `flutter_launcher_icons`. الـvector حاد على كل كثافة، ملف واحد، وطالع
+  من نفس مصدر العلامة اللي جوّه التطبيق.
+- **ليه أرضية التطبيق مش الزمردي:** عشان التسليم من الشاشة الأصلية لـFlutter مايبانش. التطبيق فاتح افتراضيًا مهما كان وضع
+  النظام، فاللي جهازه داكن هيشوف أرضية `#0A1210` وبعدها الكريمي — بس نفس العلامة في نفس المكان.
+- **الحارس:** `mobile/test/native_splash_test.dart` بيفشل لو رجعت أي PNG للـsplash، أو `flutter_native_splash` رجع
+  `pubspec.yaml`، أو `logo_mark.svg` اتغيّر من غير ما الـvector يتولّد، أو لون الأرضية بعد عن `AppPalette`، أو مقاس العلامة
+  بعد عن `_SplashScreen`، أو `android:icon` رجع لـ`ic_launcher`.
 
 ## ٤) صور المتجر — `docs/brand/store/`
 

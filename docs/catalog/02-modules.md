@@ -1130,6 +1130,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `mobile/test/memory_api_test.dart` | 622 | «المربّي يعرف ابنك» — the wire (MOBILE_API §9–§10) and its parsing. What each group pins: * the requests are the contract's: paths,… |
 | `mobile/test/memory_fakes.dart` | 729 | Test doubles for «المربّي يعرف ابنك» (MOBILE_API §9–§10). [FakeMemoryServer] is a TgClient whose memory, follow-up, plan, proof and deletion… |
 | `mobile/test/missions_surface_test.dart` | 585 | The mission card, the evening confirmation, and the surfaces around them. The backend for all of this shipped complete and tested with nothing in the… |
+| `mobile/test/native_splash_test.dart` | 239 | شاشة Android الأصلية = العلامة الحالية على أرضية التطبيق (كانت الشعار القديم على `#01696F` قبل شاشة Flutter): لا PNG للـsplash ولا `flutter_native_splash` في pubspec، و`splash_mark.xml` يطابق مسارات وألوان `logo_mark.svg` وداخل دائرة Android 12 وبمقاس `_SplashScreen`، و`splash_background` = `AppPalette.light/.dark.background`، و`android:icon` ما زال `ic_launcher_paper` |
 | `mobile/test/nav_observer_test.dart` | 129 | Unit tests for the "lostness" classifier. The interesting logic in TgNavObserver is how it decides what a finished visit *meant*. That decision is a… |
 | `mobile/test/noor_assistant_test.dart` | 487 | «نور والقناديل», phase 4 — «المساعد»: Noor beside every answer (thinking while it is written, calm once done), «سأجرّبها مع …» under the latest… |
 | `mobile/test/noor_face_test.dart` | 340 | NoorFace — the six-state «نور» face, «ورق مقصوص» SVG since 2026-10-14 (drawn in code before, جولة الحرفة item 4). Pins: 1. Every state paints without… |
@@ -1281,7 +1282,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `mobile/assets/animations/` | 2 (json×2) | Lottie مولّدة بـops/tools/gen_lottie.py |
 | `mobile/assets/google_fonts/` | 19 (ttf×16, txt×3) | خطوط Cairo/Tajawal/Amiri Quran مضمّنة (لا تنزيل وقت التشغيل) |
 | `mobile/assets/data/` | 5 (json×5) | quran.json + stories(.en).json + offscreen_activities(.en).json |
-| `mobile/android/ (موارد صور)` | 64 (png×49, xml×14, gitignore×1) | أيقونات/splash Android (mipmap/drawable) |
+| `mobile/android/ (موارد صور)` | 46 (png×30, xml×15, gitignore×1) | أيقونات Android (mipmap/drawable) + شاشة البداية الأصلية: `drawable/splash_mark.xml` (VectorDrawable من `logo_mark.svg` عبر `brand_build.py splash`) على `@color/splash_background` — لا PNG للـsplash منذ 2026-11 |
 | `mobile/ios/ (موارد)` | 46 (png×24, plist×4, swift×3, xcconfig×2 — الـswift الثلاثة لها صفوف فردية في «mobile/ios/» أعلاه) | أصول iOS (الأيقونة/الإطلاق) — iOS غير منشور |
 
 ### mobile/ios/ — شيفرة Swift (iOS غير منشور؛ هيكل Flutter الافتراضي)
@@ -1929,7 +1930,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 
 | الملف | أسطر | الدور |
 |---|---:|---|
-| `docs/brand/tools/brand_build.py` | 777 | خط الهوية: يشتق من SVG المصدر (`docs/brand/icon/icon_*.svg` ذات المجموعات background/foreground/monochrome) أوامر فرعية: `review` (لوحات مقارنة اتجاهات الأيقونة الثلاثة ← `docs/brand/review/`) · `android <a\|b\|c>` (أيقونة تكيّفية VectorDrawable + PNG قديمة تحت أسماء جديدة `ic_launcher_paper*` ولا تمسّ الأيقونة المنشورة) · `store` (feature graphic + إطارات لقطات فارغة + أيقونة Play 512 ← `docs/brand/store/`) · `web` (صورة og:image 1200×630 وأيقونات PWA/favicon ← `frontend/assets/`, `frontend/icons/`) · `frame` (تعبئة إطار بلقطة). يحتاج python3-gi (Rsvg/Pango) وpycairo وPillow؛ الخطوط من `mobile/assets/google_fonts/` عبر fontconfig خاص بالمستخدم (`~/.cache/tg-brand-fontconfig`) |
+| `docs/brand/tools/brand_build.py` | 863 | خط الهوية: يشتق من SVG المصدر (`docs/brand/icon/icon_*.svg` ذات المجموعات background/foreground/monochrome) أوامر فرعية: `review` (لوحات مقارنة اتجاهات الأيقونة الثلاثة ← `docs/brand/review/`) · `android <a\|b\|c>` (أيقونة تكيّفية VectorDrawable + PNG قديمة تحت أسماء جديدة `ic_launcher_paper*` ولا تمسّ الأيقونة المنشورة) · `splash` (علامة شاشة البداية الأصلية `drawable/splash_mark.xml` من `mobile/assets/svg/art/logo_mark.svg`، مع تحقق بكسل-ببكسل ودائرة Android 12 الآمنة) · `store` (feature graphic + إطارات لقطات فارغة + أيقونة Play 512 ← `docs/brand/store/`) · `web` (صورة og:image 1200×630 وأيقونات PWA/favicon ← `frontend/assets/`, `frontend/icons/`) · `frame` (تعبئة إطار بلقطة). يحتاج python3-gi (Rsvg/Pango) وpycairo وPillow؛ الخطوط من `mobile/assets/google_fonts/` عبر fontconfig خاص بالمستخدم (`~/.cache/tg-brand-fontconfig`) |
 | `docs/brand/tools/store_listing.py` | 162 | مجموعة قائمة متجر Play لإصدار: لقطات مؤطَّرة 1080×1920 + `icon.png` 512 + `feature_graphic.png` 1024×500 لكل لغة (`ar/`,`en/`) بأمر `build --listing docs/brand/store/listing_<ver> --captures <run_id>=<dir>`؛ `manifest.json` هو الوصفة (يسجّل sha256 لكل لقطة CI، اللقطات نفسها لا تُكوميت)؛ و`contact` يكتب ورقة مراجعة. التعديل الوحيد على لقطة: قصّ لوحة المفاتيح وملء القص بلون خلفية التطبيق. يستورد `brand_build` |
 
 ### plans/ و prompts/ و scratch/ و reviews/ و notebooklm_sources/ و .well-known و .agents
