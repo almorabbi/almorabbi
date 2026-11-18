@@ -16,7 +16,7 @@ and checked. Output, per language folder (ar/, en/):
   feature_graphic.png   1024x500, 24-bit
 
 `contact` writes one review sheet of everything (both languages + icon + feature
-graphic) — e.g. to scratch/, which git ignores.
+graphic) — e.g. to scratch/, which git ignores. `--width 480` makes it readable.
 
 The only change ever made to a capture is a crop (`keep_top`): the system
 keyboard is cut away and the cut is filled with the app's own background colour
@@ -103,9 +103,9 @@ def build(listing, captures, refresh_hashes=False):
     print('  listing set written to', listing)
 
 
-def contact(listing, out):
-    """One sheet: icon + feature graphic per language, then the 8 screenshots per language."""
-    W = 270
+def contact(listing, out, W=270):
+    """One sheet: icon + feature graphic per language, then the 8 screenshots per language.
+    W is one screenshot's width on the sheet: 270 fits a screen, 480 can be read."""
     font_path = next(bb.FONTS.glob('Cairo*.ttf'), None)
     font = ImageFont.truetype(str(font_path), 22) if font_path else ImageFont.load_default()
     rows = []
@@ -150,12 +150,14 @@ def main():
     c = sub.add_parser('contact')
     c.add_argument('--listing', type=Path, required=True)
     c.add_argument('--out', type=Path, required=True)
+    c.add_argument('--width', type=int, default=270,
+                   help='width of one screenshot on the sheet (default 270; 480 is readable)')
     args = ap.parse_args()
     if args.cmd == 'build':
         caps = dict(x.split('=', 1) for x in args.captures)
         build(args.listing, caps, args.refresh_hashes)
     else:
-        contact(args.listing, args.out)
+        contact(args.listing, args.out, args.width)
 
 
 if __name__ == '__main__':

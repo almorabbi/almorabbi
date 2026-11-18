@@ -249,13 +249,18 @@ KEYS = [
     # «موقف بقرار» (fresh/14, 1.0.81), against the live server.
     "mawqifCardLabel", "mawqifWhatDoYouDo", "mawqifChoicesHint", "mawqifLater",
     "mawqifToEvidence", "mawqifIdeaTitle", "mawqifToStep", "mawqifCommit",
-    # The store-listing shots (e2e/flows/listing/shoot.yaml, job `listing`) —
-    # PR head only. The listing child is added by hand: its snackbar must be
-    # gone before the first picture. The assistant is asked the app's own
-    # suggested question for a 7-9 child, in a new conversation; and Noor's
-    # line marks the story reader's first leaf.
-    "addChildAdded", "chatNewConversation", "chatNewConfirmTitle",
-    "chatContinue", "chatQ_prayRegular", "storyNoorIntro",
+    # The store-listing shots (e2e/flows/listing/, job `listing`) — PR head
+    # only. The listing child is added by hand, with a birth month, and its
+    # snackbar must be gone before the first picture. Today's tip of the day
+    # is scrolled out of the lantern picture by its last line. The assistant
+    # is asked the app's own suggested questions for a 7-9 child, each in a
+    # new conversation, and an answer under the review banner is not
+    # photographed. Noor's line marks the story reader's first leaf.
+    "addChildAdded", "birthMonthChoose", "birthMonthPickerTitle",
+    "birthMonthChange", "coachAskAboutTip",
+    "chatNewConversation", "chatNewConfirmTitle", "chatContinue",
+    "chatQ_study", "chatQ_prayRegular", "chatQ_fears",
+    "safetyGeneralGuidance", "storyNoorIntro",
 ]
 
 # Strings the app hardcodes outside the ARB files.
@@ -281,6 +286,9 @@ LITERALS = {
     # =1 branch of the tasmeeOpenSlips plural, which to_pattern cannot render.
     "lit_tasmeeFatihaWord": ("ٱلۡحَمۡدُ", "ٱلۡحَمۡدُ"),
     "lit_tasmeeOneSpot": ("موضع واحد للمراجعة", "1 spot to review"),
+    # listing/shoot.yaml: the birth-month picker's first chip, as intl names
+    # the month (DateFormat.MMMM — not an ARB string).
+    "lit_monthJanuary": ("يناير", "January"),
     # fresh/14: the first response of the 7-9 situation, content from
     # knowledge_base/curriculum/mawaqif (and its English twin).
     "lit_mawqifChoice": ("أرفع صوتي عليه فورًا وأرسله إلى غرفته.",

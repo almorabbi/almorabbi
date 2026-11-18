@@ -12,7 +12,7 @@
 #                   lineage (mobile-e2e.yml, "Test traffic in PRODUCTION")
 #   <lang>          listing/shoot.yaml — adds the listing child, photographs
 #                   the seven app screens of the Play page, asks the marked
-#                   question first and the app's own suggested one for the
+#                   question first and the app's own suggested ones for the
 #                   picture (the flow's header explains each choice)
 # screens/listing__<lang>__<slot>.png is what docs/brand/store/listing_*/
 # manifest.json points at (docs/brand/tools/store_listing.py frames them).
@@ -22,10 +22,11 @@
 # picture, turns this job red. A listing built from half a set, or from a
 # picture shot.yaml refused, is how the 2.0.0 page came to show a test name.
 #
-# The status bar is put in SystemUI's demo mode for the pictures: full signal,
-# no notification icons (the emulator's «Connect to open Wi-Fi network» and
-# «Serial console enabled» otherwise sit in every capture). The clock keeps
-# the device's own time, so it agrees with the greeting on Today.
+# The status bar is put in SystemUI's demo mode for the pictures: Wi-Fi and
+# battery, no mobile icon, no notification icons (the emulator's «Connect to
+# open Wi-Fi network» and «Serial console enabled» otherwise sit in every
+# capture). The clock keeps the device's own time, so it agrees with the
+# greeting on Today.
 set -uo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -69,7 +70,9 @@ demo_on() {
   demo -e command clock -e hhmm "$(adb shell date +%H%M 2>/dev/null | tr -d '\r')"
   demo -e command notifications -e visible false
   demo -e command network -e wifi show -e level 4 -e fully true
-  demo -e command network -e mobile show -e datatype none -e level 4 -e fully true
+  # Shown, the mobile icon ignores the light status bar: a white «3G» ghost
+  # beside the dark Wi-Fi on every light screen (first run of this job).
+  demo -e command network -e mobile hide
   demo -e command battery -e level 100 -e plugged false
 }
 demo_off() { demo -e command exit; }

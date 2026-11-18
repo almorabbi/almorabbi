@@ -1,19 +1,12 @@
-# One store-listing capture, and the three things a picture on the Play page
-# must never carry (docs/brand/store/listing_2.0.0 carried all of them):
-#   · this run's test marker — the onboarding child's name (CHILD_NAME, built
-#     into the CI APK so production can leave the install out of its reports)
-#     or the marked question. The pictures show the listing child instead
-#     (shoot.yaml), so a marker on screen means the wrong child is active;
-#   · the other language as running text — an English paragraph in the Arabic
-#     set (the assistant answers in the QUESTION's language, and the marked
-#     question is English), or an Arabic sentence in the English one. A word,
-#     a name or the basmala is fine; a sentence is not: 80 Latin characters in
-#     a row (letters, spaces, punctuation), or 30 Arabic ones. LISTING_QUOTES=
-#     true lets the English assistant shot quote an ayah or a hadith in Arabic;
-#   · a dialog over the screen (2.0.1's review prompt) or the error widget.
+# One store-listing capture. guards.js says what a picture on the Play page
+# must never carry — the run's test marker, the review banner, the other
+# language as running text — and each is refused here by name, so a red pass
+# says which. Also: 2.0.1's review prompt is answered «لاحقًا» first, and the
+# error widget is not a picture either.
 # A capture that fails here fails the flow: no picture is better than that one.
 # Env: SHOT (the slot id of docs/brand/store/listing_*/manifest.json), UI_LANG,
-#      CHILD_NAME, LISTING_QUOTES (default false). Requires l10n.js.
+#      LISTING_QUOTES (default false; true lets the English assistant answer
+#      quote Arabic). Requires l10n.js and guards.js (shoot.yaml runs both).
 appId: com.alsaba.almorabbi
 ---
 - waitForAnimationToEnd:
@@ -25,16 +18,12 @@ appId: com.alsaba.almorabbi
       - tapOn: '${output.t.reviewPromptLater}'
       - waitForAnimationToEnd:
           timeout: 2000
-- assertNotVisible: '(?s).*(?:${CHILD_NAME}|E2E test).*'
+- assertNotVisible: '${output.listingMarker}'
+- assertNotVisible: '${output.listingBanner}'
 - assertNotVisible: '${output.c.lit_errorWidget}'
 - runFlow:
     when:
-      true: "${UI_LANG != 'en'}"
+      true: "${UI_LANG != 'en' || typeof LISTING_QUOTES === 'undefined' || LISTING_QUOTES != 'true'}"
     commands:
-      - assertNotVisible: '(?s).*[A-Za-z][A-Za-z ,.;:!?\x27\x22()—–-]{79,}.*'
-- runFlow:
-    when:
-      true: "${UI_LANG == 'en' && (typeof LISTING_QUOTES === 'undefined' || LISTING_QUOTES != 'true')}"
-    commands:
-      - assertNotVisible: '(?s).*[ء-ي][ء-يً-ْ ،؛؟.:!«»()\x27\x22—–-]{29,}.*'
+      - assertNotVisible: '${output.listingOtherLanguage}'
 - takeScreenshot: '${SHOT}'
