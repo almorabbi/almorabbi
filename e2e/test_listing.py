@@ -19,6 +19,8 @@ import e2e_tool as t  # noqa: E402
 
 FLOW = E2E / 'flows/listing/shoot.yaml'
 SHOT = E2E / 'flows/listing/shot.yaml'
+ASK = E2E / 'flows/listing/ask.yaml'
+GUARDS = E2E / 'flows/listing/guards.js'
 PNG = b'\x89PNG\r\n\x1a\n' + b'\0' * 30_000
 
 
@@ -192,6 +194,11 @@ def _walk(node, found):
     return found
 
 
+def _flow_file(step):
+    flow = step.get('runFlow') if isinstance(step, dict) else None
+    return flow.get('file') if isinstance(flow, dict) else None
+
+
 class ListingFlowTest(unittest.TestCase):
     """What the Play page showed for 2.0.0 and must not show again: a test
     name, a Latin name in the Arabic set, an English answer in the Arabic set."""
@@ -201,25 +208,35 @@ class ListingFlowTest(unittest.TestCase):
         cls.text = FLOW.read_text(encoding='utf-8')
         cls.config, cls.steps = list(yaml.safe_load_all(cls.text))
         cls.commands = _walk(cls.steps, [])
-        cls.shot_text = SHOT.read_text(encoding='utf-8')
-        cls.shot_steps = list(yaml.safe_load_all(cls.shot_text))[-1]
+        cls.shot_steps = list(yaml.safe_load_all(SHOT.read_text(encoding='utf-8')))[-1]
+        cls.ask_steps = list(yaml.safe_load_all(ASK.read_text(encoding='utf-8')))[-1]
+        cls.flat = [json.dumps(s, ensure_ascii=False) for s in cls.steps]
 
     def shots(self):
-        return [c['runFlow']['env']['SHOT'] for c in self.commands
-                if isinstance(c.get('runFlow'), dict) and c['runFlow'].get('file') == 'shot.yaml']
+        return [s['runFlow']['env']['SHOT'] for s in self.steps if _flow_file(s) == 'shot.yaml']
+
+    def index(self, step):
+        return self.flat.index(json.dumps(step, ensure_ascii=False))
 
     def test_the_slots_are_the_tools_and_each_is_taken_once(self):
         self.assertEqual(tuple(self.shots()), t.LISTING_SHOTS)
 
     def test_every_picture_goes_through_the_guard(self):
-        self.assertFalse([c for c in self.commands if 'takeScreenshot' in c],
-                         'shoot.yaml takes no screenshot of its own — shot.yaml does')
+        for name, steps in (('shoot.yaml', self.steps), ('ask.yaml', self.ask_steps)):
+            self.assertFalse([c for c in _walk(steps, []) if 'takeScreenshot' in c],
+                             f'{name} takes no screenshot of its own — shot.yaml does')
         takes = [i for i, s in enumerate(self.shot_steps) if isinstance(s, dict) and 'takeScreenshot' in s]
         self.assertEqual(len(takes), 1)
-        self.assertEqual(self.shot_steps[takes[0]]['takeScreenshot'], '${SHOT}')
-        refused = [s['assertNotVisible'] for s in self.shot_steps[:takes[0]]
-                   if isinstance(s, dict) and 'assertNotVisible' in s]
-        self.assertIn('(?s).*(?:${CHILD_NAME}|E2E test).*', refused)
+        self.assertEqual(takes[0], len(self.shot_steps) - 1, 'nothing after the capture')
+        self.assertEqual(self.shot_steps[-1]['takeScreenshot'], '${SHOT}')
+        refused = [c['assertNotVisible'] for c in _walk(self.shot_steps, []) if 'assertNotVisible' in c]
+        for guard in ('${output.listingMarker}', '${output.listingBanner}', '${output.listingOtherLanguage}'):
+            self.assertIn(guard, refused)
+        # The guards are defined before anything is photographed.
+        scripts = [s['runScript'] for s in self.steps if isinstance(s, dict) and 'runScript' in s]
+        self.assertEqual(scripts, ['../common/l10n.js', 'guards.js'])
+        self.assertLess(self.index({'runScript': 'guards.js'}), self.flat.index(
+            next(f for f in self.flat if '"file": "shot.yaml"' in f)))
 
     def test_the_listing_child_has_a_real_name_in_each_script(self):
         from_backend = (ROOT / 'backend/app/core/real_traffic.py').read_text(encoding='utf-8')
@@ -235,95 +252,172 @@ class ListingFlowTest(unittest.TestCase):
         typed = [c['inputText'] for c in self.commands if 'inputText' in c]
         # Two things are typed: the child's name, then the marked question.
         self.assertEqual(typed, ['${output.listingChild}', '${QUESTION}'])
+        self.assertFalse([c for c in _walk(self.ask_steps, []) if 'inputText' in c])
 
     def test_the_typed_name_is_proven_on_screen_before_the_child_is_saved(self):
-        order = [next(iter(s)) + ':' + json.dumps(s, ensure_ascii=False) for s in self.steps if isinstance(s, dict)]
-        typed = next(i for i, s in enumerate(order) if s.startswith('inputText:') and 'listingChild' in s)
-        proof = order[typed + 1]
-        self.assertTrue(proof.startswith('extendedWaitUntil:'), proof)
-        self.assertIn('"visible": "${output.listingChild}"', proof)
+        typed = self.index({'inputText': '${output.listingChild}'})
+        proof = self.steps[typed + 1]['extendedWaitUntil']
+        self.assertEqual(proof['visible'], '${output.listingChild}')
         self.assertNotIn('optional', proof)
-        save = next(i for i, s in enumerate(order) if s == 'tapOn:' + json.dumps({'tapOn': '${output.t.add}'}))
-        self.assertLess(typed + 1, save)
+        self.assertEqual(self.steps[typed + 2], {'tapOn': '${output.t.add}'})
+
+    def test_the_child_is_given_an_age_and_a_birth_month_before_the_keyboard_opens(self):
+        # 7-9 for the whole calendar year: January, eight years back. Nothing
+        # on Today or the road then asks the family for a birth month.
+        self.assertIn("output.listingBirthYear = '' + (new Date().getFullYear() - 8)", self.text)
+        order = [self.index({'tapOn': '${output.t.ageGroup7to9}'}),
+                 self.index({'tapOn': '${output.t.birthMonthChoose}'}),
+                 self.index({'tapOn': '${output.listingBirthYear}'}),
+                 self.index({'tapOn': '${output.t.lit_monthJanuary}'}),
+                 self.index({'tapOn': '${output.t.save}'}),
+                 self.index({'inputText': '${output.listingChild}'})]
+        self.assertEqual(order, sorted(order))
+        saved = self.steps[self.index({'tapOn': '${output.t.save}'}) + 1]['extendedWaitUntil']
+        self.assertEqual(saved['visible'], '${output.t.birthMonthChange}')
+        self.assertNotIn('optional', saved)
+
+    def test_the_tip_of_the_day_is_scrolled_out_of_the_lantern_picture(self):
+        lanterns = next(i for i, s in enumerate(self.steps)
+                        if _flow_file(s) == 'shot.yaml' and s['runFlow']['env']['SHOT'] == 'week_lanterns')
+        loop = self.steps[lanterns - 2]['repeat']
+        self.assertEqual(loop['while'], {'visible': '${output.c.coachAskAboutTip}'})
+        self.assertIn('swipe', loop['commands'][0])
+        still_there = self.steps[lanterns - 1]['extendedWaitUntil']
+        self.assertEqual(still_there['visible'], '${output.c.weekLanternsTitle}')
+        self.assertNotIn('optional', still_there)
 
     def test_the_marked_question_is_asked_first_and_never_photographed(self):
-        flat = [json.dumps(s, ensure_ascii=False) for s in self.steps]
-        marked = next(i for i, s in enumerate(flat) if '"inputText": "${QUESTION}"' in s)
-        new_chat = next(i for i, s in enumerate(flat) if s == json.dumps({'tapOn': '${output.t.chatNewConversation}'}))
-        suggested = next(i for i, s in enumerate(flat) if s == json.dumps({'tapOn': '${output.t.chatQ_prayRegular}'}))
-        self.assertLess(marked, new_chat)
-        self.assertLess(new_chat, suggested)
-        shots = [i for i, s in enumerate(flat) if '"file": "shot.yaml"' in s]
-        self.assertFalse([i for i in shots if marked < i < suggested],
-                         'no picture while the marked conversation is on screen')
-        self.assertEqual(sum(1 for i in shots if i > suggested), 1)
-        # The assistant is the last leg: two answers from production can cost
-        # no other picture.
+        marked = self.index({'inputText': '${QUESTION}'})
+        asks = [i for i, s in enumerate(self.steps) if _flow_file(s) == 'ask.yaml']
+        shots = [i for i, s in enumerate(self.steps) if _flow_file(s) == 'shot.yaml']
+        self.assertEqual(len(asks), 3)
+        self.assertLess(marked, asks[0])
+        self.assertFalse([i for i in shots if marked < i < asks[-1]],
+                         'no picture while the marked conversation can be on screen')
+        self.assertEqual([i for i in shots if i > marked], [asks[-1] + 1])
+        # The assistant is the last leg: answers from production can cost no
+        # other picture.
         self.assertEqual(self.shots()[-1], 'assistant')
-        self.assertGreater(marked, max(i for i in shots if i < suggested))
+        self.assertGreater(marked, max(i for i in shots if i < asks[0]))
+        # Every suggestion opens a NEW conversation and checks the marked one
+        # has left the screen before it sends anything.
+        self.assertEqual(self.ask_steps[0], {'tapOn': '${output.t.chatNewConversation}'})
+        gone = self.ask_steps.index({'assertNotVisible': '(?s).*E2E test.*'})
+        self.assertLess(gone, self.ask_steps.index({'tapOn': '${CHIP}'}))
 
-    def test_nothing_is_typed_for_the_question_in_the_picture(self):
-        # The app's own suggestion, from the ARB of the interface's language.
+    def test_another_suggestion_is_asked_only_instead_of_a_bad_answer(self):
+        asks = [s['runFlow'] for s in self.steps if _flow_file(s) == 'ask.yaml']
+        self.assertNotIn('when', asks[0])
+        for flow in asks[1:]:
+            self.assertEqual(flow['when'], {'visible': '${output.listingBadAnswer}'})
+        chips = [re.fullmatch(r'\$\{output\.t\.(chatQ_\w+)\}', f['env']['CHIP']).group(1) for f in asks]
+        self.assertEqual(len(set(chips)), 3)
+        for flow, chip in zip(asks, chips):
+            self.assertEqual(flow['env']['CHIP_IN'], '${output.c.%s}' % chip)
+        # They are exactly what a 7-9 child's empty chat offers, in the ARB of
+        # the interface's language — nothing is typed for the picture.
+        chat = (ROOT / 'mobile/lib/screens/chat_screen.dart').read_text(encoding='utf-8')
+        offered = re.search(r"'7-9': \[([^\]]*)\]", chat).group(1)
+        self.assertEqual(sorted(re.findall(r"'(chatQ_\w+)'", offered)), sorted(chips))
+        self.assertIn("tapOn: '${output.t.ageGroup7to9}'", self.text)
         ar = json.loads((ROOT / 'mobile/lib/l10n/app_ar.arb').read_text(encoding='utf-8'))
         en = json.loads((ROOT / 'mobile/lib/l10n/app_en.arb').read_text(encoding='utf-8'))
-        self.assertRegex(ar['chatQ_prayRegular'], r'[ء-ي]')
-        self.assertNotRegex(ar['chatQ_prayRegular'], r'[A-Za-z]')
-        self.assertNotRegex(en['chatQ_prayRegular'], r'[ء-ي]')
-        # …and it is one of the three a 7-9 child's empty chat offers.
-        chat = (ROOT / 'mobile/lib/screens/chat_screen.dart').read_text(encoding='utf-8')
-        self.assertRegex(chat, r"'7-9': \[[^\]]*'chatQ_prayRegular'")
-        self.assertIn("tapOn: '${output.t.ageGroup7to9}'", self.text)
+        for chip in chips:
+            self.assertRegex(ar[chip], r'[ء-ي]')
+            self.assertNotRegex(ar[chip], r'[A-Za-z]')
+            self.assertNotRegex(en[chip], r'[ء-ي]')
+
+    def test_only_the_assistant_may_quote_arabic_in_the_english_set(self):
+        allowed = [s['runFlow']['env']['SHOT'] for s in self.steps
+                   if _flow_file(s) == 'shot.yaml' and s['runFlow']['env'].get('LISTING_QUOTES') == 'true']
+        self.assertEqual(allowed, ['assistant'])
+        when = next(c['runFlow']['when'][True] for c in self.shot_steps
+                    if isinstance(c.get('runFlow'), dict) and 'commands' in c['runFlow']
+                    and c['runFlow']['commands'][0].get('assertNotVisible') == '${output.listingOtherLanguage}')
+        # Lifted for the English set only: the Arabic set is always checked.
+        self.assertEqual(when, "${UI_LANG != 'en' || typeof LISTING_QUOTES === 'undefined' || LISTING_QUOTES != 'true'}")
 
 
+@unittest.skipUnless(shutil.which('node'), 'guards.js is evaluated with node (present on the CI runner)')
 class ListingGuardPatternsTest(unittest.TestCase):
-    """shot.yaml's two language guards, on the texts they exist for. Maestro
-    matches an element's whole text (java.util.regex); Python's `re` reads
-    these patterns the same way."""
+    """guards.js itself, run as Maestro runs it (after l10n.js, with UI_LANG and
+    CHILD_NAME), on the texts it exists for. Maestro matches an element's whole
+    text with java.util.regex; Python's `re` reads these patterns the same way
+    once the inline (?s) is given as a flag."""
 
     @classmethod
     def setUpClass(cls):
-        steps = list(yaml.safe_load_all(SHOT.read_text(encoding='utf-8')))[-1]
-        guards = {}
-        for s in steps:
-            flow = s.get('runFlow') if isinstance(s, dict) else None
-            if isinstance(flow, dict) and 'commands' in flow:
-                for c in flow['commands']:
-                    if 'assertNotVisible' in c:
-                        # PyYAML reads the `true:` key of Maestro's `when` as a boolean.
-                        guards[flow['when'][True]] = re.compile(c['assertNotVisible'])
-        cls.arabic_set = next(v for k, v in guards.items() if "UI_LANG != 'en'" in k)
-        cls.english_set = next(v for k, v in guards.items() if "UI_LANG == 'en'" in k)
-        cls.english_when = next(k for k in guards if "UI_LANG == 'en'" in k)
+        ar = json.loads((ROOT / 'mobile/lib/l10n/app_ar.arb').read_text(encoding='utf-8'))
+        en = json.loads((ROOT / 'mobile/lib/l10n/app_en.arb').read_text(encoding='utf-8'))
+        maps, _ = t.build_l10n(ar, en)
+        cls.guards = {lang: cls.evaluate(lang, maps) for lang in ('ar', 'en')}
+
+    @staticmethod
+    def evaluate(lang, maps):
+        script = ('var UI_LANG = %s, CHILD_NAME = "E2E-Maestro"; var output = %s;\n%s\n'
+                  'console.log(JSON.stringify(output));'
+                  % (json.dumps(lang), json.dumps({'c': maps['c'], 't': maps['t']}),
+                     GUARDS.read_text(encoding='utf-8')))
+        out = subprocess.run(['node', '-e', script], capture_output=True, text=True, check=True).stdout
+        found = json.loads(out)
+        return {k: re.compile(v.replace('(?s)', ''), re.S) for k, v in found.items() if k.startswith('listing')}
+
+    def test_the_marker_is_refused_in_both_sets(self):
+        for lang in ('ar', 'en'):
+            marker = self.guards[lang]['listingMarker']
+            for text in ('خطة هذا الأسبوع لـE2E-Maestro جاهزة', "This week's plan for E2E-Maestro", 'E2E-Maestro',
+                         'E2E test how can I teach my child to be honest'):
+                self.assertTrue(marker.fullmatch(text), text)
+            for text in ('خطة سلمى هذا الأسبوع', "Salma's road", 'سلمى', 'Salma'):
+                self.assertIsNone(marker.fullmatch(text), text)
+
+    def test_the_review_banner_is_refused_in_both_sets(self):
+        for lang, text in (('ar', 'هذا التوجيه عام — من الأفضل مراجعة مختص بشري.'),
+                           ('en', 'This guidance is general — It is best to consult a human specialist.')):
+            self.assertTrue(self.guards[lang]['listingBanner'].fullmatch(text))
+            self.assertTrue(self.guards[lang]['listingBadAnswer'].fullmatch(text))
+        self.assertIsNone(self.guards['ar']['listingBanner'].fullmatch('تعويد طفلك على الصلاة بانتظام'))
 
     def test_an_english_paragraph_is_refused_in_the_arabic_set(self):
+        other = self.guards['ar']['listingOtherLanguage']
         # ar/phone_08_assistant.png of listing_2.0.0, as Play showed it.
-        answer = ("specialist's assessment, as it may signal deeper stress rather than a standalone behavior.\n"
-                  'العادات والمهارات الحياتية')
-        self.assertTrue(self.arabic_set.fullmatch(answer))
-        self.assertTrue(self.arabic_set.fullmatch(
+        self.assertTrue(other.fullmatch(
+            "specialist's assessment, as it may signal deeper stress rather than a standalone behavior."))
+        self.assertTrue(other.fullmatch(
             'To teach a 7–9-year-old honesty, the most effective lever is making truth-telling feel safer than hiding'))
 
-    def test_arabic_with_a_latin_word_or_name_is_fine(self):
-        for text in ('خطة سلمى هذا الأسبوع', 'مقال تنموي\nCDC, Positive Parenting Tips for Preschoolers (3-5 years)',
-                     'كيف أعوّد طفلي على الصلاة بانتظام؟', 'Android System notification: Connect to open Wi‑Fi network',
-                     'Battery charging, 100 percent.', 'درب Salma'):
-            self.assertIsNone(self.arabic_set.fullmatch(text), text)
+    def test_a_latin_word_inside_arabic_text_is_refused_in_the_arabic_set(self):
+        other, bad = self.guards['ar']['listingOtherLanguage'], self.guards['ar']['listingBadAnswer']
+        # listing_2.0.0's ar/phone_02 and phone_01, and the first answer job
+        # `listing` ever photographed (run 44283403696).
+        for text in ('درب Salma', 'مواعيد Salma القادمة', 'خطة هذا الأسبوع لـE2E-Maestro جاهزة',
+                     'فطفلك في السابعة إلى التاسعة يحتاج أن يرى الصلاة happening أمامه كل يوم'):
+            self.assertTrue(other.fullmatch(text), text)
+            self.assertTrue(bad.fullmatch(text), text)
+
+    def test_arabic_and_the_system_bar_are_fine_in_the_arabic_set(self):
+        other = self.guards['ar']['listingOtherLanguage']
+        for text in ('خطة سلمى هذا الأسبوع', 'كيف أعوّد طفلي على الصلاة بانتظام؟', 'رمضان بعد 82 يومًا', '3G',
+                     'في «تزكية الأخلاق: الصدق والرحمة والمسؤولية (7-9 سنوات)»: أتممتم 1 من 4',
+                     'Android System notification: Connect to open Wi‑Fi network', 'Battery charging, 100 percent.',
+                     'Wifi signal full.', '10:29'):
+            self.assertIsNone(other.fullmatch(text), text)
 
     def test_an_arabic_sentence_is_refused_in_the_english_set(self):
-        self.assertTrue(self.english_set.fullmatch("Today's tip\nطفلك يتململ في الصلاة؟ هذا طبيعي في عمره. صلّ أمامه واجعله يعدّ الركعات"))
-        self.assertTrue(self.english_set.fullmatch('خطة هذا الأسبوع لسلمى جاهزة أدناه: تحدٍّ واحد وثلاث خطوات صغيرة.'))
+        other = self.guards['en']['listingOtherLanguage']
+        self.assertTrue(other.fullmatch("Today's tip\nطفلك يتململ في الصلاة؟ هذا طبيعي في عمره. صلّ أمامه واجعله يعدّ الركعات"))
+        self.assertTrue(other.fullmatch('خطة هذا الأسبوع لسلمى جاهزة أدناه: تحدٍّ واحد وثلاث خطوات صغيرة.'))
 
     def test_english_with_an_arabic_word_or_letter_is_fine(self):
+        other = self.guards['en']['listingOtherLanguage']
         for text in ("Salma's road", 'العربية', 'أ', 'Seeds of Aqeedah: The First Introduction to Allah',
                      'Say «بسم الله» before eating', 'Begin with بسم الله الرحمن الرحيم, then eat'):
-            self.assertIsNone(self.english_set.fullmatch(text), text)
+            self.assertIsNone(other.fullmatch(text), text)
 
-    def test_only_the_assistant_may_quote_arabic_in_the_english_set(self):
-        self.assertIn("LISTING_QUOTES != 'true'", self.english_when)
-        flow = FLOW.read_text(encoding='utf-8')
-        self.assertEqual(flow.count('LISTING_QUOTES'), 1)
-        tail = flow.split('LISTING_QUOTES', 1)[0].rsplit('- runFlow:', 1)[1]
-        self.assertIn('SHOT: assistant', tail)
+    def test_an_english_answer_is_retried_for_the_banner_only(self):
+        bad = self.guards['en']['listingBadAnswer']
+        self.assertIsNone(bad.fullmatch('Abu Hurayrah narrated: «مروا أولادكم بالصلاة وهم أبناء سبع سنين» — begin at seven.'))
+        self.assertTrue(bad.fullmatch('This guidance is general — It is best to consult a human specialist.'))
 
 
 if __name__ == '__main__':

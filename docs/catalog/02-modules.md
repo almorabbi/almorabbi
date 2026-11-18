@@ -1641,7 +1641,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | الملف | أسطر | الدور |
 |---|---:|---|
 | `e2e/.gitignore` |  | استبعاد مخرجات E2E |
-| `e2e/e2e_tool.py` | 1690 | Helpers for the emulator E2E gate (.github/workflows/mobile-e2e.yml). Subcommands, all stdlib-only so they run on a bare GitHub runner: |
+| `e2e/e2e_tool.py` | 1698 | Helpers for the emulator E2E gate (.github/workflows/mobile-e2e.yml). Subcommands, all stdlib-only so they run on a bare GitHub runner: |
 | `e2e/flows/common/assert_today.yaml` | 32 | Today renders its primary blocks (origin/main layout, 1.0.67+112): |
 | `e2e/flows/common/enter_pin.yaml` | 8 | Four digits on the child-mode keypad (child_mode_lock_screen.dart). |
 | `e2e/flows/common/exit_child_mode.yaml` | 29 | Exit child mode cleanly back to Today using the PIN. |
@@ -1670,8 +1670,10 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `e2e/flows/fresh/14_mawqif.yaml` | 78 | Checkpoint 14 — «موقف بقرار» (1.0.81), against the live server: the card on Today → a response → the hadith → the step → «الليلة»; then the card leaves. |
 | `e2e/flows/gallery/shoot.yaml` | 894 | One pass of the before/after gallery (Phase 0 of docs/NOOR_WAL_QANADIL_PLAN.md). |
 | `e2e/flows/gallery/today_shot.yaml` | 23 | The gallery's own Today capture: common/assert_today.yaml's contract, but |
-| `e2e/flows/listing/shoot.yaml` | 308 | The store-listing shots: the seven app screens of the Play page, one pass per language, with a listing child added beside the marked one and the app's own suggested question (job `listing`). |
-| `e2e/flows/listing/shot.yaml` | 40 | One store-listing capture, and what a picture on the Play page must never carry: the test marker, the other language as running text, a dialog. |
+| `e2e/flows/listing/ask.yaml` | 61 | One of the app's own suggested questions, asked in a NEW conversation, and the whole answer waited for; ends with the question at the top of the screen. |
+| `e2e/flows/listing/guards.js` | 39 | What a picture on the Play page must never carry (the test marker, the review banner, the other language as running text) — one definition for shot.yaml and shoot.yaml. |
+| `e2e/flows/listing/shoot.yaml` | 337 | The store-listing shots: the seven app screens of the Play page, one pass per language, with a listing child (real name, birth month) added beside the marked one and the app's own suggested questions (job `listing`). |
+| `e2e/flows/listing/shot.yaml` | 29 | One store-listing capture; refuses, by name, each thing guards.js says a picture on the Play page must never carry. |
 | `e2e/flows/rehearsal/expect.yaml` | 23 | Wait for PATTERN: a hard expectation on the PR head (TAG == 'after'), a |
 | `e2e/flows/rehearsal/sound_after.yaml` | 15 | Sound × recitation, part 2: after the ticks the reader is still reciting — |
 | `e2e/flows/rehearsal/sound_start.yaml` | 49 | Sound × recitation, part 1 (plan phase 2 gate: «الأصوات مابتوقفش التلاوة»). |
@@ -1684,12 +1686,12 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `e2e/flows/upgrade/04_child_kept.yaml` | 11 | Upgrade test — the upgraded app still has the child the baseline created. |
 | `e2e/install_system_image.sh` | 68 | Installs the emulator system image before reactivecircus/android-emulator-runner |
 | `e2e/logcat_allowlist.txt` | 4 | ملف نصي |
-| `e2e/listing.sh` | 166 | The store-listing shots, on the emulator of job `listing`: two fresh installs of the PR head (ar, en), status bar in demo mode, red when a slot has no picture. Artifact `e2e-listing`. |
+| `e2e/listing.sh` | 169 | The store-listing shots, on the emulator of job `listing`: two fresh installs of the PR head (ar, en), status bar in demo mode, red when a slot has no picture. Artifact `e2e-listing`. |
 | `e2e/rehearsal.sh` | 304 | The Ramadan rehearsal (gate G2) and the sound × recitation check, on the |
 | `e2e/run.sh` | 271 | Runs the E2E journeys on the emulator that reactivecircus/android-emulator-runner |
 | `e2e/test_e2e_tool.py` | 1499 | Tests for e2e/e2e_tool.py — run: python3 -m unittest discover -s e2e -v |
 | `e2e/test_install_system_image.py` | 95 | install_system_image.sh against a stub sdkmanager: corrupt downloads are retried from scratch, and only a complete image counts as installed. |
-| `e2e/test_listing.py` | 330 | The store-listing lineage: the runner with fake device/CLI boundaries, the slot check, and what the flow may and may not put in a picture. No builds. |
+| `e2e/test_listing.py` | 424 | The store-listing lineage: the runner with fake device/CLI boundaries, the slot check, and what the flow may and may not put in a picture. No builds. |
 | `e2e/test_rehearsal.py` | 174 | Exercise the real rehearsal runner (e2e/rehearsal.sh) with fake device, CLI and tool boundaries; no builds, no emulator, no server. |
 | `e2e/test_run.py` | 138 | Exercise the real shell runner with fake device/CLI boundaries; no builds. |
 | `e2e/test_workflow.py` | 594 | Parse the workflow and execute its final verdict without builds or devices. |
@@ -1935,7 +1937,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | الملف | أسطر | الدور |
 |---|---:|---|
 | `docs/brand/tools/brand_build.py` | 863 | خط الهوية: يشتق من SVG المصدر (`docs/brand/icon/icon_*.svg` ذات المجموعات background/foreground/monochrome) أوامر فرعية: `review` (لوحات مقارنة اتجاهات الأيقونة الثلاثة ← `docs/brand/review/`) · `android <a\|b\|c>` (أيقونة تكيّفية VectorDrawable + PNG قديمة تحت أسماء جديدة `ic_launcher_paper*` ولا تمسّ الأيقونة المنشورة) · `splash` (علامة شاشة البداية الأصلية `drawable/splash_mark.xml` من `mobile/assets/svg/art/logo_mark.svg`، مع تحقق بكسل-ببكسل ودائرة Android 12 الآمنة) · `store` (feature graphic + إطارات لقطات فارغة + أيقونة Play 512 ← `docs/brand/store/`) · `web` (صورة og:image 1200×630 وأيقونات PWA/favicon ← `frontend/assets/`, `frontend/icons/`) · `frame` (تعبئة إطار بلقطة). يحتاج python3-gi (Rsvg/Pango) وpycairo وPillow؛ الخطوط من `mobile/assets/google_fonts/` عبر fontconfig خاص بالمستخدم (`~/.cache/tg-brand-fontconfig`) |
-| `docs/brand/tools/store_listing.py` | 162 | مجموعة قائمة متجر Play لإصدار: لقطات مؤطَّرة 1080×1920 + `icon.png` 512 + `feature_graphic.png` 1024×500 لكل لغة (`ar/`,`en/`) بأمر `build --listing docs/brand/store/listing_<ver> --captures <run_id>=<dir>`؛ `manifest.json` هو الوصفة (يسجّل sha256 لكل لقطة CI، اللقطات نفسها لا تُكوميت)؛ و`contact` يكتب ورقة مراجعة. التعديل الوحيد على لقطة: قصّ لوحة المفاتيح وملء القص بلون خلفية التطبيق. يستورد `brand_build` |
+| `docs/brand/tools/store_listing.py` | 164 | مجموعة قائمة متجر Play لإصدار: لقطات مؤطَّرة 1080×1920 + `icon.png` 512 + `feature_graphic.png` 1024×500 لكل لغة (`ar/`,`en/`) بأمر `build --listing docs/brand/store/listing_<ver> --captures <run_id>=<dir>`؛ `manifest.json` هو الوصفة (يسجّل sha256 لكل لقطة CI، اللقطات نفسها لا تُكوميت)؛ و`contact` يكتب ورقة مراجعة. التعديل الوحيد على لقطة: قصّ لوحة المفاتيح وملء القص بلون خلفية التطبيق. يستورد `brand_build` |
 
 ### plans/ و prompts/ و scratch/ و reviews/ و notebooklm_sources/ و .well-known و .agents
 

@@ -1,0 +1,61 @@
+# One of the app's own suggested questions, asked in a NEW conversation, and
+# the whole answer waited for. Ends with the question at the top of the screen
+# and its answer under it — the picture, if the answer is one for a picture.
+# The empty state offers three questions for the active child's age
+# (chat_screen.dart, _EmptyState); they come from the ARB in the interface's
+# language, so nothing is typed and the answer is in that language.
+# Env: CHIP (the suggestion, whole text), CHIP_IN (the same, contained).
+# Requires l10n.js; the Assistant tab is open, no keyboard up.
+appId: com.alsaba.almorabbi
+---
+- tapOn: '${output.t.chatNewConversation}'
+- extendedWaitUntil:
+    visible: '${output.t.chatNewConfirmTitle}'
+    timeout: 15000
+- tapOn: '${output.t.chatContinue}'
+- extendedWaitUntil:
+    visible: '${CHIP}'
+    timeout: 30000
+# The marked conversation is gone from the screen before anything else is sent.
+- assertNotVisible: '(?s).*E2E test.*'
+- tapOn: '${CHIP}'
+# While the reply streams, the send button turns into "stop reply".
+- extendedWaitUntil:
+    visible: '${output.t.chatStop}'
+    timeout: 20000
+    optional: true
+- extendedWaitUntil:
+    notVisible: '${output.t.chatStop}'
+    timeout: 180000
+# A 5xx is the server's moment (common/server_retry.yaml).
+- runFlow:
+    file: ../common/server_retry.yaml
+    env:
+      READY: '${output.t.feedbackHelpful}'
+      SHOT: assistant_server_error_retry
+- extendedWaitUntil:
+    notVisible: '${output.t.chatStop}'
+    timeout: 180000
+# The feedback row renders only under a completed reply.
+- scrollUntilVisible:
+    element:
+      text: '${output.t.feedbackHelpful}'
+    direction: DOWN
+    timeout: 20000
+- assertNotVisible: '${output.t.chatRetry}'
+# Back up to the question, then to the very top: the search stops as soon as
+# the bubble's lower edge shows under the app bar (the English pass was
+# photographed that way once), and a new conversation has nothing above it.
+- scrollUntilVisible:
+    element:
+      text: '${CHIP_IN}'
+    direction: UP
+    timeout: 30000
+- swipe:
+    start: '50%,35%'
+    end: '50%,75%'
+- swipe:
+    start: '50%,35%'
+    end: '50%,75%'
+- waitForAnimationToEnd:
+    timeout: 3000

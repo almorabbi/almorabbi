@@ -16,19 +16,24 @@
 #     is the active child in every picture. Maestro types Arabic since 2.7
 #     (its own IME, mobile-dev-inc/maestro#3211); the name is asserted on
 #     screen right after typing, so a build of Maestro that cannot type it
-#     stops here instead of photographing the wrong child;
-#   · the assistant is asked the app's OWN suggested question for the child's
-#     age (chatQ_prayRegular, from the ARB in this language — nothing typed),
-#     so question and answer are in the interface's language by construction.
+#     stops here instead of photographing the wrong child. The child is given
+#     a birth month too: without one Noor's line on Today, a row under it and
+#     the road's first card all ask for it, and a page of prompts is not what
+#     a family that uses the app sees;
+#   · the assistant is asked the app's OWN suggested questions for the child's
+#     age (the ARB's chatQ_* in this language — nothing typed), so question
+#     and answer are in the interface's language by construction. Up to three
+#     are tried, each in a new conversation, until an answer is one for a
+#     picture (guards.js: no review banner, no word of the other language).
 #     The marked question (QUESTION, «E2E test …») is still asked FIRST, in a
 #     conversation of its own that is never photographed: app/core/
 #     real_traffic.py finds an install's twin device by that message alone.
-# shot.yaml refuses a capture that shows the marker, the other language as
-# running text, or a dialog — every picture goes through it.
+# shot.yaml refuses a capture that shows the marker, the review banner, the
+# other language as running text, or a dialog — every picture goes through it.
 #
 # Order: Today is photographed first (a first-day Today, before the lesson
 # changes its card), the lesson lights the week's first lantern for the
-# lantern row and the road, and the assistant is last — two answers from
+# lantern row and the road, and the assistant is last — answers from
 # production, the slowest and least certain leg, can then cost no other shot.
 # SHOT names are the slot ids of docs/brand/store/listing_*/manifest.json
 # (e2e_tool.py LISTING_SHOTS; test_listing.py holds the three together).
@@ -41,13 +46,18 @@ env:
   LISTING_CHILD_EN: 'Salma'
 ---
 - runScript: ../common/l10n.js
+- runScript: guards.js
 - evalScript: "${output.listingChild = UI_LANG == 'en' ? LISTING_CHILD_EN : LISTING_CHILD_AR}"
+# Born in January eight years ago: 7-9 on any day of this year. The picker
+# opens on five years ago (birth_month_field.dart).
+- evalScript: "${output.listingBirthYear = '' + (new Date().getFullYear() - 8)}"
+- evalScript: "${output.listingPickerYear = '' + (new Date().getFullYear() - 5)}"
 - runFlow: ../common/home.yaml
 # ── the child in the pictures ────────────────────────────────────────────
 # Settings → «تبديل الطفل النشط» → «إضافة طفل جديد». Creating needs no device
-# proof (a rename does — see common/mark_child.yaml), and the new child is the
-# active one as soon as it exists. 7-9, like the onboarding child: the band
-# with habits, missions, the corner and the suggested question asked below.
+# proof (a rename does — see common/mark_child.yaml), so everything is given
+# on this one form; the new child is the active one as soon as it exists. 7-9, like the onboarding child: the band with habits, missions, the
+# corner and the suggested questions asked below.
 - runFlow: ../common/open_settings.yaml
 - scrollUntilVisible:
     element:
@@ -62,6 +72,26 @@ env:
 - extendedWaitUntil:
     visible: '${output.t.addChildNameHint}'
     timeout: 20000
+# Age and birth month first, while no keyboard covers the form.
+- tapOn: '${output.t.ageGroup7to9}'
+- tapOn: '${output.t.birthMonthChoose}'
+- extendedWaitUntil:
+    visible: '${output.t.birthMonthPickerTitle}'
+    timeout: 15000
+# The year is a dropdown showing its value; its menu lists the years.
+- tapOn: '(?s)(?:.*\s)?${output.listingPickerYear}(?:\s.*)?'
+- scrollUntilVisible:
+    element:
+      text: '${output.listingBirthYear}'
+    direction: DOWN
+    timeout: 15000
+- tapOn: '${output.listingBirthYear}'
+- tapOn: '${output.t.lit_monthJanuary}'
+- tapOn: '${output.t.save}'
+# «تغيير» stands beside the month only once one is set.
+- extendedWaitUntil:
+    visible: '${output.t.birthMonthChange}'
+    timeout: 15000
 - runFlow:
     file: ../common/tap_field_end.yaml
     env:
@@ -71,7 +101,6 @@ env:
 - extendedWaitUntil:
     visible: '${output.listingChild}'
     timeout: 15000
-- tapOn: '${output.t.ageGroup7to9}'
 # The app-bar «إضافة»: the bottom button sits under the keyboard.
 - tapOn: '${output.t.add}'
 # Back on «إدارة الأطفال», the new row carries the name (and «نشط»).
@@ -136,7 +165,25 @@ env:
       text: '${output.c.weekLanternsTitle}'
     direction: DOWN
     timeout: 30000
-    centerElement: true
+# «نصيحة اليوم» sits right above the lanterns and is the server's text of
+# the day — on the first run it told the parent to see a doctor, in the
+# Arabic set only. A picture should not depend on the day: short drags until
+# the tip's last line («اسأل المربّي عن هذه») has left the screen. The lantern
+# row is the next card but one, so it is still there.
+- repeat:
+    times: 14
+    while:
+      visible: '${output.c.coachAskAboutTip}'
+    commands:
+      - swipe:
+          start: '50%,58%'
+          end: '50%,52%'
+          duration: 800
+      - waitForAnimationToEnd:
+          timeout: 1500
+- extendedWaitUntil:
+    visible: '${output.c.weekLanternsTitle}'
+    timeout: 10000
 - runFlow:
     file: shot.yaml
     env:
@@ -153,9 +200,8 @@ env:
 - extendedWaitUntil:
     visible: '${output.c.familyRoadHorizon}'
     timeout: 30000
-- extendedWaitUntil:
-    visible: '${output.c.familyRoadLit}'
-    timeout: 20000
+- waitForAnimationToEnd:
+    timeout: 3000
 - runFlow:
     file: shot.yaml
     env:
@@ -261,46 +307,29 @@ env:
 # comes back without it.
 - runFlow: ../common/home.yaml
 - tapOn: '${output.lead.navAssistant}'
-# A new conversation: the empty state returns, with the suggested questions
-# for the active child's age, in the interface's language.
-- tapOn: '${output.t.chatNewConversation}'
-- extendedWaitUntil:
-    visible: '${output.t.chatNewConfirmTitle}'
-    timeout: 15000
-- tapOn: '${output.t.chatContinue}'
-- extendedWaitUntil:
-    visible: '${output.t.chatQ_prayRegular}'
-    timeout: 30000
-- assertNotVisible: '(?s).*E2E test.*'
-- tapOn: '${output.t.chatQ_prayRegular}'
-- extendedWaitUntil:
-    visible: '${output.t.chatStop}'
-    timeout: 20000
-    optional: true
-- extendedWaitUntil:
-    notVisible: '${output.t.chatStop}'
-    timeout: 180000
+# The three questions a 7-9 child's empty chat offers, in the order least
+# likely to draw the review banner (it follows the answer's domain: study is
+# upbringing, prayer is worship, fear is development — policies.v1.yaml).
+# Each is asked only while the answer on screen is not one for a picture.
 - runFlow:
-    file: ../common/server_retry.yaml
+    file: ask.yaml
     env:
-      READY: '${output.t.feedbackHelpful}'
-      SHOT: assistant_server_error_retry
-- extendedWaitUntil:
-    notVisible: '${output.t.chatStop}'
-    timeout: 180000
-# The feedback row renders only under a completed reply; then back up to the
-# question, so the picture reads question first, answer under it.
-- scrollUntilVisible:
-    element:
-      text: '${output.t.feedbackHelpful}'
-    direction: DOWN
-    timeout: 20000
-- assertNotVisible: '${output.t.chatRetry}'
-- scrollUntilVisible:
-    element:
-      text: '${output.c.chatQ_prayRegular}'
-    direction: UP
-    timeout: 30000
+      CHIP: '${output.t.chatQ_study}'
+      CHIP_IN: '${output.c.chatQ_study}'
+- runFlow:
+    when:
+      visible: '${output.listingBadAnswer}'
+    file: ask.yaml
+    env:
+      CHIP: '${output.t.chatQ_prayRegular}'
+      CHIP_IN: '${output.c.chatQ_prayRegular}'
+- runFlow:
+    when:
+      visible: '${output.listingBadAnswer}'
+    file: ask.yaml
+    env:
+      CHIP: '${output.t.chatQ_fears}'
+      CHIP_IN: '${output.c.chatQ_fears}'
 - runFlow:
     file: shot.yaml
     env:
