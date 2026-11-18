@@ -1541,8 +1541,8 @@ abstract class AppLocalizations {
   /// No description provided for @chatTurns.
   ///
   /// In ar, this message translates to:
-  /// **'{count} سؤال'**
-  String chatTurns(Object count);
+  /// **'{count, plural, =0{لا أسئلة} =1{سؤال واحد} =2{سؤالان} few{{count} أسئلة} many{{count} سؤالًا} other{{count} سؤال}}'**
+  String chatTurns(num count);
 
   /// No description provided for @chatOfflineBanner.
   ///
@@ -1619,8 +1619,8 @@ abstract class AppLocalizations {
   /// No description provided for @chatTurnsCount.
   ///
   /// In ar, this message translates to:
-  /// **'{count} سؤال'**
-  String chatTurnsCount(Object count);
+  /// **'{count, plural, =0{لا أسئلة} =1{سؤال واحد} =2{سؤالان} few{{count} أسئلة} many{{count} سؤالًا} other{{count} سؤال}}'**
+  String chatTurnsCount(num count);
 
   /// No description provided for @chatNewConversation.
   ///
@@ -1643,8 +1643,8 @@ abstract class AppLocalizations {
   /// No description provided for @chatSessionMessages.
   ///
   /// In ar, this message translates to:
-  /// **'{count} رسالة'**
-  String chatSessionMessages(Object count);
+  /// **'{count, plural, =0{لا رسائل} =1{رسالة واحدة} =2{رسالتان} few{{count} رسائل} many{{count} رسالة} other{{count} رسالة}}'**
+  String chatSessionMessages(num count);
 
   /// No description provided for @chatEmptyWelcome.
   ///
