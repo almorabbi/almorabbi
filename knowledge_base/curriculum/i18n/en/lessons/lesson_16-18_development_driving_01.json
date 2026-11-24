@@ -1,6 +1,6 @@
 {
   "id": "lesson_16-18_development_driving_01",
-  "path_id": "path_16-18_development_driving",
+  "path_id": "path_16-18_development_adult_readiness",
   "title": "Safe-Driving Covenant: Trust and Gradual Independence",
   "age_group": "16-18",
   "domain": "development",
@@ -10,8 +10,8 @@
   ],
   "summary": "A written driving covenant between you and your teenage son that sets clear rules: curfew times, permitted number of passengers, prohibition of phone use while driving, and restrictions during bad weather, with known consequences for violations. The National Highway Traffic Safety Administration (NHTSA) recommends this because parents are the most capable party to enforce these restrictions consistently at this stage. Your son’s first car is a natural sign of independence, not rebellion that warrants excessive concern. The American \"Checkpoints\" program suggests lifting restrictions gradually, not all at once: it starts with prohibiting night driving and carrying friends, then eases restrictions as he gains experience, protecting him without making him feel a lack of trust.",
   "try_this": "This week: Write a one-page driving covenant with your son that specifies curfews, number of passengers, and phone use, then sign it together. Agree on one restriction you will lift gradually over the next month as he gains experience.",
-  "order": 1,
-  "estimated_minutes": 8,
+  "order": 5,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "Do you have written and clear driving rules, or verbal rules that change based on mood?",
     "Do you treat his driving as a step toward independence deserving of gradual trust, or as a constant source of worry?"

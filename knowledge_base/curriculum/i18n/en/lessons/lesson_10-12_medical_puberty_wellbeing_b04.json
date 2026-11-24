@@ -6,13 +6,12 @@
   "domain": "medical",
   "unit_ids": [
     "3cc4fbe0-25f9-4366-b9a6-3893795bec75",
-    "seed-shy-79",
-    "0b45c31c-5888-442b-a64f-d80e9b140e7f"
+    "gap-med-vaginal-spotting-01"
   ],
   "summary": "As the onset of puberty approaches, the child becomes acutely aware of their body and compares it to others and to what they see on screens. Your words about their body—and your own—shape their relationship with themselves for years to come. Avoid commenting on weight or appearance, and focus instead on what their body *does* (runs, carries, embraces) rather than how it looks. Gently correct unrealistic images in advertisements and social media. Make your home a place where no one is criticized for their appearance. A child who feels their body is respected and accepted builds a confidence that protects them from eating disorders and anxiety later on.",
   "try_this": "This week: Praise your child once for what their body *did*, not how it looks (‘Wow at your strength when you carried that!’), and be mindful not to criticize your own appearance in front of them. Notice the effect this has on how they talk about themselves.",
   "order": 4,
-  "estimated_minutes": 42,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "How does your child talk about their body, and where did this image come from?",
     "What phrase about appearance (for them or yourself) will you stop saying starting today?"

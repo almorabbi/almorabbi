@@ -5,13 +5,13 @@
   "age_group": "0-3",
   "domain": "islamic_parenting",
   "unit_ids": [
-    "fa6e2d20-4ddc-401f-be85-f3e1e24c1091",
-    "isl-8f891c3d"
+    "isl-8f891c3d",
+    "isl-1ba05ed7"
   ],
   "summary": "The moment of birth is not merely a medical event—it is a moment of covenant. Among the Prophet's ﷺ guidance in welcoming a newborn is that he named a newborn, did tahneek for him, and made du'a for barakah for him (Sahih al-Bukhari 5467), so welcome your child with congratulations, gratitude, and du'a. Many jurists consider the adhan in the newborn's ear recommended, though hadith scholars differ over the authenticity of its hadith; as for the iqamah in the left ear, its hadith is weak and not established. Naming may be done on the day of birth or on the seventh day: choose a name that carries a beautiful meaning and servitude to Allah. The 'aqiqah on the seventh day is an expression of gratitude and a public announcement of the child’s arrival in the community; if the seventh day passes, jurists hold different views on its time after that, among them slaughtering it on the fourteenth or twenty-first day, and the hadith reported on this is disputed, so ask a scholar you trust and do not burden yourself with worry. These sunnan are not mere formalities—they are the foundation of the child’s Islamic identity from their very first day.",
   "try_this": "Today: Write your child a short note about the day they were born: their name, its meaning and why you chose it, and the du'a you made for them, and keep it for them to read when they grow up.",
   "order": 1,
-  "estimated_minutes": 28,
+  "estimated_minutes": 4,
   "reflection_prompts": [
     "What name did you choose for your child, and what is its meaning? Do you know the story behind this meaning?",
     "Did you perform all the sunnan of welcoming the newborn? If something was missed, can you complete it now?"

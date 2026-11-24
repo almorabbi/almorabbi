@@ -15,7 +15,7 @@
   "summary": "DMDD: Severe verbal/behavioral anger outbursts >3 times weekly, irritable/angry mood nearly daily, for >12 months, in at least two settings (home/school). It is not defiance—it is a mood disorder requiring treatment. Approach: Accurate diagnosis (ruling out bipolar/ADHD/depression), family behavioral therapy, emotion-regulation skills, and medication if needed. Parents: Do not blame; seek a specialist’s diagnosis.",
   "try_this": "This week: Record the anger outbursts (when, trigger, duration, intensity 1-10)—a week’s data will help the doctor make an accurate diagnosis.",
   "order": 2,
-  "estimated_minutes": 10,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "How many outbursts were recorded this week?",
     "What are the recurring triggers?"

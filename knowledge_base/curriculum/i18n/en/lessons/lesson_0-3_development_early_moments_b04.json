@@ -5,14 +5,13 @@
   "age_group": "0-3",
   "domain": "development",
   "unit_ids": [
-    "dev-97d2f1d2",
     "dev-8fdf563b",
-    "2b2d1fdd-1a30-40f3-aa2b-0dbadea2ce2c"
+    "e724817e-4bd5-4314-9d27-e560b2ca41ef"
   ],
   "summary": "Before your child utters a word, shared reading builds their linguistic brain. What matters is not that they understand the story, but that they hear your voice, see the pictures, and connect the book with warmth and closeness. At this age, the book is a toy: it is held, flipped, and sometimes chewed—and this is normal. Name what is in the pictures with simple words, imitate animal sounds, and let your child turn the pages. Daily minutes of shared reading foretell a greater linguistic wealth and deeper attachment, and it is one of your strongest early investments.",
   "try_this": "This week: Choose one illustrated book and read it with your child for two minutes daily before the nap or bedtime. Point to a picture and name it, imitate a sound, and let them turn the page themselves.",
   "order": 4,
-  "estimated_minutes": 29,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "Which picture or sound captured your child’s attention the most, and how can you build on it?",
     "How can you transform reading from an 'educational task' into a moment of closeness and comfort for both of you?"

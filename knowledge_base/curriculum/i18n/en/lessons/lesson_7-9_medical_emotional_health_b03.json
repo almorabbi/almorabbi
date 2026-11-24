@@ -6,13 +6,12 @@
   "domain": "medical",
   "unit_ids": [
     "seed-fear-79",
-    "seed-fear-46",
     "b25fcddc-6765-4e00-9d40-1ac90f97f3b4"
   ],
   "summary": "At this age, your child’s fears shift from monsters to more realistic anxieties: fear of failure, of tests, of being separated from you, of illness. Listen to their fears without mockery, and help them name and express them in words. Correct their exaggerated thoughts with simple, reassuring information, and teach them tools for calming down (deep breathing, breaking the problem into parts, thinking of the worst-case scenario and then its real likelihood). Encourage them to face what scares them gradually, and praise their courage. Maintain a routine and sufficient sleep to reduce anxiety. If the anxiety starts disrupting their sleep, studies, or daily life for an extended period, consult a specialist.",
   "try_this": "This week: When your child feels afraid, listen and name their fear, then teach them one deep breath and one realistic, reassuring thought. Notice whether they start using the tool on their own.",
   "order": 3,
-  "estimated_minutes": 5,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "What real-world fears have started to appear in your child at this age?",
     "How do you reassure them without belittling their fear or overprotecting them from it?"

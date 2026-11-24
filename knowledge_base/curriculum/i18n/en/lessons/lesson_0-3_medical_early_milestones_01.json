@@ -6,14 +6,13 @@
   "domain": "medical",
   "unit_ids": [
     "med-c7a1bbf6",
-    "70ef8432-d97f-490a-acab-8df9e57f8652",
     "c88f868b-4f40-45eb-b357-f8867b2c327d",
     "med-1eb2b059"
   ],
   "summary": "At two months old, your baby begins their journey of social communication: they calm down when you speak to them or carry them, smile when you smile at them, make sounds other than crying, follow your face with their eyes, and lift their head while on their stomach. These are the first signs of secure attachment and the development of the social brain. Talking to your baby, reading to them, and singing are among the strongest stimulants for linguistic and emotional growth during this critical period.",
   "try_this": "This week: Dedicate 5 minutes daily for face-to-face communication with your baby—stand 20-30 cm away, smile, speak gently, and wait for their response. Observe: Do they calm down? Do they smile? Do they make sounds? Do not pressure; just be present and watch.",
   "order": 1,
-  "estimated_minutes": 31,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "When did you notice your baby’s first genuine smile (not gas)? How did you feel?",
     "Do you find yourself speaking to your baby in a different tone than when you speak to adults?"

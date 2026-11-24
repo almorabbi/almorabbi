@@ -298,9 +298,11 @@ def get_path(path_id: str, lang: Optional[str] = None) -> Optional[dict]:
 
 
 def get_lessons_for_path(path_id: str, lang: Optional[str] = None) -> list[dict]:
-    """Return published lessons for a path, ordered by `order` ascending."""
+    """Return published lessons for a path, following path.lesson_ids as single source of truth."""
+    path = _paths_cache.get(path_id)
+    order_index = {lid: i for i, lid in enumerate((path or {}).get("lesson_ids") or [])}
     out = [l for l in _lessons_cache.values() if l.get("path_id") == path_id]
-    out.sort(key=lambda l: l.get("order", 999))
+    out.sort(key=lambda l: (order_index.get(l.get("id", ""), 9999), l.get("order", 999)))
     return [_translate(l, _i18n_lessons_cache, lang) for l in out]
 
 

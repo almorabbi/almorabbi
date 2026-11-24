@@ -14,7 +14,7 @@
   "summary": "Algorithms feed you what you like, not what benefits you. Teach him: (1) Who is the source? (2) Is there another source that confirms it? (3) Does it provoke anger/fear? (4) Search on trusted sites. Activate SafeSearch and reliable sources for him.",
   "try_this": "Choose a trending news item—search together: the primary source, expert opinions, facts vs. opinions. Teach him: \"If it’s too unbelievable to be true, it’s most likely false.\"",
   "order": 3,
-  "estimated_minutes": 23,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "What was the last news item you both verified together?",
     "Which trusted sites did you rely on?"

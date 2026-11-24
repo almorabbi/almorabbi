@@ -200,6 +200,74 @@ PROGRAM_SCHEMAS = {
 }
 
 
+def check_integrity() -> list[tuple[str, str, str]]:
+    """Blocking Curriculum 2.0 invariants: zero orphans, sequential path orders, zero dead/cross-age unit_ids."""
+    problems: list[tuple[str, str, str]] = []
+    paths_ar = {k: v for k, v in _load_dir(CURRICULUM / "paths").items()
+                if v.get("is_published", True)}
+    lessons_ar = {k: v for k, v in _load_dir(CURRICULUM / "lessons").items()
+                  if v.get("is_published", True)}
+    units_dir = ROOT / "knowledge_base" / "units"
+    unit_ages: dict[str, str] = {}
+    if units_dir.exists():
+        for uf in units_dir.glob("*.json"):
+            try:
+                u = json.loads(uf.read_text(encoding="utf-8"))
+                if u.get("id"):
+                    unit_ages[u["id"]] = u.get("age_group") or ""
+            except json.JSONDecodeError:
+                continue
+
+    age_equiv = {"0-3": {"0-3", "prenatal-1"}, "prenatal-1": {"0-3", "prenatal-1"}}
+
+    def _age_ok(la: str, ua: str) -> bool:
+        if not ua or ua in ("unspecified", "all"):
+            return True
+        return la == ua or ua in age_equiv.get(la, set())
+
+    # 1. Every published path must have sequential 1..N lesson orders matching lesson_ids
+    listed_lessons: set[str] = set()
+    for pid, p in sorted(paths_ar.items()):
+        lids = p.get("lesson_ids") or []
+        for idx, lid in enumerate(lids, start=1):
+            listed_lessons.add(lid)
+            lesson = lessons_ar.get(lid)
+            if lesson is not None and lesson.get("order") != idx:
+                problems.append((
+                    f"paths/{pid}",
+                    f"order:{lid}",
+                    f"order={lesson.get('order')} بينما موقعه في lesson_ids هو {idx}",
+                ))
+
+    # 2. Zero published orphan lessons & zero dead/cross-age unit_ids
+    for lid, lesson in sorted(lessons_ar.items()):
+        pid = lesson.get("path_id")
+        if pid not in paths_ar or lid not in listed_lessons:
+            problems.append((f"lessons/{lid}", "path_id", f"درس منشور يتيم خارج المسارات ({pid})"))
+        la = lesson.get("age_group") or ""
+        for uid in lesson.get("unit_ids") or []:
+            if uid not in unit_ages:
+                problems.append((f"lessons/{lid}", "unit_ids", f"إحالة وحدة ميتة غير موجودة: {uid}"))
+            elif not _age_ok(la, unit_ages[uid]):
+                problems.append((
+                    f"lessons/{lid}",
+                    "unit_ids",
+                    f"إحالة وحدة لعمر مخالف ({uid}: {unit_ages[uid]} ≠ {la})",
+                ))
+
+    # 3. Zero dead unit_ids in daily_tips
+    for tf in sorted((CURRICULUM / "daily_tips").glob("*.json")):
+        try:
+            t = json.loads(tf.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        uid = t.get("unit_id")
+        if uid and uid not in unit_ages:
+            problems.append((f"daily_tips/{tf.name}", "unit_id", f"إحالة وحدة ميتة في النصيحة: {uid}"))
+
+    return problems
+
+
 def main() -> int:
     print("=" * 66)
     print("  CURRICULUM SCHEMA CHECK — المنهج يطابق مخطّطه؟")
@@ -261,6 +329,10 @@ def main() -> int:
     durations = check_durations()
     print(f"  وعود الطول (مسار/متجر/واجهة) المخالفة للمحتوى: {len(durations)}")
     problems += durations
+
+    integrity = check_integrity()
+    print(f"  سلامة المسارات والإحالات (أيتام/ترتيب/وحدات ميتة): {len(integrity)}")
+    problems += integrity
 
     if problems:
         print(f"\n  ❌ {len(problems)} مخالفة:\n")

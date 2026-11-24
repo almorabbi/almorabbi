@@ -8,7 +8,7 @@
   "summary": "At this age, a child needs 10 to 13 hours of sleep daily (including naps). Lack of sleep affects mood, attention, and immunity. Establish a regular bedtime, avoid screens an hour before it, and make pre-sleep time calm: a warm bath and a story. If sleep difficulties persist despite the routine, consult a doctor.",
   "try_this": "This week: Set one consistent bedtime every night and create a calm routine half an hour before it, without screens.",
   "order": 1,
-  "estimated_minutes": 6,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "How many hours does your child actually sleep?",
     "Does he have a fixed sleep routine?"

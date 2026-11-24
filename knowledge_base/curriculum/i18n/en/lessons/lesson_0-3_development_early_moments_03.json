@@ -5,12 +5,13 @@
   "age_group": "0-3",
   "domain": "development",
   "unit_ids": [
-    "2b2d1fdd-1a30-40f3-aa2b-0dbadea2ce2c"
+    "6970f436-c954-45ac-ab96-30a798cf523f",
+    "d0d2dc99-520c-4ade-a1ee-9715df0c2dfd"
   ],
   "summary": "Vygotsky: Every new skill a child passes through is within the 'Zone of Proximal Development' (ZPD) — the distance between what he can do alone and what he can do with the help of an adult. Your role is the 'scaffolding': breaking the skill into steps, modelling, hinting, encouraging, then gradually withdrawing. Example: putting on shoes — start with you putting them on while he watches → you hold the shoe while he puts his foot in → you hold the heel while he pushes → he puts them on alone while you encourage. At two years ('Your child at 2 years'): he imitates adults, follows simple instructions, and begins symbolic imagination. Gradual progression = mastery without frustration.",
   "try_this": "This week: Choose one skill your child is trying to master (eating with a spoon, putting on socks, stacking blocks). Apply it in steps: 1) You do it while he watches. 2) You start, and he completes it. 3) He does it while you watch and encourage. 4) He does it alone. Record: How many days did each step take? When did you withdraw completely?",
   "order": 3,
-  "estimated_minutes": 32,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "When was the last time you intervened quickly and prevented your child from trying? How can you correct that?",
     "What skill surprised you when your child mastered it alone? What did you learn from that?"

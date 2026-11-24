@@ -5,14 +5,13 @@
   "age_group": "2-3",
   "domain": "cyber",
   "unit_ids": [
-    "seed-screen-46",
-    "cyb-c1d58bd3",
-    "cyb-236a4b5e"
+    "cyb-aap-media-young-minds-2016",
+    "cyb-aap-digital-ecosystems-2026"
   ],
   "summary": "After the age of two, the guidelines recommend that screen time should not exceed one hour daily of high-quality content, and less is preferable. At this age, the brain rapidly builds its connections through movement, touch, and real interaction, and excessive screen time competes with this development. The practical rule: short screen time, in your company, with calm content free of advertisements, and never before sleep or during meals. The child does not 'need' the screen, but they need ready alternatives: building blocks, colors, going out to the garden. The more you prepare the alternative, the easier it is to regulate screen time without a battle.",
   "try_this": "This week: Set a clear limit for screen time (half an hour, for example), and prepare a 'fun alternatives' box (blocks/colors/book) for your child to turn to instead of the screen. Notice which alternative they prefer.",
   "order": 1,
-  "estimated_minutes": 45,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "When does your child usually ask for the screen (boredom/fatigue/hunger), and what alternative suits each situation?",
     "How does your own use of the phone in front of them affect their desire for the screen?"

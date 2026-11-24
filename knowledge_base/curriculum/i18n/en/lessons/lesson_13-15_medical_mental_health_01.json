@@ -17,7 +17,7 @@
   "summary": "Teenage depression: sadness/emptiness > two weeks, loss of enjoyment, fatigue, changes in sleep/appetite, poor concentration, negative thoughts. Anxiety: persistent tension, expecting disaster, avoiding situations. It is not a \"mood\" or \"weakness of iman\" — it is a chemical/psychological imbalance. Treatment: Cognitive Behavioral Therapy (CBT) + medication if needed + family support. Parents: listen without judgment, reassure: \"It is an illness like any other, and it has a cure.\"",
   "try_this": "This week: the simplified PHQ-9 (mood) and GAD-7 (anxiety) questionnaires — complete it with your child confidentially. If the score is >10: schedule an appointment with a pediatrician or mental health specialist.",
   "order": 1,
-  "estimated_minutes": 15,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "What was the highest score on the scale?",
     "Did your child feel at ease after the conversation?"

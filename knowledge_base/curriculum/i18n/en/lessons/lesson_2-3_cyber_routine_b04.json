@@ -5,14 +5,13 @@
   "age_group": "2-3",
   "domain": "cyber",
   "unit_ids": [
-    "b37a6dcf-3b48-41df-9837-4460b5f64179",
-    "seed-screen-79",
-    "seed-screen-46"
+    "seed-sleep-23",
+    "cyb-aap-media-young-minds-2016"
   ],
   "summary": "Blue light from screens and stimulating content delay a child’s sleep and reduce its depth, while sleep at this age is the fuel for brain growth. The golden rule: no screens in the hour before bedtime, and no screen in the bedroom ever. Replace them with a calm, consistent routine: a warm bath, a short story, dim lighting, and your soothing voice. This routine sends the child’s brain the signal, 'time for quiet has come.' A well-rested child is calmer during the day and more capable of learning, and the cost is simple: one screen-free hour every evening.",
   "try_this": "This week: Make the last hour before bedtime a 'screen-free zone' for the whole family, and replace it with a consistent routine (bath + story + dim light). Observe its effect on how quickly your child falls asleep.",
   "order": 4,
-  "estimated_minutes": 5,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "What does your evening look like now, and what single change can protect the pre-bedtime hour?",
     "Is your child’s bedroom truly free of screens and distractions?"

@@ -5,12 +5,13 @@
   "age_group": "prenatal-1",
   "domain": "infant_pregnancy",
   "unit_ids": [
-    "70ef8432-d97f-490a-acab-8df9e57f8652"
+    "gap-med-pregnancy-bonding-01",
+    "isl-b630e2ad"
   ],
   "summary": "Parenting and emotional bonding begin months before birth. By week 18, fetal hearing develops, allowing the baby to recognize maternal heartbeats and parental voices. Reciting Quran and speaking gently provide natural security. The husband's emotional support is vital to soothe hormonal mood shifts and maternal anxiety, as the mother's psychological safety directly reflects on the stability of the fetus's nervous system and its healthy growth.",
   "try_this": "This week: Spend 10 minutes every evening in a quiet setting—have the father place his hand gently on the mother's belly and recite Quran softly or speak loving words to the baby by their chosen name. Observe fetal movements and responses to sound.",
   "order": 1,
-  "estimated_minutes": 12,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "What emotions arise when imagining your baby listening to your voice from within the womb?",
     "How can the husband provide tangible support to reduce maternal stress this week?"

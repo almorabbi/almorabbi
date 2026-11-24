@@ -9,19 +9,13 @@
     "med-b88b7ad3",
     "med-c974d9d8",
     "med-e64897f2",
-    "med-f9bbdeb5",
     "med-cd46475d",
-    "med-00fa7863",
-    "med-77626be2",
-    "med-b207a9dd",
-    "med-c974d9d8",
-    "med-ca2a9d86",
-    "med-ec6f874a"
+    "med-00fa7863"
   ],
   "summary": "A practical tool for parents: (1) Weekly mood scale (1-10 chart for mood/energy/sleep) — a decline for more than two weeks = visit a specialist. (2) Personal safety plan: their warning signs, calming strategies, people they trust, and your country's emergency number and mental-health helpline. (3) Emergency: suicidal thoughts, a specific plan, available means, previous self-harm — call your country's emergency number immediately or go to the nearest emergency department, and do not leave them alone.",
   "try_this": "This week: Create a pocket-sized \"safety card\" together — write: 3 warning signs, 3 calming strategies, 3 people your child trusts, and your country's emergency number. Keep it in a wallet or on the phone.",
   "order": 4,
-  "estimated_minutes": 10,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "Was the card easy to understand?",
     "Did your son feel safe having it?"
