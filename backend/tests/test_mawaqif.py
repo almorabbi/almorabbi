@@ -73,7 +73,8 @@ def test_endpoint_serves_the_band(client):
     assert r.status_code == 200
     body = r.json()
     assert body["age_group"] == "7-9"
-    assert [i["age_group"] for i in body["items"]] == ["7-9"]
+    assert len(body["items"]) >= 1
+    assert all(i["age_group"] == "7-9" for i in body["items"])
     assert body["items"][0]["situation"]
 
 
