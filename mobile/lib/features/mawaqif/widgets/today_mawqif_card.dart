@@ -66,7 +66,9 @@ class _TodayMawqifCardState extends ConsumerState<TodayMawqifCard> {
       if (!mounted || childId != widget.childId) return;
       final store = MawaqifStore(prefs);
       final items = [for (final j in raw) ?Mawqif.fromJson(j)];
-      final next = nextMawqif(items, store.doneFor(childId));
+      final next = store.doneToday(childId)
+          ? null
+          : nextMawqif(items, store.doneFor(childId));
       setState(() {
         _store = store;
         _next = next;
