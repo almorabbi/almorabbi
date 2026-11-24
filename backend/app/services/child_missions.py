@@ -146,7 +146,8 @@ def _choose(conn: sqlite3.Connection, child_id: int,
 
 def today_mission(device_id: str, child_id: int, age_band: str,
                   local_date: str, lang: Optional[str] = None,
-                  assign: bool = True) -> Optional[dict[str, Any]]:
+                  assign: bool = True,
+                  preferred_mission_id: Optional[str] = None) -> Optional[dict[str, Any]]:
     """The child's card for today, assigning one on first ask.
 
     `assign=False` reads without minting: it returns the card if one was
@@ -181,7 +182,15 @@ def today_mission(device_id: str, child_id: int, age_band: str,
         if not assign:
             return None
 
-        chosen = _choose(conn, child_id, missions, local_date)
+        chosen = None
+        if preferred_mission_id:
+            pref = preferred_mission_id.strip()
+            for m in missions:
+                if m.get("id") == pref:
+                    chosen = m
+                    break
+        if chosen is None:
+            chosen = _choose(conn, child_id, missions, local_date)
 
         conn.execute(
             "INSERT OR IGNORE INTO child_missions (device_id, child_id, "
@@ -288,7 +297,8 @@ def claim(child_id: int, mission_id: int) -> dict[str, Any]:
 #     already has today's card the preview IS that row, and the tap settles it.
 
 def preview_today(child_id: int, age_band: str, local_date: str,
-                  lang: Optional[str] = None) -> Optional[dict[str, Any]]:
+                  lang: Optional[str] = None,
+                  preferred_mission_id: Optional[str] = None) -> Optional[dict[str, Any]]:
     """Today's card for the parent to read — the real row if there is one,
     else the card the child *would* get, without writing anything."""
     missions = load_missions(age_band, lang)
@@ -303,7 +313,15 @@ def preview_today(child_id: int, age_band: str, local_date: str,
         ).fetchone()
         if existing is not None:
             return _row_to_card(existing, missions)
-        chosen = _choose(conn, child_id, missions, local_date)
+        chosen = None
+        if preferred_mission_id:
+            pref = preferred_mission_id.strip()
+            for m in missions:
+                if m.get("id") == pref:
+                    chosen = m
+                    break
+        if chosen is None:
+            chosen = _choose(conn, child_id, missions, local_date)
     finally:
         conn.close()
     card = _row_to_card(

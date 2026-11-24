@@ -7412,4 +7412,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get lessonDeepenTitle => 'Go deeper (audio & extras)';
+
+  @override
+  String get lessonMawqifBridgeTitle => 'Paired decision scenario (4 min)';
+
+  @override
+  String get lessonMawqifBridgeSubtitle =>
+      'Practice this idea in a real home scenario with three realistic choices.';
+
+  @override
+  String get lessonMawqifBridgeCta => 'Try the scenario';
 }

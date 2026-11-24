@@ -2476,5 +2476,8 @@
   "lessonChildCornerTitle": "In Child Corner tonight",
   "lessonChildCornerSubtitle": "A warm bedtime story that reinforces tonight's lesson and ends off-screen.",
   "lessonChildCornerOpenStory": "Open story now",
-  "lessonDeepenTitle": "Go deeper (audio & extras)"
+  "lessonDeepenTitle": "Go deeper (audio & extras)",
+  "lessonMawqifBridgeTitle": "Paired decision scenario (4 min)",
+  "lessonMawqifBridgeSubtitle": "Practice this idea in a real home scenario with three realistic choices.",
+  "lessonMawqifBridgeCta": "Try the scenario"
 }

@@ -7370,4 +7370,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get lessonDeepenTitle => 'تعمّق أكثر (استماع ومرفقات)';
+
+  @override
+  String get lessonMawqifBridgeTitle => 'موقف بقرار مرتبط بالدرس (٤ دقائق)';
+
+  @override
+  String get lessonMawqifBridgeSubtitle =>
+      'تدرّب على تطبيق الفكرة في موقف منزلي واقعي بثلاثة خيارات عملية.';
+
+  @override
+  String get lessonMawqifBridgeCta => 'جرّب الموقف الآن';
 }

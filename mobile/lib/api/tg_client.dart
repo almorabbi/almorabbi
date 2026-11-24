@@ -2944,11 +2944,16 @@ class TgClient {
   /// The same answer also carries `recentPraise` («كلمة طيبة», the note the
   /// parent attached to the latest confirmed mission) and `ageBand` — one
   /// round trip is enough for the card and its praise header.
-  Future<ChildMissionToday?> fetchChildMission(String childToken) async {
+  Future<ChildMissionToday?> fetchChildMission(
+    String childToken, {
+    String? preferredMissionId,
+  }) async {
     return _guard(() async {
       final uri = Uri.parse('$_baseUrl/api/value-tracking/child-mode/mission/today')
           .replace(queryParameters: {
         'tz_offset_minutes': '${DateTime.now().timeZoneOffset.inMinutes}',
+        if (preferredMissionId != null && preferredMissionId.trim().isNotEmpty)
+          'preferred_mission_id': preferredMissionId.trim(),
         ..._langParam(),
       });
       final resp = await _http
