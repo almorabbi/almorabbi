@@ -90,10 +90,64 @@
     },
     "estimated_minutes": {
       "type": "integer",
-      "minimum": 3,
-      "maximum": 60,
-      "default": 5,
-      "description": "الوقت الإرشادي لإكمال الدرس بالدقائق. تنبيه: ≤ 15 دقيقة لاحترام وقت الوالد (مبدأ الزهد في الطول)."
+      "minimum": 2,
+      "maximum": 15,
+      "default": 4,
+      "description": "الوقت الإرشادي لقراءة الدرس بالدقائق (≤ 15 دقيقة لاحترام وقت الوالد — لا يُنسَخ من مدة البودكاست)."
+    },
+    "parent_script": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 8,
+      "maxLength": 450,
+      "description": "جملة حوارية حرفية جاهزة يقولها الوالد لطفله الليلة."
+    },
+    "ecosystem_links": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "story_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "mission_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "mawqif_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 2,
+          "maxLength": 80
+        }
+      },
+      "description": "ربط الدرس بحكاية أو مهمة في ركن الطفل أو موقف عملي."
+    },
+    "assistant_prompts": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "string",
+        "minLength": 10,
+        "maxLength": 220
+      },
+      "default": [],
+      "description": "أسئلة سياقية جاهزة بضغطة واحدة لفتح المساعد حول هذا الدرس."
     },
     "reflection_prompts": {
       "type": "array",

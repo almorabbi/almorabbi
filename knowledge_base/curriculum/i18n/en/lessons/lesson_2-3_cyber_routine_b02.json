@@ -5,14 +5,13 @@
   "age_group": "2-3",
   "domain": "cyber",
   "unit_ids": [
-    "seed-screen-46",
-    "cyb-a75c4112",
-    "cyb-236a4b5e"
+    "cyb-aap-media-young-minds-2016",
+    "cyb-8b16e204"
   ],
   "summary": "Not every minute of screen time is equal. The child who watches alone receives a passive broadcast, while the one who watches with you as you name, comment, and ask transforms that time into linguistic interaction. This 'shared viewing' reduces the harm of the screen and increases its benefit. Choose slow, calm content suitable for his age, comment on what is happening ('Look, the rabbit is jumping!'), and connect it to reality ('We have a ball like this one'). In this way, the screen becomes a bridge for conversation, not a silent wall, and you teach your child to be interactive, not merely a receiver.",
   "try_this": "This week: Sit with your child during every screen time (without exception), comment on what he sees, and connect it to something in your home. Notice whether he begins to repeat words or point to what he sees.",
   "order": 2,
-  "estimated_minutes": 30,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "What difference did you notice in your child’s interaction when he watched with you compared to when he watched alone?",
     "How can you turn the content he loves into an opportunity for new words and sentences?"

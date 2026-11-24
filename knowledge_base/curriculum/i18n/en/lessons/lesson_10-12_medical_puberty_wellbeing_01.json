@@ -7,14 +7,12 @@
   "unit_ids": [
     "dev-40436851",
     "gap-med-puberty-hayd-01",
-    "gap-med-vaginal-spotting-01",
-    "med-88c1469a",
-    "dev-eb83fae6"
+    "gap-med-vaginal-spotting-01"
   ],
   "summary": "Puberty begins early (ages 9-12). Changes include growth in height, voice deepening, body hair, and menstruation/wet dreams. Parents: initiate dialogue before school or the internet does. Father with son, mother with daughter. Use scientific language—no shame, no mockery. A trusted book should be the reference.",
   "try_this": "This week: Read together a chapter from a reliable puberty book (such as \"My Body is Changing\" or its equivalent). Discuss: What surprises you? What scares you?",
   "order": 1,
-  "estimated_minutes": 30,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "What question did your child ask that surprised you?",
     "Did they feel at ease after the conversation?"

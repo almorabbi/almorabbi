@@ -5,14 +5,13 @@
   "age_group": "4-6",
   "domain": "development",
   "unit_ids": [
-    "seed-picky-79",
     "dev-ad9ff74a",
     "dev-b3e9a4e0"
   ],
   "summary": "Children may seem to resist boundaries, but in truth they feel security within them. A steady routine—predictable times for sleep, food, and play—reduces daily conflicts because the child knows what comes next. A few clear, consistent boundaries are better than many wavering rules. When you say 'no' to something important, stand firm calmly, for inconsistency teaches him that insistence breaks the rule. Offer choices within the boundaries ('You sleep at 8; do you choose the story before that?') so he feels in control. A child in an organized, loving environment is calmer and more cooperative because the world around him is understandable and safe.",
   "try_this": "This week: Establish a clear routine for one part of the day (e.g., bedtime) with the same steps daily, and stand firm calmly on one important boundary. Observe its effect on cooperation.",
   "order": 1,
-  "estimated_minutes": 37,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "Which part of your child’s day needs a clearer routine to reduce conflict?",
     "How can you stand firm on important boundaries calmly without turning it into a battle?"

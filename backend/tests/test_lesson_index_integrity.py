@@ -172,3 +172,30 @@ def test_paths_do_not_promise_more_days_than_content():
                 offenders.append(f"{sub}/{d.get('id')}: {days}d / {n} lessons")
     assert not offenders, "paths promising more days than lessons:\n  " + \
         "\n  ".join(offenders)
+
+
+def test_no_english_report_or_table_tagged_as_arabic(lessons):
+    """Arabic report/data_table entries must never point to English files.
+
+    23 duplicate English reports (7-9) and 17 English CSV tables were found
+    tagged `ar` across Arabic 4-6 and 10-12 lessons. Keep them out permanently.
+    """
+    import re
+
+    offenders = []
+    for lesson in lessons:
+        lid = lesson.get("lesson_id")
+        assets = lesson.get("assets") or {}
+        for kind in ("reports", "data_tables"):
+            for entry in assets.get(kind) or []:
+                if (entry.get("language") or "ar").lower() != "ar":
+                    continue
+                fp = REPO_ROOT / (entry.get("file") or "")
+                if not fp.is_file():
+                    continue
+                txt = fp.read_text(encoding="utf-8", errors="ignore")[:1000]
+                ar = len(re.findall(r"[\u0600-\u06FF]", txt))
+                en = len(re.findall(r"[A-Za-z]", txt))
+                if en > ar * 2 and en > 50:
+                    offenders.append(f"{lid}: {kind} -> {entry.get('file')}")
+    assert not offenders, "English report/table tagged as Arabic:\n  " + "\n  ".join(offenders)

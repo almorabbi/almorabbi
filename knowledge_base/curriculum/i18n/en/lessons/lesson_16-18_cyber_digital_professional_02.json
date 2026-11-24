@@ -11,7 +11,7 @@
   "summary": "Entering university/work = higher digital responsibility: (1) Ethics of AI: Do not cheat with AI chat tools in assignments/research — use it as a thinking tool, not a substitute for effort. Cite the source, verify the information. (2) Information security: Strong/unique passwords, password manager, two-factor authentication (2FA) on all important accounts, device encryption, backups. (3) Privacy of others: Do not share others' photos/information without permission, respect data protection laws. (4) Citizenship: Report harmful content, support victims of bullying, use technology for good. A digital citizen = an ethical professional.",
   "try_this": "This week: Enable 2FA on your top 5 accounts, install a password manager, review app permissions on your phone.",
   "order": 2,
-  "estimated_minutes": 7,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "Which accounts have you enabled 2FA on?",
     "What new security habit will you start?"

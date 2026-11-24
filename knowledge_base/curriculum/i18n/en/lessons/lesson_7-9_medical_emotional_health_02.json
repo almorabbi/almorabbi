@@ -16,7 +16,7 @@
   "summary": "Difficulty sleeping, scattered attention, nail-biting, constant fatigue—these may be signs of ADHD, anxiety, or depression. A consistent sleep routine (9–11 hours), dividing tasks, and immediate rewards can help. If symptoms persist for weeks and affect school or home life: consult a pediatrician or psychiatrist.",
   "try_this": "This week: A fixed sleep schedule (same time every night, no screens an hour before bed, reading or relaxation). Observe: Has their focus improved in the morning?",
   "order": 2,
-  "estimated_minutes": 7,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "Has your child’s sleep improved?",
     "Have you noticed an improvement in their focus or mood?"

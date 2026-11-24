@@ -23,7 +23,7 @@
   "summary": "The pre-adolescent stage brings pressures: school, friends, self-image, and physical changes. Warning signs: sadness lasting more than two weeks, withdrawal, academic decline, changes in sleep or appetite, or thoughts of harm. Parents: listen without judgment, reassure them: \"I am with you, we will solve this together.\" Consult a pediatrician or mental health specialist early.",
   "try_this": "Create a \"Weekly Mood Scale\": a simple chart (1-10) for mood, energy, and sleep. Review it together monthly. If the curve declines for more than two weeks, consult a specialist.",
   "order": 2,
-  "estimated_minutes": 48,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "What was the highest/lowest point on the mood scale this month?",
     "What pressures are repeatedly mentioned?"

@@ -114,9 +114,9 @@ def _query(sql: str, params: tuple = ()):
 # not a content decision and would greet a returning parent with whatever
 # domain happens to sort first.
 STARTER_PATHS = {
-    "prenatal-1": "path_0-3_islamic_parenting_attachment",
-    "0-3": "path_0-3_islamic_parenting_attachment",
-    "2-3": "path_2-3_islamic_attachment",
+    "prenatal-1": "path_0-3_medical_infant_sleep",
+    "0-3": "path_0-3_medical_infant_sleep",
+    "2-3": "path_2-3_development_tantrums",
     "4-6": "path_4-6_islamic_parenting_bond",
     "7-9": "path_7-9_islamic_parenting_akhlaq",
     "10-12": "path_10-12_islamic_parenting_identity",

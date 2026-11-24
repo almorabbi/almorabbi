@@ -5,14 +5,13 @@
   "age_group": "10-12",
   "domain": "cyber",
   "unit_ids": [
-    "seed-screen-79",
     "de291c19-4443-464b-806e-81d9ed0c01ad",
     "1ad7b0db-b8cb-40cc-b752-f295119be45d"
   ],
   "summary": "At this age, your child begins to have personal accounts and needs to understand that a password is like the key to the house—it is not given to anyone. Teach him how to create a strong password (a long phrase that is easy to remember), not to use the same password everywhere, and not to share it even with his closest friend. Explain phishing with an example: a message asking for a password or promising a prize is most likely a trap. The golden rule: if someone asks for his information or something online confuses him, he should stop and tell his parents immediately without fear of blame.",
   "try_this": "This week: Create a strong password together for one of his accounts (a phrase of 4 words), and activate two-step verification if possible. Ask him to explain to you himself why he should not share it with anyone.",
   "order": 4,
-  "estimated_minutes": 47,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "How can you make your child tell you about any confusing digital situation without fearing punishment?",
     "What information do you consider 'private' and never to be shared online?"

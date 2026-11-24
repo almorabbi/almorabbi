@@ -5,13 +5,13 @@
   "age_group": "13-15",
   "domain": "development",
   "unit_ids": [
-    "23f40364-6a52-4b4b-86af-29a1e3d54f8b",
-    "7c036b77-bd8a-4952-80f6-a1325b14d475"
+    "dev-e129e5e9",
+    "gap-dev-defiance-teen-01"
   ],
   "summary": "The adolescent brain is programmed for independence, and attempting complete control breeds rebellion. Your role shifts from 'manager' to 'advisor': grant him gradual freedom with clear boundaries and natural consequences he learns from. Allow him decisions that concern him (his clothing, time management, friends within a framework), and maintain firmness in constants and safety. Small mistakes now in a safe environment are far less costly than big mistakes later without experience. The adolescent who is given measured trust develops self-governance, while the one who is tightly controlled continues to seek freedom in secret.",
   "try_this": "This week: Choose one decision you used to make for him (organizing his study time, for example) and hand it over to him with a clear framework, letting the natural consequence teach him. Resist your urge to intervene.",
   "order": 4,
-  "estimated_minutes": 45,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "What area of independence can you grant your **son** this month without compromising his safety?",
     "What difference do you feel between the role of 'manager' and the role of 'advisor' in your relationship with him?"

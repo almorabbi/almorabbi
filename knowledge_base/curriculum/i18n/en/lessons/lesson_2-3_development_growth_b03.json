@@ -5,14 +5,13 @@
   "age_group": "2-3",
   "domain": "development",
   "unit_ids": [
-    "dev-77d7ab2f",
-    "dea6683e-62be-4f02-8bfe-a426ef123631",
-    "dev-b3e9a4e0"
+    "d7a09c7e-769c-48b5-aaf8-0511fedfc0db",
+    "seed-tantrum-23"
   ],
   "summary": "Tantrums peak at this age, and the reason is simple: a big will in a small body without enough words to express itself. The tantrum is not poor tarbiyah (upbringing) but a stage of growth. The rule: maintain your calm first, ensure his safety, do not give in to the demand that caused it, and do not punish harshly. Wait out the storm with calm, and after he settles, embrace him and name his feeling ('You were upset'). Prevent tantrums beforehand with consistent routines, sleep, food, and giving him simple choices. With time and words, the tantrums decrease, for you are raising a brain that is learning to regulate itself.",
   "try_this": "This week: At the first tantrum, try staying calm and silent near him without much talk, and after he settles, name his feeling with one word. Notice how long the tantrum lasted compared to usual.",
   "order": 3,
-  "estimated_minutes": 31,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "What situations often precede your child’s tantrums (hunger/fatigue/sudden transition)?",
     "How is your child’s calmness affected by your own calm during the tantrum?"

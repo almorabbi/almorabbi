@@ -5,12 +5,13 @@
   "age_group": "7-9",
   "domain": "development",
   "unit_ids": [
-    "dev-e601788b"
+    "dev-326d137b",
+    "dev-8ad4980e"
   ],
   "summary": "At the age of 7-9, friends become more influential. Teach your child: the righteous friend reminds him of Allah, and pressure to do wrong is not friendship. Build his self-confidence so he becomes a leader, not a follower.",
   "try_this": "Ask him: \"If a friend asked you to do something you know is wrong, what would you do?\" — discuss the scenarios (cheating, bullying, breaking a rule).",
   "order": 2,
-  "estimated_minutes": 5,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "What did your child answer?",
     "Does he have a friend who encourages him toward goodness?"

@@ -6,14 +6,13 @@
   "domain": "cyber",
   "unit_ids": [
     "40f84fca-81b0-4533-8c7c-a0dbbf8a4598",
-    "7e94871d-1929-4ea4-9bed-8841e09938af",
     "bd4afec4-d395-55f4-9953-22cc698564fd",
     "cyb-36b8ad48"
   ],
   "summary": "Every photo, comment, and like leaves a permanent digital footprint. Teach your child: \"Before you post, ask: Would I be pleased for my grandfather or my teacher to see this in 10 years?\" – Privacy is a right, and protection is a duty.",
   "try_this": "Review together the privacy settings of one app your child uses. Enable: private account, no location sharing, and approval before tagging.",
   "order": 1,
-  "estimated_minutes": 7,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "Which apps did you review the settings for?",
     "Did your child understand the concept of a \"digital footprint\"?"

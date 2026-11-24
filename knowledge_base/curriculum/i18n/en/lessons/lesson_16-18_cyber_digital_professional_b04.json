@@ -5,14 +5,13 @@
   "age_group": "16-18",
   "domain": "cyber",
   "unit_ids": [
-    "seed-screen-79",
-    "seed-screen-46",
-    "2aeb1bdb-f2b0-40d4-8371-1f8cd6f03921"
+    "2aeb1bdb-f2b0-40d4-8371-1f8cd6f03921",
+    "cyb-8b16e204"
   ],
   "summary": "Before your son leaves for university or work, your supervision disappears, and his habits will be his only guardian. Many intelligent teenagers stumble not due to lack of ability, but because screen addiction consumes their time. Help him now to build a self-governing system: conscious boundaries for social media and games, deep-focus periods without his phone, and understanding how apps are designed to steal his attention. The goal is not prohibition but control—so he uses the tool, rather than being used by it. The skill he masters now in managing his attention will determine his success when no one is watching.",
   "try_this": "This week: Help your son measure his actual screen time for 3 days (via phone settings), then he determines a goal and one daily period for deep focus without his phone.",
   "order": 4,
-  "estimated_minutes": 41,
+  "estimated_minutes": 3,
   "reflection_prompts": [
     "Does your son have a self-governing system for time management that will endure when your supervision disappears?",
     "Which single digital habit, if he regulated it now, would change his path toward independence?"
