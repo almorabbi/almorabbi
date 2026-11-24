@@ -262,11 +262,21 @@ def test_arabic_video_declared_ar_eg_is_matched_as_arabic(client, monkeypatch):
     test.
     """
     cl.load_curriculum()
-    with_video = [lid for lid, a in cl._assets_cache.items()
-                  if (a.get("videos") or [])]
-    assert with_video, "fixture needs a lesson with a video"
-    monkeypatch.setattr(cl, "media_exists", lambda p: True)
-    r = client.get(f"/api/program/lesson-assets/{with_video[0]}?lang=en")
+    with_ar_eg = [
+        lid for lid, a in cl._assets_cache.items()
+        if any((v.get("language") or "").lower() == "ar_eg" and v.get("file")
+               for v in (a.get("videos") or []))
+    ]
+    assert with_ar_eg, "fixture needs a lesson with an ar_eg video"
+    lid = with_ar_eg[0]
+    ar_file = next(
+        v["file"] for v in cl._assets_cache[lid]["videos"]
+        if (v.get("language") or "").lower() == "ar_eg" and v.get("file")
+    )
+    # Only the ar_eg video is present on disk so the English-fallback branch
+    # is forced to match `ar_eg` as Arabic even when an en_us twin is indexed.
+    monkeypatch.setattr(cl, "media_exists", lambda p: p == ar_file)
+    r = client.get(f"/api/program/lesson-assets/{lid}?lang=en")
     assert r.status_code == 200
     assert r.json()["languages"]["video"] == "ar"
 
