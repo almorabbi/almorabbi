@@ -1,54 +1,71 @@
 {
   "id": "lesson_16-18_development_adult_readiness_02",
   "path_id": "path_16-18_development_adult_readiness",
-  "title": "Life Skills for Independence: Money, Time, and Self-Management",
+  "title": "Wings of Independence: How Do We Prepare Our Children for Adulthood?",
   "age_group": "16-18",
   "domain": "development",
-  "unit_ids": [],
-  "summary": "Many young people enter university or the workforce without basic skills: managing expenses, simple cooking, organizing time, or booking an appointment. These are not details but pillars of independence. Hand your child gradual responsibilities now while they are in your home, so they may make mistakes in safety, rather than learning them alone far from you.",
-  "try_this": "This week: Hand your child a complete life task (managing a weekly budget, cooking a meal, or scheduling an appointment) from start to finish.",
+  "unit_ids": [
+    "dev-7fb63252",
+    "dev-a3cf002d"
+  ],
+  "summary": "Imagine your son in university, or perhaps starting his first job. Suddenly, you get a call: \"Mom, how do I cook rice?\" or \"Dad, how do I pay the electricity bill?\" These details might seem simple, but in reality, they are the pillars of independence that a young person leans on to stand firmly in their new world. Many of our children reach this stage without possessing essential life skills, not due to their shortcomings, but because we haven't given them enough opportunity to learn them in a safe environment.\n\nLate adolescence is the golden opportunity to instill these skills. Your child is now in your home; this is the safe playground where they can make mistakes and learn without severe consequences. When we delay teaching them these skills, we push them to learn alone, away from our support and guidance, and the price might then be much higher than just a burnt plate of rice. Involving them in managing household affairs, from budget management to time organization, is not a burden on them, but an investment in their future.\n\nStart by giving your child gradual responsibilities that suit their abilities. Don't expect perfection from the first time; instead, celebrate their efforts and support them in their mistakes. Sit with them, plan together, and share your experiences. Remember that the goal is not for them to perform the task perfectly immediately, but to gain confidence and problem-solving ability. Every task they complete is a new building block in their independence, and every mistake they make is an unforgettable lesson. This is how we prepare them for adulthood, step by step, with love and wisdom.",
+  "try_this": "Today: Sit with your child and together identify one life task (such as: planning a complete dinner meal, researching the best deal for a specific service, or organizing their schedule for the upcoming week) that they will take full responsibility for.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Which life skill does your child lack?",
-    "How did your child handle the responsibility you entrusted to them?"
+    "What life skill do I feel my child needs to learn most at this stage?",
+    "How can I give them a safe space to make mistakes and learn without feeling anxious?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I trust in your ability to accomplish this task, and I am here to support you if you need me.”",
+  "assistant_prompts": [
+    "What are the best ways to teach teenagers how to manage their personal budget?",
+    "How can I encourage my child to learn cooking without feeling pressured?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_reflect_write"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T17:53:08.126122+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "c2cb7a4fb87a6f082810f9d1e4c00a5705c5e2bed91fdb7c0da020472d229a89",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "d1e82017efc1a6f311c77bc2cdcd2c85612cd2ed80b4746cfded0c5b4e1f1442",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

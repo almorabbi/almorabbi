@@ -1,71 +1,71 @@
 {
   "id": "lesson_0-3_islamic_parenting_attachment_04",
   "path_id": "path_0-3_islamic_parenting_attachment",
-  "title": "Planting Iman in the Young Heart: The Prophetic Methodology in Early Tarbiyah",
+  "title": "Your Child's Little Heart: The First Garden of Faith",
   "age_group": "0-3",
   "domain": "islamic_parenting",
   "unit_ids": [
     "41b84d8c-347e-4ce2-b26d-f53ece84fb8d"
   ],
-  "summary": "The Prophetic methodology in tarbiyah begins with aqeedah—and aqeedah is not taught through lectures, but through environment, repetition, and example. In the stage before the age of one, the child does not understand the meaning of Allah, but he hears His Name in every situation: 'Bismillah' when eating, 'Alhamdulillah' when sneezing, 'Masha’Allah' when happy. This repetition builds the vocabulary of faith in his mind before he grasps its meanings. Linking beautiful things to the Name of Allah at this age makes iman deeply rooted in the conscience before the mind.",
-  "try_this": "Start this week with three practices: (1) Say 'Bismillah' aloud at every changing, feeding, and bathing—so your child hears it. (2) When waking him in the morning, begin with 'Alhamdulillah alladhi ahyana...' and let him hear this routine daily. (3) When seeing anything beautiful (the moon, a butterfly, food), say 'Masha’Allah' and point to it—your child will connect joy to Allah.",
+  "summary": "Imagine your infant in your arms, their wide eyes gazing at your face. You change their diaper, feed them, bathe them, and every movement you make is an opportunity to build an entire world in their consciousness. At this early stage, your child doesn't understand complex words, but they absorb the atmosphere, pick up on tones, and connect emotions to the sounds they hear from you. These simple daily moments are the foundation upon which everything is built, and they are a precious treasure for instilling the deepest meanings in their soul.\n\nThe prophetic approach to upbringing teaches us that faith is not taught through lectures, but rather sown through example, environment, and repetition. Before your child understands the meaning of the word \"Allah,\" they hear it from you in various life situations: \"Bismillah\" before every action, \"Alhamdulillah\" after every blessing, \"Masha'Allah\" upon seeing every beauty. This gentle repetition, and connecting these words with positive emotions, builds deep faith-based vocabulary in their being, making faith a natural part of their world before they grasp its complex intellectual meanings. It is a quiet, gentle, and continuous building process.\n\nYou don't need great effort or extra time, just some awareness and intention. Make the remembrance of Allah a natural part of your day, in all the details of life, and let your child feel this warm presence. These small seeds you plant today in their heart will grow to become a firmly rooted tree of faith, shading them and bearing fruit for them throughout all stages of their life. Remember that you are planting a garden, and every good word is a blessed seed.",
+  "try_this": "Tonight: When feeding your child or changing their diaper, say \"Bismillah\" audibly with a smile, and let them see and hear this connection between the action and the remembrance.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Is the remembrance of Allah naturally present in your daily life in front of your child? How can you make it more present?",
-    "What is the most beautiful moment of faith you have experienced with your child so far?"
+    "How can I make the remembrance of Allah a natural part of a calm and loving daily routine with my child?",
+    "What is the faith-based moment I hope to share with my child when they grow up?"
   ],
   "warning_flags": [],
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-06-10T16:00:00",
   "updated_at": "2026-06-10T16:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My darling, Bismillah on every step of your life.”",
+  "assistant_prompts": [
+    "How do I practically teach my infant (under one year old) the phrase \"Alhamdulillah\"?",
+    "What are some short remembrances suitable to say in front of my two-year-old child?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "meaning",
-        "why": "The Arabic 'الوجدان' refers to inner feeling/consciousness, not moral conscience."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T18:02:58.548910+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "584701c141702e910de040a42b5d838353dcdb41a7470734501894fd7ccdf05d",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "meaning",
-          "why": "The Arabic 'الوجدان' refers to inner feeling/consciousness, not moral conscience."
-        }
-      ],
+      "content_sha256": "ef6a0034ace63d1ca6f4dc47cd0e1dab2e87f833b7dac4206a3601ae16410626",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

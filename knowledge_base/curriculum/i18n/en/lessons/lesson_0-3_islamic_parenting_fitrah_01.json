@@ -1,52 +1,71 @@
 {
   "id": "lesson_0-3_islamic_parenting_fitrah_01",
   "path_id": "path_0-3_islamic_parenting_fitrah",
-  "title": "The Voice of the Qur'an and the Adhan: The First Sounds to Reach His Ears",
+  "title": "A Voice That Touches the Soul: The Quran and Adhan in Your Baby's First World",
   "age_group": "0-3",
   "domain": "aqeedah",
-  "unit_ids": [],
-  "summary": "Hearing begins early, and what is repeated to a baby’s ear becomes familiar and beloved. Let your child hear a gentle recitation and the adhan in a soft voice—not for memorisation now, but to plant an early familiarity with the words of Allah that will bear fruit as he grows.",
-  "try_this": "This week: Play a gentle recitation for a few minutes daily near your child during a calm time, and observe his tranquillity and contentment.",
+  "unit_ids": [
+    "isl-8f2c2336",
+    "gap-isl-aqeedah-trust-01"
+  ],
+  "summary": "Imagine your infant, sleeping peacefully in their crib, or gazing at you with wide eyes, while a warm sound fills the room. It might be the sound of a gentle recitation of the Holy Quran, or the soft call of the Adhan echoing from afar. In these quiet moments, your little one doesn't understand the words, but their pure soul absorbs the safety and tranquility that this sound carries, forming the first building blocks of familiarity and reassurance.\n\nHearing develops very early, and what is repeated to an infant's ear becomes familiar and beloved. This is not a call for early memorization or dry indoctrination, but rather an invitation to plant the seed of intimacy with the words of Allah Almighty from their tender age. When your child hears the Quran and the Adhan in a gentle and loving voice, you are not just offering them sounds; you are opening a window to a world of spiritual serenity, nourishing their pure nature with what connects it to its Creator. This intimacy will grow to bear the fruit of a deep love for the Book of Allah when they grow older.\n\nMake these sounds a natural part of your child's daily environment, without pretense or burden. Choose times when they are calm and receptive, such as during feeding or before sleep. Remember that the goal is to build a bridge of love and reassurance between your child and the words of their Lord, in a smooth and warm way, so that the Quran becomes a companion to their soul from the very beginning. The Prophet ﷺ said: «The best among you are those who learn the Quran and teach it» (Sahih al-Bukhari 5027).",
+  "try_this": "Tonight: Before your child sleeps, play a gentle recitation of the Holy Quran for a few minutes at a soft, comforting volume, and observe how they react to it.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "When does your child seem most at peace with the sound?",
-    "Have you made recitation part of his routine?"
+    "How did you feel hearing the Quran or Adhan with your child?",
+    "Did you notice any change in your child's calmness or their interaction with these sounds?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«My little one, this is beautiful speech that fills our hearts with tranquility. I love it for you.»",
+  "assistant_prompts": [
+    "What are the best times to play the Quran for an infant without disturbing them?",
+    "Are there specific surahs that are preferred to play for infants?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "1028082c3595f943afe307229e34581ebeb6d05de680de6634cf3952a2432f0b",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "2308a6d7e99d5287d46fedc325e535dd99e8d985e67fde96d74813767560d6d5",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

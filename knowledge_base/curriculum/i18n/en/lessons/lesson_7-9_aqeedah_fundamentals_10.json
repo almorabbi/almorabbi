@@ -1,70 +1,71 @@
 {
   "id": "lesson_7-9_aqeedah_fundamentals_10",
   "path_id": "path_7-9_aqeedah_fundamentals",
-  "title": "Al-ʿAqeedah in My Behavior",
+  "title": "My Faith Shows in My Actions: How Do We Connect the Heart to Behavior?",
   "age_group": "7-9",
   "domain": "aqeedah",
   "unit_ids": [
     "aqe-6dd8b600"
   ],
-  "summary": "The culmination of the journey: ʿaqeedah is not information memorized in the head, but faith in the heart whose effect appears in behavior. The young believer who knows that Allah sees him speaks the truth even if he loses, shows birr al-walidayn, treats his siblings with rifq, and apologizes if he makes a mistake. Connect every good akhlaq for your child to his faith: \"You are truthful because our Lord loves the truthful,\" \"You help because our Lord loves the good-doers.\" In this way, the previous lessons transform into a lived life. And the greatest means to reinforce this is for your child to see you living your faith in your behavior before you command him to do so; for the example is more powerful than a thousand pieces of advice.",
-  "try_this": "This week: Create an \"Iman Tree\" together. Every time your child connects a good akhlaq to his faith, add a leaf to the tree. At the end of the week, review how what he learned has turned into actions.",
+  "summary": "Imagine your little child, seven or eight years old, comes home from school having lost their favorite game with friends, but honestly tells you that they were the one who made a mistake in the game, even though no one else would have noticed. Or perhaps you see them sharing their new toy with their younger sibling without you asking, or apologizing with a pure heart after making a mistake against their sister. These small moments are not just fleeting actions; rather, they are flashes of a deep faith that has begun to take root in their heart, translating what they have learned about Allah into tangible reality in their daily life.\n\nBelief is not just information memorized in the head or words recited; rather, it is a light that illuminates the heart and motivates its owner to do good and abandon evil. It is the belief that Allah sees us and loves the truthful, the benevolent, and the merciful, and this belief is the primary driver of good behavior. When your child realizes that their honesty is not out of fear of your punishment, but because they love Allah who loves the truthful, and that their kindness to their parents is obedience to Allah who commanded it, then abstract faith concepts transform into an inner strength that propels them towards virtue and refines their character to be upon the sound natural disposition.\n\nOur mission as parents is to build these bridges between the heart and behavior. Instead of merely commanding and forbidding, connect every good character trait to a clear and beloved faith-based motivation. Tell them: “You are truthful because Allah loves the truthful,” “You help because Allah loves the benevolent.” And most importantly, be the good role model your child sees living their faith through their actions before you command them to; for a role model is more eloquent than a thousand sermons. In this way, we transform faith into a lived life and build in our children a generation that sees Allah in every detail of their lives.",
+  "try_this": "Today: When you see your child performing a good behavior (such as helping their sibling or telling the truth), immediately connect this behavior to their faith with a warm word, such as saying: “I am proud of you, Allah loves those who help their siblings!”",
   "order": 10,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How can you make your child connect every good behavior to an internal faith-based motivation rather than external supervision?",
-    "What does your child see in you of practical application of your faith?"
+    "How can I naturally and lovingly connect what my child learns about Allah with their daily actions?",
+    "What positive behavior did I show my child today that reflects my faith and values?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“Allah loves the truthful, and I love you because you are truthful.”",
+  "assistant_prompts": [
+    "How can I encourage my child to apologize sincerely when they make a mistake, connecting that to their faith?",
+    "What simple daily activities can I use to reinforce the idea that Allah sees us and loves our good deeds?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_7-9_memorise_one_line"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "fields.summary.english",
-        "type": "meaning",
-        "why": "The Arabic says «الله» (Allah) in both phrases but the English renders it as \"our Lord,\" a slight but consistent substitution."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-08-13T19:43:15.664915+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "b026b1f4f101cfcb547a5d2183b12b095b8bd14ac557c39e7af059e6220b9d4c",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "fields.summary.english",
-          "type": "meaning",
-          "why": "The Arabic says «الله» (Allah) in both phrases but the English renders it as \"our Lord,\" a slight but consistent substitution."
-        }
-      ],
+      "content_sha256": "1624e50bceb9ecfd462366abe2648c79d454f4799ce2eead9963f2415ff7204f",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

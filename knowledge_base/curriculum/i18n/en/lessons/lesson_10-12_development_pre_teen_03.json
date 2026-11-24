@@ -1,66 +1,72 @@
 {
   "id": "lesson_10-12_development_pre_teen_03",
   "path_id": "path_10-12_development_pre_teen",
-  "title": "Friendship and Peer Pressure: The Compass of Values",
+  "title": "The Compass of Values: How Do We Steady Our Children's Feet in the World of Friends?",
   "age_group": "10-12",
   "domain": "development",
-  "unit_ids": [],
-  "summary": "The influence of friends grows at this age, and pressure may push your child to do something contrary to their values just to be accepted. Do not attack their friends; instead, strengthen their inner compass. Discuss hypothetical situations with them («What would you do if…»), and teach them to say «no» with confidence without losing their friends.",
-  "try_this": "This week: Present your child with a hypothetical situation about peer pressure, and ask them how they would act and why.",
+  "unit_ids": [
+    "dev-9d31767e",
+    "dev-3b7d4a62"
+  ],
+  "summary": "Do you remember that evening when your child came home from school, a little silent, their eyes holding an untold story? Perhaps you heard them talking in their room about \"so-and-so\" who did something they didn't like, or you saw them hesitant to make a simple decision they used to make with confidence. At this age, the world of friends becomes central, and the desire for belonging and acceptance increases, which can put your child in difficult situations between their desire to be part of the group and the values they were raised with.\n\nThis is a sensitive stage that requires us to be the \"guide\" not the \"investigator.\" Instead of attacking their friends or passing judgment, we need to strengthen their internal compass, the one that directs them towards what is right even in our absence. Children at this age tend to search for their identity outside the family, and this is natural and healthy, but our role is to equip them with the necessary tools to navigate this ocean without losing themselves, and to distinguish between what is acceptable and what is not, even if everyone else is doing it.\n\nSo, let's focus on building their resilience and self-confidence. Discuss with them calmly and without pressure hypothetical situations they might face, such as, \"What would you do if your friends asked you to do something you know is wrong?\" Teach them to say \"no\" with confidence and politeness, and to realize that true friendship does not require compromising values. These calm and repeated conversations are what will steady their feet and give them the courage to be themselves and defend their principles.",
+  "try_this": "Tonight: During a casual conversation, present your child with a simple hypothetical situation about peer pressure (e.g., \"What would you do if your friend asked you to tell a small lie to avoid a problem?\"), and ask them how they would act and why.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Who influences your child the most?",
-    "Can they refuse what contradicts their values?"
+    "Do I give my child space to express their concerns about friends without judging them?",
+    "Does my child see me as a role model for adhering to values even under pressure?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I trust your judgment, and I know you will always choose what is right.”",
+  "assistant_prompts": [
+    "How can I help my child build healthy friendships that don't require them to compromise their values?",
+    "What phrases can my child use to politely refuse an inappropriate request from their friends?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_10-12_cook_simple"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "leakage",
-        "why": "Guillemets («») are non-English quotation marks carried over from the Arabic; standard English uses double quotes."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "77c181d752d044a8b900db55fb24cd2f8a43e6cd5b12f975fd98086982da3e79",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "leakage",
-          "why": "Guillemets («») are non-English quotation marks carried over from the Arabic; standard English uses double quotes."
-        }
-      ],
+      "content_sha256": "8ed463b7ccadfc65ae4ccdd1d4f644e03f838a008c0f418d8056aa464535bc60",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

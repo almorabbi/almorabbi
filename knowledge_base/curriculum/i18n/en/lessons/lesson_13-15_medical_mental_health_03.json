@@ -1,7 +1,7 @@
 {
   "id": "lesson_13-15_medical_mental_health_03",
   "path_id": "path_13-15_medical_mental_health",
-  "title": "ADHD and Autism: Difference, Not Deficiency — Understanding, Adapting, Empowering",
+  "title": "Our Unique Children: Understanding, Embracing, Empowering",
   "age_group": "13-15",
   "domain": "medical",
   "unit_ids": [
@@ -11,13 +11,13 @@
     "med-e64897f2",
     "0650c50f-5267-458e-943e-15495ecf1610"
   ],
-  "summary": "ADHD: inattention, hyperactivity, impulsivity — a brain that works differently, not broken. Autism: differences in communication, behaviour, and sensory processing — a broad spectrum with unique strengths. Early diagnosis + behavioural intervention (ABA/CBT) + school accommodations (extra time, breaks, written instructions) + medication if needed = success. Parents: focus on strengths, seek professional evaluation, collaborate with the school.",
-  "try_this": "This week: identify 3 strengths your son has (creativity, deep focus, visual memory, empathy) — design a weekly activity that utilises one of them.",
+  "summary": "You might be sitting at the dinner table, noticing your teenage son (13-15 years old) staring blankly, or perhaps he can't sit still for a minute, or struggles to understand simple social cues. You might feel frustrated or worried, wondering: Is this normal? Is something different? These daily moments are what drive us to seek a deeper understanding of our children and how we can support them to flourish in their own unique way.\n\nSome of our children have brains that work in unique ways, and this is not a deficit but a difference. Those with ADHD may possess tremendous energy and boundless creativity, alongside challenges with focus or impulsivity. As for those on the autism spectrum, they can excel with deep focus in their areas of interest, strong visual memory, and innovative ways of thinking, even if they face challenges in social communication or adapting to changes. These differences grant them unique strengths that are worth discovering and celebrating.\n\nThe key to success lies in early understanding, appropriate intervention, and continuous support. Start with a specialized assessment to accurately identify needs, then collaborate with the school to provide a supportive learning environment (such as extra time for tests or short breaks). Behavioral therapy, like Cognitive Behavioral Therapy (CBT), can offer valuable tools, and medication may be an effective option in some cases. Always remember that focusing on your child's strengths and embracing their uniqueness is the greatest support you can offer them to reach their full potential.",
+  "try_this": "Tonight: Before bed, mention one positive quality you noticed in your child today (e.g., \"I liked how you focused on your project today\" or \"I loved your creativity in solving that particular problem\").",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What strengths have you discovered?",
-    "How can the school support him more?"
+    "What are the most prominent strengths I see in my child that might be related to their unique way of thinking or learning?",
+    "What is one small practical step I can take tomorrow to support my child with a specific challenge they are facing?"
   ],
   "warning_flags": [
     "فشل أكاديمي رغم الذكاء",
@@ -27,38 +27,52 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“You are special in your own way, and I am proud of you.”",
+  "assistant_prompts": [
+    "How can I talk to my child's teachers about their special needs in the classroom?",
+    "What extracurricular activities might be suitable for a teenager with ADHD or on the autism spectrum?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_13-15_cook_a_meal"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-08-13T18:59:17.350748+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "7d2d8cf50423850b46cb904ea8e9779b9013d383e02f239ccea372dc1b5f2ad6",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "52020797eb73877537c430512944036f5de80458ea62d3b699688b2cb9b1e8aa",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

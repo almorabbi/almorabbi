@@ -1,54 +1,71 @@
 {
   "id": "lesson_7-9_aqeedah_fundamentals_05",
   "path_id": "path_7-9_aqeedah_fundamentals",
-  "title": "Al-Asma' al-Husna (The Most Beautiful Names of Allah)",
+  "title": "How Do We Love Allah? His Beautiful Names Are the Key to Hearts",
   "age_group": "7-9",
   "domain": "aqeedah",
   "unit_ids": [
     "aqe-d4f44453"
   ],
-  "summary": "Allah has the Most Beautiful Names (al-Asma' al-Husna). Introduce your child to his Lord through them and endear Him to his heart. Choose names that resonate with him and link each name to its effect: \"Al-Rahman (The Most Merciful), Al-Rahim (The Especially Merciful)\" show mercy to us more than our mother; \"Al-Razzaq (The Provider)\" provides for every creature, even the ant; \"Al-Sami' (The All-Hearing), Al-Basir (The All-Seeing)\" hear our du'a and see everything; \"Al-Ghafur (The Forgiving)\" forgives when we err and repent. Teach him to call upon Allah by His Names: \"Ya Rahman (O Most Merciful), have mercy on me; Ya Razzaq (O Provider), provide for me.\" Knowing the Names makes the child’s relationship with his Lord a living, close bond—not just a distant idea.",
-  "try_this": "This week: Memorize three of Allah’s Names (Al-Rahman, Al-Razzaq, Al-Sami') with your child, and ask him to call upon Allah by each Name in a suitable situation during the day.",
+  "summary": "Imagine your little seven-year-old, running towards you after falling, eyes brimming with tears. You hug him tenderly, stroke his head, and whisper words of reassurance. In that moment, he experiences the meaning of safety and love. But how do we connect this deep feeling to a Lord we cannot see? How do we make our children love their Creator and attach their hearts to Him, so He becomes closer to them than any abstract idea? The answer lies in Allah’s Beautiful Names, which are a key to their small hearts and minds.\n\nAllah’s Beautiful Names are not just words to be memorized; they are gateways to understanding His greatness, mercy, and power. When we introduce a child to the name “Ar-Rahman, Ar-Rahim” (The Most Gracious, The Most Merciful), we don't just tell them that Allah is merciful. Instead, we connect it to a tangible situation: “Allah is more merciful to us than our mother when she forgives us for an unintentional mistake.” And when we mention “Ar-Razzaq” (The Provider), we point to the tiny ant that Allah provides for in its hole, or to the delicious food we find on our table every day. “As-Sami’, Al-Basir” (The All-Hearing, The All-Seeing) means He hears our prayers and sees everything we do, which gives a sense of closeness and security, and teaches them that Allah is always with them. “Al-Ghafur” (The Forgiving) reassures their little hearts that Allah forgives us if we make a mistake and ask for forgiveness.\n\nLet's make this knowledge alive, not just a dry lesson. Choose a name that resonates with your child's heart and connect it to a daily situation they experience. Teach them to supplicate to Allah using His names, for example: “Ya Rahman, have mercy on me” when they feel sad, or “Ya Razzaq, provide for me” when they wish for something. This method transforms the relationship with Allah from a distant idea into a tangible reality, nourishing their soul, strengthening their faith, and making their heart feel secure in the presence of a generous Lord who loves and cares for them. This is the foundation of the warm, faith-based upbringing we wish for our children.",
+  "try_this": "Tonight: Before bedtime, mention one of Allah’s Beautiful Names (e.g., Ar-Rahman), connect it to a situation your child experienced today, then ask them to supplicate to Allah using this name in their prayer.",
   "order": 5,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How can you connect one of Allah’s Names to a situation your child is experiencing so he feels its effect?",
-    "Which Name of Allah do you wish your child’s heart to become attached to first, and why?"
+    "How can I make Allah’s Beautiful Names a natural part of our daily conversations, not just a lesson?",
+    "Which name do I want my child to feel the impact of in their life first, and how will I do that?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My darling, Allah is Ar-Rahman, meaning He loves us and forgives us much, much more than anyone else in the world.”",
+  "assistant_prompts": [
+    "How can I explain the meaning of Allah’s name “Ar-Razzaq” to my 8-year-old child in a simple and fun way?",
+    "What practical activities can I do with my child to connect Allah’s Beautiful Names to real-life situations?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_7-9_memorise_one_line"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5e1421873def1b7b434207ed171baf44f868841e7f75b621b7c6b2197c5f6755",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "40b71e0e9405d6fe9e660a789e8957d5a219d524b040de90a74ead93bb410279",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

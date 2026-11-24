@@ -20,42 +20,54 @@
   "version": "1.0.0",
   "created_at": "2026-10-07T09:22:49",
   "updated_at": "2026-10-07T09:22:49",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My little one, always remember that when we don't know the ruling on a matter, we ask the people of knowledge so that we may learn what is correct.”",
+  "assistant_prompts": [
+    "How can I explain to my 8-year-old child the importance of asking scholars about Islamic rulings instead of guessing?",
+    "What practical activities can I do with my child to train them to formulate Islamic questions and present them to people of knowledge?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_7-9_memorise_one_line"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "gpt-6",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
-    "revalidated_at": "2026-10-07T09:24:44+00:00",
-    "generated_by": "ops/tools/deepen_paths.py",
+    "translator_model": "gemini-2.5-flash",
     "english_authors": [
-      "claude-opus-5-5",
-      "gpt-6"
+      "gpt-6",
+      "gemini-2.5-flash"
     ],
-    "manual_fix_note": "Source-faithful rewrite by GPT-6; exact Quran quotation derived from guarded local corpus, referral is application policy.",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "c35b590e66df360e50d89248afef89eb32672b0bd87990314a998a24ea0c8bcf",
-      "reviewed_at": "2026-10-07T09:24:44+00:00",
+      "content_sha256": "dc0f56a2e0664cf97a007e5b6a5cd6f19c0c0eafa25ff066ffa20b49bf6c150d",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    }
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

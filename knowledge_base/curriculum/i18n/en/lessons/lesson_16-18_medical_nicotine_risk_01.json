@@ -1,20 +1,20 @@
 {
   "id": "lesson_16-18_medical_nicotine_risk_01",
   "path_id": "path_16-18_medical_adult_transition",
-  "title": "Nicotine Addiction and the Risk to the Older Adolescent Despite Awareness",
+  "title": "My Teenager and Nicotine: A Heart-to-Heart Before It's Too Late",
   "age_group": "16-18",
   "domain": "medical",
   "unit_ids": [
     "med-7b1f2197",
     "med-f241abaf"
   ],
-  "summary": "Nicotine addiction in adolescents develops faster than they expect after the first try. Signs of addiction include: an overwhelming urge to smoke, anxiety without it, and failed attempts to quit. If you notice these signs in your son, seek help from a doctor or specialist immediately; most who quit need more than one attempt, and professional support greatly increases the chance of success, according to HealthyChildren.org, affiliated with the American Academy of Pediatrics. A sixteen- or seventeen-year-old adolescent knows the harms of smoking well, but his brain is not yet fully developed (development continues until the mid-twenties), so the desire to fit in with friends remains stronger than his awareness of danger in the moment of actual pressure, according to the U.S. National Institute of Mental Health (NIMH). Do not consider his proximity to adulthood a guarantee of immunity from pressure; continue open dialogue rather than just scolding.",
-  "try_this": "This week: Start a calm conversation with your son about his friends and who might be smoking around him, without direct accusation. Ask him frankly if he has tried or is thinking of trying it, and listen without immediate scolding.",
+  "summary": "Imagine seeing your teenage son, whom you always thought had outgrown childhood risks, sneaking into his room after meeting friends, his eyes holding a hint of tension or confusion. Perhaps you smell a faint odor you can't quite place, or notice a slight change in his mood. At this age, many parents assume their children fully understand risks, and that mere knowledge is enough for protection. But the reality can be different; adolescence is a delicate period that requires vigilance and continuous dialogue.\n\nNicotine doesn't differentiate between those who know its harms and those who don't; addiction happens with astonishing speed, faster than the teenager himself imagines after the first try. The teenage brain, which continues to develop until the mid-twenties, is more susceptible to the effects of nicotine, and the desire to belong to friends becomes stronger than the perception of immediate danger. Early signs of addiction can be subtle: an urgent desire to experiment, tension when it's absent, or failed attempts to quit. These are not signs of weakness, but rather signals that call for our intervention as parents.\n\nIf you notice any of these signs, do not hesitate to seek professional help immediately. Most people who successfully quit nicotine need more than one attempt, and specialized medical and psychological support significantly increases the chances of success. Remember that your son's proximity to adulthood does not make him immune to peer pressure or the temptation of experimentation. Continue to build bridges of open dialogue, away from scolding, and listen with your heart before your ears. Be a safe haven for your son, not a source of fear or judgment.",
+  "try_this": "Tonight: Open a calm conversation with your son about his day and his friends, then gently ask him: “Has anyone ever offered you to try something you didn't feel comfortable with?” And listen carefully without interrupting.",
   "order": 5,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Do you believe that your son’s knowledge of the harms is enough to protect him on its own?",
-    "If you notice an early sign of addiction in your son, do you know who to turn to immediately?"
+    "Can I differentiate between my son's awareness of risks and his actual ability to resist pressure?",
+    "What practical steps will I take if I notice any early signs of nicotine addiction?"
   ],
   "warning_flags": [
     "إذا ظهرت علامات إدمان نيكوتين واضحة (رغبة ملحّة، توتر بدونه، محاولة إقلاع فاشلة) اطلب مساعدة طبيب أو مختص فورًا"
@@ -22,64 +22,52 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I am here to listen to you, no matter what, and I will not judge you.”",
+  "assistant_prompts": [
+    "How do I deal with my teenage son (16-18) if he admits to trying nicotine?",
+    "What resources are available to support teenagers in quitting nicotine in my area?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_mentor_younger"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "addition",
-        "why": "The English adds the specific site name 'HealthyChildren.org' and 'affiliated with' not present in the Arabic source."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "addition",
-        "why": "The Arabic refers to 'the website of the American Academy of Pediatrics for families' without naming HealthyChildren.org; the English adds a specific URL and rephrases the relationship as 'affiliated "
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-08-13T19:01:22.617100+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "c46d860d4de4491c2f16b3108c5310930bf67ef5db47b6266300a310556619d5",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "addition",
-          "why": "The English adds the specific site name 'HealthyChildren.org' and 'affiliated with' not present in the Arabic source."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "addition",
-          "why": "The Arabic refers to 'the website of the American Academy of Pediatrics for families' without naming HealthyChildren.org; the English adds a specific URL and rephrases the relationship as 'affiliated "
-        }
-      ],
+      "content_sha256": "0135104cd86656a8b8efbc8416484bf13cf688dcba6e19f297bbb856a67de23b",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

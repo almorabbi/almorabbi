@@ -1,55 +1,73 @@
 {
   "id": "lesson_4-6_islamic_parenting_bond_03",
   "path_id": "path_4-6_islamic_parenting_bond",
-  "title": "Daily Dialogue: Teach Him to Ask Before He Commands",
+  "title": "Daily Dialogue: Open Your Ear Before You Open Your Mouth",
   "age_group": "4-6",
   "domain": "islamic_parenting",
-  "unit_ids": [],
-  "summary": "Between the ages of 4-6, the child begins to develop the Theory of Mind—he understands that others have thoughts and feelings different from his own. This is a golden window to teach him: how to ask? How to listen? How to recount what happened? The lesson cites his saying ﷺ: «Among the best of you are those best in character» (Sahih al-Bukhari 3559), and the concept of rifq (gentleness) in questioning. The parent who opens dialogue with his child teaches him that asking is more powerful than commanding, and that «a good word is charity» (Sahih al-Bukhari 2989). The lesson offers 5 daily questions with which the parent can initiate dialogue before sleep, all tied to qudwah (exemplary conduct).",
-  "try_this": "This week: Every night before sleep, ask your child 3 questions from this list: (1) What was the most beautiful thing that happened today? (2) When did you feel happiness? (3) When did you feel sadness, and why? (4) What did you do when you wanted to cry? (5) If you could change one thing about today, what would it be?",
+  "unit_ids": [
+    "isl-00ca8ce8",
+    "isl-d4dbc6b8"
+  ],
+  "summary": "When a father asks his child returning from kindergarten, «What did you do today?», he often hears a single word: «Nothing.» This isn't because their day was empty, but because a broad question overwhelms a five-year-old's mind, and sometimes the child feels the conversation will quickly turn into an interrogation or a correction of their mistakes.\n\nAt this age, your child begins to realize that people have feelings and ideas different from their own, and this is a golden opportunity to build a habit of warm conversation before distances grow. If you want them to tell you their secrets when they turn fourteen, start today by genuinely listening to their small story about a classmate who took their pencil or the ant they saw in the yard.\n\nReflect on the Qur'an's guidance for good speech: Allah Almighty says: ﴿وَقُل لِّعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ﴾ (interpretation of the meaning: \"And tell My servants to say that which is best\") [Al-Isra: 53]. And among the best speech with a child is for you to start by telling a short story from your day before you ask them, and to ask specific, warm questions like: «What was the moment that made you laugh today?» or «Did anything bother you?» And when they speak, do not interrupt to correct their pronunciation or to give them an immediate moral lesson; first name their feeling («It seems you were upset when your toy was taken»), and you will be amazed how much they open their heart to you when they feel you are truly listening to them.",
+  "try_this": "Tonight at bedtime: Tell your child a small, pleasant situation you experienced today in two sentences, then ask them one specific question: «What was the most beautiful moment of your day today?» And listen to them completely without interruption or correction.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Have you noticed your child beginning to ask you similar questions during the day?",
-    "Which question elicited the deepest response from your child?"
+    "When my child speaks, do I tend to listen to their feelings or to offer quick advice immediately?",
+    "Which time of day (mealtime, car, before bed) is the calmest for building our daily conversation habit?"
   ],
   "warning_flags": [],
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-06-08T14:00:00",
   "updated_at": "2026-06-08T14:00:00",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«I'll tell you something that made me happy today... Now it's your turn: What was the most beautiful moment you experienced today? I'm listening to you.»",
+  "assistant_prompts": [
+    "My 5-year-old child doesn't tell me what happens at kindergarten. What smart questions can open a conversation with them?",
+    "How can I teach my child to ask permission and request politely instead of shouting and giving orders?"
+  ],
+  "ecosystem_links": {
+    "story_id": "aisha_permission",
+    "mission_id": "mission_4-6_listen_walk"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "manual_fix_note": "2026-10-04 scripture fix: hadith quoted only from the Sahihayn with book + number (Muslim by Abd al-Baqi); non-Sahihayn or paraphrased quotes replaced, mirrored from the Arabic.",
-    "fixed_at": "2026-10-04T08:15:36.331649+00:00",
-    "fixer_model": "claude-opus-5.5",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "fbf0e03d093b28131d06be70aa3b869136cbc1ec5503f93d875bc4aa9de7044e",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "ae7c0f196658b06d0528b42ea273e59868823c0f3d8bd04c07ec897006fe47aa",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

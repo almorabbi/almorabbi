@@ -1,7 +1,7 @@
 {
   "id": "lesson_13-15_cyber_digital_maturity_01",
   "path_id": "path_13-15_cyber_digital_maturity",
-  "title": "The Digital Footprint: Your Reputation Is Being Built Now and Read in 10 Years",
+  "title": "Your Digital Footprint: A Story the Future Tells About You",
   "age_group": "13-15",
   "domain": "cyber",
   "unit_ids": [
@@ -9,50 +9,64 @@
     "b37a6dcf-3b48-41df-9837-4460b5f64179",
     "beb0e561-be2a-51dc-85ac-83c158c748ef"
   ],
-  "summary": "Every post, comment, like, and search is stored, analyzed, sold, and remains. Universities, companies, and governments examine the digital footprint. The rule: \"Do not post what you would not want your father, future manager, or future spouse to see.\" Monthly review: delete the old, fix privacy settings, and clean the trail.",
-  "try_this": "This week: log into your child’s accounts together—review old posts, location tags, and apps with granted permissions. Delete or fix them together.",
+  "summary": "Your teenage child scrolls through their screen, laughs at a post, comments on a picture, and shares a video clip. These fleeting moments, which seem like mere entertainment, are actually building blocks for their digital story. Every button press, every like, every search leaves an indelible mark, added to their personal profile that will stay with them for many years to come, and may even determine their path in university or work.\n\nImagine this digital footprint as a resume written daily, read and analyzed by various entities: universities looking for committed students, companies hiring responsible employees, and even future social relationships. What is published today may be interpreted differently tomorrow, and may be understood out of context. Therefore, teaching our children to think before posting is an investment in their future and a protection of their reputation, which is being built now.\n\nLet's teach them that the screen is not a wall that hides them, but a window through which the world looks at them. We can start with a simple and regular review of their accounts, not to spy, but to guide and participate. Help them understand that privacy is not just about settings, but about awareness of what is shared and with whom it is shared. These small steps build their sense of digital responsibility and give them the necessary tools to be confident in their digital story.",
+  "try_this": "Tonight: Sit together for 5 minutes and open one of your child's accounts (such as Instagram or TikTok). Review the last 5 posts or comments and talk about how they feel about them and whether they truly represent them.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How many posts were deleted or hidden?",
-    "Did your child understand the concept of a \"permanent footprint\"?"
+    "Did you feel your child understood that what they post today might affect their future?",
+    "What was the biggest challenge you faced when discussing digital privacy with your child?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“Your digital footprint is your story; let’s write it wisely together.”",
+  "assistant_prompts": [
+    "How can I talk to my teenage child about the importance of digital privacy without making them feel like I'm invading their life?",
+    "What apps can help my child better manage their digital footprint?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_13-15_budget_a_week"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T18:04:53.578747+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4e20005bb7e21e78637c1fa7205e0d69627c79f1d9db0d49aa93e00f92599766",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "39ef9cb1ade6ec52ecae8846e0a9766a46acc2c903a0fc51e8972853ecca54c0",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

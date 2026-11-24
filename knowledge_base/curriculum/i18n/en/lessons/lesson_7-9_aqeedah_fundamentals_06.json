@@ -1,56 +1,71 @@
 {
   "id": "lesson_7-9_aqeedah_fundamentals_06",
   "path_id": "path_7-9_aqeedah_fundamentals",
-  "title": "The Six Pillars of Iman",
+  "title": "The House of Faith: Your Child's Six Heart Pillars",
   "age_group": "7-9",
   "domain": "aqeedah",
   "unit_ids": [
     "aqe-d34c31d5"
   ],
-  "summary": "Iman has six pillars that gather the foundations of aqeedah, as the Prophet ﷺ expressed in the hadith of Jibril: to believe in Allah, His angels, His books, His messengers, the Last Day, and in qadar (divine decree), its good and its bad. Make these for your child the \"House of Iman,\" which has six columns—if they stand firm, the house stands firm. Begin by memorizing them with him in a fun way (counting fingers, a nasheed), then explain each pillar gradually. Do not burden him with details all at once; at this age, it is enough for him to know the six pillars and take pride in being a \"believer.\"",
-  "try_this": "This week: Memorize the six pillars of Iman with your child by counting them on his fingers every day. The two of you create a drawing of the \"House of Iman\" and its six columns, and hang it in his room.",
+  "summary": "Has your seven-year-old ever asked you, \"Mama, am I a believer?\" or \"Baba, what does it mean to believe in Allah?\" At this age, their little minds open up to big concepts, and they become curious about their religious identity. The six pillars of faith might seem like a dry list to memorize, but in reality, they are the strong foundation upon which your child builds their understanding of the world and themselves as part of a great nation. How do we transform these profound concepts into a warm and enjoyable experience?\n\nImagine that faith is a beautiful house in your child's heart, and this house needs six strong pillars to remain stable and firm. These pillars are: belief in Allah, His angels, His books, His messengers, the Last Day, and divine decree (Qadar), both its good and its bad. When we present these pillars to our children in a simple and beloved way, we are not just teaching them information; we are instilling in them a sense of belonging, security, and pride in their identity. This is not the time to delve into complex details, but rather a time to establish the general framework upon which everything else will be built later.\n\nLet's make memorizing these pillars an exciting adventure. You can count them on fingers, turn them into a cheerful song, or even draw the house of faith with its six pillars and color it together. The most important thing is for your child to feel that this learning is fun and motivating, and to be proud of knowing the \"pillars of faith\" that make them a strong believer. Remember the Prophet's ﷺ saying: «Make things easy and do not make them difficult, and give glad tidings and do not repel people» (Sahih al-Bukhari 69). Let's begin building this beautiful house in the hearts of our little ones with gentleness and ease.",
+  "try_this": "Tonight: Sit together, count the six pillars of faith on your child's fingers, then draw a simple house with six pillars together, and say: \"This is our strong house of faith!\"",
   "order": 6,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Why is it preferable to teach the child the general framework (the six pillars) before the details?",
-    "How can you make memorizing the pillars an enjoyable experience your child takes pride in, rather than a heavy duty?"
+    "How can I make the concept of \"pillars of faith\" tangible and enjoyable for my child at this age?",
+    "What are the daily moments I can utilize to connect one of the pillars of faith to my child's life without being artificial?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«O hero, you know the six pillars of faith that make your heart strong like a beautiful house!»",
+  "assistant_prompts": [
+    "What interactive activities can I do with my child (7-9 years old) to reinforce the pillars of faith in a fun way?",
+    "How can I explain the concept of \"belief in divine decree (Qadar), both its good and its bad\" to my child in simple, age-appropriate terms?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_7-9_build_something"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T19:43:14.068901+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "6198e0ac7612c8e25bf0db8fca6565ef882e2e1f3821bb9e82d97648a95834fc",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "5ce1ebf292254424ccd3e69914ab5f60478d72b8d18a4e4fea9324100fc46454",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

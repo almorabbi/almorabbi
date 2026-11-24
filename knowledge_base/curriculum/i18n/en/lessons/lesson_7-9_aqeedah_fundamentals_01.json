@@ -1,71 +1,85 @@
 {
   "id": "lesson_7-9_aqeedah_fundamentals_01",
   "path_id": "path_7-9_aqeedah_fundamentals",
-  "title": "Who is Allah?",
+  "title": "Your Child's Little Heart Knows Allah Through Love",
   "age_group": "7-9",
   "domain": "aqeedah",
   "unit_ids": [
     "aqe-b1e103fc"
   ],
-  "summary": "The first foundation of a child’s iman is knowing their Lord with a knowledge that is loving, simplified, and endearing. Introduce your child to Allah through the signs of His power that they see and touch: Who created the bird that flies? Who made the tree grow from a seed? Allah is al-Awwal (the First), before Whom there is nothing; He created everything and needs no creator. Always begin by saying that Allah is Generous, Merciful, and loves us—before any talk of punishment. For the small heart opens with love, not fear, and this was the guidance of the Prophet ﷺ with children.",
-  "try_this": "This week: On every outing, ask your child, \"Who created this?\" about something beautiful in front of you (a flower, a star, a butterfly). Let them answer, \"Allah,\" then say together, \"Allahu Akbar.\"",
+  "summary": "You gaze into your child's bright eyes as they point to a colorful butterfly fluttering in the garden, or marvel at the golden sunrise. You wonder how you can plant deep faith in Allah in their little heart, a faith that grows with love, not fear, and becomes their support throughout life. At this age, children's minds open to big questions of existence, and they begin to form their first perceptions of the world and who runs it. These simple daily moments are your golden opportunity to introduce Allah to your child as the most beloved and generous One they will ever know.\n\nThe sound innate disposition (fitrah) inclines towards belief in the Creator, and our role as parents is to nourish this disposition with love and beauty. Instead of starting with threats and warnings, we begin by introducing Allah through His magnificent signs in the universe: Who created this beautiful flower? Who made the bird sing? Who sent down the rain to water the earth? All these questions lead the child, by their innate disposition, to the answer: \"Allah.\" Most importantly, we instill in their heart that Allah is \"The First,\" before Whom there was nothing, and He is the Creator of everything, and that He, glory be to Him, is Generous and Merciful and loves us. Always remember that a child opens their heart to love before anything else, and this is the guidance of the Prophet ﷺ in dealing with children, for the Prophet ﷺ said: «Make things easy and do not make them difficult; give glad tidings and do not repel people» (Sahih al-Bukhari 69).\n\nSo, make every new discovery an opportunity to connect your child with their loving Creator. Do not hesitate to answer their curious questions with an open heart, even if they seem difficult. Be calm and confident, and remember that your goal is to build a bridge of love between your child and their Lord, a bridge that extends through the grandeur of His creation and the beauty of His mercy. In this way, your child will grow up with firm faith, filled with tranquility and gratitude, and will see Allah in every detail of their life as a friend, a beloved, and a helper.",
+  "try_this": "Tonight: Before bed, talk with your child about the most beautiful thing they saw today (a flower, a cloud, a toy), and ask them: \"Who created all this beauty?\" Then say with them: \"Allahu Akbar, how magnificent is Allah!\" and hug them tenderly.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 5,
   "reflection_prompts": [
-    "If your child asks you, \"Who created Allah?\", how would you answer calmly without making them feel the question is wrong?",
-    "What is the difference between introducing Allah with love first and beginning with fear?"
+    "How can I answer my child's question \"Who created Allah?\" in a simple and reassuring way without making them feel their question is wrong?",
+    "What daily moments can I utilize to introduce my child to Allah through the beauty of His creation and His mercy?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«Look, my dear, who created this beautiful flower to make us happy? It is Allah, He loves us very much.»",
+  "assistant_prompts": [
+    "How can I connect Allah's signs in the universe to my child's daily life to strengthen their faith?",
+    "What stories or activities are suitable for children aged 7-9 to introduce them to Allah's beautiful names and attributes, such as Mercy and Generosity?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_7-9_memorise_one_line"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "meaning",
-        "why": "Arabic describes the knowledge as beloved/lovable to the child, not as 'loving'; 'loving' is an added active quality not in the source."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
-    "revalidated_at": "2026-10-07T07:43:47+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "141bd1295c45146b56264d8994276d789f4cf72b14247fd2d6ac66de588f25d1",
-      "reviewed_at": "2026-10-07T07:43:47+00:00",
+      "content_sha256": "b6db50af6f9b35051437efda972b4163029970df93a118adc735463a0de7d2ae",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [
         {
-          "model": "deepseek-v4-pro",
+          "model": "glm-5.2",
           "field": "summary",
-          "type": "meaning",
-          "why": "Arabic describes the knowledge as beloved/lovable to the child, not as 'loving'; 'loving' is an added active quality not in the source."
+          "type": "hadith",
+          "why": "The English adds the word \"people\" to the hadith, which is not present in the Arabic hadith text as quoted; the Arabic simply says «ولا تنفروا» without an explicit object."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "english_authors": [
-      "claude-opus-5.5"
-    ]
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "hadith",
+        "why": "The English adds the word \"people\" to the hadith, which is not present in the Arabic hadith text as quoted; the Arabic simply says «ولا تنفروا» without an explicit object."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

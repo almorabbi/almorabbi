@@ -1,17 +1,20 @@
 {
   "id": "lesson_16-18_islamic_parenting_adult_faith_03",
   "path_id": "path_16-18_aqeedah_conviction",
-  "title": "A Mission, Not a Job: That Your Young One Lives for a Greater Purpose",
+  "title": "Life's Compass: How Your Child Can Find Their Purpose in This Life and the Hereafter",
   "age_group": "16-18",
   "domain": "aqeedah",
-  "unit_ids": [],
-  "summary": "Many young people choose their field of study and work without a compass, lost between the pressures of this world and anxiety about the future. Help your child connect their worldly ambition to an ultimate, hereafter-oriented purpose: to benefit people, cultivate the earth, and seek the Face of Allah through their work. True success is itqan (excellence) and ikhlas (sincerity), with a benefit that extends beyond oneself—not merely a degree or wealth.",
-  "try_this": "This week: Ask your child, «If you could benefit your ummah with one thing, what would you choose?» Then help them take one small, practical step toward that dream.",
+  "unit_ids": [
+    "isl-39499300",
+    "isl-2be190f6"
+  ],
+  "summary": "You might sit with your teenage child, watching them scroll through their phone or talk about their friends, and wonder to yourself: \"What truly occupies their mind? Are they thinking about their future? Do they have a dream or ambition that goes beyond academic and career success?\" Perhaps you hear them discuss their desires for a university major or a job, but sometimes you feel that these goals lack deeper meaning or purpose, and that they might just be a reaction to societal or peer pressure, rather than stemming from an inner conviction.\n\nMany young people today feel lost in a sea of choices and anxious about the future because they haven't connected their worldly ambitions to a higher purpose. The core idea here is to help our children see that their work and studies, no matter how simple, can be part of a larger mission: to benefit people, to build up the earth, and to seek the pleasure of Allah Almighty in everything they do. True success is not just a certificate or money, but rather excellence, sincerity, and benefit that extends beyond the individual, as the Prophet ﷺ said: «Indeed, actions are by intentions» (Sahih al-Bukhari 1).\n\nTherefore, instead of focusing on \"What will you become?\", we can focus on \"How will you benefit?\" and \"What impact do you wish to leave?\" Start by listening to their passions and what drives them, then gently guide them to see how this passion can serve a deeper purpose. Help them connect their daily interests with a good intention, and make them realize that every step they take, and every effort they exert, can be an act of worship if it is coupled with sincerity to Allah and benefit to His creation. This will give them an inner compass, a sense of calm and tranquility, and protect them from getting lost and anxious.",
+  "try_this": "Tonight: Ask your child: «If you could make one positive difference in the world, what would that difference be?» Listen attentively without interrupting.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What truly excites your child and makes them speak with passion?",
-    "How did you connect their ambition to a righteous niyyah (intention) this week?"
+    "What truly excites my child and what do they talk about with passion?",
+    "How can I connect their ambition with a good intention this week?"
   ],
   "warning_flags": [
     "فقدان دافع تام أو انسحاب من المستقبل"
@@ -19,88 +22,78 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«I am here to support you in everything you dream of, and how you can make your dreams beneficial for you and for people.»",
+  "assistant_prompts": [
+    "How can I help my child identify their true passion at this age?",
+    "What practical activities can I suggest to my child to connect their worldly ambition with an otherworldly purpose?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_reflect_write"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "title",
-        "type": "source_corruption",
-        "why": "The Arabic 'شابك' is missing the shadda on the ب; it should be 'شابُّك' (your young man)."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "meaning",
-        "why": "The Arabic addresses a son specifically, but the English uses the gender-neutral 'child'."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "try_this",
-        "type": "meaning",
-        "why": "The Arabic addresses a son specifically, but the English uses the gender-neutral 'child'."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "reflection_prompts",
-        "type": "meaning",
-        "why": "The Arabic addresses a son specifically, but the English uses the gender-neutral 'child'."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T18:09:59.784189+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4a979b24cd59d8f69adcbd27711195a98c6e9d4df111a8137ddc2abf3249137d",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "fa8f82c1870d24e1e388f7bcd76c615bac40a0c4cdb5b98f926e5c3e85972c71",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "title",
-          "type": "source_corruption",
-          "why": "The Arabic 'شابك' is missing the shadda on the ب; it should be 'شابُّك' (your young man)."
-        },
         {
           "model": "deepseek-v4-pro",
           "field": "summary",
           "type": "meaning",
-          "why": "The Arabic addresses a son specifically, but the English uses the gender-neutral 'child'."
+          "why": "The English 'Indeed' loses the restrictive force of the Arabic particle إنما, which means 'only/but'."
         },
         {
           "model": "deepseek-v4-pro",
-          "field": "try_this",
+          "field": "reflection_prompts[0]",
           "type": "meaning",
-          "why": "The Arabic addresses a son specifically, but the English uses the gender-neutral 'child'."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "reflection_prompts",
-          "type": "meaning",
-          "why": "The Arabic addresses a son specifically, but the English uses the gender-neutral 'child'."
+          "why": "The Arabic prompt addresses the parent with 'your child' (ابنك), while the English shifts to first-person 'my child'."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "summary",
+        "type": "meaning",
+        "why": "The English 'Indeed' loses the restrictive force of the Arabic particle إنما, which means 'only/but'."
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "field": "reflection_prompts[0]",
+        "type": "meaning",
+        "why": "The Arabic prompt addresses the parent with 'your child' (ابنك), while the English shifts to first-person 'my child'."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

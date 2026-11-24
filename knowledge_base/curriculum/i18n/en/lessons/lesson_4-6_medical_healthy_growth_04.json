@@ -1,66 +1,72 @@
 {
   "id": "lesson_4-6_medical_healthy_growth_04",
   "path_id": "path_4-6_medical_healthy_growth",
-  "title": "Cleanliness and Prevention: Early Healthy Habits",
+  "title": "Your Child's Cleanliness: A Small Protection for a Big World",
   "age_group": "4-6",
   "domain": "medical",
-  "unit_ids": [],
-  "summary": "This age is ideal for instilling habits that will protect your child for life: washing hands before eating and after using the toilet, brushing teeth twice daily, and the etiquette of sneezing. Make them an enjoyable routine, not a command, and be a practical role model; the child imitates what they see, not what they are told.",
-  "try_this": "This week: Make handwashing and brushing teeth a consistent and fun routine (a short song or a counter).",
+  "unit_ids": [
+    "seed-fear-46",
+    "gap-med-enuresis-01"
+  ],
+  "summary": "Imagine yourself after a long day, getting ready for dinner with your little one, and suddenly you notice their small hands have touched everything on their way from the garden to the dining table. Or perhaps you're getting ready for bed, and you remember your child's teeth haven't been brushed yet. These daily moments aren't just routine tasks; they are golden opportunities to instill healthy habits that will be a protective shield for them throughout life, forming an essential part of our care and love for our children at this age full of exploration and curiosity.\n\nIn these early years, your child has an amazing ability to imitate and learn through observation. They don't need dry commands, but rather a living model they can see and mimic. When you wash your hands enthusiastically in front of them, or brush your teeth with a smile, you're not just teaching them how to do it, but also embedding in their mind that these actions are a natural and enjoyable part of daily life. These simple habits, like washing hands before eating and after using the bathroom, brushing teeth twice a day, and covering the mouth when sneezing, are small investments in their big health.\n\nDon't make these habits a burden; instead, turn them into a game, a short song, or even a fun story told during cleaning. Allow your child to participate as much as possible, even if it means some mess at first. The most important thing is for them to associate cleanliness with a feeling of comfort and safety. Remember that building these habits requires patience and repetition, but the reward is a healthier child, and a parent who feels reassured that their child has the necessary tools to protect themselves in their small and big world.",
+  "try_this": "Tonight: Make brushing teeth before bed a fun adventure; choose a colorful toothbrush or a toothpaste flavor they love, and let them imitate how you brush.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Which healthy habit does your child master?",
-    "Which one needs reinforcement?"
+    "What was a moment when you felt your child imitated you in a healthy habit?",
+    "How can I turn the cleanliness routine into a fun and playful time for my child today?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“Come on, champ, let’s wash our hands and chase away the naughty germs!”",
+  "assistant_prompts": [
+    "What are some suitable songs or games to teach my child handwashing?",
+    "How do I handle my child if they refuse to brush their teeth?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star",
+    "mission_id": "mission_4-6_story_retell"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "try_this",
-        "type": "meaning",
-        "why": "«عدّاد» in a tooth-brushing context most naturally means a timer, not a counter."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "23751e114e277d82852ac8f2cfad45a95220bafb857e15726587f216833bdff4",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "try_this",
-          "type": "meaning",
-          "why": "«عدّاد» in a tooth-brushing context most naturally means a timer, not a counter."
-        }
-      ],
+      "content_sha256": "9bef9db11e113e6d43b7c1dc1ec9261ac3f927e6f5183fbe747fb7cc9e285bac",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

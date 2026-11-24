@@ -1,80 +1,85 @@
 {
   "id": "lesson_7-9_aqeedah_fundamentals_08",
   "path_id": "path_7-9_aqeedah_fundamentals",
-  "title": "The Angels, the Books, and the Messengers",
+  "title": "Stories of the Unseen: Angels, Books, and Messengers",
   "age_group": "7-9",
   "domain": "aqeedah",
   "unit_ids": [
     "aqe-e3092aff"
   ],
-  "summary": "Teach your child iman (faith) in the ghayb (unseen)—what we do not see but Allah and His Messenger ﷺ have informed us of, so we believe in it. Among this is the angels: noble, luminous creations whom Allah created for His obedience. Among them is Jibril, who brought down the wahy (revelation), and others who protect us, and the two recording angels who write down our deeds. And the Books: Allah sent them as guidance for mankind, the greatest and most complete of which is the Qur’an, the speech of Allah, whose preservation Allah has taken upon Himself. And the Messengers: Allah sent them to teach people their din (religion), the first of whom was Nuh and the last, Muhammad ﷺ. Connect this to behavior: because an angel writes our deeds, we strive to dictate good to him, and because the Qur’an is the speech of our Lord, we love it and learn it.",
-  "try_this": "This week: Remind your child in the morning, 'The angel is writing your good deeds today—what shall we dictate to him?' And set aside a short time daily to listen to or memorize a verse from the Qur’an.",
+  "summary": "Has your 7-9 year old ever asked you to tell them a story about something they can't see? Perhaps about jinn, or about Paradise and Hellfire? At this age, children's imaginations expand, and they become ready to receive deeper concepts about the world around them, including the unseen realms that we don't perceive with our eyes. This is a wonderful opportunity to instill faith in what Allah and His Messenger, peace and blessings be upon him, have informed us, so we believe and affirm it.\n\nBelief in angels, books, and messengers is a fundamental pillar of our creed, and it gives children a sense of connection to a wider, more sacred world. Angels are noble, luminous creations whom Allah created to obey Him; among them is Jibreel, who brought down revelation, and among them are those who protect us, and among them are the two scribes who record our deeds. The books are guidance and light sent down by Allah for people; the greatest and most complete of them is the Noble Qur'an, the word of Allah, which He has guaranteed to preserve. As for the messengers, they are prophets sent by Allah to teach people their religion; the first of them was Nuh and the last was Muhammad ﷺ. These pillars are not just theoretical information; rather, they are concepts that influence a child's daily behavior and actions.\n\nTo make these concepts alive in our children's lives, we can connect them to their daily behavior. When a child knows that there is an angel recording their deeds, they will be keen to ensure they dictate good, and they will feel a greater responsibility for their actions. And when they love the Qur'an because it is the word of their Lord, they will learn it and be keen to recite it and reflect upon it. This is an opportunity to instill reverence and love for these great pillars in a warm and accessible way, far from burdensome obligation, so that love and firm faith may grow in their hearts.",
+  "try_this": "Tonight: Before bed, tell your child a short story about an angel or a messenger, or listen together to a short verse from the Noble Qur'an and discuss it in simple language.",
   "order": 8,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How can you teach your child to revere and love the Qur’an without it feeling like a heavy obligation?",
-    "What is the effect on a child’s behavior when they feel that a noble angel is recording their deeds?"
+    "How can I make belief in the unseen a natural and beloved part of my child's daily life without them feeling fear or burden?",
+    "What are the best ways to foster my child's love for the Noble Qur'an and make it part of their routine without it becoming a heavy obligation?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“Imagine there's a noble angel writing down all your good deeds today. What would you like to fill your scroll with?”",
+  "assistant_prompts": [
+    "How do I explain to my 7-9 year old who angels are and what their functions are in a simple, age-appropriate way?",
+    "What practical activities can I do with my child to strengthen their love for the Noble Qur'an and their attachment to it?"
+  ],
+  "ecosystem_links": {
+    "story_id": "anbiya_ayyub_older",
+    "mission_id": "mission_7-9_memorise_one_line"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "try_this",
-        "type": "meaning",
-        "why": "The Arabic asks what to fill the child's record with; the English shifts the image to dictating to the angel."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "fields.try_this.arabic",
-        "type": "source_corruption",
-        "why": "The imperative verb should be «وخصّصْ» without the trailing alif; «وخصّصا» is grammatically incorrect in MSA."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "1fd8a0d2e5328d6c69976cdbb7793dc0406f1abcc34065a7f76a48764b1dfa45",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "ea95ebcb56202a1c6e751bf9cbbc2a6052b4beb0793946f49419c5618dbd1ed9",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [
         {
-          "model": "deepseek-v4-pro",
-          "field": "try_this",
-          "type": "meaning",
-          "why": "The Arabic asks what to fill the child's record with; the English shifts the image to dictating to the angel."
-        },
-        {
           "model": "glm-5.2",
-          "field": "fields.try_this.arabic",
-          "type": "source_corruption",
-          "why": "The imperative verb should be «وخصّصْ» without the trailing alif; «وخصّصا» is grammatically incorrect in MSA."
+          "field": "summary",
+          "type": "meaning",
+          "why": "The Arabic uses masculine singular pronouns (him) referring to the Messenger or Allah, while the English renders the object as impersonal 'it' (the information), slightly shifting the personal affirma"
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "meaning",
+        "why": "The Arabic uses masculine singular pronouns (him) referring to the Messenger or Allah, while the English renders the object as impersonal 'it' (the information), slightly shifting the personal affirma"
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

@@ -1,60 +1,71 @@
 {
   "id": "lesson_16-18_cyber_digital_professional_02",
   "path_id": "path_16-18_cyber_digital_professional",
-  "title": "Ethics of Artificial Intelligence, Information Security, and Responsible Digital Citizenship",
+  "title": "Our Teen and the Digital World: Responsibility, Safety, and Ethics",
   "age_group": "16-18",
   "domain": "cyber",
   "unit_ids": [
     "cyb-db2bb48f",
     "cyb-26236b19"
   ],
-  "summary": "Entering university/work = higher digital responsibility: (1) Ethics of AI: Do not cheat with AI chat tools in assignments/research — use it as a thinking tool, not a substitute for effort. Cite the source, verify the information. (2) Information security: Strong/unique passwords, password manager, two-factor authentication (2FA) on all important accounts, device encryption, backups. (3) Privacy of others: Do not share others' photos/information without permission, respect data protection laws. (4) Citizenship: Report harmful content, support victims of bullying, use technology for good. A digital citizen = an ethical professional.",
-  "try_this": "This week: Enable 2FA on your top 5 accounts, install a password manager, review app permissions on your phone.",
+  "summary": "Do you remember how your young child used to run fearlessly in the park, exploring every corner? Today, their world is much wider, extending to screens that open countless doors for them. As they approach university or enter the job market, these doors multiply, and with them, challenges and responsibilities increase. You might see them engrossed in academic research, talking with friends, or even looking for a job opportunity, and all of this requires a high level of digital awareness, just like their awareness of the real world.\n\nBuilding a responsible digital citizen means instilling in them values of safety, privacy, and ethics. This doesn't just mean using strong passwords or enabling two-factor authentication; it goes beyond that to a deeper understanding of the ethics of using artificial intelligence tools – how it can be an assistant, not a substitute for critical thinking, and how to verify and document information. It also includes respecting the privacy of others, not sharing their photos or information without permission, and adhering to data protection laws. These are not just rules; they are the foundation for building a respectful and trustworthy character in all interactions, whether face-to-face or across screens.\n\nOur role as parents is to be guides, not monitors. We can start with open conversations about these topics and be role models in our digital practices. We can teach them how to report harmful content, how to support victims of bullying, and how to use technology for their own good and the good of their community. Every small step towards enhancing their digital safety and ethical awareness is an investment in their future, giving them the confidence and peace of mind to face their changing digital world with steadfastness and responsibility.",
+  "try_this": "Tonight: Sit down with your son/daughter to review app permissions on their phone, and discuss the importance of enabling two-factor authentication for their most important accounts.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Which accounts have you enabled 2FA on?",
-    "What new security habit will you start?"
+    "What are the top three positive digital habits I want my son/daughter to adopt?",
+    "How can I be a better role model in my digital practices?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“Our digital world is full of opportunities, and it's our responsibility to use it wisely and safely.”",
+  "assistant_prompts": [
+    "How can I explain the importance of two-factor authentication to my son/daughter in a simple way?",
+    "What are the best ways to discuss the ethics of using artificial intelligence in school assignments?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_deep_read"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
-    "revalidated_at": "2026-10-07T07:43:58+00:00",
-    "fixed_at": "2026-08-13T18:08:10.731024+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "d55c2125566db52da040a82c6c6960f73344602bb96c7f0eff81fa6b468e4ccb",
-      "reviewed_at": "2026-10-07T07:43:58+00:00",
+      "content_sha256": "4090032e351f3e65cff392907f61f77f1065c1899e069de8ee0d40f1cd7bc305",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "english_authors": [
-      "claude-opus-5.5"
-    ]
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

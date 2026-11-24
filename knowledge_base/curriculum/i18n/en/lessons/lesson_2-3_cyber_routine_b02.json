@@ -1,58 +1,72 @@
 {
   "id": "lesson_2-3_cyber_routine_b02",
   "path_id": "path_2-3_cyber_routine",
-  "title": "The Shared Screen Instead of the Silent Screen",
+  "title": "Our Screen Together: A Bridge for Conversation, Not a Silent Wall",
   "age_group": "2-3",
   "domain": "cyber",
   "unit_ids": [
     "cyb-aap-media-young-minds-2016",
     "cyb-8b16e204"
   ],
-  "summary": "Not every minute of screen time is equal. The child who watches alone receives a passive broadcast, while the one who watches with you as you name, comment, and ask transforms that time into linguistic interaction. This 'shared viewing' reduces the harm of the screen and increases its benefit. Choose slow, calm content suitable for his age, comment on what is happening ('Look, the rabbit is jumping!'), and connect it to reality ('We have a ball like this one'). In this way, the screen becomes a bridge for conversation, not a silent wall, and you teach your child to be interactive, not merely a receiver.",
-  "try_this": "This week: Sit with your child during every screen time (without exception), comment on what he sees, and connect it to something in your home. Notice whether he begins to repeat words or point to what he sees.",
+  "summary": "Imagine your little one, with wide eyes, staring at the screen. They might seem quiet and engrossed, which gives you a few moments of peace. But have you ever wondered what’s going on in their mind? Are they just a passive recipient, or is there a way to transform this time into a real opportunity for growth and connection? We often resort to the screen as a 'silent babysitter,' but the truth is that every minute a child spends in front of it alone can be a lost opportunity to enhance their language and interaction.\n\nThe secret lies in 'shared viewing.' Not every screen minute is equal. When you sit next to your child, comment on what they see, name objects, and ask simple questions, you transform screen time from a one-way broadcast into a lively, two-way dialogue. This participation not only reduces the potential negative effects of screen time but also significantly multiplies its benefits, turning digital content into a linguistic and interactive tool that enriches their small world.\n\nStart by choosing calm, slow-paced content appropriate for their age, then sit with them. Comment on what’s happening: “Look! The rabbit is jumping high!” And connect it to their reality: “Remember our red ball? This ball looks like it!” By doing this, the screen becomes a bridge connecting their digital world with their real world, teaching them how to be interactive and engaged, not just a passive recipient. It’s a golden opportunity to strengthen your bond and develop their language and social skills in a fun and warm way.",
+  "try_this": "Tonight: Sit with your child while they watch the screen (even if only for a few minutes), comment on one thing they see, then link it to something familiar in your home (like a toy or a pet).",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What difference did you notice in your child’s interaction when he watched with you compared to when he watched alone?",
-    "How can you turn the content he loves into an opportunity for new words and sentences?"
+    "What did you notice in your child's reaction when you commented on what they were seeing on the screen?",
+    "How can I turn my child's favorite screen content into an opportunity to teach them new words?"
   ],
   "warning_flags": [],
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“Look! The rabbit is jumping! Like our cat, Meow!”",
+  "assistant_prompts": [
+    "What are the best calm and age-appropriate children's programs for a two-year-old?",
+    "How can I connect what my child sees on the screen to things around them in the house?"
+  ],
+  "ecosystem_links": {
+    "story_id": "kitten_kindness"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-08-13T18:11:29.396106+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "d794d599c12e24fd391aa08ae69e02fea9d9bf20e4e9b401d33fe5332542ede3",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "cd2e79d366d9e5837a1698b00153ec99c995a723bce83a94386c1d196a3718fe",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

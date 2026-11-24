@@ -21,36 +21,26 @@
   "version": "1.0.0",
   "created_at": "2026-10-04T17:13:00",
   "updated_at": "2026-10-04T17:13:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "My dear, how beautiful it is to be pure and clean before we stand before Allah. Come, let's perform ablution together, step by step.",
+  "assistant_prompts": [
+    "How can I make my child love ablution and not see it as just an obligation?",
+    "What games or activities help my child remember the steps of ablution in order?"
+  ],
+  "ecosystem_links": {
+    "story_id": "omar_prayer",
+    "mission_id": "mission_7-9_call_grandparent"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "claude-opus-5-5",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "meaning",
-        "why": "The Arabic uses the singular masculine pronoun 'his' (وضوئه) referring to the child, while the English uses the plural 'their', which is a minor shift in number."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "meaning",
-        "why": "The Arabic 'تعنّفه' means 'rebuke/reprimand', which is stronger than 'scold'; 'don't scold' slightly understates the Arabic."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "claude-opus-5-5",
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
-    "revalidated_at": "2026-10-08T15:21:56+00:00",
-    "generated_by": "ops/tools/deepen_paths.py",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,39 +48,27 @@
       ],
       "providers": {
         "deepseek-v4-pro": {
-          "provider": "openrouter",
-          "model": "deepseek/deepseek-v4-pro"
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
         },
         "glm-5.2": {
-          "provider": "openrouter",
-          "model": "z-ai/glm-5.2"
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
         }
       },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "7b7329bf938db7dc0987b02c7d77c6202b126bfd3e7d45f0ce30fab843dda7b7",
-      "reviewed_at": "2026-10-08T15:21:56+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "meaning",
-          "why": "The Arabic uses the singular masculine pronoun 'his' (وضوئه) referring to the child, while the English uses the plural 'their', which is a minor shift in number."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "meaning",
-          "why": "The Arabic 'تعنّفه' means 'rebuke/reprimand', which is stronger than 'scold'; 'don't scold' slightly understates the Arabic."
-        }
-      ],
+      "content_sha256": "015814a3df19cf48c6a785199e5662b9ff2d164f0ee75eaf1d04e28102055c3d",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "english_authors": [
-      "claude-opus-5-5"
-    ]
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

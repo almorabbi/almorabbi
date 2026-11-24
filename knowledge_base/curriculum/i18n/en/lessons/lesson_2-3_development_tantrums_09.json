@@ -20,23 +20,26 @@
   "version": "1.0.0",
   "created_at": "2026-10-08T10:47:40",
   "updated_at": "2026-10-08T10:47:40",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "I will pause now and take a deep breath; my calmness is the most important gift my child and I need.",
+  "assistant_prompts": [
+    "I lose my temper and yell at my young child at the end of the day, then I regret it. How can I stop this cycle?",
+    "How can I mend the relationship with my 3-year-old child after a moment of emotional outburst from me?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star",
+    "mawqif_id": "mawqif_2-3_market_tantrum"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "claude-opus-5-5",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
-    "revalidated_at": "2026-10-08T10:48:36+00:00",
-    "generated_by": "ops/tools/deepen_paths.py",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "claude-opus-5-5",
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -44,23 +47,41 @@
       ],
       "providers": {
         "deepseek-v4-pro": {
-          "provider": "openrouter",
-          "model": "deepseek/deepseek-v4-pro"
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
         },
         "glm-5.2": {
-          "provider": "openrouter",
-          "model": "z-ai/glm-5.2"
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
         }
       },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "45a148d0aa58063322fe83f5361de6b6adf4a20e1e443e3933d6d313f5e3769d",
-      "reviewed_at": "2026-10-08T10:48:36+00:00",
-      "residual_low": [],
+      "content_sha256": "6734a3425e475c2563896aaa101ec861842a540b8f47c093ebb63a03a91c6aca",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "parent_script",
+          "type": "structure",
+          "why": "The Arabic encloses the parent script in guillemets but the English drops the quotation marks, unlike other items where they are preserved."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    }
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "parent_script",
+        "type": "structure",
+        "why": "The Arabic encloses the parent script in guillemets but the English drops the quotation marks, unlike other items where they are preserved."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

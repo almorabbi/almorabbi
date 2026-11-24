@@ -1,52 +1,72 @@
 {
   "id": "lesson_4-6_cyber_early_screens_03",
   "path_id": "path_4-6_cyber_early_screens",
-  "title": "Shared Screen, Not Solo: Watching as Dialogue",
+  "title": "Our Shared Screen: When Watching Becomes a Warm Dialogue",
   "age_group": "4-6",
   "domain": "cyber",
-  "unit_ids": [],
-  "summary": "A child learns many times more when they watch with you instead of being left alone in front of the device. Keep the screen in a shared space, not in their room. Watch with them sometimes, and afterward ask, «What did you like? What did you learn?» to turn passive watching into interaction and language.",
-  "try_this": "This week: Watch a full episode with your child, then discuss it afterward with three simple questions.",
+  "unit_ids": [
+    "seed-screen-46",
+    "cyb-236a4b5e"
+  ],
+  "summary": "Imagine your little one, four or five years old, engrossed in front of the screen, eyes eagerly following a cartoon. You might feel a moment of relief, but soon a feeling creeps in that something is missing. Is he just a silent receiver? Is he missing something in this fast-paced digital world? This scene repeats often in our homes, and we might wonder how we can transform screen time into an opportunity for growth and connection instead of just silent consumption.\n\nA child at this age learns amazingly through interaction and participation, not just through solitary viewing. When you sit beside him, even if for a few minutes, you transform the screen experience from \"device time\" to \"family time.\" Your presence adds a layer of security, opens the door to spontaneous questions, and makes the visual content a starting point for deeper dialogue. It's not about complete control, but about warm participation that enriches his understanding of the world and develops his linguistic and social skills.\n\nLet's make the screen part of our shared spaces, not an isolated corner in his room. Place it in the living room, or in a spot where it's easy for you to join him. You're not required to watch everything, but to be present sometimes. After an episode ends, gently ask him: \"What did you like about this story?\" or \"What did you learn from this scene?\" These simple questions transform passive viewing into positive interaction, help your child express his thoughts and feelings, and develop his ability to connect what he sees with what he understands.",
+  "try_this": "Tonight: Watch a short clip or one episode with your child, and after it ends, ask him two simple questions about what he watched.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Where is the device usually located in the home?",
-    "How did your child interact when you watched with them?"
+    "How can I make the screen part of our shared spaces at home?",
+    "What were the moments when I felt my participation enriched my child's screen experience?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"How about we watch this together?\"",
+  "assistant_prompts": [
+    "What interactive activities can I do with my child after watching cartoons?",
+    "How do I choose appropriate screen content for my child aged 4-6 to encourage interaction?"
+  ],
+  "ecosystem_links": {
+    "story_id": "omar_prayer",
+    "mission_id": "mission_4-6_draw_family"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "05c63fda3275d3c14ce63ccf8ed9de995d88075ee2a09e66de2a8613b98e0442",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "712bdfb15a39bd3f1d03d7532654f1aa560a1c214ceccf1ac4bc61e43887f486",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

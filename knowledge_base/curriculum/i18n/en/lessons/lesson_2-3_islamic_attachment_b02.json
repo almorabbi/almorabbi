@@ -1,56 +1,72 @@
 {
   "id": "lesson_2-3_islamic_attachment_b02",
   "path_id": "path_2-3_islamic_attachment",
-  "title": "The Silent Example: Your Child Imitates What They See You Do",
+  "title": "My Child, My Mirror: How Do We Instill Values Through Example, Not Commands?",
   "age_group": "2-3",
   "domain": "islamic_parenting",
   "unit_ids": [
     "95e7a228-ce19-494e-99c0-18e4f6402566",
     "seed-defiance-23"
   ],
-  "summary": "The strongest tarbiyah (upbringing) at this age is not through words but through imitation. Your child is programmed to mimic what they see you do: when they see you pray, say 'Bismillah,' smile at people, or help others—they store that as a model. You don’t need lessons; you need to *be* the lesson. Let your child see you in your worship with serenity, say your adhkar (remembrances) in a gentle, audible voice, and interact with the akhlaq (character) you want them to learn. The silent qudwah (example) plants deeper than a thousand commands because a child believes what they see far more than what they are told.",
-  "try_this": "This week: Let your child see you pray or remember Allah with tranquility once daily without asking them to do anything. Observe whether they begin to imitate your movements or words spontaneously.",
+  "summary": "Imagine your little child, with wide eyes, watching you perform ablution calmly, or raising your hands in supplication after prayer, or even smiling at the mail carrier. They may not speak much, but their small mind records every movement, every kind word, and every action you take. They don't analyze or think with adult logic; rather, they absorb the atmosphere and behaviors around them like a sponge, storing them as a model to imitate in silence.\n\nAt this early age (2-3 years), upbringing isn't about lectures or direct commands; it's about \"being the lesson.\" Your child is naturally programmed to mimic those around them, especially their parents. When they see you remembering Allah with a gentle, audible voice, or dealing kindly with others, or even when they see you reciting the Qur'an peacefully, they perceive these actions as a natural part of life and absorb them as a value without you even realizing it. This silent example instills far deeper lessons than any words or direct guidance.\n\nSo, don't pressure yourself to teach your child everything through words. Just allow them to see you at your best: in your worship, in your character, and in your dealings with life. Make your acts of worship a visible and beloved part of your day, say your remembrances clearly and calmly, and treat people with the character you wish for them to learn. These simple moments, which may seem ordinary to you, are seeds that grow to shape your child's personality and authentic Islamic values.",
+  "try_this": "Today: Let your child see you pray two units of prayer calmly and peacefully, or remember Allah with a gentle, audible voice for one minute, without asking them to do anything or commenting on their action.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What behavior do you want your child to learn—do they see it in you first?",
-    "How can you make your daily acts of worship a beautiful sight that your child will love to imitate?"
+    "What Islamic value do I hope my child will acquire, and am I clearly living it out in front of them?",
+    "How can I make my daily moments of worship more peaceful and beautiful for my child to see and love?"
   ],
   "warning_flags": [],
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My dear, let's remember Allah together.”",
+  "assistant_prompts": [
+    "How should I deal with my child if they start imitating prayer movements incorrectly or playfully?",
+    "What are some short and beloved remembrances I can say audibly for my child to imitate at this age?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:26:06+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
-      "fixer": "mistral-large-3:675b",
-      "rounds": 2,
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "e9ba11d8593cfc7a35745fdb0e0369809ece23a1a35bec20b9fabce4b7b6768b",
-      "reviewed_at": "2026-10-04T11:26:06+00:00",
+      "content_sha256": "4a944ef1433a47aa74b6abe6550014da02cd4f99d83857db6901078810faeb13",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

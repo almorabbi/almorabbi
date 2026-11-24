@@ -1,55 +1,86 @@
 {
   "id": "lesson_10-12_islamic_peer_difference_01",
   "path_id": "path_10-12_islamic_parenting_identity",
-  "title": "Feeling Different from Friends and Steadfastness in Commitment",
+  "title": "Feeling Different from Friends and Remaining Steadfast in Commitment",
   "age_group": "10-12",
   "domain": "islamic_parenting",
   "unit_ids": [
-    "isl-c4b3fccc",
-    "isl-dcb6d4e8"
+    "isl-dcb6d4e8",
+    "723a3b98-bf3c-4607-8a02-9e774d1da69c"
   ],
-  "summary": "When your child feels like an outsider because he is the only one in his company who prays or adheres to the commands of Allah, teach him the hadith of the Prophet ﷺ: «بدأ الإسلام غريبًا، وسيعود كما بدأ غريبًا، فطوبى للغرباء» — “Islam began as something strange, and it will return to being strange as it began, so glad tidings to the strangers.” (Sahih Muslim 145). Explain to him that differing from the majority in obedience to Allah is not a deficiency, but rather the praise with which the Prophet ﷺ gave glad tidings to the committed in every era. If other children mock your son because of his prayer, read with him the words of Allah: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِّن قَوْمٍ عَسَىٰ أَن يَكُونُوا خَيْرًا مِّنْهُمْ﴾ (Al-Hujurat: 11) — interpretation of the meaning: 'O you who have believed, let not a people ridicule [another] people; perhaps they may be better than them.' Clarify to him that the verse forbids the one who mocks, and that Allah may have preferred the one being mocked over the mocker, so there is no need for him to feel ashamed or to respond in kind.",
-  "try_this": "This week: Ask your child if he ever felt different from his friends because of his commitment, and read with him the hadith of the strangers or the verse from Surah Al-Hujurat that fits his situation. Reassure him that this feeling has a positive meaning in the Qur’an and Sunnah, not a negative one.",
+  "summary": "Your child comes home from school or the club, unusually silent. After a few minutes of quiet conversation, they confide in you: \"My friends laughed at me because I stopped playing to pray,\" or \"Everyone watches this video except me!\" Between the ages of ten and twelve, peer acceptance becomes a very strong psychological need. Therefore, downplaying their pain with a phrase like \"Don't mind them!\" makes them feel that you don't understand the weight of the moment for them.\n\nFirst, begin by acknowledging and embracing their feelings: \"I completely understand that you felt upset; it's not easy to be different from those around you.\" Then, lift their head with a sense of quiet dignity, not superiority over their friends. For the Prophet ﷺ gave glad tidings to those who remain steadfast in goodness, saying: \"Islam began as something strange and it will return to being strange as it began, so blessed are the strangers\" (Sahih Muslim 145). Remind them that good companionship helps and strengthens the heart, as he ﷺ said: \"The example of a good companion and a bad companion is like that of the carrier of musk and the blower of the bellows\" (Sahih Muslim 2628).\n\nPractically, train your child on a short, confident sentence they can say without emotional reaction or lecturing, such as: \"I'll pray for five minutes and be back with you.\" Also, search with them for an additional environment (a sports club, a mosque circle, family friends) where they can find companions who share their values, so they don't feel alone.",
+  "try_this": "Tonight: Gently ask your child if they have ever felt embarrassed or different in front of their friends because of their commitment or our family's boundaries. Listen to them first, then practice together a short, confident, and calm response they can use in the next situation.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Has your child ever felt like an outsider because of his commitment? How did he handle it?",
-    "Does he know that being mocked is closer to a legal prohibition against the mocker rather than about him?"
+    "Do I provide my child with an environment of good companionship where they feel a sense of belonging, or do I merely prevent them from unsuitable company?",
+    "How can I help them remain steadfast with politeness and confidence without becoming isolated or superior to their peers?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"I appreciate your courage for telling me; it's really hard to feel different from your friends. Let's agree on a calm sentence that preserves your values and makes you comfortable in front of them.\"",
+  "assistant_prompts": [
+    "My 12-year-old son's peers mock him because he doesn't use foul language or he prays. How can I strengthen his confidence?",
+    "How can I choose good companionship for my child without making them feel that I control all their friends?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_ghar_older",
+    "mission_id": "mission_10-12_interview_elder"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "9995a1c17c4c7784c9ae2e66fad856d7484d08f452dd0d1556366f1317213a4f",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
-      "residual_low": [],
+      "content_sha256": "36731a5a1f9e4ae8785342b1a2692fc41c5c26d00ecadf56c63892e185db092f",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "assistant_prompts[1]",
+          "type": "meaning",
+          "why": "The Arabic specifies \"my son\" (لابني) but the English generalizes to \"my child\"."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "assistant_prompts[1]",
+        "type": "meaning",
+        "why": "The Arabic specifies \"my son\" (لابني) but the English generalizes to \"my child\"."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

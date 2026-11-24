@@ -1,66 +1,85 @@
 {
   "id": "lesson_2-3_aqeedah_first_name_03",
   "path_id": "path_2-3_aqeedah_first_name",
-  "title": "Allah Loves You: Beginning with Mercy",
+  "title": "Allah Loves You: The First Drop of Mercy",
   "age_group": "2-3",
   "domain": "aqeedah",
-  "unit_ids": [],
-  "summary": "The first thing that settles in a child's heart about his Lord stays with him for a long time, so it should begin with love, not fear. Tell your child «Allah loves you» when he is happy and when he errs too, and do not use Allah's name to threaten or to manage behaviour — «if you do not listen, Allah will be upset with you» creates an early fear that is hard to undo years later. Obedience is built with clear limits and tenderness; belief is built with love. Neither one is borrowed for the other.",
-  "try_this": "This week: notice one single sentence in which you linked Allah's name to punishment or anger, and replace it. Once is enough to show you how often it recurs.",
+  "unit_ids": [
+    "shm-aqd-09-tawhid-muraqabah",
+    "isl-39499300"
+  ],
+  "summary": "Imagine your little child running around the house, suddenly falling, hitting their head on a chair, and starting to cry intensely. Your first reaction is to hug and comfort them, perhaps saying, \"It's okay, my darling, I love you.\" This spontaneous moment is a very important seed in building their relationship with their Lord. Just as you love your child despite their mistakes and falls, Allah is more merciful and loving.\n\nThe first impression a child receives about their Lord remains etched in their heart and mind for many years. If the name of Allah is associated in their mind with fear, punishment, and threats, they will grow up carrying a burden of anxiety and distance from their Creator. However, if His name is associated with love, mercy, and giving, they will grow with a tranquil heart, loving Allah, and desiring to obey Him out of longing, not fear. Building obedience comes with clear boundaries and tenderness, and building faith comes with love and mercy; neither should replace the other.\n\nTherefore, always make your words about Allah carry a message of love and mercy. Tell your child \"Allah loves you\" when they are happy and laughing, and when they make a mistake or break something. Completely avoid linking Allah's name with threats or behavior correction, such as \"If you don't listen, Allah will be upset with you.\" This sentence, though seemingly simple, creates an early fear that is difficult to overcome later. Remember that the Prophet ﷺ said: \"Make things easy and do not make them difficult; give glad tidings and do not repel people\" (Sahih al-Bukhari 69).",
+  "try_this": "Today: Pay attention to one sentence where you linked Allah's name with anger or punishment, and replace it with a word expressing love or mercy.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "When was the last time Allah's name came up in your home during a reprimand?",
-    "In what words do you tell your child he is loved even after a mistake?"
+    "When was the last time you mentioned Allah's name to your child in a way that expressed love?",
+    "How can you make the mention of Allah in your home a source of tranquility and joy for your child?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"Allah loves you, my little one; you are a gift from Allah.\"",
+  "assistant_prompts": [
+    "What daily actions can I link to Allah's love for my two-year-old child?",
+    "How can I correct my child's mistake without mentioning Allah's anger or punishment?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_masjid_young"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "claude-opus-5",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "source_corruption",
-        "why": "The quoted example is in Egyptian colloquial (ربنا هيزعل) while the rest of the lesson is in Modern Standard Arabic, and the feminine address سمعتِ is inconsistent with the masculine generic used thro"
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "d8680e83fe6d26187286d610164aad77687ac8c40f500b2e0894a5b075bad934",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "798fffbdfeed2daa5432e25154f1e27560b83f33e8978e8acdb3ce1fddbb7b6a",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [
         {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "source_corruption",
-          "why": "The quoted example is in Egyptian colloquial (ربنا هيزعل) while the rest of the lesson is in Modern Standard Arabic, and the feminine address سمعتِ is inconsistent with the masculine generic used thro"
+          "model": "deepseek-v4-pro",
+          "field": "title",
+          "type": "meaning",
+          "why": "The English title omits the rain metaphor ('الغيث') from the Arabic, losing the sense of a first rain drop that brings mercy."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "title",
+        "type": "meaning",
+        "why": "The English title omits the rain metaphor ('الغيث') from the Arabic, losing the sense of a first rain drop that brings mercy."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

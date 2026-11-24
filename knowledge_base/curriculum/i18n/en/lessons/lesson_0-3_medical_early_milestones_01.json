@@ -1,7 +1,7 @@
 {
   "id": "lesson_0-3_medical_early_milestones_01",
   "path_id": "path_0-3_medical_early_milestones",
-  "title": "The First Two Months: The First Smile and Eye Contact",
+  "title": "Your Baby's First Smile: A Small Window to Their Heart",
   "age_group": "0-3",
   "domain": "medical",
   "unit_ids": [
@@ -9,13 +9,13 @@
     "c88f868b-4f40-45eb-b357-f8867b2c327d",
     "med-1eb2b059"
   ],
-  "summary": "At two months old, your baby begins their journey of social communication: they calm down when you speak to them or carry them, smile when you smile at them, make sounds other than crying, follow your face with their eyes, and lift their head while on their stomach. These are the first signs of secure attachment and the development of the social brain. Talking to your baby, reading to them, and singing are among the strongest stimulants for linguistic and emotional growth during this critical period.",
-  "try_this": "This week: Dedicate 5 minutes daily for face-to-face communication with your baby—stand 20-30 cm away, smile, speak gently, and wait for their response. Observe: Do they calm down? Do they smile? Do they make sounds? Do not pressure; just be present and watch.",
+  "summary": "Do you remember that moment? You were holding your little one, gazing at their sleeping face, and suddenly... a faint smile appeared on their lips. Perhaps you thought it was just gas, but your heart leaped with joy. A few weeks later, this smile will reappear, but it will be different this time. It will be directed at you, a response to your warm voice or your smiling face. These small moments are the seeds of a deep relationship forming between you, and the beginning of an amazing journey of connection.\n\nAround two months of age, your baby begins to show clear signs of social and emotional development. They calm down when you talk to them or hold them, they smile when you smile at them, and they may make gentle sounds other than crying. You'll also notice them tracking your face with their eyes and lifting their head slightly when on their tummy. These are not just random movements; they are strong indicators that their social brain is developing rapidly, and they are building a solid foundation for a secure attachment with you.\n\nRemember that you don't need complex tools to stimulate this growth. Your voice, your touch, and your loving gaze are the most powerful motivators. Talk to them gently, read aloud to them, and sing their favorite songs. These simple interactions nourish their soul and mind, and help them understand the world around them. Every word, every smile, and every touch is an investment in their emotional and linguistic future, planting the seeds of trust and security within them.",
+  "try_this": "Tonight: Before bedtime, hold your baby and bring your face within 20-30 cm. Smile gently and speak to them in a soft voice for a few minutes. Observe their facial expressions: Do they calm down? Do they smile? Do they try to make a sound? Just your presence and observation are enough.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "When did you notice your baby’s first genuine smile (not gas)? How did you feel?",
-    "Do you find yourself speaking to your baby in a different tone than when you speak to adults?"
+    "When was the first time you felt your baby's smile was a response to you, and not just an involuntary reflex?",
+    "What moments do you feel the strongest emotional connection with your infant?"
   ],
   "warning_flags": [
     "developmental_red_flag"
@@ -24,50 +24,66 @@
   "version": "1.0.0",
   "created_at": "2026-06-10T14:00:00",
   "updated_at": "2026-06-10T14:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I’m here, my little one. I see your beautiful smile, and I love you very much.”",
+  "assistant_prompts": [
+    "What simple games can I play with my two-month-old baby to stimulate their visual communication?",
+    "How can I differentiate between a gas smile and a true social smile in infants?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "tone",
-        "why": "In English, 'stimulants' commonly connotes drugs; 'stimuli' is the natural term for developmental inputs."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "381e2b73ea9a3e709dd2da70906cccca3abe933d9a65c0deb14958623515288f",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "6a04f9c3045ba6cc9fc458c6b586734e27df15153860de6d5f61e61db4b0d588",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [
         {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "tone",
-          "why": "In English, 'stimulants' commonly connotes drugs; 'stimuli' is the natural term for developmental inputs."
+          "model": "deepseek-v4-pro",
+          "field": "title",
+          "type": "meaning",
+          "why": "The English reverses the direction: the Arabic says the smile is a small window from the child's heart toward you, while the English makes it a window into the child's heart."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "title",
+        "type": "meaning",
+        "why": "The English reverses the direction: the Arabic says the smile is a small window from the child's heart toward you, while the English makes it a window into the child's heart."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

@@ -1,56 +1,71 @@
 {
   "id": "lesson_13-15_development_brain_identity_01",
   "path_id": "path_13-15_development_brain_identity",
-  "title": "The Adolescent Brain: Pruning, Myelination, and the Prefrontal Cortex — A Second Chance",
+  "title": "Your Teen's Brain: A Golden Opportunity for Growth and Shaping",
   "age_group": "13-15",
   "domain": "development",
   "unit_ids": [
     "gap-dev-sexual-worries-01",
     "dev-4fb3af0c"
   ],
-  "summary": "Adolescence = a second window for brain growth (UNICEF): (1) Synaptic pruning — the brain retains what is used and neglects what is not. (2) Myelination — speeds up signals, finally reaching the prefrontal cortex. (3) Prefrontal cortex (PFC) — decision-making, planning, impulse control — completes in the 20s. The interpretation: your adolescent is not \"broken\"; their brain is rewiring. The opportunity: what they practice now (sports, knowledge, art, salah, leadership) becomes ingrained for life.",
-  "try_this": "This week: choose together one skill your son wishes to develop — plan: 30 minutes daily for 30 days. Record: how did performance/confidence change?",
+  "summary": "Have you ever wondered why your teenager sometimes seems like a completely different person? One moment they're bursting with enthusiasm for something, and the next they withdraw completely or make a decision that seems illogical to you? This familiar scene in our homes isn't a sign of a \"malfunction\" in your teen; rather, it's a clear indication of their brain working hard behind the scenes, reorganizing itself and preparing for a new stage of maturity.\n\nImagine your teen's brain as a lush garden undergoing intensive pruning. Everything that is used and practiced regularly flourishes and strengthens, while what is neglected gradually withers. This process, known as \"synaptic pruning,\" is a golden opportunity for the brain to get rid of unnecessary connections and strengthen essential ones. At the same time, a fast insulating layer called \"myelin\" begins to coat nerve fibers, making signals transmit at lightning speed. This development finally reaches the front part of the brain, which is the center for decision-making, planning, and impulse control, and continues to mature until the early twenties.\n\nThis means that every activity your teen engages in now – whether learning a new language, playing a sport, mastering a musical instrument, participating in volunteer work, or even just having deep conversations with you – is a direct investment in building their future brain. Don't view this stage as merely a period of challenges, but rather as a unique window for reshaping, where together you can direct this immense energy towards building habits and skills that will accompany them throughout life. Give them the opportunity and support, and watch how their brain blossoms to become more mature and focused.",
+  "try_this": "Tonight: Talk to your teen about one thing they'd like to get better at. Listen attentively without judgment.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What skill did he choose?",
-    "Did he feel a difference after 30 days?"
+    "What was my teen's reaction when I asked them about something they'd like to get better at?",
+    "Can I see this stage as an opportunity for growth instead of just challenges?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:claude-opus:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I’m proud of the effort you’re putting in, and I’m excited to see you learn and grow.”",
+  "assistant_prompts": [
+    "How can I encourage my teen to practice a new skill without them feeling pressured?",
+    "What are age-appropriate activities for 13-15 year olds that support brain development?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_13-15_walk_and_notice"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "claude-opus",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:claude-opus:2026-10-04",
-    "revalidated_at": "2026-10-04T17:12:35+00:00",
-    "fixed_at": "2026-08-13T18:57:55.188786+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
-        "claude-opus"
+        "deepseek-v4-pro",
+        "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
-      "prompt_version": "manual:dfa8a5f39718",
-      "content_sha256": "f7018b08f332548ad5faffe51c376b716585af94d41ae76af835ac5b73c5547b",
-      "reviewed_at": "2026-10-04T17:12:35+00:00",
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "d44b4bd2daadd355fe7e082f3440fe05869f29e415330f54f613bfcfcfc67959",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and one reviewer from a model family different from the translator's read the Arabic and English side by side against the review rubric and found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

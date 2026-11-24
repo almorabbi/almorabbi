@@ -1,83 +1,72 @@
 {
   "id": "lesson_7-9_development_digital_wellbeing_02",
   "path_id": "path_7-9_development_digital_wellbeing",
-  "title": "Friendship and Social Pressure: The Compass of Values",
+  "title": "The Friendship Compass: How Your Child Can Wisely Choose Their Friends",
   "age_group": "7-9",
   "domain": "development",
   "unit_ids": [
     "dev-326d137b",
     "dev-8ad4980e"
   ],
-  "summary": "At the age of 7-9, friends become more influential. Teach your child: the righteous friend reminds him of Allah, and pressure to do wrong is not friendship. Build his self-confidence so he becomes a leader, not a follower.",
-  "try_this": "Ask him: \"If a friend asked you to do something you know is wrong, what would you do?\" — discuss the scenarios (cheating, bullying, breaking a rule).",
+  "summary": "Have you recently noticed that the opinions of your child's young friends hold significant weight in their decisions? Perhaps you've heard them say, \"All my friends do this!\" or \"My friend told me...\" This stage is very natural and an indicator of your child's social development. Between the ages of 7-9, your child's social circle expands, and friends become increasingly important in their world. They are no longer just playmates; they are now real influencers in shaping their behaviors and ideas.\n\nThe core idea here is to help your child build their own internal compass. This compass is a set of values and principles that guide them towards what is right, even when they face peer pressure. The goal is not to prevent them from forming friendships, but to equip them with the tools to distinguish between a friend who uplifts them and encourages good, and a friend who might lead them towards undesirable behaviors. Remember that true friendship is built on mutual respect and positive encouragement, not on subservience or fear of rejection.\n\nTo help your child develop this compass, start by boosting their self-confidence and their ability to make their own decisions. Encourage them to think critically and ask questions, rather than simply following the crowd. Talk to them openly and calmly about potential situations and how they can be a leader for themselves, not a follower of others. Remember that your support and open dialogue are your child's true anchors during this important stage of their life.",
+  "try_this": "Tonight: During a casual conversation, ask them: \"If a friend asked you to do something you know is wrong, like cheating in a game or teasing a classmate, what would you do?\" Listen to their answer without interruption, then calmly discuss some realistic scenarios with them.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What did your child answer?",
-    "Does he have a friend who encourages him toward goodness?"
+    "What was my child's reaction to my question?",
+    "Do I see signs that my child possesses a strong internal compass in their choices?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I trust your judgment and your ability to choose good friends, and I’m always here to listen to you.”",
+  "assistant_prompts": [
+    "How can I help my child refuse inappropriate requests from friends without feeling guilty?",
+    "What activities can boost my child's self-confidence to become a leader, not a follower?"
+  ],
+  "ecosystem_links": {
+    "story_id": "omar_prayer",
+    "mission_id": "mission_7-9_build_something"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "try_this",
-        "type": "source_corruption",
-        "why": "The Arabic uses colloquial 'إنه' after 'تعلم' where Modern Standard Arabic requires 'أنه'."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "fields.try_this.arabic",
-        "type": "source_corruption",
-        "why": "«إنه» should be «أنه» because it follows the verb «تعلم» in a subordinate clause; this is a common grammatical error."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-08-13T19:05:09.298093+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "7587f00b601c8159e2bbb62b874b045548d75259e13ad6c5919afc384b0c4d51",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "try_this",
-          "type": "source_corruption",
-          "why": "The Arabic uses colloquial 'إنه' after 'تعلم' where Modern Standard Arabic requires 'أنه'."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "fields.try_this.arabic",
-          "type": "source_corruption",
-          "why": "«إنه» should be «أنه» because it follows the verb «تعلم» in a subordinate clause; this is a common grammatical error."
-        }
-      ],
+      "content_sha256": "d116684b1290e9d2f509bc6f42053231d4f7f11d4e44231ea2e555089dd4c8c5",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

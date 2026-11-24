@@ -21,5 +21,14 @@
   "version": "1.0.0",
   "created_at": "2026-10-08T08:43:40",
   "updated_at": "2026-10-08T18:00:00",
-  "approved_by": null
+  "approved_by": null,
+  "parent_script": "«هل تحب أن تلبس القميص الأزرق أم الأخضر اليوم؟ الاختيار لك!»",
+  "assistant_prompts": [
+    "أعطيتُ طفلي خيارين فرفضهما معًا وطلب شيئًا ثالثًا غير متاح، ماذا أفعل؟",
+    "أعطني أمثلة لخيارات ذكية في وقت الطعام واللبس والنوم لطفل عمره ٣ سنوات."
+  ],
+  "ecosystem_links": {
+    "story_id": "maryam_toys",
+    "mawqif_id": "mawqif_2-3_market_tantrum"
+  }
 }

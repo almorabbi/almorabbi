@@ -1,73 +1,73 @@
 {
   "id": "lesson_4-6_islamic_parenting_adab_01",
   "path_id": "path_4-6_islamic_parenting_adab",
-  "title": "Rifq: A Tarbiyah Value Before It Is a Technique",
+  "title": "Your Warm Voice: The Key to Your Child's Security",
   "age_group": "4-6",
   "domain": "islamic_parenting",
   "unit_ids": [
     "0bd76d3c-548a-46ed-b17b-78874741662a",
     "isl-440cdac2"
   ],
-  "summary": "In the preoperational stage (Piaget’s preoperational), the child begins to distinguish a gentle voice from a harsh one and links the parent’s manner of interaction to their emotional safety. The Prophetic guidance confirms this; he ﷺ said: «Allah is gentle and loves gentleness, and He gives for gentleness what He does not give for harshness» (Sahih Muslim 2593)—for rifq (gentleness) is not weakness but a way to build lasting trust. In this lesson, the parent discovers how their voice and touch reflect on their child’s sense of safety and how they build a bond that makes later guidance easier and more deeply impactful.",
-  "try_this": "This week: Choose one daily moment (e.g., 5 minutes before bedtime) to speak to your child in a calm voice without any guidance. Just observe: Do they come closer? Do they share more than usual? Do not comment, just watch. At the end of the week, ask yourself: When was my voice loudest during the day, and did the child respond or withdraw?",
+  "summary": "Imagine you're preparing dinner, and your four-year-old is running around, shouting and laughing loudly. At some point, a glass of water falls to the floor, and you find your voice automatically rising, perhaps followed by a sharp look. Have you noticed how your child suddenly stops, stares at you with wide eyes, and perhaps hides behind the sofa? These small moments carry great meaning in your child's world and form the basis of their feeling of security towards you and the world around them.\n\nAt this age, your child learns about the world through you. Your voice, your touches, and even your facial expressions are all powerful messages they decode to understand: Is this place safe? Am I loved? When your voice is calm and warm, even in moments of guidance, you build an unbreakable bridge of trust. This is not a weakness on your part, but a great educational strength. The Prophet ﷺ said: «Gentleness is not found in anything except that it beautifies it, and it is not removed from anything except that it disgraces it» (Sahih Muslim 2594). Gentleness beautifies everything and makes your guidance reach your child's heart and mind without them feeling threatened or afraid.\n\nSo, do not underestimate the power of your voice and your touches. They are your magical tools for building a deep bond with your child, a bond that makes guidance much easier in the future. When your child feels emotionally secure, they are more willing to listen, learn, and cooperate. Start today with a simple experiment, and observe how your child's response changes, and how their sense of trust and security grows in your embrace. Remember that gentleness is the foundation of sincere upbringing whose effects endure.",
+  "try_this": "Tonight: Before bed, sit quietly with your child. Talk to them about their day in a low, warm voice, without any guidance or demands. Just listen and smile. Notice how they lean closer to you or talk more than usual.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "In which moment today did you feel your voice rise even though your intention was guidance?",
-    "How did your child’s face or body change (opening up/approach) when you lowered your voice?"
+    "When today did you feel your voice was loudest, and was your child's response as you wished?",
+    "How did your child's facial expression or body language (opening up/approaching) change when you lowered your voice and spoke gently?"
   ],
   "warning_flags": [],
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-06-08T19:00:00",
   "updated_at": "2026-06-08T19:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«Your calm voice reassures me, my little one.»",
+  "assistant_prompts": [
+    "How do I deal with my 5-year-old's tantrums without raising my voice?",
+    "What activities can I do with my child (4-6 years old) to enhance their sense of emotional security?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star",
+    "mission_id": "mission_4-6_kind_word"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "addition",
-        "why": "The English parenthetical redundantly repeats 'preoperational' where the Arabic simply says '(according to Piaget).'"
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-10-04T08:15:36.331649+00:00",
-    "fixer_model": "claude-opus-5.5",
-    "manual_fix_note": "2026-10-04 scripture fix: hadith quoted only from the Sahihayn with book + number (Muslim by Abd al-Baqi); non-Sahihayn or paraphrased quotes replaced, mirrored from the Arabic.",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "a3c2264f307a4ee6a0324af1f2e2283640b75d1c4de8cef72bb25d68bf62d033",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "addition",
-          "why": "The English parenthetical redundantly repeats 'preoperational' where the Arabic simply says '(according to Piaget).'"
-        }
-      ],
+      "content_sha256": "cc8b72a8af8393e297e5aaf9073bc79665f21f5a11ed55d00fe74252d7cd7d62",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

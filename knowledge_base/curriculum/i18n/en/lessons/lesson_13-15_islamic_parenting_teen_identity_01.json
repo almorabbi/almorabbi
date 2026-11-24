@@ -1,7 +1,7 @@
 {
   "id": "lesson_13-15_islamic_parenting_teen_identity_01",
   "path_id": "path_13-15_aqeedah_certainty",
-  "title": "Religious Doubts: When They Ask, and How Parents Answer",
+  "title": "When Your Teen Asks, \"Why?\" - A Journey of Building Certainty Together",
   "age_group": "13-15",
   "domain": "aqeedah",
   "unit_ids": [
@@ -9,13 +9,13 @@
     "isl-1812a28d",
     "isl-199c7aaf"
   ],
-  "summary": "Between the ages of 13 and 15, the adolescent begins to ask: \"Why pray? Why haram? Does Allah exist?\" — this is not rebellion, but a search for certainty. Parents: do not silence the question. Say: \"Excellent question, let’s explore it together.\" Present rational and heartfelt evidence, and refer to a book or a trusted scholar.",
-  "try_this": "This week: choose one doubt your son often raises, search together for an answer (a book or a clip by a trusted scholar), and discuss: what convinced you?",
+  "summary": "Imagine the scene: your teenage son, who yesterday accepted everything you said, comes to you today and seriously asks, \"Why do we pray? Is God really real?\" You might feel a kind of shock or anxiety, as if these questions challenge your authority or your upbringing. Perhaps it crosses your mind that he's rebelling, or that he's being influenced by strange ideas. But wait, this moment is not the end, but rather the beginning of a new and important journey in his life.\n\nAt this age (13-15), a teenager's mind begins to think critically and search for meaning and certainty. These questions are not a sign of rebellion, but rather evidence of healthy mental growth and an innate desire for deep understanding. This is a golden opportunity to strengthen his faith, not by silencing or scolding him, but by being open with him and sharing the journey of seeking answers. Remember that building certainty is a process that requires patience and honest dialogue, not just indoctrination.\n\nYour role as a parent here is to be a guide and a companion, not a judge or an interrogator. Welcome his questions with an open heart, and tell him: \"That's an excellent question, let's search for the answer together.\" Search reliable sources together, whether they are books or videos by trustworthy scholars, and discuss what you find. The most important thing is for him to feel safe, that his voice is heard, and that his doubts are respected. This is how you build bridges of trust and plant the seeds of firm faith in his heart.",
+  "try_this": "Tonight: When your son asks a religious question, even a simple one, listen to him with full attention, then tell him: \"Your question is important, what do you think if we search for its answer together?\" And begin with him to search for a reliable source.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What doubt did your son raise?",
-    "Did he feel reassured after the discussion?"
+    "What feeling did I experience when my son asked a deep religious question?",
+    "How can I make my son feel safe and accepted when he asks his religious questions?"
   ],
   "warning_flags": [
     "إصرار على الإلحاد/الرفض التام للدين",
@@ -24,38 +24,90 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«Your question is excellent and very important, let's search for its answer together.»",
+  "assistant_prompts": [
+    "What are the best reliable sources I can refer to with my son to answer his religious questions?",
+    "How do I deal with my teenage son's question: 'Why should I pray?' in a convincing and warm way?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_13-15_budget_a_week"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-08-13T18:58:32.526362+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "b249030283a608f24c608e062fa24fe7bc50124176190d25accbd14086b8bd93",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
-      "residual_low": [],
+      "content_sha256": "3fca0817d51314abf46866ce4cde2828dc54aa19aee449dd2db4ba75bdc229e3",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "parent_script",
+          "type": "leakage",
+          "why": "The English field retains Arabic guillemets «» instead of using English quotation marks."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "tone",
+          "why": "«هل الله موجود حقًا؟» means \"Is God truly real / does God truly exist?\"; \"Is God really real?\" reads as slightly childish phrasing for a 13–15 age-band context, though it may reflect teen speech."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "try_this",
+          "type": "meaning",
+          "why": "«ما رأيك لو» is an invitation (\"how about we …\" / \"what do you say we …\"), not literally \"what do you think if,\" making the English slightly awkward."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "parent_script",
+        "type": "leakage",
+        "why": "The English field retains Arabic guillemets «» instead of using English quotation marks."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "tone",
+        "why": "«هل الله موجود حقًا؟» means \"Is God truly real / does God truly exist?\"; \"Is God really real?\" reads as slightly childish phrasing for a 13–15 age-band context, though it may reflect teen speech."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "try_this",
+        "type": "meaning",
+        "why": "«ما رأيك لو» is an invitation (\"how about we …\" / \"what do you say we …\"), not literally \"what do you think if,\" making the English slightly awkward."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

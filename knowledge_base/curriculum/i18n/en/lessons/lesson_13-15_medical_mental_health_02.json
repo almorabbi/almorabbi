@@ -1,7 +1,7 @@
 {
   "id": "lesson_13-15_medical_mental_health_02",
   "path_id": "path_13-15_medical_mental_health",
-  "title": "Disruptive Mood Dysregulation Disorder (DMDD) and Intense Anger Outbursts",
+  "title": "When Anger Erupts: Understanding Frequent Explosive Outbursts in Teenagers",
   "age_group": "13-15",
   "domain": "medical",
   "unit_ids": [
@@ -12,13 +12,13 @@
     "ca67a271-881f-419a-825a-5cbd7e219227",
     "e93bb1b3-277f-4b93-b530-9946896fd1e0"
   ],
-  "summary": "DMDD: Severe verbal/behavioral anger outbursts >3 times weekly, irritable/angry mood nearly daily, for >12 months, in at least two settings (home/school). It is not defiance—it is a mood disorder requiring treatment. Approach: Accurate diagnosis (ruling out bipolar/ADHD/depression), family behavioral therapy, emotion-regulation skills, and medication if needed. Parents: Do not blame; seek a specialist’s diagnosis.",
-  "try_this": "This week: Record the anger outbursts (when, trigger, duration, intensity 1-10)—a week’s data will help the doctor make an accurate diagnosis.",
+  "summary": "Imagine this scene: a door slams shut, shouting suddenly erupts over a simple matter, or harsh words are thrown in your face, then calm returns as if nothing happened, only for the cycle to repeat hours or days later. Your son or daughter is in their teenage years, and this isn't just fleeting \"teenage defiance.\" These intense, recurrent outbursts of anger, which can be verbal or behavioral, occurring more than three times a week, with a generally irritable or angry mood most days, might indicate something deeper than normal teenage mood swings.\n\nThis is not a call for excessive worry, but rather a call for understanding and containment. Sometimes, what appears to us as defiance or misbehavior is actually a mood dysregulation disorder. This disorder doesn't choose anyone, and it's not the fault of the parents or the child. It's a real medical condition that affects a teenager's ability to control their emotions, trapping them in a cycle of anger and frustration, often manifesting in more than one setting, such as home and school. Recognizing that this is not a choice made by the teenager, but a challenge they face, is the first step towards help.\n\nThe good news is that there is great hope. Accurate diagnosis from a specialist is key, as it helps rule out other conditions that may have similar symptoms. After that, family behavioral therapy and training the teenager in emotion regulation skills can make a tremendous difference. In some cases, medication may be necessary as part of a comprehensive treatment plan. Remember, your role as parents is to support, not to blame. You are not alone in this, and help is available to bring peace back into your home and hearts.",
+  "try_this": "Tonight: Before bed, think about the calmest moment you shared with your son/daughter today, and write one sentence describing how you felt in that moment.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How many outbursts were recorded this week?",
-    "What are the recurring triggers?"
+    "When was the last time I felt my son's/daughter's anger was out of their control?",
+    "What do I usually do when my son/daughter gets very angry?"
   ],
   "warning_flags": [
     "نوبات >3/أسبوع + مزاج منزعج يومياً + >سنة",
@@ -28,36 +28,52 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I am here to listen to you, no matter how you feel.”",
+  "assistant_prompts": [
+    "How can I differentiate between normal anger outbursts and indicators that warrant consulting a specialist?",
+    "What are the first steps I can take to support my son/daughter if I suspect a mood dysregulation disorder?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_13-15_budget_a_week"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4ad195d0fd0c9959ec0021a1d6822c50d7c0cf41f056a87566aa33a19f9a8092",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "ea2d371500352ee43db984ba724810520abb23d12e69a65670c50b6e920b5934",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

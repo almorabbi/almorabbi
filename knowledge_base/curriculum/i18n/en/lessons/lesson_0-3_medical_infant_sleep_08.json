@@ -20,31 +20,26 @@
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-10-08T07:35:57",
-  "updated_at": "2026-10-08T23:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "updated_at": "2026-10-09T00:30:00",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "I seek refuge for you in the perfect words of Allah. With a gentle voice, we conclude our day with tranquility and remembrance.",
+  "assistant_prompts": [
+    "What are the short, established bedtime remembrances (adhkar) that I can recite for my infant before sleep?",
+    "Does playing Quran recitation or ruqyah throughout the night help the infant, or is my gentle voice better?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "claude-opus-5-5",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "leakage",
-        "why": "Arabic-style guillemets «» are retained in the English text where standard English quotation marks would be expected."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "claude-opus-5-5",
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
-    "revalidated_at": "2026-10-08T15:52:29+00:00",
-    "generated_by": "ops/tools/deepen_paths.py",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -52,33 +47,27 @@
       ],
       "providers": {
         "deepseek-v4-pro": {
-          "provider": "openrouter",
-          "model": "deepseek/deepseek-v4-pro"
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
         },
         "glm-5.2": {
-          "provider": "openrouter",
-          "model": "z-ai/glm-5.2"
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
         }
       },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "7dc7370464d198f609aa072c158d316dee8b89ff4e28f6a50934ea7fce297ff6",
-      "reviewed_at": "2026-10-08T15:52:29+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "leakage",
-          "why": "Arabic-style guillemets «» are retained in the English text where standard English quotation marks would be expected."
-        }
-      ],
+      "content_sha256": "99fa2c7dc396b39ca5481c17551bef2d2f4d02cf1ab4179e51edede0854f210a",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "english_authors": [
-      "claude-opus-5.5"
-    ]
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

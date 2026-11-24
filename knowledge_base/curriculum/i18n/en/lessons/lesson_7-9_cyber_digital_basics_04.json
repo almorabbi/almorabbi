@@ -1,17 +1,20 @@
 {
   "id": "lesson_7-9_cyber_digital_basics_04",
   "path_id": "path_7-9_cyber_digital_basics",
-  "title": "Cyberbullying: How He Protects Himself and When to Tell You",
+  "title": "When Words Hurt Your Child Online: How to Protect and Support Them",
   "age_group": "7-9",
   "domain": "cyber",
-  "unit_ids": [],
-  "summary": "Your child may face hurtful words or exclusion online, and he may stay silent out of fear or shyness. Teach him not to respond, to save the evidence (a screenshot), and to tell you immediately—you are with him, not against him. And teach him never to be the bully. A child who trusts that you will support him seeks help early.",
-  "try_this": "This week: Tell your child clearly: «If someone bothers you online, come to me immediately, and I will not punish you nor take the device away.»",
+  "unit_ids": [
+    "cyb-4d43859b",
+    "cyb-16495109"
+  ],
+  "summary": "Imagine your child coming home from school, their face pale, their eyes holding an untold story. It might just be a bad day, or perhaps a harsh word heard from a friend. But what if these harsh words, or this painful exclusion, happened behind a screen, in a virtual world they thought was safe? Our children, aged 7-9, are beginning to explore this world, and they might encounter things they weren't prepared for, and they might hesitate to tell you, fearing your reaction or feeling ashamed of what happened.\n\nThe online world, as much as it offers opportunities for learning and connection, also presents challenges that require us as parents to be a shield for our children. The core idea here is not to prevent them from this world, but to arm them with awareness and trust. Trust that you are not against them, but with them, and that you are the safe haven they turn to no matter what happens. This trust is the foundation for building a strong personality capable of facing difficulties, and it is what encourages them to seek help early before things escalate.\n\nCalmly teach your child that hurtful words or exclusion online are never their fault, and that the best reaction is not to retaliate. Encourage them to save any evidence (like a screenshot) and to tell you immediately about everything that happens, no matter how small it seems. Assure them that you will support them and help them solve the problem without blame or punishment, and that the device is not more important than them. Most importantly, teach them to be kind and respectful to others themselves, and not to be a cause of harm to anyone.",
+  "try_this": "Tonight: Sit with your child for a few minutes and open a friendly conversation with them about the importance of kindness and respect in dealing with others, whether face-to-face or online.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Does your child trust that he can tell you?",
-    "Does he know what to do if he is harmed?"
+    "Does my child feel safe enough to tell me everything that happens to them online?",
+    "Have I clearly explained to my child what they should do if they encounter a harmful situation online?"
   ],
   "warning_flags": [
     "تغيّر مزاجٍ أو انسحابٌ بعد استخدام الجهاز",
@@ -20,50 +23,53 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My dear, if anyone bothers you or says unkind words to you online, come to me immediately. I am with you, and I will never punish you or take away your device.”",
+  "assistant_prompts": [
+    "How can I help my child deal with feelings of anger or sadness after experiencing cyberbullying?",
+    "What games or apps are suitable for 7-9 year olds that reduce the chances of cyberbullying?"
+  ],
+  "ecosystem_links": {
+    "story_id": "omar_prayer",
+    "mission_id": "mission_7-9_build_something"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "fields.try_this.english",
-        "type": "leakage",
-        "why": "English text uses guillemets («») instead of standard English quotation marks, likely carried over from Arabic typography."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "2954a8fcd34f6ec7377b5719ed785578e606202a5167daa0b7de07514bb2c0b6",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "fields.try_this.english",
-          "type": "leakage",
-          "why": "English text uses guillemets («») instead of standard English quotation marks, likely carried over from Arabic typography."
-        }
-      ],
+      "content_sha256": "87ce1aa526628728cd5fd181b99d2546e09a35d5479038a3cc8cd529b9f43821",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

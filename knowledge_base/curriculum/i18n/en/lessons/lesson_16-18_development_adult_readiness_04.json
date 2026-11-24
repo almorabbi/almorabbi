@@ -1,68 +1,71 @@
 {
   "id": "lesson_16-18_development_adult_readiness_04",
   "path_id": "path_16-18_development_adult_readiness",
-  "title": "Mature Relationships and Boundaries: Healthy Friendships and Partnerships",
+  "title": "My Son is Growing Up: How Can He Build Strong Relationships That Protect and Propel Him Forward?",
   "age_group": "16-18",
   "domain": "development",
-  "unit_ids": [],
-  "summary": "At this age, deeper relationships form that shape his future. Teach your son the meaning of a healthy relationship: mutual respect, clear boundaries, and no compromise on values to please others. The righteous friend is like the bearer of musk, and whoever does not respect your boundaries does not deserve your closeness.",
-  "try_this": "This week: Discuss with your son the qualities of a friend who uplifts him versus one who drags him down, without directly criticizing his friends.",
+  "unit_ids": [
+    "dev-49a18746",
+    "dev-a3cf002d"
+  ],
+  "summary": "Do you remember how your little son used to run to you after every minor schoolyard squabble? Now, as he stands on the threshold of youth, his relationships have become more complex and profound. You might see him spending long hours with his friends, or exchanging endless text messages. This period is pivotal, as the relationships he builds now will shape a large part of his personality and future, whether they are friendships or even the beginnings of romantic partnerships. How do we ensure these relationships are supportive and constructive?\n\nThe key lies in understanding the essence of a healthy relationship: mutual respect, clear boundaries, and the ability to express oneself without fear. A true friend is someone who uplifts you, supports your values, and encourages you to be the best version of yourself, not someone who asks you to compromise your principles to please them. Teaching your son how to distinguish between these types of relationships is a shield of protection for him. Most importantly, he needs to realize that his self-worth does not depend on the acceptance of others, and that his refusal of a harmful relationship is a strength, not a weakness.\n\nOur role as parents is to be the calm anchor he returns to. Talk to him openly and warmly about the importance of choosing good company, and about how to set healthy boundaries politely and confidently. Do not directly attack his friends; instead, focus on behaviors and values. Help him build his self-confidence so he can say “no” to what doesn't suit him, and choose those who add to his life, not detract from it. These skills will stay with him for life, forming the foundation for all his future relationships.",
+  "try_this": "Tonight: During a casual conversation, ask your son: \"What is the most important quality you look for in a good friend?\" And listen carefully to his answer without interrupting.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Who influences your son the most these days?",
-    "Does he know how to set a boundary politely?"
+    "Does my son feel comfortable enough to share the details of his relationships with me?",
+    "Do I see that my son has enough courage to set boundaries with his friends?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“True friendship makes you feel stronger and happier, not less.”",
+  "assistant_prompts": [
+    "How can I help my teenage son understand the meaning of healthy boundaries in friendships?",
+    "What are the signs that my teenage son's relationship is harming him?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_cv_draft"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "hadith",
-        "why": "A well-known hadith paraphrase is quoted without any source, which is low at most per policy."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T19:00:03.327283+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "cbf9f23b1772662f9b3b5598490d3894056a690aaf69ee63920fecd89d0bf328",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "hadith",
-          "why": "A well-known hadith paraphrase is quoted without any source, which is low at most per policy."
-        }
-      ],
+      "content_sha256": "8a56d7498cfc8a7ac85346283be062470bb52d527624dd0c2f17c844960a60be",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

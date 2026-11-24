@@ -1,7 +1,7 @@
 {
   "id": "lesson_10-12_cyber_digital_citizenship_03",
   "path_id": "path_10-12_cyber_digital_citizenship",
-  "title": "Critical Thinking: Not Everything on the Internet is True",
+  "title": "Screen Friends: How Do We Distinguish Fact from Digital Fiction?",
   "age_group": "10-12",
   "domain": "cyber",
   "unit_ids": [
@@ -11,48 +11,65 @@
     "cyb-c231a76a",
     "de291c19-4443-464b-806e-81d9ed0c01ad"
   ],
-  "summary": "Algorithms feed you what you like, not what benefits you. Teach him: (1) Who is the source? (2) Is there another source that confirms it? (3) Does it provoke anger/fear? (4) Search on trusted sites. Activate SafeSearch and reliable sources for him.",
-  "try_this": "Choose a trending news item—search together: the primary source, expert opinions, facts vs. opinions. Teach him: \"If it’s too unbelievable to be true, it’s most likely false.\"",
+  "summary": "Imagine your ten-year-old child excitedly telling you about a strange flying animal or a thrilling new challenge they heard about online. Their eyes sparkle with sincerity, and their little heart believes everything they see or hear in their digital world. You might feel a hidden worry: How do I protect them from the flood of information, and how do I help them distinguish between what is real and what is merely an illusion? This situation happens frequently in our homes, and it's a golden opportunity to teach them a vital skill.\n\nIn the online world, the content we receive is often designed to grab our attention, not necessarily to benefit us. Smart algorithms know what we like and feed it to us, which can make us see the same type of news or opinions repeatedly, even if they are inaccurate. Our role as parents is not to prevent them from exploring this world, but to equip them with the compass that guides them. It's an opportunity to teach them that critical thinking is their protective shield, and that questioning and researching are the keys to true understanding.\n\nSo, let's follow simple and practical steps. Start by asking: \"Where did this news come from?\" Then encourage them to look for other sources that confirm the information. Teach them to be skeptical of news that provokes extreme anger or fear, as these are often designed to manipulate emotions. Most importantly, guide them towards reliable websites and activate safe search on their devices. In this way, we plant the seeds of digital awareness in them and empower them to distinguish with confidence and calm.",
+  "try_this": "Tonight: Choose a striking piece of news that has recently spread online (such as news about a strange natural phenomenon or a new invention), and research it together. Look at the primary source, see if experts are talking about it, and distinguish between facts and opinions.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What was the last news item you both verified together?",
-    "Which trusted sites did you rely on?"
+    "What was the last piece of news you both verified together, and what did you learn from that experience?",
+    "What reliable websites did you rely on as a reference for information?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My champion, always remember: If the news is impossible to believe, it’s probably not true.”",
+  "assistant_prompts": [
+    "How can I explain the concept of algorithms to my child (10-12) in a simplified way?",
+    "What are the best reliable educational websites suitable for 10-12 year olds?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_abu_umair_older",
+    "mission_id": "mission_10-12_memory_walk"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "b8bba02b81e79e8fc597e44a630562bd3dc5cf1b6bf2d8bb6260489961ee383f",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "937a3c8be5b9af9e36ea5593d5aed6c1236042f007e54ae1b6c98b4aa6d4bd8a",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

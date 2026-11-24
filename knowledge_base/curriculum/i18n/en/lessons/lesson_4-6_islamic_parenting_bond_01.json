@@ -1,58 +1,73 @@
 {
   "id": "lesson_4-6_islamic_parenting_bond_01",
   "path_id": "path_4-6_islamic_parenting_bond",
-  "title": "Rifq: The Key to the Emotional Bond",
+  "title": "Gentleness: The Tone of Your Voice That Builds Your Child's Security",
   "age_group": "4-6",
   "domain": "islamic_parenting",
   "unit_ids": [
     "0bd76d3c-548a-46ed-b17b-78874741662a",
     "isl-440cdac2"
   ],
-  "summary": "At the age of 4-6 years, the child begins to distinguish a gentle voice from a harsh one and connects the parent’s manner of interaction with their emotional safety. The Prophet ﷺ said: «Indeed, Allah is gentle and loves gentleness in every matter» (Sahih al-Bukhari 6927). Rifq is not weakness; rather, it is a way to build lasting trust. This lesson helps the parent discover how their voice and touch are reflected on their child’s sense of safety.",
-  "try_this": "This week: Choose one time daily (for example, 5 minutes before bedtime) to speak to your child in a calm voice without scolding them. Observe how they respond—do they draw closer? Do they share more? Do not comment, just observe.",
+  "summary": "At 8 PM, a cup of milk spills onto the clean carpet. Your child's eyes immediately turn to you, not to see the milk, but to see your face and hear the tone of your voice. Between the ages of four and six, a child doesn't retain long lectures, but their heart picks up something much deeper: Is the sound of Mom and Dad when I make a mistake a sound of security that fixes things, or a sound of fear that humiliates?\n\nYou might think that quick harshness prevents the mistake from recurring, but reality tells us otherwise. Yelling shuts down a child's ears and occupies their brain with fear or self-defense, so they don't learn how to hold the cup properly next time. Firm gentleness, however, gives them two messages simultaneously: \"You are loved by me, and mistakes are fixed calmly.\"\n\nThis is precisely the prophetic guidance in building homes. The Prophet ﷺ said: \"Indeed, Allah is Gentle and loves gentleness in all matters\" (Sahih al-Bukhari 6927). Gentleness is not weakness or abandoning boundaries; rather, it is about controlling your voice first, getting down to your child's eye level, and resolving the situation with them without hurtful words. When your child gets used to the idea that their mistakes don't cost them your love, a strong bridge of trust will form between you, making them return to you honestly when they grow up and face challenges tougher than a spilled cup of milk.",
+  "try_this": "Tonight: For the first small mistake your child makes (spilling, mess, slowness), pause for three seconds, lower your voice a full degree, get down to their eye level, then help them fix what happened without any word of blame.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "In which moment today did you feel your voice rise even though your intention was guidance?",
-    "How did your child’s face change when you altered your tone of voice?"
+    "What is the most common daily situation where my voice automatically rises, and what signal alerts me to calm down before I speak?",
+    "How did my child's expression change the last time I lowered my voice instead of scolding them?"
   ],
   "warning_flags": [],
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-06-08T14:00:00",
   "updated_at": "2026-06-08T14:00:00",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"My darling, it's okay, milk spills sometimes. Let's get a towel and wipe it together, and I'm with you.\"",
+  "assistant_prompts": [
+    "I try to be gentle with my child (4-6 years old), but they intentionally repeat the same mistake. How can I combine gentleness with firmness?",
+    "How can I gently apologize to my child if I lost my temper and yelled at them in a moment of exhaustion?"
+  ],
+  "ecosystem_links": {
+    "story_id": "kitten_kindness",
+    "mission_id": "mission_4-6_kind_word"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-10-04T08:26:16.180515+00:00",
-    "fixer_model": "claude-opus-5.5",
-    "manual_fix_note": "2026-10-04 scripture fix: hadith quoted only from the Sahihayn with book + number (Muslim by Abd al-Baqi); non-Sahihayn or paraphrased quotes replaced, mirrored from the Arabic.",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "836b2a19de7b125a6caeda816772ad37eaf3599494fbf5932178f2589d65a8e8",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "b5ce78a555fa613c1b9b423927edf01991ae827987926262713a959809031a88",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

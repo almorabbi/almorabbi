@@ -20,5 +20,14 @@
   "version": "1.0.0",
   "created_at": "2026-10-08T10:47:40",
   "updated_at": "2026-10-08T10:47:40",
-  "approved_by": null
+  "approved_by": null,
+  "parent_script": "«أعرف أنك تريد الحلوى؛ لن نشتريها اليوم، وأنا معك هنا حتى تهدأ.»",
+  "assistant_prompts": [
+    "كيف أتعامل مع نظرات الناس وتعليقاتهم المحرجة حين يبكي طفلي في المتجر؟",
+    "ما خطة التجهيز السريعة قبل دخول السوق مع طفلٍ عمره ٣ سنوات؟"
+  ],
+  "ecosystem_links": {
+    "story_id": "tamim_anger_volcano",
+    "mawqif_id": "mawqif_2-3_market_tantrum"
+  }
 }

@@ -1,17 +1,20 @@
 {
   "id": "lesson_16-18_islamic_parenting_adult_faith_01",
   "path_id": "path_16-18_aqeedah_conviction",
-  "title": "Iman with Conviction: When Your Young Adult Faces the World Alone",
+  "title": "Conviction of Faith: When Your Child Faces the World Alone",
   "age_group": "16-18",
   "domain": "aqeedah",
-  "unit_ids": [],
-  "summary": "As your young adult stands at the threshold of university and work, they will encounter ideas and pressures that test their iman far from you. Your goal is not to shield them from every question, but to ensure they emerge with iman built on conviction, not mere imitation—knowing *why* they believe and engaging with those who differ with confidence and adab. What they learned at home is a solid foundation that understanding, dialogue, and evidence suited to their age make more firmly rooted, so let them feel that their questions take nothing from their standing or from your love for them.",
-  "try_this": "Today: Ask your child about the idea they hear most that raises questions about faith for them, and agree to look together for a solid answer from a trusted scholar, without denial or haste.",
+  "unit_ids": [
+    "gap-isl-aqeedah-trust-01",
+    "isl-44bbed14"
+  ],
+  "summary": "Imagine your child, who was yesterday running around the house, sitting today in front of his computer screen, his eyes following a heated online debate about matters of faith. Perhaps he is participating in a discussion with his peers at university or work, or hearing new ideas that raise deep questions in his mind. These moments, away from the fortress of home, are a real test of what you have instilled in him. You may feel a natural concern — how can he stand firm in a world crowded with conflicting ideas and pressures that may shake the foundations of his faith?\n\nThe goal is not to protect him from every question — that is impossible — but rather that he possesses a faith built on firm conviction, not mere imitation. That he knows why he believes, and that he has the necessary tools to engage in dialogue with those who disagree with confidence and courtesy, relying on deep understanding rather than mere memorization. What he learns at home of values and principles is the foundation, but this foundation needs to be built upon with understanding, dialogue, and evidence appropriate to his age, so that his faith becomes an impenetrable fortress that doubts cannot shake.\n\nAlways make them feel that their questions do not diminish their standing with you, nor your love for them. Be a safe haven where they can express everything on their mind without fear of judgment or blame. Listen to them with your heart and mind, and share in the search for answers from reliable sources. Always remember Allah Almighty's saying: ﴿وَقُل لِّعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ﴾ (interpretation of the meaning: \"And tell My servants to say that which is best\") (Surah Al-Isra 17:53). For calm and respectful dialogue is the key to building conviction and strengthening faith.",
+  "try_this": "Today: Ask your child about the idea they hear most often that raises questions about faith for them, and agree to search together for a solid answer from a trusted scholar, without denial or haste.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What idea is troubling your child’s iman these days?",
-    "Did they leave the discussion more at ease or more anxious?"
+    "What idea is currently causing your child religious concern?",
+    "Did they emerge from the discussion more reassured or more anxious?"
   ],
   "warning_flags": [
     "انجراف نحو إنكار الدين أو ترك الصلاة",
@@ -20,22 +23,24 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"Your questions are important to me, and I'll always be here to search for their answers with you.\"",
+  "assistant_prompts": [
+    "How can I help my teenager understand common doubts about faith?",
+    "What reliable sources can I direct my child to in order to strengthen their faith?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_deep_read"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
-    "revalidated_at": "2026-10-08T16:29:33+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -43,27 +48,41 @@
       ],
       "providers": {
         "deepseek-v4-pro": {
-          "provider": "openrouter",
-          "model": "deepseek/deepseek-v4-pro"
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
         },
         "glm-5.2": {
-          "provider": "openrouter",
-          "model": "z-ai/glm-5.2"
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
         }
       },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "3ef0d137478602afe36ac67015cd40ac4960b545f0a18af4ee154fd8cecf92ff",
-      "reviewed_at": "2026-10-08T16:29:33+00:00",
-      "residual_low": [],
+      "content_sha256": "55cd7f8ea24187e8db643723c273a4cc5ea65a951f3bc8b96f8689eb9b27904e",
+      "reviewed_at": "2026-11-24T18:38:53+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "summary",
+          "type": "meaning",
+          "why": "English shifts from the singular masculine 'he/him' used earlier to plural/neutral 'them/their' although the Arabic consistently uses singular masculine."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "english_authors": [
-      "mistral-large-3:675b",
-      "claude-opus-5-5"
-    ]
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "summary",
+        "type": "meaning",
+        "why": "English shifts from the singular masculine 'he/him' used earlier to plural/neutral 'them/their' although the Arabic consistently uses singular masculine."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:38:53+00:00"
   }
 }

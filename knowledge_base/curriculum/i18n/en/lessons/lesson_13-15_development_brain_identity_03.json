@@ -1,55 +1,71 @@
 {
   "id": "lesson_13-15_development_brain_identity_03",
   "path_id": "path_13-15_development_brain_identity",
-  "title": "Identity of the Future: Planning, Decision, and Responsibility",
+  "title": "The Journey of Self-Discovery: A Teenager's Compass Towards the Future",
   "age_group": "13-15",
   "domain": "development",
   "unit_ids": [
     "dev-77d7ab2f",
     "dev-c5e6f09a"
   ],
-  "summary": "The frontal cortex is built through decisions. Teach him: (1) Weekly planning: goals, priorities, time. (2) Decision-making: gather information, seek consultation, perform istikhara, decide, monitor the outcome. (3) Responsibility: he bears the consequences of his decision, do not blame others. (4) Vision: Write \"Me in 20 years\" — what are your values? What do you do? Whom do you serve? Parents: be advisors, not imposers; celebrate good decisions, analyze mistakes without blame.",
-  "try_this": "This week: Create together a \"5-year roadmap\" — values, career dream, required skills, steps for this year. Hang it in his room.",
+  "summary": "Do you remember how your little one insisted on choosing their own clothes, or planned their complex games? Now, in adolescence, the circle of their \"decisions\" expands to include their studies, friendships, and even their vision for their future. They might entertain ideas about unusual professions, unfamiliar hobbies, or even refuse to think about tomorrow. This stage is full of fluctuations, but it's also a golden opportunity to plant the seeds of independence and responsibility.\n\nDuring these crucial years, the adolescent brain is busy building its future \"identity.\" Every decision they make, and every consequence they bear, contributes to forming new neural pathways in their prefrontal cortex, the area responsible for planning, decision-making, and impulse control. It's like an internal workshop where the features of their mature personality are being shaped. Our role as parents is not to impose a specific path, but to provide the tools and a safe environment that enables them to experiment, learn, and grow.\n\nHow do we help them on this journey? Start by teaching them the art of simple planning: how to set a small goal for their week, prioritize, and manage their time. Then train them in decision-making: gathering information, consulting those they trust, then taking their step and calmly observing the results. The most important thing is to instill the concept of responsibility: that the consequences of their decisions are theirs alone, and that blame changes nothing. Encourage them to write down their vision for themselves years from now: what are their values? What do they love to do? And whom do they aspire to serve? Be advisors, not judges; celebrate their successes, and analyze their mistakes together without blame.",
+  "try_this": "Tonight: Ask them about the most important decision they made today, and how they felt about it, then listen curiously without interruption.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What dream did he write?",
-    "What was the first practical step you agreed upon?"
+    "When was the last time I let my child make a difficult decision on their own?",
+    "How do I show them that I trust their ability to take responsibility for their decisions?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I am here to support you on your journey, and your decisions are yours.”",
+  "assistant_prompts": [
+    "How can I encourage my teenage child to think about their career future without pressuring them?",
+    "What practical activities help teenagers develop planning and decision-making skills?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_13-15_budget_a_week"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "19e71d1c43f10618a2fc312d1655107ab7a5678e70474d04360ce25f51186e0b",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "a9f1ed75265957b398c7ac16f90e1ea18547605b646b42325d34dc9ece044062",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

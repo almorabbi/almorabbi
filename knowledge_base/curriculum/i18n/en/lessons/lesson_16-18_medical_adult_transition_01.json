@@ -1,7 +1,7 @@
 {
   "id": "lesson_16-18_medical_adult_transition_01",
   "path_id": "path_16-18_medical_adult_transition",
-  "title": "Mental Health in University/Work: A Personal Safety Net",
+  "title": "My Child is Growing Up: How Do We Build a Psychological Safety Net Together for University and Work Life?",
   "age_group": "16-18",
   "domain": "medical",
   "unit_ids": [
@@ -10,13 +10,13 @@
     "e19e72c2-d553-4e12-a6e6-5d7c6f3fc083",
     "e5d132da-cdb4-403a-a43e-e78640ee6270"
   ],
-  "summary": "Your teen's move to university or work brings new pressures: being away from home, performance, relationships, and financial decisions. Help them build their tools: (1) A steady routine for sleep, movement and meals — the foundation of brain health. (2) A support network: a trusted friend, an academic mentor, a university counsellor, and your country's mental-health helpline saved on their phone. (3) Personal warning signs they write down and monitor weekly. (4) An emergency plan: your country's emergency number, a friend they can turn to, and a psychiatrist they know. Independence means learning to look after their own mental health, with you behind them.",
-  "try_this": "This week: Sit with your teen and write a personal \"safety card\" together: 3 warning signs, 3 ways to calm down, 3 people they trust, and your country's emergency number. They should keep it in their wallet or on their phone.",
+  "summary": "Do you remember those days when your child would run to you with any problem, big or small? Now, as they stand on the cusp of a completely new phase, you might see them spending more time in their room or sharing less than before. The transition to university or a work environment brings with it storms of challenges: feelings of loneliness in a new city, academic or professional performance pressure, the complexity of social relationships, and even the responsibility of managing money. All these changes can be overwhelming, and your child might feel the need for their own space, but at the same time, they need to know that you are their primary support.\n\nThe age range between 16 and 18 is a critical period for shaping independence, and this includes building the ability to care for one's own mental health. It's not about always relying on others, but about developing internal and external tools that enable them to deal with pressures effectively. The foundation of these tools is a stable routine that includes sufficient sleep, regular physical activity, and a balanced diet, as these are all essential pillars for brain health and stability. In addition, they need a strong support network, starting with a trusted friend, and potentially expanding to include an academic mentor or a psychological counselor in their new environment, with the importance of saving mental health support line numbers on their phone.\n\nYour role as a parent now is to be a guide and a supporter, not a controller. Help them identify personal warning signs that might indicate a decline in their mental state, and encourage them to monitor these weekly. Most importantly, together, create a clear emergency plan: who will they call in a crisis? What is the general emergency number? What will they do when they feel extremely distressed? These practical steps not only provide them with safety but also teach them the value of preparedness and self-responsibility. Remember, independence does not mean detachment; it means the ability to take care of oneself while knowing that a helping hand is always extended when needed. You are their support, and that is enough for them to face the world with confidence and calm.",
+  "try_this": "Tonight: Sit with your child in a quiet place and together write a simple \"safety card\": 3 personal warning signs (e.g., difficulty sleeping, loss of appetite, isolation), 3 ways to calm down (e.g., walking, listening to music, talking to a friend), 3 trusted people they can turn to, and your country's emergency number. Encourage them to keep it in their wallet or phone.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 5,
   "reflection_prompts": [
-    "What are the three warning signs your teen identified?",
-    "Who are the three people in their safety net?"
+    "What warning signs do you think your child might face in a new environment?",
+    "How can I be an effective part of my child's support network without being overly intrusive?"
   ],
   "warning_flags": [
     "أفكار انتحار/خطة",
@@ -26,53 +26,52 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I am always here to listen, no matter what challenges you face.”",
+  "assistant_prompts": [
+    "How can I help my child build a healthy routine for sleep, physical activity, and diet before moving to university?",
+    "What are the best ways to discuss mental health with a 17-year-old without making them feel pressured?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_community_help"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "meaning",
-        "why": "The Arabic consistently addresses the parent about 'your son' (ابنك) with masculine pronouns, while the English generalizes to gender-neutral 'your teen' / 'them/their' throughout."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-10-04T07:11:53.626353+00:00",
-    "fixer_model": "claude-opus-5.5",
-    "manual_fix_note": "Rewritten 2026-10-04 with the Arabic: Saudi-only 937 (and 112 as a universal number) replaced by country-neutral guidance; teen-directed wording re-addressed to the parent.",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "8bb75b86930fe1b5e15332df3f8e70b0d4b0533308718ea88938c22ec616f1a2",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "meaning",
-          "why": "The Arabic consistently addresses the parent about 'your son' (ابنك) with masculine pronouns, while the English generalizes to gender-neutral 'your teen' / 'them/their' throughout."
-        }
-      ],
+      "content_sha256": "bc35513f739e038014288dc7ced4b2aefa11636a24007dfbab95ac12248986dc",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

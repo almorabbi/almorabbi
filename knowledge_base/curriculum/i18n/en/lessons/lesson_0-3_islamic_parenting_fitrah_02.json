@@ -1,38 +1,43 @@
 {
   "id": "lesson_0-3_islamic_parenting_fitrah_02",
   "path_id": "path_0-3_islamic_parenting_fitrah",
-  "title": "Du'a and Tahneek: Sunnahs of Welcoming the Newborn",
+  "title": "Parents' Supplication: The First Steps of Love and Blessing for Your Child",
   "age_group": "0-3",
   "domain": "aqeedah",
-  "unit_ids": [],
-  "summary": "From the guidance of the Prophet ﷺ is tahneek of the newborn and making du'a for barakah for him (Sahih al-Bukhari 5467). Many jurists consider the adhan in his ear recommended, though hadith scholars differ over the authenticity of its hadith. These practices are not mere rituals but the parent's first steps in caring for this amanah. If your child is already past the newborn days, making du'a for barakah and righteousness for him remains an open door every day of his life.",
-  "try_this": "Today: Make a special du'a for your child (\"O Allah, make him among the righteous\") while you hold him, and make this your daily habit.",
+  "unit_ids": [
+    "gap-isl-aqeedah-trust-01",
+    "isl-343ab724"
+  ],
+  "summary": "Imagine holding your child in your arms, their small face touching your chest, their wide eyes gazing at the world around them. In this quiet moment, you might feel a flood of emotions: love, hope, and perhaps a slight worry for their future. These moments are your golden opportunity to plant seeds of goodness in their life, not just through physical care, but through spiritual care that begins with your sincere words and supplications.\n\nSupplicating for your child is not just words spoken; it is a deep expression of your love and your trust that there is a greater power that cares for and protects. It is the first spiritual investment you offer your beloved child, giving you a sense of peace and tranquility, and reminding you that you are not alone in this parenting journey. When you supplicate for your child, you open doors of goodness and blessings for them, and you ask for their righteousness and success in all stages of their life, even before they utter a word or take a step.\n\nDo not think that these moments are limited to the first days after birth. Rather, it is a daily habit you can embed in your routine, every time you hug your child, or help them sleep, or even when you see them playing. This simple habit will be a bridge connecting your heart to your child's heart, filling your home with serenity and mercy, and always reminding you that raising your child is a journey of continuous love and supplication.",
+  "try_this": "Today: Choose a short and beloved supplication (such as: \"O Allah, make him/her among the righteous\") and supplicate with it for your child three times while holding or playing with them, and make it a daily habit.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What du'a have you chosen for your child?",
-    "How do you feel when you make du'a for him?"
+    "What supplication did you choose for your child today?",
+    "How did you feel after supplicating for your child with this supplication?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My dear, I ask Allah to protect you, bless you, and make you among the righteous.”",
+  "assistant_prompts": [
+    "What are some authentic supplications I can make for my infant child?",
+    "How can I make supplicating for my child a part of my busy daily routine?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
-    "revalidated_at": "2026-10-08T15:21:56+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -40,27 +45,27 @@
       ],
       "providers": {
         "deepseek-v4-pro": {
-          "provider": "openrouter",
-          "model": "deepseek/deepseek-v4-pro"
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
         },
         "glm-5.2": {
-          "provider": "openrouter",
-          "model": "z-ai/glm-5.2"
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
         }
       },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "c5315a97913e8af60f6de83d884de66e5116abd53eca4ecb9226b1a1707ddb72",
-      "reviewed_at": "2026-10-08T15:21:56+00:00",
+      "content_sha256": "32c52594d01cf8b6c7d174eb5e922d3a32b8c4208c3722c9d6252a83b4afd13a",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "english_authors": [
-      "mistral-large-3:675b",
-      "claude-opus-5-5"
-    ]
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

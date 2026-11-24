@@ -1,55 +1,71 @@
 {
   "id": "lesson_16-18_development_driving_01",
   "path_id": "path_16-18_development_adult_readiness",
-  "title": "Safe-Driving Covenant: Trust and Gradual Independence",
+  "title": "The Car Key: Trust, Independence, and Safety on the Road",
   "age_group": "16-18",
   "domain": "development",
   "unit_ids": [
     "dev-52f5d319",
     "dev-f5759fee"
   ],
-  "summary": "A written driving covenant between you and your teenage son that sets clear rules: curfew times, permitted number of passengers, prohibition of phone use while driving, and restrictions during bad weather, with known consequences for violations. The National Highway Traffic Safety Administration (NHTSA) recommends this because parents are the most capable party to enforce these restrictions consistently at this stage. Your son’s first car is a natural sign of independence, not rebellion that warrants excessive concern. The American \"Checkpoints\" program suggests lifting restrictions gradually, not all at once: it starts with prohibiting night driving and carrying friends, then eases restrictions as he gains experience, protecting him without making him feel a lack of trust.",
-  "try_this": "This week: Write a one-page driving covenant with your son that specifies curfews, number of passengers, and phone use, then sign it together. Agree on one restriction you will lift gradually over the next month as he gains experience.",
+  "summary": "Imagine the scene: your teenage son holds the car key for the first time, his eyes gleaming with anticipation, and your heart tightens a little. This moment isn't just about driving a car; it's a declaration of a new stage of independence, a natural step towards maturity. You might feel anxious, and that's normal, but the important thing is how we transform this anxiety into a clear action plan that gives your son confidence and safety, and gives you peace of mind.\n\nGranting your teenage son the freedom to drive is not a rebellion that warrants excessive worry, but rather a natural sign of growth. The National Highway Traffic Safety Administration indicates that parents are the most capable party to effectively and consistently set and enforce driving restrictions at this critical age. Instead of granting freedom all at once, we can adopt a gradual approach, such as the American \"Checkpoints\" program, which suggests lifting restrictions little by little. This means starting with clear restrictions, such as prohibiting night driving or taking friends along initially, then gradually easing them as your son gains experience and demonstrates responsibility.\n\nTo achieve this, the solution lies in a written \"Safe Driving Agreement.\" This agreement, drafted collaboratively between you and your son, sets clear and specific rules: curfew times, the number of permitted passengers, prohibiting phone use while driving, and bad weather restrictions. Most importantly, it defines known consequences for violations. This transparency protects your son without making him feel distrusted, teaches him the value of responsibility, and boosts his self-confidence and his ability to make safe and informed decisions on the road.",
+  "try_this": "Today: Sit down with your teenage son and together write a preliminary, one-page driving agreement draft, including just one clause about curfew and one clause about phone use.",
   "order": 5,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Do you have written and clear driving rules, or verbal rules that change based on mood?",
-    "Do you treat his driving as a step toward independence deserving of gradual trust, or as a constant source of worry?"
+    "Do I see my son's driving as a burden and a source of anxiety, or as an opportunity to teach him responsibility and independence?",
+    "Are our driving rules clear and written, or do they change according to circumstances and mood?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I trust your ability to drive safely, and my role is to help you become a responsible driver.”",
+  "assistant_prompts": [
+    "How can I phrase the clauses of the driving agreement to be clear and motivating for my teenage son?",
+    "What are the main risks faced by teenage drivers and how can I discuss them with my son without scaring him?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_reflect_write"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "20ebc3f90b63ac31a28f1156c21419a1adf7e7ffd6264d66a3cfc44e5a164787",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "cc1bb774b873e615a24a6fef7bc906e9a1994b574960f0b20b18d1cc3f111520",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

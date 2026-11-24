@@ -1,17 +1,20 @@
 {
   "id": "lesson_2-3_medical_early_wellbeing_04",
   "path_id": "path_2-3_medical_early_wellbeing",
-  "title": "Home Safety and Accident Prevention",
+  "title": "Our Safe Home: My Child's Curious World",
   "age_group": "2-3",
   "domain": "medical",
-  "unit_ids": [],
-  "summary": "A toddler is curious and quick, and household accidents are a leading cause of injuries at this age. Secure your home: keep cleaning products and medications out of reach, stabilize furniture that could topple, protect sockets and stairs, and never leave your child near water alone. Prevention is cheaper and safer than treatment.",
-  "try_this": "This week: Walk through your home at your child’s eye level and fix three hazards you spot (cleaning products, sockets, furniture).",
+  "unit_ids": [
+    "d7a09c7e-769c-48b5-aaf8-0511fedfc0db",
+    "seed-sleep-23"
+  ],
+  "summary": "Imagine your little one, with bright eyes and restless curiosity, exploring every corner of the house. They open drawers, climb chairs, and touch everything their hands can reach. This is their world, a big playground full of adventures, but it may harbor unseen dangers for us as adults. At this age, children become faster and bolder, making household accidents the leading cause of injuries that can affect their health and development. Our mission as parents is to see the world through their small eyes and anticipate what might pique their curiosity or put them at risk.\n\nProtecting our children from these dangers does not mean restricting their movement or closing the doors of discovery in their faces; rather, it is the art of balancing freedom and safety. It's not about constant fear, but about conscious preparedness and the love that drives us to provide a safe and stimulating environment. When we childproof our home, we give our children more space to play and explore with confidence, and we give ourselves the peace of mind we deserve. Prevention is always easier and kinder than dealing with the aftermath of accidents, and it is an investment in our child's health and happiness.\n\nStart with simple but effective steps: securely close and store cleaning products and medicines out of reach, secure furniture that could easily fall on your child, protect electrical outlets with special covers, and install safety gates at staircases. Most importantly, never leave your child alone near water, even a small amount. These measures are not a burden; they are an expression of your love and care, creating a safe world for your child to grow and thrive in.",
+  "try_this": "Today: Walk through your home at your child's eye level and fix three immediate hazards you see (e.g., exposed cleaning products, an unprotected outlet, unstable furniture).",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Which area in your home is the most dangerous for your child?",
-    "What have you secured this week?"
+    "Which corner of my home needs the most attention for my child's safety?",
+    "What did I do today to make our home safer for my child?"
   ],
   "warning_flags": [
     "ابتلاع مادةٍ أو دواء",
@@ -20,36 +23,52 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My little one, our home loves and protects you. Here, you are safe to discover and play.”",
+  "assistant_prompts": [
+    "How can I effectively childproof my kitchen for a two-year-old?",
+    "What are the best types of child-safe electrical outlet covers?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "84e4eb31a25e9336e40259298cf6633ad291356d2c3313e9346a3fcbc24f0577",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "a4f850b24748da9a0e47dcbe0f8f98d219b0ddebf4e143a691f94f4f95fe79a2",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

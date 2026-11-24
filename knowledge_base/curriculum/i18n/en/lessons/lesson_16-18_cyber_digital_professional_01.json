@@ -1,54 +1,71 @@
 {
   "id": "lesson_16-18_cyber_digital_professional_01",
   "path_id": "path_16-18_cyber_digital_professional",
-  "title": "Building a Professional Digital Identity: LinkedIn, Portfolio, and Reputation",
+  "title": "Building the Bridge to the Future: Your Teen's Professional Digital Identity",
   "age_group": "16-18",
   "domain": "cyber",
   "unit_ids": [
     "cyb-db2bb48f",
     "cyb-26236b19"
   ],
-  "summary": "Before university/work: your digital identity = your first CV. Steps: (1) LinkedIn: a professional photo, a clear headline (student/field of interest), a summary highlighting skills/projects/values. (2) Portfolio: GitHub/Behance/personal website — real work, code/design/writing. (3) Cleaning your footprint: search your name on Google, delete/hide what is inappropriate. (4) Network: follow leaders in your field, engage with intelligent comments, request recommendations from teachers/mentors. Your digital reputation = your opportunity.",
-  "try_this": "This week: create/update your LinkedIn — photo, headline, 3 skills, one project. Search your name on Google and fix what appears.",
+  "summary": "Do you remember how your teenager, now on the cusp of university or the working world, used to spend long hours in front of a screen? Those hours could now be a golden opportunity to build their future. At this crucial age (16-18), their digital identity is no longer just photos with friends; it has become their first resume, the gateway through which they will enter countless educational and professional opportunities. Imagine that every click, every share, and every project adds a brick to building their future reputation.\n\nThe core idea here is that the digital world is not just a place for entertainment; it is an extension of our children's real lives, and a space where they can showcase their true potential. When we help them craft a conscious and professional digital presence, we are not just teaching them a technical skill, but instilling in them values of responsibility, future-oriented thinking, and how to present themselves to the world in the best possible light. It's like teaching them how to plant seeds of success in fertile soil, from which they await abundant fruits in the near future.\n\nSo, let us take our children's hands on this important journey. Start by helping them create a professional profile on platforms like LinkedIn, with a clear photo and a headline that reflects their ambitions. Encourage them to build a digital portfolio that includes their projects and achievements, whether they are code, artistic designs, or articles. And don't forget the importance of searching for their names on search engines to clean up any digital footprint that may not be appropriate. Finally, guide them to interact intelligently with leaders in their fields of interest, as every thoughtful comment or request for a recommendation from a teacher can open doors they never imagined.",
+  "try_this": "Tonight: Sit with your son/daughter for 5 minutes, open their LinkedIn account (or create one), then add a professional photo and a clear headline describing their ambitions.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What project did you highlight in your portfolio?",
-    "What impression did your profile leave when searching your name?"
+    "What first impression do I want my child's digital profile to leave with employers or universities?",
+    "How can I support my child in finding real projects to add to their digital portfolio?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:claude-opus:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My son/daughter, your digital identity is your footprint in tomorrow's world; let's take care of it together.”",
+  "assistant_prompts": [
+    "What are the best platforms for building a digital portfolio for teenagers in design or programming?",
+    "How can I help my child write an attractive and impactful personal summary on LinkedIn?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_community_help"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "claude-opus",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:claude-opus:2026-10-04",
-    "revalidated_at": "2026-10-04T17:12:35+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
-        "claude-opus"
+        "deepseek-v4-pro",
+        "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
-      "prompt_version": "manual:dfa8a5f39718",
-      "content_sha256": "202af48ce82dba2401a52f72f1be56b310c4e4f6ecd9ecccf90b96e343bd41d3",
-      "reviewed_at": "2026-10-04T17:12:35+00:00",
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "b47428c26eb95b736636fe62925b4a551dcbe9b09b901c4d2eda1957a05e8490",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and one reviewer from a model family different from the translator's read the Arabic and English side by side against the review rubric and found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

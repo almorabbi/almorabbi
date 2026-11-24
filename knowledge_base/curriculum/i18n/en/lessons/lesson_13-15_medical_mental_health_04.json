@@ -1,7 +1,7 @@
 {
   "id": "lesson_13-15_medical_mental_health_04",
   "path_id": "path_13-15_medical_mental_health",
-  "title": "Weekly Mood Scale, Safety Plan, and When to Seek Emergency Help",
+  "title": "The Safety Compass: How Do We Navigate the Sea of Emotions with Our Teen?",
   "age_group": "13-15",
   "domain": "medical",
   "unit_ids": [
@@ -12,13 +12,13 @@
     "med-cd46475d",
     "med-00fa7863"
   ],
-  "summary": "A practical tool for parents: (1) Weekly mood scale (1-10 chart for mood/energy/sleep) — a decline for more than two weeks = visit a specialist. (2) Personal safety plan: their warning signs, calming strategies, people they trust, and your country's emergency number and mental-health helpline. (3) Emergency: suicidal thoughts, a specific plan, available means, previous self-harm — call your country's emergency number immediately or go to the nearest emergency department, and do not leave them alone.",
-  "try_this": "This week: Create a pocket-sized \"safety card\" together — write: 3 warning signs, 3 calming strategies, 3 people your child trusts, and your country's emergency number. Keep it in a wallet or on the phone.",
+  "summary": "Do you remember those days when your little child would come to you with every problem, from a small scratch to a disturbing dream? Now, as they reach adolescence, things might seem different. Perhaps they withdraw into their room, their tone of voice changes, or you notice rapid mood swings. These changes are natural, but they can cause us concern as parents, especially when we feel there's something deeper than just \"teenager mood.\" How do we distinguish between normal fluctuations and what requires attention?\n\nThe key lies in building a bridge of communication and trust, while simultaneously equipping them with practical tools to help them understand themselves and express their needs. When we teach our children how to monitor their emotions, energy, and sleep, we give them an internal compass. This compass helps them determine when they are fine, when they need to stop, or when to ask for help. It's not about control, but about empowerment, making them partners in their mental health journey.\n\nSo, let's embark together on this lesson to create a clear \"safety plan\" for them and for us. This plan is not just for dealing with crises; it's a preventive tool that enhances their sense of security and reassures our hearts. We will identify with them early warning signs, calming methods that suit them, people they trust, and most importantly, when and how to ask for emergency help. Remember, having this plan doesn't mean expecting the worst; it means preparing for the unknown with wisdom and love.",
+  "try_this": "Today: Sit with your child for a few minutes and suggest the idea of a personal \"safety card.\" Explain that it's a tool for them, and ask them to list 3 warning signs they feel when they are upset, 3 things that help them calm down, and 3 people they trust. Then, write down your country's emergency number. You can write it on a small piece of paper or save it in phone notes.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Was the card easy to understand?",
-    "Did your son feel safe having it?"
+    "Did you feel your child was open to talking about their feelings while preparing the card?",
+    "What did you learn about your child through their answers to the safety card questions?"
   ],
   "warning_flags": [
     "خطة انتحار محددة + وسيلة متاحة",
@@ -28,39 +28,52 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I am always here for you, and we will learn together how to take care of your mental health.”",
+  "assistant_prompts": [
+    "How can I start a conversation with my teenager about their mental health without making them feel pressured?",
+    "What are some activities I can do with my child to foster their sense of safety and comfort at home?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_13-15_budget_a_week"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-10-04T07:11:53.626353+00:00",
-    "fixer_model": "claude-opus-5.5",
-    "manual_fix_note": "Rewritten 2026-10-04 with the Arabic: Saudi-only 937 (and 112 as a universal number) replaced by country-neutral guidance; teen-directed wording re-addressed to the parent.",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "9d73c661013a44c12d08731e64b0eb1d57b38c9ec8b2a818698b30b4bdb42a54",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "ee53808d1aac8e829ce11b646fc9ab9048d28ade5cf43ef5e95f0c3f869e44ca",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

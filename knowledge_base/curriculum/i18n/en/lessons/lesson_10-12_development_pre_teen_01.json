@@ -1,54 +1,72 @@
 {
   "id": "lesson_10-12_development_pre_teen_01",
   "path_id": "path_10-12_development_pre_teen",
-  "title": "Early Signs of Puberty: Confident Dialogue about the Changing Body",
+  "title": "A Changing Body: The Trust Conversation Starts With You",
   "age_group": "10-12",
   "domain": "development",
-  "unit_ids": [],
-  "summary": "Signs of puberty may begin at this age, and your child needs to hear about them from you first—not from peers or the internet. Speak with calmness and clarity appropriate for his age about the coming physical changes, reassuring him that these are natural and that you are his trusted source. Early dialogue protects him from misinformation and from shame.",
-  "try_this": "This week: Open a short, reassuring conversation about one physical change, and let your child know he can always ask you.",
+  "unit_ids": [
+    "dev-9d31767e",
+    "dev-3b7d4a62"
+  ],
+  "summary": "You notice that your little one, who was chasing a ball yesterday, now spends more time in front of the mirror, or perhaps notices a change in their voice or body shape. Many questions might start swirling in their mind, and they might find themselves confused by these new transformations. This age, between ten and twelve, is the beginning of puberty, where physical and hormonal changes accelerate, and it can be confusing and worrying if your child doesn't have someone to talk to about it.\n\nIt's natural for your child to feel shy or embarrassed about what's happening to their body. This is where your role as a parent comes in, to be their first source of reliable and warm information. When your child receives this information from you first, they feel safe and confident, and they realize that these changes are natural and part of growth. This early conversation not only protects them from misinformation they might find from peers or online, but also builds a bridge of trust that makes them always turn to you with any question or concern.\n\nStart the conversation calmly and clearly, choosing words appropriate for their age. Don't pressure them, but open a safe door for questions. Be ready to answer honestly and warmly, and assure them that their body is changing in a healthy and natural way. Remember that your goal is to reassure them and provide them with knowledge, so they can face this stage with confidence and calm, knowing that you are their constant support and trusted source.",
+  "try_this": "Tonight: Open a short, reassuring conversation about one physical change your child has noticed or might notice soon (such as a voice change or the beginning of hair growth), and tell them you are here to answer any questions.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Have you spoken with your child about puberty yet?",
-    "Does he feel he can ask you?"
+    "How can I make my child feel safe enough to ask questions about their body?",
+    "What is the first piece of information I want my child to know about upcoming physical changes?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“Your body is changing in a wonderful and natural way, and I’m here for any questions you have.”",
+  "assistant_prompts": [
+    "How do I start a conversation about puberty with my 10-year-old without embarrassing them?",
+    "What physical changes are expected for girls aged 11-12 and how do I explain them?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_10-12_cook_simple"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T18:03:14.556747+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4f0979600daabd666230fafdf5a06cddc27dd9dc288aa21e8027cfbf9f939286",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "242a7369a381a45ec8838257caa47efe05af91412617c1281432e962cebcd1fb",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

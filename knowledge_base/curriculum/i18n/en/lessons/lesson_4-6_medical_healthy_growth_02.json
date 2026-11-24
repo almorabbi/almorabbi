@@ -1,17 +1,20 @@
 {
   "id": "lesson_4-6_medical_healthy_growth_02",
   "path_id": "path_4-6_medical_healthy_growth",
-  "title": "Balanced Nutrition and Refusal of Food",
+  "title": "My Child Won't Eat! The Tale of the Stubborn Plate",
   "age_group": "4-6",
   "domain": "medical",
-  "unit_ids": [],
-  "summary": "Picky eating is common at this age and is often temporary. Do not force your child, nor turn the meal into a battle. Offer a variety of healthy options and let them choose the quantity, and be a role model in eating. Reduce sugars between meals. Consult a doctor if they lose weight or consistently refuse entire food groups.",
-  "try_this": "This week: Present a plate with one new item alongside foods they like, without pressure or forcing them to eat.",
+  "unit_ids": [
+    "med-53feef7b",
+    "seed-shy-46"
+  ],
+  "summary": "The story repeats every day: \"I don't like this!\" your little one shouts, pushing the plate away. Sometimes they refuse vegetables, other times they abstain from meat, and sometimes they insist on eating only pasta. You feel frustrated and worried, wondering if they're getting enough, if they're growing healthily. The dining table turns into a battlefield, and you wonder when this difficult phase will end.\n\nKnow that picky eating is very common at this age and is often just a temporary and natural stage of development. Your child is exploring their independence and wants to have a say even in what goes into their body. Pressure and coercion will not work; in fact, they might make things worse and turn mealtime into a negative experience associated with stress instead of enjoyment and nourishment. Our goal is to build a healthy relationship with food, not a daily battle.\n\nTo calm the atmosphere, offer your child healthy and varied options, and let them choose the quantity that suits them. Be a role model by eating healthy and balanced meals yourself, and reduce sugary and unhealthy snacks between main meals. If you notice weight loss or a persistent refusal of entire food categories (such as all vegetables or all protein sources), do not hesitate to consult a pediatrician for reassurance or necessary guidance.",
+  "try_this": "Tonight: Offer a plate with one new item alongside two items your child likes, without any comment or pressure to eat it.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What does your child refuse the most?",
-    "Have meals turned into a struggle?"
+    "What foods does your child consistently refuse?",
+    "How has my child's picky eating affected the mealtime atmosphere at home?"
   ],
   "warning_flags": [
     "فقدان وزنٍ أو توقف نمو",
@@ -20,36 +23,67 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“This is your plate; choose what you like from it.”",
+  "assistant_prompts": [
+    "What are healthy breakfast alternatives for a child who refuses eggs and milk?",
+    "How do I deal with my child who completely refuses to eat vegetables?"
+  ],
+  "ecosystem_links": {
+    "story_id": "khadija_neighbor",
+    "mission_id": "mission_4-6_color_hunt"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "3e01ce73b444f16e36829d50374c47ed3e313901394f9f34fc042cfd1cbbc145",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
-      "residual_low": [],
+      "content_sha256": "d626c5e2799741b554183ed43a293904a2058ad42bc8aebdc5cb5918af73fd3e",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "title",
+          "type": "meaning",
+          "why": "The Arabic specifies 'my son' (ابني) while the English generalizes to 'my child'."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "title",
+        "type": "meaning",
+        "why": "The Arabic specifies 'my son' (ابني) while the English generalizes to 'my child'."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

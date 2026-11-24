@@ -1,55 +1,43 @@
 {
   "id": "lesson_16-18_islamic_independence_boundaries_01",
   "path_id": "path_16-18_islamic_parenting_adult_faith",
-  "title": "Independence of the University-Age Youth: Boundaries of Relationships and Birr al-Walidayn",
+  "title": "A Young Person's Independence: Boundaries in Relationships and Mature Filial Piety",
   "age_group": "16-18",
   "domain": "islamic_parenting",
   "unit_ids": [
-    "isl-85efb0a3"
+    "isl-85efb0a3",
+    "isl-ce1b71bd"
   ],
-  "summary": "Your university-age child’s independence in their decisions is a natural stage of growth, not a shortcoming in his dutifulness to you, as Abdullah Nasih Alwan explains in his book Tarbiyah al-Awlad fi al-Islam. Your role shifts from direct guidance to companionship and counsel, for the values you planted in their early years remain their inner reference. Birr does not mean complete dependence, but mutual respect alongside their independence. If you discover your daughter in an early emotional relationship, it calls for its termination because it lacks a Shar'i framework. However, address it with wisdom, not exposure or scandal before the family. Speak to her calmly, clarify the potential harms, and present the lawful alternative: official engagement with the family’s knowledge if her desire is sincere. Your son’s emotional inclination toward a girl is not a sin in itself because it is not entirely his choice, but accountability lies in the actions: secret correspondence and khalwah (seclusion) are forbidden and must be stopped. Do not punish him for mere feelings, but guide him to the lawful path: if his desire is sincere, then proceed to propose for her hand with the knowledge of both families, rather than continuing a secret relationship.",
-  "try_this": "This week: If you have a son or daughter at this stage, initiate one calm conversation (not tied to a specific incident) about the meaning of birr after independence, and about the Shar'i path if they have a sincere desire to get to know someone with the intention of marriage, instead of leaving the topic unaddressed until a surprise occurs.",
+  "summary": "When your son, between the ages of sixteen and eighteen, begins to make decisions about his studies, time, and friends, a hidden fear might creep into your heart: \"Has he distanced himself from me? Is his independence a sign of weakened filial piety?\" This concern is very understandable, but confusing healthy independence with disobedience is the quickest way to a conflict that exhausts both parties.\n\nIn truth, a young person's maturity and independence of opinion are the fruit of your successful upbringing, not a sign of its failure! Your role at this stage transforms from the \"manager\" who decides every detail to the \"wise advisor\" who engages in dialogue, explains consequences, and then leaves room for decisions where there is no religious prohibition or severe harm. The Prophet ﷺ said: \"Religion is sincerity\" (Sahih Muslim — Hadith 55). Sincere advice is offered with gentleness, respect, and kind words: ﴿وَقُل لِّعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ﴾ (interpretation of the meaning: \"And tell My servants to say that which is best\" — Surah Al-Isra 17:53).\n\nWhen you respect your young person's opinion, consult them, and distinguish between uncompromisable principles and personal preferences where people differ, their adherence to honoring you and their appreciation for your opinion will increase. This is because they return to you by their choice and love, not out of fear or coercion. Balanced independence and sincere filial piety are not adversaries; rather, they are two wings that carry your young person to maturity.",
+  "try_this": "Tonight: Open a calm conversation with your son or daughter – unrelated to a current problem – in which you ask them about their vision for something related to their academic year or their upcoming plan, and listen to the end of their words before expressing your opinion.",
   "order": 1,
   "estimated_minutes": 4,
   "reflection_prompts": [
-    "Do you distinguish between your child’s independence in daily decisions and any shortcoming in their birr toward you?",
-    "If you discovered an early emotional relationship, would your first plan be a calm resolution or a reaction that escalates the crisis?"
+    "What decision do I still impose on my young son out of anxiety that I could entrust to him with calm advice?",
+    "Do I clearly distinguish in our conversations between religious principles and merely my disagreement with him in taste and style?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-09",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"You are now at an age of maturity and responsibility, and I'm interested in hearing your perspective first; I am here as a support and advisor for you whenever you need me.\"",
+  "assistant_prompts": [
+    "My 17-year-old son refuses my interference in his academic choices and friends, viewing it as control. How do I balance advice and trust?",
+    "How can I set household rules with an 18-year-old in a way that preserves mutual respect?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_reflect_write"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "leakage",
-        "why": "The Arabic book title is transliterated rather than translated, leaving Arabic words in the English text."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "meaning",
-        "why": "«جدّت» means 'if his desire becomes serious/arises', emphasizing the desire reaching a serious stage, whereas 'sincere' shifts the nuance toward genuineness of intent."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-09",
-    "revalidated_at": "2026-11-09T08:10:21+00:00",
-    "fixed_at": "2026-08-13T17:53:46.192345+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -68,25 +56,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4a14de058aced8f44073eec85af7309bd07044ccac047e70ea674f2a5b7c7318",
-      "reviewed_at": "2026-11-09T08:10:21+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "leakage",
-          "why": "The Arabic book title is transliterated rather than translated, leaving Arabic words in the English text."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "meaning",
-          "why": "«جدّت» means 'if his desire becomes serious/arises', emphasizing the desire reaching a serious stage, whereas 'sincere' shifts the nuance toward genuineness of intent."
-        }
-      ],
+      "content_sha256": "ff73dbf94317b114670de6927ac797d262d97d89f522125ca2ed6a6100783fac",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    }
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

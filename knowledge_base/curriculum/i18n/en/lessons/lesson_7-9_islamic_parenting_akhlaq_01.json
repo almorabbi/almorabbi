@@ -1,52 +1,72 @@
 {
   "id": "lesson_7-9_islamic_parenting_akhlaq_01",
   "path_id": "path_7-9_islamic_parenting_akhlaq",
-  "title": "Truthfulness: How to Raise a Child Who Does Not Lie",
+  "title": "Truthfulness: Make the Truth Safe Before You Account for the Mistake",
   "age_group": "7-9",
   "domain": "islamic_parenting",
-  "unit_ids": [],
-  "summary": "A child often lies out of fear of punishment or in search of acceptance. Make truthfulness safe: do not punish for confessing, and praise truthfulness even if the reality is difficult. Truthfulness is built with safety, not with threats.",
-  "try_this": "This week: when your child tells the truth in a difficult matter, praise their truthfulness first before addressing the mistake.",
+  "unit_ids": [
+    "isl-1e4f7969",
+    "isl-f4accfb8"
+  ],
+  "summary": "You find a broken vase or an incomplete school assignment, and you ask your child in the tone of an angry interrogator: “You did this, didn’t you?” They look at you with tense eyes and immediately say: “No, not me!” Between the ages of seven and nine, most children don't lie out of malice, but because the fear of your anger or disappointment seems too great for them, so they resort to lying as a quick shield for protection.\n\nHere lies a common parenting mistake: we direct all our anger at the mistake itself, ignoring the virtue of confession, or we set a “question trap” for the child when we already know the truth, thus pushing them to deny it. The golden rule at this age is simple: if you know what happened, describe the reality directly instead of testing them, and if they confess their mistake, make the moment of truthfulness safe and praised before discussing how to fix the mistake.\n\nThe Prophet ﷺ clarified the status of truthfulness as a path to all good, saying ﷺ: “Adhere to truthfulness, for truthfulness leads to righteousness, and righteousness leads to Paradise” (Sahih Muslim 2607). For truthfulness to take root in your home, be the first example of it; do not promise your child something to calm them down and then break your promise, and do not ask them to say on the phone that you are not home. When they see truthfulness as a way of life in you and find safety when they confess, they will bravely choose the truth.",
+  "try_this": "Tonight: Clearly and calmly tell your child the new house rule: “If you are truthful and admit a mistake, we will first thank your courage, then we will fix the mistake together without shouting,” and apply it in the first situation that arises.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "When does your child resort to lying?",
-    "Do they feel that truthfulness is safe with you?"
+    "Do I sometimes ask my child questions to which I already know the answer, thus pushing them to deny out of fear?",
+    "Is there any small “white lie” in our home that we need to stop to be a pure example for the child?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“Thank you for telling the truth even though it was difficult; this is courageous truthfulness that Allah loves, and I am proud of it. Now, let’s think about how to fix what happened.”",
+  "assistant_prompts": [
+    "My 8-year-old child lies a lot about their homework; how do I deal with them without losing their trust?",
+    "How do I differentiate between a child's vivid imagination and intentional lying at ages 7-9?"
+  ],
+  "ecosystem_links": {
+    "story_id": "hamza_truth",
+    "mission_id": "mission_7-9_say_sorry"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "33648d1175991f314359ab22f147353247704eefb52829281c0089021a474eee",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "e1fae0ea5c9b7a5be0e6b7f05782f1486ff3f05d41f8752cf5b3ac531d5095d6",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

@@ -1,17 +1,20 @@
 {
   "id": "lesson_7-9_cyber_digital_basics_02",
   "path_id": "path_7-9_cyber_digital_basics",
-  "title": "Electronic Games: The Beneficial and the Harmful",
+  "title": "Our Screens and Our Children: How Do We Make Electronic Games a Friend, Not an Enemy?",
   "age_group": "7-9",
   "domain": "cyber",
-  "unit_ids": [],
-  "summary": "Not all games are bad; some develop thinking and cooperation. The problem lies in excess, violent content, and games that encourage purchases or allow chatting with strangers. Review the game’s age rating, enable safety settings, and watch for any change in your child’s mood after playing.",
-  "try_this": "This week: Sit down and explore a game your child loves—its rating, content, and whether it allows talking to strangers.",
+  "unit_ids": [
+    "seed-screen-79",
+    "cyb-71c11ce6"
+  ],
+  "summary": "Imagine walking into your child's room to find them engrossed in an electronic game, their eyes fixed on the screen, their fingers moving rapidly. You might wonder: Is this good for them? Are they wasting their time? Or are they learning something useful? This feeling is very natural, as the digital world has become an integral part of our lives and our children's lives, and electronic games, specifically, raise many questions.\n\nThe truth is that not all electronic games are purely evil, nor are they all absolutely good. Some are specifically designed to develop critical thinking skills, problem-solving, and even teamwork and cooperation. But on the other hand, there are games that may contain violent content, or push the child to make repeated purchases, or allow them to talk to strangers, and this is what requires our vigilance and caution. The key here is balance and a deep understanding of what our children are playing.\n\nOur role as parents is to be guides, not just monitors. Start by checking the game's age rating, as it is an important indicator. Then, do not hesitate to activate safety and privacy settings within the game itself. Most importantly, observe your child's mood and behavior after playing; do they seem happy and refreshed, or tense and irritable? These simple observations will give you a clear compass to guide them towards a safe and enriching digital experience.",
+  "try_this": "Tonight: Sit with your child and ask them to show you their favorite game. Ask them why they love it and what they do in it. Listen attentively without judgment.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What games does your child play?",
-    "Have you reviewed its safety settings?"
+    "When was the last time I participated in my child's electronic game?",
+    "What are my personal indicators that screen time is negatively affecting my child?"
   ],
   "warning_flags": [
     "غضبٌ شديد عند منع اللعب",
@@ -20,36 +23,53 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I’m excited to learn more about your world in this game. Can you show me how you play?”",
+  "assistant_prompts": [
+    "How do I choose electronic games suitable for ages 7-9 that develop their skills?",
+    "What are the signs that my child is spending too much time on electronic games?"
+  ],
+  "ecosystem_links": {
+    "story_id": "omar_prayer",
+    "mission_id": "mission_7-9_secret_good_deed"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "2e2fbad37b5d538218bf495737d6b27a1b78f5dabcf2325d3cfd249e4eb29d81",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "4db122829a194d9a61d128e15ae6e690bd9abac7f516232fc03de78623fe109e",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

@@ -1,72 +1,72 @@
 {
   "id": "lesson_13-15_development_brain_identity_b04",
   "path_id": "path_13-15_development_brain_identity",
-  "title": "Gradual Independence: From Control to Supervision",
+  "title": "Room to Grow: How Do We Safely Launch a Teenager's Wings?",
   "age_group": "13-15",
   "domain": "development",
   "unit_ids": [
     "dev-e129e5e9",
     "gap-dev-defiance-teen-01"
   ],
-  "summary": "The adolescent brain is programmed for independence, and attempting complete control breeds rebellion. Your role shifts from 'manager' to 'advisor': grant him gradual freedom with clear boundaries and natural consequences he learns from. Allow him decisions that concern him (his clothing, time management, friends within a framework), and maintain firmness in constants and safety. Small mistakes now in a safe environment are far less costly than big mistakes later without experience. The adolescent who is given measured trust develops self-governance, while the one who is tightly controlled continues to seek freedom in secret.",
-  "try_this": "This week: Choose one decision you used to make for him (organizing his study time, for example) and hand it over to him with a clear framework, letting the natural consequence teach him. Resist your urge to intervene.",
+  "summary": "Imagine your teenage child standing in front of their wardrobe, choosing a shirt that you find completely unsuitable. Or perhaps they insist on a study plan that differs from your ideal schedule. In these moments, you might feel an overwhelming urge to intervene, to guide them towards the \"right decision.\" This feeling is natural, but it can be the beginning of a hidden conflict. The more you tighten the reins, the more they desire freedom, even if it's in ways you don't approve of.\n\nA teenager's brain at this stage is naturally programmed to seek independence and form a self-identity. They are not necessarily rebellious, but rather looking for their own space to test their abilities and refine their character. Your role here transforms from a \"manager\" who sets all the rules and details, to a \"consultant\" who guides, supports, and provides a safe framework. This means giving them gradual freedom to make decisions that concern them, with clear boundaries and natural consequences from which they can learn.\n\nStart by giving them space in simple decisions that concern them, such as choosing their clothes, organizing their room, or even setting their study priorities within an agreed-upon timeframe. Remain firm on non-negotiable constants, such as safety and core values. Remember that the small mistakes they make now in a safe environment and under your supervision are a valuable investment for them to learn from and gain experience, and they are much cheaper than big mistakes they might make later without experience or guidance. Give them calculated trust, and they will develop strong self-judgment.",
+  "try_this": "Tonight: Choose one decision you used to make for them (like their weekend bedtime) and hand it over to them with a clear framework (e.g., \"You can stay up until 11 PM, but remember you're responsible for waking up early tomorrow.\"). Resist the urge to intervene if they stay up a little later, and let them experience the natural consequences.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What area of independence can you grant your **son** this month without compromising his safety?",
-    "What difference do you feel between the role of 'manager' and the role of 'advisor' in your relationship with him?"
+    "What is the decision you feel is the hardest to grant your teenage son/daughter? And why?",
+    "How can giving a teenager space to make mistakes affect their self-confidence and ability to learn?"
   ],
   "warning_flags": [],
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I trust your ability to make the right decision, and I’ll be here to support you if you need me.”",
+  "assistant_prompts": [
+    "What activities can teenagers participate in to develop their independence?",
+    "How do I deal with a teenager who refuses to take responsibility after being given freedom to make decisions?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_13-15_cook_a_meal"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "fields.reflection_prompts[0]",
-        "type": "addition",
-        "why": "The English adds markdown bold formatting around 'son' that is not present in the Arabic source."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T18:58:07.060123+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "9fe748e9ce2f4f651d437e1ad6be44ed2b61efff98d2b983fee78373dc9c0424",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "fields.reflection_prompts[0]",
-          "type": "addition",
-          "why": "The English adds markdown bold formatting around 'son' that is not present in the Arabic source."
-        }
-      ],
+      "content_sha256": "d4e6242d5c847bbd06b5ad9d4b0a2b65a1c60ed10edd0e4baa98a2114ea196ba",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

@@ -1,7 +1,7 @@
 {
   "id": "lesson_7-9_development_middle_childhood_01",
   "path_id": "path_7-9_development_digital_wellbeing",
-  "title": "My Child’s Physical and Social Growth from Primary Stage to Pre-Bulugh",
+  "title": "My Child is Growing: How Do I Support Their Physical and Social Development in Their Elementary Years?",
   "age_group": "7-9",
   "domain": "development",
   "unit_ids": [
@@ -9,14 +9,13 @@
     "dev-10a2fcc0",
     "med-88c1469a"
   ],
-  "summary": "At the age of 6-8 years, your child can dress themselves, catch a ball confidently with their hands, and tie their shoelaces, because their physical and motor skills are developing rapidly. The American CDC recommends at least one hour of physical activity daily and 9-12 hours of sleep each day to support this natural growth. Your child’s (9-11 years) increased interest in their friends over family is a normal stage of growth, not a distancing from you, as their friendships become deeper and more emotionally significant. Peer pressure also increases at this stage, and a child who is confident in themselves is better able to resist negative pressure. Accompany their growing independence instead of resisting it, according to the American CDC. The appearance of signs of bulugh in your daughter before the age of eight (or in your son before nine) is medically defined as \"precocious puberty\" and requires evaluation by a pediatrician or endocrinologist to determine the cause, according to the American Academy of Pediatrics (AAP). Do not wait or be content with home observation alone; early referral determines the appropriate treatment if it exists. However, the onset of signs of bulugh in your daughter between the ages of 8 and 13 is completely normal. The first sign is often a small bump the size of a coin under the nipple, and it may appear in one breast before the other, so there is no need to worry about asymmetry. Prepare her psychologically with a calm conversation before the signs appear, not after. Your daughter’s (10-12 years) comparison of herself to her friends in terms of clothing is common at this age. Instead of outright refusal or immediately buying what she wants to please her, give her a regular allowance to manage on her own; this trains her to distinguish between what she truly wants and what she wants because her friend has it.",
-  "try_this": "This week: Monitor your child’s growth without direct comment in just three areas: their daily physical activity, how close they are becoming to their friends, and any early or expected signs of bulugh. If you see a sign of bulugh before the age of eight (in your daughter) or nine (in your son), book an appointment with a pediatrician this week instead of waiting.",
+  "summary": "Imagine your seven-year-old child running lightly in the park, confidently catching a ball, and tying their own shoes before going out to play. These daily scenes are not just fleeting moments; they are clear signs of rapid and amazing physical and motor development. At this stage, your child needs at least one hour of physical activity daily and 9-12 hours of nightly sleep to support their small body through this significant development. It's as if their body is telling you: \"I am exploring the world with my increasing strength!\"\n\nAs they grow older, towards nine and ten, you will notice that their friends begin to occupy a larger space in their world. This is not a sign of them drifting away from you, but rather a natural and necessary stage for their social and emotional development. Their friendships deepen and become an important source of support and new experiences. Peer pressure may increase during this period, and this is where the self-confidence you have built with them becomes their protective shield. Accompany their growing independence instead of resisting it, for every step towards self-reliance is an achievement worth celebrating.\n\nIt is important to be aware of the signs of puberty. Their appearance in your daughter before age eight, or in your son before age nine, warrants consultation with a pediatrician or endocrinologist; do not hesitate to do so. However, the appearance of pubertal signs in your daughter between 8 and 13 years old is normal, and often the first sign is a small bud under the nipple. Talk to her calmly about these changes before they happen. If your daughter starts comparing herself to her friends in terms of clothes, give her a regular allowance to learn how to choose what she truly wants and to differentiate between genuine desire and peer influence. In this way, you are not just fulfilling her wishes, but training her to make conscious decisions.",
+  "try_this": "Tonight: Before bedtime, talk to your child about the best thing they did today with their friends, and about what they most enjoyed doing with their body (such as running or playing with a ball).",
   "order": 5,
-  "estimated_minutes": 5,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Do you view your child’s closeness to their friends as a threat to you, or as a natural growth that deserves accompaniment?",
-    "Do you distinguish between a normal sign of bulugh at its proper time and an early sign that requires a doctor?",
-    "How do you handle your daughter’s comparison of herself to her friends in terms of clothing?"
+    "Do I see my child's interest in their friends as a threat, or as an opportunity for their social growth?",
+    "How can I prepare to talk about physical changes with my child in a calm and reassuring way?"
   ],
   "warning_flags": [
     "ظهور علامات بلوغ قبل سن الثامنة عند البنت (أو التاسعة عند الولد) يحتاج تقييم طبيب أطفال أو أخصائي غدد صماء، لا مجرد ملاحظة منزلية"
@@ -24,38 +23,67 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I am here to support you every step of the way, my son/daughter.”",
+  "assistant_prompts": [
+    "How can I help my child build self-confidence to face peer pressure?",
+    "What are suitable physical activities for a child aged 7-9 years?"
+  ],
+  "ecosystem_links": {
+    "story_id": "omar_prayer",
+    "mission_id": "mission_7-9_build_something"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-08-13T19:05:55.249222+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "c668381e51afdb1ef4ffacdad224ba8678faaeed38e098c916d8dd1444d1fd5d",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
-      "residual_low": [],
+      "content_sha256": "fc65440719661af7486cdc04ee62cd41ed352df0794ad46aa43fae666d9ab057",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "title",
+          "type": "meaning",
+          "why": "«ابني» specifies 'my son' and «أرافق» means 'accompany,' but English generalizes to 'My Child' and shifts to 'Support,' slightly altering the personal, companionate tone."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "title",
+        "type": "meaning",
+        "why": "«ابني» specifies 'my son' and «أرافق» means 'accompany,' but English generalizes to 'My Child' and shifts to 'Support,' slightly altering the personal, companionate tone."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

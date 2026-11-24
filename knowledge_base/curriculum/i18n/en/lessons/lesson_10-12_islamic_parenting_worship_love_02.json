@@ -1,38 +1,44 @@
 {
   "id": "lesson_10-12_islamic_parenting_worship_love_02",
   "path_id": "path_10-12_islamic_parenting_worship_love",
-  "title": "First Ramadan Fast: Gradual Training and Motivation",
+  "title": "First Ramadan: A Journey of Fasting with Encouragement and Love",
   "age_group": "10-12",
   "domain": "islamic_parenting",
-  "unit_ids": [],
-  "summary": "Fasting is training in willpower and taqwa. Before puberty fasting is not obligatory for your child, so train him gradually according to his health and ability (part of the day, then a full day), and stop the training if he becomes tired or ill; fasting part of the day is training, not a Ramadan day's fast. Once he reaches puberty, fasting Ramadan becomes obligatory for him, so ask a scholar you trust if he has an excuse such as illness, and consult the doctor if he has a health problem. Create joy and beloved rituals for Ramadan. A beautiful experience ties worship to happiness, not deprivation.",
-  "try_this": "This week (or in Ramadan): Agree with your child on a suitable fasting goal, and celebrate their achievement.",
+  "unit_ids": [
+    "isl-30775bae",
+    "isl-c4b3fccc"
+  ],
+  "summary": "As Ramadan approaches, you might notice in your child at this age (10-12) a mix of enthusiasm and a desire to imitate adults, and perhaps some apprehension about the long hours of fasting. They might ask you: “Mom, do I have to fast all day?” or “Can I break my fast if I feel tired?” These questions are very natural, and they are your golden opportunity to establish a positive relationship between your child and this great act of worship, far from any pressure or exhaustion.\n\nRemember that fasting before puberty is not a religious obligation, but rather a beloved training and a psychological and spiritual preparation. The goal is not to complete a full day of fasting by force, but to build a positive experience associated with joy and celebration, not with deprivation and hardship. Here comes your role in adopting an approach of gradualism and gentleness, for as the Prophet ﷺ said: “Make things easy and do not make them difficult, and give glad tidings and do not make people flee.” (Sahih al-Bukhari 69). Your child at this stage is acquiring their habits and values, and their first experience with fasting will remain etched in their memory.\n\nStart by setting small goals appropriate for their ability and health, such as fasting for a few hours or even half a day. The most important thing is flexibility and responding to their body's signals and feelings. If they feel tired or sick, allow them to break their fast without hesitation, and remind them that this is training, not an obligation. Make Ramadan an occasion for joy and celebration by creating beloved family rituals, such as preparing iftar together, reading Ramadan stories, or even small rewards for their efforts. These beautiful memories are what will make them love fasting and eagerly embrace it when it becomes obligatory for them.",
+  "try_this": "Tonight: Talk with your child about the upcoming Ramadan, and together agree on a small, beloved fasting goal that suits their ability and health, such as fasting until Asr or Maghrib prayer.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How was your child’s experience with fasting?",
-    "What makes it appealing to them?"
+    "How can I make my child's first fasting experience enjoyable and full of beautiful memories?",
+    "What are the signs of fatigue or exhaustion I should look out for when training my child to fast?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“You’re a champion, you’re strong and brave, and we will support you every step of the way on your fasting journey.”",
+  "assistant_prompts": [
+    "What Ramadan activities can I share with my 10-12 year old to foster their love for fasting?",
+    "How do I handle my child's disappointment if they can't complete the fast as they planned?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_10-12_cook_simple"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
-    "revalidated_at": "2026-10-08T15:21:56+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -40,27 +46,27 @@
       ],
       "providers": {
         "deepseek-v4-pro": {
-          "provider": "openrouter",
-          "model": "deepseek/deepseek-v4-pro"
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
         },
         "glm-5.2": {
-          "provider": "openrouter",
-          "model": "z-ai/glm-5.2"
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
         }
       },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "532e55cad454e13896943340d2cf5dd9eaea140f6d7b8c3f4baa9079afffabac",
-      "reviewed_at": "2026-10-08T15:21:56+00:00",
+      "content_sha256": "bacd7041b4350e5ac5ec03ab8fb2700ff1fc7d3f5fcfbde35ddbe5514b6244c9",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "english_authors": [
-      "mistral-large-3:675b",
-      "claude-opus-5-5"
-    ]
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

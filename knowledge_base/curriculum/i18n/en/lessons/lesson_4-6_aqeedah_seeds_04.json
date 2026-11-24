@@ -1,78 +1,72 @@
 {
   "id": "lesson_4-6_aqeedah_seeds_04",
   "path_id": "path_4-6_aqeedah_seeds",
-  "title": "Love Allah and Love His Prophet ﷺ",
+  "title": "Your Child's Heart: Love for Allah and Love for His Messenger ﷺ",
   "age_group": "4-6",
   "domain": "aqeedah",
-  "unit_ids": [],
-  "summary": "Tie in your child’s heart the love of Allah with the love of His Prophet Muhammad ﷺ. Tell him in a beloved manner that we have a Prophet named Muhammad ﷺ, who was kind, loved children, played with them, and showed mercy to both young and old. Allah loves him, and we love him. Teach him to say «ṣallā Allāhu ʿalayhi wa-sallam» when he hears his name. Short stories about the gentleness of the Prophet ﷺ plant love before he grows and learns the details.",
-  "try_this": "This week: Tell your child one short story about the mercy of the Prophet ﷺ toward children, and teach him to say «ṣallā Allāhu ʿalayhi wa-sallam» when he hears his name.",
+  "unit_ids": [
+    "isl-44443cd2",
+    "isl-0020cb29"
+  ],
+  "summary": "Imagine your little one running towards you with a smile, holding a new toy, and excitedly saying, \"Mama, look what I did!\" In that moment, you feel a flood of love for this tiny being who sees the world with eyes full of wonder. These daily moments are our golden opportunities to plant the seeds of divine love and love for the Prophet ﷺ in their tender hearts, not through dry sermons, but through warm stories and gentle touches.\n\nConnecting the love of Allah with the love of His Prophet Muhammad ﷺ in a child's consciousness at this early age is a strong foundation for building their faith identity. Children aged 4-6 are influenced by stories and beloved characters. When we tell them about our Prophet Muhammad ﷺ as a kind, merciful character who loved children and played with them, we plant an instinctive love for this noble Prophet in their hearts. This love goes beyond mere knowledge, becoming part of their sense of belonging to their religion, inspired by his fragrant character.\n\nWe don't need complex details, but rather simple glimpses of the Prophet's ﷺ kindness and mercy. Teach your child to say \"peace and blessings be upon him\" whenever they hear the Prophet's ﷺ name, not as an obligation, but as a spontaneous expression of love and respect. These small habits, mixed with enjoyable stories, build bridges of affection in their heart, making them see the Prophet ﷺ as a good role model and a loving friend, before they grow up and realize the greatness and details of his message.",
+  "try_this": "Tonight: Before bedtime, tell your child a very short story about a situation where the Prophet ﷺ showed mercy to children or animals, and gently remind them with a smile to say \"peace and blessings be upon him\" when they hear his name.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How do you convey the love of the Prophet ﷺ to your child at this early age?",
-    "Which quality of the Prophet’s ﷺ do you most want your child to know first?"
+    "How can I make the Prophet's ﷺ life story a natural and beloved part of our daily conversations?",
+    "What simple story about the Prophet ﷺ can leave a good impression on my child's heart these days?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My darling, our Prophet Muhammad ﷺ loved children very much, and he was kind and gentle.”",
+  "assistant_prompts": [
+    "I want a very short story suitable for a 4-6 year old about the Prophet's ﷺ mercy towards children.",
+    "How can I encourage my child to say \"peace and blessings be upon him\" in a non-obligatory and loving way?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star",
+    "mission_id": "mission_4-6_kind_word"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "tone",
-        "why": "'In a beloved manner' is awkward English for «بأسلوبٍ محبَّب», which means 'in an endearing/affectionate way.'"
-      },
-      {
-        "model": "glm-5.2",
-        "field": "reflection_prompts[1]",
-        "type": "addition",
-        "why": "The English adds 'most', which intensifies the Arabic beyond its literal 'you would like your child to know first.'"
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
-    "revalidated_at": "2026-10-07T07:42:53+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "901ccf04d04cfa600cdb2270c3c81b74fddef4fa9b93ef13a1e42b9584ab3471",
-      "reviewed_at": "2026-10-07T07:42:53+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "tone",
-          "why": "'In a beloved manner' is awkward English for «بأسلوبٍ محبَّب», which means 'in an endearing/affectionate way.'"
-        },
-        {
-          "model": "glm-5.2",
-          "field": "reflection_prompts[1]",
-          "type": "addition",
-          "why": "The English adds 'most', which intensifies the Arabic beyond its literal 'you would like your child to know first.'"
-        }
-      ],
+      "content_sha256": "5d207e1f04d1fafe6b3526b7552f34e139e0d02a55774172f5a5706471354eee",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    }
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

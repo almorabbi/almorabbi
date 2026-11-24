@@ -20,37 +20,54 @@
   "version": "1.0.0",
   "created_at": "2026-10-07T17:38:16",
   "updated_at": "2026-10-07T17:38:16",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“We have two more minutes to play, my dear, and then we’ll wash our hands and have dinner.”",
+  "assistant_prompts": [
+    "My child cries intensely every time we finish playing or leave the park. How can I prepare them for the transition?",
+    "How can I organize meal and nap times for a 3-year-old to reduce evening meltdowns?"
+  ],
+  "ecosystem_links": {
+    "story_id": "tamim_anger_volcano",
+    "mawqif_id": "mawqif_2-3_market_tantrum"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "gpt-6 (Codex source revision)",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
-    "revalidated_at": "2026-10-07T17:41:22+00:00",
-    "generated_by": "ops/tools/deepen_paths.py",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gpt-6 (Codex source revision)",
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5a0da2741428531914f9924a28edde073458b432504b0f978445c1db59320343",
-      "reviewed_at": "2026-10-07T17:41:22+00:00",
+      "content_sha256": "be3f98b37ccfcbe270d72365ffc798bbaf87fc91e53c8506972b21446aeb802e",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    }
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }
