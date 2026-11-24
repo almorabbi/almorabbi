@@ -8,6 +8,7 @@
 library;
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../l10n/app_localizations.dart';
 import '../../widgets/ui/brand_glyph.dart';
@@ -43,16 +44,59 @@ T? pickOfTheDay<T>(List<T> items, DateTime now, {int salt = 0}) {
   return items[i < 0 ? i + items.length : i];
 }
 
-/// Today's story: one with pages to read.
-Story? cornerStoryFor(List<Story> stories, DateTime now, {int salt = 0}) =>
-    pickOfTheDay(
-      [
-        for (final s in stories)
-          if (s.pages.isNotEmpty) s,
-      ],
-      now,
-      salt: salt,
+const _kLessonCornerStoryKey = 'tg.child_corner.lesson_story_today';
+
+/// Remember the story paired with the lesson the parent just completed today
+/// so Child Corner offers that exact story tonight, expiring cleanly tomorrow.
+Future<void> rememberLessonStoryForToday(String storyId, DateTime now) async {
+  if (storyId.trim().isEmpty) return;
+  try {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(
+      _kLessonCornerStoryKey,
+      '${cornerDayIndex(now)}|${storyId.trim()}',
     );
+  } catch (_) {
+    // Best-effort bridge — never breaks lesson completion.
+  }
+}
+
+/// Returns today's lesson-paired story id if one was saved on the same day.
+Future<String?> preferredLessonStoryForToday(DateTime now) async {
+  try {
+    final prefs = await SharedPreferences.getInstance();
+    final raw = prefs.getString(_kLessonCornerStoryKey);
+    if (raw == null || !raw.contains('|')) return null;
+    final parts = raw.split('|');
+    if (parts.length != 2) return null;
+    final savedDay = int.tryParse(parts[0]);
+    if (savedDay != cornerDayIndex(now)) return null;
+    final id = parts[1].trim();
+    return id.isEmpty ? null : id;
+  } catch (_) {
+    return null;
+  }
+}
+
+/// Today's story: prefers a lesson-linked story saved today, falling back to
+/// the stable calendar rotation.
+Story? cornerStoryFor(
+  List<Story> stories,
+  DateTime now, {
+  int salt = 0,
+  String? preferredStoryId,
+}) {
+  final readable = [
+    for (final s in stories)
+      if (s.pages.isNotEmpty) s,
+  ];
+  if (preferredStoryId != null && preferredStoryId.isNotEmpty) {
+    for (final s in readable) {
+      if (s.id == preferredStoryId) return s;
+    }
+  }
+  return pickOfTheDay(readable, now, salt: salt);
+}
 
 /// One of the four existing games, as the corner shows it.
 class CornerGame {

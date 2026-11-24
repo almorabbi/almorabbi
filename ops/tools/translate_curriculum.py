@@ -63,7 +63,7 @@ REVIEWER_MODEL = "deepseek-v4-pro"
 
 # الحقول القابلة للترجمة فقط. المعرّفات والفئات العمرية والنطاقات وأرقام
 # الترتيب تبقى كما هي — ترجمتها تكسر الربط بالقاعدة والتطبيق.
-LESSON_FIELDS = ("title", "summary", "try_this", "reflection_prompts")
+LESSON_FIELDS = ("title", "summary", "try_this", "parent_script", "reflection_prompts", "assistant_prompts")
 PATH_FIELDS = ("title", "description")
 TIP_FIELDS = ("text",)
 

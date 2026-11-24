@@ -140,8 +140,16 @@ class ChildCornerScreenState extends ConsumerState<ChildCornerScreen> {
     if (!_offersStory) return;
     try {
       final stories = await ref.read(storiesProvider.future);
+      final preferredId = await preferredLessonStoryForToday(_now);
       if (!mounted) return;
-      setState(() => _story = cornerStoryFor(stories, _now, salt: _salt));
+      setState(
+        () => _story = cornerStoryFor(
+          stories,
+          _now,
+          salt: _salt,
+          preferredStoryId: preferredId,
+        ),
+      );
     } catch (_) {
       // No library at all: the corner simply has no story card today.
     }

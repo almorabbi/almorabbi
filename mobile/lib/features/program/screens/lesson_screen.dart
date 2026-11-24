@@ -40,10 +40,13 @@ import '../models/lesson_assets.dart';
 import '../providers/lesson_assets_provider.dart';
 import '../providers/favorites_provider.dart';
 import '../widgets/next_step_sheet.dart';
+import '../../child_corner/corner_picks.dart';
 import '../../child_memory/data/placeholder_names.dart';
 import '../../companion/providers/companion_providers.dart';
 import '../../onboarding/providers/onboarding_providers.dart';
+import '../../shell/root_tab.dart';
 import '../../../config/app_config.dart';
+import '../data/story_models.dart';
 import '../providers/program_providers.dart';
 import '../../coins/coins_providers.dart';
 import '../providers/progress_providers.dart';
@@ -118,9 +121,9 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
     if (childId == null) return;
     // Read before the awaits — reaching for a provider across an async gap on
     // a widget that may have been disposed is how this screen would crash.
-    final tryThis =
-        ref.read(lessonProvider(widget.lessonId)).valueOrNull?.tryThis.trim() ??
-        '';
+    final loadedLesson = ref.read(lessonProvider(widget.lessonId)).valueOrNull;
+    final tryThis = loadedLesson?.tryThis.trim() ?? '';
+    final pairedStoryId = loadedLesson?.ecosystemLinks?.storyId;
     // «أول خطوة 🌱» merges into the lesson's own celebration (phase 1: هدية
     // اليوم والشارات) instead of a separate, silent credit on Today. This is
     // the first completed lesson when the bundle has none yet — read before
@@ -142,6 +145,11 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
         ref.read(companionMemoryProvider.notifier),
         'step:$childId',
       );
+      // Bridge to Child Corner: when this lesson pairs with a bedtime story,
+      // prefer that exact story in Child Corner for the rest of today.
+      if (pairedStoryId != null && pairedStoryId.isNotEmpty) {
+        unawaited(rememberLessonStoryForToday(pairedStoryId, DateTime.now()));
+      }
       // Idempotent by badge id: crediting here means the badge is paid in
       // the moment that earned it, and Today's claim can never double-pay.
       final paidBadges = firstCompletion
@@ -422,12 +430,9 @@ class _Body extends ConsumerWidget {
           const SizedBox(height: 12),
           _StatusChip(status: status),
         ],
-        // Interactive content first — users were hunting for the
-        // podcast/flashcards/quiz buried below the reading material.
-        _InteractiveAssetsSection(lessonId: lesson.id, domain: lesson.domain),
         // Practical action above the fold (2.0.4): parents opening Lesson 1
-        // see the single doable 4-minute step immediately, before the longer
-        // reading summary.
+        // see the single doable step immediately, before the longer reading
+        // summary.
         if (lesson.tryThis.trim().isNotEmpty) ...[
           const SizedBox(height: 16),
           _Section(
@@ -439,6 +444,11 @@ class _Body extends ConsumerWidget {
                 ? const Color(0xFF3A2F16)
                 : const Color(0xFFFFF4E0),
           ),
+        ],
+        if (lesson.parentScript != null &&
+            lesson.parentScript!.trim().isNotEmpty) ...[
+          const SizedBox(height: 12),
+          _ParentScriptCard(script: lesson.parentScript!.trim()),
         ],
         const SizedBox(height: 16),
         _Section(
@@ -452,6 +462,16 @@ class _Body extends ConsumerWidget {
         ],
         const SizedBox(height: 16),
         ReflectionNoteCard(lessonId: lesson.id),
+        const SizedBox(height: 16),
+        _AskAssistantLessonCard(lesson: lesson),
+        if (lesson.ecosystemLinks?.storyId != null &&
+            lesson.ecosystemLinks!.storyId!.trim().isNotEmpty) ...[
+          const SizedBox(height: 16),
+          _EcosystemStoryCard(storyId: lesson.ecosystemLinks!.storyId!.trim()),
+        ],
+        // Curriculum 2.0: keep audio/flashcards/quizzes below the core reading
+        // in a calm collapsible card so parents finish the 4-minute read first.
+        _InteractiveAssetsSection(lessonId: lesson.id),
         const SizedBox(height: 16),
         _UnitIdsCard(lesson: lesson),
         if (lesson.needsProfessionalFollowup) ...[
@@ -836,13 +856,221 @@ class _WarningCard extends StatelessWidget {
   }
 }
 
+/// Exact verbatim script a parent can say to their child tonight.
+class _ParentScriptCard extends StatelessWidget {
+  const _ParentScriptCard({required this.script});
+  final String script;
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = AppPalette.current.isDark;
+    final bg = isDark ? const Color(0xFF142E29) : const Color(0xFFEAF7F3);
+    final accent = isDark ? const Color(0xFF7CE0CB) : const Color(0xFF0F6B5C);
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: accent.withValues(alpha: 0.28)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.format_quote_rounded, size: 20, color: accent),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  AppLocalizations.of(context).lessonParentScriptTitle,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w800,
+                    color: accent,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            script,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              height: 1.65,
+              fontWeight: FontWeight.w600,
+              color: context.colors.ink,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Bridge from lesson reading into the AI Assistant with one-tap contextual
+/// questions tailored to this exact lesson.
+class _AskAssistantLessonCard extends ConsumerWidget {
+  const _AskAssistantLessonCard({required this.lesson});
+  final CurriculumLesson lesson;
+
+  void _openAssistantWith(BuildContext context, String question) {
+    final container = ProviderScope.containerOf(context, listen: false);
+    container.read(pendingChatQuestionProvider.notifier).state = question;
+    Navigator.of(context).popUntil((route) => route.isFirst);
+    container.read(rootTabRequestProvider.notifier).state = RootTab.assistant;
+  }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final prompts = lesson.assistantPrompts.isNotEmpty
+        ? lesson.assistantPrompts
+        : <String>[l10n.lessonAskAssistantDefaultPrompt(lesson.title)];
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Dt.surface,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withValues(alpha: 0.4),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.chat_bubble_outline_rounded, size: 20, color: Dt.primary),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  l10n.lessonAskAssistantTitle,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w800,
+                    color: Dt.primary,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 4),
+          Text(
+            l10n.lessonAskAssistantHint,
+            style: Theme.of(
+              context,
+            ).textTheme.bodySmall?.copyWith(color: AppTheme.textMuted),
+          ),
+          const SizedBox(height: 10),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              for (final prompt in prompts)
+                ActionChip(
+                  avatar: Icon(Icons.auto_awesome, size: 16, color: Dt.primary),
+                  label: Text(
+                    prompt,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  onPressed: () => _openAssistantWith(context, prompt),
+                ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Bridge from a parent lesson to its paired bedtime story in Child Corner.
+class _EcosystemStoryCard extends ConsumerWidget {
+  const _EcosystemStoryCard({required this.storyId});
+  final String storyId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final storiesAsync = ref.watch(storiesProvider);
+    return storiesAsync.when(
+      data: (stories) {
+        Story? story;
+        for (final s in stories) {
+          if (s.id == storyId && s.pages.isNotEmpty) {
+            story = s;
+            break;
+          }
+        }
+        if (story == null) return const SizedBox.shrink();
+        final resolved = story;
+        final l10n = AppLocalizations.of(context);
+        final isDark = AppPalette.current.isDark;
+        final bg = isDark ? const Color(0xFF2B233B) : const Color(0xFFF5F1FF);
+        return Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: bg,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const BrandGlyph(BrandIcon.openBook, size: 20),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      l10n.lessonChildCornerTitle,
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 6),
+              Text(
+                resolved.title,
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                l10n.lessonChildCornerSubtitle,
+                style: Theme.of(
+                  context,
+                ).textTheme.bodySmall?.copyWith(color: AppTheme.textMuted),
+              ),
+              const SizedBox(height: 10),
+              Align(
+                alignment: AlignmentDirectional.centerStart,
+                child: FilledButton.tonalIcon(
+                  icon: const Icon(Icons.menu_book_rounded, size: 18),
+                  label: Text(l10n.lessonChildCornerOpenStory),
+                  onPressed: () {
+                    unawaited(
+                      rememberLessonStoryForToday(resolved.id, DateTime.now()),
+                    );
+                    Navigator.of(context).push(AppRoutes.storyReader(resolved));
+                  },
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+      loading: () => const SizedBox.shrink(),
+      error: (_, _) => const SizedBox.shrink(),
+    );
+  }
+}
+
 class _InteractiveAssetsSection extends ConsumerWidget {
   final String lessonId;
-  final String domain;
-  const _InteractiveAssetsSection({
-    required this.lessonId,
-    required this.domain,
-  });
+  const _InteractiveAssetsSection({required this.lessonId});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -850,268 +1078,215 @@ class _InteractiveAssetsSection extends ConsumerWidget {
 
     return assetsAsync.when(
       data: (LessonAssets? assets) {
+        if (assets == null) return const SizedBox.shrink();
         final buttons = <Widget>[];
 
-        // Media buttons only when the lesson actually has assets; the game
-        // button below is domain-based and shows even without any assets.
-        if (assets != null) {
-          if (assets.podcastMp3 != null) {
-            // The backend returns either a full URL or a relative path
-            // (e.g. "docs/lesson_01_podcast.mp3" — pre-R2 era). We accept
-            // both: full URLs pass through, relative paths are joined
-            // against [AppConfig.apiBaseUrl]. Until the R2 migration
-            // lands, the relative path will 404 in production and the
-            // player shows a friendly "not yet available" message.
-            final raw = assets.podcastMp3!;
-            final url = raw.startsWith('http://') || raw.startsWith('https://')
-                ? raw
-                : '${AppConfig.apiBaseUrl}/$raw';
-            buttons.add(
-              _AssetButton(
-                icon: Icons.headset,
-                label: AppLocalizations.of(context).lessonListenPodcast,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    AppRoutes.podcast(
-                      url,
-                      AppLocalizations.of(context).lessonPodcastTitle,
-                    ),
-                  );
-                },
-              ),
-            );
-          }
-
-          if (assets.videoMp4 != null) {
-            final raw = assets.videoMp4!;
-            final url = raw.startsWith('http')
-                ? raw
-                : '${AppConfig.apiBaseUrl}/$raw';
-            buttons.add(
-              _VideoCard(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    AppRoutes.video(
-                      url,
-                      AppLocalizations.of(context).lessonWatchVideo,
-                    ),
-                  );
-                },
-              ),
-            );
-          }
-
-          final flashcardsCount = assets.flashcards.fold<int>(0, (sum, item) {
-            final map = item as Map<String, dynamic>?;
-            return sum + ((map?['item_count'] as num?)?.toInt() ?? 0);
-          });
-          if (flashcardsCount > 0) {
-            final deckIds = assets.flashcards
-                .map(
-                  (item) => (item as Map<String, dynamic>?)?['id'] as String?,
-                )
-                .whereType<String>()
-                .toList();
-            buttons.add(
-              _AssetButton(
-                icon: Icons.style,
-                label: AppLocalizations.of(
+        if (assets.podcastMp3 != null) {
+          final raw = assets.podcastMp3!;
+          final url = raw.startsWith('http://') || raw.startsWith('https://')
+              ? raw
+              : '${AppConfig.apiBaseUrl}/$raw';
+          buttons.add(
+            _AssetButton(
+              icon: Icons.headset,
+              label: AppLocalizations.of(context).lessonListenPodcast,
+              onPressed: () {
+                Navigator.push(
                   context,
-                ).lessonFlashcards(flashcardsCount),
-                onPressed: () {
-                  Navigator.push(context, AppRoutes.flashcards(deckIds));
-                },
-              ),
-            );
-          }
-
-          final quizzesCount = assets.quizzes.fold<int>(0, (sum, item) {
-            final map = item as Map<String, dynamic>?;
-            return sum + ((map?['item_count'] as num?)?.toInt() ?? 0);
-          });
-          if (quizzesCount > 0) {
-            final quizIds = assets.quizzes
-                .map(
-                  (item) => (item as Map<String, dynamic>?)?['id'] as String?,
-                )
-                .whereType<String>()
-                .toList();
-            buttons.add(
-              _AssetButton(
-                icon: Icons.quiz,
-                label: AppLocalizations.of(context).lessonQuiz(quizzesCount),
-                onPressed: () {
-                  Navigator.push(context, AppRoutes.quiz(quizIds));
-                },
-              ),
-            );
-          }
-
-          // ── Visual assets: infographic / report / data-table ──
-          if (assets.infographic != null) {
-            final raw = assets.infographic!;
-            final url = raw.startsWith('http')
-                ? raw
-                : '${AppConfig.apiBaseUrl}/$raw';
-            buttons.add(
-              _AssetButton(
-                icon: Icons.image,
-                label: AppLocalizations.of(context).lessonInfographic,
-                onPressed: () =>
-                    Navigator.push(context, AppRoutes.infographic(url)),
-              ),
-            );
-          }
-
-          if (assets.report != null) {
-            final raw = assets.report!;
-            final url = raw.startsWith('http')
-                ? raw
-                : '${AppConfig.apiBaseUrl}/$raw';
-            buttons.add(
-              _AssetButton(
-                icon: Icons.description,
-                label: AppLocalizations.of(context).lessonReport,
-                onPressed: () => Navigator.push(context, AppRoutes.report(url)),
-              ),
-            );
-          }
-
-          if (assets.dataTable != null) {
-            final raw = assets.dataTable!;
-            final url = raw.startsWith('http')
-                ? raw
-                : '${AppConfig.apiBaseUrl}/$raw';
-            buttons.add(
-              _AssetButton(
-                icon: Icons.table_chart,
-                label: AppLocalizations.of(context).lessonDataTable,
-                onPressed: () =>
-                    Navigator.push(context, AppRoutes.dataTable(url)),
-              ),
-            );
-          }
-        } // end assets != null
-
-        // ── Game button — domain-based, ALWAYS available (even with no assets) ──
-        if (domain == 'cyber') {
-          buttons.add(
-            _AssetButton(
-              icon: Icons.videogame_asset,
-              label: AppLocalizations.of(context).lessonPlayCyber,
-              onPressed: () => Navigator.push(
-                context,
-                AppRoutes.gameDataDefender(source: GameSources.lesson),
-              ),
+                  AppRoutes.podcast(
+                    url,
+                    AppLocalizations.of(context).lessonPodcastTitle,
+                  ),
+                );
+              },
             ),
           );
-        } else if (domain == 'medical') {
+        }
+
+        if (assets.videoMp4 != null) {
+          final raw = assets.videoMp4!;
+          final url = raw.startsWith('http')
+              ? raw
+              : '${AppConfig.apiBaseUrl}/$raw';
           buttons.add(
-            _AssetButton(
-              icon: Icons.videogame_asset_rounded,
-              label: AppLocalizations.of(context).lessonPlayMedical,
-              onPressed: () => Navigator.push(
-                context,
-                AppRoutes.gameHealthyHero(source: GameSources.lesson),
-              ),
+            _VideoCard(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  AppRoutes.video(
+                    url,
+                    AppLocalizations.of(context).lessonWatchVideo,
+                  ),
+                );
+              },
             ),
           );
-        } else if (domain == 'islamic_parenting' ||
-            domain == 'aqeedah' ||
-            domain == 'islamic') {
+        }
+
+        final flashcardsCount = assets.flashcards.fold<int>(0, (sum, item) {
+          final map = item as Map<String, dynamic>?;
+          return sum + ((map?['item_count'] as num?)?.toInt() ?? 0);
+        });
+        if (flashcardsCount > 0) {
+          final deckIds = assets.flashcards
+              .map(
+                (item) => (item as Map<String, dynamic>?)?['id'] as String?,
+              )
+              .whereType<String>()
+              .toList();
           buttons.add(
             _AssetButton(
-              icon: Icons.nature_people,
-              label: AppLocalizations.of(context).lessonPlayIslamic,
-              onPressed: () => Navigator.push(
+              icon: Icons.style,
+              label: AppLocalizations.of(
                 context,
-                AppRoutes.gameTreeOfDeeds(source: GameSources.lesson),
-              ),
+              ).lessonFlashcards(flashcardsCount),
+              onPressed: () {
+                Navigator.push(context, AppRoutes.flashcards(deckIds));
+              },
             ),
           );
-        } else if (domain == 'development') {
+        }
+
+        final quizzesCount = assets.quizzes.fold<int>(0, (sum, item) {
+          final map = item as Map<String, dynamic>?;
+          return sum + ((map?['item_count'] as num?)?.toInt() ?? 0);
+        });
+        if (quizzesCount > 0) {
+          final quizIds = assets.quizzes
+              .map(
+                (item) => (item as Map<String, dynamic>?)?['id'] as String?,
+              )
+              .whereType<String>()
+              .toList();
           buttons.add(
             _AssetButton(
-              icon: Icons.psychology,
-              label: AppLocalizations.of(context).lessonPlayDev,
-              onPressed: () => Navigator.push(
-                context,
-                AppRoutes.gameEmotionMaze(source: GameSources.lesson),
-              ),
+              icon: Icons.quiz,
+              label: AppLocalizations.of(context).lessonQuiz(quizzesCount),
+              onPressed: () {
+                Navigator.push(context, AppRoutes.quiz(quizIds));
+              },
+            ),
+          );
+        }
+
+        // ── Visual assets: infographic / report / data-table ──
+        if (assets.infographic != null) {
+          final raw = assets.infographic!;
+          final url = raw.startsWith('http')
+              ? raw
+              : '${AppConfig.apiBaseUrl}/$raw';
+          buttons.add(
+            _AssetButton(
+              icon: Icons.image,
+              label: AppLocalizations.of(context).lessonInfographic,
+              onPressed: () =>
+                  Navigator.push(context, AppRoutes.infographic(url)),
+            ),
+          );
+        }
+
+        if (assets.report != null) {
+          final raw = assets.report!;
+          final url = raw.startsWith('http')
+              ? raw
+              : '${AppConfig.apiBaseUrl}/$raw';
+          buttons.add(
+            _AssetButton(
+              icon: Icons.description,
+              label: AppLocalizations.of(context).lessonReport,
+              onPressed: () => Navigator.push(context, AppRoutes.report(url)),
+            ),
+          );
+        }
+
+        if (assets.dataTable != null) {
+          final raw = assets.dataTable!;
+          final url = raw.startsWith('http')
+              ? raw
+              : '${AppConfig.apiBaseUrl}/$raw';
+          buttons.add(
+            _AssetButton(
+              icon: Icons.table_chart,
+              label: AppLocalizations.of(context).lessonDataTable,
+              onPressed: () =>
+                  Navigator.push(context, AppRoutes.dataTable(url)),
             ),
           );
         }
 
         if (buttons.isEmpty) return const SizedBox.shrink();
 
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 16),
-            Row(
-              children: [
-                const Icon(Icons.play_circle_outline, size: 20),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Text(
-                    AppLocalizations.of(context).lessonStartInteractive,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                ),
-              ],
+        return Padding(
+          padding: const EdgeInsets.only(top: 16),
+          child: Material(
+            color: Dt.surface,
+            clipBehavior: Clip.antiAlias,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+              side: BorderSide(
+                color: Theme.of(context).dividerColor.withValues(alpha: 0.4),
+              ),
             ),
-            const SizedBox(height: 4),
-            Text(
-              AppLocalizations.of(context).lessonInteractiveHint,
-              style: Theme.of(
+            child: Theme(
+              data: Theme.of(
                 context,
-              ).textTheme.bodySmall?.copyWith(color: AppTheme.textMuted),
-            ),
-            // Asking for English and getting Arabic audio is expected while
-            // English media is still being produced — but silence about it
-            // reads as a defect, and did: «بعض الدروس بالانجليزية رغم اني
-            // نزلت التطبيق بالعربي». The server has always said which
-            // language each medium came back in; nothing displayed it.
-            if (assets != null && assets.servedInAnotherLanguage) ...[
-              const SizedBox(height: 10),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 10,
+              ).copyWith(dividerColor: Colors.transparent),
+              child: ExpansionTile(
+                key: const Key('lesson_deepen_tile'),
+                initiallyExpanded: false,
+                tilePadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 4,
                 ),
-                decoration: BoxDecoration(
-                  color: AppTheme.warningBg,
-                  borderRadius: BorderRadius.circular(Dt.rButton),
-                ),
-                child: Text(
-                  AppLocalizations.of(context).lessonMediaOtherLanguage,
-                  style: TextStyle(
-                    fontSize: 12.5,
-                    height: 1.45,
-                    color: AppTheme.warningFg,
+                childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+                leading: Icon(Icons.play_circle_outline, color: Dt.primary),
+                title: Text(
+                  AppLocalizations.of(context).lessonDeepenTitle,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
-              ),
-            ],
-            const SizedBox(height: 10),
-            ...buttons.map(
-              (btn) => Padding(
-                padding: const EdgeInsets.only(bottom: 8.0),
-                child: btn,
+                subtitle: Text(
+                  AppLocalizations.of(context).lessonInteractiveHint,
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodySmall?.copyWith(color: AppTheme.textMuted),
+                ),
+                children: [
+                  if (assets.servedInAnotherLanguage) ...[
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppTheme.warningBg,
+                        borderRadius: BorderRadius.circular(Dt.rButton),
+                      ),
+                      child: Text(
+                        AppLocalizations.of(context).lessonMediaOtherLanguage,
+                        style: TextStyle(
+                          fontSize: 12.5,
+                          height: 1.45,
+                          color: AppTheme.warningFg,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                  ],
+                  for (final btn in buttons)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: btn,
+                    ),
+                ],
               ),
             ),
-          ],
+          ),
         );
       },
-      loading: () => const Padding(
-        padding: EdgeInsets.symmetric(vertical: 24.0),
-        child: Center(child: CircularProgressIndicator()),
-      ),
+      loading: () => const SizedBox.shrink(),
       error: (_, _) => const SizedBox.shrink(),
     );
   }

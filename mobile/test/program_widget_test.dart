@@ -15,9 +15,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:almorabbi/api/tg_client.dart';
+import 'package:almorabbi/features/child_corner/corner_picks.dart';
 import 'package:almorabbi/features/onboarding/data/onboarding_storage.dart';
 import 'package:almorabbi/features/onboarding/providers/onboarding_providers.dart';
 import 'package:almorabbi/features/program/data/program_repository.dart';
+import 'package:almorabbi/features/program/data/story_models.dart';
+import 'package:almorabbi/features/program/providers/program_providers.dart';
 import 'package:almorabbi/features/program/providers/progress_providers.dart';
 import 'package:almorabbi/features/program/screens/lesson_screen.dart';
 import 'package:almorabbi/features/program/screens/path_detail_screen.dart';
@@ -263,6 +266,10 @@ void main() {
       await container.read(sharedPreferencesProvider.future);
       container.read(activeChildIdProvider.notifier).state = 1;
       addTearDown(container.dispose);
+      tester.view.physicalSize = const Size(800, 1200);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
 
       await tester.pumpWidget(
         UncontrolledProviderScope(
@@ -461,7 +468,23 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.textContaining('المحتوى التفاعلي'), findsOneWidget);
+      // Curriculum 2.0: extras live in a collapsed tile BELOW reading material
+      // so parents read the core lesson without distractions.
+      final deepenTile = find.byKey(const Key('lesson_deepen_tile'));
+      await tester.scrollUntilVisible(
+        deepenTile,
+        250,
+        scrollable: find.byType(Scrollable).first,
+      );
+      expect(deepenTile, findsOneWidget);
+      expect(find.textContaining('تعمّق أكثر'), findsOneWidget);
+      // Collapsed by default:
+      expect(find.textContaining('استمع للبودكاست'), findsNothing);
+
+      // Expand the collapsible extras card:
+      await tester.tap(find.textContaining('تعمّق أكثر'));
+      await tester.pumpAndSettle();
+
       expect(find.textContaining('استمع للبودكاست'), findsOneWidget);
       expect(find.textContaining('شاهد الفيديو'), findsOneWidget);
       expect(find.textContaining('فلاش كاردز (10 بطاقة)'), findsOneWidget);
@@ -469,6 +492,11 @@ void main() {
 
       // Tap on podcast and verify the real player screen opens
       // (replaces the Phase-4 "شاشة مؤقتة" placeholder).
+      await tester.scrollUntilVisible(
+        find.textContaining('استمع للبودكاست'),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
       await tester.tap(find.textContaining('استمع للبودكاست'));
       // Pump a few frames so the navigator can finish pushing the
       // new route. We don't pumpAndSettle because just_audio's
@@ -478,6 +506,115 @@ void main() {
       }
       // The player screen's AppBar shows the title.
       expect(find.text('🎧 البودكاست'), findsOneWidget);
+    });
+
+    testWidgets('LessonScreen renders parent_script and sends assistant_prompts to assistant tab',
+        (WidgetTester tester) async {
+      final fake = _FakeTgClient();
+      fake.lessonJson = {
+        ..._lessonJson(
+          id: 'lesson_4-6_islamic_parenting_bond_01',
+          order: 1,
+          summary: 'ملخص تربوي عملي.',
+          tryThis: 'جرّب هذا الليلة لمدة خمس دقائق.',
+        ),
+        'parent_script': '«يا حبيبي أنا معك الآن، هيا نلعب معًا خمس دقائق.»',
+        'assistant_prompts': ['طفلي يرفض اللعب المشترك، ماذا أفعل؟'],
+      };
+
+      SharedPreferences.setMockInitialValues({});
+      final prefs = await SharedPreferences.getInstance();
+      final storage = OnboardingStorage(prefs);
+      await storage.setActiveChild(id: 1, name: 'سارة', ageGroup: '4-6');
+      await storage.markOnboardingCompleted();
+
+      final container = ProviderContainer(
+        overrides: [
+          tgClientProvider.overrideWithValue(fake),
+          sharedPreferencesProvider.overrideWith((_) async => prefs),
+        ],
+      );
+      await container.read(sharedPreferencesProvider.future);
+      container.read(activeChildIdProvider.notifier).state = 1;
+      addTearDown(container.dispose);
+      tester.view.physicalSize = const Size(800, 1200);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.pumpWidget(
+        UncontrolledProviderScope(
+          container: container,
+          child: const MaterialApp(
+            locale: Locale('ar'),
+            home: LessonScreen(
+              lessonId: 'lesson_4-6_islamic_parenting_bond_01',
+              ageGroup: '4-6',
+              childId: 1,
+            ),
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('جملتك الجاهزة لطفلك الليلة'), findsOneWidget);
+      expect(
+        find.text('«يا حبيبي أنا معك الآن، هيا نلعب معًا خمس دقائق.»'),
+        findsOneWidget,
+      );
+
+      final promptFinder = find.text('طفلي يرفض اللعب المشترك، ماذا أفعل؟');
+      await tester.scrollUntilVisible(
+        promptFinder,
+        250,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(promptFinder);
+      await tester.pumpAndSettle();
+
+      expect(
+        container.read(pendingChatQuestionProvider),
+        'طفلي يرفض اللعب المشترك، ماذا أفعل؟',
+      );
+      expect(container.read(rootTabRequestProvider), RootTab.assistant);
+    });
+
+    test('rememberLessonStoryForToday bridges lesson story into Child Corner for today only',
+        () async {
+      SharedPreferences.setMockInitialValues({});
+      final today = DateTime(2026, 11, 24, 20, 0);
+      final tomorrow = DateTime(2026, 11, 25, 9, 0);
+      await rememberLessonStoryForToday('story_b', today);
+
+      expect(await preferredLessonStoryForToday(today), 'story_b');
+      expect(await preferredLessonStoryForToday(tomorrow), isNull);
+
+      final stories = [
+        Story(
+          id: 'story_a',
+          title: 'أ',
+          description: '',
+          coverImage: '',
+          themeColor: '#0F6B5C',
+          pages: [StoryPage(pageNumber: 1, text: 'p1', image: '')],
+        ),
+        Story(
+          id: 'story_b',
+          title: 'ب',
+          description: '',
+          coverImage: '',
+          themeColor: '#0F6B5C',
+          pages: [StoryPage(pageNumber: 1, text: 'p1', image: '')],
+        ),
+      ];
+      final picked = cornerStoryFor(
+        stories,
+        today,
+        preferredStoryId: await preferredLessonStoryForToday(today),
+      );
+      expect(picked?.id, 'story_b');
     });
 
     testWidgets('LessonScreen does not show interactive content when no assets are present',
@@ -504,6 +641,10 @@ void main() {
       await container.read(sharedPreferencesProvider.future);
       container.read(activeChildIdProvider.notifier).state = 1;
       addTearDown(container.dispose);
+      tester.view.physicalSize = const Size(800, 1200);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
 
       await tester.pumpWidget(
         UncontrolledProviderScope(
@@ -559,6 +700,10 @@ void main() {
       await container.read(sharedPreferencesProvider.future);
       container.read(activeChildIdProvider.notifier).state = 1;
       addTearDown(container.dispose);
+      tester.view.physicalSize = const Size(800, 1200);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
 
       await tester.pumpWidget(
         UncontrolledProviderScope(
