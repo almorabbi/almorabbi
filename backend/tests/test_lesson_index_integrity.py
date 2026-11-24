@@ -120,18 +120,20 @@ def test_arabic_podcast_filenames_carry_no_language_tag(lessons):
 
 
 def test_no_reference_uses_a_renamed_age_band(lessons):
-    """`prenatal-1` names a curriculum age group, never a path-video file.
+    """A `path_0-3_*` path must never reference a renamed `path_prenatal-1_*` file.
 
-    Every path video on disk uses the `path_0-3_` prefix. A `path_prenatal-1_`
-    reference can therefore only ever resolve to nothing.
+    Only paths whose actual curriculum `path_id` starts with `path_prenatal-1_`
+    (e.g. `path_prenatal-1_infant_pregnancy_foundations`) may reference a
+    `path_prenatal-1_` path video.
     """
     offenders = []
     for lesson in lessons:
         lid = lesson.get("lesson_id")
+        path_id = _curriculum_path_id(lid) or ""
         for kind in ("videos", "podcasts"):
             for entry in (lesson.get("assets") or {}).get(kind) or []:
                 f = entry.get("file") or ""
-                if "path_prenatal-1_" in f:
+                if "path_prenatal-1_" in f and not path_id.startswith("path_prenatal-1_"):
                     offenders.append(f"{lid}: {f}")
     assert not offenders, "reference to a non-existent age-band filename:\n" + "\n".join(offenders)
 
