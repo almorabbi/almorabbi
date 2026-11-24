@@ -1,13 +1,13 @@
 {
-  "total_units": 1414,
-  "generated_at": "2026-11-03T07:50:14.459450+00:00",
+  "total_units": 1528,
+  "generated_at": "2026-11-24T19:14:39.117035+00:00",
   "by_domain": {
     "medical": 362,
     "cyber": 284,
-    "islamic_parenting": 595,
+    "islamic_parenting": 645,
     "development": 134,
     "app_help": 12,
-    "aqeedah": 27
+    "aqeedah": 91
   },
   "units": [
     {
@@ -49,26 +49,26 @@
     {
       "id": "0bd76d3c-548a-46ed-b17b-78874741662a",
       "domain": "islamic_parenting",
-      "title": "الرحمة بالأطفال",
+      "title": "الرحمة بالأطفال وآثارها التربوية من خلال السنة النبوية",
       "source_file": "Alukah_Al_Rahma_Bi_Al_Atfal.pdf",
       "language": "ar",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "الرفق_بالأطفال",
       "needs_ocr": false,
-      "size_chars": 44120
+      "size_chars": 1439
     },
     {
       "id": "0bd76d3c-548a-46ed-b17b-78874741662a__en",
       "domain": "islamic_parenting",
-      "title": "Mercy Towards Children",
+      "title": "Mercy Towards Children and Its Educational Effects in the Pr",
       "source_file": "Alukah_Al_Rahma_Bi_Al_Atfal.pdf",
       "language": "en",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "الرفق_بالأطفال",
       "needs_ocr": false,
-      "size_chars": 44120
+      "size_chars": 1439
     },
     {
       "id": "0daffcde-b219-4329-9f34-7425e54b6599",
@@ -97,26 +97,26 @@
     {
       "id": "0f0b0373-517a-42b4-a306-c295bc84e578",
       "domain": "islamic_parenting",
-      "title": "التربية الإسلامية للبنات: جمال القلوب وصلاح النفوس",
-      "source_file": "",
+      "title": "مقدمة «لمحات في تربية البنات»: البنات حبات القلوب",
+      "source_file": "shamela:36554:1",
       "language": "",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية_البنات",
       "needs_ocr": false,
-      "size_chars": 597
+      "size_chars": 572
     },
     {
       "id": "0f8e1ff3-7aa9-4a2c-9a6d-c0c2475c2152",
       "domain": "islamic_parenting",
-      "title": "وجّه طفلك إلى الله في كل موقف",
+      "title": "وصايا لقمان لابنه: التحذير من الشرك وغرس مراقبة الله",
       "source_file": "",
       "language": "",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "أسس_التربية_الإسلامية",
       "needs_ocr": false,
-      "size_chars": 599
+      "size_chars": 953
     },
     {
       "id": "179d90e1-a863-42e1-8fea-e8560b7401f7",
@@ -181,14 +181,14 @@
     {
       "id": "1c519127-2129-447d-bff6-6937524da1f8",
       "domain": "islamic_parenting",
-      "title": "اختيار الزوجة الصالحة: أول لبنة في تربية الأبناء",
+      "title": "الركيزة الأولى: اختيار الزوجة الصالحة",
       "source_file": "",
       "language": "",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "أسس_التربية_الإسلامية",
       "needs_ocr": false,
-      "size_chars": 600
+      "size_chars": 556
     },
     {
       "id": "1ca6880c-5deb-433a-9771-c3ec43df4202",
@@ -205,26 +205,26 @@
     {
       "id": "1d4413cf-55ae-4ec3-9247-3f813349b26d",
       "domain": "islamic_parenting",
-      "title": "تعليم العبادات والأخلاق: أسس التربية الإسلامية",
+      "title": "الأبناء أمانة عند الوالدين",
       "source_file": "",
       "language": "",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "أسس_التربية_الإسلامية",
       "needs_ocr": false,
-      "size_chars": 599
+      "size_chars": 694
     },
     {
       "id": "1de46b81-772d-40dd-8ce6-a12adde573e7",
       "domain": "islamic_parenting",
-      "title": "مسؤولية الوالدين المباشرة عن تعليم الأبناء",
+      "title": "الحذر من الدعاء على الأبناء في ساعة الغضب",
       "source_file": "",
       "language": "",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "أسس_التربية_الإسلامية",
       "needs_ocr": false,
-      "size_chars": 600
+      "size_chars": 769
     },
     {
       "id": "1e23d518-5d54-4ad0-b7d0-7147a15d13a6",
@@ -373,14 +373,14 @@
     {
       "id": "36236dbf-1010-46b1-92e4-e09880513854",
       "domain": "islamic_parenting",
-      "title": "",
+      "title": "التفضيل بين الأولاد في الهبة والأحكام المتفرعة عنه",
       "source_file": "AABU_Equality_In_Gifts_Between_Children.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تفضيل_الأبناء",
       "needs_ocr": false,
-      "size_chars": 79721
+      "size_chars": 1457
     },
     {
       "id": "3867de19-f5f7-417b-8d04-a917bb8cf4ef",
@@ -421,26 +421,26 @@
     {
       "id": "3a72f29b-1f14-46fc-9a89-b72df7295c98",
       "domain": "islamic_parenting",
-      "title": "لمحات في تربية البنات",
+      "title": "مقدمة ومدخل «لمحات في تربية البنات»: فضل الإحسان إلى البنات",
       "source_file": "Tarbiya_Al_Banat_Lamaat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية_البنات",
       "needs_ocr": false,
-      "size_chars": 34710
+      "size_chars": 1545
     },
     {
       "id": "3a72f29b-1f14-46fc-9a89-b72df7295c98__en",
       "domain": "islamic_parenting",
-      "title": "Glimpses into Raising Daughters",
+      "title": "Introduction and Prologue to 'Glimpses into Raising Daughter",
       "source_file": "Tarbiya_Al_Banat_Lamaat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية_البنات",
       "needs_ocr": false,
-      "size_chars": 34710
+      "size_chars": 1129
     },
     {
       "id": "3af026ae-be62-5839-ac0b-26da6874e4c5",
@@ -481,14 +481,14 @@
     {
       "id": "41b84d8c-347e-4ce2-b26d-f53ece84fb8d",
       "domain": "islamic_parenting",
-      "title": "ﻣﻦ ﻣﻌﺎﱂ ﺍﳌﻨﻬﺞ ﺍﻟﻨﺒﻮﻱ ﰲ ﺗﺮﺑﻴﺔ ﺍﻷﺑﻨﺎﺀ ٥",
+      "title": "من معالم المنهج النبوي في تربية الأبناء: الاهتمام بالعقيدة",
       "source_file": "Noor_Book_Maalim_Al_Manhaj_Al_Nabawi_Tarbiyah.pdf",
       "language": "ar",
       "original_age_group": "prenatal-1",
       "normalized_age_group": "prenatal-1",
       "behavior_type": "العقيدة_والصلاة",
       "needs_ocr": false,
-      "size_chars": 15893
+      "size_chars": 1665
     },
     {
       "id": "4868a341-239b-493d-89a8-36a896850899",
@@ -721,14 +721,14 @@
     {
       "id": "6ce0dab4-4a0f-459c-9190-b6d3dfa8cee7",
       "domain": "islamic_parenting",
-      "title": "القيم والأخلاق: جوهر التربية الإسلامية",
+      "title": "تبادل المسؤولية بين الآباء والأبناء وأثر الوالدين في الفطرة",
       "source_file": "",
       "language": "",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "أسس_التربية_الإسلامية",
       "needs_ocr": false,
-      "size_chars": 600
+      "size_chars": 911
     },
     {
       "id": "70a19c8f-3f62-499d-8e0e-211e46f12e9d",
@@ -745,26 +745,26 @@
     {
       "id": "723a3b98-bf3c-4607-8a02-9e774d1da69c",
       "domain": "islamic_parenting",
-      "title": "التربية الإسلامية وتعزيز الانتماء للأسرة والمجتمع",
+      "title": "عظم مسؤولية الوالدين في زمن الفتن والأجهزة الحديثة",
       "source_file": "",
       "language": "",
       "original_age_group": "10-12",
       "normalized_age_group": "10-12",
       "behavior_type": "أسس_التربية_الإسلامية",
       "needs_ocr": false,
-      "size_chars": 600
+      "size_chars": 564
     },
     {
       "id": "72cea396-0533-4b24-8d2b-8ef82412b221",
       "domain": "islamic_parenting",
-      "title": "التأديب في الإسلام: تعليم لا عقاب",
+      "title": "الركيزة الثانية: غرس العقيدة والإيمان في نفوس الأبناء",
       "source_file": "",
       "language": "",
       "original_age_group": "10-12",
       "normalized_age_group": "10-12",
       "behavior_type": "أسس_التربية_الإسلامية",
       "needs_ocr": false,
-      "size_chars": 600
+      "size_chars": 796
     },
     {
       "id": "77e9aa1e-342f-4497-bb5b-a998ac638da2",
@@ -805,14 +805,14 @@
     {
       "id": "78ab2258-6301-4bc6-a566-d60d3ca1c1b9",
       "domain": "islamic_parenting",
-      "title": "الهدي النبوي في تربية الأولاد الصغار",
+      "title": "مقدمة كتاب «كيف تربي ولدك»",
       "source_file": "",
       "language": "",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "التربية_النبوية",
       "needs_ocr": false,
-      "size_chars": 600
+      "size_chars": 1957
     },
     {
       "id": "7998d4f6-358e-4375-9160-d2e35639ea23",
@@ -932,7 +932,7 @@
       "normalized_age_group": "16-18",
       "behavior_type": "الصحة_النفسية",
       "needs_ocr": false,
-      "size_chars": 113451
+      "size_chars": 113447
     },
     {
       "id": "89bf08a7-5d8f-4373-b48d-523b596f5f8a",
@@ -985,14 +985,14 @@
     {
       "id": "8b869dfa-053f-4c5e-abe2-159eed4d599a",
       "domain": "islamic_parenting",
-      "title": "التهذيب والعناية الروحية في التربية الإسلامية",
+      "title": "الركيزة الثالثة: كثرة الدعاء للأبناء بالهداية والصلاح",
       "source_file": "",
       "language": "",
       "original_age_group": "10-12",
       "normalized_age_group": "10-12",
       "behavior_type": "أسس_التربية_الإسلامية",
       "needs_ocr": false,
-      "size_chars": 600
+      "size_chars": 950
     },
     {
       "id": "8d64483f-5e85-4f24-970c-f503373cbf67",
@@ -1081,26 +1081,26 @@
     {
       "id": "968f42b5-5184-4f4a-97d9-b854f507dbe6",
       "domain": "islamic_parenting",
-      "title": "تربية الطفل في الإسلام",
+      "title": "مقدمة كتاب «تربية الطفل في الإسلام»",
       "source_file": "Tarbiyat_Al_Tifl_Fi_Al_Islam_Archive.pdf",
       "language": "ar",
       "original_age_group": "10-12",
       "normalized_age_group": "10-12",
       "behavior_type": "تعليم_القرآن",
       "needs_ocr": false,
-      "size_chars": 237105
+      "size_chars": 1821
     },
     {
       "id": "968f42b5-5184-4f4a-97d9-b854f507dbe6__en",
       "domain": "islamic_parenting",
-      "title": "Raising Children in Islam",
+      "title": "Introduction to the Book 'Raising the Child in Islam'",
       "source_file": "Tarbiyat_Al_Tifl_Fi_Al_Islam_Archive.pdf",
       "language": "en",
       "original_age_group": "10-12",
       "normalized_age_group": "10-12",
       "behavior_type": "تعليم_القرآن",
       "needs_ocr": false,
-      "size_chars": 237105
+      "size_chars": 1821
     },
     {
       "id": "9816082f-6564-42fd-a37b-5b38083a94a8",
@@ -1213,14 +1213,14 @@
     {
       "id": "a9219a05-46a1-4ece-8961-686d0d27f960",
       "domain": "islamic_parenting",
-      "title": "العلم والأخلاق: ركيزتا بناء شخصية الأبناء",
+      "title": "مسؤولية الوالدين عن رعاية الأبناء وتأديبهم",
       "source_file": "",
       "language": "",
       "original_age_group": "10-12",
       "normalized_age_group": "10-12",
       "behavior_type": "أسس_التربية_الإسلامية",
       "needs_ocr": false,
-      "size_chars": 600
+      "size_chars": 733
     },
     {
       "id": "aa50afd9-11c2-4345-8c2c-90ac32639d57",
@@ -1249,14 +1249,14 @@
     {
       "id": "aa540ac5-be92-4d96-8615-13cda8aef1d1",
       "domain": "islamic_parenting",
-      "title": "التربية القيمية والأخلاقية في ضوء القرآن",
+      "title": "أثر غرس العقيدة في تعزيز الإحسان ومراقبة الله",
       "source_file": "",
       "language": "",
       "original_age_group": "13-15",
       "normalized_age_group": "13-15",
       "behavior_type": "أسس_التربية_الإسلامية",
       "needs_ocr": false,
-      "size_chars": 599
+      "size_chars": 335
     },
     {
       "id": "aa7d21bc-045a-4d6f-8e7c-3e2d7defaf2c",
@@ -1885,14 +1885,14 @@
     {
       "id": "be78455e-d4c6-42f6-8088-1400f7c2dff3",
       "domain": "islamic_parenting",
-      "title": "الفقه واللغة والأخلاق في تكوين شخصية الابن",
+      "title": "صفات المرأة الصالحة وأثر صلاحها في الأبناء",
       "source_file": "",
       "language": "",
       "original_age_group": "10-12",
       "normalized_age_group": "10-12",
       "behavior_type": "أسس_التربية_الإسلامية",
       "needs_ocr": false,
-      "size_chars": 600
+      "size_chars": 464
     },
     {
       "id": "beb0e561-be2a-51dc-85ac-83c158c748ef",
@@ -2005,26 +2005,26 @@
     {
       "id": "cd81035d-4fdb-4274-bcf2-55074ee7a1de",
       "domain": "islamic_parenting",
-      "title": "كيف تربي ولدك",
+      "title": "التربية في الإسلام: مفهومها ومكانتها ومسؤولية الوالدين",
       "source_file": "kayfa-turabbi-waladak.pdf",
       "language": "ar",
       "original_age_group": "13-15",
       "normalized_age_group": "13-15",
       "behavior_type": "التربية_الإسلامية",
       "needs_ocr": false,
-      "size_chars": 113290
+      "size_chars": 1455
     },
     {
       "id": "cd81035d-4fdb-4274-bcf2-55074ee7a1de__en",
       "domain": "islamic_parenting",
-      "title": "How to Raise Your Child (Kayfa Turabbi Waladak)",
+      "title": "Upbringing in Islam: Its Concept, Status, and Parental Respo",
       "source_file": "kayfa-turabbi-waladak.pdf",
       "language": "en",
       "original_age_group": "13-15",
       "normalized_age_group": "13-15",
       "behavior_type": "التربية_الإسلامية",
       "needs_ocr": false,
-      "size_chars": 113290
+      "size_chars": 1455
     },
     {
       "id": "cf8f3b3c-fe62-40b7-9fe8-37cb85a68bd4",
@@ -6541,14 +6541,14 @@
     {
       "id": "ef7cfad0-4999-42ba-bdf4-1c1d65d3b29f",
       "domain": "islamic_parenting",
-      "title": "القرآن والعقيدة والأخلاق: أسس يغرسها المربي",
+      "title": "شكر نعمة الأبناء بتأديبهم ووقايتهم من النار",
       "source_file": "",
       "language": "",
       "original_age_group": "10-12",
       "normalized_age_group": "10-12",
       "behavior_type": "أسس_التربية_الإسلامية",
       "needs_ocr": false,
-      "size_chars": 600
+      "size_chars": 890
     },
     {
       "id": "f37ace62-b2eb-4cc0-8eb5-c34484407199",
@@ -6577,26 +6577,26 @@
     {
       "id": "f414d4fc-4ee9-4385-b7d6-4496c1ee9aaa",
       "domain": "islamic_parenting",
-      "title": "معالم التربية القرآنية في جزء عم",
+      "title": "معالم التربية القرآنية في جزء عم: المقدمة",
       "source_file": "Saaid_Quranic_Tarbiyyah_Spiritual_Growth.pdf",
       "language": "ar",
       "original_age_group": "7-9",
       "normalized_age_group": "7-9",
       "behavior_type": "تعليم_القرآن",
       "needs_ocr": false,
-      "size_chars": 371719
+      "size_chars": 1642
     },
     {
       "id": "f414d4fc-4ee9-4385-b7d6-4496c1ee9aaa__en",
       "domain": "islamic_parenting",
-      "title": "Landmarks of Qur'anic Tarbiyah in Juz 'Amma",
+      "title": "Landmarks of Qur'anic Tarbiyah in Juz 'Amma: Introduction",
       "source_file": "Saaid_Quranic_Tarbiyyah_Spiritual_Growth.pdf",
       "language": "en",
       "original_age_group": "7-9",
       "normalized_age_group": "7-9",
       "behavior_type": "تعليم_القرآن",
       "needs_ocr": false,
-      "size_chars": 371719
+      "size_chars": 1642
     },
     {
       "id": "f42e35c1-4bbd-4037-8bfa-4668a530f6d8",
@@ -6649,14 +6649,14 @@
     {
       "id": "f6f992c4-d790-4c92-8651-226a37b564bd",
       "domain": "islamic_parenting",
-      "title": "اﻹﺳﺘﺮاﺗﻴﺠﻴﺔ اﻷﺳﺮﻳﺔ اﻟﺘﺮﺑﻮﻳﺔ ﻟﻠﻤﺘﻔﻮﻗﻴﻦ دراﺳﻴﺎ",
+      "title": "الإستراتيجية الأسرية التربوية للمتفوقين دراسياً",
       "source_file": "Alwan_Tarbiyat_Al_Awlad_Fi_Al_Islam_Arabic.pdf",
       "language": "en",
       "original_age_group": "13-15",
       "normalized_age_group": "13-15",
       "behavior_type": "تعليم_القرآن",
       "needs_ocr": false,
-      "size_chars": 307502
+      "size_chars": 1139
     },
     {
       "id": "f8e824ab-4654-4ed4-927f-5d4e272005e5",
@@ -7172,7 +7172,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تعليم",
       "needs_ocr": false,
-      "size_chars": 1361
+      "size_chars": 1757
     },
     {
       "id": "isl-003e7702__en",
@@ -7184,19 +7184,19 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تعليم",
       "needs_ocr": false,
-      "size_chars": 1361
+      "size_chars": 1757
     },
     {
       "id": "isl-00ca8ce8",
       "domain": "islamic_parenting",
-      "title": "أهمية الحوار والتشجيع في تربية البنات",
+      "title": "الحوار والتشجيع وتخصيص الوقت للأبناء في البيت المسلم",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "تربية الأبناء",
       "needs_ocr": false,
-      "size_chars": 1365
+      "size_chars": 1287
     },
     {
       "id": "isl-0243bed4",
@@ -7208,7 +7208,7 @@
       "normalized_age_group": "4-6",
       "behavior_type": "تربية دينية",
       "needs_ocr": false,
-      "size_chars": 1236
+      "size_chars": 1111
     },
     {
       "id": "isl-0243bed4__en",
@@ -7220,7 +7220,7 @@
       "normalized_age_group": "4-6",
       "behavior_type": "تربية دينية",
       "needs_ocr": false,
-      "size_chars": 1236
+      "size_chars": 1111
     },
     {
       "id": "isl-031fc474",
@@ -7249,26 +7249,26 @@
     {
       "id": "isl-034b141a",
       "domain": "islamic_parenting",
-      "title": "أساسيات التربية بالرفق والحكمة",
+      "title": "مضاعفة الجهد التربوي في زمن الفتن واختيار الصديقة الصالحة لل",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية الأبناء",
       "needs_ocr": false,
-      "size_chars": 1345
+      "size_chars": 1097
     },
     {
       "id": "isl-034b141a__en",
       "domain": "islamic_parenting",
-      "title": "Foundations of Tarbiyah with Rifq and Wisdom",
+      "title": "Redoubling Educational Efforts in Times of Trial and Choosin",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية الأبناء",
       "needs_ocr": false,
-      "size_chars": 1345
+      "size_chars": 1097
     },
     {
       "id": "isl-047ad111",
@@ -7309,19 +7309,19 @@
     {
       "id": "isl-07cd6cf0",
       "domain": "islamic_parenting",
-      "title": "مسؤولية الآباء في تربية الأبناء",
+      "title": "مسؤولية الوالدين في رعاية الأبناء وتأديبهم",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "مسؤولية تربوية",
       "needs_ocr": false,
-      "size_chars": 845
+      "size_chars": 891
     },
     {
       "id": "isl-07cd6cf0__en",
       "domain": "islamic_parenting",
-      "title": "Responsibility of Parents in the Tarbiyah of Children",
+      "title": "Parents' Responsibility in Caring for and Disciplining Their",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -7405,19 +7405,19 @@
     {
       "id": "isl-0d5120d9",
       "domain": "islamic_parenting",
-      "title": "أهمية تربية البنات واختيار الزوج الصالح",
+      "title": "السعي في تزويج البنت بالصالح وإبعادها عن مواطن الشبه والمنكر",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "13-15",
       "normalized_age_group": "13-15",
       "behavior_type": "تربية الأبناء",
       "needs_ocr": false,
-      "size_chars": 1306
+      "size_chars": 1387
     },
     {
       "id": "isl-0d5120d9__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Tarbiyah for Daughters and Choosing a Righ",
+      "title": "Seeking a Righteous Spouse for a Daughter and Keeping Her Aw",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "13-15",
@@ -7429,19 +7429,19 @@
     {
       "id": "isl-0eb77048",
       "domain": "islamic_parenting",
-      "title": "تعليم الطفل مراقبة الله والتوكل عليه",
+      "title": "غرس مراقبة الله في نفوس الأبناء في زمن الأجهزة الحديثة",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "7-9",
       "normalized_age_group": "7-9",
       "behavior_type": "تربية دينية",
       "needs_ocr": false,
-      "size_chars": 938
+      "size_chars": 335
     },
     {
       "id": "isl-0eb77048__en",
       "domain": "islamic_parenting",
-      "title": "Teaching the Child Murāqabat Allāh and Tawakkul upon Him",
+      "title": "Instilling Mindfulness of Allah in Children in the Age of Mo",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "7-9",
@@ -7460,7 +7460,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية قيمية",
       "needs_ocr": false,
-      "size_chars": 1289
+      "size_chars": 1165
     },
     {
       "id": "isl-0ee49139__en",
@@ -7472,7 +7472,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية قيمية",
       "needs_ocr": false,
-      "size_chars": 1289
+      "size_chars": 1165
     },
     {
       "id": "isl-0f6abe5d",
@@ -7580,7 +7580,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إيجابية",
       "needs_ocr": false,
-      "size_chars": 1153
+      "size_chars": 700
     },
     {
       "id": "isl-11c1bec0__en",
@@ -7592,7 +7592,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إيجابية",
       "needs_ocr": false,
-      "size_chars": 1153
+      "size_chars": 700
     },
     {
       "id": "isl-14009a8e",
@@ -7681,19 +7681,19 @@
     {
       "id": "isl-162e28c1",
       "domain": "islamic_parenting",
-      "title": "أهمية تربية الأبناء والمسؤولية تجاههم",
+      "title": "نعمة الأولاد ومسؤولية الوالدين عن حفظ الأمانة",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية الأبناء",
       "needs_ocr": false,
-      "size_chars": 1460
+      "size_chars": 1453
     },
     {
       "id": "isl-162e28c1__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Tarbiyah of Children and the Responsibilit",
+      "title": "The Blessing of Children and Parents' Responsibility to Upho",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -7717,19 +7717,19 @@
     {
       "id": "isl-17710349",
       "domain": "islamic_parenting",
-      "title": "تحديات تربية البنات بين المدرسة والأخلاق",
+      "title": "العمل التربوي عبادة لله وتقديم صلاح الآخرة والأخلاق على حطام",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "10-12",
       "normalized_age_group": "10-12",
       "behavior_type": "قلق تربوي",
       "needs_ocr": false,
-      "size_chars": 1273
+      "size_chars": 1389
     },
     {
       "id": "isl-17710349__en",
       "domain": "islamic_parenting",
-      "title": "Challenges of Tarbiyah for Daughters: Between School and Akh",
+      "title": "Educational Effort as Worship of Allah and Prioritizing Mora",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "10-12",
@@ -7753,19 +7753,19 @@
     {
       "id": "isl-18fa1a80",
       "domain": "islamic_parenting",
-      "title": "أهمية اختيار الزوجة الصالحة في تربية الأبناء",
+      "title": "الركيزة الأولى: اختيار الزوجة الصالحة",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "اختيار الزوجة الصالحة للتربية",
       "needs_ocr": false,
-      "size_chars": 1069
+      "size_chars": 674
     },
     {
       "id": "isl-18fa1a80__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Choosing a Righteous Wife in the Tarbiyah ",
+      "title": "The First Pillar: Choosing a Righteous Wife",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -7808,7 +7808,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "اضطرابات سلوكية وتربوية",
       "needs_ocr": false,
-      "size_chars": 1427
+      "size_chars": 1299
     },
     {
       "id": "isl-1b1c38d3__en",
@@ -7820,7 +7820,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "اضطرابات سلوكية وتربوية",
       "needs_ocr": false,
-      "size_chars": 1427
+      "size_chars": 1299
     },
     {
       "id": "isl-1ba05ed7",
@@ -7933,19 +7933,19 @@
     {
       "id": "isl-22169daa",
       "domain": "islamic_parenting",
-      "title": "أهمية القدوة في تربية الأبناء",
+      "title": "الركيزة العاشرة: القدوة الحسنة وأثر الفعل في الأبناء",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية وقدوة",
       "needs_ocr": false,
-      "size_chars": 689
+      "size_chars": 1034
     },
     {
       "id": "isl-22169daa__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of the Role Model in the Tarbiyah of Children",
+      "title": "The Tenth Pillar: The Good Example and the Effect of Action ",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -8084,7 +8084,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "التربية بالقدوة",
       "needs_ocr": false,
-      "size_chars": 1403
+      "size_chars": 1162
     },
     {
       "id": "isl-257951bb__en",
@@ -8096,7 +8096,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "التربية بالقدوة",
       "needs_ocr": false,
-      "size_chars": 1403
+      "size_chars": 1162
     },
     {
       "id": "isl-25aad8e0",
@@ -8125,19 +8125,19 @@
     {
       "id": "isl-25e3d1bc",
       "domain": "islamic_parenting",
-      "title": "مخاطر الأجهزة الإلكترونية على الأبناء",
+      "title": "خطر الجليس الإلكتروني ومتابعة الأبناء في الأجهزة الحديثة",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "13-15",
       "normalized_age_group": "13-15",
       "behavior_type": "إدمان أجهزة إلكترونية",
       "needs_ocr": false,
-      "size_chars": 993
+      "size_chars": 589
     },
     {
       "id": "isl-25e3d1bc__en",
       "domain": "islamic_parenting",
-      "title": "Dangers of Electronic Devices for Our Children",
+      "title": "The Danger of Digital Companions and Monitoring Children on ",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "13-15",
@@ -8149,19 +8149,19 @@
     {
       "id": "isl-27372b44",
       "domain": "islamic_parenting",
-      "title": "تربية البنات في الإسلام وأهمية الصبر والحماية",
+      "title": "الصبر في تربية البنات وحمايتهن من الخلوة والقدوات السيئة",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1339
+      "size_chars": 1331
     },
     {
       "id": "isl-27372b44__en",
       "domain": "islamic_parenting",
-      "title": "Tarbiyah of Daughters in Islam and the Importance of Sabr an",
+      "title": "Patience in Raising Daughters and Protecting Them from Seclu",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -8173,19 +8173,19 @@
     {
       "id": "isl-276074bc",
       "domain": "islamic_parenting",
-      "title": "أهمية تربية الأبناء بنية صادقة لله",
+      "title": "الإخلاص لله عز وجل في تربية الأبناء وتعليمهم",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية الأبناء",
       "needs_ocr": false,
-      "size_chars": 1289
+      "size_chars": 910
     },
     {
       "id": "isl-276074bc__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Tarbiyah of Children with Sincere Intentio",
+      "title": "Sincerity to Allah the Exalted in Raising and Educating Chil",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -8269,19 +8269,19 @@
     {
       "id": "isl-2bbafb5d",
       "domain": "islamic_parenting",
-      "title": "أهمية الرفق والرحمة في تربية الأبناء",
+      "title": "الركيزة السابعة: الرفق بالأبناء ورحمتهم",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إيجابية",
       "needs_ocr": false,
-      "size_chars": 766
+      "size_chars": 776
     },
     {
       "id": "isl-2bbafb5d__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Rifq and Mercy in the Tarbiyah of Children",
+      "title": "The Seventh Pillar: Gentleness and Mercy Toward Children",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -8293,19 +8293,19 @@
     {
       "id": "isl-2be190f6",
       "domain": "islamic_parenting",
-      "title": "فضل تربية البنات والإحسان إليهن",
+      "title": "أجر الصبر والاحتساب وحقيقة الإحسان الشرعي إلى البنات",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إيمانية",
       "needs_ocr": false,
-      "size_chars": 1248
+      "size_chars": 1066
     },
     {
       "id": "isl-2be190f6__en",
       "domain": "islamic_parenting",
-      "title": "The Virtue of Tarbiyah of Daughters and Ihsan Towards Them",
+      "title": "The Reward of Patience and the True Meaning of Kindness to D",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -8408,7 +8408,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1520
+      "size_chars": 1433
     },
     {
       "id": "isl-30476c63__en",
@@ -8420,7 +8420,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1520
+      "size_chars": 1433
     },
     {
       "id": "isl-30775bae",
@@ -8485,19 +8485,19 @@
     {
       "id": "isl-369ae871",
       "domain": "islamic_parenting",
-      "title": "أهمية العدل بين الأبناء في التربية",
+      "title": "الركيزة السادسة: العدل بين الأبناء والحذر من الجور والميل",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "العدل بين الأبناء",
       "needs_ocr": false,
-      "size_chars": 750
+      "size_chars": 548
     },
     {
       "id": "isl-369ae871__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Justice Among Children in Tarbiyah",
+      "title": "The Sixth Pillar: Justice Between Children and Avoiding Favo",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -8533,19 +8533,19 @@
     {
       "id": "isl-39499300",
       "domain": "islamic_parenting",
-      "title": "أساس تربية الأبناء على عبادة الله",
+      "title": "إقامة عبودية الله في قلوب الأبناء واحتساب النفقة والتربية",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1334
+      "size_chars": 1185
     },
     {
       "id": "isl-39499300__en",
       "domain": "islamic_parenting",
-      "title": "The Foundation of Tarbiyah of Children upon the Worship of A",
+      "title": "Establishing Servitude to Allah in Children's Hearts and See",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -8624,7 +8624,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1447
+      "size_chars": 1305
     },
     {
       "id": "isl-3d476538",
@@ -8732,7 +8732,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1466
+      "size_chars": 1244
     },
     {
       "id": "isl-3ff7f46d__en",
@@ -8744,7 +8744,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1466
+      "size_chars": 1244
     },
     {
       "id": "isl-410bbaa8",
@@ -8756,7 +8756,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1449
+      "size_chars": 1597
     },
     {
       "id": "isl-422bf31f",
@@ -8833,19 +8833,19 @@
     {
       "id": "isl-44bbed14",
       "domain": "islamic_parenting",
-      "title": "أهمية تربية الأبناء ومسؤولية الآباء",
+      "title": "تحذير ابن القيم من إهمال الأولاد والتوكل على الله في هدايتهم",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "إهمال تربوي",
       "needs_ocr": false,
-      "size_chars": 928
+      "size_chars": 671
     },
     {
       "id": "isl-44bbed14__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Tarbiyah of Children and the Responsibilit",
+      "title": "Ibn al-Qayyim's Warning Against Neglecting Children and Rely",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -8857,19 +8857,19 @@
     {
       "id": "isl-47643ca5",
       "domain": "islamic_parenting",
-      "title": "تأثير التساهل في تربية البنات على المظهر واللباس",
+      "title": "تعويد البنات الصغيرات على اللباس الساتر والحذر من الألبسة ال",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "تربية دينية ومظهر",
       "needs_ocr": false,
-      "size_chars": 1293
+      "size_chars": 945
     },
     {
       "id": "isl-47643ca5__en",
       "domain": "islamic_parenting",
-      "title": "The Impact of Indulgence in the Tarbiyah of Daughters on App",
+      "title": "Accustoming Young Girls to Modest Clothing and Avoiding Shor",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "4-6",
@@ -8960,7 +8960,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1494
+      "size_chars": 1151
     },
     {
       "id": "isl-4c9c61c3__en",
@@ -8972,7 +8972,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1494
+      "size_chars": 1151
     },
     {
       "id": "isl-4f1029a3",
@@ -9001,26 +9001,26 @@
     {
       "id": "isl-4fd89060",
       "domain": "islamic_parenting",
-      "title": "العدل بين الأبناء وأثره في تربيتهم",
+      "title": "العدل والمساواة بين الذكر والأنثى وإلحاق البنات بمدارس تحفيظ",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "التمييز بين الأبناء",
       "needs_ocr": false,
-      "size_chars": 1262
+      "size_chars": 1141
     },
     {
       "id": "isl-4fd89060__en",
       "domain": "islamic_parenting",
-      "title": "Justice Between Children and Its Effect on Their Upbringing",
+      "title": "Fairness and Equality Between Sons and Daughters and Enrolli",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "التمييز بين الأبناء",
       "needs_ocr": false,
-      "size_chars": 1262
+      "size_chars": 1141
     },
     {
       "id": "isl-50943526",
@@ -9037,19 +9037,19 @@
     {
       "id": "isl-52462ce7",
       "domain": "islamic_parenting",
-      "title": "تحذير من الدعاء على الأبناء في الغضب",
+      "title": "الدعاء بصلاح الذرية وتجنب الدعاء على الأبناء",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إيمانية",
       "needs_ocr": false,
-      "size_chars": 844
+      "size_chars": 788
     },
     {
       "id": "isl-52462ce7__en",
       "domain": "islamic_parenting",
-      "title": "A Warning against Making Du'a against One’s Children in Ange",
+      "title": "Praying for Righteous Offspring and Avoiding Praying Against",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -9085,19 +9085,19 @@
     {
       "id": "isl-54836d16",
       "domain": "islamic_parenting",
-      "title": "أهمية التعلم الذاتي وضبط النفس",
+      "title": "الحذر من تناقض القول والفعل أمام الأبناء",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "توجيه سلوكي",
       "needs_ocr": false,
-      "size_chars": 657
+      "size_chars": 286
     },
     {
       "id": "isl-54836d16__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Self-Directed Learning and Self-Discipline",
+      "title": "Avoiding Contradiction Between Words and Actions Before Chil",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -9236,7 +9236,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1387
+      "size_chars": 1643
     },
     {
       "id": "isl-5a728c81__en",
@@ -9248,7 +9248,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1387
+      "size_chars": 1643
     },
     {
       "id": "isl-5b861419",
@@ -9272,7 +9272,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1455
+      "size_chars": 1346
     },
     {
       "id": "isl-5bf1878f__en",
@@ -9284,7 +9284,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1455
+      "size_chars": 1346
     },
     {
       "id": "isl-5c664643",
@@ -9397,19 +9397,19 @@
     {
       "id": "isl-61e09b66",
       "domain": "islamic_parenting",
-      "title": "أهمية تربية الأبناء ومسؤولية الآباء",
+      "title": "خاتمة: احتساب الأجر في تربية الأبناء وذخر الولد الصالح",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية الأبناء",
       "needs_ocr": false,
-      "size_chars": 786
+      "size_chars": 653
     },
     {
       "id": "isl-61e09b66__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Tarbiyah of Children and the Responsibilit",
+      "title": "Conclusion: Seeking Reward in Raising Children and the Legac",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -9493,19 +9493,19 @@
     {
       "id": "isl-65823c35",
       "domain": "islamic_parenting",
-      "title": "أهمية اختيار الصاحب الصالح في التربية",
+      "title": "الركيزة التاسعة: اختيار الجليس الصالح للأبناء وإبعادهم عن قر",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "7-9",
       "normalized_age_group": "7-9",
       "behavior_type": "تأثير الصحبة",
       "needs_ocr": false,
-      "size_chars": 776
+      "size_chars": 456
     },
     {
       "id": "isl-65823c35__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Choosing the Righteous Companion in Tarbiy",
+      "title": "The Ninth Pillar: Choosing Righteous Companions and Avoiding",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "7-9",
@@ -9524,7 +9524,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية دينية واجتماعية",
       "needs_ocr": false,
-      "size_chars": 1311
+      "size_chars": 1248
     },
     {
       "id": "isl-65ecd339",
@@ -9584,7 +9584,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "مفاهيم تربوية",
       "needs_ocr": false,
-      "size_chars": 1412
+      "size_chars": 1802
     },
     {
       "id": "isl-680b8d50__en",
@@ -9596,7 +9596,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "مفاهيم تربوية",
       "needs_ocr": false,
-      "size_chars": 1412
+      "size_chars": 1802
     },
     {
       "id": "isl-689dde49",
@@ -9656,7 +9656,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية أسرية",
       "needs_ocr": false,
-      "size_chars": 1332
+      "size_chars": 1269
     },
     {
       "id": "isl-6a157c3f__en",
@@ -9668,24 +9668,24 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية أسرية",
       "needs_ocr": false,
-      "size_chars": 1332
+      "size_chars": 1269
     },
     {
       "id": "isl-6a8c2563",
       "domain": "islamic_parenting",
-      "title": "أهمية تربية الأبناء وتوجيههم",
+      "title": "الأدب أدب الله وبذل الأسباب مع سؤال الله الهداية للأبناء",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية الأبناء",
       "needs_ocr": false,
-      "size_chars": 871
+      "size_chars": 615
     },
     {
       "id": "isl-6a8c2563__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Tarbiyah of Children and Guiding Them",
+      "title": "True Refinement Is from Allah: Taking the Means and Asking A",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -9704,7 +9704,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "قدوة تربوية",
       "needs_ocr": false,
-      "size_chars": 1284
+      "size_chars": 982
     },
     {
       "id": "isl-6ae600bf__en",
@@ -9716,7 +9716,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "قدوة تربوية",
       "needs_ocr": false,
-      "size_chars": 1284
+      "size_chars": 982
     },
     {
       "id": "isl-6c69c835",
@@ -9805,19 +9805,19 @@
     {
       "id": "isl-6e3ef777",
       "domain": "islamic_parenting",
-      "title": "أهمية تربية الطفل على الصدق والأمانة",
+      "title": "أثر القدوة وعظم مسؤولية الوالدين في زمن الفتن",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "الكذب والانحراف السلوكي",
       "needs_ocr": false,
-      "size_chars": 948
+      "size_chars": 749
     },
     {
       "id": "isl-6e3ef777__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Tarbiyah in Truthfulness and Amanah for th",
+      "title": "The Impact of Parental Example and the Weight of Responsibil",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "4-6",
@@ -9920,7 +9920,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية نبوية",
       "needs_ocr": false,
-      "size_chars": 1242
+      "size_chars": 1188
     },
     {
       "id": "isl-7269b6d8__en",
@@ -9932,7 +9932,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية نبوية",
       "needs_ocr": false,
-      "size_chars": 1242
+      "size_chars": 1188
     },
     {
       "id": "isl-72893770",
@@ -9944,7 +9944,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية شاملة",
       "needs_ocr": false,
-      "size_chars": 1433
+      "size_chars": 1111
     },
     {
       "id": "isl-72893770__en",
@@ -9956,7 +9956,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية شاملة",
       "needs_ocr": false,
-      "size_chars": 1433
+      "size_chars": 1111
     },
     {
       "id": "isl-7365e833",
@@ -10093,19 +10093,19 @@
     {
       "id": "isl-79b5db35",
       "domain": "islamic_parenting",
-      "title": "أهمية الحنان والتربية الإيمانية في تربية الأبناء",
+      "title": "إشعار البنت بالأبوة والحنان والاقتداء برحمة النبي ﷺ ببناته",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إيمانية وعاطفية",
       "needs_ocr": false,
-      "size_chars": 1358
+      "size_chars": 1395
     },
     {
       "id": "isl-79b5db35__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Affection and Tarbiyah Based on Iman in Ra",
+      "title": "Showing Paternal Affection and Tenderness to a Daughter Foll",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -10136,7 +10136,7 @@
       "normalized_age_group": "7-9",
       "behavior_type": "تربية إيمانية",
       "needs_ocr": false,
-      "size_chars": 1286
+      "size_chars": 1311
     },
     {
       "id": "isl-7ad7d768__en",
@@ -10148,24 +10148,24 @@
       "normalized_age_group": "7-9",
       "behavior_type": "تربية إيمانية",
       "needs_ocr": false,
-      "size_chars": 1286
+      "size_chars": 1311
     },
     {
       "id": "isl-7bfdefb2",
       "domain": "islamic_parenting",
-      "title": "أهمية اختيار الزوجة الصالحة في الإسلام",
+      "title": "أثر اختيار الزوجة الصالحة والزوج الصالح في صلاح الذرية",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "اختيار الزوجة الصالحة",
       "needs_ocr": false,
-      "size_chars": 955
+      "size_chars": 1139
     },
     {
       "id": "isl-7bfdefb2__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Choosing a Righteous Wife in Islam",
+      "title": "The Impact of Choosing a Righteous Spouse on the Offspring",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -10201,19 +10201,19 @@
     {
       "id": "isl-7ec75c52",
       "domain": "islamic_parenting",
-      "title": "أهمية غرس العقيدة والإيمان في الأطفال",
+      "title": "غرس العقيدة الصحيحة والنهي عن الشرك في وصية لقمان",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "تربية دينية",
       "needs_ocr": false,
-      "size_chars": 983
+      "size_chars": 1129
     },
     {
       "id": "isl-7ec75c52__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Instilling al-ʿAqeedah and Iman in Childre",
+      "title": "Instilling Sound Creed and Warning Against Shirk in Luqman's",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "4-6",
@@ -10232,7 +10232,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1423
+      "size_chars": 1177
     },
     {
       "id": "isl-7f2cd105__en",
@@ -10244,7 +10244,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1423
+      "size_chars": 1177
     },
     {
       "id": "isl-7f3a1d9b",
@@ -10273,14 +10273,14 @@
     {
       "id": "isl-80a33332",
       "domain": "islamic_parenting",
-      "title": "تأثير الأجهزة الإلكترونية على الفتيات وأهمية التوجيه",
+      "title": "مراقبة الهاتف والإنترنت والشاشة واختيار الزوج الصالح للابنة",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "13-15",
       "normalized_age_group": "13-15",
       "behavior_type": "إدمان أجهزة إلكترونية",
       "needs_ocr": false,
-      "size_chars": 1343
+      "size_chars": 925
     },
     {
       "id": "isl-8115fbf7",
@@ -10297,19 +10297,19 @@
     {
       "id": "isl-8251f498",
       "domain": "islamic_parenting",
-      "title": "أهمية الإحسان في تربية البنات والأولاد",
+      "title": "إبعاد المنكرات عن المنزل وتعليم الفتاة الأحكام الشرعية الخاص",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1319
+      "size_chars": 1139
     },
     {
       "id": "isl-8251f498__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Ihsan in the Tarbiyah of Girls and Boys",
+      "title": "Keeping Evil Out of the Home and Teaching a Daughter the Isl",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -10357,19 +10357,19 @@
     {
       "id": "isl-84538ea0",
       "domain": "islamic_parenting",
-      "title": "أهمية القدوة الحسنة في تربية الأبناء",
+      "title": "بركة صلاح الوالدين والتفرغ لرعاية الأبناء وتعلم سبل التربية",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية وقدوة",
       "needs_ocr": false,
-      "size_chars": 1333
+      "size_chars": 1510
     },
     {
       "id": "isl-84538ea0__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of the Good Example in the Tarbiyah of Childr",
+      "title": "The Blessing of Righteous Parents, Dedicating Time to Childr",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -10424,7 +10424,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية شاملة",
       "needs_ocr": false,
-      "size_chars": 1443
+      "size_chars": 1903
     },
     {
       "id": "isl-87ab426e__en",
@@ -10436,7 +10436,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية شاملة",
       "needs_ocr": false,
-      "size_chars": 1443
+      "size_chars": 1903
     },
     {
       "id": "isl-898aaacc",
@@ -10520,7 +10520,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "مفاهيم تربوية",
       "needs_ocr": false,
-      "size_chars": 1544
+      "size_chars": 1609
     },
     {
       "id": "isl-8b3e09ef__en",
@@ -10532,24 +10532,24 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "مفاهيم تربوية",
       "needs_ocr": false,
-      "size_chars": 1544
+      "size_chars": 1609
     },
     {
       "id": "isl-8bf01cae",
       "domain": "islamic_parenting",
-      "title": "التحذير من الدعاء على النفس والأهل",
+      "title": "خطورة الدعاء على الأولاد عند الغضب ولطف الله بعباده",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية دينية وأخلاقية",
       "needs_ocr": false,
-      "size_chars": 851
+      "size_chars": 769
     },
     {
       "id": "isl-8bf01cae__en",
       "domain": "islamic_parenting",
-      "title": "Warning Against Making Du'a Against Oneself and One's Family",
+      "title": "The Danger of Praying Against Children in Anger and Allah's ",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -10604,7 +10604,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1351
+      "size_chars": 1249
     },
     {
       "id": "isl-8d62cfd1__en",
@@ -10616,24 +10616,24 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1351
+      "size_chars": 1249
     },
     {
       "id": "isl-8df11735",
       "domain": "islamic_parenting",
-      "title": "تربية الأبناء وتوجيههم وفق القيم الإسلامية",
+      "title": "الدعاء بصلاح الذرية ومجمل الركائز العشر في تربية الأبناء",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية دينية وأسرية",
       "needs_ocr": false,
-      "size_chars": 804
+      "size_chars": 604
     },
     {
       "id": "isl-8df11735__en",
       "domain": "islamic_parenting",
-      "title": "Tarbiyah of Children and Guiding Them in Accordance with Isl",
+      "title": "Supplicating for Righteous Offspring and Summary of the Ten ",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -10729,19 +10729,19 @@
     {
       "id": "isl-908e4c80",
       "domain": "islamic_parenting",
-      "title": "أهمية تربية البنات في الإسلام",
+      "title": "فضل تربية البنات والإحسان إليهن في السنة النبوية",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1223
+      "size_chars": 1545
     },
     {
       "id": "isl-908e4c80__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Tarbiyah of Daughters in Islam",
+      "title": "The Virtue of Raising Daughters and Treating Them Kindly in ",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -10784,7 +10784,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1407
+      "size_chars": 1186
     },
     {
       "id": "isl-94a01203__en",
@@ -10796,7 +10796,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1407
+      "size_chars": 1186
     },
     {
       "id": "isl-94d2e5ad",
@@ -10825,19 +10825,19 @@
     {
       "id": "isl-9738d757",
       "domain": "islamic_parenting",
-      "title": "أهمية غرس الحياء في تربية البنات",
+      "title": "غرس الحياء والحشمة في نفوس البنات منذ الصغر",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية الأبناء",
       "needs_ocr": false,
-      "size_chars": 1341
+      "size_chars": 837
     },
     {
       "id": "isl-9738d757__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Instilling Haya in the Tarbiyah of Daughte",
+      "title": "Instilling Modesty and Decency in Daughters from a Young Age",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -11065,19 +11065,19 @@
     {
       "id": "isl-a444db2a",
       "domain": "islamic_parenting",
-      "title": "أهمية دعاء الوالدين لصلاح الأبناء",
+      "title": "الركيزة الثالثة: كثرة الدعاء للأبناء ودعاء الأنبياء وعباد ال",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إيمانية",
       "needs_ocr": false,
-      "size_chars": 856
+      "size_chars": 950
     },
     {
       "id": "isl-a444db2a__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of the Du'a of Parents for the Righteousness ",
+      "title": "The Third Pillar: Abundant Supplication for Children and the",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -11120,7 +11120,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1392
+      "size_chars": 1145
     },
     {
       "id": "isl-a48ec3a4__en",
@@ -11132,7 +11132,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1392
+      "size_chars": 1145
     },
     {
       "id": "isl-a60d7af9",
@@ -11168,7 +11168,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تعليم ديني",
       "needs_ocr": false,
-      "size_chars": 965
+      "size_chars": 617
     },
     {
       "id": "isl-a7f9d1f3__en",
@@ -11180,7 +11180,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تعليم ديني",
       "needs_ocr": false,
-      "size_chars": 965
+      "size_chars": 617
     },
     {
       "id": "isl-a8fadfa1",
@@ -11336,7 +11336,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية دينية",
       "needs_ocr": false,
-      "size_chars": 1350
+      "size_chars": 959
     },
     {
       "id": "isl-b04140c3__en",
@@ -11348,7 +11348,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية دينية",
       "needs_ocr": false,
-      "size_chars": 1350
+      "size_chars": 959
     },
     {
       "id": "isl-b1e1577f",
@@ -11444,7 +11444,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إيجابية",
       "needs_ocr": false,
-      "size_chars": 1043
+      "size_chars": 786
     },
     {
       "id": "isl-b720986d__en",
@@ -11456,7 +11456,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إيجابية",
       "needs_ocr": false,
-      "size_chars": 1043
+      "size_chars": 786
     },
     {
       "id": "isl-b793e864",
@@ -11485,19 +11485,19 @@
     {
       "id": "isl-b8207e53",
       "domain": "islamic_parenting",
-      "title": "أثر القدوة الحسنة في تربية الأبناء",
+      "title": "ذم مخالفة القول للفعل وكون صلاح الأبناء غنيمة كبرى",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "القدوة الحسنة في التربية",
       "needs_ocr": false,
-      "size_chars": 832
+      "size_chars": 835
     },
     {
       "id": "isl-b8207e53__en",
       "domain": "islamic_parenting",
-      "title": "The Impact of the Good Example in the Tarbiyah of Children",
+      "title": "Censure of Saying What One Does Not Do and the Treasure of R",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -11533,19 +11533,19 @@
     {
       "id": "isl-ba66715b",
       "domain": "islamic_parenting",
-      "title": "أهمية المرأة الصالحة في الأسرة وتربية الأبناء",
+      "title": "الجمع بين اختيار الزوجين الصالحين وغرس العقيدة في الأبناء",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "التربية الأسرية والقيم",
       "needs_ocr": false,
-      "size_chars": 1050
+      "size_chars": 1261
     },
     {
       "id": "isl-ba66715b__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of the Righteous Woman in the Family and the ",
+      "title": "Combining the Choice of Righteous Spouses and Instilling Cre",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -11557,19 +11557,19 @@
     {
       "id": "isl-bd142357",
       "domain": "islamic_parenting",
-      "title": "تعليم الأطفال مراقبة الله والتحذير من الشرك",
+      "title": "وصية لقمان لابنه بالتوحيد وتعزيز مراقبة الله",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "7-9",
       "normalized_age_group": "7-9",
       "behavior_type": "تربية دينية",
       "needs_ocr": false,
-      "size_chars": 900
+      "size_chars": 1151
     },
     {
       "id": "isl-bd142357__en",
       "domain": "islamic_parenting",
-      "title": "Teaching Children Murāqabat Allāh and Warning Against Shirk",
+      "title": "Luqman's Counsel on Monotheism and Strengthening Mindfulness",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "7-9",
@@ -11653,26 +11653,26 @@
     {
       "id": "isl-bf36ef72",
       "domain": "islamic_parenting",
-      "title": "أهمية تربية البنات والإحسان إليهن",
+      "title": "تدريب البنت على رعاية المنزل واحتساب أجر الإحسان إلى البنات",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية البنات",
       "needs_ocr": false,
-      "size_chars": 1276
+      "size_chars": 1078
     },
     {
       "id": "isl-bf36ef72__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of the Tarbiyah of Daughters and Ihsan Toward",
+      "title": "Training a Daughter in Household Management and Seeking the ",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية البنات",
       "needs_ocr": false,
-      "size_chars": 1276
+      "size_chars": 1078
     },
     {
       "id": "isl-bfbe3bbe",
@@ -11708,7 +11708,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إيمانية وسلوكية",
       "needs_ocr": false,
-      "size_chars": 1321
+      "size_chars": 1272
     },
     {
       "id": "isl-c0936200",
@@ -11749,19 +11749,19 @@
     {
       "id": "isl-c0adb8a0",
       "domain": "islamic_parenting",
-      "title": "أساسيات التربية الدينية للأبناء",
+      "title": "الجلسة الإيمانية في البيت وأثر القدوة الصالحة",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "تربية دينية وأخلاقية",
       "needs_ocr": false,
-      "size_chars": 1304
+      "size_chars": 854
     },
     {
       "id": "isl-c0adb8a0__en",
       "domain": "islamic_parenting",
-      "title": "Foundations of Tarbiyah al-Diniyyah for Children",
+      "title": "Faith-Centered Family Gatherings at Home and the Impact of a",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "4-6",
@@ -11792,7 +11792,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "قدوة تربوية",
       "needs_ocr": false,
-      "size_chars": 1282
+      "size_chars": 1151
     },
     {
       "id": "isl-c3ebb142__en",
@@ -11804,7 +11804,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "قدوة تربوية",
       "needs_ocr": false,
-      "size_chars": 1282
+      "size_chars": 1151
     },
     {
       "id": "isl-c4986b8f",
@@ -11857,19 +11857,19 @@
     {
       "id": "isl-c5b93252",
       "domain": "islamic_parenting",
-      "title": "فضل تربية البنات والأجر العظيم",
+      "title": "الإحسان إلى البنات والصبر على تربيتهن ستر من النار",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية البنات",
       "needs_ocr": false,
-      "size_chars": 1216
+      "size_chars": 1545
     },
     {
       "id": "isl-c5b93252__en",
       "domain": "islamic_parenting",
-      "title": "The Virtue of Tarbiyah of Daughters and the Great Reward",
+      "title": "Kindness to Daughters and Patience in Raising Them as a Shie",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -11917,14 +11917,14 @@
     {
       "id": "isl-c8183443",
       "domain": "islamic_parenting",
-      "title": "أصول التربية الإيمانية والأخلاقية للأبناء",
+      "title": "استصحاب النية وكثرة الدعاء للأبناء وتحري الكسب الحلال",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إيمانية وأخلاقية",
       "needs_ocr": false,
-      "size_chars": 1400
+      "size_chars": 1079
     },
     {
       "id": "isl-c8cae71a",
@@ -11953,19 +11953,19 @@
     {
       "id": "isl-cd4d1888",
       "domain": "islamic_parenting",
-      "title": "تربية الأبناء أمانة عظيمة",
+      "title": "الأبناء أمانة عظيمة عند الوالدين",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية الأبناء",
       "needs_ocr": false,
-      "size_chars": 1011
+      "size_chars": 694
     },
     {
       "id": "isl-cd4d1888__en",
       "domain": "islamic_parenting",
-      "title": "Tarbiyah of Children: A Great Amanah",
+      "title": "Children Are a Great Trust with Parents",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -11977,19 +11977,19 @@
     {
       "id": "isl-ce1b71bd",
       "domain": "islamic_parenting",
-      "title": "مسؤولية الآباء في تربية الأبناء",
+      "title": "المسؤولية المتبادلة بين الآباء والأبناء وحفظ الفطرة",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "مسؤولية تربوية",
       "needs_ocr": false,
-      "size_chars": 839
+      "size_chars": 1311
     },
     {
       "id": "isl-ce1b71bd__en",
       "domain": "islamic_parenting",
-      "title": "Responsibility of Parents in the Tarbiyah of Children",
+      "title": "Mutual Responsibility Between Parents and Children and Prese",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -12049,19 +12049,19 @@
     {
       "id": "isl-d126e483",
       "domain": "islamic_parenting",
-      "title": "توجيه الأبناء للصلاة والأخلاق واختيار الصحبة",
+      "title": "وصايا الأنبياء لأهليهم وصيانة الأبناء عن مواطن الفتن",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "7-9",
       "normalized_age_group": "7-9",
       "behavior_type": "تربية دينية وأخلاقية",
       "needs_ocr": false,
-      "size_chars": 890
+      "size_chars": 1229
     },
     {
       "id": "isl-d126e483__en",
       "domain": "islamic_parenting",
-      "title": "Guiding Children towards Salah and Good Akhlaq, and Choosing",
+      "title": "The Prophets' Advice to Their Families and Protecting Childr",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "7-9",
@@ -12145,19 +12145,19 @@
     {
       "id": "isl-d4dbc6b8",
       "domain": "islamic_parenting",
-      "title": "تربية البنات على الخير والأخلاق",
+      "title": "تعويد الصغيرة على أفعال الخير وفتح باب الحوار معها",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "تربية أخلاقية ودينية",
       "needs_ocr": false,
-      "size_chars": 1265
+      "size_chars": 988
     },
     {
       "id": "isl-d4dbc6b8__en",
       "domain": "islamic_parenting",
-      "title": "Tarbiyah of Daughters upon Khayr and Akhlaq",
+      "title": "Accustoming a Young Girl to Good Deeds and Opening the Door ",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "4-6",
@@ -12260,7 +12260,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1477
+      "size_chars": 1211
     },
     {
       "id": "isl-d7c56adc__en",
@@ -12272,7 +12272,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1477
+      "size_chars": 1211
     },
     {
       "id": "isl-d8fa6d4a",
@@ -12296,7 +12296,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية بالقدوة",
       "needs_ocr": false,
-      "size_chars": 1244
+      "size_chars": 1069
     },
     {
       "id": "isl-d9ea1e3c__en",
@@ -12308,7 +12308,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية بالقدوة",
       "needs_ocr": false,
-      "size_chars": 1244
+      "size_chars": 1069
     },
     {
       "id": "isl-dcb6d4e8",
@@ -12361,19 +12361,19 @@
     {
       "id": "isl-ddc58cc5",
       "domain": "islamic_parenting",
-      "title": "مسؤولية الآباء في تربية الأبناء",
+      "title": "الأبناء هبة إلهية وشكرها بتأديبهم وتعليمهم",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية الأبناء",
       "needs_ocr": false,
-      "size_chars": 799
+      "size_chars": 890
     },
     {
       "id": "isl-ddc58cc5__en",
       "domain": "islamic_parenting",
-      "title": "Responsibility of Parents in the Tarbiyah of Children",
+      "title": "Children Are a Divine Gift Whose Gratitude Is Teaching and D",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -12433,19 +12433,19 @@
     {
       "id": "isl-e0cb0e7b",
       "domain": "islamic_parenting",
-      "title": "أهمية النصح والتوجيه في تربية الأبناء",
+      "title": "الركيزة الثامنة: بذل النصح والتوجيه للأبناء ووصايا لقمان",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "7-9",
       "normalized_age_group": "7-9",
       "behavior_type": "تربية دينية وأخلاقية",
       "needs_ocr": false,
-      "size_chars": 825
+      "size_chars": 1931
     },
     {
       "id": "isl-e0cb0e7b__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Advice and Guidance in the Tarbiyah of Chi",
+      "title": "The Eighth Pillar: Offering Advice and Guidance to Children ",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "7-9",
@@ -12493,19 +12493,19 @@
     {
       "id": "isl-e40ef2fa",
       "domain": "islamic_parenting",
-      "title": "أهمية تربية البنات والعدل بين الأبناء",
+      "title": "شكر الله على عطيته من الذكور والإناث وذم كراهية البنات",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية البنات والعدل بين الأبناء",
       "needs_ocr": false,
-      "size_chars": 1405
+      "size_chars": 838
     },
     {
       "id": "isl-e40ef2fa__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Tarbiyah for Daughters and Justice Among C",
+      "title": "Thanking Allah for His Gift of Sons and Daughters and Condem",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -12517,19 +12517,19 @@
     {
       "id": "isl-e4672a9e",
       "domain": "islamic_parenting",
-      "title": "التحذير من الظلم بين الأبناء وأهمية العدل",
+      "title": "أثر العدل بين الأبناء في برهم والانتقال إلى ركيزة الرفق",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "الظلم بين الأبناء",
       "needs_ocr": false,
-      "size_chars": 822
+      "size_chars": 665
     },
     {
       "id": "isl-e4672a9e__en",
       "domain": "islamic_parenting",
-      "title": "Warning against Injustice among Children and the Importance ",
+      "title": "How Fairness Fosters Filial Piety and the Importance of Gent",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -12541,19 +12541,19 @@
     {
       "id": "isl-e837f328",
       "domain": "islamic_parenting",
-      "title": "فضل تربية البنات والرضا بهن",
+      "title": "الرضا بهبة الله من البنات والاقتداء بالأنبياء آباء البنات",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية البنات",
       "needs_ocr": false,
-      "size_chars": 1351
+      "size_chars": 1293
     },
     {
       "id": "isl-e837f328__en",
       "domain": "islamic_parenting",
-      "title": "The Virtue of Tarbiyah of Daughters and Contentment with The",
+      "title": "Contentment with Allah's Gift of Daughters and Following the",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -12632,7 +12632,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إيمانية",
       "needs_ocr": false,
-      "size_chars": 1381
+      "size_chars": 1099
     },
     {
       "id": "isl-ee097ab9__en",
@@ -12644,7 +12644,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إيمانية",
       "needs_ocr": false,
-      "size_chars": 1381
+      "size_chars": 1099
     },
     {
       "id": "isl-f1d62436",
@@ -12697,19 +12697,19 @@
     {
       "id": "isl-f3270ea2",
       "domain": "islamic_parenting",
-      "title": "أهمية القدوة الحسنة في تربية الأبناء",
+      "title": "اكتساب الأبناء طباع والديهم وألفاظهم",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "القدوة الأبوية وتأثيرها على الأبناء",
       "needs_ocr": false,
-      "size_chars": 776
+      "size_chars": 338
     },
     {
       "id": "isl-f3270ea2__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of the Good Example in the Tarbiyah of Childr",
+      "title": "How Children Acquire Their Parents' Habits and Speech",
       "source_file": "Rakaiz_Tarbiya.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -12781,19 +12781,19 @@
     {
       "id": "isl-f4e75ff2",
       "domain": "islamic_parenting",
-      "title": "إرشادات لتربية الأطفال على حب الله والقرآن",
+      "title": "غرس التوحيد وتعظيم الله في نفوس الصغار وكظم الغضب عند التأدي",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "تربية دينية وتعليم قرآن",
       "needs_ocr": false,
-      "size_chars": 1291
+      "size_chars": 1265
     },
     {
       "id": "isl-f4e75ff2__en",
       "domain": "islamic_parenting",
-      "title": "Guidance for Raising Children upon the Love of Allah and the",
+      "title": "Instilling Monotheism and Reverence for Allah in Young Child",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "4-6",
@@ -12889,19 +12889,19 @@
     {
       "id": "isl-f77b3ed4",
       "domain": "islamic_parenting",
-      "title": "أهمية تربية الأبناء على الدين والأخلاق",
+      "title": "عناية الأنبياء والسلف بتربية الأبناء وخطورة إهمال تربية البن",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "unspecified",
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية الأبناء",
       "needs_ocr": false,
-      "size_chars": 1430
+      "size_chars": 1450
     },
     {
       "id": "isl-f77b3ed4__en",
       "domain": "islamic_parenting",
-      "title": "The Importance of Tarbiyah of Children upon Din and Akhlaq",
+      "title": "The Care of the Prophets and Early Muslims in Raising Childr",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "unspecified",
@@ -12944,7 +12944,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1405
+      "size_chars": 1128
     },
     {
       "id": "isl-f8bc202e__en",
@@ -12956,7 +12956,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1405
+      "size_chars": 1128
     },
     {
       "id": "isl-fb04bcd3",
@@ -12992,7 +12992,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية جمالية وبدنية",
       "needs_ocr": false,
-      "size_chars": 1335
+      "size_chars": 1151
     },
     {
       "id": "isl-fb584945__en",
@@ -13004,7 +13004,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية جمالية وبدنية",
       "needs_ocr": false,
-      "size_chars": 1335
+      "size_chars": 1151
     },
     {
       "id": "isl-fb6a8582",
@@ -13069,19 +13069,19 @@
     {
       "id": "isl-fe05a9ce",
       "domain": "islamic_parenting",
-      "title": "تعويد الطفل على الصلاة وتحفيظ القرآن",
+      "title": "ترغيب البنات في الصلاة وتوجيه ملكات الحفظ إلى القرآن الكريم",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "ar",
       "original_age_group": "7-9",
       "normalized_age_group": "7-9",
       "behavior_type": "تربية دينية",
       "needs_ocr": false,
-      "size_chars": 1302
+      "size_chars": 1688
     },
     {
       "id": "isl-fe05a9ce__en",
       "domain": "islamic_parenting",
-      "title": "Accustoming the Child to Salah and Memorising the Qur'an",
+      "title": "Encouraging Daughters to Pray and Directing Their Memorizati",
       "source_file": "Tarbiya_Al_Banat.pdf",
       "language": "en",
       "original_age_group": "7-9",
@@ -13136,7 +13136,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1330
+      "size_chars": 1506
     },
     {
       "id": "isl-fef5f702__en",
@@ -13148,7 +13148,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تربية إسلامية",
       "needs_ocr": false,
-      "size_chars": 1330
+      "size_chars": 1506
     },
     {
       "id": "isl-quran-halal-ref-7-157-16-43",
@@ -13808,19 +13808,19 @@
       "normalized_age_group": "4-6",
       "behavior_type": "تغذية صحية",
       "needs_ocr": false,
-      "size_chars": 584
+      "size_chars": 791
     },
     {
       "id": "med-3f714838__en",
       "domain": "medical",
-      "title": "Preserving the Child’s Weight and Avoiding Obesity, Diabetes",
+      "title": "Maintaining a Healthy Child Weight and Preventing Obesity, D",
       "source_file": "Saudi_MOH_Child_Nutrition_Guide.pdf",
       "language": "en",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "تغذية صحية",
       "needs_ocr": false,
-      "size_chars": 584
+      "size_chars": 791
     },
     {
       "id": "med-3f756fa9",
@@ -13916,7 +13916,7 @@
       "normalized_age_group": "4-6",
       "behavior_type": "تغذية صحية",
       "needs_ocr": false,
-      "size_chars": 1880
+      "size_chars": 700
     },
     {
       "id": "med-48273aa4__en",
@@ -13928,7 +13928,7 @@
       "normalized_age_group": "4-6",
       "behavior_type": "تغذية صحية",
       "needs_ocr": false,
-      "size_chars": 1880
+      "size_chars": 700
     },
     {
       "id": "med-487e568f",
@@ -14600,7 +14600,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تغذية صحية",
       "needs_ocr": false,
-      "size_chars": 745
+      "size_chars": 820
     },
     {
       "id": "med-87cc2468__en",
@@ -14612,7 +14612,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تغذية صحية",
       "needs_ocr": false,
-      "size_chars": 745
+      "size_chars": 820
     },
     {
       "id": "med-88c1469a",
@@ -15536,7 +15536,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تغذية صحية ونشاط بدني",
       "needs_ocr": false,
-      "size_chars": 2000
+      "size_chars": 859
     },
     {
       "id": "med-cfeefc11__en",
@@ -15548,7 +15548,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "تغذية صحية ونشاط بدني",
       "needs_ocr": false,
-      "size_chars": 2000
+      "size_chars": 859
     },
     {
       "id": "med-d2bf41e9",
@@ -16739,6 +16739,774 @@
       "size_chars": 478
     },
     {
+      "id": "shm-aqd-1012-01-tawhid-asma",
+      "domain": "aqeedah",
+      "title": "فهم البسملة وأثرها في استقامة السلوك",
+      "source_file": "shamela:20854:62",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "تعزيز الاستعانة بالله",
+      "needs_ocr": false,
+      "size_chars": 1027
+    },
+    {
+      "id": "shm-aqd-1012-02-qadar-levels",
+      "domain": "aqeedah",
+      "title": "فهم القدر والإيمان به",
+      "source_file": "shamela:20854:903",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "الإيمان بالقدر خيره وشره",
+      "needs_ocr": false,
+      "size_chars": 1064
+    },
+    {
+      "id": "shm-aqd-1012-03-day-judgment",
+      "domain": "aqeedah",
+      "title": "الإيمان باليوم الآخر أساس الأمانة",
+      "source_file": "shamela:8352:397",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "تعزيز الأمانة والمسؤولية",
+      "needs_ocr": false,
+      "size_chars": 1220
+    },
+    {
+      "id": "shm-aqd-1012-04-quran-miracle",
+      "domain": "aqeedah",
+      "title": "وحدانية الله وأسمائه الحسنى",
+      "source_file": "shamela:20854:125",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "فهم أسماء الله وصفاته",
+      "needs_ocr": false,
+      "size_chars": 604
+    },
+    {
+      "id": "shm-aqd-1012-05-sunnah-authority",
+      "domain": "aqeedah",
+      "title": "طاعة الرسول ﷺ هي طاعة لله",
+      "source_file": "shamela:8352:11",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "اتباع السنة النبوية",
+      "needs_ocr": false,
+      "size_chars": 1202
+    },
+    {
+      "id": "shm-aqd-1012-06-patience-trials",
+      "domain": "aqeedah",
+      "title": "الصبر الجميل عند أول لحظات الحزن",
+      "source_file": "shamela:2348:50",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "الصبر والرضا عند الابتلاء",
+      "needs_ocr": false,
+      "size_chars": 486
+    },
+    {
+      "id": "shm-aqd-1012-07-envy-hasad",
+      "domain": "aqeedah",
+      "title": "الرضا بقسمة الله يطفئ الحسد",
+      "source_file": "shamela:42:1883",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "الرضا بقسمة الله",
+      "needs_ocr": false,
+      "size_chars": 840
+    },
+    {
+      "id": "shm-aqd-1012-08-avoid-superstition",
+      "domain": "aqeedah",
+      "title": "التفاؤل يفتح الآفاق ويطرد التشاؤم",
+      "source_file": "shamela:9260:1953",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "تعزيز التفاؤل والإيجابية",
+      "needs_ocr": false,
+      "size_chars": 664
+    },
+    {
+      "id": "shm-aqd-1012-09-purpose-creation",
+      "domain": "aqeedah",
+      "title": "لماذا خلقنا الله؟ العبادة والتوحيد",
+      "source_file": "shamela:20854:81",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "فهم الغاية من الوجود",
+      "needs_ocr": false,
+      "size_chars": 1238
+    },
+    {
+      "id": "shm-aqd-1012-10-yaqin-dua",
+      "domain": "aqeedah",
+      "title": "حب الله وحده واليقين بقوته",
+      "source_file": "shamela:42:114",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "تعزيز حب الله والتوحيد",
+      "needs_ocr": false,
+      "size_chars": 1214
+    },
+    {
+      "id": "shm-aqd-1315-01-fitrah-proofs",
+      "domain": "aqeedah",
+      "title": "دلائل التوحيد في الكون والفطرة",
+      "source_file": "shamela:42:202",
+      "language": "ar",
+      "original_age_group": "13-15",
+      "normalized_age_group": "13-15",
+      "behavior_type": "تعزيز الإيمان بالله",
+      "needs_ocr": false,
+      "size_chars": 1213
+    },
+    {
+      "id": "shm-aqd-1315-02-wisdom-trials",
+      "domain": "aqeedah",
+      "title": "الابتلاء طريق النصر والصبر مفتاح الفرج",
+      "source_file": "shamela:42:171",
+      "language": "ar",
+      "original_age_group": "13-15",
+      "normalized_age_group": "13-15",
+      "behavior_type": "الصبر عند الشدائد",
+      "needs_ocr": false,
+      "size_chars": 1127
+    },
+    {
+      "id": "shm-aqd-1315-03-freewill-qadar",
+      "domain": "aqeedah",
+      "title": "الرجاء الحقيقي بين الأماني والعمل",
+      "source_file": "shamela:8352:445",
+      "language": "ar",
+      "original_age_group": "13-15",
+      "normalized_age_group": "13-15",
+      "behavior_type": "الرجاء والعمل الصالح",
+      "needs_ocr": false,
+      "size_chars": 1173
+    },
+    {
+      "id": "shm-aqd-1315-04-reason-revelation",
+      "domain": "aqeedah",
+      "title": "فهم النصوص الشرعية بوضوح ويقين",
+      "source_file": "shamela:8352:223",
+      "language": "ar",
+      "original_age_group": "13-15",
+      "normalized_age_group": "13-15",
+      "behavior_type": "التسليم للنصوص الشرعية",
+      "needs_ocr": false,
+      "size_chars": 1232
+    },
+    {
+      "id": "shm-aqd-1315-05-handling-waswas",
+      "domain": "aqeedah",
+      "title": "طمأنة القلب عند وساوس الأفكار",
+      "source_file": "shamela:8352:332",
+      "language": "ar",
+      "original_age_group": "13-15",
+      "normalized_age_group": "13-15",
+      "behavior_type": "التعامل مع الوسوسة",
+      "needs_ocr": false,
+      "size_chars": 1052
+    },
+    {
+      "id": "shm-aqd-1315-06-prophethood-signs",
+      "domain": "aqeedah",
+      "title": "دلائل نبوة الأنبياء وصدق رسالتهم",
+      "source_file": "shamela:8352:136",
+      "language": "ar",
+      "original_age_group": "13-15",
+      "normalized_age_group": "13-15",
+      "behavior_type": "التفكر في دلائل النبوة",
+      "needs_ocr": false,
+      "size_chars": 1245
+    },
+    {
+      "id": "shm-aqd-1315-07-iman-increases",
+      "domain": "aqeedah",
+      "title": "الإيمان يزيد وينقص: فهم وتقوية",
+      "source_file": "shamela:20854:982",
+      "language": "ar",
+      "original_age_group": "13-15",
+      "normalized_age_group": "13-15",
+      "behavior_type": "تقوية الإيمان وتجديده",
+      "needs_ocr": false,
+      "size_chars": 1019
+    },
+    {
+      "id": "shm-aqd-1315-08-izzah-identity",
+      "domain": "aqeedah",
+      "title": "العزة لله: ثبات المؤمن أمام التحديات",
+      "source_file": "shamela:42:760",
+      "language": "ar",
+      "original_age_group": "13-15",
+      "normalized_age_group": "13-15",
+      "behavior_type": "الثبات على الحق",
+      "needs_ocr": false,
+      "size_chars": 880
+    },
+    {
+      "id": "shm-aqd-1315-09-wala-fairness",
+      "domain": "aqeedah",
+      "title": "القدوة الحسنة والتعامل مع الآخرين",
+      "source_file": "shamela:42:1948",
+      "language": "ar",
+      "original_age_group": "13-15",
+      "normalized_age_group": "13-15",
+      "behavior_type": "القدوة الحسنة والعدل",
+      "needs_ocr": false,
+      "size_chars": 1235
+    },
+    {
+      "id": "shm-aqd-1618-01-yaqin-knowledge",
+      "domain": "aqeedah",
+      "title": "الحذر من علم الكلام وأثره على اليقين",
+      "source_file": "shamela:8352:13",
+      "language": "ar",
+      "original_age_group": "16-18",
+      "normalized_age_group": "16-18",
+      "behavior_type": "بناء اليقين الإيماني",
+      "needs_ocr": false,
+      "size_chars": 956
+    },
+    {
+      "id": "shm-aqd-1618-02-moderation-wasatiyah",
+      "domain": "aqeedah",
+      "title": "وسطية الإسلام وحماية الشباب من الغلو",
+      "source_file": "shamela:42:100",
+      "language": "ar",
+      "original_age_group": "16-18",
+      "normalized_age_group": "16-18",
+      "behavior_type": "الاعتدال في الفهم الديني",
+      "needs_ocr": false,
+      "size_chars": 1234
+    },
+    {
+      "id": "shm-aqd-1618-03-heart-diseases",
+      "domain": "aqeedah",
+      "title": "خطورة التأويل على العقيدة والقلوب",
+      "source_file": "shamela:8352:254",
+      "language": "ar",
+      "original_age_group": "16-18",
+      "normalized_age_group": "16-18",
+      "behavior_type": "الوقاية من الشبهات",
+      "needs_ocr": false,
+      "size_chars": 1214
+    },
+    {
+      "id": "shm-aqd-1618-04-hope-fear-balance",
+      "domain": "aqeedah",
+      "title": "وحدانية الخالق: دليل التمانع العقلي",
+      "source_file": "shamela:8352:24",
+      "language": "ar",
+      "original_age_group": "16-18",
+      "normalized_age_group": "16-18",
+      "behavior_type": "التفكر في وحدانية الله",
+      "needs_ocr": false,
+      "size_chars": 1242
+    },
+    {
+      "id": "shm-aqd-1618-05-steadfastness-fitan",
+      "domain": "aqeedah",
+      "title": "فهم السجود وأثره في التفاضل",
+      "source_file": "shamela:8352:409",
+      "language": "ar",
+      "original_age_group": "16-18",
+      "normalized_age_group": "16-18",
+      "behavior_type": "التفكير النقدي في المفاهيم",
+      "needs_ocr": false,
+      "size_chars": 1224
+    },
+    {
+      "id": "shm-aqd-1618-06-taqwa-provision",
+      "domain": "aqeedah",
+      "title": "التوكل على الله في تدبير الأرزاق",
+      "source_file": "shamela:42:210",
+      "language": "ar",
+      "original_age_group": "16-18",
+      "normalized_age_group": "16-18",
+      "behavior_type": "التوكل على الله",
+      "needs_ocr": false,
+      "size_chars": 1201
+    },
+    {
+      "id": "shm-aqd-1618-07-tawbah-renewal",
+      "domain": "aqeedah",
+      "title": "باب التوبة مفتوح دائمًا إلا للشرك",
+      "source_file": "shamela:42:324",
+      "language": "ar",
+      "original_age_group": "16-18",
+      "normalized_age_group": "16-18",
+      "behavior_type": "الأمل في مغفرة الذنوب",
+      "needs_ocr": false,
+      "size_chars": 1179
+    },
+    {
+      "id": "shm-aqd-1618-08-islamic-worldview",
+      "domain": "aqeedah",
+      "title": "الحكمة: مفتاح سعادة الدارين",
+      "source_file": "shamela:42:186",
+      "language": "ar",
+      "original_age_group": "16-18",
+      "normalized_age_group": "16-18",
+      "behavior_type": "اكتساب العلم النافع والعمل الصالح",
+      "needs_ocr": false,
+      "size_chars": 1173
+    },
+    {
+      "id": "shm-aqd-1618-09-dua-guidance",
+      "domain": "aqeedah",
+      "title": "الإيمان والتقوى مفتاح البركات والنجاة",
+      "source_file": "shamela:42:578",
+      "language": "ar",
+      "original_age_group": "16-18",
+      "normalized_age_group": "16-18",
+      "behavior_type": "الافتقار إلى الله",
+      "needs_ocr": false,
+      "size_chars": 1177
+    },
+    {
+      "id": "shm-aqd-23-01-bismillah-habit",
+      "domain": "aqeedah",
+      "title": "تعليم الطفل التسمية قبل الأكل والشرب",
+      "source_file": "shamela:9260:787",
+      "language": "ar",
+      "original_age_group": "2-3",
+      "normalized_age_group": "2-3",
+      "behavior_type": "التسمية قبل الأكل والشرب",
+      "needs_ocr": false,
+      "size_chars": 1172
+    },
+    {
+      "id": "shm-aqd-23-02-alhamdulillah",
+      "domain": "aqeedah",
+      "title": "غرس الشكر والحمد لله في نفوس الصغار",
+      "source_file": "shamela:9260:2981",
+      "language": "ar",
+      "original_age_group": "2-3",
+      "normalized_age_group": "2-3",
+      "behavior_type": "الشكر والحمد لله",
+      "needs_ocr": false,
+      "size_chars": 952
+    },
+    {
+      "id": "shm-aqd-23-03-allah-khaliq",
+      "domain": "aqeedah",
+      "title": "الله خالق كل شيء ورازق كل حي",
+      "source_file": "shamela:20854:43",
+      "language": "ar",
+      "original_age_group": "2-3",
+      "normalized_age_group": "2-3",
+      "behavior_type": "تعظيم الخالق وتقديره",
+      "needs_ocr": false,
+      "size_chars": 1224
+    },
+    {
+      "id": "shm-aqd-23-04-allah-rahman",
+      "domain": "aqeedah",
+      "title": "الله الحي القيوم: رحمة وحكمة في كل شيء",
+      "source_file": "shamela:42:197",
+      "language": "ar",
+      "original_age_group": "2-3",
+      "normalized_age_group": "2-3",
+      "behavior_type": "التعرف على صفات الله",
+      "needs_ocr": false,
+      "size_chars": 1222
+    },
+    {
+      "id": "shm-aqd-23-05-allah-razzaq",
+      "domain": "aqeedah",
+      "title": "الله الرزاق: نعمته في كل طعام",
+      "source_file": "shamela:20854:44",
+      "language": "ar",
+      "original_age_group": "2-3",
+      "normalized_age_group": "2-3",
+      "behavior_type": "تقدير نعم الله",
+      "needs_ocr": false,
+      "size_chars": 1217
+    },
+    {
+      "id": "shm-aqd-23-06-sleep-dhikr",
+      "domain": "aqeedah",
+      "title": "تهدئة الطفل قبل النوم بذكر الله",
+      "source_file": "shamela:9260:556",
+      "language": "ar",
+      "original_age_group": "2-3",
+      "normalized_age_group": "2-3",
+      "behavior_type": "ذكر الله قبل النوم",
+      "needs_ocr": false,
+      "size_chars": 1182
+    },
+    {
+      "id": "shm-aqd-23-07-love-prophet",
+      "domain": "aqeedah",
+      "title": "محبة النبي ﷺ طريق للجنة",
+      "source_file": "shamela:9260:109",
+      "language": "ar",
+      "original_age_group": "2-3",
+      "normalized_age_group": "2-3",
+      "behavior_type": "غرس محبة النبي",
+      "needs_ocr": false,
+      "size_chars": 987
+    },
+    {
+      "id": "shm-aqd-23-08-allah-hafiz",
+      "domain": "aqeedah",
+      "title": "الله الحفيظ: أمان وطمأنينة لطفلك",
+      "source_file": "shamela:20854:46",
+      "language": "ar",
+      "original_age_group": "2-3",
+      "normalized_age_group": "2-3",
+      "behavior_type": "بث الطمأنينة في قلب الصغير",
+      "needs_ocr": false,
+      "size_chars": 1210
+    },
+    {
+      "id": "shm-aqd-46-01-tawhid-rububiyah",
+      "domain": "aqeedah",
+      "title": "الله خالق كل شيء ورازقنا",
+      "source_file": "shamela:42:40",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "الإيمان بقدرة الله",
+      "needs_ocr": false,
+      "size_chars": 1227
+    },
+    {
+      "id": "shm-aqd-46-02-tawhid-uluhiyah",
+      "domain": "aqeedah",
+      "title": "أهمية معرفة أصول الدين للأطفال",
+      "source_file": "shamela:8352:1",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "تعزيز الفهم الديني",
+      "needs_ocr": false,
+      "size_chars": 972
+    },
+    {
+      "id": "shm-aqd-46-03-allah-sami-basir",
+      "domain": "aqeedah",
+      "title": "الله يسمع ويرى كل شيء بلطف",
+      "source_file": "shamela:20854:136",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "الإيمان بصفات الله",
+      "needs_ocr": false,
+      "size_chars": 971
+    },
+    {
+      "id": "shm-aqd-46-04-allah-latif",
+      "domain": "aqeedah",
+      "title": "لطف الله وعنايته بعباده الصغار",
+      "source_file": "shamela:20854:46",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "غرس محبة الله في قلوب الأطفال",
+      "needs_ocr": false,
+      "size_chars": 1210
+    },
+    {
+      "id": "shm-aqd-46-05-angels-faith",
+      "domain": "aqeedah",
+      "title": "الإيمان بالملائكة الكرام وأعمالهم الطيبة",
+      "source_file": "shamela:8352:396",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "الإيمان بالغيبيات",
+      "needs_ocr": false,
+      "size_chars": 1214
+    },
+    {
+      "id": "shm-aqd-46-06-quran-book",
+      "domain": "aqeedah",
+      "title": "الله ليس كمثله شيء",
+      "source_file": "shamela:8352:53",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "تعظيم الله وتوحيده",
+      "needs_ocr": false,
+      "size_chars": 1241
+    },
+    {
+      "id": "shm-aqd-46-07-prophets-mercy",
+      "domain": "aqeedah",
+      "title": "هدايا عظيمة من الله للأنبياء",
+      "source_file": "shamela:8352:400",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "تقدير نعم الله",
+      "needs_ocr": false,
+      "size_chars": 1215
+    },
+    {
+      "id": "shm-aqd-46-08-jannah-hope",
+      "domain": "aqeedah",
+      "title": "الجنة دار الأمان والخلود",
+      "source_file": "shamela:20854:134",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "غرس حب الجنة",
+      "needs_ocr": false,
+      "size_chars": 1055
+    },
+    {
+      "id": "shm-aqd-46-09-dua-closeness",
+      "domain": "aqeedah",
+      "title": "الله قريب يجيب دعاء الأطفال",
+      "source_file": "shamela:42:124",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "الدعاء والاستجابة",
+      "needs_ocr": false,
+      "size_chars": 1212
+    },
+    {
+      "id": "shm-aqd-46-10-tafakkur-creation",
+      "domain": "aqeedah",
+      "title": "التفكر في خلق الله ينمي عظمة الإيمان",
+      "source_file": "shamela:42:284",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "التفكر في خلق الله",
+      "needs_ocr": false,
+      "size_chars": 1246
+    },
+    {
+      "id": "shm-aqd-46-11-amanah-muraqabah",
+      "domain": "aqeedah",
+      "title": "فهم القدر في تربية الأبناء",
+      "source_file": "shamela:20854:565",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "فهم العقيدة الصحيحة",
+      "needs_ocr": false,
+      "size_chars": 1050
+    },
+    {
+      "id": "shm-aqd-46-12-seeking-refuge",
+      "domain": "aqeedah",
+      "title": "علم طفلك الاستعاذة بالله عند الخوف",
+      "source_file": "shamela:42:1699",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "الاستعاذة بالله",
+      "needs_ocr": false,
+      "size_chars": 1219
+    },
+    {
+      "id": "shm-aqd-79-01-pillars-iman",
+      "domain": "aqeedah",
+      "title": "الإيمان بالملائكة: ركن أساسي من أركان الإيمان",
+      "source_file": "shamela:9260:440",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "تعزيز الإيمان بالغيب",
+      "needs_ocr": false,
+      "size_chars": 1164
+    },
+    {
+      "id": "shm-aqd-79-02-pillars-islam",
+      "domain": "aqeedah",
+      "title": "أركان الإسلام: أساس حب الله وطاعته",
+      "source_file": "shamela:20854:602",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "تعزيز الطاعة والامتثال",
+      "needs_ocr": false,
+      "size_chars": 1188
+    },
+    {
+      "id": "shm-aqd-79-03-ikhlas-niyyah",
+      "domain": "aqeedah",
+      "title": "كن صادقًا في كل أحوالك",
+      "source_file": "shamela:42:719",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "الصدق والإخلاص",
+      "needs_ocr": false,
+      "size_chars": 559
+    },
+    {
+      "id": "shm-aqd-79-04-tawakkul-causes",
+      "domain": "aqeedah",
+      "title": "التقوى والتوكل: مفتاح السعادة والرزق",
+      "source_file": "shamela:8352:346",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "التقوى والتوكل على الله",
+      "needs_ocr": false,
+      "size_chars": 1242
+    },
+    {
+      "id": "shm-aqd-79-05-allah-shafi",
+      "domain": "aqeedah",
+      "title": "الصبر على الأقدار وتدبير الحكيم",
+      "source_file": "shamela:42:1082",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "الصبر على الأقدار",
+      "needs_ocr": false,
+      "size_chars": 1218
+    },
+    {
+      "id": "shm-aqd-79-06-allah-ghafur",
+      "domain": "aqeedah",
+      "title": "رحمة الله الواسعة وشدة عقابه",
+      "source_file": "shamela:42:864",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "التوبة والاستغفار",
+      "needs_ocr": false,
+      "size_chars": 1235
+    },
+    {
+      "id": "shm-aqd-79-07-allah-adl",
+      "domain": "aqeedah",
+      "title": "العدل والإنصاف أساس التعامل بين الناس",
+      "source_file": "shamela:42:219",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "العدل والإنصاف في التعامل",
+      "needs_ocr": false,
+      "size_chars": 1166
+    },
+    {
+      "id": "shm-aqd-79-08-love-sahabah",
+      "domain": "aqeedah",
+      "title": "من هم آل النبي والصحابة الكرام؟",
+      "source_file": "shamela:20854:75",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "محبة الصحابة والاقتداء بهم",
+      "needs_ocr": false,
+      "size_chars": 847
+    },
+    {
+      "id": "shm-aqd-79-09-qadar-basics",
+      "domain": "aqeedah",
+      "title": "قدرة الله وعلمه المحيط بكل شيء",
+      "source_file": "shamela:8352:350",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "تأسيس الإيمان بالقدر",
+      "needs_ocr": false,
+      "size_chars": 1167
+    },
+    {
+      "id": "shm-aqd-79-10-sadaqah-barakah",
+      "domain": "aqeedah",
+      "title": "العطاء من أحب الأموال بركة ونماء",
+      "source_file": "shamela:2348:354",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "العطاء من أحب الأموال",
+      "needs_ocr": false,
+      "size_chars": 1237
+    },
+    {
+      "id": "shm-aqd-p1-01-fitrah-birth",
+      "domain": "aqeedah",
+      "title": "الفطرة السليمة للمولود وحفظها",
+      "source_file": "shamela:9260:2766",
+      "language": "ar",
+      "original_age_group": "prenatal-1",
+      "normalized_age_group": "prenatal-1",
+      "behavior_type": "حفظ فطرة الطفل",
+      "needs_ocr": false,
+      "size_chars": 1175
+    },
+    {
+      "id": "shm-aqd-p1-02-adhan-ear",
+      "domain": "aqeedah",
+      "title": "ترحيب المولود بكلمات التوحيد والذكر",
+      "source_file": "shamela:6266:29",
+      "language": "ar",
+      "original_age_group": "prenatal-1",
+      "normalized_age_group": "prenatal-1",
+      "behavior_type": "الترحيب بالمولود بالذكر",
+      "needs_ocr": false,
+      "size_chars": 1012
+    },
+    {
+      "id": "shm-aqd-p1-03-good-names",
+      "domain": "aqeedah",
+      "title": "أهمية اختيار الاسم الحسن للمولود",
+      "source_file": "shamela:6266:109",
+      "language": "ar",
+      "original_age_group": "prenatal-1",
+      "normalized_age_group": "prenatal-1",
+      "behavior_type": "اختيار اسم المولود",
+      "needs_ocr": false,
+      "size_chars": 964
+    },
+    {
+      "id": "shm-aqd-p1-04-dua-offspring",
+      "domain": "aqeedah",
+      "title": "الدعاء بذرية طيبة مباركة",
+      "source_file": "shamela:42:211",
+      "language": "ar",
+      "original_age_group": "prenatal-1",
+      "normalized_age_group": "prenatal-1",
+      "behavior_type": "الدعاء للذرية الصالحة",
+      "needs_ocr": false,
+      "size_chars": 1171
+    },
+    {
+      "id": "shm-aqd-p1-05-tahsin-child",
+      "domain": "aqeedah",
+      "title": "الورع والنصح في حفظ الأمانات",
+      "source_file": "shamela:9260:74",
+      "language": "ar",
+      "original_age_group": "prenatal-1",
+      "normalized_age_group": "prenatal-1",
+      "behavior_type": "الصدق والأمانة في المعاملات",
+      "needs_ocr": false,
+      "size_chars": 839
+    },
+    {
+      "id": "shm-aqd-p1-06-shukr-niamah",
+      "domain": "aqeedah",
+      "title": "شكر نعمة الله يثبتها ويزيدها",
+      "source_file": "shamela:42:140",
+      "language": "ar",
+      "original_age_group": "prenatal-1",
+      "normalized_age_group": "prenatal-1",
+      "behavior_type": "شكر النعم وحسن رعايتها",
+      "needs_ocr": false,
+      "size_chars": 680
+    },
+    {
       "id": "shm-isl-01-quran-prayer",
       "domain": "islamic_parenting",
       "title": "تعليم الطفل بحسب مراحل نموه: التوحيد ثم القرآن ثم الصلاة وآد",
@@ -16977,6 +17745,606 @@
       "behavior_type": "تشجيع الطفل على الصلاة بالقدوة والمحاكاة",
       "needs_ocr": false,
       "size_chars": 773
+    },
+    {
+      "id": "shm-rem-01-salam-children",
+      "domain": "islamic_parenting",
+      "title": "تعليم الأطفال قيمة إلقاء السلام",
+      "source_file": "shamela:2348:981",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "التحية والسلام",
+      "needs_ocr": false,
+      "size_chars": 184
+    },
+    {
+      "id": "shm-rem-02-teaching-quran",
+      "domain": "islamic_parenting",
+      "title": "أفضل الناس من تعلّم القرآن وعلّمه",
+      "source_file": "shamela:9260:2496",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "تعليم القرآن للأطفال",
+      "needs_ocr": false,
+      "size_chars": 765
+    },
+    {
+      "id": "shm-rem-03-parents-patience",
+      "domain": "islamic_parenting",
+      "title": "الصبر عند المصيبة الأولى",
+      "source_file": "shamela:2348:50",
+      "language": "ar",
+      "original_age_group": "unspecified",
+      "normalized_age_group": "unspecified",
+      "behavior_type": "الصبر والاحتساب عند الشدائد",
+      "needs_ocr": false,
+      "size_chars": 486
+    },
+    {
+      "id": "shm-rem-04-teaching-qadar",
+      "domain": "islamic_parenting",
+      "title": "أركان الإيمان والإسلام والإحسان",
+      "source_file": "shamela:2348:81",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "تعليم أركان الدين",
+      "needs_ocr": false,
+      "size_chars": 1220
+    },
+    {
+      "id": "shm-rem-05-honesty-no-trap",
+      "domain": "islamic_parenting",
+      "title": "لا تحرموا الطيبات: شكر النعم والصدق",
+      "source_file": "shamela:42:442",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "شكر النعم والصدق",
+      "needs_ocr": false,
+      "size_chars": 1194
+    },
+    {
+      "id": "shm-rem-06-halal-competitions",
+      "domain": "islamic_parenting",
+      "title": "سارعوا إلى الخيرات ولا تتأخروا",
+      "source_file": "shamela:9260:588",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "المبادرة إلى الأعمال الصالحة",
+      "needs_ocr": false,
+      "size_chars": 910
+    },
+    {
+      "id": "shm-rem-07-mosque-eid-kids",
+      "domain": "islamic_parenting",
+      "title": "قوة الله وحكمته في إحياء الموتى",
+      "source_file": "shamela:42:180",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "الإيمان بقدرة الله",
+      "needs_ocr": false,
+      "size_chars": 1031
+    },
+    {
+      "id": "shm-rem-08-gentle-discipline",
+      "domain": "islamic_parenting",
+      "title": "الرفق والحكمة في تأديب الأطفال",
+      "source_file": "shamela:96478:242",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "التأديب بحكمة ورفق",
+      "needs_ocr": false,
+      "size_chars": 1141
+    },
+    {
+      "id": "shm-rem-09-play-with-kids",
+      "domain": "islamic_parenting",
+      "title": "الرفق بالأطفال: رحمة وتيسير في التربية",
+      "source_file": "shamela:42:195",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "الرفق والتيسير في التربية",
+      "needs_ocr": false,
+      "size_chars": 1131
+    },
+    {
+      "id": "shm-rem-10-kissing-mercy",
+      "domain": "islamic_parenting",
+      "title": "استحباب تقبيل الأطفال والأهل",
+      "source_file": "shamela:6266:5",
+      "language": "ar",
+      "original_age_group": "2-3",
+      "normalized_age_group": "2-3",
+      "behavior_type": "إظهار المودة والرحمة",
+      "needs_ocr": false,
+      "size_chars": 868
+    },
+    {
+      "id": "shm-rem-11-justice-children",
+      "domain": "islamic_parenting",
+      "title": "العدل بين الأبناء يزرع المحبة",
+      "source_file": "shamela:9260:3588",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "العدل والمساواة بين الأبناء",
+      "needs_ocr": false,
+      "size_chars": 1033
+    },
+    {
+      "id": "shm-rem-12-no-cursing-kids",
+      "domain": "islamic_parenting",
+      "title": "الاستخارة في الأمور وتجنب الكهانة",
+      "source_file": "shamela:9260:3461",
+      "language": "ar",
+      "original_age_group": "unspecified",
+      "normalized_age_group": "unspecified",
+      "behavior_type": "طلب الخير من الله",
+      "needs_ocr": false,
+      "size_chars": 895
+    },
+    {
+      "id": "shm-rem-13-table-manners",
+      "domain": "islamic_parenting",
+      "title": "علموا أطفالكم آداب الطعام بلطف",
+      "source_file": "shamela:2348:357",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "آداب الطعام والشراب",
+      "needs_ocr": false,
+      "size_chars": 417
+    },
+    {
+      "id": "shm-rem-14-seeking-permission",
+      "domain": "islamic_parenting",
+      "title": "أدب الاستئذان: احترام الخصوصية والبيوت",
+      "source_file": "shamela:42:1276",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "احترام الخصوصية والآداب",
+      "needs_ocr": false,
+      "size_chars": 958
+    },
+    {
+      "id": "shm-rem-15-birr-walidayn",
+      "domain": "islamic_parenting",
+      "title": "بر الوالدين: إحسان ورفق في الكبر",
+      "source_file": "shamela:9260:1379",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "الإحسان والرفق بالوالدين",
+      "needs_ocr": false,
+      "size_chars": 1231
+    },
+    {
+      "id": "shm-rem-16-good-companions",
+      "domain": "islamic_parenting",
+      "title": "أثر الصحبة الصالحة في استقامة الأبناء",
+      "source_file": "shamela:96478:2",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "توجيه الأبناء لاختيار الصديق",
+      "needs_ocr": false,
+      "size_chars": 873
+    },
+    {
+      "id": "shm-rem-17-guarding-tongue",
+      "domain": "islamic_parenting",
+      "title": "احذروا الغيبة: حفظ اللسان من كبائر الذنوب",
+      "source_file": "shamela:9260:3164",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "حفظ اللسان من الغيبة",
+      "needs_ocr": false,
+      "size_chars": 1156
+    },
+    {
+      "id": "shm-rem-18-haya-modesty",
+      "domain": "islamic_parenting",
+      "title": "الحياء: خلق رفيع يزين الأبناء",
+      "source_file": "shamela:9260:752",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "تنمية خلق الحياء",
+      "needs_ocr": false,
+      "size_chars": 920
+    },
+    {
+      "id": "shm-rem-19-controlling-anger",
+      "domain": "islamic_parenting",
+      "title": "ضبط الغضب يرفع قدرك عند الله",
+      "source_file": "shamela:2348:66",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "ضبط النفس عند الغضب",
+      "needs_ocr": false,
+      "size_chars": 316
+    },
+    {
+      "id": "shm-rem-20-trust-amanah",
+      "domain": "islamic_parenting",
+      "title": "المسارعة في أداء الأمانة",
+      "source_file": "shamela:2348:115",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "المسؤولية والأمانة",
+      "needs_ocr": false,
+      "size_chars": 607
+    },
+    {
+      "id": "shm-rem-21-kindness-animals",
+      "domain": "islamic_parenting",
+      "title": "الرحمة بالطفل والحزن عليه",
+      "source_file": "shamela:6266:104",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "التعاطف والرحمة",
+      "needs_ocr": false,
+      "size_chars": 889
+    },
+    {
+      "id": "shm-rem-22-neighbor-rights",
+      "domain": "islamic_parenting",
+      "title": "الإحسان في العقيقة وإطعام الطعام",
+      "source_file": "shamela:6266:74",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "الإحسان للآخرين",
+      "needs_ocr": false,
+      "size_chars": 1096
+    },
+    {
+      "id": "shm-rem-23-gratitude-people",
+      "domain": "islamic_parenting",
+      "title": "شكر الناس وتقدير معروفهم",
+      "source_file": "shamela:42:609",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "تقدير الآخرين وشكرهم",
+      "needs_ocr": false,
+      "size_chars": 1052
+    },
+    {
+      "id": "shm-rem-24-generosity-sharing",
+      "domain": "islamic_parenting",
+      "title": "الصبر على الشدائد يجلب النصر والفرج",
+      "source_file": "shamela:42:859",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "الصبر على البلاء",
+      "needs_ocr": false,
+      "size_chars": 1182
+    },
+    {
+      "id": "shm-rem-25-humility-no-arrogance",
+      "domain": "islamic_parenting",
+      "title": "التواضع في التعامل مع الأهل والأطفال",
+      "source_file": "shamela:9260:1723",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "التواضع وحسن الخلق",
+      "needs_ocr": false,
+      "size_chars": 1019
+    },
+    {
+      "id": "shm-rem-26-forgiveness-pardon",
+      "domain": "islamic_parenting",
+      "title": "العفو وسلامة الصدر بين الأبناء",
+      "source_file": "shamela:42:1275",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "العفو وسلامة الصدر",
+      "needs_ocr": false,
+      "size_chars": 1247
+    },
+    {
+      "id": "shm-rem-27-prayer-at-seven",
+      "domain": "islamic_parenting",
+      "title": "أهمية الختان قبل البلوغ",
+      "source_file": "shamela:6266:180",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "الاستعداد_للتكاليف_الشرعية",
+      "needs_ocr": false,
+      "size_chars": 771
+    },
+    {
+      "id": "shm-rem-28-wudu-cleanliness",
+      "domain": "islamic_parenting",
+      "title": "الطهارة والنظافة: مفتاح الإيمان والسعادة",
+      "source_file": "shamela:2348:43",
+      "language": "ar",
+      "original_age_group": "4-6",
+      "normalized_age_group": "4-6",
+      "behavior_type": "غرس حب الطهارة",
+      "needs_ocr": false,
+      "size_chars": 438
+    },
+    {
+      "id": "shm-rem-29-morning-evening-adhkar",
+      "domain": "islamic_parenting",
+      "title": "رجال لا تلهيهم الدنيا عن ذكر الله",
+      "source_file": "shamela:42:1284",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "المواظبة على ذكر الله",
+      "needs_ocr": false,
+      "size_chars": 1249
+    },
+    {
+      "id": "shm-rem-30-respecting-elders",
+      "domain": "islamic_parenting",
+      "title": "أهمية توثيق الحقوق وحفظها",
+      "source_file": "shamela:42:191",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "حفظ الحقوق والعدل",
+      "needs_ocr": false,
+      "size_chars": 1226
+    },
+    {
+      "id": "shm-rem-31-silat-rahim",
+      "domain": "islamic_parenting",
+      "title": "أهمية صلة الرحم والتوبة الصادقة",
+      "source_file": "shamela:9260:82",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "صلة الرحم والتوبة",
+      "needs_ocr": false,
+      "size_chars": 1033
+    },
+    {
+      "id": "shm-rem-32-parent-role-model",
+      "domain": "islamic_parenting",
+      "title": "القدوة الحسنة: مفتاح تربية الأبناء",
+      "source_file": "shamela:96478:140",
+      "language": "ar",
+      "original_age_group": "unspecified",
+      "normalized_age_group": "unspecified",
+      "behavior_type": "القدوة الحسنة للوالدين",
+      "needs_ocr": false,
+      "size_chars": 1001
+    },
+    {
+      "id": "shm-rem-33-halal-income",
+      "domain": "islamic_parenting",
+      "title": "أهمية الأمانة في حفظ الأنساب",
+      "source_file": "shamela:42:156",
+      "language": "ar",
+      "original_age_group": "unspecified",
+      "normalized_age_group": "unspecified",
+      "behavior_type": "الأمانة وحفظ الحقوق",
+      "needs_ocr": false,
+      "size_chars": 1249
+    },
+    {
+      "id": "shm-rem-34-consulting-youth",
+      "domain": "islamic_parenting",
+      "title": "أهمية غرس العلم والقيم في الصغر",
+      "source_file": "shamela:9260:209",
+      "language": "ar",
+      "original_age_group": "13-15",
+      "normalized_age_group": "13-15",
+      "behavior_type": "غرس القيم والعلم",
+      "needs_ocr": false,
+      "size_chars": 1012
+    },
+    {
+      "id": "shm-rem-35-modesty-screens-gaze",
+      "domain": "islamic_parenting",
+      "title": "التوبة وغض البصر: طريق الفلاح للمؤمنين",
+      "source_file": "shamela:9260:89",
+      "language": "ar",
+      "original_age_group": "13-15",
+      "normalized_age_group": "13-15",
+      "behavior_type": "التوبة وغض البصر",
+      "needs_ocr": false,
+      "size_chars": 1226
+    },
+    {
+      "id": "shm-rem-36-time-stewardship",
+      "domain": "islamic_parenting",
+      "title": "استثمار الوقت والفراغ في حياة أبنائنا",
+      "source_file": "shamela:9260:1263",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "قيمة الوقت والفراغ",
+      "needs_ocr": false,
+      "size_chars": 1021
+    },
+    {
+      "id": "shm-rem-37-physical-strength",
+      "domain": "islamic_parenting",
+      "title": "القوة الحقيقية في التحكم بالغضب",
+      "source_file": "shamela:9260:1805",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "التحكم_بالنفس_عند_الغضب",
+      "needs_ocr": false,
+      "size_chars": 1244
+    },
+    {
+      "id": "shm-rem-38-mercy-daughters",
+      "domain": "islamic_parenting",
+      "title": "الإحسان إلى من هم تحت رعايتكم",
+      "source_file": "shamela:2348:1499",
+      "language": "ar",
+      "original_age_group": "unspecified",
+      "normalized_age_group": "unspecified",
+      "behavior_type": "الإحسان إلى من تحت اليد",
+      "needs_ocr": false,
+      "size_chars": 307
+    },
+    {
+      "id": "shm-rem-39-orphan-compassion",
+      "domain": "islamic_parenting",
+      "title": "إطعام الطعام: فرحة وسرور للجيران والمساكين",
+      "source_file": "shamela:6266:74",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "الإحسان إلى المحتاجين",
+      "needs_ocr": false,
+      "size_chars": 1096
+    },
+    {
+      "id": "shm-rem-40-truthful-promise",
+      "domain": "islamic_parenting",
+      "title": "الوفاء بالوعد: أساس الثقة والصدق",
+      "source_file": "shamela:9260:1913",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "الصدق والوفاء بالوعد",
+      "needs_ocr": false,
+      "size_chars": 803
+    },
+    {
+      "id": "shm-rem-41-calm-advice-private",
+      "domain": "islamic_parenting",
+      "title": "النصيحة للمراهق: أساس الأخوة والمحبة",
+      "source_file": "shamela:2348:221",
+      "language": "ar",
+      "original_age_group": "13-15",
+      "normalized_age_group": "13-15",
+      "behavior_type": "تقديم النصيحة بلطف",
+      "needs_ocr": false,
+      "size_chars": 240
+    },
+    {
+      "id": "shm-rem-42-learning-useful-knowledge",
+      "domain": "islamic_parenting",
+      "title": "بر الوالدين وتقديرهما حتى في النوم",
+      "source_file": "shamela:2348:23",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "بر الوالدين",
+      "needs_ocr": false,
+      "size_chars": 1187
+    },
+    {
+      "id": "shm-rem-43-guarding-secrets",
+      "domain": "islamic_parenting",
+      "title": "أمانة حفظ الأسرار الزوجية والبيوت",
+      "source_file": "shamela:2348:787",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "حفظ الأسرار والأمانة",
+      "needs_ocr": false,
+      "size_chars": 362
+    },
+    {
+      "id": "shm-rem-44-charity-secret",
+      "domain": "islamic_parenting",
+      "title": "العقيقة: معناها، وقتها، وفضلها",
+      "source_file": "shamela:6266:32",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "فعل الخير والصدقة",
+      "needs_ocr": false,
+      "size_chars": 783
+    },
+    {
+      "id": "shm-rem-45-fasting-training",
+      "domain": "islamic_parenting",
+      "title": "أهمية السلام على الصغار وفوائده التربوية",
+      "source_file": "shamela:9260:2279",
+      "language": "ar",
+      "original_age_group": "10-12",
+      "normalized_age_group": "10-12",
+      "behavior_type": "التواضع ومحبة الصغار",
+      "needs_ocr": false,
+      "size_chars": 773
+    },
+    {
+      "id": "shm-rem-46-visiting-sick",
+      "domain": "islamic_parenting",
+      "title": "أهمية زيارة المريض ومواساته",
+      "source_file": "shamela:2348:1014",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "عيادة المريض",
+      "needs_ocr": false,
+      "size_chars": 398
+    },
+    {
+      "id": "shm-rem-47-courage-speaking-truth",
+      "domain": "islamic_parenting",
+      "title": "تأثير الكلمات على مجريات الحياة",
+      "source_file": "shamela:6266:120",
+      "language": "ar",
+      "original_age_group": "13-15",
+      "normalized_age_group": "13-15",
+      "behavior_type": "القول الحسن والكلمة الطيبة",
+      "needs_ocr": false,
+      "size_chars": 1038
+    },
+    {
+      "id": "shm-rem-48-marriage-preparation",
+      "domain": "islamic_parenting",
+      "title": "أسس اختيار الشريك لبناء أسرة صالحة",
+      "source_file": "shamela:96478:51",
+      "language": "ar",
+      "original_age_group": "16-18",
+      "normalized_age_group": "16-18",
+      "behavior_type": "اختيار الشريك الصالح",
+      "needs_ocr": false,
+      "size_chars": 987
+    },
+    {
+      "id": "shm-rem-49-brotherhood-peace",
+      "domain": "islamic_parenting",
+      "title": "الإصلاح بين الإخوة بالعدل والتقوى",
+      "source_file": "shamela:42:1828",
+      "language": "ar",
+      "original_age_group": "7-9",
+      "normalized_age_group": "7-9",
+      "behavior_type": "الإصلاح بين المتخاصمين",
+      "needs_ocr": false,
+      "size_chars": 1164
+    },
+    {
+      "id": "shm-rem-50-home-serenity",
+      "domain": "islamic_parenting",
+      "title": "أساس المودة والسكن في الحياة الزوجية",
+      "source_file": "shamela:42:605",
+      "language": "ar",
+      "original_age_group": "unspecified",
+      "normalized_age_group": "unspecified",
+      "behavior_type": "بناء الأسرة على المودة",
+      "needs_ocr": false,
+      "size_chars": 1245
     }
   ]
 }
