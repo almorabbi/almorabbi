@@ -265,17 +265,21 @@ void main() async {
         fatal: false,
       );
     }));
-    // The launch-time permission ask is gone (Phase 1, NOOR_WAL_QANADIL):
-    // it was a cold permission at the door — nothing seen, nothing at
-    // stake, one deny and the daily reminders never exist. The ask now
-    // happens once per install, right after the FIRST completed lesson
-    // (`Analytics.lessonCompleted` → `NotificationPermissionGate`). The
-    // platform ask itself is wired here — Firebase first (it waits for the
-    // Activity rather than giving up on it, see `requestNotificationPermission`),
-    // the plugin request as the fallback for a device with no Play Services.
+    // The launch-time permission ask is gone (Phase 1, NOOR_WAL_QANADIL +
+    // 2.0.4 retention fix): it was a cold permission at the door — nothing
+    // seen, nothing at stake, one deny and the daily reminders never exist.
+    // The ask now happens once per install, right after the parent's FIRST
+    // real value moment (`NotificationPermissionGate`). Firebase first (it
+    // waits for the Activity rather than giving up on it, see
+    // `requestNotificationPermission`), the plugin request as the fallback
+    // for a device with no Play Services — then a silent `registerToken()`
+    // recovers devices whose cold-launch upload skipped while offline.
     NotificationPermissionGate.ask = () async {
-      if (await PushService.instance.requestNotificationPermission()) return;
-      await NotificationService.instance.ensurePermission();
+      final granted = await PushService.instance.requestNotificationPermission();
+      if (!granted) {
+        await NotificationService.instance.ensurePermission();
+      }
+      unawaited(PushService.instance.registerToken());
     };
   });
 
@@ -361,8 +365,9 @@ Future<void> _postLaunchGrowthLoop() async {
   // request of this loop, and nothing after it is wanted for a phone about
   // to close — least of all a silent Google re-link.
   if (_accountGone) return;
-  // The launch path is the one registration allowed to ask for permission.
-  await PushService.instance.registerToken(askPermission: true);
+  // Silent token upload at launch — never pop a cold permission prompt at the
+  // door; NotificationPermissionGate asks once after the first value moment.
+  await PushService.instance.registerToken();
   if (_accountGone) return;
   await PushService.instance.listenForeground();
   if (_accountGone) return;

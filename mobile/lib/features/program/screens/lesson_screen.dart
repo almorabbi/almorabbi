@@ -3,13 +3,13 @@
 ///   1. Hero (title + estimated minutes + warning chips)
 ///   2. Status chip (Phase 5 — driven by [activeChildIdProvider] +
 ///      [childProgressProvider])
-///   3. Summary (long-form description)
-///   4. Try-this (the actionable bit)
-///   5. Reflection prompts (numbered list)
-///   6. Reference list (from the lesson's `unit_ids` — we render
-///      a placeholder card; the real KB RAG preview is Phase 5+)
+///   3. Interactive assets (podcast / flashcards / quiz, when present)
+///   4. Try-this (the single doable action — elevated above the fold in 2.0.4)
+///   5. Summary (long-form explanation)
+///   6. Reflection prompts (numbered list)
 ///   7. "ملاحظاتي" card (Phase 8-C — local-only reflection notes)
-///   8. "Mark complete" button (Phase 5 — PATCHes
+///   8. Reference list (from the lesson's `unit_ids`)
+///   Sticky `bottomNavigationBar`: "Mark complete" button (Phase 5 — PATCHes
 ///      `/api/program/lessons/{id}/progress` and invalidates the
 ///      active child's progress bundle so [PathDetailScreen] refreshes)
 ///
@@ -285,45 +285,68 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
           overflow: TextOverflow.ellipsis,
         ),
       ),
-      // Sticky CTA — always reachable without scrolling to the bottom.
+      // Sticky CTA — always reachable without scrolling to the bottom, anchored
+      // in an elevated bar so it stands apart from scrolling lesson text.
       bottomNavigationBar: showAddChild
-          ? SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
-                child: BouncyButton(
-                  label: AppLocalizations.of(context).addChild,
-                  color: Dt.accent,
-                  onTap: () => Navigator.of(context).push(AppRoutes.addChild()),
+          ? DecoratedBox(
+              decoration: BoxDecoration(
+                color: Dt.surface,
+                border: Border(
+                  top: BorderSide(
+                    color: Theme.of(context).dividerColor.withValues(alpha: 0.4),
+                    width: 1,
+                  ),
+                ),
+              ),
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 10, 16, 12),
+                  child: BouncyButton(
+                    label: AppLocalizations.of(context).addChild,
+                    color: Dt.accent,
+                    onTap: () => Navigator.of(context).push(AppRoutes.addChild()),
+                  ),
                 ),
               ),
             )
           : !showCta
           ? null
-          : SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
-                child: BouncyButton(
-                  label: status == ProgressStatus.completed
-                      ? AppLocalizations.of(context).lessonCompleted
-                      : (_marking
-                            ? AppLocalizations.of(context).lessonMarking
-                            : AppLocalizations.of(context).lessonMarkComplete),
-                  color: status == ProgressStatus.completed
-                      ? AppTheme.success
-                      : Dt.accent,
-                  icon: _marking
-                      ? SizedBox(
-                          width: 18,
-                          height: 18,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: Dt.surface,
-                          ),
-                        )
-                      : null,
-                  onTap: (status == ProgressStatus.completed || _marking)
-                      ? null
-                      : _markComplete,
+          : DecoratedBox(
+              decoration: BoxDecoration(
+                color: Dt.surface,
+                border: Border(
+                  top: BorderSide(
+                    color: Theme.of(context).dividerColor.withValues(alpha: 0.4),
+                    width: 1,
+                  ),
+                ),
+              ),
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 10, 16, 12),
+                  child: BouncyButton(
+                    label: status == ProgressStatus.completed
+                        ? AppLocalizations.of(context).lessonCompleted
+                        : (_marking
+                              ? AppLocalizations.of(context).lessonMarking
+                              : AppLocalizations.of(context).lessonMarkComplete),
+                    color: status == ProgressStatus.completed
+                        ? AppTheme.success
+                        : Dt.accent,
+                    icon: _marking
+                        ? SizedBox(
+                            width: 18,
+                            height: 18,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: Dt.surface,
+                            ),
+                          )
+                        : null,
+                    onTap: (status == ProgressStatus.completed || _marking)
+                        ? null
+                        : _markComplete,
+                  ),
                 ),
               ),
             ),
@@ -402,21 +425,26 @@ class _Body extends ConsumerWidget {
         // Interactive content first — users were hunting for the
         // podcast/flashcards/quiz buried below the reading material.
         _InteractiveAssetsSection(lessonId: lesson.id, domain: lesson.domain),
+        // Practical action above the fold (2.0.4): parents opening Lesson 1
+        // see the single doable 4-minute step immediately, before the longer
+        // reading summary.
+        if (lesson.tryThis.trim().isNotEmpty) ...[
+          const SizedBox(height: 16),
+          _Section(
+            glyph: BrandIcon.lightDot,
+            title: AppLocalizations.of(context).lessonTryThis,
+            body: lesson.tryThis,
+            accent: Dt.accentDeep,
+            background: AppPalette.current.isDark
+                ? const Color(0xFF3A2F16)
+                : const Color(0xFFFFF4E0),
+          ),
+        ],
         const SizedBox(height: 16),
         _Section(
           glyph: BrandIcon.openBook,
           title: AppLocalizations.of(context).lessonSummary,
           body: lesson.summary,
-        ),
-        const SizedBox(height: 16),
-        _Section(
-          glyph: BrandIcon.lightDot,
-          title: AppLocalizations.of(context).lessonTryThis,
-          body: lesson.tryThis,
-          accent: Dt.accentDeep,
-          background: AppPalette.current.isDark
-              ? const Color(0xFF3A2F16)
-              : const Color(0xFFFFF4E0),
         ),
         if (lesson.reflectionPrompts.isNotEmpty) ...[
           const SizedBox(height: 16),

@@ -840,7 +840,7 @@ void main() {
   });
 
   // ── 7 ──────────────────────────────────────────────────────────────────
-  group('7 · only the launch registration may ask for permission', () {
+  group('7 · token registration uploads silently; permission lives on the gate', () {
     test('a re-registration uploads without asking', () async {
       var uploads = 0;
       expect(
@@ -853,7 +853,7 @@ void main() {
     });
 
     // The call sites, because PushService needs Firebase to run on a host.
-    test('launch asks; the alert and the proof re-registration never do', () {
+    test('no registration path asks at launch; alert & proof re-register silently', () {
       final push =
           File('lib/features/push/push_service.dart').readAsStringSync();
       final alert = push.substring(push.indexOf('void _onAccountAlert()'));
@@ -864,10 +864,10 @@ void main() {
           reason: 'nothing inside the service asks');
       final main = File('lib/main.dart').readAsStringSync();
       final loop = main.substring(main.indexOf('Future<void> _postLaunchGrowthLoop'));
-      expect(loop, contains('registerToken(askPermission: true)'));
-      expect(
-          RegExp(r'registerToken\(').allMatches(main).length, 1,
-          reason: 'the launch is the one registration in main');
+      expect(loop, contains('registerToken()'));
+      expect(main.contains('registerToken(askPermission: true)'), isFalse,
+          reason: 'cold launch never asks; NotificationPermissionGate asks once '
+              'after the parent experiences first value');
     });
   });
 
