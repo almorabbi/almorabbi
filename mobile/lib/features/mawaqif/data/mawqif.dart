@@ -110,11 +110,12 @@ class MawaqifStore {
   MawaqifStore(this._prefs);
 
   static const String key = 'tg.mawaqif.v1';
+  static const String lastDayKey = 'tg.mawaqif.last_day.v1';
 
   final SharedPreferences _prefs;
 
   Set<String> doneFor(int childId) {
-    final list = _all()['$childId'];
+    final list = _all()[childId.toString()];
     return {
       if (list is List)
         for (final id in list)
@@ -122,15 +123,31 @@ class MawaqifStore {
     };
   }
 
-  Future<void> markDone(int childId, String id) async {
-    final all = _all();
-    final done = doneFor(childId)..add(id);
-    all['$childId'] = done.toList()..sort();
-    await _prefs.setString(key, jsonEncode(all));
+  /// Whether the parent already finished a «موقف بقرار» for [childId] on
+  /// [now]'s local calendar date — keeps Today calm (one decision step a day).
+  bool doneToday(int childId, [DateTime? now]) {
+    final saved = _allMap(lastDayKey)[childId.toString()];
+    return saved is String && saved == _dayKey(now ?? DateTime.now());
   }
 
-  Map<String, dynamic> _all() {
-    final raw = _prefs.getString(key);
+  Future<void> markDone(int childId, String id, {DateTime? now}) async {
+    final all = _all();
+    final done = doneFor(childId)..add(id);
+    all[childId.toString()] = done.toList()..sort();
+    await _prefs.setString(key, jsonEncode(all));
+
+    final days = _allMap(lastDayKey);
+    days[childId.toString()] = _dayKey(now ?? DateTime.now());
+    await _prefs.setString(lastDayKey, jsonEncode(days));
+  }
+
+  static String _dayKey(DateTime dt) =>
+      '${dt.year}-${dt.month.toString().padLeft(2, '0')}-${dt.day.toString().padLeft(2, '0')}';
+
+  Map<String, dynamic> _all() => _allMap(key);
+
+  Map<String, dynamic> _allMap(String prefKey) {
+    final raw = _prefs.getString(prefKey);
     if (raw == null || raw.isEmpty) return {};
     try {
       final decoded = jsonDecode(raw);

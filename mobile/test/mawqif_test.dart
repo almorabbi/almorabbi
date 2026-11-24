@@ -105,6 +105,9 @@ void main() {
       await store.markDone(7, 'b');
       expect(store.doneFor(12), {'a'});
       expect(store.doneFor(7), {'b'});
+      expect(store.doneToday(12), isTrue);
+      expect(store.doneToday(12, DateTime.now().add(const Duration(days: 1))),
+          isFalse);
     });
 
     test('next is the first step not gone through', () {
@@ -193,6 +196,23 @@ void main() {
           .toList();
       expect(opened, hasLength(1));
       expect(opened.single['topic'], 'siblings');
+    });
+
+    testWidgets(
+        'hides for the rest of today after completing one step even when more exist',
+        (tester) async {
+      final bandItems =
+          _bank().where((i) => i['age_group'] == '7-9').take(2).toList();
+      expect(bandItems, hasLength(2));
+      await _pump(tester, items: bandItems);
+      expect(find.byKey(const ValueKey('today-mawqif')), findsOneWidget);
+      await _tap(tester, find.byKey(const ValueKey('today-mawqif')));
+      await _tap(tester, find.byKey(const ValueKey('mawqif-to-choices')));
+      await _tap(tester, find.byKey(const ValueKey('mawqif-choice-shout')));
+      await _tap(tester, find.byKey(const ValueKey('mawqif-to-evidence')));
+      await _tap(tester, find.byKey(const ValueKey('mawqif-to-step')));
+      await _tap(tester, find.byKey(const ValueKey('mawqif-close')));
+      expect(find.byKey(const ValueKey('today-mawqif')), findsNothing);
     });
   });
 }
