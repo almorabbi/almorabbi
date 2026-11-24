@@ -80,7 +80,10 @@ class _Server extends TgClient {
   }
 
   @override
-  Future<ChildMissionToday?> fetchChildMission(String childToken) async =>
+  Future<ChildMissionToday?> fetchChildMission(
+    String childToken, {
+    String? preferredMissionId,
+  }) async =>
       throw const TgApiError(503, 'down'); // "no mission today"
 }
 

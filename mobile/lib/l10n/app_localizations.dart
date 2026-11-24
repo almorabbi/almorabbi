@@ -12415,6 +12415,24 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'تعمّق أكثر (استماع ومرفقات)'**
   String get lessonDeepenTitle;
+
+  /// No description provided for @lessonMawqifBridgeTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'موقف بقرار مرتبط بالدرس (٤ دقائق)'**
+  String get lessonMawqifBridgeTitle;
+
+  /// No description provided for @lessonMawqifBridgeSubtitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'تدرّب على تطبيق الفكرة في موقف منزلي واقعي بثلاثة خيارات عملية.'**
+  String get lessonMawqifBridgeSubtitle;
+
+  /// No description provided for @lessonMawqifBridgeCta.
+  ///
+  /// In ar, this message translates to:
+  /// **'جرّب الموقف الآن'**
+  String get lessonMawqifBridgeCta;
 }
 
 class _AppLocalizationsDelegate

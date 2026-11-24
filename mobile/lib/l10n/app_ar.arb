@@ -2778,5 +2778,8 @@
   "lessonChildCornerTitle": "في ركن الطفل الليلة",
   "lessonChildCornerSubtitle": "حكاية دافئة تعزّز نفس قيمة الدرس وتنتهي بمهمة بعيدًا عن الشاشة.",
   "lessonChildCornerOpenStory": "افتح الحكاية الآن",
-  "lessonDeepenTitle": "تعمّق أكثر (استماع ومرفقات)"
+  "lessonDeepenTitle": "تعمّق أكثر (استماع ومرفقات)",
+  "lessonMawqifBridgeTitle": "موقف بقرار مرتبط بالدرس (٤ دقائق)",
+  "lessonMawqifBridgeSubtitle": "تدرّب على تطبيق الفكرة في موقف منزلي واقعي بثلاثة خيارات عملية.",
+  "lessonMawqifBridgeCta": "جرّب الموقف الآن"
 }

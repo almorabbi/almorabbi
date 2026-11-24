@@ -61,7 +61,10 @@ class _FakeClient extends TgClient {
   int allowed = 600;
 
   @override
-  Future<ChildMissionToday?> fetchChildMission(String childToken) async =>
+  Future<ChildMissionToday?> fetchChildMission(
+    String childToken, {
+    String? preferredMissionId,
+  }) async =>
       ChildMissionToday(mission: mission);
 
   @override

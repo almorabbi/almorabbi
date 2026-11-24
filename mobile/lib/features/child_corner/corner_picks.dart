@@ -45,6 +45,7 @@ T? pickOfTheDay<T>(List<T> items, DateTime now, {int salt = 0}) {
 }
 
 const _kLessonCornerStoryKey = 'tg.child_corner.lesson_story_today';
+const _kLessonCornerMissionKey = 'tg.child_corner.lesson_mission_today';
 
 /// Remember the story paired with the lesson the parent just completed today
 /// so Child Corner offers that exact story tonight, expiring cleanly tomorrow.
@@ -66,6 +67,41 @@ Future<String?> preferredLessonStoryForToday(DateTime now) async {
   try {
     final prefs = await SharedPreferences.getInstance();
     final raw = prefs.getString(_kLessonCornerStoryKey);
+    if (raw == null || !raw.contains('|')) return null;
+    final parts = raw.split('|');
+    if (parts.length != 2) return null;
+    final savedDay = int.tryParse(parts[0]);
+    if (savedDay != cornerDayIndex(now)) return null;
+    final id = parts[1].trim();
+    return id.isEmpty ? null : id;
+  } catch (_) {
+    return null;
+  }
+}
+
+/// Remember the mission paired with the lesson the parent just completed today
+/// so Child Corner offers that exact off-screen task tonight, expiring tomorrow.
+Future<void> rememberLessonMissionForToday(
+  String missionId,
+  DateTime now,
+) async {
+  if (missionId.trim().isEmpty) return;
+  try {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(
+      _kLessonCornerMissionKey,
+      '${cornerDayIndex(now)}|${missionId.trim()}',
+    );
+  } catch (_) {
+    // Best-effort bridge — never breaks lesson completion.
+  }
+}
+
+/// Returns today's lesson-paired mission id if one was saved on the same day.
+Future<String?> preferredLessonMissionForToday(DateTime now) async {
+  try {
+    final prefs = await SharedPreferences.getInstance();
+    final raw = prefs.getString(_kLessonCornerMissionKey);
     if (raw == null || !raw.contains('|')) return null;
     final parts = raw.split('|');
     if (parts.length != 2) return null;

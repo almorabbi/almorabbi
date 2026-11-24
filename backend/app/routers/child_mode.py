@@ -353,7 +353,8 @@ def child_sign_agreement(request: Request):
 
 @router.get("/value-tracking/child-mode/mission/today", response_model=dict)
 def child_mission_today(request: Request, tz_offset_minutes: int = Query(0),
-                        lang: str | None = Query(None)):
+                        lang: str | None = Query(None),
+                        preferred_mission_id: str | None = Query(None)):
     """One card. The same card all day, however often it is opened."""
     child_id = _get_child_id(request)
     device_id = _require_device_id(request)
@@ -374,7 +375,8 @@ def child_mission_today(request: Request, tz_offset_minutes: int = Query(0),
         datetime.now(timezone.utc), tz_offset_minutes
     )
     card = child_missions.today_mission(
-        device_id, child_id, band, local_date, lang)
+        device_id, child_id, band, local_date, lang,
+        preferred_mission_id=preferred_mission_id)
     # «كلمة طيبة»: the note the parent attached to last night's confirmation,
     # plus the band — so one round trip is enough for the app to decide
     # sticker (4-6), sticker-and-text (7-12) or a single text line (13-18).

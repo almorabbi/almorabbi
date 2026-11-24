@@ -43,9 +43,12 @@ import '../widgets/next_step_sheet.dart';
 import '../../child_corner/corner_picks.dart';
 import '../../child_memory/data/placeholder_names.dart';
 import '../../companion/providers/companion_providers.dart';
+import '../../mawaqif/data/mawqif.dart';
+import '../../mawaqif/screens/mawqif_screen.dart';
 import '../../onboarding/providers/onboarding_providers.dart';
 import '../../shell/root_tab.dart';
 import '../../../config/app_config.dart';
+import '../../../state/chat_notifier.dart';
 import '../data/story_models.dart';
 import '../providers/program_providers.dart';
 import '../../coins/coins_providers.dart';
@@ -124,6 +127,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
     final loadedLesson = ref.read(lessonProvider(widget.lessonId)).valueOrNull;
     final tryThis = loadedLesson?.tryThis.trim() ?? '';
     final pairedStoryId = loadedLesson?.ecosystemLinks?.storyId;
+    final pairedMissionId = loadedLesson?.ecosystemLinks?.missionId;
     // «أول خطوة 🌱» merges into the lesson's own celebration (phase 1: هدية
     // اليوم والشارات) instead of a separate, silent credit on Today. This is
     // the first completed lesson when the bundle has none yet — read before
@@ -145,10 +149,15 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
         ref.read(companionMemoryProvider.notifier),
         'step:$childId',
       );
-      // Bridge to Child Corner: when this lesson pairs with a bedtime story,
-      // prefer that exact story in Child Corner for the rest of today.
+      // Bridge to Child Corner: when this lesson pairs with a bedtime story
+      // or off-screen mission, prefer them in Child Corner for the rest of today.
       if (pairedStoryId != null && pairedStoryId.isNotEmpty) {
         unawaited(rememberLessonStoryForToday(pairedStoryId, DateTime.now()));
+      }
+      if (pairedMissionId != null && pairedMissionId.isNotEmpty) {
+        unawaited(
+          rememberLessonMissionForToday(pairedMissionId, DateTime.now()),
+        );
       }
       // Idempotent by badge id: crediting here means the badge is paid in
       // the moment that earned it, and Today's claim can never double-pay.
@@ -468,6 +477,16 @@ class _Body extends ConsumerWidget {
             lesson.ecosystemLinks!.storyId!.trim().isNotEmpty) ...[
           const SizedBox(height: 16),
           _EcosystemStoryCard(storyId: lesson.ecosystemLinks!.storyId!.trim()),
+        ],
+        if (childId != null &&
+            lesson.ecosystemLinks?.mawqifId != null &&
+            lesson.ecosystemLinks!.mawqifId!.trim().isNotEmpty) ...[
+          const SizedBox(height: 16),
+          _EcosystemMawqifCard(
+            mawqifId: lesson.ecosystemLinks!.mawqifId!.trim(),
+            ageGroup: ageGroup,
+            childId: childId!,
+          ),
         ],
         // Curriculum 2.0: keep audio/flashcards/quizzes below the core reading
         // in a calm collapsible card so parents finish the 4-minute read first.
@@ -1064,6 +1083,135 @@ class _EcosystemStoryCard extends ConsumerWidget {
       },
       loading: () => const SizedBox.shrink(),
       error: (_, _) => const SizedBox.shrink(),
+    );
+  }
+}
+
+/// Bridge from a parent lesson to its paired 4-minute decision scenario.
+class _EcosystemMawqifCard extends ConsumerStatefulWidget {
+  const _EcosystemMawqifCard({
+    required this.mawqifId,
+    required this.ageGroup,
+    required this.childId,
+  });
+
+  final String mawqifId;
+  final String ageGroup;
+  final int childId;
+
+  @override
+  ConsumerState<_EcosystemMawqifCard> createState() =>
+      _EcosystemMawqifCardState();
+}
+
+class _EcosystemMawqifCardState extends ConsumerState<_EcosystemMawqifCard> {
+  Mawqif? _mawqif;
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(_load());
+  }
+
+  Future<void> _load() async {
+    try {
+      final raw = await ref
+          .read(tgClientProvider)
+          .getMawaqif(widget.ageGroup);
+      if (!mounted) return;
+      for (final j in raw) {
+        final m = Mawqif.fromJson(j);
+        if (m != null && m.id == widget.mawqifId) {
+          setState(() => _mawqif = m);
+          return;
+        }
+      }
+    } catch (_) {
+      // Optional bridge — stay invisible when offline or on an older server.
+    }
+  }
+
+  Future<void> _open(Mawqif m) async {
+    final l10n = AppLocalizations.of(context);
+    final rawName = ref.read(activeChildProfileProvider)?.name;
+    final childName = rawName == null || isDefaultChildName(rawName)
+        ? l10n.noorYourChild
+        : rawName;
+    final prefs = await ref.read(sharedPreferencesProvider.future);
+    if (!mounted) return;
+    final store = MawaqifStore(prefs);
+    unawaited(Analytics.mawqifOpened(m.id));
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => MawqifScreen(
+          mawqif: m,
+          childId: widget.childId,
+          childName: childName,
+          onFinished: () => unawaited(store.markDone(widget.childId, m.id)),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final m = _mawqif;
+    if (m == null) return const SizedBox.shrink();
+    final l10n = AppLocalizations.of(context);
+    final isDark = AppPalette.current.isDark;
+    final bg = isDark ? const Color(0xFF1F2B28) : const Color(0xFFFFF8EC);
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withValues(alpha: 0.4),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const BrandGlyph(BrandIcon.lantern, size: 20),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  l10n.lessonMawqifBridgeTitle,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Text(
+            m.title,
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            l10n.lessonMawqifBridgeSubtitle,
+            style: Theme.of(
+              context,
+            ).textTheme.bodySmall?.copyWith(color: AppTheme.textMuted),
+          ),
+          const SizedBox(height: 10),
+          Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: FilledButton.tonalIcon(
+              icon: const Icon(Icons.explore_outlined, size: 18),
+              label: Text(l10n.lessonMawqifBridgeCta),
+              onPressed: () => _open(m),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

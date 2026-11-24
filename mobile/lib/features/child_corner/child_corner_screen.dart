@@ -183,7 +183,10 @@ class ChildCornerScreenState extends ConsumerState<ChildCornerScreen> {
     try {
       final token = await getChildToken();
       if (token != null) {
-        final today = await ref.read(tgClientProvider).fetchChildMission(token);
+        final preferredId = await preferredLessonMissionForToday(_now);
+        final today = await ref
+            .read(tgClientProvider)
+            .fetchChildMission(token, preferredMissionId: preferredId);
         _mission = today?.mission;
       }
     } catch (_) {
