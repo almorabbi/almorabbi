@@ -285,6 +285,12 @@ void main() {
       expect(find.text('جرّب هذا'), findsOneWidget);
       expect(find.text('ملخص تجريبي للدرس.'), findsOneWidget);
       expect(find.text('جرّب هذا النص في أسبوعك.'), findsOneWidget);
+      // 2.0.4: actionable try_this is surfaced above the longer summary.
+      expect(
+        tester.getTopLeft(find.text('جرّب هذا')).dy,
+        lessThan(tester.getTopLeft(find.text('ملخص الدرس')).dy),
+        reason: 'practical step must appear above the fold before summary',
+      );
       // Scroll down to the reflection prompts; they live below the fold in
       // the lesson ListView, so find.text cannot see them while offstage.
       await tester.scrollUntilVisible(

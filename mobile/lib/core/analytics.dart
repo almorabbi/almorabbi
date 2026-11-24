@@ -74,6 +74,8 @@ class Analytics {
 
   /// A chat message was actually submitted (first one also logs first_chat).
   static Future<void> chatSent() async {
+    EngagementSignal.mark();
+    unawaited(NotificationPermissionGate.maybeAsk());
     await _logOnce('first_chat');
     await _log('chat_message_sent');
   }
@@ -117,6 +119,7 @@ class Analytics {
   /// A habit was checked in for today.
   static Future<void> habitCheckIn(String status) {
     EngagementSignal.mark();
+    unawaited(NotificationPermissionGate.maybeAsk());
     return _log('habit_check_in', {'status': status});
   }
 
@@ -127,6 +130,7 @@ class Analytics {
   /// A story was successfully generated.
   static Future<void> storyGenerated(String theme) {
     EngagementSignal.mark();
+    unawaited(NotificationPermissionGate.maybeAsk());
     return _log('story_generated', {'theme': theme});
   }
 
@@ -136,8 +140,12 @@ class Analytics {
   static Future<void> tasmeeStarted(int surah, int ayahCount) =>
       _log('tasmee_started', {'surah': surah, 'ayah_count': ayahCount});
 
-  static Future<void> tasmeeFinished(int surah, int marks) =>
-      _log('tasmee_finished', {'surah': surah, 'marks': marks, 'clean': marks == 0 ? 1 : 0});
+  static Future<void> tasmeeFinished(int surah, int marks) {
+    EngagementSignal.mark();
+    unawaited(NotificationPermissionGate.maybeAsk());
+    return _log('tasmee_finished',
+        {'surah': surah, 'marks': marks, 'clean': marks == 0 ? 1 : 0});
+  }
 
   static Future<void> quranOpened() {
     EngagementSignal.mark();
@@ -196,6 +204,7 @@ class Analytics {
     required String entryPoint,
   }) {
     EngagementSignal.mark();
+    unawaited(NotificationPermissionGate.maybeAsk());
     return _log('game_completed', {
       'game_id': gameId,
       'level': level,
@@ -232,8 +241,13 @@ class Analytics {
   /// «صورة حيّة» experiment events (features/stories/experiment/): story_opened,
   /// story_page_viewed, story_finished, story_rated, story_closed_early —
   /// each with variant, story_id, lang, narration_on, reduce_motion.
-  static Future<void> storyEvent(String name, Map<String, Object> params) =>
-      _log(name, params);
+  static Future<void> storyEvent(String name, Map<String, Object> params) {
+    if (name == 'story_finished') {
+      EngagementSignal.mark();
+      unawaited(NotificationPermissionGate.maybeAsk());
+    }
+    return _log(name, params);
+  }
 
   static Future<void> shareMoment(String kind) =>
       _log('share_moment', {'kind': kind});
@@ -614,6 +628,7 @@ class Analytics {
 
   static Future<void> familyRoundCompleted(int roundsCompleted, String source) {
     EngagementSignal.mark();
+    unawaited(NotificationPermissionGate.maybeAsk());
     return _log('family_round_completed', {
       'rounds_completed': roundsCompleted,
       'entry_point': source,

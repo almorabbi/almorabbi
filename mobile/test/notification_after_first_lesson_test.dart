@@ -66,24 +66,48 @@ void main() {
   });
 
   group('wiring (source pins)', () {
-    test('the gate hangs off Analytics.lessonCompleted', () {
+    test('the gate hangs off every first real parenting value moment', () {
       final source = File('lib/core/analytics.dart').readAsStringSync();
-      final lessonCompleted = source.substring(
+      for (final fn in [
+        'static Future<void> lessonCompleted',
+        'static Future<void> chatSent',
+        'static Future<void> habitCheckIn',
+        'static Future<void> storyGenerated',
+        'static Future<void> tasmeeFinished',
+        'static Future<void> gameCompleted',
+        'static Future<void> storyEvent',
+        'static Future<void> familyRoundCompleted',
+      ]) {
+        final start = source.indexOf(fn);
+        expect(start, greaterThanOrEqualTo(0), reason: 'missing $fn');
+        final snippet = source.substring(start, (start + 450).clamp(0, source.length));
+        expect(snippet, contains('NotificationPermissionGate.maybeAsk'),
+            reason: '$fn must arm the one-shot permission gate');
+      }
+      // Passive screen opens must NEVER trigger a permission prompt.
+      final opened = source.substring(
+        source.indexOf('static Future<void> lessonOpened'),
         source.indexOf('static Future<void> lessonCompleted'),
-        source.indexOf('/// A completion tap whose progress write failed'),
       );
-      expect(lessonCompleted, contains('NotificationPermissionGate.maybeAsk'),
-          reason: 'the lesson flow already emits this event; no edit to '
-              'lesson_screen.dart is needed');
+      expect(opened, isNot(contains('NotificationPermissionGate.maybeAsk')));
     });
 
-    test('main.dart no longer asks for the permission at launch', () {
+    test('main.dart never asks for permission at cold launch and syncs token on ask', () {
       final source = File('lib/main.dart').readAsStringSync();
       expect(source, isNot(contains('The one place the app asks to notify')),
           reason: 'the launch-time ask is gone; the ask now happens once, '
-              'after the first completed lesson');
+              'after the first real engagement');
+      expect(source, isNot(contains('askPermission: true')),
+          reason: 'launch token registration must be silent — never pop a '
+              'cold Android 13+ dialog before onboarding');
       expect(source, contains('NotificationPermissionGate.ask'),
           reason: 'the platform ask itself is wired in the composition root');
+      final gateBlock = source.substring(
+        source.indexOf('NotificationPermissionGate.ask'),
+        source.indexOf('NotificationPermissionGate.ask') + 380,
+      );
+      expect(gateBlock, contains('registerToken()'),
+          reason: 'asking permission must also recover offline/missed token uploads');
     });
   });
 }
