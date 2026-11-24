@@ -269,7 +269,8 @@ def _translate(item: dict, overlay: dict[str, dict[str, dict]],
         return item
     merged = {**item, **{k: v for k, v in tr.items() if v not in (None, "", [])}}
     for key in ("id", "path_id", "order", "age_group", "domain", "unit_ids",
-                "lesson_ids", "estimated_days", "estimated_minutes"):
+                "lesson_ids", "estimated_days", "estimated_minutes",
+                "ecosystem_links"):
         if key in item:
             merged[key] = item[key]
     merged["language"] = code

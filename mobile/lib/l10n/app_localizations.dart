@@ -12367,6 +12367,54 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'أضِف «كلمة رمضاننا»: {word}'**
   String eidGreetingIncludeWord(String word);
+
+  /// No description provided for @lessonParentScriptTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'جملتك الجاهزة لطفلك الليلة'**
+  String get lessonParentScriptTitle;
+
+  /// No description provided for @lessonAskAssistantTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'اسأل «المربّي» عن هذا الدرس'**
+  String get lessonAskAssistantTitle;
+
+  /// No description provided for @lessonAskAssistantHint.
+  ///
+  /// In ar, this message translates to:
+  /// **'اضغط على أي سؤال لفتحه مباشرة مع المساعد على مقاس عمر طفلك.'**
+  String get lessonAskAssistantHint;
+
+  /// Default contextual question sent from a lesson screen to the assistant.
+  ///
+  /// In ar, this message translates to:
+  /// **'كيف أطبّق درس «{title}» عمليًا مع طفلي اليوم؟'**
+  String lessonAskAssistantDefaultPrompt(String title);
+
+  /// No description provided for @lessonChildCornerTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'في ركن الطفل الليلة'**
+  String get lessonChildCornerTitle;
+
+  /// No description provided for @lessonChildCornerSubtitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'حكاية دافئة تعزّز نفس قيمة الدرس وتنتهي بمهمة بعيدًا عن الشاشة.'**
+  String get lessonChildCornerSubtitle;
+
+  /// No description provided for @lessonChildCornerOpenStory.
+  ///
+  /// In ar, this message translates to:
+  /// **'افتح الحكاية الآن'**
+  String get lessonChildCornerOpenStory;
+
+  /// No description provided for @lessonDeepenTitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'تعمّق أكثر (استماع ومرفقات)'**
+  String get lessonDeepenTitle;
 }
 
 class _AppLocalizationsDelegate

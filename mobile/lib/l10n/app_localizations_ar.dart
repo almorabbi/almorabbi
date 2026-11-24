@@ -7342,4 +7342,32 @@ class AppLocalizationsAr extends AppLocalizations {
   String eidGreetingIncludeWord(String word) {
     return 'أضِف «كلمة رمضاننا»: $word';
   }
+
+  @override
+  String get lessonParentScriptTitle => 'جملتك الجاهزة لطفلك الليلة';
+
+  @override
+  String get lessonAskAssistantTitle => 'اسأل «المربّي» عن هذا الدرس';
+
+  @override
+  String get lessonAskAssistantHint =>
+      'اضغط على أي سؤال لفتحه مباشرة مع المساعد على مقاس عمر طفلك.';
+
+  @override
+  String lessonAskAssistantDefaultPrompt(String title) {
+    return 'كيف أطبّق درس «$title» عمليًا مع طفلي اليوم؟';
+  }
+
+  @override
+  String get lessonChildCornerTitle => 'في ركن الطفل الليلة';
+
+  @override
+  String get lessonChildCornerSubtitle =>
+      'حكاية دافئة تعزّز نفس قيمة الدرس وتنتهي بمهمة بعيدًا عن الشاشة.';
+
+  @override
+  String get lessonChildCornerOpenStory => 'افتح الحكاية الآن';
+
+  @override
+  String get lessonDeepenTitle => 'تعمّق أكثر (استماع ومرفقات)';
 }

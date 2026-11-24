@@ -120,6 +120,33 @@ class PathReference {
   }
 }
 
+/// Optional cross-surface links connecting a parent lesson to Child Corner & Home.
+class LessonEcosystemLinks {
+  final String? storyId;
+  final String? missionId;
+  final String? mawqifId;
+
+  const LessonEcosystemLinks({this.storyId, this.missionId, this.mawqifId});
+
+  bool get isEmpty =>
+      (storyId == null || storyId!.isEmpty) &&
+      (missionId == null || missionId!.isEmpty) &&
+      (mawqifId == null || mawqifId!.isEmpty);
+
+  factory LessonEcosystemLinks.fromJson(Map<String, dynamic> json) {
+    String? clean(Object? v) {
+      final s = (v as String?)?.trim();
+      return (s == null || s.isEmpty) ? null : s;
+    }
+
+    return LessonEcosystemLinks(
+      storyId: clean(json['story_id']),
+      missionId: clean(json['mission_id']),
+      mawqifId: clean(json['mawqif_id']),
+    );
+  }
+}
+
 /// A single lesson — 3-15 minutes, 1-10 knowledge unit_ids.
 class CurriculumLesson {
   final String id;
@@ -130,6 +157,9 @@ class CurriculumLesson {
   final List<String> unitIds;
   final String summary;
   final String tryThis;
+  final String? parentScript;
+  final LessonEcosystemLinks? ecosystemLinks;
+  final List<String> assistantPrompts;
   final int order;
   final int estimatedMinutes;
   final List<String> reflectionPrompts;
@@ -146,6 +176,9 @@ class CurriculumLesson {
     required this.unitIds,
     required this.summary,
     required this.tryThis,
+    this.parentScript,
+    this.ecosystemLinks,
+    this.assistantPrompts = const [],
     required this.order,
     required this.estimatedMinutes,
     this.reflectionPrompts = const [],
@@ -155,6 +188,11 @@ class CurriculumLesson {
   });
 
   factory CurriculumLesson.fromJson(Map<String, dynamic> json) {
+    final rawScript = (json['parent_script'] as String?)?.trim();
+    final rawEco = json['ecosystem_links'];
+    final eco = rawEco is Map<String, dynamic>
+        ? LessonEcosystemLinks.fromJson(rawEco)
+        : null;
     return CurriculumLesson(
       id: json['id'] as String,
       pathId: json['path_id'] as String,
@@ -166,8 +204,14 @@ class CurriculumLesson {
           .toList(),
       summary: json['summary'] as String? ?? '',
       tryThis: json['try_this'] as String? ?? '',
+      parentScript: (rawScript == null || rawScript.isEmpty) ? null : rawScript,
+      ecosystemLinks: (eco == null || eco.isEmpty) ? null : eco,
+      assistantPrompts: ((json['assistant_prompts'] as List?) ?? const [])
+          .map((e) => e as String)
+          .where((s) => s.trim().isNotEmpty)
+          .toList(),
       order: (json['order'] as num?)?.toInt() ?? 0,
-      estimatedMinutes: (json['estimated_minutes'] as num?)?.toInt() ?? 5,
+      estimatedMinutes: (json['estimated_minutes'] as num?)?.toInt() ?? 4,
       reflectionPrompts: ((json['reflection_prompts'] as List?) ?? const [])
           .map((e) => e as String)
           .toList(),

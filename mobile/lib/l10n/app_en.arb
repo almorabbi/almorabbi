@@ -2468,5 +2468,13 @@
   "eidGreetingTitle": "Family Paper Eid Greeting",
   "eidGreetingSubtitle": "A warm greeting card with zero child names or personal info — choose a style and share with love.",
   "eidGreetingShareCta": "Share Eid Greeting Card",
-  "eidGreetingIncludeWord": "Include our word: {word}"
+  "eidGreetingIncludeWord": "Include our word: {word}",
+  "lessonParentScriptTitle": "Your exact words for tonight",
+  "lessonAskAssistantTitle": "Ask Al-Morabbi about this lesson",
+  "lessonAskAssistantHint": "Tap a prompt to ask the assistant tailored to your child's age.",
+  "lessonAskAssistantDefaultPrompt": "How can I apply the lesson \"{title}\" practically with my child today?",
+  "lessonChildCornerTitle": "In Child Corner tonight",
+  "lessonChildCornerSubtitle": "A warm bedtime story that reinforces tonight's lesson and ends off-screen.",
+  "lessonChildCornerOpenStory": "Open story now",
+  "lessonDeepenTitle": "Go deeper (audio & extras)"
 }

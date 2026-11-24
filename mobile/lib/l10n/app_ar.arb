@@ -2764,5 +2764,19 @@
     "placeholders": {
       "word": {"type": "String"}
     }
-  }
+  },
+  "lessonParentScriptTitle": "جملتك الجاهزة لطفلك الليلة",
+  "lessonAskAssistantTitle": "اسأل «المربّي» عن هذا الدرس",
+  "lessonAskAssistantHint": "اضغط على أي سؤال لفتحه مباشرة مع المساعد على مقاس عمر طفلك.",
+  "lessonAskAssistantDefaultPrompt": "كيف أطبّق درس «{title}» عمليًا مع طفلي اليوم؟",
+  "@lessonAskAssistantDefaultPrompt": {
+    "description": "Default contextual question sent from a lesson screen to the assistant.",
+    "placeholders": {
+      "title": {"type": "String"}
+    }
+  },
+  "lessonChildCornerTitle": "في ركن الطفل الليلة",
+  "lessonChildCornerSubtitle": "حكاية دافئة تعزّز نفس قيمة الدرس وتنتهي بمهمة بعيدًا عن الشاشة.",
+  "lessonChildCornerOpenStory": "افتح الحكاية الآن",
+  "lessonDeepenTitle": "تعمّق أكثر (استماع ومرفقات)"
 }

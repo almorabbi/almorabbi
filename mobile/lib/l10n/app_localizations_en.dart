@@ -7384,4 +7384,32 @@ class AppLocalizationsEn extends AppLocalizations {
   String eidGreetingIncludeWord(String word) {
     return 'Include our word: $word';
   }
+
+  @override
+  String get lessonParentScriptTitle => 'Your exact words for tonight';
+
+  @override
+  String get lessonAskAssistantTitle => 'Ask Al-Morabbi about this lesson';
+
+  @override
+  String get lessonAskAssistantHint =>
+      'Tap a prompt to ask the assistant tailored to your child\'s age.';
+
+  @override
+  String lessonAskAssistantDefaultPrompt(String title) {
+    return 'How can I apply the lesson \"$title\" practically with my child today?';
+  }
+
+  @override
+  String get lessonChildCornerTitle => 'In Child Corner tonight';
+
+  @override
+  String get lessonChildCornerSubtitle =>
+      'A warm bedtime story that reinforces tonight\'s lesson and ends off-screen.';
+
+  @override
+  String get lessonChildCornerOpenStory => 'Open story now';
+
+  @override
+  String get lessonDeepenTitle => 'Go deeper (audio & extras)';
 }

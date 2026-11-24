@@ -299,7 +299,7 @@ def _dump(p: Path, doc: Any) -> None:
 # لكنها لا تُعرض (models.dart يقرأ warning_flags كمفاتيح فقط) — فليست تسرّبًا.
 # `primary_reference.info` تُعرض في بطاقة المرجع (path_detail_screen) فهي من المحتوى.
 CURRICULUM_FIELDS = {
-    "lessons": ("title", "summary", "try_this", "reflection_prompts"),
+    "lessons": ("title", "summary", "try_this", "parent_script", "reflection_prompts", "assistant_prompts"),
     "paths": ("title", "description", "primary_reference.info"),
     "daily_tips": ("text",),
 }

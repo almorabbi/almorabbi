@@ -445,7 +445,8 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      await scrollToFind(tester, 'أتممت');
+      // The completion CTA is sticky in bottomNavigationBar, so tap directly
+      // without scrolling the above-the-fold `try_this` card offstage.
       await tester.tap(find.text('أتممت هذا الدرس'));
       // `pumpAndSettle` never returns here: the celebration rains confetti on
       // a repeating controller, so the frame queue is never empty.
