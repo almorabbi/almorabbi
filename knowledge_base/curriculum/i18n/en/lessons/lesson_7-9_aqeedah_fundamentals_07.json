@@ -1,56 +1,71 @@
 {
   "id": "lesson_7-9_aqeedah_fundamentals_07",
   "path_id": "path_7-9_aqeedah_fundamentals",
-  "title": "Muhammad ﷺ Our Role Model",
+  "title": "Our Prophet Muhammad ﷺ: A Living Role Model in Our Children's Hearts",
   "age_group": "7-9",
   "domain": "aqeedah",
   "unit_ids": [
     "aqe-c078677c"
   ],
-  "summary": "Belief in the messengers is one of the pillars of iman, and the seal of them all and the beloved of them to our hearts is our Prophet Muhammad ﷺ. Introduce your child to the Prophet ﷺ as a living, beloved role model, not just a name to be mentioned: he was truthful and trustworthy, so much so that his people called him 'Al-Sadiq Al-Amin' (The Truthful, The Trustworthy). He was merciful to children, kissing and playing with them, and gentle to the weak and even animals. Tell your child short stories from his seerah, and teach him to say 'salla Allahu alayhi wa sallam' whenever his name is mentioned, and that following him is by his akhlaq before speech. When a child loves the Prophet, it becomes easy for him to follow his example.",
-  "try_this": "This week: Tell your child a short story every night about the mercy of the Prophet ﷺ, then ask him, 'How can we be like him tomorrow?' Let him choose a character trait to apply.",
+  "summary": "Imagine your child coming home from school, telling you about a difficult situation they faced with a friend, and how they felt angry or sad. In that moment, you wonder how to instill in them stable values that will help them deal with their emotions and life's challenges. Often, we find ourselves teaching our children about great figures, but the biggest challenge is making these figures living role models that the child sees before them, not just names mentioned in books or stories.\n\nBelief in the Prophets is an integral part of our creed, and our Prophet Muhammad ﷺ is the last of them and the dearest to our hearts. He is not only a great Prophet, but he is the excellent role model in whom the highest character traits were embodied. He was truthful and trustworthy, so much so that his people called him \"the Truthful, the Trustworthy.\" He was merciful to young and old, gentle with the weak and with animals. When we connect these qualities to simple life situations that a child understands, we make them see the Prophet ﷺ as a wise friend they can emulate every day, in their interactions with their siblings and friends, and in facing their small challenges.\n\nLet's start by making the Prophet's biography a part of our daily conversations. Tell your child short stories from his noble life, focusing on one character trait at a time. Teach them to say \"peace and blessings of Allah be upon him\" whenever his name is mentioned, not just as a habit, but as a sign of love and appreciation. Most importantly, your child should see these prophetic character traits in you first. When they see truthfulness, mercy, and gentleness embodied in their parents, it becomes easier for them to love the Prophet ﷺ and emulate him, making his character traits a part of their sound personality.",
+  "try_this": "Tonight: Before bedtime, tell your child a short story from the Prophet's biography that highlights a character trait like mercy or truthfulness, then ask them: \"How can we be like our Prophet Muhammad ﷺ in this character trait tomorrow?\"",
   "order": 7,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How can you convey to your child the love of the Prophet ﷺ as a living role model, not just a name to be memorized?",
-    "Which Prophetic character trait do you most wish your child to embody first, and how does he see it in you?"
+    "How can I connect the Prophet's biography to daily situations my child experiences, so that it becomes a living role model for them?",
+    "Which prophetic character trait do I see as most important for my child at this age, and how can I demonstrate it in my own behavior?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"Our Prophet Muhammad ﷺ taught us to be merciful, just as you are merciful with your little sister.\"",
+  "assistant_prompts": [
+    "I want short, age-appropriate stories for 7-9 year olds about the Prophet's ﷺ mercy towards children.",
+    "How can I encourage my child to say \"peace and blessings of Allah be upon him\" whenever the Prophet's ﷺ name is mentioned, without them feeling it's just a duty?"
+  ],
+  "ecosystem_links": {
+    "story_id": "anbiya_ibrahim_nar_older",
+    "mission_id": "mission_7-9_memorise_one_line"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-08-13T19:04:55.485691+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4b640e06a54d6c954491ef55bb1712fa9773d0fa32cc88e11476faabaf4c0f2e",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "72efc593b7c9f99dada09ffd947d34123f366bfca803e299b2778d9f0471bfbb",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

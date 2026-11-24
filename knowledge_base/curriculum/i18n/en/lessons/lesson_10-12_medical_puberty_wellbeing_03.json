@@ -1,7 +1,7 @@
 {
   "id": "lesson_10-12_medical_puberty_wellbeing_03",
   "path_id": "path_10-12_medical_puberty_wellbeing",
-  "title": "Healthy Habits for Life: Sleep, Movement, Nutrition, Screens",
+  "title": "Our Children's Health: Investing Today for a Brighter Tomorrow",
   "age_group": "10-12",
   "domain": "medical",
   "unit_ids": [
@@ -18,13 +18,13 @@
     "med-ca2a9d86",
     "med-ec6f874a"
   ],
-  "summary": "Habits now shape future health. 9-11 hours of sleep, 60 minutes of movement daily, real food (less sugar/processed), screens <2 hours/day, no screens in the bedroom. Parents: be the model—your child watches, not just listens.",
-  "try_this": "This week: a family challenge—walk 30 minutes daily together, screen-free dinner, sleep before 10 p.m. Record: how was your mood/energy?",
+  "summary": "As our children approach adolescence, life's pace quickens, and academic and social demands increase. We might sometimes find ourselves compromising on essential healthy habits, such as late bedtimes due to homework, resorting to fast food because of time constraints, or getting lost in the world of digital screens. These small moments might seem insignificant at the time, but they accumulate to form a lifestyle that impacts their present and future. Have you noticed how lack of sleep affects your child's mood in the morning? Or how their energy changes after a day full of activity compared to a day spent in front of a screen?\n\nOur children's health at this sensitive age is not merely the absence of illness; rather, it is a vital foundation for building their mental, physical, and emotional capabilities. The habits we instill in them now—from sufficient sleep (9-11 hours), to 60 minutes of active movement daily, eating real food low in sugar and processed ingredients, and limiting screen time to less than two hours daily while completely banning screens from bedrooms—are all precious investments. These are not just rules; they are pillars for building a strong immune and psychological fortress, helping them face life's challenges with confidence and vitality.\n\nAlways remember that you are your children's first and most important role model. They don't just hear what you say; they observe every action and behavior. Start with one small change today, make it a fun family challenge, and you will feel the difference. Don't put pressure on yourselves or on them; instead, make the journey enjoyable and inspiring. Every small step towards a healthy lifestyle is a victory worth celebrating, and it plants the seeds of well-being in them that will grow with them for years to come, granting them a brighter and healthier tomorrow.",
+  "try_this": "Tonight: Sit together as a family to set a fixed time to turn off screens at least one hour before bedtime, and choose a quiet alternative activity like reading or talking.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Which habit is the hardest for the family?",
-    "What improvement did they notice after a week?"
+    "What healthy habit do I find difficult to implement as a parent, and how can I be a better role model?",
+    "What small positive change can we start as a family today that would make a noticeable difference in our energy and mood?"
   ],
   "warning_flags": [
     "سمنة/نحافة مفرطة",
@@ -34,36 +34,53 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My son/daughter, your health is your most precious possession, and every healthy habit we follow today is a gift for your beautiful tomorrow.”",
+  "assistant_prompts": [
+    "How can I encourage my child to sleep 9-11 hours daily without a struggle?",
+    "What fun physical activities can my 10-12 year old child do daily for 60 minutes?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_10-12_cook_simple"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "9d539d0066141904b5f9d8dfe0f8077a8421b44c9916998fa7b133bb127ac5ba",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "39dcee6226a5efaa6227c4cb7c2d6aba212113d0b68dd1051ddca9c4c1185841",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

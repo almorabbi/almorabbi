@@ -1,7 +1,7 @@
 {
   "id": "lesson_16-18_medical_precollege_wellbeing_01",
   "path_id": "path_16-18_medical_adult_transition",
-  "title": "Psychological and Physical Health of the Older Adolescent Before University",
+  "title": "Your Teen's Health: Exam Anxiety, Sleep Disturbances, and Signs of Eating Disorders",
   "age_group": "16-18",
   "domain": "medical",
   "unit_ids": [
@@ -10,14 +10,13 @@
     "med-974f2776",
     "med-408796d1"
   ],
-  "summary": "Your daughter’s anxiety about university and the future is common and often linked to exam pressure, according to the British Health Authority (NHS). Encourage her to talk about her anxiety instead of avoiding it, and break down big decisions (choosing a university, major) together into small, manageable steps. If anxiety consistently affects her sleep or daily life, seek support early. And your teenage son’s inability to sleep early and wake up in the morning is not laziness, but a biological delay in his internal clock by up to two hours after puberty, due to delayed melatonin secretion at night, according to the American Academy of Pediatrics (AAP). Help him by keeping a consistent wake-up time even on holidays, exposing him to early morning light, reducing screen time in the evening, and avoiding caffeine after noon—do not treat this as a discipline issue deserving punishment. A sudden change in your daughter’s weight, her constant preoccupation with calories, severe food restriction, excessive exercise, or distorting her body image are warning signs of an eating disorder, according to the U.S. National Institute of Mental Health (NIMH). This is not a choice but a life-threatening condition that requires immediate medical attention, not waiting.",
-  "try_this": "This week: Set aside one quiet session to ask your son or daughter about their sleep and mental state without questions about grades, and observe calmly (without direct comment) their eating patterns and relationship with their body. If you notice even one warning sign from the above, seek a medical consultation this week, not later.",
+  "summary": "Your teenage daughter sits in front of her books, sighs deeply, and whispers to herself, \"I'll never succeed.\" Or perhaps your son tosses and turns in bed until the early hours of dawn, waking up late and exhausted, while you feel frustrated by his \"laziness.\" These scenes are not uncommon in our homes, especially as exams approach or as they prepare for university. Pressures increase, and their bodies and minds undergo significant changes that require our special understanding as parents.\n\nIt's important to realize that their anxiety before university or due to exams is common and natural, not a weakness. Encouraging them to express their fears instead of suppressing them opens the door to solutions. Breaking down large goals, such as choosing a university or major, into small, achievable steps lightens the burden. As for sleep problems, teenagers' late sleep and waking up late is not laziness; rather, it's a biological delay in their internal clock, up to two hours after puberty, due to a delayed release of melatonin. This means their bodies don't prepare for sleep at the same time we did at their age, and we should treat it as a biological condition that needs regulation, not punishment.\n\nRegarding sleep, help your child by setting a consistent wake-up time, even on holidays, exposing them to morning light early, reducing screen time in the evening, and avoiding caffeine after noon. As for physical and mental health, be vigilant for signs of an eating disorder: a sudden change in weight, constant preoccupation with calories, severe food restriction, excessive exercise, or a distorted body image. These are not just personal choices; they are potentially life-threatening conditions that require immediate medical intervention. Early support and understanding are key to helping our children through this sensitive stage.",
+  "try_this": "Tonight: Take five minutes to ask your son or daughter about their general feelings and sleep, without linking it to studies or grades, and listen attentively.",
   "order": 6,
   "estimated_minutes": 4,
   "reflection_prompts": [
-    "Do you treat your son’s delayed sleep as a shortcoming or as a biological matter needing regulation, not punishment?",
-    "Do you ask your daughter, 'How are *you*?' or just 'How are your studies?'?",
-    "Have you noticed any dietary warning signs that warrant prompt medical consultation?"
+    "Do I treat my son's late sleep as a shortcoming on his part, or as a biological matter that needs regulation and support?",
+    "Do my questions focus only on my daughter's studies, or do I also ask her about her mental and physical well-being?"
   ],
   "warning_flags": [
     "تغيّر مفاجئ في الوزن، انشغال دائم بالسعرات، تقييد أكل شديد، إفراط في الرياضة، أو تشوّه صورة الجسد علامات إنذار لاضطراب أكل تستدعي طبيبًا مختصًا فورًا"
@@ -25,50 +24,52 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"I'm here to listen to you, no matter what you're feeling.\"",
+  "assistant_prompts": [
+    "How can I help my teenage son regulate his sleep while considering his delayed biological clock?",
+    "What are the first steps I should take if I notice signs of an eating disorder in my teenage daughter?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_community_help"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "addition",
-        "why": "English adds '(NHS)', which is not in the Arabic and may misidentify the body."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "edd3e777d02226390976d2f640fb82a36bf915c97f3bdc7e1cdb8957d2308553",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "addition",
-          "why": "English adds '(NHS)', which is not in the Arabic and may misidentify the body."
-        }
-      ],
+      "content_sha256": "4732654b182052e30d37b4a7d1ae76a0be1a0a89fa5dd1c521443cecf992a817",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

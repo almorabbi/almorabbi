@@ -1,17 +1,20 @@
 {
   "id": "lesson_4-6_medical_healthy_growth_03",
   "path_id": "path_4-6_medical_healthy_growth",
-  "title": "Developmental Milestones to Watch (and When to Seek Help)",
+  "title": "Your Child's Unique Journey: When to Observe and When to Seek Advice?",
   "age_group": "4-6",
   "domain": "medical",
-  "unit_ids": [],
-  "summary": "Most children develop at their own pace, but there are signs that deserve professional attention: clear difficulty in speech that is hard to understand, challenges in focus, social interaction, or noticeable motor delays compared to peers. Early observation and intervention make a big difference—do not wait 'until they grow out of it.'",
-  "try_this": "This week: Observe your child’s development in speech, movement, and interaction. Note anything that concerns you to discuss with the doctor.",
+  "unit_ids": [
+    "gap-med-child-touch-01",
+    "seed-shy-46"
+  ],
+  "summary": "You watch your little one running in the park, laughing loudly, and trying to tell you about their adventures with friends. Sometimes you might notice they have difficulty pronouncing certain words, or perhaps their attention wanders more quickly than their peers. These small moments we see in our day are our window into their inner world and their development, which proceeds at its own pace. But they are also our opportunity to be their watchful eyes and comforting hearts.\n\nIt's natural for children to develop at different rates; every child is a world unto themselves. However, there are some signs that warrant our thoughtful pause and professional follow-up. Does your child have clear difficulty speaking to the point where it's hard to understand them? Do they face a challenge focusing on one activity for a short period? Does social interaction with others seem confusing to them? Or perhaps you notice a significant motor delay compared to peers of the same age? These observations are not a cause for extreme worry, but rather a gentle invitation to approach the matter with wisdom and calmness.\n\nThe key here is early observation and conscious intervention. Never wait for the saying, \"They'll grow out of it and get better.\" The earlier the intervention, the greater and deeper the impact in helping your child overcome any challenges. Communicating with your pediatrician is your first step towards reassurance; they are your partner on this journey and can provide the necessary guidance and support. Always remember that you are not alone, and your love and care are the best things you can offer your child to grow and flourish.",
+  "try_this": "Tonight: Before bed, think about one aspect of your child's development (their speech, movement, interaction) and write down one positive observation and one that sparks your curiosity or concern.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Is there a developmental aspect that worries you?",
-    "Have you discussed it with the pediatrician?"
+    "What developmental aspect about your child sparks your curiosity or concern at this stage?",
+    "How can I be supportive and observant of my child's development without feeling pressured or anxious?"
   ],
   "warning_flags": [
     "تأخّر لغوي أو حركي ملحوظ",
@@ -20,50 +23,53 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I am here to listen to you and help you every step of the way, my little one.”",
+  "assistant_prompts": [
+    "What activities promote verbal communication skills for children aged 4-6 years?",
+    "How can I help my child improve their focus and attention in daily activities?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star",
+    "mission_id": "mission_4-6_tidy_corner"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "title",
-        "type": "meaning",
-        "why": "«علامات» means 'signs,' not 'milestones' (معالم); the English narrows the meaning to milestone-tracking rather than general signs to observe."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "8790efaacd59aaf4a09d73c2db9c63f38a02b8c192d51b693c9eac0c829921e6",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "title",
-          "type": "meaning",
-          "why": "«علامات» means 'signs,' not 'milestones' (معالم); the English narrows the meaning to milestone-tracking rather than general signs to observe."
-        }
-      ],
+      "content_sha256": "7e305a63393b8832a68647d643464bd6b637acfb3a0502dc5defdbf87b776091",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

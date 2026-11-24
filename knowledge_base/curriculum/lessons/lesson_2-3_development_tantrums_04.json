@@ -21,5 +21,14 @@
   "version": "1.0.0",
   "created_at": "2026-10-08T08:03:33",
   "updated_at": "2026-10-08T08:03:33",
-  "approved_by": null
+  "approved_by": null,
+  "parent_script": "«كنتَ غاضبًا جدًا لأن اللعبة انتهت؛ أحبك دائمًا، والآن هيا نمسح دموعنا.»",
+  "assistant_prompts": [
+    "بعد أن تهدأ نوبة الغضب، كيف أشرح لطفلٍ عمره ٣ سنوات ما حدث دون أن أُشعل البكاء مجددًا؟",
+    "هل أُعاقب طفلي بعد انتهاء النوبة إذا كان قد رمى شيئًا؟"
+  ],
+  "ecosystem_links": {
+    "story_id": "tamim_anger_volcano",
+    "mawqif_id": "mawqif_2-3_market_tantrum"
+  }
 }

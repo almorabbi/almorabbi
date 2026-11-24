@@ -1,52 +1,72 @@
 {
   "id": "lesson_4-6_cyber_early_screens_02",
   "path_id": "path_4-6_cyber_early_screens",
-  "title": "Choosing Safe Content: What They Watch and With Whom",
+  "title": "Our Children's Screens: How Do We Choose the Best for Them?",
   "age_group": "4-6",
   "domain": "cyber",
-  "unit_ids": [],
-  "summary": "Not all programmes are the same; some are overly fast and stimulating, while others are calm and educational. Choose a specific programme with them beforehand instead of leaving the algorithm to suggest endlessly. Turn off autoplay, and avoid violent or frightening content before bedtime.",
-  "try_this": "This week: Sit down and review the list of what your child watches, remove one unsuitable programme, and replace it with another that is calm and educational.",
+  "unit_ids": [
+    "seed-screen-46",
+    "cyb-60a0c4df"
+  ],
+  "summary": "Imagine this scene: your young child sits in front of a screen, eyes following one episode after another, non-stop. An episode about dinosaurs begins, then automatically transitions to a noisy space adventure, then an advertisement for a product you don't recognize, then suddenly a scene appears that might be scary or inappropriate for their age. In this moment, you might feel a little anxious, wondering: Is what my child is watching truly safe? And can I control this endless stream of content?\n\nIn the vast world of screens, not all programs are equal. Some might be fast-paced and overstimulating, distracting your child and making it difficult for them to focus later. While other programs are carefully designed, calm, educational, and develop their skills in a fun and beneficial way. The key here is not complete prohibition, but conscious and intelligent selection. We don't want to leave platform algorithms to determine what our child's young mind receives; rather, we want to be the conscious guides.\n\nStart with simple yet impactful steps. Sit with your child and browse the available programs together. Choose a specific program that is suitable for their age, then turn off the autoplay feature. This way, you will give your child the opportunity to enjoy meaningful content and avoid sudden exposure to violent or frightening scenes, especially before bedtime. Remember that our goal is to build a healthy relationship with screens, where they are a tool for learning and calm entertainment, not a source of anxiety or excess.",
+  "try_this": "Tonight: Before your child starts watching any program, sit with them and choose just one episode together, then make sure to turn off autoplay.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Do you know exactly what your child is watching?",
-    "Is autoplay turned off?"
+    "Do I dedicate time to choose with my child what they watch on screen?",
+    "Do I regularly check the autoplay settings on my child's apps?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My dear, let’s choose one fun and calm program to watch together tonight.”",
+  "assistant_prompts": [
+    "How can I find calm and age-appropriate educational programs for 4-6 year olds?",
+    "What are the best ways to monitor screen content without feeling like I'm spying on my child?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star",
+    "mission_id": "mission_4-6_kind_word"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "f110d2e55e5bfcaa160e6e53ac87267a2860929f817f16f1294915e2a85a2f4a",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "91b3dadfa9812dd0df851727e3384363cfbda7c4a7dd8c7c314e431f040fb47b",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

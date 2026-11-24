@@ -1,7 +1,7 @@
 {
   "id": "lesson_10-12_cyber_digital_citizenship_01",
   "path_id": "path_10-12_cyber_digital_citizenship",
-  "title": "Digital Privacy: Your Digital Footprint Does Not Disappear",
+  "title": "The Impact of Our Digital Footsteps: An Indelible Mark, Privacy We Protect",
   "age_group": "10-12",
   "domain": "cyber",
   "unit_ids": [
@@ -9,48 +9,65 @@
     "bd4afec4-d395-55f4-9953-22cc698564fd",
     "cyb-36b8ad48"
   ],
-  "summary": "Every photo, comment, and like leaves a permanent digital footprint. Teach your child: \"Before you post, ask: Would I be pleased for my grandfather or my teacher to see this in 10 years?\" – Privacy is a right, and protection is a duty.",
-  "try_this": "Review together the privacy settings of one app your child uses. Enable: private account, no location sharing, and approval before tagging.",
+  "summary": "Imagine your child sharing a funny picture of themselves with friends, or writing a spontaneous comment on a post. In the moment, these things might seem simple and fleeting, but in today's digital world, they leave an indelible mark. Everything we post, share, or even like becomes part of our digital footprint, which can remain visible for many years, and may be seen by people we never expected.\n\nThe internet world is like a large public square, and everything we do in it is recorded in one way or another. It's important to realize that digital privacy isn't just about app settings; it's a deep understanding that every digital action has consequences, and what we consider private today might become public tomorrow. Teaching our children this concept fosters a sense of responsibility in them towards themselves and others, and protects them from embarrassing or undesirable situations in the future.\n\nLet's give our children the necessary tools to be aware and responsible digital citizens. It starts with calm and continuous dialogue, and with small practical steps through which we build with them a fortress of awareness and protection. Remember that our goal is not to prevent them from enjoying the digital world, but to empower them to interact with it safely and confidently, while preserving their privacy and respecting the privacy of others.",
+  "try_this": "Tonight: Sit with your child and together review the privacy settings in one app they use frequently (such as a social media app or a game). Make sure to activate the \"private account\" option, turn off location sharing, and enable the request for approval before being tagged in photos or posts.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Which apps did you review the settings for?",
-    "Did your child understand the concept of a \"digital footprint\"?"
+    "How easy or difficult was it to review privacy settings with my child?",
+    "Did I feel that my child understood the idea that what is posted remains forever?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My son/daughter, every picture or word we post online is like a footprint in the sand, but it’s a footprint that never fades. Let’s always think before we step.”",
+  "assistant_prompts": [
+    "How can I explain the concept of \"digital footprint\" to my 11-year-old child in a simple and fun way?",
+    "What are the top 3 privacy settings I should review with my child in the most common apps for their age?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_10-12_budget_walk"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "e6d4570de990d29316fd506a73d6030294e70af38e5d00e932b8e99bc484bf58",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "23ca62ac4fad4476099c56df73477b4bad2a756aae442197c4c5ef35f4316289",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

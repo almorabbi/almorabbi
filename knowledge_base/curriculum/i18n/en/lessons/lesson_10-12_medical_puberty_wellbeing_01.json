@@ -1,7 +1,7 @@
 {
   "id": "lesson_10-12_medical_puberty_wellbeing_01",
   "path_id": "path_10-12_medical_puberty_wellbeing",
-  "title": "Puberty: Physical Changes and Open Dialogue",
+  "title": "The Journey of Puberty: Heart-to-Heart Conversations Before Bodies Change",
   "age_group": "10-12",
   "domain": "medical",
   "unit_ids": [
@@ -9,13 +9,13 @@
     "gap-med-puberty-hayd-01",
     "gap-med-vaginal-spotting-01"
   ],
-  "summary": "Puberty begins early (ages 9-12). Changes include growth in height, voice deepening, body hair, and menstruation/wet dreams. Parents: initiate dialogue before school or the internet does. Father with son, mother with daughter. Use scientific language—no shame, no mockery. A trusted book should be the reference.",
-  "try_this": "This week: Read together a chapter from a reliable puberty book (such as \"My Body is Changing\" or its equivalent). Discuss: What surprises you? What scares you?",
+  "summary": "You remember well how your little daughter used to chase butterflies in the garden, or how your son would build a massive sandcastle on the beach. Suddenly, you start noticing those hesitant glances, those shy questions that aren't fully asked, or perhaps that long silence when you talk about life matters. This isn't just a fleeting phase; it's a subtle sign of the beginning of the journey of puberty, which can start very early, sometimes at the age of nine or ten, sooner than we parents might expect. These changes aren't just physical; they are a storm of emotions and questions that need a safe haven.\n\nPuberty isn't merely visible changes like a sudden growth spurt, a deepening voice, the appearance of hair, or the onset of menstruation and nocturnal emissions. It's a profound transformation that affects a child's self-perception and their view of the world around them. In the absence of open and supportive dialogue, our children may turn to unreliable sources like friends or the internet, exposing them to misinformation or frightening ideas. Our role as parents is to be proactive, to open channels of communication using clear, simplified scientific language, far from exaggerated shyness or mockery that could break down bridges of trust.\n\nLet's make this stage an opportunity to deepen our bonds. A father with his son, and a mother with her daughter, each finding a safe space to talk about the changes specific to their gender. Choose a reliable book that addresses puberty in age-appropriate language, and let it be your companion on this journey. Start the conversation before the changes impose themselves, and before misinformation fills their minds. Remember that our goal is for our children to feel safe and capable of talking to us about anything they are going through, no matter how strange or embarrassing it may seem to them.",
+  "try_this": "Tonight: Dedicate 5 minutes to talk with your child about something simple you noticed about them today (e.g., \"I noticed you've gotten a little taller, what do you think?\") to gently open the door for conversation.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What question did your child ask that surprised you?",
-    "Did they feel at ease after the conversation?"
+    "What was the first question that came to my mind when I read about early puberty?",
+    "How can I prepare myself for questions from my child that might seem embarrassing to me?"
   ],
   "warning_flags": [
     "علامات بلوغ مبكرة جداً (<9 سنوات) أو متأخرة جداً (>14 سنة)",
@@ -24,36 +24,53 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“Your body is changing, and this is natural and beautiful, and I am here for any question that comes to your mind.”",
+  "assistant_prompts": [
+    "How do I start a conversation about puberty with my 10-year-old son without making him feel embarrassed?",
+    "What are some reliable books that explain puberty for girls aged 11-12?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_10-12_cook_simple"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "26b40e02ea589e0c0a522cef6955f76afc80989385cadb99a50841f9b4742475",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "5c4f70839fece9acfef7713c94e8503a1efcd184bb407c152afd56dbb499dc04",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

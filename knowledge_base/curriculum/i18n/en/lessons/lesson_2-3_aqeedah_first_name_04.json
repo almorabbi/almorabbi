@@ -1,66 +1,97 @@
 {
   "id": "lesson_2-3_aqeedah_first_name_04",
   "path_id": "path_2-3_aqeedah_first_name",
-  "title": "Our Prophet Muhammad ﷺ: A Name Said with Love",
+  "title": "Our Prophet Muhammad ﷺ: A Name That Carries Warmth and Love in Our Home",
   "age_group": "2-3",
   "domain": "aqeedah",
-  "unit_ids": [],
-  "summary": "At this age your child grasps neither a biography nor a history, but he does grasp that there is a name spoken in his home with a particular warmth. Mention the Prophet's name ﷺ and send blessings upon him in front of him, and tell him one short sentence: «Our Prophet Muhammad loved children.» Add nothing. What remains with him now is not the fact but your tone as you say it, and that is the material on which the whole seerah will be built years later.",
-  "try_this": "This week: whenever you mention the Prophet's name ﷺ in front of your child, send blessings upon him out loud. A child catches tone years before he catches meaning.",
+  "unit_ids": [
+    "shm-aqd-09-tawhid-muraqabah",
+    "seed-defiance-23"
+  ],
+  "summary": "Imagine your little one playing around you, their eyes following your movements, and their ears catching the tone of your voice more than the words themselves. Perhaps you mention the name of Prophet Muhammad ﷺ in a casual conversation, or while reading a book, or even when you send blessings upon him. In these ordinary moments, your child receives a message far deeper than mere information; they receive a feeling of love and appreciation for this name, and a strong foundation for their future love for him is built in their heart.\n\nAt this early age (2-3 years), your child doesn't need the details of the Prophet's biography or historical events. Their young mind is still in the process of building basic concepts of the world around them. What they clearly perceive are the emotions associated with names and people. When they hear the Prophet's name ﷺ mentioned in their home with a gentle tone, full of respect and affection, accompanied by prayers and blessings, they connect this name with these positive feelings. This is the first building block upon which all the stories and great qualities of our noble Prophet will later be built.\n\nDon't pressure yourself to provide a lot of complex information. It's enough to make mentioning the Prophet's name ﷺ a natural and warm part of your day. Say his name, send blessings upon him audibly, then add a simple and loving phrase like: \"Our Prophet Muhammad loved children.\" These small, repeated moments are what plant the first seeds of love and reverence in your child's heart, preparing them to receive his fragrant biography with understanding and passion when they grow a little older.",
+  "try_this": "Today: Every time you mention the name of Prophet Muhammad ﷺ in front of your child, send blessings upon him audibly, then follow it with a short, warm phrase like: \"Our Prophet Muhammad loved children.\"",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Does your child hear the Prophet's name ﷺ in your home outside teaching moments?",
-    "Which single quality of the Prophet ﷺ would you want him to know first?"
+    "How can I make mentioning the Prophet's name ﷺ a natural and beloved part of my child's day?",
+    "What is the one quality I want my child to associate with the Prophet's name ﷺ at this age?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"Our Prophet Muhammad loved children.\"",
+  "assistant_prompts": [
+    "How do I teach my young child about Prophet Muhammad ﷺ without overwhelming them with information?",
+    "What are some simple activities I can do with my child (2-3 years old) to introduce them to the Prophet ﷺ?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "claude-opus-5",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "fields.reflection_prompts[0]",
-        "type": "omission",
-        "why": "The Arabic mentions both lesson times and rote-instruction times (التلقين), but the English collapses them into 'teaching moments', dropping the second concept."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "fa1032dee7f87e095a8405157961e8d32e7d48d9103073c730f542dec2cb289b",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "c54efe6ceefc601da9a2e2b9ea3c5acf11769be146da9fe17f037bd1e23297a3",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [
         {
           "model": "glm-5.2",
-          "field": "fields.reflection_prompts[0]",
-          "type": "omission",
-          "why": "The Arabic mentions both lesson times and rote-instruction times (التلقين), but the English collapses them into 'teaching moments', dropping the second concept."
+          "field": "summary",
+          "type": "meaning",
+          "why": "The Arabic specifies both blessings and peace (الصلاة والسلام); the English drops the peace component."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "meaning",
+          "why": "الصلاة والسلام is the standard paired phrase 'blessings and peace'; rendering it as 'prayers and blessings' loses the distinct 'peace' element."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "meaning",
+        "why": "The Arabic specifies both blessings and peace (الصلاة والسلام); the English drops the peace component."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "meaning",
+        "why": "الصلاة والسلام is the standard paired phrase 'blessings and peace'; rendering it as 'prayers and blessings' loses the distinct 'peace' element."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

@@ -1,68 +1,97 @@
 {
   "id": "lesson_16-18_aqeedah_conviction_02",
   "path_id": "path_16-18_aqeedah_conviction",
-  "title": "Al-ʿAqeedah as a Compass for Decisions: Steadfastness of the Heart",
+  "title": "The Heart's Compass: When Your Child Chooses Their Path in Challenging Times",
   "age_group": "16-18",
   "domain": "aqeedah",
-  "unit_ids": [],
-  "summary": "A firmly rooted ʿaqeedah is not merely about rituals; it is a compass that guides the major decisions your son faces now: specialization, companionship, wealth, relationships, and the halal and haram in an age of temptations. Teach him to ask at every crossroads: 'Does this please our Lord?' And that his faith in the Hereafter makes him prioritize Allah's pleasure over immediate gain. The young man whose ʿaqeedah is steadfast in his heart will not be shaken by peer pressure or the allure of the haram, for he possesses an internal scale more steadfast than all external influences.",
-  "try_this": "This week: Discuss a real decision your son is facing, and weigh it together on the scale of 'Does it please Allah? And what is its impact in the Hereafter?' before worldly gain.",
+  "unit_ids": [
+    "gap-isl-aqeedah-trust-01",
+    "isl-22169daa"
+  ],
+  "summary": "Do you remember how your young child used to ask you about everything, from the color of their shirt to which toy to choose? Now, they face much bigger decisions: which university major to pursue? Who are their close friends? How should they handle money? And what are the boundaries of their relationships? These questions are not just fleeting choices; they are milestones that define their path. Sometimes, you might feel like you're at a crossroads with them, wondering how to guide them without imposing your will.\n\nThis is where faith comes in, not as a list of dry rituals, but as a true inner compass that illuminates their way. It is the scale by which they weigh every decision, and the question that echoes in their heart: \"Does this please Allah?\" When a young person believes firmly in the Hereafter, pleasing Allah takes precedence over any immediate gain or false glitter. This faith gives them a steadfastness that is not shaken by peer pressure or the temptations of the forbidden, because they possess an inner standard stronger than all external influences—a standard that guides them towards goodness and tranquility.\n\nOur role as parents is to instill this compass in our children's hearts with gentleness and wisdom, not through direct preaching, but through calm discussion and good example. Teach them to see every decision as an opportunity to strengthen their connection with Allah, and to realize that true tranquility lies in choosing what pleases the Creator. In this way, they will not be alone in facing life's challenges; instead, they will have an inner guide leading them towards what is right, and giving them the strength to stand firm on the truth, no matter the temptations.",
+  "try_this": "Tonight: Choose a simple decision your child faces today (such as choosing a movie to watch, or how to handle a specific situation), and gently discuss it with them: \"If we thought about how this choice would please Allah, what would our decision be?\"",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How can you make ʿaqeedah a practical compass for your son’s major decisions, not just rituals?",
-    "Which decision is your son facing now that you can weigh with him using the scale of Allah’s pleasure?"
+    "How can I show my child that faith is not just acts of worship, but a vital part of their daily decisions?",
+    "What decision is my child currently facing that I can help them see from the perspective of pleasing Allah?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"I trust your wisdom, and I know you will always choose what pleases Allah.\"",
+  "assistant_prompts": [
+    "How can I discuss with my teenage child the importance of choosing good friends based on our religious values?",
+    "What are practical ways to help my child resist the temptations of unlawful money amidst societal pressures?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_debate_prep"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "02cb6959afc339f5316cdb84e5b2a714f5ab3cf380544ed1b16efd2b963be2c3",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "meaning",
+          "why": "العقيدة (aqeedah) is a specific Islamic term for creed/conviction; rendering it as the generic \"faith\" loses the precise concept the lesson is built around."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "reflection_prompts[0]",
+          "type": "meaning",
+          "why": "Same nuance loss: العقيدة is narrowed to the generic \"faith\"."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "low_only",
     "review_defects": [
       {
         "model": "glm-5.2",
         "field": "summary",
         "type": "meaning",
-        "why": "The Arabic says «الله» (Allah) but the English renders it as 'our Lord' instead of 'Allah', and the same field later correctly uses 'Allah' for «رضا الله», creating an inconsistency."
+        "why": "العقيدة (aqeedah) is a specific Islamic term for creed/conviction; rendering it as the generic \"faith\" loses the precise concept the lesson is built around."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "reflection_prompts[0]",
+        "type": "meaning",
+        "why": "Same nuance loss: العقيدة is narrowed to the generic \"faith\"."
       }
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-08-13T18:59:48.249230+00:00",
-    "fixer_model": "mistral-large-3:675b",
-    "auto_review": {
-      "reviewers": [
-        "deepseek-v4-pro",
-        "glm-5.2"
-      ],
-      "fixer": null,
-      "rounds": 1,
-      "prompt_version": "dfa8a5f39718",
-      "content_sha256": "fbe206eaf369139c640ac37edc639f02d85bdde5961daaba7d0ad52ba2c980d5",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "meaning",
-          "why": "The Arabic says «الله» (Allah) but the English renders it as 'our Lord' instead of 'Allah', and the same field later correctly uses 'Allah' for «رضا الله», creating an inconsistency."
-        }
-      ],
-      "adjudicated": [],
-      "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

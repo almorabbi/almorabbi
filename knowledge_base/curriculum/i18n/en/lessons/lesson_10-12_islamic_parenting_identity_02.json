@@ -1,45 +1,44 @@
 {
   "id": "lesson_10-12_islamic_parenting_identity_02",
   "path_id": "path_10-12_islamic_parenting_identity",
-  "title": "The Qur'an: Life's Constitution and the Young Adolescent's Compass",
+  "title": "The Qur'an in His Life: From Swift Recitation to the Light of Understanding",
   "age_group": "10-12",
   "domain": "islamic_parenting",
   "unit_ids": [
-    "7b2ded06-2736-4364-8980-1d70df17fa0c",
-    "8b869dfa-053f-4c5e-abe2-159eed4d599a",
-    "968f42b5-5184-4f4a-97d9-b854f507dbe6",
-    "99515fe1-7bec-4a39-af86-bf1922262170"
+    "72cea396-0533-4b24-8d2b-8ef82412b221",
+    "a9219a05-46a1-4ece-8961-686d0d27f960"
   ],
-  "summary": "At this age, the child's ability to think abstractly grows. The Qur'an is not just for memorisation, but for tadabbur (reflection) and action. Encourage your child: \"Choose a verse, understand its meaning from a trusted, accessible tafsir, then act on it in your day.\"",
-  "try_this": "Today: Choose a verse with your child from a short surah (Al-'Alaq, Al-Qadr, Al-'Adiyat), read its meaning together in an accessible tafsir, then discuss: How can we act on it today?",
+  "summary": "Your son finishes his daily portion of memorization or recitation, then quickly closes the Mus'haf as if he's completed an exam. If you ask him about the meaning of a word he read a minute ago, he shrugs his shoulders! Between the ages of ten and twelve, a child's faculty for understanding and questioning blossoms; it's no longer enough for him to just repeat letters. Rather, he wants to feel that the words of Allah are addressing him personally and illuminating the details of his day.\n\nThe Prophet ﷺ said: «The best among you are those who learn the Qur'an and teach it» (Sahih al-Bukhari 5027). And the Qur'an itself calls for understanding, as Allah the Almighty says: ﴿أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ﴾ (interpretation of the meaning: \"Do they not then reflect upon the Qur'an?\") [An-Nisa: 82]. Reflection with an eleven-year-old doesn't mean a lengthy, boring tafsir lesson, but rather a lively five-minute session about two or three verses from a familiar surah like Surah Luqman, Al-Qadr, or Ad-Duha. In it, we ask: What does this verse say to our hearts today? And how can we apply it tomorrow at school or at home?\n\nBe careful not to let the Mus'haf become a tool for punishment or comparison with siblings. Instead, link it to the most beautiful and calmest times of the week. Let your son choose the surah you will read from, and read its meaning together from an easy tafsir. Share with him first how a verse affected your day. When he feels that the Qur'an is alive in your heart, the Qur'an will become his compass that he turns to in the coming teenage years.",
+  "try_this": "Tonight: Choose with your son just three verses from a short surah he likes. Read them together, then open an easy tafsir for one new word in them, and exchange ideas on how you can act upon them tomorrow.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Which verse touched your child's heart?",
-    "Have you noticed a change in their speech/behaviour?"
+    "Does our son see us turning to the Qur'an for comfort and guidance, or do we only demand memorization from him?",
+    "What is the shortest surah relevant to our son's reality today whose verses we can live with this week?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«Come, let's read just three verses together, and discover the secret of one word in them that we haven't noticed before; which surah would you like us to choose?»",
+  "assistant_prompts": [
+    "My 10-year-old son gets bored in the memorization circle and refuses to review. How can I restore his love for the Qur'an without forcing him?",
+    "Suggest 5 short verses suitable for an enjoyable 5-minute conversation with an 11-year-old child."
+  ],
+  "ecosystem_links": {
+    "story_id": "anbiya_yusuf_older",
+    "mission_id": "mission_10-12_read_and_tell"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
-    "revalidated_at": "2026-10-08T16:29:33+00:00",
-    "fixed_at": "2026-08-13T18:03:53.112970+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -47,27 +46,27 @@
       ],
       "providers": {
         "deepseek-v4-pro": {
-          "provider": "openrouter",
-          "model": "deepseek/deepseek-v4-pro"
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
         },
         "glm-5.2": {
-          "provider": "openrouter",
-          "model": "z-ai/glm-5.2"
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
         }
       },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "1842e6ca06167caf872bec0552ac3796ce838759e0f322ea54c78e5aba3bd33b",
-      "reviewed_at": "2026-10-08T16:29:33+00:00",
+      "content_sha256": "e81e5502219de521bfde662fb74989e4902ee46992ab6e413298c494291ac633",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "english_authors": [
-      "mistral-large-3:675b",
-      "claude-opus-5-5"
-    ]
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

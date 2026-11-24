@@ -1,58 +1,72 @@
 {
   "id": "lesson_0-3_medical_early_milestones_02",
   "path_id": "path_0-3_medical_early_milestones",
-  "title": "Foundations of Health Care: Safe Sleep, Nutrition, and Play",
+  "title": "Night Whispers and Day Laughter: Essentials of Caring for Your Baby in Their First Days",
   "age_group": "0-3",
   "domain": "medical",
   "unit_ids": [
     "med-2dc3af5f",
     "med-6de3365b"
   ],
-  "summary": "Foundations of care in the first months: Sleeping on the back to reduce the risk of sudden infant death, breastfeeding or formula feeding on demand while monitoring signs of hunger and fullness (lip-smacking, head-turning, swallowing), and avoiding screens entirely under the age of two—children learn through talking, playing, and sensory exploration. Every waking moment is an opportunity for growth: hold your child, stay close, and describe what you are doing aloud.",
-  "try_this": "This week: A consistent sleep routine—warm bath, gentle massage, a short story or Qur’anic verse, then bed while drowsy but still awake. And watch for hunger signs before crying: mouth movements, hand-sucking, restlessness.",
+  "summary": "You gaze at your little one, deeply asleep, their chest gently rising and falling. These quiet moments are a treasure, yet they also spark many questions: Is my baby sleeping safely? Are they feeding well? How do they grow and learn at this early age? In the hustle of daily life, these basics might seem challenging, but at their core, they are pillars for your child's healthy development, and they are easier than you imagine when we focus on simplicity and love.\n\nCaring for your baby at this stage doesn't require complexity, but rather awareness and presence. Safe sleep, always on their back, is the first line of defense against unexpected risks, and it grants you peace of mind. As for feeding, whether breastfeeding or formula feeding, it's not just about satisfying hunger; it's an opportunity for deep connection. Observe your baby's subtle cues: lip smacking, head turning, and then crying as a last signal. Respond to these cues with love, and you will build a bridge of trust between you.\n\nRemember that every waking moment for your baby is a window into their world. They don't learn from screens; they learn from your voice, your touch, and their exploration of the world around them. Hold them, talk to them, describe what you're doing, and sing to them. These simple interactions are their fuel for cognitive and emotional growth. Give your baby your full presence, and you will find that these first days, despite their challenges, are full of beauty and mutual learning.",
+  "try_this": "Tonight: After a warm bath and a gentle massage, place your baby in their crib drowsy but awake. Sit beside them for a few minutes, pat them gently, then quietly leave the room to help them learn to fall asleep on their own.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What was the most difficult challenge you faced in the sleep routine? How did you handle it?",
-    "Have you noticed a difference in your child’s response when you describe what you are doing during care?"
+    "What was a moment when you felt you perfectly understood your baby's non-verbal cue?",
+    "How can you make bedtime routines more peaceful and enjoyable for you and your baby?"
   ],
   "warning_flags": [],
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-06-10T14:00:00",
   "updated_at": "2026-06-10T14:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I am here, my little one. I hear you and feel you, and everything I do is for you.”",
+  "assistant_prompts": [
+    "What are the early signs of hunger in an infant before they start crying?",
+    "How can I ensure my baby's sleep environment is completely safe?"
+  ],
+  "ecosystem_links": {
+    "story_id": "anbiya_musa_tabut_young"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T18:55:49.650369+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "325b9bfe741108874c3f1a06441aa9ba4e9d02a6bac3eb59b9ba323f2c9e8293",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "34492f20c3764287d24ac44f2444453545c5fff060620e2ef40a2486e6e84ab9",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

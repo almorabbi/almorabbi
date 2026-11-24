@@ -1,17 +1,20 @@
 {
   "id": "lesson_7-9_cyber_digital_basics_03",
   "path_id": "path_7-9_cyber_digital_basics",
-  "title": "The Privacy of the Child: What Should Not Be Shared Online",
+  "title": "Your Child's Digital World: What We Keep to Ourselves",
   "age_group": "7-9",
   "domain": "cyber",
-  "unit_ids": [],
-  "summary": "Your child does not realise that what is posted remains. Teach him a simple rule: no full name, no address, no school, no private photos, and no passwords—for anyone on the internet. Explain that people on the screen may not be as they claim, and that he should tell you immediately if someone asks for information or photos.",
-  "try_this": "This week: Play the game 'Should We Share This?' with your child using examples (your name? your photo? your school?) so he understands the boundaries.",
+  "unit_ids": [
+    "cyb-3d7483b2",
+    "cyb-d32b686d"
+  ],
+  "summary": "Imagine your little one, with wide eyes, eagerly sharing stories from their day: \"Mama, my friend so-and-so at school said...\" or \"Baba, I saw a cool game online!\" This innocent enthusiasm is a beautiful part of their childhood, but it carries a great responsibility for us as parents in today's digital world. What your child sees on screen and what they share might seem like just a game or a casual chat to them, but in reality, it leaves an indelible mark.\n\nAt this age, your child doesn't fully grasp that what is posted online stays there forever, and that those who see it may not always be kind or honest. Our mission is to plant this seed of awareness and caution in them, not with fear, but with love and security. To teach them that there is very precious and private information, such as their full name, home address, school name, personal photos, or even their passwords, that should never be shared with anyone online. And that people behind screens may not always be who they claim to be, and their intentions might be completely different from what your child expects.\n\nLet's make this lesson an opportunity to strengthen trust between us and our children. Gently and simply explain to your child that they should tell you immediately, without fear or hesitation, if anyone online asks them for personal information or photos. This simple rule is not to restrict their freedom, but to protect their small world from any potential harm. By teaching them these fundamental principles, we give them the necessary tools to navigate their digital world safely and confidently, and we build a conscious and responsible generation.",
+  "try_this": "Tonight: During dinner or before bed, play a quick game with your child called \"Do We Share This?\" Ask examples like: \"Do we share your full name with a stranger online?\" or \"Do we share a picture of your room?\" And let them answer yes or no with a simple explanation.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Does your child know what should never be shared?",
-    "Does he tell you if someone asks for his information?"
+    "Does my child feel comfortable enough to tell me immediately if someone asks them for information online?",
+    "What is the best way I can convey the idea of information privacy to my child without scaring them?"
   ],
   "warning_flags": [
     "طلب شخصٍ معلوماتٍ أو صورٍ من الطفل"
@@ -19,36 +22,53 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"There are things that are very private to us, like our full name and our pictures. We keep them to ourselves and don't share them with anyone online, unless I say it's okay.\"",
+  "assistant_prompts": [
+    "How can I explain the concept of \"strangers online\" to my 8-year-old in a safe and age-appropriate way?",
+    "What interactive activities can I do with my child to teach them the importance of not sharing personal information online?"
+  ],
+  "ecosystem_links": {
+    "story_id": "anbiya_zakariya_older",
+    "mission_id": "mission_7-9_memorise_one_line"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5a465d16ea458ad402d9b23272550b1f1abd4b97a9528005c165281ddb6cd6ef",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "3e54bf8fa127eb1ef135043752dcf0fddc847f165ffb8f86dbdb8d4a82879b93",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

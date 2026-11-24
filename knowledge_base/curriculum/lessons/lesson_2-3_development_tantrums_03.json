@@ -20,5 +20,14 @@
   "version": "1.0.0",
   "created_at": "2026-10-08T08:03:33",
   "updated_at": "2026-10-08T08:03:33",
-  "approved_by": null
+  "approved_by": null,
+  "parent_script": "«أنا هنا معك، وأنت بأمان. سننتظر معًا حتى تهدأ.»",
+  "assistant_prompts": [
+    "طفلي يرمي نفسه على الأرض ويصرخ إذا اقتربتُ منه أثناء النوبة، هل أبتعد أم أبقى قريبًا؟",
+    "هل التجاهل التام أفضل أثناء نوبة الغضب أم البقاء الهادئ بجانبه؟"
+  ],
+  "ecosystem_links": {
+    "story_id": "tamim_anger_volcano",
+    "mawqif_id": "mawqif_2-3_market_tantrum"
+  }
 }

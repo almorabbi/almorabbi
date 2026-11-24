@@ -20,5 +20,14 @@
   "version": "1.0.0",
   "created_at": "2026-10-08T10:47:40",
   "updated_at": "2026-10-08T10:47:40",
-  "approved_by": null
+  "approved_by": null,
+  "parent_script": "«أتوقّف الآن وأتنفّس بعمق؛ هدوئي هو الهدية الأهم التي أحتاجها أنا وطفلي.»",
+  "assistant_prompts": [
+    "أفقد أعصابي وأصرخ على طفلي الصغير في نهاية اليوم ثم أندم، كيف أُوقف هذه الدائرة؟",
+    "كيف أُصلح العلاقة مع طفلي (٣ سنوات) بعد لحظة انفعالٍ مني؟"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star",
+    "mawqif_id": "mawqif_2-3_market_tantrum"
+  }
 }

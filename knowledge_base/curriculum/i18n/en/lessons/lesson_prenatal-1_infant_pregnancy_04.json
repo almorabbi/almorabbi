@@ -1,19 +1,19 @@
 {
   "id": "lesson_prenatal-1_infant_pregnancy_04",
   "path_id": "path_prenatal-1_infant_pregnancy_foundations",
-  "title": "Decoding Baby Cries and Safe Sleep Engineering",
+  "title": "The Language of Crying and Peaceful Infant Sleep: Your Guide to Tranquility",
   "age_group": "prenatal-1",
   "domain": "infant_pregnancy",
   "unit_ids": [
     "c88f868b-4f40-45eb-b357-f8867b2c327d"
   ],
-  "summary": "Crying is the baby's only language for expressing their needs: hunger, colic and gas, a wet nappy, or overstimulation and heat. To soothe the baby, use the well-known five-step technique: safe swaddling, holding the baby on their side or stomach in your arms (for soothing only, never for sleep), white noise (mimicking the sound of the womb), steady rocking, and sucking. For safe sleep: the baby must always sleep on their back in a separate cot beside the parents, with no pillows or soft toys, for strict protection against sudden infant death syndrome.",
-  "try_this": "This week: practise correct swaddling together (securing the arms while leaving the baby's hips and legs completely free, to avoid hip dislocation), and prepare a source of gentle white noise or soft, steady Qur'an recitation in the bedroom.",
+  "summary": "You imagine your upcoming baby and wonder: How will we communicate with them? How will we understand what they want? An infant's cry might seem like a perplexing mystery at first, as it's their only language to express everything: from slight hunger to intense discomfort. This tiny sound, which will soon fill your lives, is actually a clear call for help, a signal you only need to learn to decode to respond with love and confidence.\n\nUnderstanding this language isn't magic; it's a blend of observation and tenderness. Crying is often a sign of basic needs like hunger, discomfort from colic and gas, or simply feeling wet. Sometimes it's an expression of overstimulation or feeling too hot. When you understand that every cry carries a message, moments of worry will transform into opportunities for deep connection with your baby, and you'll discover your innate ability to soothe them.\n\nTo soothe an infant, there are proven techniques that give you the necessary tools: safe swaddling that mimics the embrace of the womb, holding the baby on their side or stomach in your arms (for soothing only, not for sleep), white noise that reminds them of comforting womb sounds, rhythmic rocking that instills tranquility, and sucking that gives them a sense of security. For safe sleep, always remember that the infant should sleep on their back in a separate crib next to you, free of any pillows or soft toys, to ensure their complete safety and prevent Sudden Infant Death Syndrome (SIDS).",
+  "try_this": "Tonight: Practice the correct swaddling method (securing the arms while giving the baby's hips and legs full freedom to avoid hip dislocation), and prepare a source of calm white noise or a soothing Quranic recitation in the bedroom.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What will you do if the baby keeps crying after you have checked they are clean and fed?",
-    "Does your baby's cot meet safe sleep standards (free of heavy blankets and pillows)?"
+    "How can I emotionally and practically prepare myself to handle my first baby's crying?",
+    "What steps will I take to ensure a completely safe sleep environment for my baby before their arrival?"
   ],
   "warning_flags": [
     "safe_sleep_sids_prevention"
@@ -22,92 +22,49 @@
   "version": "1.0.0",
   "created_at": "2026-09-12T19:00:00",
   "updated_at": "2026-09-12T19:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I will be a listening ear and a tender heart for everything you try to tell me, my little one.”",
+  "assistant_prompts": [
+    "What are the best types of white noise recommended for infants?",
+    "How can I distinguish between different types of infant cries?"
+  ],
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": false,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": false,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "title",
-        "type": "addition",
-        "why": "The English adds 'Safe', which is not present in the Arabic title."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "try_this",
-        "type": "addition",
-        "why": "The English adds 'soft', which is not in the Arabic 'رتيبة' (steady/monotonous)."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "title",
-        "type": "addition",
-        "why": "The Arabic title does not contain the word \"آمن\" (safe); \"Safe\" is added in English."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "meaning",
-        "why": "«العناصر الخمسة» means \"the five elements,\" not \"five steps\"; the wording slightly shifts the concept."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
-    "revalidated_at": "2026-10-07T07:45:35+00:00",
-    "manual_fix_note": "2026-10-04: aligned with the Arabic register/safety fix (country-specific number removed, leaked or garbled wording corrected).",
-    "fixed_at": "2026-10-04T07:31:52.180297+00:00",
-    "fixer_model": "claude-opus-5.5",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "f8b33255c308abd00384f5e1924a772fac3c770e0b58c978b7f5171f1ec235d0",
-      "reviewed_at": "2026-10-07T07:45:35+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "title",
-          "type": "addition",
-          "why": "The English adds 'Safe', which is not present in the Arabic title."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "try_this",
-          "type": "addition",
-          "why": "The English adds 'soft', which is not in the Arabic 'رتيبة' (steady/monotonous)."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "title",
-          "type": "addition",
-          "why": "The Arabic title does not contain the word \"آمن\" (safe); \"Safe\" is added in English."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "meaning",
-          "why": "«العناصر الخمسة» means \"the five elements,\" not \"five steps\"; the wording slightly shifts the concept."
-        }
-      ],
+      "content_sha256": "28242184367c992b37394d0c4fb163b9a3487f864bc45202d46aaaa18d42ac05",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "english_authors": [
-      "claude-opus-5.5"
-    ]
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

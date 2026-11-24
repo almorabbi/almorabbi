@@ -21,23 +21,26 @@
   "version": "1.0.0",
   "created_at": "2026-10-08T10:47:40",
   "updated_at": "2026-10-08T10:47:40",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "Hands don't hit; gently hold your hand so we can protect your brother, and tell me with words what made you angry.",
+  "assistant_prompts": [
+    "My 2.5-year-old child bites or hits their siblings whenever they get angry. How can I stop this firmly and calmly?",
+    "What should I do if my young child hits me in the face when they are angry?"
+  ],
+  "ecosystem_links": {
+    "story_id": "kitten_kindness",
+    "mawqif_id": "mawqif_2-3_market_tantrum"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "claude-opus-5-5",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
-    "revalidated_at": "2026-10-08T10:48:36+00:00",
-    "generated_by": "ops/tools/deepen_paths.py",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "claude-opus-5-5",
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -45,23 +48,41 @@
       ],
       "providers": {
         "deepseek-v4-pro": {
-          "provider": "openrouter",
-          "model": "deepseek/deepseek-v4-pro"
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
         },
         "glm-5.2": {
-          "provider": "openrouter",
-          "model": "z-ai/glm-5.2"
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
         }
       },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "19ff0ded3a487e37d3a648239a3fbba879516cddbaaa8c2cc588fa2679445439",
-      "reviewed_at": "2026-10-08T10:48:36+00:00",
-      "residual_low": [],
+      "content_sha256": "303cdce20810e4a401c2b05b8d42cac520c71acad2c3da0e8abe1471c2d44128",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "parent_script",
+          "type": "meaning",
+          "why": "The Arabic is first-person (the parent is saying they are holding the child's hand), but the English reads as an imperative addressed to the child, changing who acts."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
-    }
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "parent_script",
+        "type": "meaning",
+        "why": "The Arabic is first-person (the parent is saying they are holding the child's hand), but the English reads as an imperative addressed to the child, changing who acts."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

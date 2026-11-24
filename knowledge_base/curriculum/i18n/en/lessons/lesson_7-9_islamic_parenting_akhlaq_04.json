@@ -1,38 +1,44 @@
 {
   "id": "lesson_7-9_islamic_parenting_akhlaq_04",
   "path_id": "path_7-9_islamic_parenting_akhlaq",
-  "title": "Controlling Anger upon the Guidance of the Prophet ﷺ",
+  "title": "Managing Anger According to the Prophet's Guidance ﷺ: The Strength of Self-Control",
   "age_group": "7-9",
   "domain": "islamic_parenting",
-  "unit_ids": [],
-  "summary": "The Prophet ﷺ guided the angry person to seek refuge in Allah from Shaytan (Sahih al-Bukhari 3282); and he ﷺ said: «The strong one is not the one who overcomes others in wrestling; the strong one is the one who controls himself when angry» (Sahih al-Bukhari 6114). Teach your child that anger is natural, but it has tools: to seek refuge in Allah, to keep silent instead of saying hurtful words, and to sit down until they calm down. Be a model in your own calmness first.",
-  "try_this": "Today: Teach your child to sit down if they get angry while standing, and do it yourself in front of them.",
+  "unit_ids": [
+    "isl-8e3e1052",
+    "isl-d8fa6d4a"
+  ],
+  "summary": "Your child lost a group game, or his brother took his pen without permission, so his face turned red, he threw the pen, and screamed in anger. Many parents make two mistakes in this situation: either we shame him for the feeling itself (\"It's shameful to be angry!\"), or we confront his anger with even greater anger, turning the home into a storm. The truth is that anger is a natural feeling, and what's required is not to hide it, but to learn to control it before it leads us to harm or regret.\n\nThe Prophet ﷺ gave your child the greatest definition of true courage; he ﷺ said: \"The strong person is not the one who can wrestle others down, but the one who controls himself when he is angry\" (Sahih al-Bukhari 6114). He also guided the angry person to seek refuge with Allah from Satan (Sahih al-Bukhari 3282), and he advised a man repeatedly, saying ﷺ: \"Do not get angry\" (Sahih al-Bukhari 6116).\n\nThe best time to teach a calming plan is during a calm moment, not in the middle of an outburst! Agree with him tonight on the \"Hero's Three-Step Plan\": First, audibly seek refuge with Allah from Satan. Second, take a deep breath, change his place or sitting position, and drink a sip of water. Third, express himself with words instead of screaming or hitting. Most importantly: when you get angry in front of him, execute the plan openly and say: \"I am angry now, I will seek refuge with Allah and sit down to calm myself.\" Your example of self-control is more powerful than a thousand lectures.",
+  "try_this": "Tonight, during a quiet time: draw or write with your child the \"Three-Step Calming Plan\" (I seek refuge with Allah — I sit and breathe — I speak calmly), and practice it together as a fun 30-second role-play.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How does your child express their anger?",
-    "Did the new tool help them?"
+    "How does my child perceive the way I handle my own anger when I'm under stress or there's chaos at home?",
+    "What are the first physical signs that appear in my child before his anger outburst explodes?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"Anger is a strong visitor that comes to all of us, but the real hero is the one who controls himself. Let's agree on our three-step plan to overcome anger together.\"",
+  "assistant_prompts": [
+    "My 9-year-old child hits his brother or breaks his belongings when he loses in games. How can I train him to control himself?",
+    "How can I help my child apologize after an anger outburst without him feeling humiliated or stubborn?"
+  ],
+  "ecosystem_links": {
+    "story_id": "tamim_anger_volcano",
+    "mission_id": "mission_7-9_ask_and_listen"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
-    "revalidated_at": "2026-10-08T16:40:56+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -40,27 +46,27 @@
       ],
       "providers": {
         "deepseek-v4-pro": {
-          "provider": "openrouter",
-          "model": "deepseek/deepseek-v4-pro"
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
         },
         "glm-5.2": {
-          "provider": "openrouter",
-          "model": "z-ai/glm-5.2"
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
         }
       },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "9295a405c63ca4d39414e94e6a2e552a97a7f74d68dad9502e3427d105852170",
-      "reviewed_at": "2026-10-08T16:40:56+00:00",
+      "content_sha256": "afcb130289822d7ce6da273b82507a315a367837807233d2af564d57a78c1263",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "english_authors": [
-      "mistral-large-3:675b",
-      "claude-opus-5-5"
-    ]
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

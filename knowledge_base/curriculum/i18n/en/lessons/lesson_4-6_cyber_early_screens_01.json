@@ -1,54 +1,72 @@
 {
   "id": "lesson_4-6_cyber_early_screens_01",
   "path_id": "path_4-6_cyber_early_screens",
-  "title": "How Much Screen Time Suits Your Child? The Rule and the Alternative",
+  "title": "Our Children's Screens: When and How to Make Them a Friend, Not a Foe?",
   "age_group": "4-6",
   "domain": "cyber",
-  "unit_ids": [],
-  "summary": "The World Health Organization recommends that screen time not exceed one hour daily for children aged 2 to 5, and less is better. Excess affects sleep, language, and attention. The solution is not total prohibition but setting limits while preparing an enjoyable alternative: play, drawing, outdoor activity.",
-  "try_this": "This week: Set one fixed screen time slot daily, and prepare an alternative activity ready beforehand (games or a book).",
+  "unit_ids": [
+    "seed-screen-46",
+    "cyb-236a4b5e"
+  ],
+  "summary": "Do you sometimes find yourself perplexed by the phone or TV screen, with your four-year-old child staring at it as if it's another world? Perhaps you've heard about the importance of setting screen time limits, but implementing them sometimes feels like a daily battle. You might feel guilty or frustrated, especially when screen time is the only available solution for some quiet or to get an urgent task done. These feelings are very natural, and we all experience them as parents.\n\nThe good news is that we are not alone in this challenge, and there are warm, effective ways to manage this aspect of our children's lives. Global recommendations suggest that children aged 2 to 5 years benefit most when screen time does not exceed one hour daily, and the less, the better. This is not a harsh ban, but an invitation to a healthy balance. Excessive screen time can affect their sleep, language development, and even their ability to focus and pay attention to other activities important for their growth.\n\nThe key is not in complete prohibition, but in conscious and loving limitation. Imagine offering your child a world of fun and engaging alternatives: drawing with bright colors, building a castle from blocks, reading an interesting story, or even just free play in the garden. When we prepare these alternatives in advance, we not only reduce screen time but also enrich our child's experience and teach them how to enjoy their time in diverse and beneficial ways. This way, the screen becomes a part of their day, not its center.",
+  "try_this": "Tonight: Before your child asks for the screen, prepare an attractive and fun alternative activity (such as a new puzzle or a picture book) and place it in a visible spot.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How many hours of screen time does your child actually spend today?",
-    "What alternative have you tried that worked?"
+    "What is the actual time your child spends in front of a screen daily?",
+    "What alternative activity does your child enjoy the most?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My dear, after this fun activity, we will choose something else to do together.”",
+  "assistant_prompts": [
+    "How can I help my child transition smoothly from screen time to another activity?",
+    "What are some fun indoor activities a 4-6 year old can do away from screens?"
+  ],
+  "ecosystem_links": {
+    "story_id": "omar_prayer",
+    "mission_id": "mission_4-6_color_hunt"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T19:02:55.783450+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "caef4044cd3c909b4f544b48f8d31fa70d9e6e4c449c27b1323c6d8eee955f6b",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "c9a9bab8f5f15a7f5b90334061d23139646ac269f9fbe9481425b97635541bbb",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

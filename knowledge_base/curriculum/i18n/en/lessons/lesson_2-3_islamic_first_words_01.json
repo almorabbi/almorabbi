@@ -1,52 +1,71 @@
 {
   "id": "lesson_2-3_islamic_first_words_01",
   "path_id": "path_2-3_islamic_first_words",
-  "title": "Bismillah and Alhamdulillah: Dhikr in Every Moment",
+  "title": "Small Words, Big Impact: 'Bismillah' and 'Alhamdulillah' in Your Child's Day",
   "age_group": "2-3",
   "domain": "islamic_parenting",
-  "unit_ids": [],
-  "summary": "A child learns through repetition and association. Link 'Bismillah' to eating and 'Alhamdulillah' after it, and 'Alhamdulillah' upon sneezing; small words that, by habit, become a tongue ever-remembering for a lifetime.",
-  "try_this": "This week: Say 'Bismillah' before every meal in a cheerful voice, and encourage your child to repeat it with you.",
+  "unit_ids": [
+    "seed-defiance-23",
+    "isl-343ab724"
+  ],
+  "summary": "Imagine your little one running towards you, eyes gleaming with hunger, asking for their favorite food. As you hand them the plate, you say in a gentle, playful voice, \"Bismillah.\" They imitate you with a smile, then begin to eat. After they finish, you notice them sneeze, so you gently tell them, \"Say Alhamdulillah,\" and they look at you with curiosity. These simple daily moments are true treasures; they are golden opportunities to plant the seeds of remembrance in their little heart, to grow with them and become an integral part of their life.\n\nChildren aged two and three learn through imitation and repetition more than anything else. They absorb everything they see and hear around them and spontaneously imitate adults. When we link words of remembrance to specific daily actions – such as saying \"Bismillah\" before eating, and \"Alhamdulillah\" after it or when sneezing – we build strong mental connections for them. These words are not just sounds; they are small keys that open wide doors for contemplation and gratitude, making them feel the presence of Allah in every detail of their lives, in a way that suits their simple yet profound understanding.\n\nDon't expect them to understand the full meaning at first; what's important is gentle repetition and the love that envelops these words. Be a good role model, and repeat these remembrances in front of them with a clear, joyful voice, without pressure or coercion. With time, you will notice how these small words transform into a deeply ingrained habit, and how your child begins to repeat them automatically. These good habits that we instill in them when they are young are a true investment in building a mindful and grateful personality, filled with tranquility and contentment.",
+  "try_this": "Tonight: Before your child begins to eat their dinner, say \"Bismillah\" in a clear, joyful voice, and gently encourage them to repeat it with you before each bite.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Which dhikr has your child started repeating?",
-    "When does he say it spontaneously?"
+    "What moments have you noticed your child spontaneously repeating a remembrance?",
+    "How can I make repeating remembrance more fun and interactive for my child?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"Come on, my darling, let's say Bismillah before we eat!\"",
+  "assistant_prompts": [
+    "What other remembrances are suitable for a two- or three-year-old child?",
+    "How should I deal with my child if they refuse to repeat a remembrance or don't respond to me?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "c8f3619fb350e7bc14898e182f79315580bc3b76b8a8206486c4ecd801e927c0",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "02c06ce75222cac483b367faf4a913daa5a4596e8156c93f1facd878071933eb",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

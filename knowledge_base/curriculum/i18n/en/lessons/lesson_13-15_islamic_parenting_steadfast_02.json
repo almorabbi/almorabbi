@@ -1,54 +1,71 @@
 {
   "id": "lesson_13-15_islamic_parenting_steadfast_02",
   "path_id": "path_13-15_islamic_parenting_steadfast",
-  "title": "Companionship in the Age of Social Media",
+  "title": "Screen Companions: How Do We Choose Role Models in the World of Influencers?",
   "age_group": "13-15",
   "domain": "islamic_parenting",
-  "unit_ids": [],
-  "summary": "Al-sahib saahib (a companion influences). Today’s influencers are virtual companions. Do not attack his friends; instead, strengthen his standards: who uplifts you and who drags you down? Discuss with him whom he follows and why, and teach him that a role model is chosen with awareness.",
-  "try_this": "This week: Ask your teenager whom he follows and admires, and discuss together the qualities of a righteous role model.",
+  "unit_ids": [
+    "isl-047ad111",
+    "isl-teen-western-ideas-doubts-01"
+  ],
+  "summary": "Your teenage child scrolls through their phone, eyes following videos of influencers sharing details of their lives, laughing, talking about the latest fashion trends, or offering seemingly attractive advice. You feel a hidden worry: Are these their new friends? Do they realize that these individuals, despite their apparent closeness, may not represent the role models you wish for them? You might be tempted to attack these influencers or your child's friends, but this often backfires and widens the gap between you.\n\nIndeed, a companion pulls you along, and this truth is not limited to real-life friends; it extends to the virtual influencers who fill our children's screens. Our role as parents is not to prevent them from this world, but to help them build strong criteria that enable them to distinguish between the good and the bad. How do we teach them to choose those who elevate them and add to them, not those who drag them to what is useless? The Prophet ﷺ said: «The example of a good companion and a bad companion is like that of the bearer of musk and the blower of the bellows» (Sahih Muslim 2628). This hadith teaches us that companionship, whether real or virtual, has a deep impact on a person's character and behavior.\n\nStart by strengthening your child's internal standards instead of launching an external attack. Discuss with them calmly and curiously who they follow and why, and what qualities they like about them. Teach them that true role models are chosen consciously, and that the person worthy of emulation is one who adds to our values and motivates us to do our best in our faith and our worldly life. Encourage them to think critically about the content they consume and how that content affects their thoughts and feelings. In this way, we build their self-immunity and ability to make conscious choices.",
+  "try_this": "Tonight: Ask your teenager about a video or an influencer's account they recently liked, and discuss together what made it appealing to them and what values that influencer promotes.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Who influences your teenager the most?",
-    "Does he distinguish the beneficial role model?"
+    "Who are the people or influencers whose content my teenager consumes the most?",
+    "Does my teenager have the necessary tools to distinguish purposeful content from other content?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«What do you think of this influencer? Is there anything specific you like about them?»",
+  "assistant_prompts": [
+    "How can I help my teenage child develop critical thinking towards the content they consume on social media?",
+    "What are effective ways to teach teenagers how to choose good role models in the digital age?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_13-15_cook_a_meal"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T18:05:57.109489+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5a05bd4ddcb80c04fc986a5fd8a6ff00f7c0290f65d2149ecfa1ff6155bc9e97",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "881dfa8c3c9a761a54eaf79d947853498bc5b25468758b37d09b07c07dc6fee0",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

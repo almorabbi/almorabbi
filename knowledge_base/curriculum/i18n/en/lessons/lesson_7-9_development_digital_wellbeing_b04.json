@@ -1,56 +1,73 @@
 {
   "id": "lesson_7-9_development_digital_wellbeing_b04",
   "path_id": "path_7-9_development_digital_wellbeing",
-  "title": "Allowance and Responsibility: First Lessons in Self-Management",
+  "title": "Allowance and Responsibility: Seeds of Small Independence in Their Big World",
   "age_group": "7-9",
   "domain": "development",
   "unit_ids": [
     "dev-8ad4980e",
     "gap-dev-lie-consequence-01"
   ],
-  "summary": "At this age, the child becomes ready to learn responsibility through simple tasks and a small allowance. Giving him age-appropriate household responsibilities (tidying his bed, helping with the table) builds his competence and confidence—do not burden him beyond his capacity. A small, regular allowance teaches him the value of money, saving, and choice. Do not tie basic tasks to money (cooperation is a family duty), but reward initiative. Allow him to face small natural consequences (forgetting his duty = bearing the result) so he may learn. A child who is given gradual responsibility develops independence and discipline that will serve him in his studies and life.",
-  "try_this": "This week: Assign your child one consistent household responsibility that suits his age, and let him carry it out without constant reminders. Observe its impact on his sense of competence.",
+  "summary": "Imagine your seven-year-old standing in front of their messy closet, or leaving their plate after a meal, and you wonder: When will they learn to be self-reliant? At this age, children begin to show an increasing desire for independence, which is a golden opportunity to plant the seeds of self-responsibility. These are not just routine tasks; they are fundamental building blocks for developing a personality capable of making decisions and bearing the consequences, giving them a deep sense of competence and self-confidence.\n\nGiving your child simple, age-appropriate household responsibilities, such as making their bed every morning or helping to set the table, is not a burden on them; rather, it is an investment in their growth. These small tasks teach them the value of family cooperation and make them feel like an active and important part of the family. And let's not forget a small, regular allowance; it's not just money, but a powerful educational tool. It teaches them how to manage their money, how to choose between saving and spending, and how to plan for their small wishes—these are invaluable skills for their future life.\n\nThe key here is balance and love. Encourage initiative and reward it, but do not link essential tasks to money, as cooperation is a family duty. Allow them to bear small natural consequences, such as forgetting their homework and facing the result, as these are life lessons that will stick in their mind more than any advice. In this way, we raise independent, disciplined children who are in control of their affairs and face life's challenges with confidence and calm.",
+  "try_this": "Tonight: Assign your child one simple, clear responsibility (such as putting their dirty clothes in the laundry basket), remind them only once, and then let them take ownership of it.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What responsibility appropriate for his age can you entrust to your child to build his confidence?",
-    "How do you balance between helping him and letting him face small consequences from which he can learn?"
+    "How can I give my child space to learn from their small mistakes without over-interfering?",
+    "What household responsibility do I see my child ready to take on now, and how will I support them in it?"
   ],
   "warning_flags": [],
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I trust in your ability to complete this small task on your own.”",
+  "assistant_prompts": [
+    "What are appropriate household responsibilities for a child aged 7-9?",
+    "How can I teach my child the value of money and saving through their allowance?"
+  ],
+  "ecosystem_links": {
+    "story_id": "anbiya_yusuf_older",
+    "mission_id": "mission_7-9_build_something"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:26:06+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
-      "fixer": "mistral-large-3:675b",
-      "rounds": 2,
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "a6f3f54a25eb401244b741f55bb177451fbda0de4e6c016457fbff99f1c8c887",
-      "reviewed_at": "2026-10-04T11:26:06+00:00",
+      "content_sha256": "034ad1bfe29681b88fed2828995040592eba94642dbc55cb07780bf549d8cecc",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

@@ -1,7 +1,7 @@
 {
   "id": "lesson_2-3_development_toddler_habits_01",
   "path_id": "path_2-3_development_growth",
-  "title": "My Little One’s Growth: Self-Habits and First Words",
+  "title": "My Little One Explores Their World: Routine Habits and First Words",
   "age_group": "2-3",
   "domain": "development",
   "unit_ids": [
@@ -10,63 +10,64 @@
     "dev-8a6fa824",
     "dev-93888518"
   ],
-  "summary": "A toddler’s refusal (ages 2-3) to clean their teeth is common and expected at this age. Make cleaning part of a fixed routine like 'bath, story, teeth cleaning, sleep' so your child knows the order and feels some control. Use a sticker chart to motivate them, and if they resist in the bathroom, clean their teeth while they are in bed or in the car seat instead of a daily battle. Toilet training is a developmental skill, not a race between children. The American Academy of Pediatrics recommends not forcing the child before signs of readiness appear: walking to the bathroom by themselves, feeling their bladder is full, and their desire to imitate adults or wear 'big kid' underwear. Early forced starting disrupts training, it does not speed it up. Your child’s refusal of the toilet and frequent wetting is expected, so the Academy advises not starting before 24 months and expects wetting accidents until close to age three. Avoid a daily battle with them: praise them for trying instead of punishing them for the accident, and stop training for a few weeks if they strongly resist, then try again later. By 18 months, most children say several single words, point to show you something that excites them, and follow a one-step direction without a gesture, like 'sit down.' These are signs of normal development according to the American Centers for Disease Control, not an indicator of superiority or delay in themselves. Talk to your child face-to-face and at their eye level to support their language development. Resistance to teeth cleaning between ages 4-6 decreases if you turn it into play rather than a command. Clean your teeth to their favorite song, let your child clean your teeth in turn, and let them choose their toothbrush and toothpaste flavor (limited choices achieve the same goal: clean teeth). Continue supervision until age seven.",
-  "try_this": "This week: Choose only one habit (teeth cleaning or toilet training) and link it to a fixed routine or simple game. Do not start more than one new habit in the same week, and if they strongly resist, stop for a few weeks and try again later instead of daily insistence.",
+  "summary": "Imagine yourself in a daily battle over brushing teeth, or a desperate attempt to potty train your little one, while they stubbornly refuse. These scenes are not uncommon in the world of children between two and three years old. Your child at this stage is discovering their independence, and this often means challenging the boundaries and routines you try to build. They don't mean to annoy you; rather, they are expressing their desire for control and to learn in their own way, and this is a natural part of their development.\n\nThe key here is patience and understanding. Don't turn daily habits into a race or a power struggle. Brushing teeth or potty training are developmental skills that require time and readiness from the child themselves. Child experts emphasize that forced or premature initiation does not speed up the process; it may even hinder it. The most important thing is to look for your child's genuine signs of readiness, such as their ability to walk to the bathroom themselves, their feeling of a full bladder, or even their desire to imitate adults. These signs are your green light, not just their chronological age.\n\nTurn routines into a fun game or part of a daily story. Make teeth brushing accompanied by a favorite song, or let your child choose their brush and toothpaste (from limited options). As for language, talk to your child face-to-face, at their eye level, as this supports their vocabulary development and ability to express themselves. Remember that every child is unique, and their development proceeds at their own pace. Celebrate small attempts, avoid punishment for accidents, and give yourself and your child space to breathe and try again gently when needed.",
+  "try_this": "Tonight: Choose only one habit (like brushing teeth) and link it to a simple, consistent routine (e.g., bath, story, teeth, sleep), or turn it into a short, fun game.",
   "order": 5,
-  "estimated_minutes": 5,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Are you waiting for actual signs of readiness before starting toilet training, or are you comparing your child to their peers?",
-    "Do you talk to your child face-to-face and at their eye level to support their speech?",
-    "Do you turn daily care routines into a battle or a shared game?"
+    "Do I treat my child's challenges as learning opportunities or as a daily battle?",
+    "Do I give my child space for choice and control within safe limits?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My little one, we brush our teeth together to keep them strong and beautiful!”",
+  "assistant_prompts": [
+    "What are the signs of readiness for potty training my child?",
+    "How can I make brushing my toddler's teeth a fun experience instead of a struggle?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "title",
-        "type": "meaning",
-        "why": "The English is a literal, non-idiomatic rendering; 'self-care habits' is clearer."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "ab0035b078b9a817f6050129ab63c0d2645cd8e08ba6f801fb3916adcd291bd1",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "title",
-          "type": "meaning",
-          "why": "The English is a literal, non-idiomatic rendering; 'self-care habits' is clearer."
-        }
-      ],
+      "content_sha256": "3db83d3d4e87bb52134df4b77392feb44405d0fd88768357e83e77b3189ceffa",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

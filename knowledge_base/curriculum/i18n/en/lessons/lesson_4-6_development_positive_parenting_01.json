@@ -1,71 +1,87 @@
 {
   "id": "lesson_4-6_development_positive_parenting_01",
   "path_id": "path_4-6_development_positive_parenting",
-  "title": "Specific Praise: Building His Self-Confidence Without Comparison",
+  "title": "Your Words Shape Their World: How to Build Your Child's Self-Confidence with Love and Awareness",
   "age_group": "4-6",
   "domain": "development",
   "unit_ids": [
     "a1d7697e-c8d5-45c3-89b8-6c89954ce9b0",
     "seed-picky-46"
   ],
-  "summary": "At this stage, the child begins to form his self-image based on the words of those around him (Erikson: Industry vs. Inferiority). General praise ('You’re smart') has less impact than specific, detailed praise ('I liked how you arranged your books from largest to smallest'). Early praise instills 'competence' in the child, while delayed praise instills 'shame over mistakes.' According to CDC guidelines on positive parenting, specific praise builds stronger internal motivation than external rewards. This lesson teaches the parent when to praise, what exactly to say, and when to remain silent.",
-  "try_this": "This week: Each day, choose one specific behavior your child has done (not 'You were excellent today'). Describe it precisely: 'I noticed you helped your sister carry her bag without being asked—that’s true generosity.' Write 5 of these observations in a small notebook. At the end of the week, read them aloud to your child.",
+  "summary": "Imagine your four-year-old spending a long time arranging colorful blocks, then looking at you with eyes anticipating a word from you. You might instinctively say, \"Well done, champ!\" — a warm word, no doubt. But what if there was a way to make your words touch the depths of their soul, instilling in them a genuine sense of competence, not just momentary satisfaction? At this age, your child begins to weave the threads of their self-image from every word they hear and every look they see. They are searching for their place in this big world, and your words are their first compass.\n\nThe secret lies in \"specific praise,\" which is not just fleeting words, but a mirror that reflects to your child the beauty of their effort and the details of their achievement. Instead of \"You're smart!\" try saying: \"I liked how you thought to put the big blocks first to stabilize the tower; that's great arranging!\" This type of praise doesn't just focus on the final result; it celebrates the process, the thinking, the effort expended. It plants within them an intrinsic motivation to explore and try, and makes them realize that their value is not tied to perfection, but to diligence and perseverance.\n\nWhen we praise effort and details, we teach our children that mistakes are a natural part of learning, and that trying is more important than achieving. This builds psychological resilience in them, protects them from the fear of failure, and encourages them to embark on new experiences with confidence. Remember that your words are seeds you plant in your child's inner garden; make them seeds that grow into towering trees of self-confidence, authentic motivation, and a lifelong love of learning. It's simple, but its impact is profound and long-lasting.",
+  "try_this": "Tonight: Before bedtime, choose one specific behavior your child exhibited today. Describe this behavior accurately and honestly to them, such as: \"My child, I noticed today that you shared your toys with your friend without me asking; that was kind of you and shows your generosity.\"",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How does your way of praising differ between effort made and the outcome?",
-    "When do you praise your child, and when do you feel he doesn’t need praise?"
+    "When was the last time you praised your child for their effort, rather than just the final outcome?",
+    "How can I describe my child's positive behavior more precisely, instead of using general praise?"
   ],
   "warning_flags": [],
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-06-08T19:00:00",
   "updated_at": "2026-06-08T19:00:00",
-  "approved_by": "auto-review:claude-opus:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I see and appreciate the effort you put into everything you do.”",
+  "assistant_prompts": [
+    "Give me examples of specific praise sentences for a 5-year-old who tidied up their toys.",
+    "What should I do if I can't find anything specific to praise my child for today?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star",
+    "mission_id": "mission_4-6_kind_word"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "claude-opus",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "claude-opus",
-        "field": "summary",
-        "type": "meaning",
-        "why": "The general-praise example is 'You're smart' where the Arabic gives «أحسنت» (well done); the point — general vs specific praise — is unchanged."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:claude-opus:2026-10-04",
-    "revalidated_at": "2026-10-04T17:12:35+00:00",
-    "fixed_at": "2026-08-13T19:03:14.274298+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
-        "claude-opus"
+        "deepseek-v4-pro",
+        "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
-      "prompt_version": "manual:dfa8a5f39718",
-      "content_sha256": "f0a7791a1210f2d23f3f7697fb7ec8e03f4f558a8b8595c693115b537d095b7e",
-      "reviewed_at": "2026-10-04T17:12:35+00:00",
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "ab6b1137303e7dcfac35dac42adb148fce056bcb3b59744ade712487451fbe32",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [
         {
-          "model": "claude-opus",
-          "field": "summary",
+          "model": "glm-5.2",
+          "field": "try_this",
           "type": "meaning",
-          "why": "The general-praise example is 'You're smart' where the Arabic gives «أحسنت» (well done); the point — general vs specific praise — is unchanged."
+          "why": "يا بني means 'my son'; 'My child' is a reasonable gender-neutral adaptation but loses the direct address form."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and one reviewer from a model family different from the translator's read the Arabic and English side by side against the review rubric and found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "try_this",
+        "type": "meaning",
+        "why": "يا بني means 'my son'; 'My child' is a reasonable gender-neutral adaptation but loses the direct address form."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

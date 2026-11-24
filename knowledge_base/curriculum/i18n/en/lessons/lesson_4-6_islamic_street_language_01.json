@@ -1,43 +1,43 @@
 {
   "id": "lesson_4-6_islamic_street_language_01",
   "path_id": "path_4-6_islamic_parenting_adab",
-  "title": "My child repeats inappropriate words heard in the street: From nursery to primary school",
+  "title": "When Your Little One Repeats Street Words: How Do We Teach Them the Beauty of Words?",
   "age_group": "4-6",
   "domain": "islamic_parenting",
   "unit_ids": [
     "isl-9933c64e"
   ],
-  "summary": "If your child (4-6 years old) repeats a foul word they heard in the street, do not magnify the issue with shouting or harsh punishment, as this may fix it in their mind. Teach them in simple words that a Muslim does not hurt people with his tongue, for the Prophet ﷺ said: «A Muslim is one from whose tongue and hand the Muslims are safe» (Sahih al-Bukhari 10). Replace the word with a kind one, and repeat this calmly until the habit fades. Be their example: when they hear you choose the kind word when you are angry or joking, they learn more from you than from being told not to.",
-  "try_this": "Today: Agree with your child on a kind alternative word to say instead of the inappropriate one, and remind them of it calmly whenever they repeat the inappropriate word.",
+  "summary": "Imagine you're in your kitchen, busy preparing dinner, and suddenly you hear your four or five-year-old child repeating a word they heard in the street, perhaps from a game or a casual conversation. You might feel shocked or embarrassed, wondering: Is this my little child whom I strive to raise well? Don't worry, this situation is very common at this age, as children absorb everything they hear around them like a sponge, and they try to imitate adults without fully understanding the meanings.\n\nAt this age, a child often doesn't realize the weight of words or their impact. Your calm and understanding reaction is key to handling the situation. Avoid shouting or harsh punishment, as this might solidify the word in their mind and associate it with negative feelings, or push them to repeat it to get attention. Remember that our goal is to instill a love for good words and respect for others, not just to prevent a bad word. The Prophet ﷺ said: «Whoever believes in Allah and the Last Day should speak good or remain silent» (Sahih al-Bukhari 6018), and this principle can be simplified for our children.\n\nInstead of focusing on the bad word, focus on the more beautiful alternative. Gently teach them that a Muslim loves good for people and does not harm them with their tongue, and that there are more beautiful and kinder words we can use. Suggest a simple alternative word and repeat it calmly, and make sure you are the role model in choosing good words in all your situations, even in moments of anger or jest. For what your child sees from you is more ingrained in their mind than what they hear as advice.",
+  "try_this": "Today: Choose a kind alternative word for the inappropriate word, and agree with your child to use it instead. Then gently remind them of it whenever they repeat the inappropriate word.",
   "order": 5,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Does your reaction when hearing a foul word embed it in your child’s mind or erase it calmly?",
-    "Does your child hear you say the alternative word so they can imitate you?"
+    "Does my initial reaction to inappropriate words help my child forget them or solidify them in their mind?",
+    "Am I a good role model for my child in choosing good words in all situations?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«My darling, sweet words make our hearts happy. What do you think about saying (alternative word) instead of (inappropriate word)?»",
+  "assistant_prompts": [
+    "How do I deal with my child if I hear a rude word from them for the first time?",
+    "What are some kind alternative words I can suggest to my child instead of bad words?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_abu_umair_young",
+    "mission_id": "mission_4-6_kind_word"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
-    "revalidated_at": "2026-10-08T16:29:33+00:00",
-    "fixed_at": "2026-10-04T08:15:36.331649+00:00",
-    "fixer_model": "claude-opus-5.5",
-    "manual_fix_note": "2026-10-04 scripture fix: hadith quoted only from the Sahihayn with book + number (Muslim by Abd al-Baqi); non-Sahihayn or paraphrased quotes replaced, mirrored from the Arabic.",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -45,27 +45,27 @@
       ],
       "providers": {
         "deepseek-v4-pro": {
-          "provider": "openrouter",
-          "model": "deepseek/deepseek-v4-pro"
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
         },
         "glm-5.2": {
-          "provider": "openrouter",
-          "model": "z-ai/glm-5.2"
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
         }
       },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "85665dd6a4dc16cd06d0cd91a29ee21dddc0dfefb5d575ab868ff89e7ef8741a",
-      "reviewed_at": "2026-10-08T16:29:33+00:00",
+      "content_sha256": "186167a1f76ff369a978fbbdefa63ea44fb5a54b63e51c2bcae1e64d088f251f",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "english_authors": [
-      "mistral-large-3:675b",
-      "claude-opus-5-5"
-    ]
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

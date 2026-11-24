@@ -20,5 +20,14 @@
   "version": "1.0.0",
   "created_at": "2026-10-07T17:38:16",
   "updated_at": "2026-10-07T17:38:16",
-  "approved_by": null
+  "approved_by": null,
+  "parent_script": "«بقيت دقيقتان للعب يا حبيبي، وبعدها نغسل يدينا ونتناول العشاء.»",
+  "assistant_prompts": [
+    "طفلي يبكي بشدة كلما أنهينا اللعب أو غادرنا الحديقة، كيف أُهيّئه للانتقال؟",
+    "كيف أُنظّم أوقات الوجبات والقيلولة لطفلٍ عمره ٣ سنوات لتقليل نوبات المساء؟"
+  ],
+  "ecosystem_links": {
+    "story_id": "tamim_anger_volcano",
+    "mawqif_id": "mawqif_2-3_market_tantrum"
+  }
 }

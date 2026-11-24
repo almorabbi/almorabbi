@@ -1,20 +1,20 @@
 {
   "id": "lesson_prenatal-1_infant_pregnancy_01",
   "path_id": "path_prenatal-1_infant_pregnancy_foundations",
-  "title": "Psychology of Pregnancy and Early Fetal Bonding",
+  "title": "The Journey of Connection: How to Start Your Relationship with Your Child Before You Even See Them?",
   "age_group": "prenatal-1",
   "domain": "infant_pregnancy",
   "unit_ids": [
     "gap-med-pregnancy-bonding-01",
     "isl-b630e2ad"
   ],
-  "summary": "Parenting and emotional bonding begin months before birth. By week 18, fetal hearing develops, allowing the baby to recognize maternal heartbeats and parental voices. Reciting Quran and speaking gently provide natural security. The husband's emotional support is vital to soothe hormonal mood shifts and maternal anxiety, as the mother's psychological safety directly reflects on the stability of the fetus's nervous system and its healthy growth.",
-  "try_this": "This week: Spend 10 minutes every evening in a quiet setting—have the father place his hand gently on the mother's belly and recite Quran softly or speak loving words to the baby by their chosen name. Observe fetal movements and responses to sound.",
+  "summary": "Imagine yourself on a quiet evening, your hand gently touching your partner's belly, feeling a slight movement from within. Your warm voice fills the air, perhaps you're reading a short story or talking about your day. In that moment, you're not just communicating with your partner; you're building a bridge of connection with a tiny being growing inside both of you, listening to you, and interacting with your external world in their own way.\n\nFrom approximately the eighteenth week, your fetus's auditory system is complete, enabling them to distinguish surrounding sounds. Their mother's heartbeat, their parents' tone of voice, and even gentle melodies all form part of their first auditory world. These sounds are not just noise; they are messages of reassurance and comfort, contributing to building a strong foundation for their emotional and neurological stability. This stage is a golden opportunity to begin upbringing and build a deep emotional bond before birth.\n\nIndeed, the mother's psychological well-being during pregnancy directly reflects on the healthy growth and neurological balance of the fetus. Therefore, the husband's support for the pregnant mother, and helping her overcome hormonal fluctuations and natural fears, is not a luxury but a necessity. Dedicate daily time to communicate with the fetus; talk to them and sing to them. These simple moments plant the seeds of reassurance in your child's heart and give you a deep sense of connection and hope.",
+  "try_this": "Tonight: In a quiet moment before bed, gently place your hand on your partner's belly and speak to the fetus in a warm, loving voice for 3-5 minutes. You can tell them how much you're looking forward to meeting them, or sing them a gentle melody.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What emotions arise when imagining your baby listening to your voice from within the womb?",
-    "How can the husband provide tangible support to reduce maternal stress this week?"
+    "What feelings arise in me when I imagine my child listening to my voice from inside the womb?",
+    "How can I offer tangible support to my partner to help her feel more secure and calm this week?"
   ],
   "warning_flags": [
     "pregnancy_anxiety_support"
@@ -23,98 +23,63 @@
   "version": "1.0.0",
   "created_at": "2026-09-12T19:00:00",
   "updated_at": "2026-09-12T19:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I am here, my little one. I hear you and feel you, and I eagerly await our meeting.”",
+  "assistant_prompts": [
+    "What are the best ways to communicate with the fetus during pregnancy?",
+    "How can a husband emotionally support his partner during the fluctuations of pregnancy?"
+  ],
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": false,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": false,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "meaning",
-        "why": "The English drops 'with the fetus' and renders 'طمأنينة وراحة فطرية' as 'natural security'."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "try_this",
-        "type": "omission",
-        "why": "The English changes daily to every evening and omits before sleep."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "omission",
-        "why": "The Arabic specifies 'exceptional' psychological support, which the English drops, slightly understating the degree of support needed."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "try_this",
-        "type": "omission",
-        "why": "The Arabic specifies 'before bedtime,' which the English omits, losing a practical timing detail."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "try_this",
-        "type": "omission",
-        "why": "The Arabic specifies 'verses from the Holy Quran' and 'with a warm voice'; the English drops both 'verses/Holy' and changes 'warm' to 'softly.'"
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:26:06+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
-      "fixer": "mistral-large-3:675b",
-      "rounds": 2,
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "bf855bb189d77c844eaa577a6362e94c7a62d76e49d78ce010e995202e681c02",
-      "reviewed_at": "2026-10-04T11:26:06+00:00",
+      "content_sha256": "690cf3018dfa128df82e8e984bd683ed11b9f6590c8b4f88b49a06d8625ddd22",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [
         {
           "model": "deepseek-v4-pro",
           "field": "summary",
-          "type": "meaning",
-          "why": "The English drops 'with the fetus' and renders 'طمأنينة وراحة فطرية' as 'natural security'."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "try_this",
-          "type": "omission",
-          "why": "The English changes daily to every evening and omits before sleep."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "omission",
-          "why": "The Arabic specifies 'exceptional' psychological support, which the English drops, slightly understating the degree of support needed."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "try_this",
-          "type": "omission",
-          "why": "The Arabic specifies 'before bedtime,' which the English omits, losing a practical timing detail."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "try_this",
-          "type": "omission",
-          "why": "The Arabic specifies 'verses from the Holy Quran' and 'with a warm voice'; the English drops both 'verses/Holy' and changes 'warm' to 'softly.'"
+          "type": "medical",
+          "why": "The English states the auditory system is complete at 18 weeks, which overstates fetal hearing development; hearing continues to mature later in pregnancy."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "summary",
+        "type": "medical",
+        "why": "The English states the auditory system is complete at 18 weeks, which overstates fetal hearing development; hearing continues to mature later in pregnancy."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

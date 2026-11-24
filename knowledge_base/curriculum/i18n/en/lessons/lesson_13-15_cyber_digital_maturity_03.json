@@ -1,7 +1,7 @@
 {
   "id": "lesson_13-15_cyber_digital_maturity_03",
   "path_id": "path_13-15_cyber_digital_maturity",
-  "title": "Balancing Games: Fun or Addiction? Crafting a Balance Agreement",
+  "title": "Our Children's Screens: How Do We Balance Enjoyment and Responsibility?",
   "age_group": "13-15",
   "domain": "cyber",
   "unit_ids": [
@@ -10,13 +10,13 @@
     "1e23d518-5d54-4ad0-b7d0-7147a15d13a6",
     "beb0e561-be2a-51dc-85ac-83c158c748ef"
   ],
-  "summary": "Signs of addiction (WHO): loss of control, gaming taking priority over life, continuation despite harm. The solution is not prohibition but an agreement: (1) fixed daily time (2) no gaming before duties/sleep (3) breaks every hour (4) real alternatives: sports, hobbies, real-life friends. Parents: monitor mood, sleep, and studies.",
-  "try_this": "This week: design together a \"Balance Agreement for Gaming\"—write down: hours, conditions, penalties/rewards. Sign it, and review weekly.",
+  "summary": "Imagine this scene: Your teenage son's bedroom door is closed, and the sound of video games echoes from behind it. You tried calling him for dinner, but he didn't respond. Perhaps his tension increases when you ask him to turn off the device, and you might find him sneaking out at night to return to it. This situation is repeated in many homes, making us wonder: Have screens become an integral part of their lives, or have they started to dominate them?\n\nThe goal is not to deprive our children of enjoyment or keeping up with the times, as digital games can be a source of entertainment, communication, and the development of some skills. But when these activities begin to dominate their lives and affect their sleep, studies, or family and social relationships, that's where the challenge lies. The World Health Organization points to clear signs of digital addiction, such as losing the ability to control play time, preferring play over important life activities, or continuing to play despite knowing the harms.\n\nThe solution is not in outright prohibition, which often provokes resistance, but in building bridges of understanding and trust. We can, as a family, together establish a clear and logical framework for screen use. This framework should include a specific daily time and clear conditions, such as completing homework before playing and setting regular breaks. Most importantly is providing real and attractive alternatives in the real world: encouraging sports, hobbies, and meeting with friends. Our role as parents is gentle monitoring of their mood, sleep, and academic achievement to ensure that screens serve them and do not control them.",
+  "try_this": "Tonight: Sit with your son/daughter and open a calm dialogue about \"How can we make screen time enjoyable and beneficial without affecting the rest of your life?\" Listen more than you speak.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Did he stick to the agreement?",
-    "Which alternative did he enjoy the most?"
+    "When was the last time I shared an enjoyable real-world activity with my son/daughter away from screens?",
+    "What signs do I observe in my son/daughter that might indicate screens are starting to negatively affect them?"
   ],
   "warning_flags": [
     "لعب >4 ساعات يومياً",
@@ -26,55 +26,66 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“I am here to help you find balance, not to stop you from enjoying yourself.”",
+  "assistant_prompts": [
+    "How can I help my teenage son find enjoyable alternatives to video games?",
+    "What are effective ways to negotiate screen time with teenagers without getting into conflicts?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_13-15_cook_a_meal"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "title",
-        "type": "addition",
-        "why": "The Arabic title ends with the noun phrase 'balance agreement' while the English adds the verb 'Crafting', a minor stylistic addition not present in the source."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-07",
-    "revalidated_at": "2026-10-07T07:40:36+00:00",
-    "fixed_at": "2026-08-13T18:05:03.788131+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "f3a2154b65578dc5ec441f91adc473d0e8d9f164bec9efc0f09cbc8c4c3e0a31",
-      "reviewed_at": "2026-10-07T07:40:36+00:00",
+      "content_sha256": "d324ce37bd6dd9f0d23146d62a7716fdc279959b9724d73113634176aa3efa9a",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [
         {
-          "model": "glm-5.2",
-          "field": "title",
-          "type": "addition",
-          "why": "The Arabic title ends with the noun phrase 'balance agreement' while the English adds the verb 'Crafting', a minor stylistic addition not present in the source."
+          "model": "deepseek-v4-pro",
+          "field": "summary",
+          "type": "meaning",
+          "why": "The English adds 'out', implying leaving the house, whereas the Arabic only says he sneaks at night to return to the games/screen."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "english_authors": [
-      "claude-opus-5.5"
-    ]
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "summary",
+        "type": "meaning",
+        "why": "The English adds 'out', implying leaving the house, whereas the Arabic only says he sneaks at night to return to the games/screen."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

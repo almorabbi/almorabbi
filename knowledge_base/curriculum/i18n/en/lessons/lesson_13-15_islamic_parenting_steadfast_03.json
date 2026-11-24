@@ -1,54 +1,71 @@
 {
   "id": "lesson_13-15_islamic_parenting_steadfast_03",
   "path_id": "path_13-15_aqeedah_certainty",
-  "title": "Al-Ikhlas: Working for Allah, Not for People",
+  "title": "Your Heart, Your Compass: Why Do We Do What We Do?",
   "age_group": "13-15",
   "domain": "aqeedah",
-  "unit_ids": [],
-  "summary": "In an age of display and appearances, teach your teenager to act for Allah’s sake, not to seek the admiration of people. Al-Ikhlas liberates him from the bondage of others’ opinions and gives his deeds a meaning and steadiness that comparisons cannot shake.",
-  "try_this": "This week: Talk about the difference between working for Allah and working to show off, using an example from his own life.",
+  "unit_ids": [
+    "aqe-why-evil-13-15-01",
+    "isl-047ad111"
+  ],
+  "summary": "Your teenage son is scrolling through his phone. He sees a friend's post about an athletic achievement or a school project that received a lot of praise. You notice a mix of admiration and perhaps some wistfulness on his face. He might start thinking, \"Should I do something like that to get the same recognition?\" These small moments are our opportunities to plant a great value in their hearts: that their actions should stem from within them, purely for the sake of Allah, not for the eyes of people.\n\nThe essence of sincerity is that our primary motivation for action is the Creator's pleasure, not to gain praise or avoid criticism from people. In a world bustling with appearances and constant comparisons, sincerity gives a teenager inner strength and steadfastness that is not shaken by the fluctuations of others' opinions. When he understands that the true value of his work lies in his sincere intention, he is freed from the burden of seeking external admiration and finds deeper meaning in everything he does, whether in his studies, helping at home, or even in his personal choices. The Prophet ﷺ said: «Indeed, actions are by intentions» (Sahih al-Bukhari 1).\n\nSo, let us help our children build this internal compass. It's not about direct preaching, but about situations and stories that show them how sincere work for Allah brings tranquility and blessings. Encourage them to think about their motivations, and remind them that Allah sees hearts before actions. In this way, we plant in them the seed of self-confidence and inner contentment, and strengthen their connection with their Creator, so they become more steadfast and happy on their journey.",
+  "try_this": "Tonight: Talk about a situation your son experienced today, and how his inner motivation (intention) was more important than any external result or others' opinions.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Does your teenager become captive to people’s admiration?",
-    "How have you introduced him to Al-Ikhlas?"
+    "When was the last time you felt you were working to please others instead of pleasing Allah?",
+    "How can I be a role model for my son in demonstrating sincerity in my daily actions?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«Always remember, my son, that Allah sees your heart before He sees your action. That is what is most important.»",
+  "assistant_prompts": [
+    "How can I explain the concept of sincerity to my teenage son in a way he understands and applies in his daily life?",
+    "What are some activities or real-life examples that can help my teenage son understand the value of working for Allah and not for people?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_13-15_apologise"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T18:58:19.829985+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "7e7eb467796920cc2bbf1ff19aa644a0a71517883e111a3a2a7065b88d11653c",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "08188e95eec00d902bd7364f545e3480afc1daea542efd3d89daac62d07f56a1",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

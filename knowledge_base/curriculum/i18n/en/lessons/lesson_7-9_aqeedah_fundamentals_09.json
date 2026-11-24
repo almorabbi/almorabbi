@@ -1,56 +1,71 @@
 {
   "id": "lesson_7-9_aqeedah_fundamentals_09",
   "path_id": "path_7-9_aqeedah_fundamentals",
-  "title": "What Comes After Death?",
+  "title": "The Journey of Life: What Lies Beyond This World?",
   "age_group": "7-9",
   "domain": "aqeedah",
   "unit_ids": [
     "aqe-d0f14b8c"
   ],
-  "summary": "Belief in the Last Day gives the child a scale for life: that this world is a temporary abode of action, and that there is a day when every person will meet the recompense of their deeds. Speak about death with honesty and tranquility, not terror: a transition from this world to a more lasting abode, just as a traveler moves to a more beautiful home. Focus heavily on Paradise and its beloved descriptions—rivers, fruits, endless play, meeting the Prophet ﷺ, and seeing Allah, the greatest bliss—more than mentioning the Fire. Our goal is to make our child love Paradise and strive for it, not to fill their heart with fear. Instill in them that the gate of Paradise is obedience and good akhlaq (moral character), and that we are content with Allah’s decree if what we dislike befalls us.",
-  "try_this": "This week: When your child does something good, connect it to Paradise: \"This deed brings you closer to Paradise.\" If they ask about death, reassure them that whoever loves Allah moves to a more beautiful place with a Merciful Lord.",
+  "summary": "Your eight-year-old daughter gazes at a butterfly fluttering around the flowers in the home garden, then asks you curiously: “Mama, what happens to the butterfly when it dies? Does it go somewhere else?” An innocent question like this opens the door to a deep conversation about life and what comes after it, a conversation that requires honesty and reassurance from us, not fear and terror, to build a beautiful understanding of existence in the hearts of our little ones.\n\nBelief in the Last Day grants our children a precious balance for life, through which they realize that this world of ours is a temporary station for work and good deeds, and that there is a great day when every person will receive the recompense for their deeds. Our discussion about death should be a peaceful transition from a fleeting abode to an everlasting abode, like a traveler moving to a more beautiful and spacious home. Let us focus on describing Paradise with its rivers, fruits, endless games, meeting prophets and righteous people, and seeing Allah, the Most High, which is the greatest bliss, for this instills in them love for Paradise and working towards it.\n\nOur ultimate goal is to make our children love Paradise and to connect it with good deeds and excellent character. Teach them that obedience and kindness are the keys to Paradise, and that contentment with Allah’s decree and destiny grants us tranquility even in the most difficult circumstances. By doing so, we plant hope and action in them, not fear and anxiety, and we offer them a comprehensive vision of life, death, and what lies beyond, a vision that fills their hearts with peace and reassurance.",
+  "try_this": "Tonight: When your child shares a toy with their sibling or helps you tidy the house, connect this beautiful action to Paradise by saying: “This good deed brings you closer to Paradise, my dear.”",
   "order": 9,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Why do we emphasize encouraging the child with Paradise more than frightening them about the Fire?",
-    "How can you speak about death with honesty that builds tranquility, not nightmares?"
+    "How can I make my conversation about Paradise appealing and exciting for my child, far from instilling fear?",
+    "What words should I choose to talk about death with honesty that brings reassurance to my child's heart?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My son, this world is a beautiful place where we do good, and Paradise is more beautiful and everlasting for those who love Allah and do righteous deeds.”",
+  "assistant_prompts": [
+    "How do I answer my child's question about death in a way that is appropriate for ages 7-9?",
+    "What activities or stories can I use to reinforce the concept of Paradise and love for it in my child?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_7-9_ask_and_listen"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-08-13T19:04:59.453692+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "1fc6d735f501c148c18b0bfd7ae87f982d0f22ff9e239ad1808b3dc025d14ad2",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "147fc2e4eb61328d31a59412e0511c8cc4e4a2e8eadc4ddd6c8dd32b3b1dee5e",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

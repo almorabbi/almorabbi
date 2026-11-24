@@ -21,5 +21,14 @@
   "version": "1.0.0",
   "created_at": "2026-10-04T17:13:00",
   "updated_at": "2026-10-04T17:13:00",
-  "approved_by": null
+  "approved_by": null,
+  "parent_script": "«يا حبيبي، الصلاة راحة لقلوبنا، حتى لو كنا مشغولين، سنصلي معًا ثم نكمل ما نحب.»",
+  "assistant_prompts": [
+    "كيف أتعامل مع طفلي إذا رفض الصلاة لأنه يشعر بالملل من طولها؟",
+    "ما هي الأنشطة التي يمكنني القيام بها لجعل الصلاة محببة لطفلي في هذا العمر؟"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_7-9_memorise_one_line"
+  }
 }

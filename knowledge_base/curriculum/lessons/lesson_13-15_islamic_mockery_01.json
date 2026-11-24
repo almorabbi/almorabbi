@@ -21,5 +21,13 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": null
+  "approved_by": null,
+  "parent_script": "«يا بني، ثباتك على طاعتك لله رغم كل شيء هو سر قوتك وجمالك، وأنا فخور بك جدًا.»",
+  "assistant_prompts": [
+    "كيف أساعد ابني على بناء ثقته بنفسه عندما يواجه سخرية من أصدقائه بسبب التزامه الديني؟",
+    "ما هي أفضل الطرق لتعزيز قيمة الصبر والثبات على المبادئ لدى المراهقين في مواجهة ضغوط الأقران؟"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_13-15_cook_a_meal"
+  }
 }

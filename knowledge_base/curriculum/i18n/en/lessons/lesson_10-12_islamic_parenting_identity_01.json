@@ -1,59 +1,98 @@
 {
   "id": "lesson_10-12_islamic_parenting_identity_01",
   "path_id": "path_10-12_islamic_parenting_identity",
-  "title": "As-Salah: The Pillar of the Deen and the Identity of the Mu'min",
+  "title": "Prayer at Ten: Companionship That Endears, Not Surveillance That Alienates",
   "age_group": "10-12",
   "domain": "islamic_parenting",
   "unit_ids": [
-    "723a3b98-bf3c-4607-8a02-9e774d1da69c",
-    "72cea396-0533-4b24-8d2b-8ef82412b221",
-    "7b2ded06-2736-4364-8980-1d70df17fa0c",
-    "8451bbb0-4617-4252-a206-e442c533fac3"
+    "isl-c4986b8f",
+    "72cea396-0533-4b24-8d2b-8ef82412b221"
   ],
-  "summary": "At the age of 10-12, the child begins to understand the meaning of taklif. Salah is not a routine but a connection with Allah. Parents: be role models, discuss: Why do we pray? And how do we pray with khushu'?",
-  "try_this": "This week: Create a \"Salah diary\" for your child in which they record their salah and how they felt afterward. Discuss weekly: What did you feel?",
+  "summary": "The 'Asr adhan sounds, and your child is engrossed in their game or conversation. For the third time, you repeat in a tense tone: «Get up and pray now! Have you prayed? Why are you delaying the prayer?» They rise, burdened, performing quick movements to escape the pursuit, and emerge from their prayer feeling it's a heavy school assignment to please their parents more than to commune with their Lord.\n\nBetween the ages of ten and twelve, your child gradually transitions from imitation to sensing responsibility and belonging. If prayer in our home becomes a battleground of conflict, inspection, and dry accountability notebooks, their heart may turn away from it when they are out of your sight. However, if they see prayer as an oasis of comfort in your day — you calmly leave the screen for it and invite them to it with a smile and companionship — then it becomes associated in their being with tranquility, not tension.\n\nReflect on Luqman's gentle counsel to his son, as Allah the Almighty says: ﴿يَا بُنَيَّ أَقِمِ الصَّلَاةَ وَأْمُرْ بِالْمَعْرُوفِ وَانْهَ عَنِ الْمُنكَرِ وَاصْبِرْ عَلَىٰ مَا أَصَابَكَ﴾ (interpretation of the meaning: \"O my son, establish prayer and enjoin what is right and forbid what is wrong and be patient over what befalls you\") [Luqman: 17], and remember the guidance of the Prophet ﷺ: «Make things easy and do not make them difficult; give glad tidings and do not repel» (Sahih al-Bukhari 69). Start by praying in congregation with them at home or taking them to the mosque at a beloved time like Maghrib, and gently remind them five minutes before the adhan instead of surprising them with the command in the middle of their game. Warm companionship builds a sincere worshipper for life.",
+  "try_this": "Tonight, at Maghrib or 'Isha prayer: Don't ask them to pray alone. Instead, gently remind them five minutes beforehand and invite them to pray beside you or to lead you in one prayer. Afterward, share a cup of tea or a warm conversation.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Which salah is the most difficult for your child? And why?",
-    "How has the Salah diary affected their commitment?"
+    "What is the predominant tone in our home at prayer time: a tone of invitation and companionship, or a tone of inspection and urgency?",
+    "Which prayer can we most easily make a calm family appointment that brings us together daily without pressure?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«In five minutes, the Maghrib adhan will sound, my champion; what do you think about us making ablution together and praying in congregation, then sitting for a few minutes to chat?»",
+  "assistant_prompts": [
+    "My 11-year-old son often delays prayer or lies about having prayed. How can I deal with him wisely without conflict?",
+    "How can I help my child aged 10-12 achieve focus in prayer and not rush through it?"
+  ],
+  "ecosystem_links": {
+    "story_id": "omar_prayer",
+    "mission_id": "mission_10-12_plan_day"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T18:56:31.576971+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "6b507ec97e2e53eb57aeca863ee07b20c6a3d3a75a226f1559b8b25779413f83",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
-      "residual_low": [],
+      "content_sha256": "703bf8bb0eb77963c240b3408798fb2a2881adc59a19fd90f4340340d4723483",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "parent_script",
+          "type": "source_corruption",
+          "why": "The Arabic uses colloquial 'نسولف' where Modern Standard Arabic is expected in the app's content."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "meaning",
+          "why": "The Arabic specifies 'with the gentleness of the address/calling' (بلطف النداء), referring to Luqman's gentle way of addressing his son, whereas the English collapses it to 'gentle counsel', losing th"
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "parent_script",
+        "type": "source_corruption",
+        "why": "The Arabic uses colloquial 'نسولف' where Modern Standard Arabic is expected in the app's content."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "meaning",
+        "why": "The Arabic specifies 'with the gentleness of the address/calling' (بلطف النداء), referring to Luqman's gentle way of addressing his son, whereas the English collapses it to 'gentle counsel', losing th"
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

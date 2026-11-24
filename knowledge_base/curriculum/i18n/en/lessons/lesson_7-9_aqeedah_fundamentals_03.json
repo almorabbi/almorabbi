@@ -1,80 +1,85 @@
 {
   "id": "lesson_7-9_aqeedah_fundamentals_03",
   "path_id": "path_7-9_aqeedah_fundamentals",
-  "title": "Why Did Allah Create Us?",
+  "title": "Why Are We Here? Discovering Life's Purpose with Your Child",
   "age_group": "7-9",
   "domain": "aqeedah",
   "unit_ids": [
     "aqe-0af54c62"
   ],
-  "summary": "Allah did not create mankind in vain. He created us to know Him, worship Him, love Him, and cultivate the earth with goodness. Simplify for your child the meaning of worship: it is not only prayer, but every good deed that pleases Allah—truthfulness, birr al-walidayn (dutifulness to parents), helping people, rifq (gentleness) with animals, even a smile. Say to him: «We are in this world to do what pleases our Lord, and our Lord has prepared a great reward for us called Paradise.» This gives his life meaning and direction, and makes his daily behavior part of a greater purpose.",
-  "try_this": "This week: Ask your child to do one \"deed that pleases Allah\" each day, which he chooses himself (helping his sibling, watering a plant, giving a toy in charity), and talk together in the evening about what he did.",
+  "summary": "Imagine your child comes home from school, tells you about their eventful day, and then suddenly asks: “Mama/Baba, why are we here? Why did Allah create us?” The question might seem simple, but it carries deep philosophical weight, and you might feel challenged about how to answer it in a way that suits their age and touches their heart. Sometimes, as adults, we forget that children at this age begin to think seriously about the meaning of existence and search for answers that give them reassurance and direction.\n\nThe purpose of our existence in this life is much deeper than just eating, drinking, and playing. Allah created us for a great purpose: to know Him, to worship Him, to love Him, and to build up the earth with goodness. This worship is not limited to prayer and fasting only; rather, it is a comprehensive way of life. Every good deed you do that pleases Allah is an act of worship: being truthful, honoring your parents, helping someone in need, being gentle with an animal, even your smile in the face of your brother is an act of worship. When we instill this concept in our children, we give them an internal compass that guides them towards goodness and makes every detail of their day part of a meaningful journey.\n\nLet's make this concept part of the fabric of their daily lives. Talk to your child about how every good deed they do is a step towards Jannah (Paradise), the great reward Allah has prepared for us. This deep understanding gives the child a sense of purpose and responsibility, making their daily behavior not just a reaction, but a conscious choice that pleases their Creator. In this way, we plant the seeds of practical faith in them and help them build a balanced and believing personality that sees beauty and purpose in everything.",
+  "try_this": "Tonight: Before bed, ask your child to tell you one thing they did today that pleased Allah, no matter how simple (like helping their sibling, saying a kind word, or tidying their toys). Listen attentively and thank them.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How do you explain to your child that worship is broader than prayer and includes his akhlaq (character) and interactions?",
-    "What is the impact on a child who knows he has a purpose in life compared to a child who lives without meaning?"
+    "How can I make the concept of worship broader and more comprehensive for my child, so they don't only associate it with prayer?",
+    "What feeling do I want my child to experience when they understand that their life has a purpose and a goal?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My dear, every good deed you do in your day, even if it’s small, is a beautiful gift to Allah, and it brings us closer to Jannah.”",
+  "assistant_prompts": [
+    "How can I encourage my child (7-9 years old) to initiate small acts of kindness without me directly asking them to?",
+    "What stories or activities are suitable for 7-9 year olds to explain the meaning that Allah created us for a great purpose?"
+  ],
+  "ecosystem_links": {
+    "story_id": "omar_prayer",
+    "mission_id": "mission_7-9_memorise_one_line"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "try_this",
-        "type": "source_corruption",
-        "why": "The Arabic uses non-standard 'يرضّي' instead of Modern Standard Arabic 'يُرضي'."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "meaning",
-        "why": "Both instances of «الله» (Allah) in the quoted speech are rendered as 'our Lord', a substitution that preserves meaning but shifts the specific name used."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "11c85335223de12e09ce310d27860edfe0cb2f07cf13419d99105b9d3dab4523",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "ecdeb3dcac068ba0bbbe28bfb7a0b223a5794256d50ed88abca30fd73089c7d7",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [
         {
           "model": "deepseek-v4-pro",
-          "field": "try_this",
-          "type": "source_corruption",
-          "why": "The Arabic uses non-standard 'يرضّي' instead of Modern Standard Arabic 'يُرضي'."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "summary",
+          "field": "parent_script",
           "type": "meaning",
-          "why": "Both instances of «الله» (Allah) in the quoted speech are rendered as 'our Lord', a substitution that preserves meaning but shifts the specific name used."
+          "why": "The Arabic says good deeds bring us to Jannah, while the English softens this to bringing us closer to Jannah."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "parent_script",
+        "type": "meaning",
+        "why": "The Arabic says good deeds bring us to Jannah, while the English softens this to bringing us closer to Jannah."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

@@ -1,54 +1,71 @@
 {
   "id": "lesson_2-3_aqeedah_first_name_01",
   "path_id": "path_2-3_aqeedah_first_name",
-  "title": "The First Name He Hears and Says: Allah",
+  "title": "The First Word of Love: \"Allah\" in Your Child's Heart",
   "age_group": "2-3",
   "domain": "aqeedah",
-  "unit_ids": [],
-  "summary": "At this age your child understands neither a definition nor a proof — but he picks up whatever recurs on your tongue. So let the name «Allah» be among the first he hears: say it in a calm voice with a smiling face, and repeat it at every beautiful thing he points to. Do not correct his pronunciation and do not test him; loving repetition is the whole lesson. What is being built now is not a piece of information but an association: that this Name always arrives with tranquility and a smile.",
-  "try_this": "This week: whenever your child points at something he likes — a bird, the moon, a flower — say «Allah» with a smile, and do not ask him to repeat it. He will repeat it on his own.",
+  "unit_ids": [
+    "shm-aqd-09-tawhid-muraqabah",
+    "seed-defiance-23"
+  ],
+  "summary": "Imagine your little one, with wide eyes, pointing to a beautiful flower, a chirping bird, or even a piece of candy they love. In these innocent moments, they aren't looking for complex definitions or logical proofs; rather, they are absorbing the feelings associated with what they hear and see. This is your golden opportunity to connect the most beautiful words with the most beautiful feelings, to plant a seed of deep love in their heart, not just dry information.\n\nAt this early age (2-3 years), children don't grasp abstract concepts, but they are brilliant at picking up tone and emotion. When we repeat the name \"Allah\" in positive contexts, with calmness and a smile, we build an emotional bridge between this great name and everything beautiful and reassuring in their world. The goal isn't for the child to repeat the word correctly or to pass a test, but to associate the name \"Allah\" with feelings of love, security, and joy. This emotional connection is the first building block of a firm belief, built on affection, not fear.\n\nDon't pressure them to say it, and don't correct their pronunciation. Just be the calm and smiling source of this word. Let it gently enter their small world like a cool breeze, accompanied by everything joyful and comforting. Loving repetition, coupled with reassurance and a smile, is the real lesson. You will find that your child, with their pure nature, will pick up on these feelings and begin to repeat the name on their own, not as a duty, but as an echo of the love and security they feel.",
+  "try_this": "Today: Whenever your child points to something beautiful or joyful in their surroundings (a toy, a clear sky, food they love), say to them with a calm smile: \"Allah!\" or \"How beautiful this is, Allah!\" without asking them to repeat it.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "In what tone does your child usually hear the name of Allah from you — tranquility, or warning?",
-    "Which calm moments in your two’s day suit a loving repetition?"
+    "How can I make the name \"Allah\" associated with calmness and beauty in my child's day?",
+    "What are the times I repeat the name \"Allah\" in front of my child, and are they associated with positive or negative feelings?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«Look, my darling, Allah!»",
+  "assistant_prompts": [
+    "How do I handle it if my child starts repeating the name \"Allah\" unclearly or incorrectly?",
+    "What other daily activities can I use to connect the name \"Allah\" with positive emotions for my child?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "claude-opus-5",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T19:01:24.231634+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "6b046d098f65431a3a1a2e4495ea3abd502dbb1aa9e0f746fface0a864061a4a",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "15cbfe48e8b8ced5bd5b0edbcff1d8ab20d818b62d514ca24358485940f5804c",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

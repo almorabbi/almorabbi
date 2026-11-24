@@ -1,7 +1,7 @@
 {
   "id": "lesson_7-9_islamic_parenting_worship_01",
   "path_id": "path_7-9_islamic_parenting_worship",
-  "title": "Salah: Love That Prepares for Duty",
+  "title": "Prayer: A Dialogue of Hearts Blossoming with Love",
   "age_group": "7-9",
   "domain": "islamic_parenting",
   "unit_ids": [
@@ -9,36 +9,37 @@
     "8e884b98-41a4-4c29-92c5-aa71e62d7d51",
     "b1bd26fc-3144-4928-9bb4-ce2b30f95876"
   ],
-  "summary": "At the age of 7–9, the child begins to understand the meaning of salah but may see it as burdensome. The key: good example, encouragement rather than compulsion, and connecting his heart to Allah through stories and love.",
-  "try_this": "Today: Pray Maghrib or Isha with your child, recite aloud in its first two rak‘at, then ask him after the closing salam: How many rak‘at did we pray?",
+  "summary": "Imagine your seven or eight-year-old child, running around the house, laughing one moment and grumbling the next, then hearing the call to prayer. They might slow down, and perhaps wonder internally: \"Do I have to pray now?\" At this age, your child begins to understand that prayer is an obligation, but they might see it as a burden or a heavy task, especially with their preoccupation with play and exploring the world around them. You are not a coach imposing orders here, but a loving guide opening doors of love and tranquility for them.\n\nThe key is not in compulsion, but in connecting your child's heart with Allah in a warm and beloved way. Prayer is not just movements; it is a daily encounter, an opportunity for calm and reflection, and a source of strength and reassurance. When your child sees prayer in you as love and longing, and not just a habit or an obligation, their heart will begin to incline towards it. Always remember the saying of the Prophet ﷺ: «Make things easy and do not make them difficult; give glad tidings and do not make people flee.» (Sahih al-Bukhari 69). This is our approach to raising our children to love prayer, with gentleness, kindness, and encouragement.\n\nStart with a good example; make your prayer in front of them a model of humility and comfort. Talk to them about the beauty of prayer, about the stories of the prophets and righteous people and how their prayers were a light in their lives. Encourage them to participate with you, even if it's a simple participation, and celebrate every step they take towards it. The goal is for them to feel a sense of belonging to this great pillar of Islam, and to associate prayer with psychological comfort, not with coercion or reprimand.",
+  "try_this": "Tonight: Pray Isha with your child, recite aloud in the first two units of prayer, then after the salutation, smile at them and say: \"How wonderful it is to pray together, my dear!\" Then ask them: \"How many units of prayer did we pray?\" without waiting for a correct answer, just to open a dialogue.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How did your child react when you prayed with him?",
-    "What did your child enjoy most when you prayed together?"
+    "How did you feel while praying with your child tonight?",
+    "What did you notice about your child during or after the prayer?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«Prayer is our beautiful meeting with Allah, my little one, and it increases us in strength and happiness.»",
+  "assistant_prompts": [
+    "How can I encourage my child to pray without them feeling pressured or bored?",
+    "What stories are suitable for children aged 7-9 to connect them with prayer and the love of Allah?"
+  ],
+  "ecosystem_links": {
+    "story_id": "anbiya_yusuf_older",
+    "mission_id": "mission_7-9_secret_good_deed"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
-    "revalidated_at": "2026-10-08T16:29:33+00:00",
-    "fixed_at": "2026-08-13T18:16:22.371304+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -46,27 +47,27 @@
       ],
       "providers": {
         "deepseek-v4-pro": {
-          "provider": "openrouter",
-          "model": "deepseek/deepseek-v4-pro"
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
         },
         "glm-5.2": {
-          "provider": "openrouter",
-          "model": "z-ai/glm-5.2"
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
         }
       },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "06b97cb319287e86dea6648bc7a4678e0745330ab730ff8dd93afd7a98586245",
-      "reviewed_at": "2026-10-08T16:29:33+00:00",
+      "content_sha256": "4bfc6f83b0022c877ed1e990bbf75e922c6d9334536abce97a4c2d13a97af8b1",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "english_authors": [
-      "mistral-large-3:675b",
-      "claude-opus-5-5"
-    ]
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

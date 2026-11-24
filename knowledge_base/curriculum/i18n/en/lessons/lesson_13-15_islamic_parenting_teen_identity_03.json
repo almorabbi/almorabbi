@@ -1,21 +1,21 @@
 {
   "id": "lesson_13-15_islamic_parenting_teen_identity_03",
   "path_id": "path_13-15_islamic_parenting_teen_identity",
-  "title": "Future Marriage: Choosing a Partner, Rights, and Building a Family",
+  "title": "Dignity and Boundaries in Relationships: Building a Pure Heart and a Tranquil Family",
   "age_group": "13-15",
   "domain": "islamic_parenting",
   "unit_ids": [
-    "isl-7365e833",
-    "isl-83d7099a",
-    "isl-cc4ee988"
+    "cf8f3b3c-fe62-40b7-9fe8-37cb85a68bd4",
+    "isl-1812a28d",
+    "cd81035d-4fdb-4274-bcf2-55074ee7a1de"
   ],
-  "summary": "At the age of 13-15, thinking about marriage begins. Do not start the discussion too early, but do not delay it either: choose a partner based on deen (religion) and akhlaq (character). Learn about mutual rights (nafaqah (maintenance), mawaddah (affection), sakinah (tranquility)), and start building skills now: dialogue, tolerance, and bearing responsibility.",
-  "try_this": "This week: Discuss together a scenario: \"If you were to choose your life partner, what are the 3 most important qualities you would look for?\" Listen together without judgment, and guide them toward the Shar'i (legal Islamic) criteria.",
+  "summary": "Between the ages of thirteen and fifteen, physical and emotional changes accelerate, and teenagers are bombarded with constant messages through screens and peers that reduce their value to admiration, appearance, and fleeting relationships. At this age, your son or daughter doesn't need early lessons about the details of marriage as much as they need a clear compass about self-dignity, healthy relationship boundaries, and the meaning of mutual respect within the family.\n\nIf you remain silent out of shyness or resort to angry prohibitions, the internet and peers will fill this void with a distorted image. However, calm and dignified dialogue grants your teenager internal immunity: that feelings of growth and attraction are a natural human inclination that one is not blamed for, but Islam honors them by preserving their heart and boundaries until they place this emotion in its honorable place when they mature.\n\nThe Prophet ﷺ said: «Whoever believes in Allah and the Last Day should speak good or remain silent» (Sahih al-Bukhari 6018), and he guided us to good company that protects the heart: «The example of a good companion and a bad companion is like that of the carrier of musk and the blower of the bellows» (Sahih Muslim 2628). And the deepest protection for a teenager's heart emotionally is the warmth of their home: when they find respect, affection, and acceptance from their parents, they will not seek their value in fleeting relationships behind screens.",
+  "try_this": "Tonight: Choose a quiet moment (during a drive or a one-on-one chat) and express to your son or daughter your appreciation for their character and boundaries. Then, gently ask them: «What is the most embarrassing situation young people face on social media today?» And listen without interruption.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What qualities did your son mention?",
-    "Did they understand the difference between hubb (love) and shahwah (desire)?"
+    "Does my son or daughter find enough emotional warmth and sincere praise in our home to keep them from seeking acceptance elsewhere?",
+    "How do we convey the idea of «boundaries and dignity» using language of honor and heart protection, instead of language of restriction and accusation?"
   ],
   "warning_flags": [
     "علاقات عاطفية سابقة غير مشروعة",
@@ -24,88 +24,52 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«I know your time is full of pressures regarding relationships and social media, and I want you to know that my door is open for any question that comes to your mind, without embarrassment or judgment.»",
+  "assistant_prompts": [
+    "How can I talk to my 14-year-old son or daughter about boundaries in interacting with the opposite gender calmly without alienating them?",
+    "I discovered that my teenage son is influenced by peer pressure regarding relationships. How can I safely open a conversation with him about this?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_13-15_call_a_relative"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "addition",
-        "why": "English adds transliterations and parenthetical glosses not present in the Arabic."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "addition",
-        "why": "English adds transliterations and parenthetical glosses not present in the Arabic."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "try_this",
-        "type": "addition",
-        "why": "English adds a transliteration and parenthetical gloss not present in the Arabic."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "reflection_prompts",
-        "type": "addition",
-        "why": "English adds transliterations and parenthetical glosses not present in the Arabic."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-08-13T18:58:57.049990+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "0363bff91e0d0e3a3910fd5de175b05f75470498dcdb10aa9e8bf10cfb135c23",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "addition",
-          "why": "English adds transliterations and parenthetical glosses not present in the Arabic."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "addition",
-          "why": "English adds transliterations and parenthetical glosses not present in the Arabic."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "try_this",
-          "type": "addition",
-          "why": "English adds a transliteration and parenthetical gloss not present in the Arabic."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "reflection_prompts",
-          "type": "addition",
-          "why": "English adds transliterations and parenthetical glosses not present in the Arabic."
-        }
-      ],
+      "content_sha256": "4a8ea070e60974e8d2a380f978c7050abb2d17fdb83c7decc8faa9082035e2f1",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

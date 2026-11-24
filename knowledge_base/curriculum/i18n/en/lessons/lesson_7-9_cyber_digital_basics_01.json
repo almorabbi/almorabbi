@@ -1,52 +1,72 @@
 {
   "id": "lesson_7-9_cyber_digital_basics_01",
   "path_id": "path_7-9_cyber_digital_basics",
-  "title": "The Family Screen Contract: Agreed-Upon Rules",
+  "title": "Our Home Screens: Our Rules Together",
   "age_group": "7-9",
   "domain": "cyber",
-  "unit_ids": [],
-  "summary": "Instead of prohibition or chaos, create a clear 'contract' with your child: when, how much, and where devices are used. Rules that they help establish are more likely to be adhered to. Keep devices in a shared space, and agree on screen-free times (meals, before bed).",
-  "try_this": "This week: Sit together and write down three simple rules for device usage, then hang them in a visible place.",
+  "unit_ids": [
+    "seed-screen-79",
+    "cyb-5ee5729d"
+  ],
+  "summary": "Do you remember that moment when a small hand sneaks towards the tablet, or when your seven-year-old insists on \"just five more minutes\" in front of the screen, while your voice gradually rises? We often find ourselves between two choices: either strict prohibition that provokes resistance, or chaos that leaves us feeling exhausted. But what if there was a third way that combines order and flexibility, and turns screen time into an opportunity for learning and agreement instead of conflict?\n\nThe core idea here lies in partnership. When our children participate in setting the rules, they feel ownership and responsibility towards them. These are not orders imposed from above, but family agreements stemming from a shared dialogue. This approach not only teaches them self-discipline but also enhances their negotiation and communication skills, and gives them a sense that their voice is heard and valued, which is crucial at this age when they begin to form their independent personalities.\n\nInstead of leaving things to chance, make the \"Family Screen Contract\" a fun project. Sit together as a family, discuss when, how much, and where devices can be used. Agree on common places for screens, and set times completely free of them, such as mealtimes or an hour before bed. Remember that the goal is not deprivation, but conscious organization that protects family time, promotes other activities, and instills healthy digital habits that will last with them into the future.",
+  "try_this": "Tonight: Sit together as a family and write down two simple, clear rules for device use, then hang them in a place where everyone can see them.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Do you have clear, agreed-upon rules?",
-    "Does your child adhere to them?"
+    "Do I feel calm or stressed when it comes to screen time in our home?",
+    "What benefits do I see when my child participates in setting rules?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“What do you think about us agreeing today on how we use screens in our home so our time can be sweeter?”",
+  "assistant_prompts": [
+    "How can I help my child adhere to the rules we've agreed upon?",
+    "What are some screen-free alternative activities suitable for a 7-9 year old?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_7-9_memorise_one_line"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "bec1e6ab3b89d6ce683ced166f9d6b9f6dec1d674c0a84d11bc55b5dea5e1d78",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "fe02768da7c3e8807f71dd2e8620ba591279d9dbf596f2208927bab38d38dca9",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

@@ -1,58 +1,72 @@
 {
   "id": "lesson_16-18_cyber_digital_professional_b03",
   "path_id": "path_16-18_cyber_digital_professional",
-  "title": "The Digital Footprint, University Admissions, and Employment",
+  "title": "Your Child's Digital Footprint: Key to the Future or Stumbling Block?",
   "age_group": "16-18",
   "domain": "cyber",
   "unit_ids": [
     "1ad7b0db-b8cb-40cc-b752-f295119be45d",
     "cyb-f815145d"
   ],
-  "summary": "At this age, the digital footprint becomes a real asset or a burden: university admissions offices and employers search for the name. An old reckless post may cost an opportunity, while a clean and purposeful digital presence may open doors. Help your son 'clean' his old accounts, adjust privacy settings, and build a positive presence that reflects his skills and interests. Teach him the rule of posting: do not post what you would not want your future professor or manager to read. Awareness that the internet is a permanent memory transforms him from a reckless consumer into a conscious reputation builder.",
-  "try_this": "This week: review his public accounts together with the eye of an 'employer,' delete or adjust anything that may harm him, and think of one post or project that builds his positive image.",
+  "summary": "Do you remember that cute photo of your child dressed as a superhero years ago, or their impulsive comment on a video game? Perhaps it was just a fleeting moment in the vast world of the internet. But as university approaches and the search for a first job begins, these fleeting moments transform into a \"digital footprint,\" a permanent record of everything your child has posted or that has been posted about them. This footprint could be a bridge to their dream opportunity, or an invisible barrier preventing them from reaching it.\n\nAt this critical age, universities and potential employers begin searching for applicants' names online. They aren't looking for perfection, but rather for indicators of maturity, responsibility, and genuine interests. An old, inappropriate post, or an unwise photo, could send an entirely wrong message, regardless of your child's academic excellence or skills. Conversely, a conscious digital presence that reflects their passion, skills, and positive contributions can open doors they never imagined.\n\nDon't worry, the responsibility is shared, and it's not too late. Together, we can help our children understand that the internet is not just a space for momentary fun, but a platform for building a reputation. Encourage your child to review their old accounts with a critical eye, adjust privacy settings, and think about how to build a digital presence that reflects their best self. Teach them a simple rule: \"Don't post anything you wouldn't want your university professor or future boss to see.\" This awareness will transform them from passive consumers into conscious and influential creators of their digital reputation.",
+  "try_this": "Tonight: Sit together for a short time, open one of their public accounts, and talk frankly about the impression this account might leave on someone looking for information about them (like an employer or university admissions officer).",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What would your son’s digital footprint say about him if a professor or manager searched for it today?",
-    "How can you help him build a digital presence that serves his future rather than threatens it?"
+    "What would my child's digital footprint say about them if a professor or manager searched for it today?",
+    "How can I help my child build a digital presence that serves their future rather than threatens it?"
   ],
   "warning_flags": [],
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“Your digital footprint is the story you tell the world; let's help you make it a great story.”",
+  "assistant_prompts": [
+    "What are the practical steps to review and clean up my child's social media accounts?",
+    "How can my child build a positive digital presence that reflects their skills and interests for their university and professional future?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_community_help"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T18:08:36.914550+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "162d6914e0e1dc58ba0379b4227c38f1f76d438f8f617c1ad6da0a1688b60f8c",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "eb2d94d716fe9b4188d5d431d3c4c46d8504c618d64d480ec765dadfbb833055",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

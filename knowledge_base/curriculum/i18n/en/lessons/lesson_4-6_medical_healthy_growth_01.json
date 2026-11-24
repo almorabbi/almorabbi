@@ -1,17 +1,20 @@
 {
   "id": "lesson_4-6_medical_healthy_growth_01",
   "path_id": "path_4-6_medical_healthy_growth",
-  "title": "Sufficient Sleep: How Much Your Child Needs and Why",
+  "title": "Peaceful Sleep, Happy Child: The Secret to Your Child's Energy and Fun",
   "age_group": "4-6",
   "domain": "medical",
-  "unit_ids": [],
-  "summary": "At this age, a child needs 10 to 13 hours of sleep daily (including naps). Lack of sleep affects mood, attention, and immunity. Establish a regular bedtime, avoid screens an hour before it, and make pre-sleep time calm: a warm bath and a story. If sleep difficulties persist despite the routine, consult a doctor.",
-  "try_this": "This week: Set one consistent bedtime every night and create a calm routine half an hour before it, without screens.",
+  "unit_ids": [
+    "seed-sleep-46",
+    "med-53feef7b"
+  ],
+  "summary": "Have you experienced those moments when your energetic child transforms into a bundle of grumpiness and irritability, simply because they haven't had enough sleep? Your day might have started with laughter and enthusiasm, but as evening approaches, their energy begins to rapidly decline, and fun activities turn into small battlegrounds. This scene is familiar to many parents, and it's a clear sign that your little one's body is sending you an important message: I need to sleep!\n\nSleep isn't just rest for the body; it's a magical fuel that renews your child's energy, sharpens their mind, and strengthens their immunity. At this age (4-6 years), your child needs between 10 to 13 hours of sleep daily, including naps. When they don't get enough, their mood is affected, they find it difficult to focus on playing or learning, and they become more susceptible to illnesses. Imagine trying to drive a car without enough fuel; that's what happens to your child when they are deprived of sleep.\n\nDon't worry, it's simpler than you imagine. Start by establishing a consistent bedtime every night, even on weekends, as this sets their biological clock. Make the hour before bedtime calm and comfortable: a warm bath, an enjoyable story, or a gentle chat. Most importantly, keep screens away completely for at least an hour before bed. If sleep difficulties persist despite your commitment to the routine, don't hesitate to consult your pediatrician; there might be another reason that requires attention.",
+  "try_this": "Tonight: Set a consistent bedtime for your child, and start a calm routine half an hour before that time, keeping screens completely away.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How many hours does your child actually sleep?",
-    "Does he have a fixed sleep routine?"
+    "How many hours does your child actually sleep on average daily?",
+    "What is your current bedtime routine with them?"
   ],
   "warning_flags": [
     "صعوبات نومٍ شديدة ومستمرة",
@@ -20,36 +23,53 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“It’s bedtime, champ. Let’s let your little body rest and grow.”",
+  "assistant_prompts": [
+    "How do I deal with my child who refuses to go to bed on time?",
+    "What are some calm and suitable pre-bedtime activities for children aged 4-6 years?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star",
+    "mission_id": "mission_4-6_water_plant"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "33373f0dc1dd3bd4966e2bfcfda0a5e1cb2750f6403c65871c1835c755898da3",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "56aceadbdfa89be1189e3b4fa1f50a908729cd15e55af056552ee80c4c1633ce",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

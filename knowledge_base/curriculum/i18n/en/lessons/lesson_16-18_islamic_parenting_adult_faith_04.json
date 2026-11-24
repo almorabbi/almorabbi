@@ -1,90 +1,98 @@
 {
   "id": "lesson_16-18_islamic_parenting_adult_faith_04",
   "path_id": "path_16-18_islamic_parenting_adult_faith",
-  "title": "A Safe Launch: From Supervision to Trust and Independence",
+  "title": "A Safe Launch Towards Maturity: From Daily Supervision to Mature Trust",
   "age_group": "16-18",
   "domain": "islamic_parenting",
-  "unit_ids": [],
-  "summary": "Before your child leaves your home, your task is to transition them from control to trust: they make their own decisions, bear their consequences, and know you are a support, not a watcher. Entrust them with real responsibilities in money, time, and commitments, and keep your door and heart open no matter how they err; for the youth who finds a home that embraces them will not seek acceptance in the wrong places.",
-  "try_this": "This week: Hand over to your child a decision that was in your hands (managing an amount of money, organizing time, a commitment), agree on its boundaries, then give them the space to execute and learn from the outcome without interference.",
+  "unit_ids": [
+    "isl-ce1b71bd",
+    "isl-85efb0a3",
+    "isl-162e28c1"
+  ],
+  "summary": "After many long years of meticulous daily supervision, the moment approaches when your son or daughter steps into university, work, or establishes an independent life. The hardest thing for a loving parent to face is gradually loosening the grip of control before the child leaves home; for a young person who hasn't experienced making a decision and bearing its consequences under your safe roof may be long confused when facing bigger decisions alone.\n\nThe required transformation now is to shift from \"the supervisor\" to \"the safe harbor\": a place your young person returns to when they make a mistake, to learn and correct, not to receive gloating with your words, \"Didn't I tell you!\" And remember the principle of shared responsibility in the words of the Prophet ﷺ: \"All of you are shepherds, and all of you are responsible for your flock\" (Sahih al-Bukhari 893); and among your greatest care for them at eighteen is to hand them the reins of real responsibilities: managing their monthly budget, organizing their appointments, their commitments to the family, and building their personal plan.\n\nAnd when they make a non-critical mistake, resist the urge to immediately rescue them, and discuss with them calmly: \"What did you learn from this experience? And how will you act next time?\" With sincere prayer and calm trust, you launch into life a mature individual, relying on Allah, who knows that their back is supported by your love and prayers, no matter how old they become.",
+  "try_this": "Tonight: Choose one real responsibility that you used to handle for your young person (managing a monthly allowance, coordinating a family outing, following up on a personal commitment) and hand it over to them clearly and confidently, and give them space to experiment and learn.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What real responsibility did you hand over to your child this week?",
-    "How did they handle it, and what did they learn from it?"
+    "What is the biggest mistake I fear my child might make if I let them decide, and is it truly dangerous or a useful learning experience?",
+    "What word do I want my child to remember about my support and trust in them ten years from today?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"I trust your ability to manage this matter yourself from today; if you need my advice, I am always here, but the decision and follow-up are in your hands.\"",
+  "assistant_prompts": [
+    "My 18-year-old son relies on me for every detail of his day and doesn't take initiative. How can I gradually train him for independence?",
+    "How do I calmly deal with my university-aged child when they make a decision I warned them against beforehand?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_budget_month"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "auto_review": {
+      "reviewers": [
+        "deepseek-v4-pro",
+        "glm-5.2"
+      ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
+      "prompt_version": "dfa8a5f39718",
+      "content_sha256": "af436ebadf8b8d40bcc6204cb31ad1bd82554be0ecfa62de723d5f7310a4eda5",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "summary",
+          "type": "meaning",
+          "why": "The Arabic specifies a mistake in a non-critical decision; the English drops 'decision' and modifies 'mistake' instead, slightly shifting the focus."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "summary",
+          "type": "structure",
+          "why": "The English phrase 'may be long confused' is awkward and less clear than the Arabic 'may remain confused for a long time'."
+        }
+      ],
+      "adjudicated": [],
+      "tool": "ops/tools/review_en_parity.py",
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "low_only",
     "review_defects": [
       {
         "model": "deepseek-v4-pro",
         "field": "summary",
         "type": "meaning",
-        "why": "The Arabic addresses a son specifically, but the English uses the gender-neutral 'child'."
+        "why": "The Arabic specifies a mistake in a non-critical decision; the English drops 'decision' and modifies 'mistake' instead, slightly shifting the focus."
       },
       {
         "model": "deepseek-v4-pro",
-        "field": "try_this",
-        "type": "meaning",
-        "why": "The Arabic addresses a son specifically, but the English uses the gender-neutral 'child'."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "reflection_prompts",
-        "type": "meaning",
-        "why": "The Arabic addresses a son specifically, but the English uses the gender-neutral 'child'."
+        "field": "summary",
+        "type": "structure",
+        "why": "The English phrase 'may be long confused' is awkward and less clear than the Arabic 'may remain confused for a long time'."
       }
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "auto_review": {
-      "reviewers": [
-        "deepseek-v4-pro",
-        "glm-5.2"
-      ],
-      "fixer": null,
-      "rounds": 1,
-      "prompt_version": "dfa8a5f39718",
-      "content_sha256": "c8911616a2d53158b4b93649758127a8efc2d18f33c6da77ab8b9b8a281556d1",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "meaning",
-          "why": "The Arabic addresses a son specifically, but the English uses the gender-neutral 'child'."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "try_this",
-          "type": "meaning",
-          "why": "The Arabic addresses a son specifically, but the English uses the gender-neutral 'child'."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "reflection_prompts",
-          "type": "meaning",
-          "why": "The Arabic addresses a son specifically, but the English uses the gender-neutral 'child'."
-        }
-      ],
-      "adjudicated": [],
-      "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

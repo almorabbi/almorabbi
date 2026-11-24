@@ -1,52 +1,71 @@
 {
   "id": "lesson_0-3_islamic_parenting_fitrah_03",
   "path_id": "path_0-3_islamic_parenting_fitrah",
-  "title": "A Tranquil Imani Atmosphere: The Home That Nurtures",
+  "title": "A Home Warm with Tranquility: Planting Faith in Your Child's Heart",
   "age_group": "0-3",
   "domain": "aqeedah",
-  "unit_ids": [],
-  "summary": "An infant absorbs the emotions of their home before understanding its words. A home enveloped in tranquility, adhkar (remembrances of Allah), and mercy plants deep security within your child—a fertile ground for iman (faith) to flourish later.",
-  "try_this": "This week: Create a daily moment of serenity in your home (adhkar, recitation, or a kind word) that your child experiences with you.",
+  "unit_ids": [
+    "isl-6a157c3f",
+    "isl-ba66715b"
+  ],
+  "summary": "Imagine your infant child, sleeping peacefully in their crib, or playing with their simple toys, while the feelings of the home around them seep in. Before they understand your words, they pick up on your tone of voice, the warmth of your touch, and the calm or tension in the atmosphere. Your home is not just walls; it is a large embrace that nourishes their small soul and forms the first building blocks of their sense of security and tranquility.\n\nFaith is not merely words to be taught; rather, it is a deep feeling of security and reassurance that grows in fertile ground. When the home is filled with mercy, remembrance of God, and calm, these feelings seep into your child's tender heart, planting deep reassurance within them. This reassurance is the foundation upon which their faith will later be built, for as the Prophet ﷺ said: «Whoever does not show mercy will not be shown mercy» (Sahih al-Bukhari 5997). Thus, mutual mercy in the home is the seed of divine love.\n\nYou don't need extraordinary efforts to create this atmosphere. Start with simple steps: quiet moments of remembrance of God or reciting the Quran aloud, or even just warm, calm conversation among family members. These small moments accumulate to create an atmosphere of tranquility, in which your child feels the presence and mercy of God, even before they grasp the meaning. Make your home an oasis of peace, where your child's innate nature grows to love God and feel secure with Him.",
+  "try_this": "Tonight: Before your child sleeps, sit with them for a few minutes in complete quiet. Read a short verse aloud, or repeat a simple supplication, or simply enjoy a warm moment of silence with them.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What is the general atmosphere in your home?",
-    "What moment of tranquility did you add?"
+    "How would I describe the general atmosphere in my home currently? Is it calm or noisy?",
+    "What quiet moment did I add today, and how did I feel about it?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«My darling, our home is full of love and peace, because our Lord loves us.»",
+  "assistant_prompts": [
+    "How can I calm my infant when they are agitated or cry a lot?",
+    "What short remembrances of God can I recite aloud for my infant?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "f99101d8aaf18ecd29f55f80086a09a84c97e269084c457c2a3d3b5276a06d8f",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "91e4e39f2062cdcbb812ece40d20870462a875804ee7945b69f5942fbc115caf",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

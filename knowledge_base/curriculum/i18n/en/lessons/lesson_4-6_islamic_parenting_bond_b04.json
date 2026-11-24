@@ -1,55 +1,100 @@
 {
   "id": "lesson_4-6_islamic_parenting_bond_b04",
   "path_id": "path_4-6_islamic_parenting_bond",
-  "title": "Making Du'a Together: Teaching the Heart to Cling to Allah",
+  "title": "Praying Together: Teach Their Heart That Allah Is Near and Hears Them",
   "age_group": "4-6",
   "domain": "islamic_parenting",
   "unit_ids": [
-    "isl-17332318",
-    "0f8e1ff3-7aa9-4a2c-9a6d-c0c2475c2152"
+    "isl-0243bed4",
+    "isl-52462ce7",
+    "isl-572e7df3"
   ],
-  "summary": "Du'a is the simplest and deepest thing you can teach your child at this age: that Allah has a door always open. Teach him short, easy du'a for their contexts (before eating, at bedtime, when afraid), and let him make du'a in his own words sometimes, even in colloquial speech. When he sees that du'a brings calm and reassurance, his heart will cling to Allah with a living relationship, not dry memorisation. Make du'a in front of him for him and for others, so he learns that du'a encompasses others. The child who grows accustomed to du'a early carries in his heart the certainty that he is not alone, and that he has a Lord who is near and hears him—this is the deepest psychological and spiritual security.",
-  "try_this": "This week: Choose a daily moment (like bedtime) and make du'a together with a short du'a, then let your child add a du'a in his own words. Notice if he begins to make du'a spontaneously.",
+  "summary": "Your child might be a little scared of the dark when the lights go out, or sad because their friend is sick, or wishing they could succeed at riding their bike. In those fleeting moments, you hold the greatest door to instill living faith in their heart: for them to see prayer as a true, close refuge, not memorized words recited with dry automatism.\n\nMany homes associate the remembrance of Allah with fear or warning (\"Allah sees you if you do such-and-such!\"), which shapes in the child's mind a feeling of heavy surveillance instead of love and comfort. But warm, shared prayer builds within them a luminous image: that Allah, the Exalted, is near, merciful, and loves for us to speak to Him in our simple language, in joy and fear alike.\n\nThe Prophet ﷺ taught us about the servant's closeness to their Lord, saying: \"The closest a servant is to their Lord is when they are prostrating, so increase your supplications (du'a).\" (Sahih Muslim 482). In your daily life with your child, let them hear you supplicate for them in a tender voice while they are in your lap, then open the door for them to supplicate with their spontaneous words — even if they pray for their cat, or their toy, or their grandmother! Do not mock the innocence of their prayer, and do not prolong it until they get bored; thirty sincere seconds every night will instill in their heart a certainty that will stay with them their whole life: that the door to the heavens is never closed.",
+  "try_this": "Tonight before your child sleeps: gently place your hand on their head, make one supplication for them where they hear their name, then say to them: \"Now it's your turn, what would you like to ask Allah for tonight?\" And affirm their supplication with joy.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How can you make du'a a warm, reassuring moment for your child, not a duty to be performed?",
-    "What does your child learn about Allah when he sees you making du'a with confidence and tranquility?"
+    "Does my child hear my loving supplications for them more, or my complaints about them when I'm exhausted?",
+    "What is one short remembrance of Allah that we can link to a consistent daily moment (eating or sleeping) without formality?"
   ],
   "warning_flags": [],
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"O Allah, protect my beloved, bless them, and make them happy and content. And now, my champion, what would you like to ask Allah for tonight?\"",
+  "assistant_prompts": [
+    "How can I instill the love of Allah in the heart of a 5-year-old without scaring them?",
+    "Sometimes I lose my temper and almost curse my child; how can I replace that with a supplication for them in a moment of anger?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star",
+    "mission_id": "mission_4-6_draw_family"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "f80eb701bcb7693235bcda915b7b3aefb91999b25ea146d94e27e4030dc6a317",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
-      "residual_low": [],
+      "content_sha256": "44a84b631a66db3ba68a4ba71107c69b802432062f2e2f4a1cbbd52b5802edd3",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "fields.title.english",
+          "type": "meaning",
+          "why": "الدعاء here means supplication (du'a), not salah; 'Praying Together' may be misread as ritual prayer."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "fields.try_this.english",
+          "type": "meaning",
+          "why": "أمِّن means 'say ameen to', not merely 'affirm'; the specific act of saying ameen is lost."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "fields.title.english",
+        "type": "meaning",
+        "why": "الدعاء here means supplication (du'a), not salah; 'Praying Together' may be misread as ritual prayer."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "fields.try_this.english",
+        "type": "meaning",
+        "why": "أمِّن means 'say ameen to', not merely 'affirm'; the specific act of saying ameen is lost."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

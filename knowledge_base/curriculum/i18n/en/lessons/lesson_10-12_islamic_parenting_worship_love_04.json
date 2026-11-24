@@ -1,78 +1,72 @@
 {
   "id": "lesson_10-12_islamic_parenting_worship_love_04",
   "path_id": "path_10-12_islamic_parenting_worship_love",
-  "title": "Du'a: Teaching the Art of Intimate Conversation with Allah",
+  "title": "Supplication (Du'a): The Heart's Bridge to Allah",
   "age_group": "10-12",
   "domain": "islamic_parenting",
-  "unit_ids": [],
-  "summary": "Du'a connects the heart directly to Allah. Teach your child to supplicate in their own words, in their worries and joys, not just through memorised phrases. When they find Allah close and responsive, their faith is anchored in living certainty.",
-  "try_this": "This week: Encourage your child to make du'a to Allah about something personal to them, in their own words, and observe together the impact of that du'a.",
+  "unit_ids": [
+    "isl-30775bae",
+    "isl-dcb6d4e8"
+  ],
+  "summary": "Imagine your child, at this age when their understanding is blossoming, facing a challenge at school or feeling some anxiety about something. They might come to you to share their worries, or they might prefer to keep them to themselves. In both cases, there remains an inner feeling of seeking support, a greater power that listens and helps. How can we teach our children that this support is always available, and that an open door awaits them at every moment?\n\nSupplication (Du'a) is not just words spoken; it is an intimate conversation between a servant and their Lord, a direct link that nourishes the soul and reassures the heart. When we teach our children to supplicate to Allah with their own words, in their true language, about their sincere feelings, their dreams, and their pains, we instill in them a living faith that Allah is near, hears, and responds. This is not just religious education; it is building a strong character that knows where to find help and tranquility, and realizes that they have a Lord who will never abandon them, and that they are not alone in facing life.\n\nStart by encouraging your child to express their need for Allah in their own way, without pretense or barriers. Sit with them, listen to them, then gently remind them that Allah is closer to them than their jugular vein, and that He loves to hear our voices and our supplications. These simple moments build a bridge of trust and faith, transforming supplication from a mere ritual into a sincere heartfelt communion that strengthens faith and brings peace and reassurance.",
+  "try_this": "Today: Encourage your child to supplicate to Allah for a real need of theirs, using their own words, and together observe the effect of this supplication on them or on the actual matter.",
   "order": 4,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Does your child make du'a from the heart, or only through memorised phrases?",
-    "How have you encouraged them?"
+    "Does my child feel free to express their supplications in their own way?",
+    "How can I be a role model for them in sincere, heartfelt supplication?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“My child, Allah always hears you. Tell Him everything in your heart in your own words.”",
+  "assistant_prompts": [
+    "What are the best ways to teach my child aged 10-12 to supplicate to Allah sincerely and spontaneously?",
+    "How can I help my child see Allah's response to their supplications to strengthen their faith?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_10-12_letter_relative"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "title",
-        "type": "addition",
-        "why": "English adds 'the Art of' not present in Arabic, slightly overstating."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "title",
-        "type": "addition",
-        "why": "The English adds 'the Art of', a slight embellishment not present in the Arabic."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "8ce6d2ad0ddc3615650aad9c3afdffe2a9b0f7e623bfbc71ef6f618b37217207",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "title",
-          "type": "addition",
-          "why": "English adds 'the Art of' not present in Arabic, slightly overstating."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "title",
-          "type": "addition",
-          "why": "The English adds 'the Art of', a slight embellishment not present in the Arabic."
-        }
-      ],
+      "content_sha256": "f8522cf564a9b852d9c189dd8716fcc8e9c5531a9e1640e4b2fbdb5b0a578064",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

@@ -1,42 +1,44 @@
 {
   "id": "lesson_0-3_islamic_parenting_attachment_01",
   "path_id": "path_0-3_islamic_parenting_attachment",
-  "title": "Welcoming the Newborn: Sunnan al-Fitrah and Islamic Birth Rituals",
+  "title": "The Moment of Birth: Your Child's First Steps into Their Identity",
   "age_group": "0-3",
   "domain": "islamic_parenting",
   "unit_ids": [
     "isl-8f891c3d",
     "isl-1ba05ed7"
   ],
-  "summary": "The moment of birth is not merely a medical event—it is a moment of covenant. Among the Prophet's ﷺ guidance in welcoming a newborn is that he named a newborn, did tahneek for him, and made du'a for barakah for him (Sahih al-Bukhari 5467), so welcome your child with congratulations, gratitude, and du'a. Many jurists consider the adhan in the newborn's ear recommended, though hadith scholars differ over the authenticity of its hadith; as for the iqamah in the left ear, its hadith is weak and not established. Naming may be done on the day of birth or on the seventh day: choose a name that carries a beautiful meaning and servitude to Allah. The 'aqiqah on the seventh day is an expression of gratitude and a public announcement of the child’s arrival in the community; if the seventh day passes, jurists hold different views on its time after that, among them slaughtering it on the fourteenth or twenty-first day, and the hadith reported on this is disputed, so ask a scholar you trust and do not burden yourself with worry. These sunnan are not mere formalities—they are the foundation of the child’s Islamic identity from their very first day.",
-  "try_this": "Today: Write your child a short note about the day they were born: their name, its meaning and why you chose it, and the du'a you made for them, and keep it for them to read when they grow up.",
+  "summary": "Imagine your little one sleeping peacefully in your arms, their steady breaths filling the room with tranquility. This moment is not just the end of a pregnancy journey; it is the beginning of a new life journey filled with love and learning, a journey where every touch and every word shapes your child's world. Welcoming a newborn is more than just a family event; it is the first chapter in their life's book, where the seeds of their identity and values are sown.\n\nFrom the guidance of the Prophet ﷺ in welcoming a newborn, he named a newborn, performed tahnik for him, and prayed for blessings upon him (Sahih al-Bukhari 5467). So, welcome your child with congratulations, gratitude, and prayer. These traditions are not mere rituals, but a deep expression of joy and gratitude for the arrival of this pure soul, and an affirmation that this child is part of a larger story, a story that carries the meanings of servitude to Allah and connection to authentic values. It is an opportunity to instill in them, from the very first moment, a sense of belonging and security.\n\nDo not burden yourself with the details of the traditions, for ease is the principle. Choose a beautiful name that carries a good meaning and servitude to Allah, whether you name them on the day of birth or on the seventh day. The aqiqah is an expression of gratitude and an announcement of your child's arrival, and if you miss the seventh day, there is no harm, for Allah is gentle and loves gentleness. The most important thing is to welcome your child with an open heart, full of love and prayer, and to make these first moments full of warmth and tranquility, for they are the foundation for building their personality and identity.",
+  "try_this": "Today: Write a small note to your child about their birth day: their name and its meaning, why you chose it, and the prayer you made for them, and save it for them to read when they grow up.",
   "order": 1,
   "estimated_minutes": 4,
   "reflection_prompts": [
-    "What name did you choose for your child, and what is its meaning? Do you know the story behind this meaning?",
-    "Did you perform all the sunnan of welcoming the newborn? If something was missed, can you complete it now?"
+    "What name did you choose for your child and what does it mean? Do you know the story behind this meaning?",
+    "How can you make the first moments of welcoming your child part of building their Islamic identity?"
   ],
   "warning_flags": [],
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-06-10T16:00:00",
   "updated_at": "2026-06-10T16:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“Welcome, my darling, to your world. Your name carries a beautiful story, and I am here to tell it to you every day.”",
+  "assistant_prompts": [
+    "What are the best supplications I can make for my child when welcoming them?",
+    "Are there specific Islamic names that have strong and suitable meanings for my child?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_masjid_young"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": true,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-08",
-    "revalidated_at": "2026-10-08T15:21:56+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -44,27 +46,27 @@
       ],
       "providers": {
         "deepseek-v4-pro": {
-          "provider": "openrouter",
-          "model": "deepseek/deepseek-v4-pro"
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
         },
         "glm-5.2": {
-          "provider": "openrouter",
-          "model": "z-ai/glm-5.2"
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
         }
       },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "eefbb2087acb83b21ed772b609b0d6d13d165cf423c4a06cf05d74806f8596ca",
-      "reviewed_at": "2026-10-08T15:21:56+00:00",
+      "content_sha256": "8c6bff6aeead2a052fa5500690acc597a0123ff5074afd26f76134e80d0a988f",
+      "reviewed_at": "2026-11-24T18:01:18+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "english_authors": [
-      "mistral-large-3:675b",
-      "claude-opus-5-5"
-    ]
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:01:18+00:00"
   }
 }

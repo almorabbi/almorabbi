@@ -1,55 +1,73 @@
 {
   "id": "lesson_7-9_islamic_parenting_akhlaq_02",
   "path_id": "path_7-9_islamic_parenting_akhlaq",
-  "title": "Al-Rahmah bil-Ikhwah wan-Nas (Mercy towards Siblings and People)",
+  "title": "Mercy Towards Siblings and People: Hearts That Feel for Others",
   "age_group": "7-9",
   "domain": "islamic_parenting",
-  "unit_ids": [],
-  "summary": "He ﷺ said: «Whoever does not show mercy to people, Allah will not show mercy to him» (Sahih Muslim 2319). Teach your child rifq (gentleness) with his siblings, animals, and those who serve him. Correct harshness with calmness and explain its impact on others, for rahmah (mercy) is a khuluq (character trait) learned through situation, not sermon.",
-  "try_this": "This week: Notice a situation of rahmah from your child and praise him for it, or a situation of harshness and address it with the question, «How did your brother feel?»",
+  "unit_ids": [
+    "isl-f4accfb8",
+    "isl-e0cb0e7b",
+    "isl-2bbafb5d"
+  ],
+  "summary": "The sound of a quarrel rises from the next room; he pushed his younger brother and snatched his toy, or he mocked a classmate who made a mistake while reading. The quick reaction of many parents is a dry command: \"Apologize to him immediately!\" So the child mumbles an empty \"sorry,\" devoid of feeling, and then the same situation repeats an hour later. Why? Because forced apologies teach acting, while mercy is built when a child's heart turns to the impact of their actions on others.\n\nBetween the ages of seven and nine, your child becomes capable of seeing a situation from another's perspective if you help them with a calm question that awakens their conscience instead of making them feel humiliated. The Prophet ﷺ said: \"Whoever does not show mercy to people, Allah Almighty will not show mercy to him\" (Sahih Muslim 2319). The mercy we desire is not limited to major situations; rather, it appears in the tone of their voice with their siblings, their respect for the worker in the street, and their kindness to a weak animal.\n\nWhen a small act of harshness occurs, start by comforting the affected person first to calm the situation, then ask your child privately: \"Look at your brother's face, how do you think he felt? And how can we make him feel better now?\" Conversely, learn to catch small moments of mercy and name them clearly: \"I saw you waiting for your little brother, that is great mercy.\" What you praise clearly grows and expands in your child's heart.",
+  "try_this": "Tonight: Pick one kind act your child did with their sibling, friend, or an adult and praise it with a specific description; and if a quarrel happens, ask them calmly after things have settled: \"How can we make your brother feel better now?\"",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How does your child treat his siblings?",
-    "What situation did you address?"
+    "How do members of our household speak to those who serve us or to younger siblings when we are tired?",
+    "Do I pay as much attention to praising moments of cooperation between my children as I do to breaking up their quarrels?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"Stop for a moment and look at your brother's face; he looks very sad right now. You have a merciful heart, how would you like us to make him feel better together?\"",
+  "assistant_prompts": [
+    "Daily sibling squabbles between my 8- and 5-year-olds exhaust me. What are practical steps to reduce jealousy?",
+    "My child is either being mocked at school or mocking classmates. How can I teach them mercy and strength together?"
+  ],
+  "ecosystem_links": {
+    "story_id": "bilal_forgiveness",
+    "mission_id": "mission_7-9_secret_good_deed"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": true
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-10-04T08:15:36.331649+00:00",
-    "fixer_model": "claude-opus-5.5",
-    "manual_fix_note": "2026-10-04 scripture fix: hadith quoted only from the Sahihayn with book + number (Muslim by Abd al-Baqi); non-Sahihayn or paraphrased quotes replaced, mirrored from the Arabic.",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "659f0ac6c2e20823ec6138cf20ab2541a85a9be8f698f63e52df09210bf37000",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "8ce8550755197615103a320ee5cc4ae998f5a754845743569463e253410ba9cd",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

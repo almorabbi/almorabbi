@@ -1,94 +1,72 @@
 {
   "id": "lesson_2-3_islamic_attachment_b03",
   "path_id": "path_2-3_islamic_attachment",
-  "title": "Rifq in the Face of Mistakes: Discipline That Builds, Not Breaks",
+  "title": "When Your Little One Makes a Mistake: Gentleness is the Key to the Heart Before the Mind",
   "age_group": "2-3",
   "domain": "islamic_parenting",
   "unit_ids": [
     "seed-defiance-23",
     "isl-7269b6d8"
   ],
-  "summary": "When a two-year-old makes a mistake, it is often exploration, not rebellion. The Prophetic methodology ﷺ for this age is rifq (gentleness) and patience—no shouting, no hitting. Guide the behavior with calm firmness ('We don’t throw the book; we put it down'), and remove them from danger without humiliation. Praise the right action immediately. At this age, the child does not understand complex punishment, but they understand your tone and your face. Rifq does not mean permissiveness; it means firmness without cruelty. The child who is disciplined with mercy learns what is right and keeps their heart close to you, while early harshness teaches them fear, not understanding.",
-  "try_this": "This week: At the first mistake, try calm, firm guidance instead of raising your voice ('We do it this way'), and gently remove them from the mistake. Observe their response compared to shouting.",
+  "summary": "Imagine you're calmly preparing dinner, and suddenly you hear a loud noise. Your two-year-old throws a new block toy forcefully on the floor, or deliberately spills water from their cup onto the carpet. You might feel anger or frustration, and wonder: Are they doing this to challenge me? Is this early stubbornness? In these moments, your feeling of love for your child mixes with your desire to teach them right from wrong, but how do you do that without breaking something inside them?\n\nAt this age, your child isn't aiming to upset you. Often, their behavior is an exploration of the world around them, an experiment with the limits of things, or an expression of a feeling they don't have the words to describe. The noble prophetic methodology teaches us that gentleness is the foundation of interaction, especially with young children. The Prophet ﷺ said: «Indeed, gentleness is not in anything except that it adorns it, and it is not removed from anything except that it shames it» (Sahih Muslim 2594). This means that softness and calmness in guiding children's mistakes adorn their upbringing and make it more effective, while harshness removes blessing and beauty from it.\n\nInstead of shouting or punishment that they don't understand, guide them calmly and firmly. Gently hold their hand and show them how to handle the item correctly: «We put the book here, we don't throw it.» Remove them from danger without scolding, and praise any positive behavior they do immediately. Remember that your tone of voice and facial expressions carry much stronger messages than your complex words. Gentleness is not leniency; rather, it is firmness mixed with mercy, building trust and love in your child's heart, and making them accept your guidance with an open mind.",
+  "try_this": "Today: In the first situation where your child makes a mistake, replace your usual reaction with calm and firm guidance while demonstrating the correct action (e.g., «We do it like this»), then gently remove them from the situation. Observe how they respond.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How do you balance firmness and rifq when your child makes a mistake at this age?",
-    "What is the impact of your tone and facial expression on your child more than your words themselves?"
+    "How can I show both firmness and gentleness to my child when they make a mistake?",
+    "What non-verbal messages might I be sending my child without realizing it, and how can I improve them?"
   ],
   "warning_flags": [],
   "is_published": true,
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«My dear, I am here to teach you and protect you, not to be angry with you.»",
+  "assistant_prompts": [
+    "How do I deal with my two-year-old when they deliberately throw food on the floor?",
+    "What are effective alternatives to shouting when my child doesn't listen to my instructions?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_masjid_young"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "addition",
-        "why": "Adds ﷺ not present in the Arabic source."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "meaning",
-        "why": "Drops 'in its place', slightly understating the Arabic."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "meaning",
-        "why": "The Arabic specifies putting the book 'in its place' (i.e., back where it belongs), while the English says only 'put it down', losing the habit-building detail."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "8bcb062fdb5a75ba34dfaa1e9b7fb706674b1f2183c51566d1e33499eeeb383b",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "addition",
-          "why": "Adds ﷺ not present in the Arabic source."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "meaning",
-          "why": "Drops 'in its place', slightly understating the Arabic."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "meaning",
-          "why": "The Arabic specifies putting the book 'in its place' (i.e., back where it belongs), while the English says only 'put it down', losing the habit-building detail."
-        }
-      ],
+      "content_sha256": "71f532c8eaed080d2e6397462ea8bfcb17e80339880b9cce16e0daa955a9e82e",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }

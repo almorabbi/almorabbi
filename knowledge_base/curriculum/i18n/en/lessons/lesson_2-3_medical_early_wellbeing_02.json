@@ -1,17 +1,20 @@
 {
   "id": "lesson_2-3_medical_early_wellbeing_02",
   "path_id": "path_2-3_medical_early_wellbeing",
-  "title": "Sleep of the Toddler and Night Wakings",
+  "title": "Toddler's Peaceful Nights: The Key to Your Child's Restful Sleep",
   "age_group": "2-3",
   "domain": "medical",
-  "unit_ids": [],
-  "summary": "A toddler needs about 11–14 hours of sleep daily, including a nap. Night wakings and bedtime resistance are common. Establish a calm routine and regular timings, and avoid screens and stimulating activity before sleep. If severe wakings persist, or if snoring or breathing pauses occur, consult a doctor.",
-  "try_this": "This week: Establish a short, calm sleep routine (bath, story, dim light) in the same order every night.",
+  "unit_ids": [
+    "seed-sleep-23",
+    "c7b72252-7135-405e-98fd-a46d466d9055"
+  ],
+  "summary": "As the sun sets, the daily sleep battle begins: your toddler runs around the house as if night is the start of a new day, resisting every attempt to calm them, and may wake up several times during the night, leaving you all exhausted and bewildered. These fragmented nights are not easy for anyone, but they are a natural part of a toddler's development, whose sleep needs are constantly changing, and who needs our support to learn how to sleep peacefully.\n\nAt this age, your toddler needs between 11 and 14 hours of sleep daily, including one or two naps. Night waking and sleep resistance are very common at this age, and are often related to their rapid development and exploration of the world around them. The important thing here is to realize that we can help them build healthy sleep habits, and that patience and love are the key to this journey.\n\nTo begin your nights with tranquility, establish a short, calm evening routine that is repeated in the same order every night. Start with a warm bath, then a short story read in a quiet voice, with dim lighting. Avoid screens and exciting activities for at least an hour before bedtime. And if you notice that your child wakes up frequently and disturbingly, or suffers from snoring, or stops breathing during sleep, do not hesitate to consult a doctor, as these are signs that require attention.",
+  "try_this": "Tonight: Start your child's bedtime routine 15 minutes earlier than usual, focusing on calmness and dim lighting.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How are your child’s nights going?",
-    "Is the routine consistent?"
+    "What are your child's nights like these days?",
+    "Is your child's bedtime routine consistent and comfortable for them?"
   ],
   "warning_flags": [
     "شخيرٌ أو انقطاع نفسٍ ليلي",
@@ -20,36 +23,52 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“It’s time for peaceful sleep, my little one. We’ll read a beautiful story, and then we’ll sleep.”",
+  "assistant_prompts": [
+    "What quiet activities can I include in my toddler's bedtime routine?",
+    "When should I be concerned about my toddler's snoring?"
+  ],
+  "ecosystem_links": {
+    "story_id": "layla_star"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4c90d31c0d4ed6792abc92fad54ea65f443e52dd15ae7c2738d80517e844205d",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "6d8ff8d0089fd628adbed6f9b9e8a853b608e853495334ed9cec56c3d0fe9bff",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

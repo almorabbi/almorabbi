@@ -1,17 +1,20 @@
 {
   "id": "lesson_16-18_development_adult_readiness_03",
   "path_id": "path_16-18_development_adult_readiness",
-  "title": "Mental Health and the Pressure of the Future: Anxiety About Tomorrow",
+  "title": "My Teen Son and Pressure: How Can I Be His Support in Future Anxiety?",
   "age_group": "16-18",
   "domain": "development",
-  "unit_ids": [],
-  "summary": "The pressure of high school, university admissions, and comparisons can weigh heavily on your young one. Natural anxiety drives him to work, but persistent sadness, isolation, or loss of enjoyment in everything for more than two weeks are signs not to be ignored. Be a source of security, not additional pressure, and ask about his feelings, not just his grades.",
-  "try_this": "This week: Set aside a quiet session where you ask your son, \"How are *you*?\" not \"How are your studies?\" and listen without offering immediate solutions.",
+  "unit_ids": [
+    "dev-a3cf002d",
+    "dev-7d13f16a"
+  ],
+  "summary": "Do you remember how your little child used to run to you with such enthusiasm to tell you about their day? Now, you might find them sitting silently in front of a computer screen, or closing their bedroom door, and you might notice that their smile has become less frequent, or their sleep is disturbed. The high school period, with the approach of crucial exams and university applications, is a stage full of pressures and expectations, whether from parents, peers, or even themselves. They might feel the burden of comparisons with others, or the fear of not achieving what they aspire to, which generates a natural anxiety that drives them to work. But when does this anxiety become a burden?\n\nAnxiety is a natural part of growth, pushing our children to plan and strive. But when this anxiety turns into persistent sadness, social withdrawal, or a loss of enjoyment in activities they previously enjoyed, and this continues for more than two weeks, these are signals that warrant our attention. This is not just a fleeting \"teenage phase\"; rather, it could be signs that your child needs greater support. Our role as parents is not to add more pressure, but to be a safe haven where they can express their fears without judgment or belittling them.\n\nBe that safe haven. Start by listening with an open heart, and ask about their feelings, not just their grades. Sometimes, all a teenager needs is to feel that someone understands them and stands by them, even if you don't have all the answers. Reassure your child that you are there for them, and that their worth is not determined by their academic results or university acceptance. Encourage them to express their fears, and remind them that asking for help is not weakness, but strength. This sensitive period requires patience and unconditional love from us, to help them navigate it safely.",
+  "try_this": "Tonight: Choose a quiet time with no distractions, sit with your child, and ask them: \"How are you doing these days?\" Listen carefully to their answer without interrupting or offering immediate solutions.",
   "order": 3,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What does your son’s general mood look like these days?",
-    "Does he find security with you to speak about his pressures?"
+    "When was the last time you talked deeply with your child about their feelings?",
+    "Does your child feel safe enough to share their fears and anxieties with you without fear of judgment?"
   ],
   "warning_flags": [
     "حزن أو قلق يومي أكثر من أسبوعين",
@@ -21,36 +24,66 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "\"I am here for you, no matter what your feelings are, and your future is more important than any result.\"",
+  "assistant_prompts": [
+    "How do I differentiate between normal anxiety and anxiety that requires intervention in a 17-year-old teenager?",
+    "What activities can I do with my teenager to reduce their stress and anxiety?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_mentor_younger"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "777a9058e56257761538bb16a9baf1b9de97e834b2151d74f564394f54d37c24",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
-      "residual_low": [],
+      "content_sha256": "3b8ce937abf17973bbcd045b0eabadc5ea51b6f641e117b97e3f210989d5ed0a",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "meaning",
+          "why": "The Arabic consistently addresses the parent of a son (ابنك, masculine); the English neutralises to 'child/them/their', creating a mild inconsistency with the title which keeps 'son'."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "meaning",
+        "why": "The Arabic consistently addresses the parent of a son (ابنك, masculine); the English neutralises to 'child/them/their', creating a mild inconsistency with the title which keeps 'son'."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

@@ -1,7 +1,7 @@
 {
   "id": "lesson_10-12_cyber_digital_citizenship_02",
   "path_id": "path_10-12_cyber_digital_citizenship",
-  "title": "Cyberbullying: Don’t Participate, Stop It",
+  "title": "When Screens Become a Battlefield: How Do We Protect Our Children from Cyberbullying?",
   "age_group": "10-12",
   "domain": "cyber",
   "unit_ids": [
@@ -11,13 +11,13 @@
     "cyb-74c93d51",
     "cyb-8c2cbb56"
   ],
-  "summary": "Cyberbullying is more dangerous: it’s 24/7, reaches the home, and lasts forever. Teach your child: (1) Don’t participate or play the role of the bystander (2) Take a screenshot + report to the platform + tell a parent (3) the official cybercrime reporting authority in your country for serious reports.",
-  "try_this": "Practice a scenario: \"If you see bullying against a friend, what do you do?\" — Train them on: screenshot → report → tell me.",
+  "summary": "Imagine your child, aged 10-12, comes home from school and is enjoying time playing on their tablet or phone. Suddenly, their expression changes, their smile freezes, and signs of worry or sadness appear on their face. They might not talk about it immediately, but you sense something isn't right. Is it just a minor disagreement with a friend? Or is something deeper and more painful happening in their digital world?\n\nCyberbullying isn't just a fleeting joke or a momentary disagreement; it's a specter that haunts our children everywhere and at all times. Unlike traditional bullying, which ends when the school day is over, cyberbullying remains present 24/7, infiltrating the privacy of their homes, and its digital traces are etched forever. This continuous and widespread nature makes it more painful and harder to deal with, as it threatens their psychological well-being and affects their sense of security even in their own homes.\n\nOur mission as parents is to be a shield and a fortress for our children. Teach your child that their role is not just a bystander, but a change-maker. Encourage them not to participate in any form of bullying, even if it's just by liking or re-sharing. Train them to take a screenshot of any harmful content, then report it to the relevant platform, and most importantly, to come directly to you to tell you what happened. In serious cases, always remember that there are specialized official bodies in your country that can deal with cybercrimes.",
+  "try_this": "Tonight: Talk to your child about a hypothetical scenario: \"If you saw cyberbullying happening to your close friend, what would you do?\" And train them on the practical steps: screenshot the content → report to the platform → tell me immediately.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "Has your child been exposed to or witnessed cyberbullying?",
-    "Do they know how to report cybercrime to the official authority in your country?"
+    "Has your child ever experienced cyberbullying or witnessed a similar situation before?",
+    "Does your child know how to report cybercrimes to the official authorities in your country if necessary?"
   ],
   "warning_flags": [
     "تغير مفاجئ في المزاج بعد استخدام الجوال",
@@ -27,39 +27,53 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "“Always remember, my dear, your screen is a safe place for you, and if you see anything that hurts you or others, I am here to listen and help you.”",
+  "assistant_prompts": [
+    "How can I explain to my 11-year-old child the importance of not sharing offensive content online?",
+    "What are the best ways to help my child cope with feelings of anxiety after witnessing cyberbullying?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_10-12_cook_simple"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "manual_fix_note": "2026-10-04: aligned with the Arabic register/safety fix (country-specific number removed, leaked or garbled wording corrected).",
-    "fixed_at": "2026-10-04T07:31:52.180297+00:00",
-    "fixer_model": "claude-opus-5.5",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "06d908add74b108703f7035ce6d92ac6ea78bbee5c0e25a2daf299bbdef0ad8c",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "992f87782af1d828f138defea8617dd30084a7149d0f62c9ddb18f51919a255d",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

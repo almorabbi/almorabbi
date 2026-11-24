@@ -1,7 +1,7 @@
 {
   "id": "lesson_10-12_islamic_parenting_identity_04",
   "path_id": "path_10-12_aqeedah_growth",
-  "title": "Confidence and Identity: You Are My Son, and Allah Sees You",
+  "title": "My Dear Son: Your Value to Allah is Determined by No One But Him",
   "age_group": "10-12",
   "domain": "aqeedah",
   "unit_ids": [
@@ -10,50 +10,65 @@
     "acb36cc3-318d-4866-bfa2-530c03dcc422",
     "ef7cfad0-4999-42ba-bdf4-1c1d65d3b29f"
   ],
-  "summary": "A stage of self-doubt. Teach him: your worth with Allah is through your deeds, not your clothes, number of friends, or grades. Build his confidence: praise the effort, not the outcome; give him space to decide; and make du'a for him for steadfastness.",
-  "try_this": "Create together a \"Box of Achievements\": a small paper each day where he writes something he feels proud of (a prayer, honesty, helping). Open it at the end of the month.",
+  "summary": "You sit with your ten-year-old son, watching him scroll through his phone with a frown, then he asks you, \"Am I good enough?\" or \"Why don't I have what so-and-so has?\" He might start comparing himself to his friends – their clothes, or even the number of likes on their posts. This age is sensitive, as a child begins to build their self-identity, and the evaluations of others become very significant, which can shake their self-confidence and make them doubt their true worth.\n\nIt is very important that we instill in our children's hearts that their true value is not tied to external appearances, or what they possess, or even how popular they are among their peers. Their true value stems from their essence, their character, their pursuit of good, and their relationship with their Creator. Teach your children that Allah sees their hearts and their deeds, and that this is the truest scale. Praise their effort and striving, not just the results, and give them space to make their own decisions so they feel independent and capable. Remember the saying of the Prophet ﷺ: «The strong believer is better and more beloved to Allah than the weak believer, and there is good in both» (Sahih Muslim 2664), and strength here includes strength of faith and self-confidence.\n\nTo solidify this value, focus on boosting his self-confidence through his good deeds. Encourage him in actions that bring him closer to Allah, such as prayer, honesty, and helping others, and make these actions the source of his pride. Supplicate for his steadfastness upon the truth, and always remind him that Allah loves him and cares for him, and that his true value lies in being a righteous servant of Allah, not in anything else. This will give him a solid foundation for his identity that will not be shaken by life's fluctuations or people's opinions.",
+  "try_this": "Tonight: Before bedtime, ask your child to tell you one thing they did today that made them feel proud, whether it was praying on time, saying a kind word, or helping someone. Listen to them attentively and share in their feeling.",
   "order": 1,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "What did he write in the Box of Achievements?",
-    "Have you noticed a change in how he speaks about himself?"
+    "What did you notice in your child's words about themselves after this conversation?",
+    "Did your child connect their feeling of pride today with a good deed they performed?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«Remember, my son, your true value is with Allah, and He sees your heart and your effort, and that is what matters most.»",
+  "assistant_prompts": [
+    "How can I help my child understand that their value is not linked to their appearance or possessions?",
+    "What activities can strengthen my child's self-confidence from an Islamic perspective?"
+  ],
+  "ecosystem_links": {
+    "story_id": "sira_jidh_older",
+    "mission_id": "mission_10-12_cook_simple"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "clean",
-    "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T16:52:31+00:00",
-    "fixed_at": "2026-08-13T19:42:45.643252+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "3a23ca00ac21c9c5653cba2f5eb499db0ee52e30e72e7fd888d0e6809d9a5c4e",
-      "reviewed_at": "2026-10-04T16:52:31+00:00",
+      "content_sha256": "00abcb4af224c86f34446a11dc2244bec8201ff4f440cd4d12d9d2a90c6eb825",
+      "reviewed_at": "2026-11-24T18:37:34+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-24T18:37:34+00:00"
   }
 }

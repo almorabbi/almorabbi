@@ -1,68 +1,97 @@
 {
   "id": "lesson_16-18_aqeedah_conviction_01",
   "path_id": "path_16-18_aqeedah_conviction",
-  "title": "Confronting Atheism and Contemporary Doubts",
+  "title": "The Journey of Conscious Faith: How Do We Immunize Our Children Against Doubts?",
   "age_group": "16-18",
   "domain": "aqeedah",
-  "unit_ids": [],
-  "summary": "As your son stands on the threshold of university and the open world, he will encounter organized doubts: atheism, skepticism about the religion, and mockery of its constants online. Your role is not to prevent him from hearing these things, but to fortify him. Teach him that a doubt (shubhah) is a question with an answer, and that many who cast doubts do so from ignorance or desire. Train him to seek answers from trusted scholars of knowledge rather than accepting anything from anyone. Help him distinguish between a question that seeks the truth and a doubt that seeks destruction. The most important thing you can give him is confidence that his religion stands firm in the face of debate, and that he is not alone.",
-  "try_this": "This week: Discuss a common doubt your son sees online calmly, and search together for a reliable scholarly response—teach him *how to think*, not just *what to answer*.",
+  "unit_ids": [
+    "gap-isl-aqeedah-trust-01",
+    "isl-ce1b71bd"
+  ],
+  "summary": "Imagine your teenage son, with his bright eyes and open mind, scrolling through his phone in his room. Suddenly, he comes to you with an unexpected question, or shares a video that raises a religious doubt he saw online. You might feel a hidden worry, as the digital world opens doors to all kinds of ideas, some of which might shake the foundations of faith. These moments are not for scolding or forbidding, but rather golden opportunities for constructive dialogue, and for strengthening his self-confidence and his faith.\n\nThe core idea here is not to isolate our children from these doubts, as this is impossible in our world today. Rather, it is to arm them with critical thinking tools and the skill of seeking truth. Teach them that a doubt is merely a question, and every question has an answer. And that many of those who raise doubts may base their words on ignorance or whims, not on sound knowledge. Our role is to be their primary reference, opening our hearts before our ears, and reassuring them that seeking truth is not weakness, but strength.\n\nStart by strengthening his confidence that his religion is solid and stands firm in the face of discussion, and that faith is not just imitation, but a firm conviction built on evidence. Train him to distinguish between a question that seeks knowledge and a doubt that aims to destroy. Guide him towards reliable sources of knowledge, and teach him how to differentiate between the valuable and the worthless in the sea of information. Always remember that you are planting a tree with deep roots in him, not just a fleeting branch, and that this journey requires patience, wisdom, and gentleness. The Prophet ﷺ said: «Make things easy and do not make them difficult; gladden people and do not repel them.» (Sahih al-Bukhari 69).",
+  "try_this": "Tonight: Choose a short online clip (less than a minute) that raises a common religious doubt, and watch it with your son. Then calmly ask him: «What do you think of this statement?» Listen to his answer without interruption, then search together for a reliable response.",
   "order": 2,
-  "estimated_minutes": 3,
+  "estimated_minutes": 4,
   "reflection_prompts": [
-    "How can you fortify your son against doubts without isolating him from the world?",
-    "What is the difference between a question that seeks the truth and a doubt that seeks destruction, and how can your son distinguish between them?"
+    "How can I be a reliable source for my son when he faces doubts, without imposing my opinion on him?",
+    "What practical steps can I take to teach my son critical thinking on religious topics?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "parent_script": "«Our religion is strong, and facing difficult questions makes our faith deeper.»",
+  "assistant_prompts": [
+    "How do I deal with my teenage son when he tells me he doubts some religious matters?",
+    "What are some reliable sources I can direct my son to for answers to religious doubts?"
+  ],
+  "ecosystem_links": {
+    "mission_id": "mission_16-18_deep_read"
+  },
   "language": "en",
   "source_language": "ar",
   "translation": {
-    "translator_model": "mistral-large-3:675b",
-    "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "needs_scholar_review": true,
-    "scholar_signals": {
-      "keyword": false,
-      "quoted_arabic": true,
-      "reviewer_model": false
-    },
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "try_this.arabic",
-        "type": "source_corruption",
-        "why": "The imperative «ناقش» is singular while «ابحثا» is dual."
-      }
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "gemini-2.5-flash"
     ],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:18+00:00",
-    "fixed_at": "2026-08-13T18:07:48.936031+00:00",
-    "fixer_model": "mistral-large-3:675b",
+    "generated_by": "phase3b_translate_en.py",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "7d8f59d1832838fb05d582f324c825acea1cf37b545f60e4e85039284022a5bd",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "cf9e014fec93048e40916f43212ebd65d4129735d4e62f15bab5b3f8e0c2dc56",
+      "reviewed_at": "2026-11-24T18:28:44+00:00",
       "residual_low": [
         {
-          "model": "deepseek-v4-pro",
-          "field": "try_this.arabic",
-          "type": "source_corruption",
-          "why": "The imperative «ناقش» is singular while «ابحثا» is dual."
+          "model": "glm-5.2",
+          "field": "fields.try_this.english",
+          "type": "leakage",
+          "why": "Arabic-style guillemets («») are used in the English text instead of standard English quotation marks."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "fields.parent_script.english",
+          "type": "leakage",
+          "why": "Arabic-style guillemets («») are used in the English text instead of standard English quotation marks."
         }
       ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
-    }
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
+    },
+    "reviewer_model": "deepseek-v4-pro+glm-5.2",
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "fields.try_this.english",
+        "type": "leakage",
+        "why": "Arabic-style guillemets («») are used in the English text instead of standard English quotation marks."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "fields.parent_script.english",
+        "type": "leakage",
+        "why": "Arabic-style guillemets («») are used in the English text instead of standard English quotation marks."
+      }
+    ],
+    "revalidated_at": "2026-11-24T18:28:44+00:00"
   }
 }
