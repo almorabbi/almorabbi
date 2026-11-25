@@ -465,6 +465,10 @@ class _Body extends ConsumerWidget {
           title: AppLocalizations.of(context).lessonSummary,
           body: lesson.summary,
         ),
+        // GA4 data shows >54% of lesson readers open the video and 35% open
+        // the podcast (spending ~100s there vs 20s on text). Keep both 1 tap
+        // away right below the summary without crowding try_this above the fold.
+        _QuickMediaBar(lessonId: lesson.id, lessonTitle: lesson.title),
         if (lesson.reflectionPrompts.isNotEmpty) ...[
           const SizedBox(height: 16),
           _ReflectionCard(prompts: lesson.reflectionPrompts),
@@ -1216,6 +1220,96 @@ class _EcosystemMawqifCardState extends ConsumerState<_EcosystemMawqifCard> {
   }
 }
 
+class _QuickMediaBar extends ConsumerWidget {
+  const _QuickMediaBar({required this.lessonId, required this.lessonTitle});
+  final String lessonId;
+  final String lessonTitle;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final assetsAsync = ref.watch(lessonAssetsProvider(lessonId));
+    return assetsAsync.when(
+      data: (LessonAssets? assets) {
+        if (assets == null) return const SizedBox.shrink();
+        final videoRaw = assets.videoMp4;
+        final podRaw = assets.podcastMp3;
+        if (videoRaw == null && podRaw == null) {
+          return const SizedBox.shrink();
+        }
+        final l10n = AppLocalizations.of(context);
+        final videoUrl = videoRaw == null
+            ? null
+            : (videoRaw.startsWith('http')
+                  ? videoRaw
+                  : '${AppConfig.apiBaseUrl}/$videoRaw');
+        final podUrl = podRaw == null
+            ? null
+            : (podRaw.startsWith('http://') || podRaw.startsWith('https://')
+                  ? podRaw
+                  : '${AppConfig.apiBaseUrl}/$podRaw');
+
+        return Padding(
+          padding: const EdgeInsets.only(top: 14),
+          child: Wrap(
+            spacing: 10,
+            runSpacing: 10,
+            children: [
+              if (videoUrl != null)
+                FilledButton.icon(
+                  key: const Key('lesson_quick_video'),
+                  style: FilledButton.styleFrom(
+                    backgroundColor: Dt.primary,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(Dt.rButton),
+                    ),
+                  ),
+                  icon: const Icon(Icons.play_circle_filled_rounded, size: 20),
+                  label: Text(
+                    l10n.lessonQuickWatchVideo,
+                    style: const TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                  onPressed: () => Navigator.push(
+                    context,
+                    AppRoutes.video(videoUrl, lessonTitle),
+                  ),
+                ),
+              if (podUrl != null)
+                FilledButton.tonalIcon(
+                  key: const Key('lesson_quick_podcast'),
+                  style: FilledButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(Dt.rButton),
+                    ),
+                  ),
+                  icon: const Icon(Icons.headphones_rounded, size: 20),
+                  label: Text(
+                    l10n.lessonQuickListenPodcast,
+                    style: const TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                  onPressed: () => Navigator.push(
+                    context,
+                    AppRoutes.podcast(podUrl, lessonTitle),
+                  ),
+                ),
+            ],
+          ),
+        );
+      },
+      loading: () => const SizedBox.shrink(),
+      error: (_, _) => const SizedBox.shrink(),
+    );
+  }
+}
+
 class _InteractiveAssetsSection extends ConsumerWidget {
   final String lessonId;
   const _InteractiveAssetsSection({required this.lessonId});
@@ -1228,48 +1322,6 @@ class _InteractiveAssetsSection extends ConsumerWidget {
       data: (LessonAssets? assets) {
         if (assets == null) return const SizedBox.shrink();
         final buttons = <Widget>[];
-
-        if (assets.podcastMp3 != null) {
-          final raw = assets.podcastMp3!;
-          final url = raw.startsWith('http://') || raw.startsWith('https://')
-              ? raw
-              : '${AppConfig.apiBaseUrl}/$raw';
-          buttons.add(
-            _AssetButton(
-              icon: Icons.headset,
-              label: AppLocalizations.of(context).lessonListenPodcast,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  AppRoutes.podcast(
-                    url,
-                    AppLocalizations.of(context).lessonPodcastTitle,
-                  ),
-                );
-              },
-            ),
-          );
-        }
-
-        if (assets.videoMp4 != null) {
-          final raw = assets.videoMp4!;
-          final url = raw.startsWith('http')
-              ? raw
-              : '${AppConfig.apiBaseUrl}/$raw';
-          buttons.add(
-            _VideoCard(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  AppRoutes.video(
-                    url,
-                    AppLocalizations.of(context).lessonWatchVideo,
-                  ),
-                );
-              },
-            ),
-          );
-        }
 
         final flashcardsCount = assets.flashcards.fold<int>(0, (sum, item) {
           final map = item as Map<String, dynamic>?;
@@ -1436,64 +1488,6 @@ class _InteractiveAssetsSection extends ConsumerWidget {
       },
       loading: () => const SizedBox.shrink(),
       error: (_, _) => const SizedBox.shrink(),
-    );
-  }
-}
-
-/// Prominent video launcher — a tall card with a big play button so the
-/// lesson video is impossible to miss (unlike the slim asset rows).
-class _VideoCard extends StatelessWidget {
-  const _VideoCard({required this.onTap});
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return BouncyTap(
-      onTap: onTap,
-      child: Container(
-        height: 120,
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            begin: AlignmentDirectional.topStart,
-            end: AlignmentDirectional.bottomEnd,
-            colors: [Color(0xFF1E293B), Color(0xFF0F172A)],
-          ),
-          borderRadius: BorderRadius.circular(Dt.rCard),
-          boxShadow: Dt.cardShadow,
-        ),
-        child: Stack(
-          children: [
-            Center(
-              child: Container(
-                width: 64,
-                height: 64,
-                decoration: BoxDecoration(
-                  color: AppTheme.primary,
-                  shape: BoxShape.circle,
-                  boxShadow: Dt.softShadow(AppTheme.primary),
-                ),
-                child: const Icon(
-                  Icons.play_arrow,
-                  color: Colors.white,
-                  size: 38,
-                ),
-              ),
-            ),
-            PositionedDirectional(
-              start: 16,
-              bottom: 12,
-              child: Text(
-                AppLocalizations.of(context).lessonVideoTitle,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w800,
-                  fontSize: 15,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -6,8 +7,11 @@ import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../../core/analytics.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../theme/design_tokens.dart';
+import '../../referral/referral_service.dart';
+import '../../share/share_service.dart';
 import '../services/infographic_stamp.dart';
 
 /// Full-screen, zoomable viewer for a lesson infographic image.
@@ -43,7 +47,12 @@ class _InfographicScreenState extends State<InfographicScreen> {
 
   Future<void> _download() async {
     if (_saving) return;
-    final shareText = AppLocalizations.of(context).shareInfographicText;
+    final l10n = AppLocalizations.of(context);
+    final shareText = ShareService.shareText(
+      l10n.shareInfographicText,
+      l10n,
+      referralCode: ReferralService.cachedCode,
+    );
     setState(() => _saving = true);
     try {
       final bytes = await _buildWatermarked();
@@ -55,6 +64,7 @@ class _InfographicScreenState extends State<InfographicScreen> {
         files: [XFile(path, mimeType: 'image/png')],
         text: shareText,
       ));
+      unawaited(Analytics.shareMoment('infographic'));
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(

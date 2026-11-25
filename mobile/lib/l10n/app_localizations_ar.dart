@@ -7369,7 +7369,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get lessonChildCornerOpenStory => 'افتح الحكاية الآن';
 
   @override
-  String get lessonDeepenTitle => 'تعمّق أكثر (استماع ومرفقات)';
+  String get lessonDeepenTitle => 'أدوات المراجعة والتعمّق';
 
   @override
   String get lessonMawqifBridgeTitle => 'موقف بقرار مرتبط بالدرس (٤ دقائق)';
@@ -7380,4 +7380,26 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get lessonMawqifBridgeCta => 'جرّب الموقف الآن';
+
+  @override
+  String get mediaDownloadTooltip => 'تحميل ومشاركة';
+
+  @override
+  String get mediaDownloading => 'جارٍ التحميل...';
+
+  @override
+  String get mediaDownloadError =>
+      'تعذّر تحميل الملف — تحقّق من الاتصال وحاول مجددًا';
+
+  @override
+  String get sharePodcastText => 'حلقة صوتية تربوية من تطبيق المربّي 🎧';
+
+  @override
+  String get shareVideoText => 'فيديو تربوي قصير من تطبيق المربّي 🎥';
+
+  @override
+  String get lessonQuickWatchVideo => 'شاهد الفيديو';
+
+  @override
+  String get lessonQuickListenPodcast => 'استمع للبودكاست';
 }

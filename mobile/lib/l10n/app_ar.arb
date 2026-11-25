@@ -2778,8 +2778,15 @@
   "lessonChildCornerTitle": "في ركن الطفل الليلة",
   "lessonChildCornerSubtitle": "حكاية دافئة تعزّز نفس قيمة الدرس وتنتهي بمهمة بعيدًا عن الشاشة.",
   "lessonChildCornerOpenStory": "افتح الحكاية الآن",
-  "lessonDeepenTitle": "تعمّق أكثر (استماع ومرفقات)",
+  "lessonDeepenTitle": "أدوات المراجعة والتعمّق",
   "lessonMawqifBridgeTitle": "موقف بقرار مرتبط بالدرس (٤ دقائق)",
   "lessonMawqifBridgeSubtitle": "تدرّب على تطبيق الفكرة في موقف منزلي واقعي بثلاثة خيارات عملية.",
-  "lessonMawqifBridgeCta": "جرّب الموقف الآن"
+  "lessonMawqifBridgeCta": "جرّب الموقف الآن",
+  "mediaDownloadTooltip": "تحميل ومشاركة",
+  "mediaDownloading": "جارٍ التحميل...",
+  "mediaDownloadError": "تعذّر تحميل الملف — تحقّق من الاتصال وحاول مجددًا",
+  "sharePodcastText": "حلقة صوتية تربوية من تطبيق المربّي 🎧",
+  "shareVideoText": "فيديو تربوي قصير من تطبيق المربّي 🎥",
+  "lessonQuickWatchVideo": "شاهد الفيديو",
+  "lessonQuickListenPodcast": "استمع للبودكاست"
 }

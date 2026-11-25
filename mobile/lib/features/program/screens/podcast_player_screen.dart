@@ -22,16 +22,19 @@ import '../../../theme/app_theme.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../l10n/l10n_global.dart';
 import '../../../theme/design_tokens.dart';
+import '../services/lesson_media_downloader.dart';
 import 'package:almorabbi/widgets/ui/loading_view.dart';
 
 class PodcastPlayerScreen extends StatefulWidget {
   final String? url;
   final String title;
+  final LessonMediaDownloader? downloader;
 
   const PodcastPlayerScreen({
     super.key,
     required this.url,
     required this.title,
+    this.downloader,
   });
 
   @override
@@ -43,6 +46,8 @@ class _PodcastPlayerScreenState extends State<PodcastPlayerScreen> {
   StreamSubscription<PlayerState>? _stateSub;
   bool _ready = false;
   String? _errorMessage;
+  bool _downloading = false;
+  double? _downloadProgress;
 
   // Speed options surfaced in the UI. Indexed by [_speedIndex].
   static const _speeds = <double>[1.0, 1.25, 1.5, 1.75, 2.0];
@@ -123,8 +128,51 @@ class _PodcastPlayerScreenState extends State<PodcastPlayerScreen> {
     return '$m:$s';
   }
 
+  Future<void> _downloadPodcast() async {
+    final url = widget.url;
+    if (_downloading || url == null || url.isEmpty) return;
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        AppL10n.current;
+    setState(() {
+      _downloading = true;
+      _downloadProgress = null;
+    });
+    try {
+      final dl = widget.downloader ?? LessonMediaDownloader();
+      await dl.downloadAndShare(
+        url: url,
+        extension: 'mp3',
+        mimeType: 'audio/mpeg',
+        kind: 'podcast',
+        baseMessage: l10n.sharePodcastText,
+        l10n: l10n,
+        onProgress: (p) {
+          if (mounted) setState(() => _downloadProgress = p);
+        },
+      );
+    } catch (_) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.mediaDownloadError)),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _downloading = false;
+          _downloadProgress = null;
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        AppL10n.current;
+    final canDownload = widget.url != null && widget.url!.isNotEmpty;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -132,6 +180,26 @@ class _PodcastPlayerScreenState extends State<PodcastPlayerScreen> {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
+        actions: [
+          if (canDownload)
+            IconButton(
+              key: const Key('podcast_download_button'),
+              tooltip: _downloading
+                  ? l10n.mediaDownloading
+                  : l10n.mediaDownloadTooltip,
+              icon: _downloading
+                  ? SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2.2,
+                        value: _downloadProgress,
+                      ),
+                    )
+                  : const Icon(Icons.download_rounded),
+              onPressed: _downloading ? null : _downloadPodcast,
+            ),
+        ],
       ),
       body: !_ready
           ? const LoadingView.spinner()

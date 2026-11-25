@@ -2476,8 +2476,15 @@
   "lessonChildCornerTitle": "In Child Corner tonight",
   "lessonChildCornerSubtitle": "A warm bedtime story that reinforces tonight's lesson and ends off-screen.",
   "lessonChildCornerOpenStory": "Open story now",
-  "lessonDeepenTitle": "Go deeper (audio & extras)",
+  "lessonDeepenTitle": "Review tools & extras",
   "lessonMawqifBridgeTitle": "Paired decision scenario (4 min)",
   "lessonMawqifBridgeSubtitle": "Practice this idea in a real home scenario with three realistic choices.",
-  "lessonMawqifBridgeCta": "Try the scenario"
+  "lessonMawqifBridgeCta": "Try the scenario",
+  "mediaDownloadTooltip": "Download & share",
+  "mediaDownloading": "Downloading...",
+  "mediaDownloadError": "Could not download the file — please check your connection and try again.",
+  "sharePodcastText": "A parenting podcast episode from Al-Murabbi 🎧",
+  "shareVideoText": "A short parenting video from Al-Murabbi 🎥",
+  "lessonQuickWatchVideo": "Watch video",
+  "lessonQuickListenPodcast": "Listen to podcast"
 }
