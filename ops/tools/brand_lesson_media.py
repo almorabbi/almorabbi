@@ -170,6 +170,8 @@ def brand_podcast(
                 "-y",
                 "-v",
                 "error",
+                "-threads",
+                "2",
                 "-i",
                 str(intro),
                 "-i",
@@ -224,6 +226,8 @@ def brand_podcast(
                 "-y",
                 "-v",
                 "error",
+                "-threads",
+                "2",
                 "-i",
                 str(intro),
                 "-i",
@@ -312,69 +316,147 @@ def brand_video(
     )
 
     with tempfile.TemporaryDirectory(prefix="tg-brand-mp4-") as tmp:
-        out_tmp = Path(tmp) / "out.mp4"
-        fc = (
+        tmp_dir = Path(tmp)
+        main_mp4 = tmp_dir / "main.mp4"
+        outro_mp4 = tmp_dir / "outro.mp4"
+        concat_txt = tmp_dir / "concat.txt"
+        out_tmp = tmp_dir / "out.mp4"
+
+        # Two-step encode + demuxer stream-copy concat keeps peak RAM under
+        # ~200 MB per worker (avoids filtergraph concat buffering gigabytes of
+        # decoded 720p frames).
+        wm_fc = (
             f"[0:v]scale={w}:{h}:force_original_aspect_ratio=decrease,"
             f"pad={w}:{h}:(ow-iw)/2:(oh-ih)/2,fps=24,format=yuv420p,setsar=1[vmain];"
             f"[1:v]scale={w}:{h},format=rgba[wm];"
-            "[vmain][wm]overlay=0:0:shortest=1[v0];"
-            "[0:a]aresample=44100,aformat=channel_layouts=mono[a0];"
-            f"[2:v]scale={w}:{h},fps=24,format=yuv420p,setsar=1,"
-            f"fade=t=in:st=0:d=0.35,fade=t=out:st={outro_dur - 0.35:.2f}:d=0.35[v1];"
-            f"anullsrc=r=44100:cl=mono:d=0.35[lead];"
-            f"anullsrc=r=44100:cl=mono:d=0.45[tail];"
-            "[3:a]aresample=44100,aformat=channel_layouts=mono[av];"
-            "[lead][av][tail]concat=n=3:v=0:a=1[a1];"
-            "[v0][a0][v1][a1]concat=n=2:v=1:a=1[vout][aout]"
+            "[vmain][wm]overlay=0:0:shortest=1[vout]"
         )
-        cmd = [
-            "ffmpeg",
-            "-y",
-            "-v",
-            "error",
-            "-i",
-            str(path),
-            "-i",
-            str(wm),
-            "-loop",
-            "1",
-            "-t",
-            f"{outro_dur:.2f}",
-            "-i",
-            str(outro_img),
-            "-i",
-            str(outro_wav),
-            "-filter_complex",
-            fc,
-            "-map",
-            "[vout]",
-            "-map",
-            "[aout]",
-            "-c:v",
-            "libx264",
-            "-preset",
-            "veryfast",
-            "-crf",
-            "23",
-            "-pix_fmt",
-            "yuv420p",
-            "-c:a",
-            "aac",
-            "-b:a",
-            "96k",
-            "-ar",
-            "44100",
-            "-ac",
-            "1",
-            "-movflags",
-            "+faststart",
-            "-metadata",
-            f"artist={artist}",
-            "-metadata",
-            f"comment={comment}",
-            str(out_tmp),
-        ]
-        subprocess.run(cmd, check=True)
+        subprocess.run(
+            [
+                "ffmpeg",
+                "-y",
+                "-v",
+                "error",
+                "-threads",
+                "2",
+                "-i",
+                str(path),
+                "-i",
+                str(wm),
+                "-filter_complex",
+                wm_fc,
+                "-map",
+                "[vout]",
+                "-map",
+                "0:a",
+                "-c:v",
+                "libx264",
+                "-preset",
+                "veryfast",
+                "-crf",
+                "23",
+                "-pix_fmt",
+                "yuv420p",
+                "-r",
+                "24",
+                "-video_track_timescale",
+                "24000",
+                "-c:a",
+                "aac",
+                "-b:a",
+                "96k",
+                "-ar",
+                "44100",
+                "-ac",
+                "1",
+                str(main_mp4),
+            ],
+            check=True,
+        )
+
+        outro_fc = (
+            f"[0:v]scale={w}:{h},fps=24,format=yuv420p,setsar=1,"
+            f"fade=t=in:st=0:d=0.35,fade=t=out:st={outro_dur - 0.35:.2f}:d=0.35[v1];"
+            "anullsrc=r=44100:cl=mono:d=0.35[lead];"
+            "anullsrc=r=44100:cl=mono:d=0.45[tail];"
+            "[1:a]aresample=44100,aformat=channel_layouts=mono[av];"
+            "[lead][av][tail]concat=n=3:v=0:a=1[a1]"
+        )
+        subprocess.run(
+            [
+                "ffmpeg",
+                "-y",
+                "-v",
+                "error",
+                "-threads",
+                "2",
+                "-loop",
+                "1",
+                "-t",
+                f"{outro_dur:.2f}",
+                "-i",
+                str(outro_img),
+                "-i",
+                str(outro_wav),
+                "-filter_complex",
+                outro_fc,
+                "-map",
+                "[v1]",
+                "-map",
+                "[a1]",
+                "-c:v",
+                "libx264",
+                "-preset",
+                "veryfast",
+                "-crf",
+                "23",
+                "-pix_fmt",
+                "yuv420p",
+                "-r",
+                "24",
+                "-video_track_timescale",
+                "24000",
+                "-c:a",
+                "aac",
+                "-b:a",
+                "96k",
+                "-ar",
+                "44100",
+                "-ac",
+                "1",
+                str(outro_mp4),
+            ],
+            check=True,
+        )
+
+        concat_txt.write_text(
+            f"file '{main_mp4}'\nfile '{outro_mp4}'\n",
+            encoding="utf-8",
+        )
+        subprocess.run(
+            [
+                "ffmpeg",
+                "-y",
+                "-v",
+                "error",
+                "-f",
+                "concat",
+                "-safe",
+                "0",
+                "-i",
+                str(concat_txt),
+                "-c",
+                "copy",
+                "-movflags",
+                "+faststart",
+                "-metadata",
+                f"artist={artist}",
+                "-metadata",
+                f"comment={comment}",
+                str(out_tmp),
+            ],
+            check=True,
+        )
         if not is_branded(out_tmp):
             raise RuntimeError(f"Branded verification failed for {path}")
         dest_tmp = path.with_suffix(".brand_tmp.mp4")
@@ -425,7 +507,7 @@ def main() -> int:
     ap.add_argument("--media-root", type=Path, default=Path("/home/khalednew/projects/tutor-guardian/docs"))
     ap.add_argument("--assets-dir", type=Path, default=DEFAULT_ASSETS_DIR)
     ap.add_argument("--kind", choices=["podcasts", "videos", "all"], default="all")
-    ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--force", action="store_true")
     args = ap.parse_args()
 
