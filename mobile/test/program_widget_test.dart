@@ -468,8 +468,19 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      // Curriculum 2.0: extras live in a collapsed tile BELOW reading material
-      // so parents read the core lesson without distractions.
+      // Quick media bar surfaces Video & Podcast directly below the summary
+      // (GA4 shows >54% open video & 35% podcast), while study tools stay
+      // collapsed in lesson_deepen_tile below.
+      final quickVideo = find.byKey(const Key('lesson_quick_video'));
+      final quickPodcast = find.byKey(const Key('lesson_quick_podcast'));
+      await tester.scrollUntilVisible(
+        quickVideo,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      expect(quickVideo, findsOneWidget);
+      expect(quickPodcast, findsOneWidget);
+
       final deepenTile = find.byKey(const Key('lesson_deepen_tile'));
       await tester.scrollUntilVisible(
         deepenTile,
@@ -477,35 +488,32 @@ void main() {
         scrollable: find.byType(Scrollable).first,
       );
       expect(deepenTile, findsOneWidget);
-      expect(find.textContaining('تعمّق أكثر'), findsOneWidget);
-      // Collapsed by default:
-      expect(find.textContaining('استمع للبودكاست'), findsNothing);
+      expect(find.textContaining('أدوات المراجعة'), findsOneWidget);
+      // Study tools are collapsed by default:
+      expect(find.textContaining('فلاش كاردز (10 بطاقة)'), findsNothing);
 
       // Expand the collapsible extras card:
-      await tester.tap(find.textContaining('تعمّق أكثر'));
+      await tester.tap(find.textContaining('أدوات المراجعة'));
       await tester.pumpAndSettle();
 
-      expect(find.textContaining('استمع للبودكاست'), findsOneWidget);
-      expect(find.textContaining('شاهد الفيديو'), findsOneWidget);
       expect(find.textContaining('فلاش كاردز (10 بطاقة)'), findsOneWidget);
       expect(find.textContaining('اختبر نفسك (5 سؤال)'), findsOneWidget);
 
-      // Tap on podcast and verify the real player screen opens
-      // (replaces the Phase-4 "شاشة مؤقتة" placeholder).
+      // Scroll back to quick media bar and tap podcast to verify the real
+      // player screen opens with its download button.
       await tester.scrollUntilVisible(
-        find.textContaining('استمع للبودكاست'),
-        200,
+        quickPodcast,
+        -200,
         scrollable: find.byType(Scrollable).first,
       );
-      await tester.tap(find.textContaining('استمع للبودكاست'));
+      await tester.tap(quickPodcast);
       // Pump a few frames so the navigator can finish pushing the
       // new route. We don't pumpAndSettle because just_audio's
       // MethodChannel never resolves in the host VM.
       for (var i = 0; i < 5; i++) {
         await tester.pump(const Duration(milliseconds: 50));
       }
-      // The player screen's AppBar shows the title.
-      expect(find.text('🎧 البودكاست'), findsOneWidget);
+      expect(find.byKey(const Key('podcast_download_button')), findsOneWidget);
     });
 
     testWidgets('LessonScreen renders parent_script and sends assistant_prompts to assistant tab',
