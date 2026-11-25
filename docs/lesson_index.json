@@ -10,9 +10,9 @@
       "quizzes": "205/205",
       "reports": "136/205",
       "data_tables": "142/205",
-      "infographics": "179/205",
+      "infographics": "195/205",
       "podcasts": "205/205",
-      "videos": "204/205"
+      "videos": "205/205"
     },
     "lessons_by_age": {
       "0-3": 6,
@@ -29,7 +29,7 @@
       "ar"
     ],
     "last_updated": "2026-06-17T10:36:45.998689",
-    "updated_at": "2026-11-24T20:10:18.379455+00:00"
+    "updated_at": "2026-11-25T00:41:46.429815+00:00"
   },
   "lessons": [
     {
@@ -1403,6 +1403,13 @@
             "language": "ar_eg",
             "size_bytes": 27929897,
             "description": "Lesson explainer video for lesson_13-15_islamic_03 (ar)"
+          },
+          {
+            "file": "docs/lesson_videos/lesson_13-15_islamic_03_en_us.mp4",
+            "type": "video/mp4",
+            "language": "en_us",
+            "size_bytes": 27941053,
+            "description": "Lesson explainer video for lesson_13-15_islamic_03 (en)"
           }
         ]
       }
@@ -2528,6 +2535,14 @@
             "item_count": 0,
             "resolution": "2752x1536",
             "language": "ar"
+          },
+          {
+            "id": "47e16272-415e-4241-be70-c64ed822617b_infographic",
+            "file": "docs/lesson_assets/infographics/47e16272-415e-4241-be70-c64ed822617b_infographic_lesson_4-6_adab_02_en.png",
+            "title": "Etiquette of the Home and Table: Saying Bismillah, Showing Gratitude, and Guarding the Tongue",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
           }
         ],
         "podcasts": [
@@ -2542,7 +2557,22 @@
             "size_bytes": 13777065
           }
         ],
-        "videos": []
+        "videos": [
+          {
+            "file": "docs/lesson_videos/lesson_4-6_adab_02_ar_eg.mp4",
+            "type": "video/mp4",
+            "language": "ar_eg",
+            "size_bytes": 18815550,
+            "description": "Lesson explainer video for lesson_4-6_adab_02 (ar)"
+          },
+          {
+            "file": "docs/lesson_videos/lesson_4-6_adab_02_en_us.mp4",
+            "type": "video/mp4",
+            "language": "en_us",
+            "size_bytes": 25282679,
+            "description": "Lesson explainer video for lesson_4-6_adab_02 (en)"
+          }
+        ]
       }
     },
     {
@@ -16274,7 +16304,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "38643287-b074-4408-b756-8358f33032ed_infographic",
+            "file": "docs/lesson_assets/infographics/38643287-b074-4408-b756-8358f33032ed_infographic_lesson_0-3_medical_infant_sleep_01.png",
+            "title": "النوم الآمن: على ظهره في سريرٍ خالٍ",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "e3687e21-3a0a-49aa-b53b-0615e3536d54_infographic",
+            "file": "docs/lesson_assets/infographics/e3687e21-3a0a-49aa-b53b-0615e3536d54_infographic_lesson_0-3_medical_infant_sleep_01_en.png",
+            "title": "Safe Sleep: On the Back in an Empty Cot",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_0-3_medical_infant_sleep_01_podcast.mp3",
@@ -16329,7 +16376,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "9491025e-a626-4611-96fe-54a163471198_infographic",
+            "file": "docs/lesson_assets/infographics/9491025e-a626-4611-96fe-54a163471198_infographic_lesson_0-3_medical_infant_sleep_02.png",
+            "title": "كم ينام الرضيع؟ ولماذا يستيقظ كثيرًا؟",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "266c7328-9335-448d-a28c-4aaf673709d0_infographic",
+            "file": "docs/lesson_assets/infographics/266c7328-9335-448d-a28c-4aaf673709d0_infographic_lesson_0-3_medical_infant_sleep_02_en.png",
+            "title": "How Much Do Babies Sleep, and Why Do They Wake So Often?",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_0-3_medical_infant_sleep_02_podcast.mp3",
@@ -16384,7 +16448,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "45817961-a4ae-47ee-9ef8-0476fc692f5f_infographic",
+            "file": "docs/lesson_assets/infographics/45817961-a4ae-47ee-9ef8-0476fc692f5f_infographic_lesson_0-3_medical_infant_sleep_03.png",
+            "title": "علامات النعاس: اللحظة المناسبة للنوم",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "d063bfca-778d-4feb-953e-e714ab69310c_infographic",
+            "file": "docs/lesson_assets/infographics/d063bfca-778d-4feb-953e-e714ab69310c_infographic_lesson_0-3_medical_infant_sleep_03_en.png",
+            "title": "Sleepy Cues: The Right Moment for Sleep",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_0-3_medical_infant_sleep_03_podcast.mp3",
@@ -16439,7 +16520,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "b7615b87-499d-4582-9553-e99cc1d32c8b_infographic",
+            "file": "docs/lesson_assets/infographics/b7615b87-499d-4582-9553-e99cc1d32c8b_infographic_lesson_0-3_medical_infant_sleep_04.png",
+            "title": "روتينٌ قصير قبل النوم",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "ecb066ba-a8d9-493d-a21e-6a95b33564da_infographic",
+            "file": "docs/lesson_assets/infographics/ecb066ba-a8d9-493d-a21e-6a95b33564da_infographic_lesson_0-3_medical_infant_sleep_04_en.png",
+            "title": "A Short Bedtime Routine",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_0-3_medical_infant_sleep_04_podcast.mp3",
@@ -16494,7 +16592,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "03d681ae-b954-446b-b78c-2c22385ce1df_infographic",
+            "file": "docs/lesson_assets/infographics/03d681ae-b954-446b-b78c-2c22385ce1df_infographic_lesson_0-3_medical_infant_sleep_05.png",
+            "title": "الرضاعة الليلية والنوم",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "f8561a0e-e874-4c96-9445-3339aa840dc6_infographic",
+            "file": "docs/lesson_assets/infographics/f8561a0e-e874-4c96-9445-3339aa840dc6_infographic_lesson_0-3_medical_infant_sleep_05_en.png",
+            "title": "Night Feeds and Sleep",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_0-3_medical_infant_sleep_05_podcast.mp3",
@@ -16549,7 +16664,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "62aa604d-31db-4839-88c9-db3ff55cb278_infographic",
+            "file": "docs/lesson_assets/infographics/62aa604d-31db-4839-88c9-db3ff55cb278_infographic_lesson_0-3_medical_infant_sleep_06.png",
+            "title": "من الحضن إلى السرير: خطواتٌ هادئة",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "b63a33a7-a7f2-4efb-859f-d1f36f01658b_infographic",
+            "file": "docs/lesson_assets/infographics/b63a33a7-a7f2-4efb-859f-d1f36f01658b_infographic_lesson_0-3_medical_infant_sleep_06_en.png",
+            "title": "From Your Arms to the Cot: Gentle Steps",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_0-3_medical_infant_sleep_06_podcast.mp3",
@@ -16604,7 +16736,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "3b3e5e3f-26e8-4898-8c15-9d93450031da_infographic",
+            "file": "docs/lesson_assets/infographics/3b3e5e3f-26e8-4898-8c15-9d93450031da_infographic_lesson_0-3_medical_infant_sleep_07.png",
+            "title": "البكاء ليلًا: تهدئةٌ آمنة",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "4e534cb0-c9dc-4738-9392-920f868c255d_infographic",
+            "file": "docs/lesson_assets/infographics/4e534cb0-c9dc-4738-9392-920f868c255d_infographic_lesson_0-3_medical_infant_sleep_07_en.png",
+            "title": "Crying at Night: Soothing Safely",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_0-3_medical_infant_sleep_07_podcast.mp3",
@@ -16659,7 +16808,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "596fd247-3f23-43aa-a03c-424a8393c400_infographic",
+            "file": "docs/lesson_assets/infographics/596fd247-3f23-43aa-a03c-424a8393c400_infographic_lesson_0-3_medical_infant_sleep_08.png",
+            "title": "سكينة المساء: ذِكرٌ ودعاءٌ بصوتٍ هادئ",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "92849d98-e844-4edb-8109-77d62192a667_infographic",
+            "file": "docs/lesson_assets/infographics/92849d98-e844-4edb-8109-77d62192a667_infographic_lesson_0-3_medical_infant_sleep_08_en.png",
+            "title": "Evening Calm: Dhikr and Du'a in a Soft Voice",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_0-3_medical_infant_sleep_08_podcast.mp3",
@@ -16714,7 +16880,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "b13c3fe2-0f7a-4f89-aeab-1967331a8c3c_infographic",
+            "file": "docs/lesson_assets/infographics/b13c3fe2-0f7a-4f89-aeab-1967331a8c3c_infographic_lesson_0-3_medical_infant_sleep_09_en.png",
+            "title": "Parents' Tiredness: Your Rest Is Part of Caring for Your Baby",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          },
+          {
+            "id": "c5c172ed-6dba-48d2-a7f9-60b498f049d2_infographic",
+            "file": "docs/lesson_assets/infographics/c5c172ed-6dba-48d2-a7f9-60b498f049d2_infographic_lesson_0-3_medical_infant_sleep_09.png",
+            "title": "تعب الوالدين: راحتك جزءٌ من رعاية رضيعك",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_0-3_medical_infant_sleep_09_podcast.mp3",
@@ -16769,7 +16952,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "f4562829-8e11-45d5-9d07-fb510d12df4d_infographic",
+            "file": "docs/lesson_assets/infographics/f4562829-8e11-45d5-9d07-fb510d12df4d_infographic_lesson_0-3_medical_infant_sleep_10.png",
+            "title": "علاماتٌ لا تنتظر الصباح: متى تطلب المساعدة الطبية؟",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "413e28d2-ebfa-48db-a12d-22886e062654_infographic",
+            "file": "docs/lesson_assets/infographics/413e28d2-ebfa-48db-a12d-22886e062654_infographic_lesson_0-3_medical_infant_sleep_10_en.png",
+            "title": "Signs That Cannot Wait Until Morning: When to Get Medical Help",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_0-3_medical_infant_sleep_10_podcast.mp3",
@@ -16824,7 +17024,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "767c5957-f29f-41cb-becb-9e73e057b709_infographic",
+            "file": "docs/lesson_assets/infographics/767c5957-f29f-41cb-becb-9e73e057b709_infographic_lesson_2-3_development_tantrums_01.png",
+            "title": "لماذا يغضب بهذه القوة؟",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "82bc5c2d-c572-4bff-91a0-b0a387d1cbfd_infographic",
+            "file": "docs/lesson_assets/infographics/82bc5c2d-c572-4bff-91a0-b0a387d1cbfd_infographic_lesson_2-3_development_tantrums_01_en.png",
+            "title": "Why Is Their Anger So Strong?",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_2-3_development_tantrums_01_podcast.mp3",
@@ -16879,7 +17096,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "11783ad9-4b5a-4f8c-b6eb-9e9f41d01659_infographic",
+            "file": "docs/lesson_assets/infographics/11783ad9-4b5a-4f8c-b6eb-9e9f41d01659_infographic_lesson_2-3_development_tantrums_02.png",
+            "title": "قبل النوبة: الجوع والنعاس والانتقال المفاجئ",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "f00b80df-4a03-4584-984d-6ca13c790466_infographic",
+            "file": "docs/lesson_assets/infographics/f00b80df-4a03-4584-984d-6ca13c790466_infographic_lesson_2-3_development_tantrums_02_en.png",
+            "title": "Before the Tantrum: Hunger, Tiredness and Sudden Changes",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_2-3_development_tantrums_02_podcast.mp3",
@@ -16934,7 +17168,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "f81fc958-72f7-4c67-8e3f-20cb17accab0_infographic",
+            "file": "docs/lesson_assets/infographics/f81fc958-72f7-4c67-8e3f-20cb17accab0_infographic_lesson_2-3_development_tantrums_03.png",
+            "title": "أثناء النوبة: أمانٌ وكلماتٌ قليلة",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "0c90dc4e-b97b-4f73-913a-93f768e21c17_infographic",
+            "file": "docs/lesson_assets/infographics/0c90dc4e-b97b-4f73-913a-93f768e21c17_infographic_lesson_2-3_development_tantrums_03_en.png",
+            "title": "During the Tantrum: Safety and Few Words",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_2-3_development_tantrums_03_podcast.mp3",
@@ -16989,7 +17240,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "383675b9-cce8-4d4c-ac69-fe2925bcde44_infographic",
+            "file": "docs/lesson_assets/infographics/383675b9-cce8-4d4c-ac69-fe2925bcde44_infographic_lesson_2-3_development_tantrums_04.png",
+            "title": "بعد أن يهدأ: الحضن أولًا ثم الكلمات",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "07453790-2178-4e85-ae21-53efcbd9964f_infographic",
+            "file": "docs/lesson_assets/infographics/07453790-2178-4e85-ae21-53efcbd9964f_infographic_lesson_2-3_development_tantrums_04_en.png",
+            "title": "After They Calm Down: The Hug First, Then the Words",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_2-3_development_tantrums_04_podcast.mp3",
@@ -17044,7 +17312,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "8e38ca91-0df1-48dc-b505-0e3d952ffbfd_infographic",
+            "file": "docs/lesson_assets/infographics/8e38ca91-0df1-48dc-b505-0e3d952ffbfd_infographic_lesson_2-3_development_tantrums_05.png",
+            "title": "«لا» الصغيرة: العناد علامة نموّ",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "fcc47dcf-386b-4aa6-9084-66e2a7fcff18_infographic",
+            "file": "docs/lesson_assets/infographics/fcc47dcf-386b-4aa6-9084-66e2a7fcff18_infographic_lesson_2-3_development_tantrums_05_en.png",
+            "title": "The Little «No»: Stubbornness Is a Sign of Growth",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_2-3_development_tantrums_05_podcast.mp3",
@@ -17099,7 +17384,24 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "bce5bff6-e929-4e3c-86f5-811c2e7fafc0_infographic",
+            "file": "docs/lesson_assets/infographics/bce5bff6-e929-4e3c-86f5-811c2e7fafc0_infographic_lesson_2-3_development_tantrums_06.png",
+            "title": "خياران بدل أمرٍ واحد",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          },
+          {
+            "id": "be1d7cec-1f9e-4ded-950f-5ccaf37881e6_infographic",
+            "file": "docs/lesson_assets/infographics/be1d7cec-1f9e-4ded-950f-5ccaf37881e6_infographic_lesson_2-3_development_tantrums_06_en.png",
+            "title": "Two Choices Instead of One Order",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_2-3_development_tantrums_06_podcast.mp3",
@@ -17545,6 +17847,11 @@
             "file": "docs/lesson_7-9_islamic_parenting_worship_07_podcast_en.mp3",
             "language": "en",
             "size_bytes": 15016144
+          },
+          {
+            "file": "docs/lesson_7-9_islamic_parenting_worship_07_podcast.mp3",
+            "language": "ar",
+            "size_bytes": 17890263
           }
         ],
         "videos": [
@@ -17650,6 +17957,11 @@
             "file": "docs/lesson_7-9_islamic_parenting_worship_09_podcast.mp3",
             "language": "ar",
             "size_bytes": 13677225
+          },
+          {
+            "file": "docs/lesson_7-9_islamic_parenting_worship_09_podcast_en.mp3",
+            "language": "en",
+            "size_bytes": 15905211
           }
         ],
         "videos": [
