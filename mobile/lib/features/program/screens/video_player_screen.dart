@@ -7,20 +7,24 @@ import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../l10n/app_localizations.dart';
+import '../../../l10n/l10n_global.dart';
 import '../../../theme/app_theme.dart';
 import '../../../theme/design_tokens.dart';
+import '../services/lesson_media_downloader.dart';
 import 'package:almorabbi/widgets/ui/loading_view.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
   final String? url;
   final String title;
   final String? thumbnailUrl; // Optional thumbnail for preview
+  final LessonMediaDownloader? downloader;
 
   const VideoPlayerScreen({
     super.key,
     required this.url,
     required this.title,
     this.thumbnailUrl,
+    this.downloader,
   });
 
   @override
@@ -35,6 +39,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   bool _landscape = false;
   Timer? _controlsTimer;
   bool _isDisposed = false;
+  bool _downloading = false;
+  double? _downloadProgress;
 
   Future<void> _toggleOrientation() async {
     if (!mounted) return;
@@ -64,7 +70,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     if (url == null || url.isEmpty) {
       if (mounted) {
         setState(() {
-          _errorMessage = AppLocalizations.of(context).connectionTimeout;
+          _errorMessage = AppL10n.current.connectionTimeout;
           _ready = true;
         });
       }
@@ -88,7 +94,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     } catch (e) {
       if (mounted) {
         setState(() {
-          _errorMessage = AppLocalizations.of(context).noInternetConnection;
+          _errorMessage = AppL10n.current.noInternetConnection;
           _ready = true;
         });
       }
@@ -151,8 +157,53 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     return '$m:$s';
   }
 
+  Future<void> _downloadVideo() async {
+    final url = widget.url;
+    if (_downloading || url == null || url.isEmpty) return;
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        AppL10n.current;
+    setState(() {
+      _downloading = true;
+      _downloadProgress = null;
+    });
+    try {
+      final dl = widget.downloader ?? LessonMediaDownloader();
+      await dl.downloadAndShare(
+        url: url,
+        extension: 'mp4',
+        mimeType: 'video/mp4',
+        kind: 'video',
+        baseMessage: l10n.shareVideoText,
+        l10n: l10n,
+        onProgress: (p) {
+          if (mounted && !_isDisposed) {
+            setState(() => _downloadProgress = p);
+          }
+        },
+      );
+    } catch (_) {
+      if (mounted && !_isDisposed) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.mediaDownloadError)),
+        );
+      }
+    } finally {
+      if (mounted && !_isDisposed) {
+        setState(() {
+          _downloading = false;
+          _downloadProgress = null;
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        AppL10n.current;
+    final canDownload = widget.url != null && widget.url!.isNotEmpty;
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: _landscape
@@ -169,14 +220,33 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                 overflow: TextOverflow.ellipsis,
               ),
               actions: [
+                if (canDownload)
+                  IconButton(
+                    key: const Key('video_download_button'),
+                    tooltip: _downloading
+                        ? l10n.mediaDownloading
+                        : l10n.mediaDownloadTooltip,
+                    icon: _downloading
+                        ? SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2.2,
+                              color: Colors.white,
+                              value: _downloadProgress,
+                            ),
+                          )
+                        : const Icon(Icons.download_rounded, color: Colors.white),
+                    onPressed: _downloading ? null : _downloadVideo,
+                  ),
                 if (widget.thumbnailUrl != null)
                   IconButton(
-                    tooltip: AppLocalizations.of(context).videoMinimizeTooltip,
+                    tooltip: l10n.videoMinimizeTooltip,
                     icon: const Icon(Icons.fullscreen_exit, color: Colors.white),
                     onPressed: () => Navigator.pop(context),
                   ),
                 IconButton(
-                  tooltip: AppLocalizations.of(context).videoRotateTooltip,
+                  tooltip: l10n.videoRotateTooltip,
                   icon: const Icon(Icons.screen_rotation, color: Colors.white),
                   onPressed: _controller != null ? _toggleOrientation : null,
                 ),

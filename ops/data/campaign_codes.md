@@ -79,6 +79,8 @@ QR الفيديو يبقى كما هو أينما نُشر الفيديو؛ را
 | `VD12` | ترويج «جهّز بيتك لرمضان» عربي | `promo_ar_ramadan` | `promo_ar_ramadan.mp4`، `promo_ar_ramadan_15s.mp4` |
 | `VD13` | ترويج «A guide who knows your child» إنجليزي | `promo_en_overview` | `promo_en_overview.mp4`، `promo_en_overview_15s.mp4` (`?ref=VD13&lang=en`) |
 | `VD14` | ترويج رمضان إنجليزي | `promo_en_ramadan` | `promo_en_ramadan.mp4` (`?ref=VD14&lang=en`) |
+| `VD15` | ختام فيديوهات الدروس العربية (QR داخل التطبيق والمشاركة) | `lesson_outro_ar` | `docs/path_videos/*_ar_eg.mp4`, `docs/lesson_videos/*_ar_eg.mp4` |
+| `VD16` | ختام فيديوهات الدروس الإنجليزية (QR داخل التطبيق والمشاركة) | `lesson_outro_en` | `docs/path_videos/*_en_us.mp4`, `docs/lesson_videos/*_en_us.mp4` (`?ref=VD16&lang=en`) |
 
 ### منصات الفيديو القصير (رابط الوصف/البايو)
 

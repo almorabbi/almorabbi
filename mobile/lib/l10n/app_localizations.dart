@@ -12413,7 +12413,7 @@ abstract class AppLocalizations {
   /// No description provided for @lessonDeepenTitle.
   ///
   /// In ar, this message translates to:
-  /// **'تعمّق أكثر (استماع ومرفقات)'**
+  /// **'أدوات المراجعة والتعمّق'**
   String get lessonDeepenTitle;
 
   /// No description provided for @lessonMawqifBridgeTitle.
@@ -12433,6 +12433,48 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'جرّب الموقف الآن'**
   String get lessonMawqifBridgeCta;
+
+  /// No description provided for @mediaDownloadTooltip.
+  ///
+  /// In ar, this message translates to:
+  /// **'تحميل ومشاركة'**
+  String get mediaDownloadTooltip;
+
+  /// No description provided for @mediaDownloading.
+  ///
+  /// In ar, this message translates to:
+  /// **'جارٍ التحميل...'**
+  String get mediaDownloading;
+
+  /// No description provided for @mediaDownloadError.
+  ///
+  /// In ar, this message translates to:
+  /// **'تعذّر تحميل الملف — تحقّق من الاتصال وحاول مجددًا'**
+  String get mediaDownloadError;
+
+  /// No description provided for @sharePodcastText.
+  ///
+  /// In ar, this message translates to:
+  /// **'حلقة صوتية تربوية من تطبيق المربّي 🎧'**
+  String get sharePodcastText;
+
+  /// No description provided for @shareVideoText.
+  ///
+  /// In ar, this message translates to:
+  /// **'فيديو تربوي قصير من تطبيق المربّي 🎥'**
+  String get shareVideoText;
+
+  /// No description provided for @lessonQuickWatchVideo.
+  ///
+  /// In ar, this message translates to:
+  /// **'شاهد الفيديو'**
+  String get lessonQuickWatchVideo;
+
+  /// No description provided for @lessonQuickListenPodcast.
+  ///
+  /// In ar, this message translates to:
+  /// **'استمع للبودكاست'**
+  String get lessonQuickListenPodcast;
 }
 
 class _AppLocalizationsDelegate

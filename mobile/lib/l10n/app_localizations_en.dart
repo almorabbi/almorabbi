@@ -7411,7 +7411,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lessonChildCornerOpenStory => 'Open story now';
 
   @override
-  String get lessonDeepenTitle => 'Go deeper (audio & extras)';
+  String get lessonDeepenTitle => 'Review tools & extras';
 
   @override
   String get lessonMawqifBridgeTitle => 'Paired decision scenario (4 min)';
@@ -7422,4 +7422,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get lessonMawqifBridgeCta => 'Try the scenario';
+
+  @override
+  String get mediaDownloadTooltip => 'Download & share';
+
+  @override
+  String get mediaDownloading => 'Downloading...';
+
+  @override
+  String get mediaDownloadError =>
+      'Could not download the file — please check your connection and try again.';
+
+  @override
+  String get sharePodcastText =>
+      'A parenting podcast episode from Al-Murabbi 🎧';
+
+  @override
+  String get shareVideoText => 'A short parenting video from Al-Murabbi 🎥';
+
+  @override
+  String get lessonQuickWatchVideo => 'Watch video';
+
+  @override
+  String get lessonQuickListenPodcast => 'Listen to podcast';
 }
