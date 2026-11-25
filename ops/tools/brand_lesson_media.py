@@ -306,6 +306,7 @@ def brand_video(
         raise ValueError(f"No video stream in {path}")
     w = int(vstream.get("width") or 1280)
     h = int(vstream.get("height") or 720)
+    orig_dur = float((info.get("format") or {}).get("duration") or 0.0)
     outro_dur = float((_ffprobe_json(outro_wav).get("format") or {}).get("duration") or 7.5) + 0.8
 
     artist = "تطبيق المربّي | Al-Murabbi"
@@ -323,13 +324,15 @@ def brand_video(
         out_tmp = tmp_dir / "out.mp4"
 
         # Two-step encode + demuxer stream-copy concat keeps peak RAM under
-        # ~200 MB per worker (avoids filtergraph concat buffering gigabytes of
-        # decoded 720p frames).
+        # ~250 MB per worker (avoids filtergraph concat buffering gigabytes of
+        # decoded 720p frames). Do NOT pass shortest=1 to overlay because [wm]
+        # is a single-frame PNG — default eof_action=repeat holds the badge for
+        # the entire main video.
         wm_fc = (
             f"[0:v]scale={w}:{h}:force_original_aspect_ratio=decrease,"
             f"pad={w}:{h}:(ow-iw)/2:(oh-ih)/2,fps=24,format=yuv420p,setsar=1[vmain];"
             f"[1:v]scale={w}:{h},format=rgba[wm];"
-            "[vmain][wm]overlay=0:0:shortest=1[vout]"
+            "[vmain][wm]overlay=0:0:eof_action=repeat[vout]"
         )
         subprocess.run(
             [
@@ -459,6 +462,36 @@ def brand_video(
         )
         if not is_branded(out_tmp):
             raise RuntimeError(f"Branded verification failed for {path}")
+        # Sanity-check frame count & duration so a truncated video stream can
+        # never overwrite the source file.
+        out_probe = json.loads(
+            subprocess.check_output(
+                [
+                    "ffprobe",
+                    "-v",
+                    "error",
+                    "-show_entries",
+                    "format=duration:stream=codec_type,nb_frames,duration",
+                    "-of",
+                    "json",
+                    str(out_tmp),
+                ],
+                text=True,
+            )
+        )
+        out_v = next(
+            (s for s in out_probe.get("streams", []) if s.get("codec_type") == "video"),
+            {},
+        )
+        out_frames = int(out_v.get("nb_frames") or 0)
+        out_dur = float((out_probe.get("format") or {}).get("duration") or 0.0)
+        expected_min_frames = int((orig_dur + outro_dur) * 20)
+        if out_frames < expected_min_frames or abs(out_dur - (orig_dur + outro_dur)) > 6.0:
+            raise RuntimeError(
+                f"Sanity check failed for {path.name}: frames={out_frames} "
+                f"(expected>={expected_min_frames}), dur={out_dur:.1f}s "
+                f"(expected~{orig_dur + outro_dur:.1f}s)"
+            )
         dest_tmp = path.with_suffix(".brand_tmp.mp4")
         dest_tmp.write_bytes(out_tmp.read_bytes())
         os.chmod(dest_tmp, 0o644)
