@@ -8,7 +8,7 @@
     "seed-sleep-46",
     "med-53feef7b"
   ],
-  "summary": "Have you experienced those moments when your energetic child transforms into a bundle of grumpiness and irritability, simply because they haven't had enough sleep? Your day might have started with laughter and enthusiasm, but as evening approaches, their energy begins to rapidly decline, and fun activities turn into small battlegrounds. This scene is familiar to many parents, and one reason for it may be that your little one's body needs more sleep.\n\nSleep isn't just rest for the body; it's a magical fuel that renews your child's energy, sharpens their mind, and strengthens their immunity. At this age (4-6 years), your child needs between 10 to 13 hours of sleep daily, including naps. When they don't get enough, their mood is affected, they find it difficult to focus on playing or learning, and they become more susceptible to illnesses. Imagine trying to drive a car without enough fuel; that's what happens to your child when they are deprived of sleep.\n\nDon't worry, it's simpler than you imagine. Start by establishing a consistent bedtime every night, even on weekends, as this sets their biological clock. Make the hour before bedtime calm and comfortable: a warm bath, an enjoyable story, or a gentle chat. Most importantly, keep screens away for at least half an hour before bedtime. If sleep difficulties persist despite your commitment to the routine, don't hesitate to consult your pediatrician; there might be another reason that requires attention.",
+  "summary": "Have you experienced those moments when your energetic child transforms into a bundle of grumpiness and irritability, simply because they haven't had enough sleep? Your day might have started with laughter and enthusiasm, but as evening approaches, their energy begins to rapidly decline, and fun activities turn into small battlegrounds. This scene is familiar to many parents, and one reason for it may be that your little one's body needs more sleep.\n\nSleep isn't just rest for the body; it's a magical fuel that renews your child's energy, sharpens their mind, and strengthens their immunity. At this age (4-6 years), your child needs between 10 to 13 hours of sleep daily, including naps. When they don't get enough, their mood is affected, they find it difficult to focus on playing or learning, and they become more susceptible to illnesses. Imagine trying to drive a car without enough fuel; that's what happens to your child when they are deprived of sleep.\n\nDon't worry, it's simpler than you imagine. Start by establishing a consistent bedtime every night, even on weekends, as this sets their biological clock. Make the hour before bedtime calm and comfortable: a warm bath, an enjoyable story, or a gentle chat. Most importantly, keep screens away for at least an hour before bedtime. If sleep difficulties persist despite your commitment to the routine, don't hesitate to consult your pediatrician; there might be another reason that requires attention.",
   "try_this": "Tonight: Set a consistent bedtime for your child, and start a calm routine half an hour before that time, keeping screens completely away.",
   "order": 1,
   "estimated_minutes": 4,
@@ -61,8 +61,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "82b9711cc05660ab036ae73cb75e8a57b14688051da03a65a3d8f552fd623bd5",
-      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "content_sha256": "6e20e23d7bbff14dfc38c3a3762ad2b2130607ccd00602a5751fdfd5d8c76fb3",
+      "reviewed_at": "2026-11-26T15:20:14+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -71,6 +71,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-26T10:33:00+00:00"
+    "revalidated_at": "2026-11-26T15:20:14+00:00"
   }
 }

@@ -1,0 +1,34 @@
+{
+  "_doc": "Topics whose previous gap-fill units were quarantined in the 2026-11-26 Sharia & clinical safety audit and require fresh, scholar-reviewed and medically grounded authoring before re-publication.",
+  "updated_on": "2026-11-26",
+  "topics": [
+    {
+      "topic_id": "teen_same_sex_worries_and_pornography",
+      "age_group": "13-15",
+      "domain": "development",
+      "quarantined_unit_ids": [
+        "gap-dev-sexual-worries-01",
+        "gap-dev-sexual-worries-01-al"
+      ],
+      "reason_quarantined": "Empty text_original, colloquial explicit term ('سكس'), Western orientation framing normalizing same-sex attractions without Islamic guidance on lowering the gaze, chastity, repentance, and seeking qualified Muslim clinical/educational support.",
+      "authoring_requirements": [
+        "Grounded in clear Islamic ethics (chastity, lowering the gaze, avoiding pornography, compassionate parental containment without normalizing sin).",
+        "Medically accurate, dignified Modern Standard Arabic with zero explicit slang.",
+        "Explicitly verified against scholarly & clinical sources before publishing."
+      ]
+    },
+    {
+      "topic_id": "teen_opposite_sex_relationships_and_online_grooming",
+      "age_group": "13-15",
+      "domain": "cyber",
+      "quarantined_unit_ids": [
+        "gap-cyber-phone-conflict-01"
+      ],
+      "reason_quarantined": "Empty text_original, implicitly normalized an adolescent girl's romantic attachment to an unrelated male without Sharia boundaries, and had a broken online grooming/sextortion safety protocol.",
+      "authoring_requirements": [
+        "Clear, compassionate Islamic guidance on boundaries, modesty (حياء), righteous companionship, and parental stewardship without alienating the teen.",
+        "Actionable, crystal-clear online grooming & sextortion safety steps (preserve evidence, do not pay or engage the extortionist, secure accounts, report to official cybercrime authorities)."
+      ]
+    }
+  ]
+}

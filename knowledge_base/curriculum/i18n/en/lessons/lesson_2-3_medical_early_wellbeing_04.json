@@ -8,7 +8,7 @@
     "d7a09c7e-769c-48b5-aaf8-0511fedfc0db",
     "seed-sleep-23"
   ],
-  "summary": "Imagine your little one, with bright eyes and restless curiosity, exploring every corner of the house. They open drawers, climb chairs, and touch everything their hands can reach. This is their world, a big playground full of adventures, but it may harbor unseen dangers for us as adults. At this age, children become faster and bolder, increasing the likelihood of household accidents that may cause injuries affecting their health and development. Our mission as parents is to see the world through their small eyes and anticipate what might pique their curiosity or put them at risk.\n\nProtecting our children from these dangers does not mean restricting their movement or closing the doors of discovery in their faces; rather, it is the art of balancing freedom and safety. It's not about constant fear, but about conscious preparedness and the love that drives us to provide a safe and stimulating environment. When we childproof our home, we give our children more space to play and explore with confidence, and we give ourselves the peace of mind we deserve. Prevention is always easier and kinder than dealing with the aftermath of accidents, and it is an investment in our child's health and happiness.\n\nStart with simple but effective steps: securely close and store cleaning products and medicines out of reach, secure furniture that could easily fall on your child, protect electrical outlets with special covers, and install safety gates at staircases. Most importantly, never leave your child alone near water, even a small amount. These measures are not a burden; they are an expression of your love and care, creating a safe world for your child to grow and thrive in.",
+  "summary": "Imagine your little one, with bright eyes and restless curiosity, exploring every corner of the house. They open drawers, climb chairs, and touch everything their hands can reach. This is their world, a big playground full of adventures, but it may harbor dangers that are invisible to us as adults. At this age, children become faster and bolder, increasing the likelihood of household accidents that may cause injuries affecting their health and development. Our mission as parents is to see the world through their small eyes and anticipate what might pique their curiosity or put them at risk.\n\nProtecting our children from these dangers does not mean restricting their movement or closing the doors of discovery in their faces; rather, it is the art of balancing freedom and safety. It's not about constant fear, but about conscious preparedness and the love that drives us to provide a safe and stimulating environment. When we childproof our home, we give our children more space to play and explore with confidence, and we give ourselves the peace of mind we deserve. Prevention is always easier and kinder than dealing with the aftermath of accidents, and it is an investment in our child's health and happiness.\n\nStart with simple but effective steps: securely close and store cleaning products and medicines out of reach, secure furniture that could easily fall on your child, protect electrical outlets with special covers, and install safety gates at staircases. Most importantly, never leave your child alone near water, even a small amount. These measures are not a burden; they are an expression of your love and care, creating a safe world for your child to grow and thrive in.",
   "try_this": "Today: Walk through your home at your child's eye level and fix three immediate hazards you see (e.g., exposed cleaning products, an unprotected outlet, unstable furniture).",
   "order": 4,
   "estimated_minutes": 4,
@@ -60,14 +60,20 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "bb9774afaf6b39268b37225e769fef29732505884b0ab39e5b71f6fe3e37b0bb",
-      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "content_sha256": "b0612b04e26eb933181e9e5c9d8a4fff970ca424fbf730ed0798c045031854fd",
+      "reviewed_at": "2026-11-26T15:25:32+00:00",
       "residual_low": [
         {
-          "model": "glm-5.2",
+          "model": "deepseek-v4-pro",
           "field": "summary",
-          "type": "source_corruption",
-          "why": "The relative pronoun «التي» cannot directly follow «إصابات» in this construction; it should be «إصاباتٍ قد تؤثر» or «إصاباتٍ تؤثر»."
+          "type": "tone",
+          "why": "\"Small eyes\" is slightly clinical and literal; \"little eyes\" better matches the warm, affectionate register of the Arabic in a parenting context."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "summary",
+          "type": "addition",
+          "why": "The Arabic says to close/tighten these items securely; \"and store\" is an extra verb not in the source, though it is a natural English rendering and does not change the safety guidance."
         }
       ],
       "adjudicated": [],
@@ -78,12 +84,18 @@
     "review_verdict": "low_only",
     "review_defects": [
       {
-        "model": "glm-5.2",
+        "model": "deepseek-v4-pro",
         "field": "summary",
-        "type": "source_corruption",
-        "why": "The relative pronoun «التي» cannot directly follow «إصابات» in this construction; it should be «إصاباتٍ قد تؤثر» or «إصاباتٍ تؤثر»."
+        "type": "tone",
+        "why": "\"Small eyes\" is slightly clinical and literal; \"little eyes\" better matches the warm, affectionate register of the Arabic in a parenting context."
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "field": "summary",
+        "type": "addition",
+        "why": "The Arabic says to close/tighten these items securely; \"and store\" is an extra verb not in the source, though it is a natural English rendering and does not change the safety guidance."
       }
     ],
-    "revalidated_at": "2026-11-26T10:33:00+00:00"
+    "revalidated_at": "2026-11-26T15:25:32+00:00"
   }
 }

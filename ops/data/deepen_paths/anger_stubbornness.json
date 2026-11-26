@@ -478,8 +478,7 @@
             "الجدال"
           ],
           "pin_units": [
-            "gap-dev-stubborn-01",
-            "gap-dev-defiance-teen-01"
+            "gap-dev-stubborn-01"
           ]
         },
         {
@@ -621,9 +620,7 @@
           "keywords": [
             "العناد"
           ],
-          "pin_units": [
-            "gap-dev-defiance-teen-01"
-          ]
+          "pin_units": []
         },
         {
           "title": "رصيد العلاقة قبل التصحيح",
@@ -632,7 +629,6 @@
             "العلاقة"
           ],
           "pin_units": [
-            "gap-dev-defiance-teen-01",
             "89bf08a7-5d8f-4373-b48d-523b596f5f8a"
           ]
         },
@@ -644,7 +640,6 @@
             "انفعال الوالد"
           ],
           "pin_units": [
-            "gap-dev-defiance-teen-01",
             "6100b911-911d-4926-8f35-09b43a76303f"
           ]
         },
@@ -655,9 +650,7 @@
             "الحدود",
             "القواعد"
           ],
-          "pin_units": [
-            "gap-dev-defiance-teen-01"
-          ]
+          "pin_units": []
         },
         {
           "title": "الاستماع الذي يُطفئ الغضب",
@@ -677,9 +670,7 @@
             "الاحترام",
             "بر الوالدين"
           ],
-          "pin_units": [
-            "gap-dev-defiance-teen-01"
-          ],
+          "pin_units": [],
           "bank": [
             "v_017_023"
           ]
@@ -726,7 +717,6 @@
             "الغضب"
           ],
           "pin_units": [
-            "gap-dev-defiance-teen-01",
             "a77834fd-ec17-4e0f-b98d-048e87c44bdb"
           ]
         }

@@ -8,7 +8,7 @@
     "shm-aqd-p1-02-adhan-ear",
     "shm-aqd-p1-06-shukr-niamah"
   ],
-  "summary": "Imagine your infant child, sleeping peacefully in their crib, or playing with their simple toys, while the feelings of the home around them seep in. Before they understand your words, they pick up on your tone of voice, the warmth of your touch, and the calm or tension in the atmosphere. Your home is not just walls; it is a large embrace that nourishes their small soul and forms the first building blocks of their sense of security and tranquility.\n\nFaith is not merely words to be taught; rather, it is conviction and tranquility in the heart accompanied by action, and it grows through learning, good example, and a safe environment. When the home is filled with mercy, remembrance of Allah, and calm, these feelings seep into your child's tender heart, planting deep reassurance within them. This reassurance is the foundation upon which their faith will later be built, and the Prophet ﷺ said: «Whoever does not show mercy will not be shown mercy» (Sahih al-Bukhari 5997); thus, a home where mercy prevails prepares the child to later understand the meaning of Allah's mercy.\n\nYou don't need extraordinary efforts to create this atmosphere. Start with simple steps: quiet moments of remembrance of Allah or reciting the Quran aloud, or even just warm, calm conversation among family members. These small moments accumulate to create an atmosphere of tranquility, in which your child feels the presence and mercy of Allah, even before they grasp the meaning. Make your home an oasis of peace, where your child's innate nature grows to love Allah and find reassurance in Him.",
+  "summary": "Imagine your infant child, sleeping peacefully in their crib, or playing with their simple toys, while the feelings of the home around them seep in. Before they understand your words, they pick up on your tone of voice, the warmth of your touch, and the calm or tension in the atmosphere. Your home is not just walls; it is a large embrace that nourishes their small soul and forms the first building blocks of their sense of security and tranquility.\n\nFaith is not merely words to be taught; rather, it is belief in the heart, speech on the tongue, and action with the limbs—it increases with obedience, and grows through learning, good example, and a safe environment. When the home is filled with mercy, remembrance of Allah, and calm, these feelings seep into your child's tender heart, planting deep reassurance within them. This reassurance is the foundation upon which their faith will later be built, and the Prophet ﷺ said: «Whoever does not show mercy will not be shown mercy» (Sahih al-Bukhari 5997); thus, a home where mercy prevails prepares the child to later understand the meaning of Allah's mercy.\n\nYou don't need extraordinary efforts to create this atmosphere. Start with simple steps: quiet moments of remembrance of Allah or reciting the Quran aloud, or even just warm, calm conversation among family members. These small moments accumulate to create an atmosphere of tranquility, in which your child feels the presence and mercy of Allah, even before they grasp the meaning. Make your home an oasis of peace, where your child's innate nature grows to love Allah and find reassurance in Him.",
   "try_this": "Tonight: Before your child sleeps, sit with them for a few minutes in complete quiet. Read a short verse aloud, or repeat a simple supplication, or simply enjoy a warm moment of silence with them.",
   "order": 3,
   "estimated_minutes": 4,
@@ -56,8 +56,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5c8497d7b1330772a9051f4826a31b5de09c7208b8525384e086ae54b15b91f9",
-      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "content_sha256": "355c61bbc4da490353384f677066feae9de4a415c78a99e3ea8693ec65e66b9a",
+      "reviewed_at": "2026-11-26T15:20:14+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -66,6 +66,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-26T10:33:00+00:00"
+    "revalidated_at": "2026-11-26T15:20:14+00:00"
   }
 }

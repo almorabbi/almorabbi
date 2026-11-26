@@ -13,8 +13,8 @@
   "order": 2,
   "estimated_minutes": 4,
   "reflection_prompts": [
-    "How can I connect the daily blessings my child enjoys with Allah's love for them?",
-    "What are the moments when I feel my child desperately needs to feel Allah's love and security?"
+    "How can I connect the daily blessings my child enjoys with Allah’s grace and mercy toward His servants?",
+    "What moments make me feel my child needs reassurance in Allah’s mercy and care?"
   ],
   "warning_flags": [],
   "needs_professional_followup": false,
@@ -23,7 +23,7 @@
   "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"My dear, all these beautiful things around us are from Allah's grace and mercy, so we say: Alhamdulillah.\"",
   "assistant_prompts": [
-    "What fun activities can help my child understand that Allah loves and cares for them?",
+    "What enjoyable activities can help my child give thanks for Allah’s blessings and understand His mercy toward His servants and His love for those who do good?",
     "How do I address my child's questions about Allah if they carry some fear or anxiety?"
   ],
   "ecosystem_links": {
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "414470fd2f5767f3835fa6cf3db7c1ef71d638bcf2b6c38fc51adc84ce64d66f",
-      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "content_sha256": "5274e1bc803e7e8e33037c6e39b1760448c57e4b88bc2840dec8daea097797e5",
+      "reviewed_at": "2026-11-26T15:20:14+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-26T10:33:00+00:00"
+    "revalidated_at": "2026-11-26T15:20:14+00:00"
   }
 }

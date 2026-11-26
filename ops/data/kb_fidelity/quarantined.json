@@ -5544,6 +5544,922 @@
      "to": "ops/data/en_unpublished/kb_units_source/isl-cc4ee988.json"
     }
    ]
+  },
+  {
+   "id": "1e23d518-5d54-4ad0-b7d0-7147a15d13a6",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "WHO_ICD_11_Gaming_Disorder.pdf",
+   "title": "WHO ICD 11 Gaming Disorder",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "النص الأصلي عن مرصد الخرف وبرنامج PM+ وليس عن اضطراب الألعاب؛ وreference_info يذكر ICD-10 بينما العنوان ICD-11.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/1e23d518-5d54-4ad0-b7d0-7147a15d13a6.json",
+     "to": "ops/data/en_unpublished/kb_units_source/1e23d518-5d54-4ad0-b7d0-7147a15d13a6.json"
+    }
+   ]
+  },
+  {
+   "id": "2aeb1bdb-f2b0-40d4-8371-1f8cd6f03921",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "أثر التنمر على أداء طفلك المدرسي ومتى تتواصل مع المدرسة",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "العنوان عن أثر التنمر على الأداء الدراسي بينما المصدر مقطع مبتور من تعريف التنمر الإلكتروني؛ الملخص لا يطابق المصدر.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/2aeb1bdb-f2b0-40d4-8371-1f8cd6f03921.json",
+     "to": "ops/data/en_unpublished/kb_units_source/2aeb1bdb-f2b0-40d4-8371-1f8cd6f03921.json"
+    }
+   ]
+  },
+  {
+   "id": "6730e1c6-ddca-4ff4-8343-b07df6fa6abb",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "فهم السلوك غير السوي عند الطفل وتعديله",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "صفحة فهرس محتويات محضة لكتاب علوان باللغة الإنجليزية («Chapter Four: Causes and Treatment of Children’s Waywardness ..58 ...») ولا تتضمن أي محتوى تربوي فعلي.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/6730e1c6-ddca-4ff4-8343-b07df6fa6abb.json",
+     "to": "ops/data/en_unpublished/kb_units_source/6730e1c6-ddca-4ff4-8343-b07df6fa6abb.json"
+    }
+   ]
+  },
+  {
+   "id": "83f8a5c4-defa-49a6-91ec-8504fee1140e",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "NIMH_ADHD_Guide_2024.pdf",
+   "title": "Attention-Deficit/",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "الملخص عبارة وصفية فارغة وغير مرتبطة بـ ADHD؛ والعنوان مبتور «Attention-Deficit/» وبالإنجليزية.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/83f8a5c4-defa-49a6-91ec-8504fee1140e.json",
+     "to": "ops/data/en_unpublished/kb_units_source/83f8a5c4-defa-49a6-91ec-8504fee1140e.json"
+    }
+   ]
+  },
+  {
+   "id": "92b2c72a-77e1-4f1b-8245-c8b347d4eb73",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "cdc-data-child-mental-disorders.pdf",
+   "title": "Information Resource",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "المصدر جدول بيانات CDC عن الاضطرابات النفسية لدى الأطفال؛ الملخص مختلق ومضلل طبيًا، وreference_type فارغ.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/92b2c72a-77e1-4f1b-8245-c8b347d4eb73.json",
+     "to": "ops/data/en_unpublished/kb_units_source/92b2c72a-77e1-4f1b-8245-c8b347d4eb73.json"
+    }
+   ]
+  },
+  {
+   "id": "9816082f-6564-42fd-a37b-5b38083a94a8",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "اضطراب خلل المزاج التخريبي عند المراهقين: متى يكون شديداً",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "ادعاء طبي خاطئ؛ المصدر يذكر أن الأطباء قد يصفون أدوية ولا يقول إن العلاج لا يستجيب. وreference_type=DSM-5 غير دقيق (المصدر NIMH).",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/9816082f-6564-42fd-a37b-5b38083a94a8.json",
+     "to": "ops/data/en_unpublished/kb_units_source/9816082f-6564-42fd-a37b-5b38083a94a8.json"
+    }
+   ]
+  },
+  {
+   "id": "9a303bc1-092c-4868-9600-0da3532b7077",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "مراحل التربية حسب الأعمار في الفكر الإسلامي",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "صفحة فهرس محتويات محضة («Basic Principles of Child Education _...278 ...») دون محتوى تربوي، مع تحريف اسم المؤلف في الملخص إلى «عبد الحميد الناصح الونان» واختلاق تقسيم أعمار غير موجود في النص.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/9a303bc1-092c-4868-9600-0da3532b7077.json",
+     "to": "ops/data/en_unpublished/kb_units_source/9a303bc1-092c-4868-9600-0da3532b7077.json"
+    }
+   ]
+  },
+  {
+   "id": "b37a6dcf-3b48-41df-9837-4460b5f64179",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "Gaming_Disorder_Focus_WHO.pdf",
+   "title": "Gaming Disorder Focus WHO",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "المصدر عن اضطراب الألعاب (WHO Bulletin) والملخص مختلق بالكامل (سمنة/سكري)؛ reference_type فارغ.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/b37a6dcf-3b48-41df-9837-4460b5f64179.json",
+     "to": "ops/data/en_unpublished/kb_units_source/b37a6dcf-3b48-41df-9837-4460b5f64179.json"
+    }
+   ]
+  },
+  {
+   "id": "cf8f3b3c-fe62-40b7-9fe8-37cb85a68bd4",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "إعداد جيل صالح: التربية الإسلامية في بيئة الأسرة",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "مقتطف فهرس محتويات قصير («Chapter One: The Ideal Marriage and its Relationship to Education ... 18») مع تحريف اسم المؤلف إلى «عبد الله الناصح الوالي»، ولا يحتوي على أي إرشاد تربوي.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/cf8f3b3c-fe62-40b7-9fe8-37cb85a68bd4.json",
+     "to": "ops/data/en_unpublished/kb_units_source/cf8f3b3c-fe62-40b7-9fe8-37cb85a68bd4.json"
+    }
+   ]
+  },
+  {
+   "id": "cyb-404cd074",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "ITU_COP_Industry_Guidelines.pdf",
+   "title": "الفرص والمخاطر الرقمية للأطفال",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "أكثر من 90% من النص الأصلي شكر وتقدير وأرقام ISBN وبيان ترخيص Creative Commons وإخلاء مسؤولية الترجمة («Some rights reserved... ITU is not responsible...»)، مع جملة افتتاحية مبتورة في آخره لا تغطي ما زعمه الملخص.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/cyb-404cd074.json",
+     "to": "ops/data/en_unpublished/kb_units_source/cyb-404cd074.json"
+    }
+   ]
+  },
+  {
+   "id": "cyb-6ee3f3e5",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "ITU_COP_Industry_Guidelines.pdf",
+   "title": "مبادئ حماية الأطفال على الإنترنت للقطاع الصناعي",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "صفحة شكر وتقدير محضة («Acknowledgements ... ITU is grateful to the following partners») تسرد أسماء المساهمين والمؤسسات دون أي محتوى تربوي أو توعوي.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/cyb-6ee3f3e5.json",
+     "to": "ops/data/en_unpublished/kb_units_source/cyb-6ee3f3e5.json"
+    }
+   ]
+  },
+  {
+   "id": "cyb-8a2da5de",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "Cyberbullying_Guide.pdf",
+   "title": " التعامل مع التحرش الإلكتروني بين الأطفال والكبار",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "المصدر عن التنمر بين الأقران؛ العنوان والملخص يحرّفانه إلى تحرش بين الأطفال والكبار، والإسناد WHO/Common Sense خاطئ.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/cyb-8a2da5de.json",
+     "to": "ops/data/en_unpublished/kb_units_source/cyb-8a2da5de.json"
+    },
+    {
+     "from": "knowledge_base/units/cyb-8a2da5de__en.json",
+     "to": "ops/data/en_unpublished/kb_units/cyb-8a2da5de__en.json"
+    }
+   ]
+  },
+  {
+   "id": "cyb-90c67947",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "ITU_COP_Industry_Guidelines.pdf",
+   "title": "مبادئ حماية الطفل عبر الإنترنت وتعاون عالمي",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "خاتمة تمهيد إداري تعرّف بالشخصية الرمزية «Sango» متبوعة بفهرس المحتويات («Table of Contents Acknowledgements ii ...»)، ولا تحتوي على إرشادات عملية للأهل.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/cyb-90c67947.json",
+     "to": "ops/data/en_unpublished/kb_units_source/cyb-90c67947.json"
+    }
+   ]
+  },
+  {
+   "id": "d1196e24-669b-432f-8fe1-a12814a03e97",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "a-safer-digital-environment-for-children-un.pdf",
+   "title": "a-safer-digital-environment-for-children-un",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "المصدر صفحة تواصل/نداء للمكتب الأممي؛ «عنصري» تحريف، والملخص لا يعكس النص.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/d1196e24-669b-432f-8fe1-a12814a03e97.json",
+     "to": "ops/data/en_unpublished/kb_units_source/d1196e24-669b-432f-8fe1-a12814a03e97.json"
+    }
+   ]
+  },
+  {
+   "id": "dev-77d7ab2f",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "Adolescent_Brain_UNICEF.pdf",
+   "title": "المراهقون والقلق: فرصة للدعم",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "صفحة بيانات نشر وحقوق طبع وتمويل وعناوين وفاكس وISBN وشكر وتقدير لمركز أبحاث اليونيسف («© 2017 United Nations Children’s Fund... Fax... ISBN... ACKNOWLEDGEMENTS») دون أي محتوى تربوي، مع عنوان مختلق يذكر «القلق».",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/dev-77d7ab2f.json",
+     "to": "ops/data/en_unpublished/kb_units_source/dev-77d7ab2f.json"
+    },
+    {
+     "from": "knowledge_base/units/dev-77d7ab2f__en.json",
+     "to": "ops/data/en_unpublished/kb_units/dev-77d7ab2f__en.json"
+    }
+   ]
+  },
+  {
+   "id": "dev-7fb63252",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "Alliance_Positive_Parenting_Guide_Arabic.pdf",
+   "title": "دعم الآباء في التربية الإيجابية والتواصل الأسري",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "off-topic"
+   ],
+   "reason": "UK/NI/Scotland helpline directory (Citizens Advice / NSPCC / Cry-sis / Family Lives 0800/0808) not applicable to Arab/Muslim families.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/dev-7fb63252.json",
+     "to": "ops/data/en_unpublished/kb_units_source/dev-7fb63252.json"
+    },
+    {
+     "from": "knowledge_base/units/dev-7fb63252__en.json",
+     "to": "ops/data/en_unpublished/kb_units/dev-7fb63252__en.json"
+    }
+   ]
+  },
+  {
+   "id": "dev-841b74cd",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "WHO_Nurturing_Care_ECD.pdf",
+   "title": "إخلاء مسؤولية منظمة الصحة العالمية",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "صفحة إخلاء مسؤولية قانوني لمنظمة الصحة العالمية وفهرس محتويات («In no event shall WHO be liable... Table of contents»)، والملخص نفسه يصرح: «لا يقدم النص أي محتوى تعليمي أو تربوي للأهل».",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/dev-841b74cd.json",
+     "to": "ops/data/en_unpublished/kb_units_source/dev-841b74cd.json"
+    }
+   ]
+  },
+  {
+   "id": "dev-a97a6769",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "Alliance_Positive_Parenting_Guide_Arabic.pdf",
+   "title": "دعم الأهل في ملاحظة تغيرات سلوك الطفل",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "off-topic"
+   ],
+   "reason": "UK/NI/Scotland helpline directory (Citizens Advice / NSPCC / Cry-sis / Family Lives 0800/0808) not applicable to Arab/Muslim families.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/dev-a97a6769.json",
+     "to": "ops/data/en_unpublished/kb_units_source/dev-a97a6769.json"
+    },
+    {
+     "from": "knowledge_base/units/dev-a97a6769__en.json",
+     "to": "ops/data/en_unpublished/kb_units/dev-a97a6769__en.json"
+    }
+   ]
+  },
+  {
+   "id": "dev-adc61608",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "WHO_Nurturing_Care_ECD.pdf",
+   "title": "حقوق النشر والترخيص لمنشور الرعاية الحاضنة",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "صفحة حقوق نشر وترخيص وبيانات فهرسة ووساطة ملكية فكرية وإخلاء مسؤولية لمنظمة الصحة العالمية («Licence: CC BY-NC-SA 3.0 IGO... Cataloguing-in-Publication... General disclaimers») بلا أي محتوى تربوي.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/dev-adc61608.json",
+     "to": "ops/data/en_unpublished/kb_units_source/dev-adc61608.json"
+    }
+   ]
+  },
+  {
+   "id": "dev-c5e6f09a",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "Adolescent_Brain_UNICEF.pdf",
+   "title": "التطور العقلي للشباب: فرصة وتحدي",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "مقتطف صفحات تمهيدية يجمع بين نهاية فهرس المحتويات بأرقام الصفحات (29–83) وبداية التصدير التنفيذي لمدير اليونيسف، مع ملخص شديد الإيجاز مستمد جزئياً من عنوان فصل في الفهرس دون إرشاد عملي.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/dev-c5e6f09a.json",
+     "to": "ops/data/en_unpublished/kb_units_source/dev-c5e6f09a.json"
+    },
+    {
+     "from": "knowledge_base/units/dev-c5e6f09a__en.json",
+     "to": "ops/data/en_unpublished/kb_units/dev-c5e6f09a__en.json"
+    }
+   ]
+  },
+  {
+   "id": "e19e72c2-d553-4e12-a6e6-5d7c6f3fc083",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "NIMH_Depression_Age_Manifestations.pdf",
+   "title": "NIMH Depression Age Manifestations",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "المصدر عن الاكتئاب (NIMH) والملخص عن القلق مع نصيحة طبية غير موجودة؛ العنوان ومرجع النوع فارغان.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/e19e72c2-d553-4e12-a6e6-5d7c6f3fc083.json",
+     "to": "ops/data/en_unpublished/kb_units_source/e19e72c2-d553-4e12-a6e6-5d7c6f3fc083.json"
+    }
+   ]
+  },
+  {
+   "id": "e5d132da-cdb4-403a-a43e-e78640ee6270",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "Speech_Language_Delay_Screening.pdf",
+   "title": "Human Development and Disability",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "نشرة CDC DHDD عن الإعاقة؛ الملخص يختلق جهة (الصليب الأحمر) وموضوعًا؛ reference_type فارغ.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/e5d132da-cdb4-403a-a43e-e78640ee6270.json",
+     "to": "ops/data/en_unpublished/kb_units_source/e5d132da-cdb4-403a-a43e-e78640ee6270.json"
+    }
+   ]
+  },
+  {
+   "id": "f3ac7a66-f423-405e-afb2-b18a5c6c0426",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "بناء العقلية الإسلامية للشباب: مفاهيم وحلول",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "مقتطف فهرس محتويات من ثلاثة أسطر فقط («Responsibility for Intellectual Education ....103 ... 111») دون أي محتوى تربوي.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/f3ac7a66-f423-405e-afb2-b18a5c6c0426.json",
+     "to": "ops/data/en_unpublished/kb_units_source/f3ac7a66-f423-405e-afb2-b18a5c6c0426.json"
+    }
+   ]
+  },
+  {
+   "id": "f6f992c4-d790-4c92-8651-226a37b564bd",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "Alwan_Tarbiyat_Al_Awlad_Fi_Al_Islam_Arabic.pdf",
+   "title": "الإستراتيجية الأسرية التربوية للمتفوقين دراسياً",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "ملف المصدر كتاب علوان، بينما المرجع والنص رسالة ماجستير في علم النفس التربوي (جامعة عنابة)؛ تعارض يمنع التحقق من أصل النص.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/f6f992c4-d790-4c92-8651-226a37b564bd.json",
+     "to": "ops/data/en_unpublished/kb_units_source/f6f992c4-d790-4c92-8651-226a37b564bd.json"
+    }
+   ]
+  },
+  {
+   "id": "gap-cyber-phone-conflict-01",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "gap_fill_2026-09.json",
+   "title": "ابنتي ترفض قطع التواصل مع شخص — ماذا أفعل بالهاتف؟",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "sharia-safety"
+   ],
+   "reason": "الوحدة تعالج تعلّق فتاة 13-15 بـ«شخص» (ذكر) وتسأل «ما الذي يعجبك؟» وتجعل الخطأ محصورًا في «العمر؟ سلوك معين؟ كذب؟»، فتطبّع ضمنيًا العلاقة العاطفية بأجنبي ولا تذكر الضابط الشرعي (لا علاقة عاطفية خارج الزواج، الحياء، الصحبة الصالحة) ولا مسؤولية الولي.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/gap-cyber-phone-conflict-01.json",
+     "to": "ops/data/en_unpublished/kb_units_source/gap-cyber-phone-conflict-01.json"
+    }
+   ]
+  },
+  {
+   "id": "gap-dev-defiance-teen-01",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "gap_fill_2026-09.json",
+   "title": "عُند المراهق: كيف تحفظ العلاقة وأنت تحفظ الحد؟",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "text_original فارغ؛ والملخص يعرض «قاعدة 70/30» و«5 تفاعلات» منسوبة إلى WHO والسيرة بلا مصدر، وبألفاظ عامية («صمّت»).",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/gap-dev-defiance-teen-01.json",
+     "to": "ops/data/en_unpublished/kb_units_source/gap-dev-defiance-teen-01.json"
+    }
+   ]
+  },
+  {
+   "id": "gap-dev-sexual-worries-01",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "gap_fill_2026-09.json",
+   "title": "الميول الشاذة ومشاهدة المحتوى الإباحي عند المراهق — التربية قبل التشخيص",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "sharia-safety"
+   ],
+   "reason": "يطبّع «الميول الشاذة» بوصفها «حالة شائعة» ويتبنّى إطار «التوجّه/التفضيل الجنسي» الغربي ويذكر «تجارب مبكرة» بلا نكير، ولا يبيّن حرمة الفاحشة ومشاهدة الإباحية ولا غضّ البصر والتوبة؛ وادعاء «ما يقوله الطب» بلا مصدر.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/gap-dev-sexual-worries-01.json",
+     "to": "ops/data/en_unpublished/kb_units_source/gap-dev-sexual-worries-01.json"
+    }
+   ]
+  },
+  {
+   "id": "gap-dev-sexual-worries-01-al",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "gap_fill_2026-09_aliases.json",
+   "title": "الميول الشاذة ومشاهدة المحتوى الإباحي عند المراهق — التربية قبل التشخيص",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "sharia-safety"
+   ],
+   "reason": "يطبّع «الميول الشاذة» بوصفها «حالة شائعة» ويتبنّى إطار «التوجّه/التفضيل الجنسي» الغربي ويذكر «تجارب مبكرة» بلا نكير، ولا يبيّن حرمة الفاحشة ومشاهدة الإباحية ولا غضّ البصر والتوبة؛ وادعاء «ما يقوله الطب» بلا مصدر.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/gap-dev-sexual-worries-01-al.json",
+     "to": "ops/data/en_unpublished/kb_units_source/gap-dev-sexual-worries-01-al.json"
+    }
+   ]
+  },
+  {
+   "id": "gap-med-enuresis-01-al",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "gap_fill_2026-09_aliases.json",
+   "title": "التبول الليلي (الفيض) — ينام في المرحاض ويبلل السرير",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "medical-safety"
+   ],
+   "reason": "عبارة مشوهة المعنى («ينام في المرحاض»، «أو رطبة»)، و«الفيض» ليس مصطلحًا معروفًا للتبول الليلي، و«فوتني» لفظ لا معنى له، و«تواليت» عامية، و«إن كان أبوك كذلك» تخاطب الوالد بضمير خاطئ. وهذه نسخة مكررة بمجال خاطئ (islamic_parenting).",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/gap-med-enuresis-01-al.json",
+     "to": "ops/data/en_unpublished/kb_units_source/gap-med-enuresis-01-al.json"
+    }
+   ]
+  },
+  {
+   "id": "gap-med-feeding-refusal-01",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "gap_fill_2026-09.json",
+   "title": "بنتي لا تشرب إلا من الرضاعة — خطة الكوب والطعام",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "medical-safety"
+   ],
+   "reason": "تعليمات خلط غامضة وقد تكون خطرة (لا يُعرف أي حليب يُمزج، ولا يُذكر منع حليب البقر قبل 12 شهرًا)، مع عبارات بلا معنى («بشرشفة»، «صعب المستكى»، «الاحتكار للرضاعة»)، وخلط بين الرضاعة الطبيعية وزجاجة الرضاعة في النص كله.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/gap-med-feeding-refusal-01.json",
+     "to": "ops/data/en_unpublished/kb_units_source/gap-med-feeding-refusal-01.json"
+    }
+   ]
+  },
+  {
+   "id": "gap-med-feeding-refusal-01-al",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "gap_fill_2026-09_aliases.json",
+   "title": "بنتي لا تشرب إلا من الرضاعة — خطة الكوب والطعام",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "medical-safety"
+   ],
+   "reason": "تعليمات خلط غامضة وقد تكون خطرة (لا يُعرف أي حليب يُمزج، ولا يُذكر منع حليب البقر قبل 12 شهرًا)، مع عبارات بلا معنى («بشرشفة»، «صعب المستكى»، «الاحتكار للرضاعة»)، وخلط بين الرضاعة الطبيعية وزجاجة الرضاعة في النص كله. وهي نسخة مكررة.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/gap-med-feeding-refusal-01-al.json",
+     "to": "ops/data/en_unpublished/kb_units_source/gap-med-feeding-refusal-01-al.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-06fef96a",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "كيف صنع النبي ﷺ أصحابه: التثقيف بالقدوة والعمل",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "نص OCR مشوّه بشدة (وهو نقل علوان عن سيد قطب)، والتبسيط ركيك ناقص الفاعل («صنع أصحابه من خلال تثقيفهم») ويزيد ما ليس في الأصل («صاغوا الإسلام في أرواحهم»)، والعنوان «التثقيف بالقدوة والعمل» صياغة مولّدة.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-06fef96a.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-06fef96a.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-199c7aaf",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "العبادة والقرب من الله في بناء الإنسان",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "نص OCR مشوه (أفاد المجتمع، الماقبة، عَييْْة) ومقطوع في منتصف الحديث؛ والنص المبسط يضيف «ويصلي ويرقد ويتزوج النساء» غير موجودة في النص الأصلي المقطوع؛ وsource_file فارغ.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-199c7aaf.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-199c7aaf.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-2ac57f6a",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "رسائل إلى المربين وقادة المجتمع في التبليغ",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "مقطع من تقريظ/ترجمة للمؤلف وسرد لمؤلفاته، مشوه OCR، لا علاقة له بالتربية؛ والمبسط والعنوان مخترعان ويحملان مضامين أيديولوجية («أخطار الرأسمالية»، «مخاطر الوسائل الإعلامية»).",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-2ac57f6a.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-2ac57f6a.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-303f1e46",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "الإسلام منهج حياة: التطبيق في تربية الأجيال",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "صفحة بيانات دار النشر والهاتف والفاكس والطبعات («شارع الأزهر تلفون... فاكس... ص.ب... الطبعة الحادية والعشرون») متبوعة بخطبة الكتاب الإنشائية مع تشوه OCR شديد طال نص آية قرآنية («قد جاءك... إمبين... وبيدهم»)، بلا محتوى تربوي عملي ومكررة ثلاثياً مع `isl-5d4a3253` و`isl-c1f0ce4d`.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-303f1e46.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-303f1e46.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-4882913e",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "عبدالله علوان: عَلَم من أعلام التربية الإسلامية",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "الأصل OCR مشوّه من تقديم الكتاب (ثناء على المؤلف) لا مضمون تربويًا فيه؛ والتبسيط يخترع لقب «الدكتور»، ويحرّف الاسم («غلوان»)، وفيه لحن («متفاني» والصواب «متفانٍ»)، والوحدة سيرة مؤلف خارج نطاق التربية.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-4882913e.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-4882913e.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-5d4a3253",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "مكانة التوحيد والهدى في تربية الأبناء",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "نسخة مكررة مطابقة للنص الأصلي في `isl-303f1e46` و`isl-c1f0ce4d` تحوي صفحة بيانات النشر والفاكس والطبعات وخطبة الكتاب مع تشوه OCR طال نص آية قرآنية، دون أي إرشاد تربوي عملي.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-5d4a3253.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-5d4a3253.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-7365e833",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "الزواج فطرة: نظرة الإسلام إلى تكوين الأسرة",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "فهرس فصول ونص OCR مشوه («تحم على المسلم» بدل تحرّم)، مع حديثين ضعيفين («أبدلنا بالرهبانية الحنيفية السمحة»، «من كان موسرًا لأن ينكح...») بلا بيان درجة؛ والمبسط فيه خطأ لغوي («لأنه تتعارض») وتحريف («أحلامه» بدل أشواقه) وزيادة «يجب أن نحترم هذه الفطرة».",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-7365e833.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-7365e833.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-83d7099a",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "التربية الجنسية والستر: أدلة وضوابط شرعية",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "النص مقدمة الطبعة الثالثة (شكر ودعاء وإعلان إضافات)، ولا يحوي أدلة ولا ضوابط؛ والمبسط يقرر «ستر وجه المرأة» مسألة خلافية بلا أدلة؛ نص مشوه OCR.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-83d7099a.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-83d7099a.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-8b35ad26",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "إعداد الطفل روحياً وعقلياً وجسدياً: قواعد أساسية",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "الأصل مقدمة الكتاب بنص OCR مشوّه، ومضمونها ترويج للكتاب لا قواعد تربوية؛ والتبسيط إعلان («ستجد فيه كل ما تحتاجه») والعنوان يعد بقواعد إعداد روحي وعقلي وجسدي لا وجود لها في النص.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-8b35ad26.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-8b35ad26.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-91162ead",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "تكوين الجيل القرآني: الأثر العقلي والروحي للإسلام",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "مقدمة الطبعة مشوهة OCR تحمل أطروحات سياسية/حركية («تحقق للإسلام دولته»، «أمة إسلامية مجاهدة»، «ضغوط سياسية»)، ويعيد المبسط إنتاجها لفئة 13-15.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-91162ead.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-91162ead.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-a60d7af9",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "حيوية الإسلام الحضارية ومبادئه الشاملة",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "نص OCR مشوّه، وفيه تزكية بالشهادة لمعيّن («شهيد الإسلام») وهو حكم غيبي ومحل نزاع فكري/سياسي، ونقل منسوب لبرنارد شو غير موثّق؛ والتبسيط عام فارغ لا يفيد الأهل والعنوان لا علاقة له بالتربية.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-a60d7af9.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-a60d7af9.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-c1f0ce4d",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "التوحيد والعلم والهدى في إصلاح المجتمع",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "نسخة مكررة مطابقة للنص الأصلي في `isl-303f1e46` و`isl-5d4a3253` تحوي صفحة بيانات النشر والفاكس والطبعات وخطبة الكتاب مع تشوه OCR طال نص آية قرآنية، دون أي إرشاد تربوي عملي.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-c1f0ce4d.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-c1f0ce4d.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-ddf22d9e",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "ضياع الإنسان بلا غاية: لماذا التربية الإيمانية؟",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "الأصل يتحدث عن «اليأس والقنوط» لا الذعر، و«تظنهم قوة» صارت «يعتبرون أنفسهم قوة»؛ والنص الأصلي مشوه OCR (حديث البخاري في الغنم مشوه) ويحمل خطابًا حركيًا («الإسلام دين القوة»).",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-ddf22d9e.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-ddf22d9e.json"
+    }
+   ]
+  },
+  {
+   "id": "med-2c4ef43e",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "WHO_Child_Adolescent_Mental_Health_Policy.pdf",
+   "title": "حقوق نشر منشورات منظمة الصحة العالمية",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "صفحة حقوق نشر وطلبات إذن وفاكس وإخلاء مسؤولية وشكر وتقدير لمنظمة الصحة العالمية («Requests for permission... fax... Printed in Singapore Acknowledgements»)، والملخص نفسه يصرح: «لا يحتوي على معلومات تربوية أو سلوكية للأطفال».",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/med-2c4ef43e.json",
+     "to": "ops/data/en_unpublished/kb_units_source/med-2c4ef43e.json"
+    }
+   ]
+  },
+  {
+   "id": "med-cd46475d",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "DMDD.pdf",
+   "title": "التجارب الطبية للعلاجات الجديدة لعلاج إدمان ألعاب الأطفال",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "العنوان عن علاج إدمان الألعاب بينما المصدر نشرة DMDD عن التجارب السريرية؛ عدم تطابق صريح.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/med-cd46475d.json",
+     "to": "ops/data/en_unpublished/kb_units_source/med-cd46475d.json"
+    },
+    {
+     "from": "knowledge_base/units/med-cd46475d__en.json",
+     "to": "ops/data/en_unpublished/kb_units/med-cd46475d__en.json"
+    }
+   ]
+  },
+  {
+   "id": "med-ec6f874a",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "ADHD_NIMH.pdf",
+   "title": "التدريب العقلي وتقنية الإشارات غير المكلفة في معالجة اضطراب فرط الحركة ونقص الانتباه",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "التحريف: المصدر يتحدث عن Neurofeedback، وأن التدريب المعرفي لا يغيّر الأعراض الأساسية؛ والترجمة «الإشارات غير المكلفة» خاطئة وتضلل.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/med-ec6f874a.json",
+     "to": "ops/data/en_unpublished/kb_units_source/med-ec6f874a.json"
+    },
+    {
+     "from": "knowledge_base/units/med-ec6f874a__en.json",
+     "to": "ops/data/en_unpublished/kb_units/med-ec6f874a__en.json"
+    }
+   ]
+  },
+  {
+   "id": "med-f6ebfc28",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "WHO_Child_Adolescent_Mental_Health_Policy.pdf",
+   "title": "سياسات الصحة النفسية للأطفال والمراهقين",
+   "flags": [
+    "independent-sharia-audit-2026-11-26",
+    "front-matter"
+   ],
+   "reason": "صفحة غلاف وبيانات فهرسة المكتبة وISBN وأرقام هاتف وفاكس وحقوق نشر وطلبات نسخ لمنظمة الصحة العالمية («WHO Library Cataloguing-in-Publication Data... ISBN... Tel... Fax... All rights reserved»)، ولا تحوي محتوى تربوياً.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/med-f6ebfc28.json",
+     "to": "ops/data/en_unpublished/kb_units_source/med-f6ebfc28.json"
+    }
+   ]
   }
  ]
 }

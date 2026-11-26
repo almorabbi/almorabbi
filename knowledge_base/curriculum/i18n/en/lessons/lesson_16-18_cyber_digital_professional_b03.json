@@ -8,7 +8,7 @@
     "1ad7b0db-b8cb-40cc-b752-f295119be45d",
     "cyb-f815145d"
   ],
-  "summary": "Do you remember that cute photo of your child dressed as a superhero years ago, or their impulsive comment on a video game? Perhaps it was just a fleeting moment in the vast world of the internet. But as university approaches and the search for a first job begins, these fleeting moments transform into a \"digital footprint,\" a permanent record of everything your child has posted or that has been posted about them. This footprint could be a bridge to their dream opportunity, or an invisible barrier preventing them from reaching it.\n\nAt this critical age, a U.S. survey (Kaplan, 2021) indicates that more than a third of university admissions officers review applicants' social media accounts. An old, inappropriate post, or an unwise photo, could send an entirely wrong message, regardless of your child's academic excellence or skills. Conversely, a conscious digital presence that reflects their passion, skills, and positive contributions can open doors they never imagined.\n\nDon't worry, the responsibility is shared, and it's not too late. Together, we can help our children understand that the internet is not just a space for momentary fun, but a platform for building a reputation. Encourage your child to review their old accounts with a critical eye, adjust privacy settings, and think about how to build a digital presence that reflects their best self. Teach them a simple rule: \"Don't post anything you wouldn't want your university professor or future boss to see.\" This awareness will transform them from passive consumers into conscious and influential creators of their digital reputation.",
+  "summary": "Do you remember that cute photo of your child dressed as a superhero years ago, or their impulsive comment on a video game? Perhaps it was just a fleeting moment in the vast world of the internet. But as university approaches and the search for a first job begins, these fleeting moments transform into a \"digital footprint,\" a permanent record of everything your child has posted or that has been posted about them. This footprint could be a bridge to their dream opportunity, or an invisible barrier preventing them from reaching it.\n\nAt this critical age, your teen is approaching university applications and employment; a U.S. Kaplan survey (2020) reported that about 36% of university admissions officers review applicants' social media accounts (dropping to about 27% in the 2021 survey). An old, inappropriate post, or an unwise photo, could send an entirely wrong message, regardless of your child's academic excellence or skills. Conversely, a conscious digital presence that reflects their passion, skills, and positive contributions can open doors they never imagined.\n\nDon't worry, the responsibility is shared, and it's not too late. Together, we can help our children understand that the internet is not just a space for momentary fun, but a platform for building a reputation. Encourage your child to review their old accounts with a critical eye, adjust privacy settings, and think about how to build a digital presence that reflects their best self. Teach them a simple rule: \"Don't post anything you wouldn't want your university professor or future boss to see.\" This awareness will transform them from passive consumers into conscious and influential creators of their digital reputation.",
   "try_this": "Tonight: Sit together for a short time, open one of their public accounts, and talk frankly about the impression this account might leave on someone looking for information about them (like an employer or university admissions officer).",
   "order": 3,
   "estimated_minutes": 4,
@@ -58,16 +58,30 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "ff4798735433558fda51642961ed68a19bbacf805b2c6b3a1c93a0dceff3d5c0",
-      "reviewed_at": "2026-11-26T10:33:00+00:00",
-      "residual_low": [],
+      "content_sha256": "12a5437ec3de211e81d6155048bd24488957053869e9caaadda7172e723a9493",
+      "reviewed_at": "2026-11-26T15:20:14+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "summary",
+          "type": "meaning",
+          "why": "The Arabic adjectives modify the reputation (سمعة), not the person, so the English slightly shifts the description."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-26T10:33:00+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "summary",
+        "type": "meaning",
+        "why": "The Arabic adjectives modify the reputation (سمعة), not the person, so the English slightly shifts the description."
+      }
+    ],
+    "revalidated_at": "2026-11-26T15:20:14+00:00"
   }
 }
