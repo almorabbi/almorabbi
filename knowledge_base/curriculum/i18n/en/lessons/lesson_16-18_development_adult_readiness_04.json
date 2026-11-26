@@ -8,7 +8,7 @@
     "dev-49a18746",
     "dev-a3cf002d"
   ],
-  "summary": "Do you remember how your little son used to run to you after every minor schoolyard squabble? Now, as he stands on the threshold of youth, his relationships have become more complex and profound. You might see him spending long hours with his friends, or exchanging endless text messages. This period is pivotal, as the relationships he builds now will shape a large part of his personality and future, whether they are friendships or even the beginnings of romantic partnerships. How do we ensure these relationships are supportive and constructive?\n\nThe key lies in understanding the essence of a healthy relationship: mutual respect, clear boundaries, and the ability to express oneself without fear. A true friend is someone who uplifts you, supports your values, and encourages you to be the best version of yourself, not someone who asks you to compromise your principles to please them. Teaching your son how to distinguish between these types of relationships is a shield of protection for him. Most importantly, he needs to realize that his self-worth does not depend on the acceptance of others, and that his refusal of a harmful relationship is a strength, not a weakness.\n\nOur role as parents is to be the calm anchor he returns to. Talk to him openly and warmly about the importance of choosing good company, and about how to set healthy boundaries politely and confidently. Do not directly attack his friends; instead, focus on behaviors and values. Help him build his self-confidence so he can say “no” to what doesn't suit him, and choose those who add to his life, not detract from it. These skills will stay with him for life, forming the foundation for all his future relationships.",
+  "summary": "Do you remember how your little son used to run to you after every minor schoolyard squabble? Now, as he stands on the threshold of youth, his relationships have become more complex and profound. You might see him spending long hours with his friends, or exchanging endless text messages. This period is pivotal, as the relationships he builds now will shape a large part of his personality and future, whether they are friendships or academic and professional fellowships, while clarifying Islamic boundaries and proper etiquette in interactions between the genders. How do we ensure these relationships are supportive and constructive?\n\nThe key lies in understanding the essence of a healthy relationship: mutual respect, clear boundaries, and the ability to express oneself without fear. A true friend is someone who uplifts you, supports your values, and encourages you to be the best version of yourself, not someone who asks you to compromise your principles to please them. Teaching your son how to distinguish between these types of relationships is a shield of protection for him. Most importantly, he needs to realize that his self-worth does not depend on the acceptance of others, and that his refusal of a harmful relationship is a strength, not a weakness.\n\nOur role as parents is to be the calm anchor he returns to. Talk to him openly and warmly about the importance of choosing good company, and about how to set healthy boundaries politely and confidently. Do not directly attack his friends; instead, focus on behaviors and values. Help him build his self-confidence so he can say \"no\" to what doesn't suit him, and choose those who add to his life, not detract from it. These skills will stay with him for life, forming the foundation for all his future relationships.",
   "try_this": "Tonight: During a casual conversation, ask your son: \"What is the most important quality you look for in a good friend?\" And listen carefully to his answer without interrupting.",
   "order": 4,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“True friendship makes you feel stronger and happier, not less.”",
   "assistant_prompts": [
     "How can I help my teenage son understand the meaning of healthy boundaries in friendships?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,16 +57,30 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "8a56d7498cfc8a7ac85346283be062470bb52d527624dd0c2f17c844960a60be",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
-      "residual_low": [],
+      "content_sha256": "06617b0086e23f692fb31fe09b9109663acfa5e98992ca6531ade3d133592f9c",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "meaning",
+          "why": "'Fellowships' in English typically refers to academic grants or programs, whereas 'زمالات' here means companionships or collegial relationships."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "meaning",
+        "why": "'Fellowships' in English typically refers to academic grants or programs, whereas 'زمالات' here means companionships or collegial relationships."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

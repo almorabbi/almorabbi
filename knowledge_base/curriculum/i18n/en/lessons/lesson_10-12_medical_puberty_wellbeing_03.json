@@ -1,7 +1,7 @@
 {
   "id": "lesson_10-12_medical_puberty_wellbeing_03",
   "path_id": "path_10-12_medical_puberty_wellbeing",
-  "title": "Our Children's Health: Investing Today for a Brighter Tomorrow",
+  "title": "Our Children's Health: Small Habits We Build Today",
   "age_group": "10-12",
   "domain": "medical",
   "unit_ids": [
@@ -18,7 +18,7 @@
     "med-ca2a9d86",
     "med-ec6f874a"
   ],
-  "summary": "As our children approach adolescence, life's pace quickens, and academic and social demands increase. We might sometimes find ourselves compromising on essential healthy habits, such as late bedtimes due to homework, resorting to fast food because of time constraints, or getting lost in the world of digital screens. These small moments might seem insignificant at the time, but they accumulate to form a lifestyle that impacts their present and future. Have you noticed how lack of sleep affects your child's mood in the morning? Or how their energy changes after a day full of activity compared to a day spent in front of a screen?\n\nOur children's health at this sensitive age is not merely the absence of illness; rather, it is a vital foundation for building their mental, physical, and emotional capabilities. The habits we instill in them now—from sufficient sleep (9-11 hours), to 60 minutes of active movement daily, eating real food low in sugar and processed ingredients, and limiting screen time to less than two hours daily while completely banning screens from bedrooms—are all precious investments. These are not just rules; they are pillars for building a strong immune and psychological fortress, helping them face life's challenges with confidence and vitality.\n\nAlways remember that you are your children's first and most important role model. They don't just hear what you say; they observe every action and behavior. Start with one small change today, make it a fun family challenge, and you will feel the difference. Don't put pressure on yourselves or on them; instead, make the journey enjoyable and inspiring. Every small step towards a healthy lifestyle is a victory worth celebrating, and it plants the seeds of well-being in them that will grow with them for years to come, granting them a brighter and healthier tomorrow.",
+  "summary": "As our children approach adolescence, life's pace quickens, and academic and social demands increase. We might sometimes find ourselves compromising on essential healthy habits, such as late bedtimes due to homework, resorting to fast food because of time constraints, or getting lost in the world of digital screens. These small moments might seem insignificant at the time, but they accumulate to form a lifestyle that impacts their present and future. Have you noticed how lack of sleep affects your child's mood in the morning? Or how their energy changes after a day full of activity compared to a day spent in front of a screen?\n\nOur children's health at this sensitive age is not merely the absence of illness; rather, it is a vital foundation for building their mental, physical, and emotional capabilities. According to health authorities' recommendations, a child at this age needs balanced daily habits—including sufficient sleep (about 9 to 11 hours), daily physical activity (about 60 minutes), a balanced diet low in sugar and processed foods, and reducing recreational screen time while keeping screens out of bedrooms—all of which are precious investments. These are not just rules; they are pillars for building a strong immune and psychological fortress, helping them face life's challenges with confidence and vitality.\n\nAlways remember that you are your children's first and most important role model. They don't just hear what you say; they observe every action and behavior. Start with one small change today, make it a fun family challenge, and you will feel the difference. Don't put pressure on yourselves or on them; instead, make the journey enjoyable and inspiring. Every small step towards a healthy lifestyle is a victory worth celebrating, and it plants the seeds of well-being in them that will grow with them for years to come, helping them, by Allah's will, toward health and well-being in the future.",
   "try_this": "Tonight: Sit together as a family to set a fixed time to turn off screens at least one hour before bedtime, and choose a quiet alternative activity like reading or talking.",
   "order": 3,
   "estimated_minutes": 4,
@@ -34,7 +34,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“My son/daughter, your health is your most precious possession, and every healthy habit we follow today is a gift for your beautiful tomorrow.”",
   "assistant_prompts": [
     "How can I encourage my child to sleep 9-11 hours daily without a struggle?",
@@ -53,7 +53,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -72,8 +72,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "39dcee6226a5efaa6227c4cb7c2d6aba212113d0b68dd1051ddca9c4c1185841",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "a35beac2b0061477edcc78b093927a6dd4f79ab230a37d76e4da51eec6efd840",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -82,6 +82,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

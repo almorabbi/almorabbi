@@ -8,7 +8,7 @@
     "isl-c4b3fccc",
     "isl-c4986b8f"
   ],
-  "summary": "You might find your ten-year-old son holding his Mushaf, reading verses, trying to memorize them, but sometimes his eyes are distant, and his tongue repeats words that don't seem to touch his heart. Perhaps he feels the pressure of completing a daily portion, or he sees memorization as merely a school assignment, turning the words of Allah into a dry task instead of a light illuminating his path. This scene is familiar in many homes, making us wonder: How can we make our children's relationship with the Qur'an a living one, not just silent memorization?\n\nThe Qur'an is not just words to be memorized; it is a light and guidance for life. A true relationship with the Qur'an begins with understanding and contemplation, when a child sees how Allah's verses manifest in their day, in their stories, and in the situations they experience. When we connect a verse to a real situation, or a story from the Prophet's ﷺ life, or even to emotions they are feeling, we plant the seeds of understanding that grow to create a deep and firm relationship. Allah Almighty says: ﴿أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ﴾ (interpretation of the meaning: \"Do they not then contemplate the Qur’an?\") [An-Nisa: 82], and this contemplation is the key to living with the Qur'an.\n\nLet us move from dry memorization to living understanding. Start with short, easy-to-understand verses, and discuss with your children how these verses can be a guide for them in their daily lives. Establish a simple, consistent daily portion for them, one that doesn't burden them but opens a door for reflection and contemplation. Remember that the Prophet ﷺ said: «Make things easy and do not make them difficult; give glad tidings and do not make people averse.» (Sahih al-Bukhari 69). By doing this, we instill in them the love of the Qur'an, not just its memorization, and we raise a generation that lives by the Qur'an and interacts with it.",
+  "summary": "You might find your ten-year-old son holding his Mushaf, reading verses, trying to memorize them, but sometimes his eyes are distant, and his tongue repeats words that don't seem to touch his heart. Perhaps he feels the pressure of completing a daily portion, or he sees memorization as merely a school assignment, turning the words of Allah into a dry task instead of a light illuminating his path. This scene is familiar in many homes, making us wonder: How can we make our children's relationship with the Qur'an a living one, not just silent memorization?\n\nThe Qur'an is not just words to be memorized; it is a light and guidance for life. A true relationship with the Qur'an begins with understanding and contemplation, when a child sees how Allah's verses manifest in their day, in their stories, and in the situations they experience. When we connect a verse to a real situation, or a story from the Prophet's ﷺ life, or even to emotions they are feeling, we plant the seeds of understanding that grow to create a deep and firm relationship. Allah Almighty says: ﴿أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ﴾ (interpretation of the meaning: \"Do they not then contemplate the Qur’an?\") [An-Nisa: 82], and this contemplation is the key to living with the Qur'an.\n\nLet us move from dry memorization to living understanding. Start with short, easy-to-understand verses, and discuss with your children how these verses can be a guide for them in their daily lives. Establish a simple, consistent daily portion for them, one that doesn't burden them but opens a door for reflection and contemplation. Remember that the Prophet ﷺ said: «Make things easy and do not make them difficult; give glad tidings and do not make people averse.» (Sahih al-Bukhari 69). By doing this, we instill in them the love of the Qur'an, not just its memorization, and we raise a generation that lives by the Qur'an and acts upon it.",
   "try_this": "Tonight: Choose a short verse from Surah Al-Fatihah or Juz’ Amma, read it with your child, then ask them: «What did you understand from this verse? And how can we apply it in our day?»",
   "order": 3,
   "estimated_minutes": 4,
@@ -20,8 +20,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "«My dear son, the Qur'an is a light for our lives; every verse in it carries a beautiful message for us.»",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "«My son, the Qur'an is a light for our lives, and in every verse there is guidance and wisdom for us to learn.»",
   "assistant_prompts": [
     "How can I help my child aged 10-12 love contemplating the Qur'an?",
     "What are suitable short surahs to start with for a child of this age to connect them to daily life?"
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "ac58278d409fef50499590fa85fb2be7938620304062581ab50e4ec9a927b93f",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "8a513148d44e670bd73694d7e25e7aa480f7a857224c3b180555332227126c1c",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

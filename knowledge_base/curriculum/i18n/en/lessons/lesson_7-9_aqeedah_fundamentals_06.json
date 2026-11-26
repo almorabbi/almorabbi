@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«O hero, you know the six pillars of faith that make your heart strong like a beautiful house!»",
   "assistant_prompts": [
     "What interactive activities can I do with my child (7-9 years old) to reinforce the pillars of faith in a fun way?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5ce1ebf292254424ccd3e69914ab5f60478d72b8d18a4e4fea9324100fc46454",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "43a6be1bedd44d68d17b1413236dd7dacdeb1132a9eb3e534c09047206cd3cb1",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -1,14 +1,14 @@
 {
   "id": "lesson_7-9_cyber_digital_basics_02",
   "path_id": "path_7-9_cyber_digital_basics",
-  "title": "Our Screens and Our Children: How Do We Make Electronic Games a Friend, Not an Enemy?",
+  "title": "Our Screens and Our Children: How Do We Organize the Use of Electronic Games?",
   "age_group": "7-9",
   "domain": "cyber",
   "unit_ids": [
     "seed-screen-79",
     "cyb-71c11ce6"
   ],
-  "summary": "Imagine walking into your child's room to find them engrossed in an electronic game, their eyes fixed on the screen, their fingers moving rapidly. You might wonder: Is this good for them? Are they wasting their time? Or are they learning something useful? This feeling is very natural, as the digital world has become an integral part of our lives and our children's lives, and electronic games, specifically, raise many questions.\n\nThe truth is that not all electronic games are purely evil, nor are they all absolutely good. Some are specifically designed to develop critical thinking skills, problem-solving, and even teamwork and cooperation. But on the other hand, there are games that may contain violent content, or push the child to make repeated purchases, or allow them to talk to strangers, and this is what requires our vigilance and caution. The key here is balance and a deep understanding of what our children are playing.\n\nOur role as parents is to be guides, not just monitors. Start by checking the game's age rating, as it is an important indicator. Then, do not hesitate to activate safety and privacy settings within the game itself. Most importantly, observe your child's mood and behavior after playing; do they seem happy and refreshed, or tense and irritable? These simple observations will give you a clear compass to guide them towards a safe and enriching digital experience.",
+  "summary": "Imagine walking into your child's room to find them engrossed in an electronic game, their eyes fixed on the screen, their fingers moving rapidly. You might wonder: Is this good for them? Are they wasting their time? Or are they learning something useful? This feeling is very natural, as the digital world has become an integral part of our lives and our children's lives, and electronic games, specifically, raise many questions.\n\nThe truth is that not all electronic games are purely evil, nor are they all absolutely good. Some games may be beneficial, yet what matters most is monitoring the content, the duration of play, and the child's mood afterward. But on the other hand, there are games that may contain violent content, or push the child to make repeated purchases, or allow them to talk to strangers, and this is what requires our vigilance and caution. The key here is balance and a deep understanding of what our children are playing.\n\nOur role as parents is to be guides, not just monitors. Start by checking the game's age rating, as it is an important indicator. Then, do not hesitate to activate safety and privacy settings within the game itself. Most importantly, observe your child's mood and behavior after playing; do they seem happy and refreshed, or tense and irritable? These simple observations will give you a clear compass to guide them towards a safe and enriching digital experience.",
   "try_this": "Tonight: Sit with your child and ask them to show you their favorite game. Ask them why they love it and what they do in it. Listen attentively without judgment.",
   "order": 2,
   "estimated_minutes": 4,
@@ -23,7 +23,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I’m excited to learn more about your world in this game. Can you show me how you play?”",
   "assistant_prompts": [
     "How do I choose electronic games suitable for ages 7-9 that develop their skills?",
@@ -42,7 +42,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -61,8 +61,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4db122829a194d9a61d128e15ae6e690bd9abac7f516232fc03de78623fe109e",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "d1044b04b0a2828a5ed5b2f6f068ab4dde9c243cdd11e9ccf0aaf321f831b20d",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -71,6 +71,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

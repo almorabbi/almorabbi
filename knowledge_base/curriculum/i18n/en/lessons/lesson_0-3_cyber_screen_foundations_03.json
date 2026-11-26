@@ -1,13 +1,13 @@
 {
   "id": "lesson_0-3_cyber_screen_foundations_03",
   "path_id": "path_0-3_cyber_screen_foundations",
-  "title": "Peaceful Sleep, Quiet Screens: Protecting Your Child's Night from Day One",
+  "title": "Peaceful Sleep, Quiet Screens: Protecting Your Child's Night in Their Early Years",
   "age_group": "0-3",
   "domain": "cyber",
   "unit_ids": [
     "cyb-9802937c"
   ],
-  "summary": "Imagine the end of a long day, your little one rubbing their eyes, and you long for a moment of calm. Placing a tablet in their hands for a few minutes might seem tempting, especially with promises of \"educational\" games. But have you ever considered how this bright blue light affects their fragile sleep cycle? We might not see the impact immediately, but the accumulation of these minutes can steal precious hours of deep sleep from your child, sleep they need for their rapid brain development.\n\nThe reality is that screens, even for a video call with Grandma, emit light that suppresses the production of melatonin, the hormone responsible for us feeling sleepy. This means your child might stay awake longer, wake up more frequently during the night, or not get enough quality sleep. Remember that a child up to one year old needs between 11 to 14 hours of sleep daily for healthy development. Research indicates that increased screen exposure in children at this age has been linked to sleep and behavioral problems, and even weight gain.\n\nDon't worry, the solutions are simple and comforting. Make the bedroom a screen-free sanctuary for everyone, both you and your child. Replace screen time before bed with calm and loving rituals: a short story, a gentle massage, or just a warm cuddle. If you must use a screen (for an essential call, for example), keep it short, in a well-lit place, and at least an hour away from bedtime. These small habits build strong foundations for your child's peaceful sleep and give them a healthy start in life.",
+  "summary": "Imagine the end of a long day, your little one rubbing their eyes, and you long for a moment of calm. Placing a tablet in their hands for a few minutes might seem tempting, especially with promises of \"educational\" games. But have you ever considered how this bright blue light affects their fragile sleep cycle? We might not see the impact immediately, but the accumulation of these minutes can steal precious hours of deep sleep from your child, sleep they need for their rapid brain development.\n\nThe reality is that using screens before bedtime, even for a video call with Grandma, can negatively affect a child's ability to wind down and get ready for sleep, which may cause them to stay awake longer or wake up frequently during the night. Remember that an infant from four to twelve months typically needs about 12 to 16 hours of sleep daily, including naps, and a child between one and two years needs about 11 to 14 hours. Some studies indicate that excessive screen use in early childhood is associated with sleep problems, which is why we keep screens away from bedtime.\n\nDon't worry, the solutions are simple and comforting. Make the bedroom a screen-free sanctuary for everyone, both you and your child. Replace screen time before bed with calm and loving rituals: a short story, a gentle massage, or just a warm cuddle. If you must use a screen (for an essential call, for example), keep it short, in a well-lit place, and at least an hour away from bedtime. These small habits build strong foundations for your child's peaceful sleep and give them a healthy start in life.",
   "try_this": "Tonight: An hour before your child's bedtime, start a calm, screen-free routine. You can give them a warm bath, read a short story, or give a light massage, then dim the bright lights in the room.",
   "order": 3,
   "estimated_minutes": 4,
@@ -22,7 +22,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-10T18:00:00",
   "updated_at": "2026-06-10T18:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“Our quiet night has begun. Let's let the screens rest and enjoy our moments together.”",
   "assistant_prompts": [
     "What calming activities can I do with my child (0-3 years old) before bed instead of screens?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,26 +58,14 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "95575c5ee8c57dacf974f4d7d9ce55928e58e111cebf19ccf7cceff3cd426e31",
-      "reviewed_at": "2026-11-24T18:01:18+00:00",
+      "content_sha256": "25497fc9e76c0e76b5a7c8091c3e275a1331c04b4644a900fa29f1eea2e9f436",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [
         {
           "model": "deepseek-v4-pro",
           "field": "try_this",
           "type": "meaning",
-          "why": "إطفاء means turn off, while dim understates the action."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "fields.try_this.english",
-          "type": "meaning",
-          "why": "The Arabic says to turn off (إطفاء) the bright lights, while the English says to dim them, which is a softer action than intended."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "fields.summary.english",
-          "type": "meaning",
-          "why": "The Arabic describes the solutions as warm (دافئة), which carries an emotional tone slightly different from comforting."
+          "why": "The Arabic says to turn off the bright lights, but the English says to dim them, which changes the instruction."
         }
       ],
       "adjudicated": [],
@@ -91,21 +79,9 @@
         "model": "deepseek-v4-pro",
         "field": "try_this",
         "type": "meaning",
-        "why": "إطفاء means turn off, while dim understates the action."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "fields.try_this.english",
-        "type": "meaning",
-        "why": "The Arabic says to turn off (إطفاء) the bright lights, while the English says to dim them, which is a softer action than intended."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "fields.summary.english",
-        "type": "meaning",
-        "why": "The Arabic describes the solutions as warm (دافئة), which carries an emotional tone slightly different from comforting."
+        "why": "The Arabic says to turn off the bright lights, but the English says to dim them, which changes the instruction."
       }
     ],
-    "revalidated_at": "2026-11-24T18:01:18+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

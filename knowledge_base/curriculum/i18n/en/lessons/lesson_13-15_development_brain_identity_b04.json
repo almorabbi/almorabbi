@@ -8,8 +8,8 @@
     "dev-e129e5e9",
     "gap-dev-defiance-teen-01"
   ],
-  "summary": "Imagine your teenage child standing in front of their wardrobe, choosing a shirt that you find completely unsuitable. Or perhaps they insist on a study plan that differs from your ideal schedule. In these moments, you might feel an overwhelming urge to intervene, to guide them towards the \"right decision.\" This feeling is natural, but it can be the beginning of a hidden conflict. The more you tighten the reins, the more they desire freedom, even if it's in ways you don't approve of.\n\nA teenager's brain at this stage is naturally programmed to seek independence and form a self-identity. They are not necessarily rebellious, but rather looking for their own space to test their abilities and refine their character. Your role here transforms from a \"manager\" who sets all the rules and details, to a \"consultant\" who guides, supports, and provides a safe framework. This means giving them gradual freedom to make decisions that concern them, with clear boundaries and natural consequences from which they can learn.\n\nStart by giving them space in simple decisions that concern them, such as choosing their clothes, organizing their room, or even setting their study priorities within an agreed-upon timeframe. Remain firm on non-negotiable constants, such as safety and core values. Remember that the small mistakes they make now in a safe environment and under your supervision are a valuable investment for them to learn from and gain experience, and they are much cheaper than big mistakes they might make later without experience or guidance. Give them calculated trust, and they will develop strong self-judgment.",
-  "try_this": "Tonight: Choose one decision you used to make for them (like their weekend bedtime) and hand it over to them with a clear framework (e.g., \"You can stay up until 11 PM, but remember you're responsible for waking up early tomorrow.\"). Resist the urge to intervene if they stay up a little later, and let them experience the natural consequences.",
+  "summary": "Imagine your teenage child standing in front of their wardrobe, choosing a shirt that you find completely unsuitable. Or perhaps they insist on a study plan that differs from your ideal schedule. In these moments, you might feel an overwhelming urge to intervene, to guide them towards the \"right decision.\" This feeling is natural, but it can be the beginning of a hidden conflict. The more you tighten the reins, the more they desire freedom, even if it's in ways you don't approve of.\n\nA teenager's brain at this stage is naturally programmed to seek independence and form a self-identity. They are not necessarily rebellious, but rather looking for their own space to test their abilities and refine their character. Your role here transforms from a \"manager\" who sets all the rules and details, to a \"consultant\" who guides, supports, and provides a safe framework. This means giving them gradual freedom to make decisions that concern them, with clear boundaries and natural consequences from which they can learn.\n\nStart by giving them space in simple decisions that concern them, such as choosing their clothes, organizing their room, or even setting their study priorities within an agreed-upon timeframe. Remain firm on non-negotiable constants, such as safety and core values. Remember that the small mistakes they make now in a safe environment and under your supervision are a valuable investment for them to learn from and gain experience, and they are much cheaper than big mistakes they might make later without experience or guidance. Give them thoughtful trust, and they may develop sound self-judgment, by Allah's will.",
+  "try_this": "Tonight: Choose one decision you used to make for them (like their weekend bedtime) and hand it over to them with a clear framework (e.g., \"You can stay up until 11 PM, but remember you're responsible for waking up for Fajr prayer and for your duties tomorrow.\"). Resist the urge to intervene if they stay up a little later, and let them experience the natural consequences.",
   "order": 4,
   "estimated_minutes": 4,
   "reflection_prompts": [
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I trust your ability to make the right decision, and I’ll be here to support you if you need me.”",
   "assistant_prompts": [
     "What activities can teenagers participate in to develop their independence?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "d4e6242d5c847bbd06b5ad9d4b0a2b65a1c60ed10edd0e4baa98a2114ea196ba",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "170b29b776cb6767eec36609c2db16bd05cbe8c3d7899948e36155dac7220e69",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

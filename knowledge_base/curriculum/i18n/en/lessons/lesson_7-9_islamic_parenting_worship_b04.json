@@ -1,14 +1,14 @@
 {
   "id": "lesson_7-9_islamic_parenting_worship_b04",
   "path_id": "path_7-9_islamic_parenting_worship",
-  "title": "Trust of the Heart and Hand: Building Character from Truthfulness to Filial Piety",
+  "title": "Truthfulness and Trustworthiness: Prophetic Manners We Raise Our Children Upon",
   "age_group": "7-9",
   "domain": "islamic_parenting",
   "unit_ids": [
     "b1bd26fc-3144-4928-9bb4-ce2b30f95876",
     "8e884b98-41a4-4c29-92c5-aa71e62d7d51"
   ],
-  "summary": "Imagine your seven or eight-year-old child returning from school, looking distressed. He tells you his friend hasn't returned the pen he lent him yesterday, or perhaps he complains that a classmate didn't keep a promise. In these simple daily moments lies a golden opportunity to instill great values in your child's soul—values that extend beyond the school walls to touch the core of his personality and his interactions with life and people. How do we connect these fleeting situations with deeper concepts like trustworthiness, truthfulness, and filial piety?\n\nAt this age, a child begins to understand that worship isn't just movements or words; it's behavior and interaction. Trustworthiness means safeguarding what one is entrusted with, whether it's a pen, a secret, or even a small responsibility at home. Truthfulness is the foundation of trust and security among people, as the Prophet ﷺ said: «You must be truthful, for truthfulness leads to righteousness, and righteousness leads to Paradise» (Sahih Muslim 2607). As for filial piety, it is kindness, gentleness, and obedience in what is good, and understanding that Allah's love and pleasure are closely linked to our good character and interactions, not by fear alone.\n\nLet your child practice these good manners daily. Start with one character trait to focus on this month, and be his primary role model. Praise him warmly when you see him applying good character, and explain to him how these beautiful traits bring him closer to Allah and to people's hearts. In this way, your child will realize that religion is not just rituals, but a light that illuminates all aspects of his life, and that his closeness to his Lord is manifested in his truthfulness, trustworthiness, and gentleness with everyone.",
+  "summary": "Imagine your seven or eight-year-old child returning from school, looking distressed. He tells you his friend hasn't returned the pen he lent him yesterday, or perhaps he complains that a classmate didn't keep a promise. In these simple daily moments lies a golden opportunity to instill great values in your child's soul—values that extend beyond the school walls to touch the core of his personality and his interactions with life and people. How do we connect these fleeting situations with deeper concepts like trustworthiness, truthfulness, and filial piety?\n\nAt this age, a child begins to understand that worship isn't just movements or words; rather, it bears fruit in good behavior and good conduct. Trustworthiness means safeguarding what one is entrusted with, whether it's a pen, a secret, or even a small responsibility at home. Truthfulness is among the character traits of a believer, as the Prophet ﷺ said: «You must be truthful, for truthfulness leads to righteousness, and righteousness leads to Paradise» (Sahih Muslim 2607). As for filial piety, it is kindness, gentleness, and obedience in what is good, and understanding that Allah's love and pleasure are closely linked to our good character and interactions, not by fear alone.\n\nLet your child practice these good manners daily. Start with one character trait to focus on this month, and be his primary role model. Praise him warmly when you see him applying good character, and explain to him how these beautiful traits bring him closer to Allah and to people's hearts. In this way, your child will realize that religion is not just rituals, but a light that illuminates all aspects of his life, and that his closeness to his Lord is manifested in his truthfulness, trustworthiness, and gentleness with everyone.",
   "try_this": "Today: Give your child a small trust to keep for you (like a spare key or an empty wallet), ask for it back in the evening, and praise him with a smile for keeping it safe.",
   "order": 4,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«I am proud of you, my son. Your trustworthiness makes me trust you more and more.»",
   "assistant_prompts": [
     "How can I explain the meaning of trustworthiness to my child in a simple, age-appropriate way?",
@@ -40,7 +40,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,8 +59,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "583406c6b6b79b7d1634969190206f36223ab8e6abee65c6d168e08e8651b3f7",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "e4627d59d7259160e441141886e3db68be0fc713a107300d9bf9be83f8e678fb",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -69,6 +69,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

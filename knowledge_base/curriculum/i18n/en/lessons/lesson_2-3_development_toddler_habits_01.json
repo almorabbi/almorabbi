@@ -1,7 +1,7 @@
 {
   "id": "lesson_2-3_development_toddler_habits_01",
   "path_id": "path_2-3_development_growth",
-  "title": "My Little One Explores Their World: Routine Habits and First Words",
+  "title": "My Little One Explores Their World: Daily Habit Routines",
   "age_group": "2-3",
   "domain": "development",
   "unit_ids": [
@@ -22,7 +22,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“My little one, we brush our teeth together to keep them strong and beautiful!”",
   "assistant_prompts": [
     "What are the signs of readiness for potty training my child?",
@@ -40,7 +40,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,8 +59,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "3db83d3d4e87bb52134df4b77392feb44405d0fd88768357e83e77b3189ceffa",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "0ec8e240ae9e943a46aa927c7ba1bfb26d357864a9e121a0c8565598620012de",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -69,6 +69,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

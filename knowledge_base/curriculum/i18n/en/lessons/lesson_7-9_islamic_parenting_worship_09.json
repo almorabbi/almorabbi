@@ -8,7 +8,7 @@
     "isl-1bceeaf6",
     "isl-3f0af447"
   ],
-  "summary": "Imagine your young child, with sparkling eyes, placing a small star next to the Asr prayer on their colorful, self-designed chart. They smile proudly, feeling a sense of accomplishment. At this age (7-9 years old), children love to see their progress tangibly, and that's what a prayer chart does: it transforms a big goal into visible small steps, making the child happy with each step and encouraged to build the habit of prayer.\n\nBut most importantly, we want to plant in their heart the love of prayer for its own sake, not for a material reward. There's a subtle difference between an incentive and a bribe. An incentive encourages a good start and then gradually fades, while a bribe links worship to a transaction: \"I pray to get candy.\" Our goal is for the child to realize that prayer is a connection with Allah, an expression of gratitude to Him, and a comfort for the soul, not just a task to be completed to get a reward. Remember the words of the Prophet ﷺ: «Make things easy and do not make them difficult; gladden people and do not repel them.» (Sahih al-Bukhari 69).\n\nMake rewards spiritual and warm: sincere and specific praise, a warm hug, or a word of pride in front of the family. If you want a weekend reward, let it be an enjoyable shared experience: a family outing, special playtime with you, or letting them choose the family dinner. Don't make the reward an announced condition every time; instead, sometimes make it a surprise that you celebrate together. Over time, gradually reduce reliance on the chart, and let the true motivation be the love of Allah and gratitude to Him, until prayer becomes an integral part of their life.",
+  "summary": "Imagine your young child, with sparkling eyes, placing a small star next to the Asr prayer on their colorful, self-designed chart. They smile proudly, feeling a sense of accomplishment. At this age (7-9 years old), children love to see their progress tangibly, and that's what a prayer chart does: it transforms a big goal into visible small steps, making the child happy with each step and encouraged to build the habit of prayer.\n\nBut most importantly, we want to plant in their heart the love of prayer for its own sake, not for a material reward. There is a subtle difference between an incentive that encourages a good start and then gradually fades, and a conditional reward that turns worship into a mere transaction: \"I pray to get candy.\" Our goal is for the child to realize that prayer is a connection with Allah, an expression of gratitude to Him, and a comfort for the soul, not just a task to be completed to get a reward. Remember the words of the Prophet ﷺ: «Make things easy and do not make them difficult; gladden people and do not repel them.» (Sahih al-Bukhari 69).\n\nMake rewards spiritual and warm: sincere and specific praise, a warm hug, or a word of pride in front of the family. If you want a weekend reward, let it be an enjoyable shared experience: a family outing, special playtime with you, or letting them choose the family dinner. Don't make the reward an announced condition every time; instead, sometimes make it a surprise that you celebrate together. Over time, gradually reduce reliance on the chart, and let the true motivation be the love of Allah and gratitude to Him, until prayer becomes an integral part of their life.",
   "try_this": "Today: Sit with your child and together design a simple prayer chart on paper. Let them choose the colors and stickers, and hang it in a visible place in their room or in a family gathering area.",
   "order": 9,
   "estimated_minutes": 4,
@@ -22,7 +22,7 @@
   "version": "1.0.0",
   "created_at": "2026-10-04T17:13:00",
   "updated_at": "2026-10-04T17:13:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«My dear, how wonderful it is to see your prayers light up our chart every day. You are a champion!»",
   "assistant_prompts": [
     "How do I deal with my child if they lose enthusiasm for the prayer chart after a while?",
@@ -41,7 +41,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -60,42 +60,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "23fff2977eef9186ba0fbbfd8c4cfd0f11df850fe8065dbd7e1b2cdf78febf0d",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "meaning",
-          "why": "«معنوية» here means non-material or emotional rewards (praise, hugs, pride), not specifically «spiritual» in a religious sense, which overstates the Arabic."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "reflection_prompts",
-          "type": "meaning",
-          "why": "«المكافآت المعنوية» refers to non-material/emotional rewards, not «spiritual» rewards, which adds a religious connotation the Arabic does not carry here."
-        }
-      ],
+      "content_sha256": "c3c3e5785c6b18039a097db79d4c056ab36747e4322aa619799847319ecc6124",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "meaning",
-        "why": "«معنوية» here means non-material or emotional rewards (praise, hugs, pride), not specifically «spiritual» in a religious sense, which overstates the Arabic."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "reflection_prompts",
-        "type": "meaning",
-        "why": "«المكافآت المعنوية» refers to non-material/emotional rewards, not «spiritual» rewards, which adds a religious connotation the Arabic does not carry here."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

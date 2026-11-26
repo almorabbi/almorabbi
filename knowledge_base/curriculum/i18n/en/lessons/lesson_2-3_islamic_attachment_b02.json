@@ -1,14 +1,14 @@
 {
   "id": "lesson_2-3_islamic_attachment_b02",
   "path_id": "path_2-3_islamic_attachment",
-  "title": "My Child, My Mirror: How Do We Instill Values Through Example, Not Commands?",
+  "title": "My Child, My Mirror: How Do We Instill Values Through Example and Gentle Guidance?",
   "age_group": "2-3",
   "domain": "islamic_parenting",
   "unit_ids": [
     "95e7a228-ce19-494e-99c0-18e4f6402566",
     "seed-defiance-23"
   ],
-  "summary": "Imagine your little child, with wide eyes, watching you perform ablution calmly, or raising your hands in supplication after prayer, or even smiling at the mail carrier. They may not speak much, but their small mind records every movement, every kind word, and every action you take. They don't analyze or think with adult logic; rather, they absorb the atmosphere and behaviors around them like a sponge, storing them as a model to imitate in silence.\n\nAt this early age (2-3 years), upbringing isn't about lectures or direct commands; it's about \"being the lesson.\" Your child is naturally programmed to mimic those around them, especially their parents. When they see you remembering Allah with a gentle, audible voice, or dealing kindly with others, or even when they see you reciting the Qur'an peacefully, they perceive these actions as a natural part of life and absorb them as a value without you even realizing it. This silent example instills far deeper lessons than any words or direct guidance.\n\nSo, don't pressure yourself to teach your child everything through words. Just allow them to see you at your best: in your worship, in your character, and in your dealings with life. Make your acts of worship a visible and beloved part of your day, say your remembrances clearly and calmly, and treat people with the character you wish for them to learn. These simple moments, which may seem ordinary to you, are seeds that grow to shape your child's personality and authentic Islamic values.",
+  "summary": "Imagine your little child, with wide eyes, watching you perform ablution calmly, or raising your hands in supplication after prayer, or even smiling at the mail carrier. They may not speak much, but their small mind records every movement, every kind word, and every action you take. They don't analyze or think with adult logic; rather, they absorb the atmosphere and behaviors around them like a sponge, storing them as a model to imitate in silence.\n\nAt this early age (2–3 years), upbringing relies primarily on setting a good example and gentle repetition, alongside simple guidance suited to their understanding. Your child is naturally programmed to mimic those around them, especially their parents. When they see you remembering Allah with a gentle, audible voice, or dealing kindly with others, or even when they see you reciting the Qur'an peacefully, they perceive these actions as a natural part of life and absorb them as a value without you even realizing it. This silent example leaves a profound impact on them alongside gentle guidance.\n\nSo, don't pressure yourself to teach your child everything through words. Just allow them to see you at your best: in your worship, in your character, and in your dealings with life. Make your acts of worship a visible and beloved part of your day, say your remembrances clearly and calmly, and treat people with the character you wish for them to learn. These simple moments, which may seem ordinary to you, are seeds that grow to shape your child's personality and authentic Islamic values.",
   "try_this": "Today: Let your child see you pray two units of prayer calmly and peacefully, or remember Allah with a gentle, audible voice for one minute, without asking them to do anything or commenting on their action.",
   "order": 2,
   "estimated_minutes": 4,
@@ -21,8 +21,8 @@
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“My dear, let's remember Allah together.”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "\"SubhanAllah, Alhamdulillah for this beautiful day.\"",
   "assistant_prompts": [
     "How should I deal with my child if they start imitating prayer movements incorrectly or playfully?",
     "What are some short and beloved remembrances I can say audibly for my child to imitate at this age?"
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,16 +58,30 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4a944ef1433a47aa74b6abe6550014da02cd4f99d83857db6901078810faeb13",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [],
+      "content_sha256": "e11ac789aaba6649b32add4a755b49c369c239b2b61d14ecd28cafad387076bc",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "source_corruption",
+          "why": "The phrase «في هذا العمر» is repeated twice in the same sentence, a stylistic redundancy the translator smoothed over."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "source_corruption",
+        "why": "The phrase «في هذا العمر» is repeated twice in the same sentence, a stylistic redundancy the translator smoothed over."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

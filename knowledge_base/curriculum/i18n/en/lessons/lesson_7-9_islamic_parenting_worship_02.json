@@ -1,14 +1,14 @@
 {
   "id": "lesson_7-9_islamic_parenting_worship_02",
   "path_id": "path_7-9_islamic_parenting_worship",
-  "title": "Our Children's Fasting: Step-by-Step Towards Patience and Piety",
+  "title": "Our Children's Fasting: Step-by-Step Towards Patience and Mindfulness of Allah",
   "age_group": "7-9",
   "domain": "islamic_parenting",
   "unit_ids": [
     "aedda350-cf2a-4d53-869a-2b07a694180d",
     "d0cb16b5-21cc-457f-8b87-2d74f18eea4f"
   ],
-  "summary": "Imagine your seven-year-old child excitedly running to you on a Ramadan morning, eyes sparkling with the question: \"Can I fast like you, Mom/Dad?\" Your heart might swell with pride, followed by a slight worry: Is he ready? How can I guide him through this spiritual experience without overwhelming or alienating him? This is a precious moment to plant the seeds of faith and patience, but with gentleness and wisdom.\n\nFasting for children at this age is not obligatory, but it is a wonderful opportunity to train in self-control, empathy for others, and strengthening their connection with Allah. The core idea here is not about completing long hours of fasting, but about understanding the deep meaning behind it: patience with hunger and thirst, being mindful of Allah in secret and in public, and feeling for the poor and needy. It is a journey of building spiritual awareness, starting with small, motivating steps, and avoiding any pressure that might turn the experience into a burden.\n\nLet your child choose the duration of their partial fast, even if it's for just a few hours, and be ready to offer them food immediately if they feel very tired or dizzy. Remember that the goal is to build a positive relationship with worship, not merely to abstain from food. Encourage them, reward them with kind words, and celebrate with them the end of their \"little fast.\" Always remember the Prophet's ﷺ saying: «Make things easy and do not make them difficult; gladden people and do not repel them» (Sahih al-Bukhari 69).",
+  "summary": "Imagine your seven-year-old child excitedly running to you on a Ramadan morning, eyes sparkling with the question: \"Can I fast like you, Mom/Dad?\" Your heart might swell with pride, followed by a slight worry: Is he ready? How can I guide him through this spiritual experience without overwhelming or alienating him? This is a precious moment to plant the seeds of faith and patience, but with gentleness and wisdom.\n\nFasting for children at this age is not obligatory, but it is a wonderful opportunity to train in self-control, empathy for others, and strengthening their connection with Allah. The core idea here is not about completing long hours of fasting, but about understanding the wisdoms of fasting mentioned by scholars: training in patience and taqwa (God-consciousness), being mindful of Allah in secret and in public, and empathizing with the condition of the poor and needy. It is a journey of building spiritual awareness, starting with small, motivating steps, and avoiding any pressure that might turn the experience into a burden.\n\nLet your child practice fasting for a duration they choose with you according to their ability, even if it is just a few hours, while clarifying that it is training and not yet an obligatory fast for them—and the Companions used to train their young children to fast and treat them gently until iftar—and be ready to offer them food immediately if they feel very tired or dizzy. Remember that the goal is to build a positive relationship with worship, not merely to abstain from food. Encourage them, reward them with kind words, and celebrate with them the end of their \"little fast.\" Always remember the Prophet's ﷺ saying: «Make things easy and do not make them difficult; gladden people and do not repel them» (Sahih al-Bukhari 69).",
   "try_this": "Today: Sit with your child and talk about the upcoming Ramadan. Gently ask if they would like to try partial fasting, and agree on a flexible plan that suits their ability and health, such as fasting until Dhuhr or Asr, while emphasizing that they can stop whenever they feel tired.",
   "order": 2,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«My son/daughter, fasting is a beautiful training that makes us stronger and helps us feel for others, and we will fast together as much as you are able.»",
   "assistant_prompts": [
     "What foods and drinks help my child better endure partial fasting?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "73bb9f902a36c6cb29d3908e886f8004588bdd4abfa5ea5d8e8b227b5375f562",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "7caeb0edb66caaf294ec679163b8674298e81df8f94287510405b64a8dcb1174",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -1,14 +1,14 @@
 {
   "id": "lesson_10-12_islamic_parenting_identity_03",
   "path_id": "path_10-12_islamic_parenting_identity",
-  "title": "Character in Action: Trustworthiness in Private and Public, and Filial Piety",
+  "title": "Character in Dealings: Honesty, Trustworthiness, and Good Speech",
   "age_group": "10-12",
   "domain": "islamic_parenting",
   "unit_ids": [
     "99515fe1-7bec-4a39-af86-bf1922262170",
     "8451bbb0-4617-4252-a206-e442c533fac3"
   ],
-  "summary": "Your son is approaching a wider world outside the home: school friends, playgroups, personal allowance, and a space for privacy that didn't exist two years ago. This brings up the most important question for every parent: How does my son behave when I'm not watching? The truth is, external supervision alone isn't enough after the age of ten; what truly protects your son is a living conscience that senses God's watchfulness and love, and feels his dignity when he chooses honesty and trustworthiness on his own.\n\nIn the comprehensive hadith, the Prophet ﷺ said: «Actions are but by intentions» (Sahih al-Bukhari 1), and he ﷺ said: «Whoever believes in Allah and the Last Day, let him speak good or remain silent» (Sahih al-Bukhari 6018). Instead of turning the home into a test of ideal character, make it an environment that honors honest actions: when he returns the exact change, or apologizes for a harsh word said to a friend, or refrains from backbiting, pause and point out the nobility of his action.\n\nRemember also that filial piety is not imposed by constantly reminding him of your right over him, but is inspired when he sees your own piety towards your parents, and when he feels your respect for him in front of his friends and siblings. Allow him to see in you someone who apologizes when they make a mistake and keeps their promises; for the character he sees in you every day is the character he will carry with him wherever he goes.",
+  "summary": "Your son is approaching a wider world outside the home: school friends, playgroups, personal allowance, and a space for privacy that didn't exist two years ago. This brings up the most important question for every parent: How does my son behave when I'm not watching? The truth is, external supervision alone isn't enough after the age of ten; what truly protects your son is a living conscience that senses Allah's watchfulness and love, and feels his dignity when he chooses honesty and trustworthiness on his own.\n\nIn the comprehensive hadith, the Prophet ﷺ said: «Actions are but by intentions» (Sahih al-Bukhari 1), and he ﷺ said: «Whoever believes in Allah and the Last Day, let him speak good or remain silent» (Sahih al-Bukhari 6018). Instead of turning the home into a test of ideal character, make it an environment that honors honest actions: when he returns the exact change, or apologizes for a harsh word said to a friend, or refrains from backbiting, pause and point out the nobility of his action.\n\nRemember also that honoring parents is a religious obligation, yet it is instilled through good example and gentleness rather than by constantly reminding him of your right over him; rather, he is inspired when he sees your own dutifulness toward your parents, and when he feels your respect for him in front of his friends and siblings. Allow him to see in you someone who apologizes when they make a mistake and keeps their promises; for the character he sees in you every day is the character he will carry with him wherever he goes.",
   "try_this": "Tonight: Tell your son a real-life situation where you chose honesty or kind words despite the difficulty, then ask him: «Have you recently had a situation where you felt proud because you chose what was right?»",
   "order": 3,
   "estimated_minutes": 4,
@@ -20,8 +20,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "«I wanted to share a situation that happened to me today where I chose honesty despite its difficulty... And you, my champion, what situation are you proud of this week?»",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "«I wanted to share a situation I went through today where I chose trustworthiness despite its difficulty... And you, my son, what situation are you proud of this week?»",
   "assistant_prompts": [
     "I discovered that my 11-year-old son took something that wasn't his or hid a mistake from me at school. How can I confront him wisely?",
     "How can I teach my son proper speech and to avoid mockery in his friend groups?"
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5b34c6655ee3321d6b649844f5bfdd6143ea13c7e7e04e6fe91951e11781c329",
-      "reviewed_at": "2026-11-24T18:38:53+00:00",
+      "content_sha256": "ebe84fbff7b4e8bbf83a2b31f029a1ec8da8224169800e30619494f2cb7e0937",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:38:53+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

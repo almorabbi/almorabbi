@@ -1,14 +1,14 @@
 {
   "id": "lesson_16-18_islamic_parenting_adult_faith_02",
   "path_id": "path_16-18_islamic_parenting_adult_faith",
-  "title": "Chastity and Preparation for Family Life: An Open Conversation Without Shame",
+  "title": "Chastity and Preparation for Family Life: A Candid, Dignified Conversation Without Embarrassment",
   "age_group": "16-18",
   "domain": "islamic_parenting",
   "unit_ids": [
     "isl-ba66715b",
     "isl-6a157c3f"
   ],
-  "summary": "Between the ages of sixteen and eighteen, emotional and instinctual questions intensify, and young men and women are surrounded by platforms that present distorted concepts of love, relationships, and marriage. The most dangerous pitfall in many homes is \"awkward silence\"; we are ashamed to open the door to a calm discussion, so our children derive their understanding of chastity and married life from frivolous content or the experiences of immature peers.\n\nA mature conversation here is not a tense sermon, but rather a dignified, frank session that acknowledges human nature and exalts chastity as a strength and protection for dignity and the heart. Remember the words of the Prophet ﷺ: \"None of you will believe until he loves for his brother what he loves for himself\" (Sahih al-Bukhari 13); a chaste young man protects the honor of others just as he loves his own family to be protected, and he builds himself academically, psychologically, and financially to be worthy of responsibility when Allah permits marriage.\n\nDiscuss with them calmly the criteria for choosing a future life partner: religion, character, trustworthiness, and good companionship before fleeting appearances. Explain to them that a happy family is built on affection, mercy, and shared responsibility, not on idealized images on screens. Every question they hear from you with dignity and honesty today will close ten doors of confusion and misguidance for them tomorrow.",
+  "summary": "Between the ages of sixteen and eighteen, emotional and instinctual questions intensify, and young men and women are surrounded by platforms that present distorted concepts of love, relationships, and marriage. The most dangerous pitfall in many homes is \"awkward silence\"; we are ashamed to open the door to a calm discussion, so our children derive their understanding of chastity and married life from frivolous content or the experiences of immature peers.\n\nA mature conversation here is not a tense sermon, but rather a dignified, frank session that acknowledges human nature and exalts chastity as a strength and protection for dignity and the heart. Remember the Prophet's ﷺ guidance to youth: \"O young men, whoever among you can afford to marry, let him marry, for it lowers the gaze and guards chastity; and whoever cannot, let him fast, for it will be a shield for him\" (Sahih al-Bukhari, Hadith 5066), and also keep in mind his ﷺ saying: \"None of you truly believes until he loves for his brother what he loves for himself\" (Sahih al-Bukhari, Hadith 13); a chaste young man protects the honor of others just as he loves his own family to be protected, and he builds himself academically, psychologically, and financially to be worthy of responsibility when Allah permits marriage.\n\nDiscuss with them calmly the criteria for choosing a future life partner: religion, character, trustworthiness, and good companionship before fleeting appearances. Explain to them that a happy family is built on affection, mercy, and shared responsibility, not on idealized images on screens. Every question they hear from you with dignity and honesty today will close ten doors of confusion and misguidance for them tomorrow.",
   "try_this": "Tonight: Choose a quiet, one-on-one time and start with a refined, open-ended question: \"In your opinion, what are the two most important qualities that make a marriage successful and reassuring in this day and age?\" Listen to their thoughts first before sharing your experience.",
   "order": 2,
   "estimated_minutes": 4,
@@ -23,7 +23,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"The topic of chastity and building a family in the future is natural and very important; I'd love for us to talk about it frankly and calmly whenever a question comes to your mind.\"",
   "assistant_prompts": [
     "How can I start a calm conversation with my 17-year-old son about lowering his gaze and the dangers of inappropriate content?",
@@ -41,7 +41,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -60,14 +60,14 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "b093e96d1afe008fb8d332154da8962c0eb221b348402281fbe39fa1dbf34f4f",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "170ab543dae8599e2c32948c28bd11a4662a5a70f35b83135f29df994a40320a",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [
         {
-          "model": "glm-5.2",
+          "model": "deepseek-v4-pro",
           "field": "summary",
-          "type": "meaning",
-          "why": "«الانزلاق» conveys moral slipping or backsliding, which is slightly less severe than «misguidance» (ضلال), overstating the Arabic."
+          "type": "source_corruption",
+          "why": "The Arabic adjective should be active participle 'المحرِج' (awkward/embarrassing), not passive 'المحرَج' (embarrassed)."
         }
       ],
       "adjudicated": [],
@@ -78,12 +78,12 @@
     "review_verdict": "low_only",
     "review_defects": [
       {
-        "model": "glm-5.2",
+        "model": "deepseek-v4-pro",
         "field": "summary",
-        "type": "meaning",
-        "why": "«الانزلاق» conveys moral slipping or backsliding, which is slightly less severe than «misguidance» (ضلال), overstating the Arabic."
+        "type": "source_corruption",
+        "why": "The Arabic adjective should be active participle 'المحرِج' (awkward/embarrassing), not passive 'المحرَج' (embarrassed)."
       }
     ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

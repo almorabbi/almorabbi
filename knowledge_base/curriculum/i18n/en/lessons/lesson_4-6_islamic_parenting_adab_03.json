@@ -8,7 +8,7 @@
     "isl-24dda124",
     "isl-156cff0e"
   ],
-  "summary": "Imagine yourself in the midst of playing with your four or five-year-old child. Suddenly, voices rise, toys fly, and the fun turns into a small disagreement about who gets to hold the toy first. You might feel frustrated and wonder: How do I teach them the boundaries of play without spoiling their joy of discovery? At this age, your child begins to understand the meaning of “halal” (permissible) and “haram” (forbidden) in their small world, and the core of their conscience, which will guide them later, begins to form.\n\nUpbringing is not just about commands and prohibitions; it is a shared journey of building. When your child participates in setting rules, they feel ownership and responsibility towards them. This approach not only instills obedience but also develops their sense of justice and cooperation. It's an opportunity to teach them that rules are not imposed restrictions, but agreements that protect everyone and make life more beautiful and organized. The Prophet ﷺ said: “Indeed, gentleness is not in anything except that it adorns it, and it is not removed from anything except that it shames it” (Sahih Muslim 2594).\n\nInstead of scolding or shouting, make rule-setting a fun and motivating experience. Sit with them like a big friend and invite them to help you draft your special “play contract.” Choose three simple, clear rules that you all commit to. This participation builds a bridge of trust and understanding, making your child adhere to the rules out of internal conviction, not fear of punishment, and this is the foundation for building a sound conscience.",
+  "summary": "Imagine yourself in the midst of playing with your four or five-year-old child. Suddenly, voices rise, toys fly, and the fun turns into a small disagreement about who gets to hold the toy first. You might feel frustrated and wonder: How do I teach them the boundaries of play without spoiling their joy of discovery? At this age, your child begins to understand the meaning of “allowed” and “not allowed” in their small world, and the core of their conscience, which will guide them later, begins to form.\n\nUpbringing is not just about commands and prohibitions; it is a shared journey of building. When your child participates in setting rules, they feel ownership and responsibility towards them. This approach not only instills obedience but also develops their sense of justice and cooperation. It's an opportunity to teach them that rules are not imposed restrictions, but agreements that protect everyone and make life more beautiful and organized. Part of gentleness in teaching boundaries is explaining them kindly and agreeing on them with the child, for the Prophet ﷺ said: “Indeed, gentleness is not in anything except that it adorns it, and it is not removed from anything except that it shames it” (Sahih Muslim 2594).\n\nInstead of scolding or shouting, make rule-setting a fun and motivating experience. Sit with them like a big friend and invite them to help you draft your special “play contract.” Choose three simple, clear rules that you all commit to. This participation builds a bridge of trust and understanding, making your child adhere to the rules out of internal conviction, not fear of punishment, and this is the foundation for building a sound conscience.",
   "try_this": "Tonight: Sit with your child for 5 minutes and agree on two simple rules for playing or for the time you spend together (e.g., “We share toys calmly,” “We ask permission before taking something”). Write them in large handwriting on a piece of paper and hang them where they can see them constantly.",
   "order": 3,
   "estimated_minutes": 4,
@@ -21,8 +21,8 @@
   "version": "1.0.0",
   "created_at": "2026-06-08T19:00:00",
   "updated_at": "2026-06-08T19:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“What do you think about us making our play rules together? You’re so smart at this!”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“What do you think about us making our play rules together? I want to hear your ideas.”",
   "assistant_prompts": [
     "How do I deal with my child if they don't adhere to the rules we agreed upon?",
     "What fun activities can I do to reinforce the concept of rules with my child?"
@@ -40,7 +40,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,8 +59,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "9fd4aa5e302f0d774b3cfe0b64feac5919fd02d7a59a1151adcf47545ed5ea36",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "9e5e4a1395a047a3592c8482f7927b9310f1b91b33daa1dd98e276fb2467e1dd",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -69,6 +69,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -23,8 +23,8 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“This is your plate; choose what you like from it.”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“This is your plate; choose what you like from it, and eat as much as you need.”",
   "assistant_prompts": [
     "What are healthy breakfast alternatives for a child who refuses eggs and milk?",
     "How do I deal with my child who completely refuses to eat vegetables?"
@@ -42,7 +42,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -61,30 +61,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "d626c5e2799741b554183ed43a293904a2058ad42bc8aebdc5cb5918af73fd3e",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "title",
-          "type": "meaning",
-          "why": "The Arabic specifies 'my son' (ابني) while the English generalizes to 'my child'."
-        }
-      ],
+      "content_sha256": "8c698436348f1dd5ae47b186c0199bceeb00f932cddcffba5a5803d8c866be0f",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "title",
-        "type": "meaning",
-        "why": "The Arabic specifies 'my son' (ابني) while the English generalizes to 'my child'."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

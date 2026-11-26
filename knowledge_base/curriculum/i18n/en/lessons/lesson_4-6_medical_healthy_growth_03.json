@@ -8,7 +8,7 @@
     "gap-med-child-touch-01",
     "seed-shy-46"
   ],
-  "summary": "You watch your little one running in the park, laughing loudly, and trying to tell you about their adventures with friends. Sometimes you might notice they have difficulty pronouncing certain words, or perhaps their attention wanders more quickly than their peers. These small moments we see in our day are our window into their inner world and their development, which proceeds at its own pace. But they are also our opportunity to be their watchful eyes and comforting hearts.\n\nIt's natural for children to develop at different rates; every child is a world unto themselves. However, there are some signs that warrant our thoughtful pause and professional follow-up. Does your child have clear difficulty speaking to the point where it's hard to understand them? Do they face a challenge focusing on one activity for a short period? Does social interaction with others seem confusing to them? Or perhaps you notice a significant motor delay compared to peers of the same age? These observations are not a cause for extreme worry, but rather a gentle invitation to approach the matter with wisdom and calmness.\n\nThe key here is early observation and conscious intervention. Never wait for the saying, \"They'll grow out of it and get better.\" The earlier the intervention, the greater and deeper the impact in helping your child overcome any challenges. Communicating with your pediatrician is your first step towards reassurance; they are your partner on this journey and can provide the necessary guidance and support. Always remember that you are not alone, and your love and care are the best things you can offer your child to grow and flourish.",
+  "summary": "You watch your little one running in the park, laughing loudly, and trying to tell you about their adventures with friends. Sometimes you might notice they have difficulty pronouncing certain words, or perhaps their attention wanders more quickly than their peers. These small moments we see in our day are our window into their inner world and their development, which proceeds at its own pace. But they are also our opportunity to be their watchful eyes and comforting hearts.\n\nIt's natural for children to develop at different rates; every child is a world unto themselves. However, there are some signs that warrant our thoughtful pause and professional follow-up. Does your child have clear difficulty speaking to the point where it's hard to understand them? Do they consistently find it hard to stay with an activity they enjoy for an age-appropriate amount of time, to the point that it affects their play or learning? Does social interaction with others seem confusing to them? Or perhaps you notice a significant motor delay compared to peers of the same age? These observations are not a cause for extreme worry, but rather a gentle invitation to approach the matter with wisdom and calmness.\n\nThe key here is early observation and conscious intervention. Do not delay asking if your concern persists; consulting a doctor early allows for more appropriate assessment and support to help your child overcome any challenges. Communicating with your pediatrician is your first step towards reassurance; they are your partner on this journey and can provide the necessary guidance and support. Always remember that you are not alone, and your love and care are the best things you can offer your child to grow and flourish.",
   "try_this": "Tonight: Before bed, think about one aspect of your child's development (their speech, movement, interaction) and write down one positive observation and one that sparks your curiosity or concern.",
   "order": 3,
   "estimated_minutes": 4,
@@ -23,7 +23,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I am here to listen to you and help you every step of the way, my little one.”",
   "assistant_prompts": [
     "What activities promote verbal communication skills for children aged 4-6 years?",
@@ -42,7 +42,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -61,8 +61,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "7e305a63393b8832a68647d643464bd6b637acfb3a0502dc5defdbf87b776091",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "05ad336b696775a43dbd2d12fbd93f515f6ce75dbb1a3dc12fb49eaa3148fa87",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -71,6 +71,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -1,1740 +1,1716 @@
 {
- "version": "1.0.0",
- "description": "A decision moment: a four-minute step for parents. A situation from their day, three reasonable responses each with what happens now and what happens later, then a hadith, then one idea, then one step. Spec: docs/MAWAQIF.md",
- "is_published": true,
- "language": "en",
- "source_language": "ar",
- "items": [
-  {
-   "id": "mawqif_2-3_market_tantrum",
-   "age_group": "2-3",
-   "topic": "anger",
-   "title": "A meltdown at the checkout",
-   "situation": "In the checkout line your child spots the sweets by the till. You say no. They throw themselves on the floor, crying and screaming, and people are looking at you.",
-   "choices": [
+  "version": "1.0.0",
+  "description": "A decision moment: a four-minute step for parents. A situation from their day, three reasonable responses each with what happens now and what happens later, then a hadith, then one idea, then one step. Spec: docs/MAWAQIF.md",
+  "is_published": true,
+  "language": "en",
+  "source_language": "ar",
+  "items": [
     {
-     "key": "buy",
-     "text": "I buy the sweets so it ends.",
-     "now": "They calm down at once, and the embarrassment is over.",
-     "later": "They learn that crying in public turns \"no\" into \"yes\", so the meltdown comes back at every shop."
+      "id": "mawqif_2-3_market_tantrum",
+      "age_group": "2-3",
+      "topic": "anger",
+      "title": "A meltdown at the checkout",
+      "situation": "In the checkout line your child spots the sweets by the till. You say no. They throw themselves on the floor, crying and screaming, and people are looking at you.",
+      "choices": [
+        {
+          "key": "buy",
+          "text": "I buy the sweets so it ends.",
+          "now": "They calm down at once, and the embarrassment is over.",
+          "later": "They learn that crying in public turns \"no\" into \"yes\", so the meltdown comes back at every shop."
+        },
+        {
+          "key": "stay",
+          "text": "I calmly carry them aside, away from the line, and stay with them until they settle, without changing my answer.",
+          "now": "The crying lasts a few minutes, and you may lose your place in the line.",
+          "later": "They learn that their anger is allowed, that you are beside them, and that \"no\" stays \"no\"."
+        },
+        {
+          "key": "ignore",
+          "text": "I ignore them completely until they stop on their own.",
+          "now": "You don't reward the crying, but it may grow because they feel alone.",
+          "later": "They may learn not to turn to you when their feelings overwhelm them."
+        }
+      ],
+      "evidence": {
+        "id": "h_rifq_zana",
+        "kind": "hadith",
+        "text_ar": "إن الرفق لا يكون في شيء إلا زانه، ولا ينزع من شيء إلا شانه",
+        "source": "صحيح مسلم — حديث ٢٥٩٤",
+        "provenance": {
+          "book": "مسلم",
+          "number": 2594
+        },
+        "context": "Narrated by Aisha (may Allah be pleased with her). In one narration in Muslim, she was riding a difficult camel, and the Prophet ﷺ told her to be gentle.",
+        "meaning": "Gentleness is not found in anything except that it adorns it, and it is not removed from anything except that it disfigures it."
+      },
+      "idea": "Gentleness does not mean taking back your \"no\". It means saying it while staying close.",
+      "step": "Before our next shopping trip, I tell my child calmly what we will buy and what we won't."
     },
     {
-     "key": "stay",
-     "text": "I calmly carry them aside, away from the line, and stay with them until they settle, without changing my answer.",
-     "now": "The crying lasts a few minutes, and you may lose your place in the line.",
-     "later": "They learn that their anger is allowed, that you are beside them, and that \"no\" stays \"no\"."
+      "id": "mawqif_4-6_broken_cup",
+      "age_group": "4-6",
+      "topic": "lying",
+      "title": "The broken cup",
+      "situation": "You hear glass breaking in the kitchen. You walk in and find your child next to a broken cup. They say quickly: \"It wasn't me, the cat did it.\"",
+      "choices": [
+        {
+          "key": "confront",
+          "text": "I confront them: \"You're lying, I saw you next to it.\"",
+          "now": "The truth is out at once, but they cling to their story out of fear.",
+          "later": "They may learn to lie better, not to stop lying."
+        },
+        {
+          "key": "together",
+          "text": "I say: \"The cup broke. Come, let's pick up the pieces together,\" then calmly ask what happened.",
+          "now": "You don't hear the confession straight away, and it may look as if you let the lie go.",
+          "later": "They learn that telling you the truth is safe, so they tell it next time."
+        },
+        {
+          "key": "punish_lie",
+          "text": "I punish the lie and let the breakage go.",
+          "now": "They understand that lying is worse than the mistake.",
+          "later": "The message is right, but fear of punishment is what made them lie in the first place."
+        }
+      ],
+      "evidence": {
+        "id": "h_sidq_birr",
+        "kind": "hadith",
+        "text_ar": "إن الصدق يهدي إلى البر، وإن البر يهدي إلى الجنة",
+        "source": "صحيح البخاري — حديث ٦٠٩٤",
+        "provenance": {
+          "book": "البخاري",
+          "number": 6094
+        },
+        "context": "Narrated by Abdullah ibn Mas'ud (may Allah be pleased with him).",
+        "meaning": "Truthfulness leads to righteousness, and righteousness leads to Paradise."
+      },
+      "idea": "A child tells the truth when, with you, the truth is lighter than the lie. Make owning up the easiest road to you.",
+      "step": "When my child makes a mistake this week, I thank them for owning up first, then we fix it together."
     },
     {
-     "key": "ignore",
-     "text": "I ignore them completely until they stop on their own.",
-     "now": "You don't reward the crying, but it may grow because they feel alone.",
-     "later": "They may learn not to turn to you when their feelings overwhelm them."
+      "id": "mawqif_7-9_sibling_hit",
+      "age_group": "7-9",
+      "topic": "siblings",
+      "title": "He hit his brother",
+      "situation": "You hear shouting from the next room. You go in and find your older son has hit his little brother for tearing his drawing, and the little one is crying.",
+      "choices": [
+        {
+          "key": "shout",
+          "text": "I raise my voice at him straight away and send him to his room.",
+          "now": "The fight stops in a second.",
+          "later": "He sees that the loudest voice settles a quarrel, which is exactly what he did with his brother."
+        },
+        {
+          "key": "calm_first",
+          "text": "I check on the little one first, wait until I am calm myself, then talk to the older one about his anger and his drawing.",
+          "now": "The reckoning waits a few minutes, and the older one may seem to get away with it.",
+          "later": "He learns from your calm how to master himself, and feels you understood why he was angry without accepting the hitting."
+        },
+        {
+          "key": "apology",
+          "text": "I make the older one apologise to his brother in front of me, right now.",
+          "now": "It ends with an apology.",
+          "later": "A forced apology can come out empty, and his anger is left unresolved."
+        }
+      ],
+      "evidence": {
+        "id": "h_shadid_ghadab",
+        "kind": "hadith",
+        "text_ar": "ليس الشديد بالصرعة، إنما الشديد الذي يملك نفسه عند الغضب",
+        "source": "صحيح البخاري — حديث ٦١١٤",
+        "provenance": {
+          "book": "البخاري",
+          "number": 6114
+        },
+        "context": "Narrated by Abu Hurayrah (may Allah be pleased with him).",
+        "meaning": "The strong one is not the one who overpowers others in wrestling; the strong one is the one who controls himself when angry."
+      },
+      "idea": "Before your child learns to manage his anger, he watches you manage yours. Your calm is the first lesson.",
+      "step": "At the first quarrel this week, I take a full minute to calm down before I speak, then I hear both of them."
+    },
+    {
+      "id": "mawqif_10-12_homework_screen",
+      "age_group": "10-12",
+      "topic": "screens",
+      "title": "The homework is still closed",
+      "situation": "You come home in the evening and find your daughter has been on the device since the afternoon. The homework hasn't been opened, and there's a test tomorrow.",
+      "choices": [
+        {
+          "key": "take_away",
+          "text": "I take the device away until the end of the week.",
+          "now": "The screen is off tonight, and she starts her homework angry.",
+          "later": "A long punishment doesn't teach her to manage her time, and may push her to use it in secret."
+        },
+        {
+          "key": "agree_rule",
+          "text": "I ask her to turn it off now, and after the test we sit down to agree together on when and where the device is used.",
+          "now": "She may object tonight, and you have to keep the promise of that talk after the test.",
+          "later": "A rule she helped make is a rule she keeps more."
+        },
+        {
+          "key": "let_go",
+          "text": "I let it go this time and remind her about the test.",
+          "now": "No argument tonight.",
+          "later": "She learns that limits change with the mood of the day."
+        }
+      ],
+      "evidence": {
+        "id": "h_ni3matan",
+        "kind": "hadith",
+        "text_ar": "نعمتان مغبون فيهما كثير من الناس: الصحة والفراغ",
+        "source": "صحيح البخاري — حديث ٦٤١٢",
+        "provenance": {
+          "book": "البخاري",
+          "number": 6412
+        },
+        "context": "Narrated by Abdullah ibn Abbas (may Allah be pleased with them both).",
+        "meaning": "There are two blessings in which many people are at a loss: health and free time."
+      },
+      "idea": "Time is a blessing many adults lose before children do. Teach her to own her time, not just to have the device taken away.",
+      "step": "This week I sit with her and we write down together: when the device is on, and where it sleeps at night."
+    },
+    {
+      "id": "mawqif_13-15_open_phone",
+      "age_group": "13-15",
+      "topic": "screens",
+      "title": "The unlocked phone",
+      "situation": "Your son has started closing his door and turning his phone face down when you walk in. Today he left it on the table and went out, with the screen unlocked.",
+      "choices": [
+        {
+          "key": "read",
+          "text": "I read his messages quickly, just to be reassured.",
+          "now": "You learn what is going on, and feel reassured or more worried.",
+          "later": "If he finds out, a trust breaks that is hard to mend, and he hides more from you."
+        },
+        {
+          "key": "ask",
+          "text": "I leave the phone, pick a calm moment to ask him about his friends, and tell him honestly that I'm worried.",
+          "now": "You learn nothing tonight, and the worry stays.",
+          "later": "He knows you ask and don't spy, so he comes to you when he needs to."
+        },
+        {
+          "key": "open_rules",
+          "text": "I agree with him on open rules for the phone, including that I sometimes look at it with him present.",
+          "now": "He may object and see it as a lack of trust.",
+          "later": "Open oversight with limits he knows, instead of hidden checking that destroys trust if it is discovered."
+        }
+      ],
+      "evidence": {
+        "id": "h_zann_tajassus",
+        "kind": "hadith",
+        "text_ar": "إياكم والظن، فإن الظن أكذب الحديث، ولا تحسسوا، ولا تجسسوا",
+        "source": "صحيح البخاري — حديث ٦٠٦٤",
+        "provenance": {
+          "book": "البخاري",
+          "number": 6064
+        },
+        "context": "Narrated by Abu Hurayrah (may Allah be pleased with him).",
+        "meaning": "Beware of suspicion, for suspicion is the most untruthful of speech; and do not seek out one another's faults, and do not spy."
+      },
+      "idea": "Protecting your son does not require spying on him: open oversight and conversation keep him safe and keep the trust. If a sign of real danger appears, firm action is a duty.",
+      "step": "This week I pick a calm moment to ask him about his friends, and listen without commenting."
+    },
+    {
+      "id": "mawqif_16-18_study_choice",
+      "age_group": "16-18",
+      "topic": "study",
+      "title": "A subject you didn't expect",
+      "situation": "Your daughter tells you she wants to study design, while you have pictured her as a doctor since she was small. She says: \"This is my life.\"",
+      "choices": [
+        {
+          "key": "insist",
+          "text": "I insist on my view; I know what is good for her.",
+          "now": "She may agree for now.",
+          "later": "She studies something she doesn't love, and may hold you responsible for years."
+        },
+        {
+          "key": "step_back",
+          "text": "I tell her it's her decision and step out of the discussion.",
+          "now": "She feels free.",
+          "later": "She may feel you left her alone with a big decision, and she loses your experience."
+        },
+        {
+          "key": "consult",
+          "text": "I ask that we sit together: she gives her reasons, I give mine, we ask people who know the field, and then she decides.",
+          "now": "It takes time and a conversation that may be hard.",
+          "later": "The decision is hers, but it is built on your counsel, so she comes back to you for the next ones."
+        }
+      ],
+      "evidence": {
+        "id": "q_shawirhum",
+        "kind": "quran",
+        "text_ar": "﴿وَشَاوِرۡهُمۡ فِي ٱلۡأَمۡرِۖ فَإِذَا عَزَمۡتَ فَتَوَكَّلۡ عَلَى ٱللَّهِ﴾ [آل عمران: ١٥٩]",
+        "source": "سورة آل عمران — آية ١٥٩",
+        "meaning": "And consult them in the matter; and when you have decided, then rely upon Allah. (Surah Al-Imran 3:159)",
+        "context": "Allah instructed the Prophet (peace be upon him) to consult his companions — a clear foundation for consulting young adults on major life choices."
+      },
+      "idea": "At this age you move from decision-maker to first adviser. Counsel keeps your place with her.",
+      "step": "This week I sit with her and hear all her reasons before I give my view."
+    },
+    {
+      "id": "mawqif_2-3_screen_tantrum",
+      "age_group": "2-3",
+      "topic": "screens",
+      "title": "Screen Time Ends and Intense Crying",
+      "situation": "After the set time ended, you asked your child to close the cartoon, but they clung to the phone and cried intensely, refusing to let go.",
+      "choices": [
+        {
+          "key": "distract_gently",
+          "text": "You gently hug your child and distract them with something else they love, like a story or a toy.",
+          "now": "Your child gradually calms down and feels safe and loved.",
+          "later": "Your child learns that there are fun alternatives to screens and accepts ending screen time better."
+        },
+        {
+          "key": "explain_firmly",
+          "text": "You calmly and firmly explain to your child that screen time is over, and you take the phone away.",
+          "now": "Your child continues to cry for a while, but understands that your decision is firm.",
+          "later": "Your child learns the limits of screen time, and their crying may decrease next time."
+        },
+        {
+          "key": "offer_more_time",
+          "text": "You give your child a few extra minutes to finish the clip, reminding them of the remaining time.",
+          "now": "Your child stops crying temporarily and feels that you understand their desire.",
+          "later": "Your child might get used to asking for more time every time, making it harder to accept ending."
+        }
+      ],
+      "evidence": {
+        "id": "h_rifq_amr",
+        "kind": "hadith",
+        "text_ar": "إن الله رفيق يحب الرفق في الأمر كله",
+        "source": "صحيح البخاري — حديث ٦٩٢٧",
+        "provenance": {
+          "book": "البخاري",
+          "number": 6927
+        },
+        "context": "Narrated by Aisha (may Allah be pleased with her), teaching gentleness in every matter.",
+        "meaning": "Indeed, Allah is gentle and loves gentleness in every matter."
+      },
+      "idea": "Dealing with our child's difficult emotions with kindness and gentleness helps them understand boundaries and overcome challenges, strengthening their trust in us.",
+      "step": "Next time, I will make sure to remind my child about screen time ending a few minutes beforehand."
+    },
+    {
+      "id": "mawqif_2-3_refuses_food",
+      "age_group": "2-3",
+      "topic": "eating",
+      "title": "Refuses Food and Throws Spoon",
+      "situation": "You lovingly prepared lunch for your child, but they pushed the plate away, said \"No!\", and threw the spoon on the floor.",
+      "choices": [
+        {
+          "key": "offer_alternative",
+          "text": "Offer a simple, healthy alternative or ask if they are truly hungry.",
+          "now": "They might choose another food or realize they aren't hungry yet.",
+          "later": "They learn their opinion is heard, reducing mealtime stubbornness."
+        },
+        {
+          "key": "insist_eat",
+          "text": "Insist they eat their meal and explain the importance of not throwing food.",
+          "now": "They might eat a little under pressure, or become more defiant.",
+          "later": "Their resistance to food increases, associating eating with stress."
+        },
+        {
+          "key": "remove_plate",
+          "text": "Quietly remove the plate without comment, stating that mealtime is over.",
+          "now": "They might feel hungry later, or learn that actions have consequences.",
+          "later": "They learn to respect food and mealtimes, reducing throwing objects."
+        }
+      ],
+      "evidence": {
+        "id": "h_ma_aaba_taam",
+        "kind": "hadith",
+        "text_ar": "ما عاب النبي صلى الله عليه وسلم طعاما قط، إن اشتهاه أكله، وإن كرهه تركه",
+        "source": "صحيح البخاري — حديث ٥٤٠٩",
+        "provenance": {
+          "book": "البخاري",
+          "number": 5409
+        },
+        "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on Prophetic grace and gratitude at the table.",
+        "meaning": "The Prophet ﷺ never criticized any food: if he liked it he ate it, and if he disliked it he left it."
+      },
+      "idea": "Teaching your child to respect food means giving them choices sometimes, while instilling the value of gratitude and avoiding waste.",
+      "step": "Next time, I will make sure to offer my child limited healthy options."
+    },
+    {
+      "id": "mawqif_2-3_bedtime_delay",
+      "age_group": "2-3",
+      "topic": "sleep",
+      "title": "Bedtime Delay Every Night",
+      "situation": "After your child got into bed, they started asking for water, then a bathroom trip, then another story, trying to delay their usual bedtime.",
+      "choices": [
+        {
+          "key": "set_firm_limit",
+          "text": "Gently remind your child that it's bedtime and firmly decline any further requests.",
+          "now": "Your child might cry a little then eventually fall asleep.",
+          "later": "Your child learns that bedtime is fixed, and delays gradually decrease."
+        },
+        {
+          "key": "allow_one_more",
+          "text": "Allow one final request (like a quick sip of water) then end the day firmly but kindly.",
+          "now": "Your child feels heard, and might fall asleep a bit faster.",
+          "later": "Your child learns there's limited flexibility, and might continue with small requests."
+        },
+        {
+          "key": "negotiate_bedtime",
+          "text": "Sit down and discuss with your child why they don't want to sleep, trying to find a compromise.",
+          "now": "Your child feels listened to, but bedtime might be delayed further.",
+          "later": "Your child might see bedtime as negotiable, leading to more delays."
+        }
+      ],
+      "evidence": {
+        "id": "h_yassiru",
+        "kind": "hadith",
+        "text_ar": "يسروا ولا تعسروا، وبشروا ولا تنفروا",
+        "source": "صحيح البخاري — حديث ٦٩",
+        "provenance": {
+          "book": "البخاري",
+          "number": 69
+        },
+        "context": "Narrated by Anas (may Allah be pleased with him) on the Prophetic way of ease and encouragement.",
+        "meaning": "Make things easy and do not make them difficult; give glad tidings and do not drive people away."
+      },
+      "idea": "Making things easy for our children at bedtime doesn't mean constant leniency, but setting clear boundaries with love and firmness, so they learn discipline and rest.",
+      "step": "Tonight, I will review our bedtime routine to ensure it's comforting and clear for my child."
+    },
+    {
+      "id": "mawqif_2-3_hits_sibling",
+      "age_group": "2-3",
+      "topic": "siblings",
+      "title": "Hits his brother for taking his toy",
+      "situation": "His brother took his toy, so your child lunged forward and hit his hand while screaming angrily.",
+      "choices": [
+        {
+          "key": "intervene_calmly",
+          "text": "You calmly intervene to separate them, asking your child to express their anger with words.",
+          "now": "The conflict temporarily stops, and your child begins to attempt verbal expression of their feelings.",
+          "later": "Your child learns how to express anger in a healthy way, reducing their reliance on aggression."
+        },
+        {
+          "key": "distract_offer_alternative",
+          "text": "You distract your child with another appealing toy, asking them to share play with their sibling.",
+          "now": "Your child calms down and gets engrossed in the new toy, stopping the current conflict.",
+          "later": "Your child learns flexibility in handling situations and becomes more accepting of sharing."
+        },
+        {
+          "key": "empathize_explain_feelings",
+          "text": "You hug your child and acknowledge their anger, then explain that hitting hurts others.",
+          "now": "Your child feels contained and calm, and begins to understand the impact of their actions on others.",
+          "later": "Feelings of empathy and compassion grow in them, and they gradually learn self-control."
+        }
+      ],
+      "evidence": {
+        "id": "h_rahmah_b",
+        "kind": "hadith",
+        "text_ar": "من لا يرحم لا يرحم",
+        "source": "صحيح البخاري — حديث ٥٩٩٧",
+        "provenance": {
+          "book": "البخاري",
+          "number": 5997
+        },
+        "context": "Spoken by the Prophet ﷺ after kissing al-Hasan ibn Ali (may Allah be pleased with them).",
+        "meaning": "Whoever does not show mercy will not be shown mercy."
+      },
+      "idea": "When we teach our children mercy and empathy, we plant seeds of goodness that make them kinder and more understanding of others' feelings.",
+      "step": "In the next situation, I will make sure to be a role model in expressing emotions calmly and respectfully."
+    },
+    {
+      "id": "mawqif_2-3_potty_refusal",
+      "age_group": "2-3",
+      "topic": "other",
+      "title": "Refusing Potty Training",
+      "situation": "Your child refuses to sit on the potty and resists whenever you ask, and you fear they are falling behind in potty training.",
+      "choices": [
+        {
+          "key": "insist_firmly",
+          "text": "You insist on them sitting and trying, showing some firmness.",
+          "now": "Your child might sit for a few moments then strongly refuse, or cry and completely reject it.",
+          "later": "Your child becomes more stubborn and associates the potty with pressure, delaying their training further."
+        },
+        {
+          "key": "offer_reward",
+          "text": "You offer a small reward or a favorite toy if they sit on the potty.",
+          "now": "Your child might sit due to the reward, but may not connect sitting with the actual need to use the potty.",
+          "later": "Your child gets used to rewards and demands them every time, potentially losing intrinsic motivation."
+        },
+        {
+          "key": "pause_rethink",
+          "text": "You stop pressuring them and think of other ways to make the experience enjoyable and motivating.",
+          "now": "Your child feels relaxed and less stressed, potentially becoming more receptive to the idea later.",
+          "later": "Your child learns that their needs and desires are respected, boosting their self-confidence and positive responsiveness."
+        }
+      ],
+      "evidence": {
+        "id": "h_rifq_zana",
+        "kind": "hadith",
+        "text_ar": "إن الرفق لا يكون في شيء إلا زانه، ولا ينزع من شيء إلا شانه",
+        "source": "صحيح مسلم — حديث ٢٥٩٤",
+        "provenance": {
+          "book": "مسلم",
+          "number": 2594
+        },
+        "context": "Narrated by Aisha (may Allah be pleased with her) on the beauty and power of gentleness.",
+        "meaning": "Gentleness is not found in anything except that it adorns it, and it is not removed from anything except that it disfigures it."
+      },
+      "idea": "Gentleness and kindness in dealing with children's stubbornness open their hearts, making them more responsive and avoiding aversion and pressure.",
+      "step": "Next time, I will ensure the potty training experience is enjoyable and free of pressure."
+    },
+    {
+      "id": "mawqif_2-3_fear_dark",
+      "age_group": "2-3",
+      "topic": "fear",
+      "title": "Afraid of the dark and night sounds",
+      "situation": "You turned off the lights, preparing for sleep, when your child clung to you, trembling, and whispered fearfully: \"There's a monster behind the curtain!\"",
+      "choices": [
+        {
+          "key": "hug_reassure",
+          "text": "You hug them gently and reassure them that you are there and nothing will harm them.",
+          "now": "Your child feels safe and warm, gradually calming down.",
+          "later": "Your child learns that you are their source of safety, increasing their attachment to you and self-confidence."
+        },
+        {
+          "key": "check_together",
+          "text": "You turn on the light and check behind the curtain with them, explaining that there is nothing there.",
+          "now": "Your child's fear temporarily dissipates upon seeing nothing, and they calm down a bit.",
+          "later": "Your child learns that fear can be imaginary, but they might rely on your presence to dispel their fears."
+        },
+        {
+          "key": "distract_story",
+          "text": "You change the subject and start telling a sweet story in a calm, loving voice.",
+          "now": "Your child gets engrossed in the story, momentarily forgetting their fear, and gradually relaxes.",
+          "later": "Your child learns there are ways to overcome difficult feelings, but they might not confront their fears directly."
+        }
+      ],
+      "evidence": {
+        "id": "h_rahmah_nas",
+        "kind": "hadith",
+        "text_ar": "من لا يرحم الناس، لا يرحمه الله عز وجل",
+        "source": "صحيح مسلم — حديث ٢٣١٩",
+        "provenance": {
+          "book": "مسلم",
+          "number": 2319
+        },
+        "context": "Narrated by Jarir ibn Abdullah (may Allah be pleased with him) on mercy toward people.",
+        "meaning": "Whoever does not show mercy to people, Allah the Almighty will not show mercy to him."
+      },
+      "idea": "Mercy towards children is shown by understanding their fears, however small, and providing them with safety and love to face life with calm hearts.",
+      "step": "Tonight, I will ensure a calm, comfortable environment for my child before bed, and be by their side."
+    },
+    {
+      "id": "mawqif_4-6_bad_word",
+      "age_group": "4-6",
+      "topic": "other",
+      "title": "A Bad Word",
+      "situation": "Your child returned from playing or kindergarten and surprised you by uttering a bad word you hadn't heard from them before, looking at you expectantly for your reaction.",
+      "choices": [
+        {
+          "key": "ignore_distract",
+          "text": "Completely ignore the word and calmly change the subject with a smile.",
+          "now": "Your child's attention is diverted, and they quickly forget the word.",
+          "later": "Your child learns that bad words don't attract attention, reducing the chances of repetition."
+        },
+        {
+          "key": "explain_gently",
+          "text": "Gently explain to them that this word is not nice and we don't say it.",
+          "now": "Your child understands the word is unacceptable and might feel a bit confused.",
+          "later": "Your child learns to distinguish between acceptable and unacceptable words, understanding why."
+        },
+        {
+          "key": "ask_source",
+          "text": "Calmly ask them where they heard this word, then ask them not to repeat it.",
+          "now": "Your child talks about the source of the word and might feel afraid of punishment.",
+          "later": "Your child learns that you care about what they hear, which can help you address the root of the problem."
+        }
+      ],
+      "evidence": {
+        "id": "h_qul_khayran",
+        "kind": "hadith",
+        "text_ar": "من كان يؤمن بالله واليوم الآخر فليقل خيرا أو ليصمت",
+        "source": "صحيح البخاري — حديث ٦٠١٨",
+        "provenance": {
+          "book": "البخاري",
+          "number": 6018
+        },
+        "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on guarding one's tongue and speaking good.",
+        "meaning": "Whoever believes in Allah and the Last Day, let him speak good or remain silent."
+      },
+      "idea": "Our words reflect our hearts. Teach your child to choose kind words, and that silence is better than saying what hurts or is inappropriate.",
+      "step": "In the next situation, I will make sure to be a good role model for my child in choosing kind words."
+    },
+    {
+      "id": "mawqif_4-6_screen_more",
+      "age_group": "4-6",
+      "topic": "screens",
+      "title": "Five More Minutes!",
+      "situation": "Tablet time is over, and your child starts begging and crying for just one more episode, or five more minutes.",
+      "choices": [
+        {
+          "key": "allow_more_time",
+          "text": "I allow a few extra minutes to finish the episode, reminding them it’s an exception.",
+          "now": "They stop crying, calm down, and enjoy their extra time.",
+          "later": "They learn that crying might change the rules, making it harder to stick to limits later."
+        },
+        {
+          "key": "firm_but_kind",
+          "text": "I calmly and firmly refuse, remind them of the agreed-upon time, then suggest a fun alternative activity.",
+          "now": "They might grumble a bit, but gradually accept and start the new activity.",
+          "later": "They learn the importance of adhering to limits and trust my guidance towards beneficial activities."
+        },
+        {
+          "key": "distract_gently",
+          "text": "I hug them and gently change the subject, asking about something else that happened in their day or suggesting reading a story.",
+          "now": "They gradually calm down, forget their request, and engage with me.",
+          "later": "They learn there are other ways to end difficult situations, strengthening our emotional bond."
+        }
+      ],
+      "evidence": {
+        "id": "h_niamatan",
+        "kind": "hadith",
+        "text_ar": "نعمتان مغبون فيهما كثير من الناس: الصحة والفراغ",
+        "source": "صحيح البخاري — حديث ٦٤١٢",
+        "provenance": {
+          "book": "البخاري",
+          "number": 6412
+        },
+        "context": "Narrated by Ibn Abbas (may Allah be pleased with them) on valuing health and free time.",
+        "meaning": "There are two blessings which many people lose out on: health and free time."
+      },
+      "idea": "Our children's time is precious, a blessing worth filling with what benefits and delights them, away from excessive screen use.",
+      "step": "Next time, I will clearly define screen time before it starts and commit to that limit."
+    },
+    {
+      "id": "mawqif_4-6_sibling_jealousy",
+      "age_group": "4-6",
+      "topic": "siblings",
+      "title": "Jealousy Towards the New Baby",
+      "situation": "You saw your child push their infant sibling, or angrily say: “You love them more than me!”",
+      "choices": [
+        {
+          "key": "explain_love",
+          "text": "You hug your child and reassure them of your immense love, explaining that loving their sibling doesn't diminish your love for them.",
+          "now": "Your child calms down and feels secure, perhaps asking to hug their younger sibling.",
+          "later": "Your child learns that love expands to include everyone, strengthening their self-confidence and your relationship."
+        },
+        {
+          "key": "involve_child",
+          "text": "You ask your child to help you care for their younger sibling, praising them for their assistance.",
+          "now": "Your child feels important and responsible, and may start interacting gently with their sibling.",
+          "later": "Feelings of brotherhood and cooperation grow, and their jealousy gradually decreases."
+        },
+        {
+          "key": "validate_feelings",
+          "text": "You sit with your child, listen to their angry feelings, and tell them you understand what they're feeling.",
+          "now": "Your child feels heard and accepted, and begins to express their feelings calmly.",
+          "later": "Your child learns how to deal with their negative emotions in a healthy and constructive way."
+        }
+      ],
+      "evidence": {
+        "id": "h_rahmah_b",
+        "kind": "hadith",
+        "text_ar": "من لا يرحم لا يرحم",
+        "source": "صحيح البخاري — حديث ٥٩٩٧",
+        "provenance": {
+          "book": "البخاري",
+          "number": 5997
+        },
+        "context": "Spoken by the Prophet ﷺ after kissing al-Hasan ibn Ali (may Allah be pleased with them).",
+        "meaning": "Whoever does not show mercy will not be shown mercy."
+      },
+      "idea": "Compassion is the foundation of parenting. Through it, we plant love and empathy for siblings in our children's hearts, allowing love to grow and embrace everyone.",
+      "step": "Next time, I will make sure to dedicate daily one-on-one time with my older child, to make them feel special."
+    },
+    {
+      "id": "mawqif_4-6_refuses_sleep_alone",
+      "age_group": "4-6",
+      "topic": "sleep",
+      "title": "Refuses to Sleep in His Own Bed",
+      "situation": "Your child comes out of their room three times every night, insisting on sleeping in your bed, despite your repeated attempts to return them to their own bed.",
+      "choices": [
+        {
+          "key": "sleep_with_us",
+          "text": "You allow them to sleep in your bed tonight, hoping they will sleep in their own bed tomorrow.",
+          "now": "The child falls asleep quickly, and you enjoy some quiet time.",
+          "later": "The child gets used to sleeping with you, making it harder for them to sleep alone."
+        },
+        {
+          "key": "firm_return",
+          "text": "You firmly and calmly return them to their bed each time, sitting beside them for a few minutes until they calm down.",
+          "now": "It takes longer for them to fall asleep, and they might cry a little.",
+          "later": "The child gradually learns to be self-reliant in sleeping and feels secure in their room."
+        },
+        {
+          "key": "negotiate_reward",
+          "text": "You agree on a reward they like if they sleep in their bed all night.",
+          "now": "The child might sleep in their bed tonight motivated by the reward.",
+          "later": "The child associates sleeping in their bed with external rewards and might lose intrinsic motivation."
+        }
+      ],
+      "evidence": {
+        "id": "h_rifq_amr",
+        "kind": "hadith",
+        "text_ar": "إن الله رفيق يحب الرفق في الأمر كله",
+        "source": "صحيح البخاري — حديث ٦٩٢٧",
+        "provenance": {
+          "book": "البخاري",
+          "number": 6927
+        },
+        "context": "Narrated by Aisha (may Allah be pleased with her), teaching gentleness in every matter.",
+        "meaning": "Indeed, Allah is gentle and loves gentleness in every matter."
+      },
+      "idea": "Gentleness in addressing your child's need for security instills reassurance, preparing them for independence with calm and love.",
+      "step": "Tonight, I will ensure a comfortable bedtime routine for my child, showing them love and security in their room."
+    },
+    {
+      "id": "mawqif_4-6_picky_eating",
+      "age_group": "4-6",
+      "topic": "eating",
+      "title": "Complaining About Food at the Table",
+      "situation": "Your child sits at the dinner table, looks at the plate, and says loudly: 'This is disgusting! I don't want it!'",
+      "choices": [
+        {
+          "key": "explain_food_value",
+          "text": "You calmly explain to your child the value of food and the effort put into it.",
+          "now": "Your child understands your message and reduces expressions of disgust.",
+          "later": "Your child learns to appreciate blessings and respect food."
+        },
+        {
+          "key": "ignore_and_eat",
+          "text": "You ignore their comment and continue eating your meal normally.",
+          "now": "Your child continues with their comments or remains silent without changing their behavior.",
+          "later": "Your child might think their behavior is acceptable or sees no importance in changing it."
+        },
+        {
+          "key": "offer_alternative",
+          "text": "You suggest they try a small amount or choose another available item.",
+          "now": "Your child might agree to try or choose an alternative, ending the offensive situation.",
+          "later": "Your child learns flexibility in dealing with food without insulting it."
+        }
+      ],
+      "evidence": {
+        "id": "h_ma_aaba_taam",
+        "kind": "hadith",
+        "text_ar": "ما عاب النبي صلى الله عليه وسلم طعاما قط، إن اشتهاه أكله، وإن كرهه تركه",
+        "source": "صحيح البخاري — حديث ٥٤٠٩",
+        "provenance": {
+          "book": "البخاري",
+          "number": 5409
+        },
+        "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on Prophetic grace and gratitude at the table.",
+        "meaning": "The Prophet ﷺ never criticized any food: if he liked it he ate it, and if he disliked it he left it."
+      },
+      "idea": "Teach your child to politely leave food they do not want without criticizing it, following the Prophet's example of respecting food and thanking Allah.",
+      "step": "Tonight, I will make sure to be a good role model in appreciating food and thanking God for His blessings."
+    },
+    {
+      "id": "mawqif_4-6_prayer_imitation",
+      "age_group": "4-6",
+      "topic": "prayer",
+      "title": "Playing and moving next to you during prayer",
+      "situation": "You stood for prayer calmly, and suddenly your young child came and climbed on your back during prostration, laughing loudly, distracting you from your prayer.",
+      "choices": [
+        {
+          "key": "continue_prayer",
+          "text": "You calmly continue your prayer and let him do as he pleases, then hug him after finishing.",
+          "now": "Your child feels loved and safe, and you complete your prayer with some focus.",
+          "later": "Your child associates prayer with love and acceptance, and this behavior may gradually decrease."
+        },
+        {
+          "key": "gently_move",
+          "text": "You quickly finish your prayer, then turn to him and gently explain that this is prayer time.",
+          "now": "Your child stops playing, and may feel some confusion or lack of attention.",
+          "later": "Your child understands that prayer has its special time, but may associate it with temporary separation."
+        },
+        {
+          "key": "ignore_and_teach",
+          "text": "You ignore him and continue your prayer, and after finishing, you gently explain the importance of respecting prayer time.",
+          "now": "You finish your prayer with some distraction, and your child may continue playing longer.",
+          "later": "Your child gradually learns the boundaries of prayer, but may need more time to grasp them."
+        }
+      ],
+      "evidence": {
+        "id": "h_umamah_prayer",
+        "kind": "hadith",
+        "text_ar": "أن رسول الله صلى الله عليه وسلم كان يصلي وهو حامل أمامة بنت زينب بنت رسول الله صلى الله عليه وسلم ولأبي العاص بن ربيعة بن عبد شمس، فإذا سجد وضعها وإذا قام حملها",
+        "source": "صحيح البخاري — حديث ٥١٦",
+        "provenance": {
+          "book": "البخاري",
+          "number": 516
+        },
+        "meaning": "The Messenger of Allah (peace be upon him) used to pray while carrying Umamah bint Zaynab; when he prostrated he put her down, and when he stood up he carried her. (Sahih al-Bukhari 516)",
+        "context": "Narrated by Abu Qatadah al-Ansari (may Allah be pleased with him), showing the Prophet's gentleness with a young child during prayer."
+      },
+      "idea": "Gentleness with a young child during prayer is a Prophetic sunnah that plants love for worship.",
+      "step": "Next time, I will ensure my child's prayer experience is easy and endearing for them."
+    },
+    {
+      "id": "mawqif_7-9_prayer_delay",
+      "age_group": "7-9",
+      "topic": "prayer",
+      "title": "Delaying Prayer for Play",
+      "situation": "The Asr call to prayer has sounded, and you've called your child twice to pray, but he keeps saying, \"After this level!\" engrossed in his game.",
+      "choices": [
+        {
+          "key": "join_him",
+          "text": "Sit next to him and join his play for a few minutes, then gently and lovingly remind him about prayer.",
+          "now": "He responds with a smile, leaves his game, and prays with you.",
+          "later": "He learns that prayer doesn't conflict with fun and is a natural part of his day."
+        },
+        {
+          "key": "remind_firmly",
+          "text": "Firmly remind him of the importance of prayer on time, and tell him that play can wait.",
+          "now": "He leaves his game with a slight grumble and goes to pray.",
+          "later": "He understands that praying on time comes before play, and pairing firmness with kindness prevents unnecessary tension."
+        },
+        {
+          "key": "offer_reward",
+          "text": "Offer him a small reward (like an extra story) if he prays immediately.",
+          "now": "He gets excited about the reward and quickly goes to pray.",
+          "later": "He associates prayer with external rewards, potentially reducing his intrinsic motivation."
+        }
+      ],
+      "evidence": {
+        "id": "h_aqrab_sujud",
+        "kind": "hadith",
+        "text_ar": "أقرب ما يكون العبد من ربه، وهو ساجد، فأكثروا الدعاء",
+        "source": "صحيح مسلم — حديث ٤٨٢",
+        "provenance": {
+          "book": "مسلم",
+          "number": 482
+        },
+        "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on prayer as a place of closeness and peace.",
+        "meaning": "The closest a servant comes to his Lord is while prostrating, so increase in supplication."
+      },
+      "idea": "Prayer is a special meeting with the Lord of the Worlds, where we draw closer to Him and ask for what we wish, an opportunity for peace and tranquility.",
+      "step": "In the next situation, I will make sure to be a good role model in praying on time."
+    },
+    {
+      "id": "mawqif_7-9_game_anger",
+      "age_group": "7-9",
+      "topic": "screens",
+      "title": "Gets violently angry when losing a game",
+      "situation": "Your child lost an electronic game, so they screamed, hit the table hard, and almost threw the device in a fit of rage.",
+      "choices": [
+        {
+          "key": "offer_comfort",
+          "text": "I approach them calmly and hug them, saying gently: “I know you’re feeling frustrated right now, this is very hard.”",
+          "now": "The child gradually calms down and feels that their emotions are understood and accepted.",
+          "later": "The child learns that anger is a natural emotion that can be handled calmly, and grows closer to you."
+        },
+        {
+          "key": "set_boundary",
+          "text": "I gently take the device and say firmly: “We cannot continue playing like this, we need to calm down first.”",
+          "now": "The aggressive behavior stops immediately, and the child might protest a little.",
+          "later": "The child learns that there are limits to anger and that unacceptable behavior has consequences, contributing to their emotional regulation."
+        },
+        {
+          "key": "teach_coping",
+          "text": "I sit next to them and suggest we take a deep breath together, then ask: “What can we do when we feel very angry?”",
+          "now": "The child’s attention is diverted from intense anger and focuses on finding solutions, and they might calm down slightly.",
+          "later": "The child learns strategies for dealing with anger, becoming capable of thinking of solutions instead of exploding."
+        }
+      ],
+      "evidence": {
+        "id": "h_la_taghdab",
+        "kind": "hadith",
+        "text_ar": "لا تغضب",
+        "source": "صحيح البخاري — حديث ٦١١٦",
+        "provenance": {
+          "book": "البخاري",
+          "number": 6116
+        },
+        "context": "The Prophet's ﷺ repeated counsel to a man asking for advice: guarding oneself from anger protects the home.",
+        "meaning": "Do not get angry."
+      },
+      "idea": "Teaching our children how to manage intense feelings of anger is key to their emotional growth, helping them find calm and control their reactions.",
+      "step": "In the next situation, I will make sure to be a role model in controlling my own emotions in front of my child."
+    },
+    {
+      "id": "mawqif_7-9_homework_tears",
+      "age_group": "7-9",
+      "topic": "study",
+      "title": "Cries during homework, says 'I'm stupid'",
+      "situation": "Your child was struggling with a difficult math problem. He got very frustrated, threw his pen, and cried loudly, saying, \"I'm stupid! I'll never understand this!\"",
+      "choices": [
+        {
+          "key": "comfort_and_help",
+          "text": "You gently hugged your child, told him you understood how he felt, then sat with him calmly to help him with the problem step-by-step.",
+          "now": "Your child calms down and feels secure, starting to grasp the problem with your help.",
+          "later": "Your child learns that mistakes are part of learning and trusts his ability to overcome difficulties by asking for help."
+        },
+        {
+          "key": "encourage_indep",
+          "text": "You calmly told him, \"You're not stupid; this problem just needs focus. Try again by yourself, I'm confident you can do it.\"",
+          "now": "Your child might cry a little longer, but he might try again after your encouragement.",
+          "later": "Your child learns self-reliance in problem-solving, but might feel frustrated if he doesn't succeed alone."
+        },
+        {
+          "key": "distract_and_reassure",
+          "text": "You changed the subject slightly to calm him down, then reminded him of other things he's good at, promising to help later after he rests a bit.",
+          "now": "Your child calms down and stops crying, but the problem remains unresolved.",
+          "later": "Your child learns that rest is important, but might postpone facing difficulties instead of solving them immediately."
+        }
+      ],
+      "evidence": {
+        "id": "h_kalimah_tayyibah",
+        "kind": "hadith",
+        "text_ar": "والكلمة الطيبة صدقة",
+        "source": "صحيح البخاري — حديث ٢٩٨٩",
+        "provenance": {
+          "book": "البخاري",
+          "number": 2989
+        },
+        "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on the healing power of a kind word.",
+        "meaning": "And a good word is charity."
+      },
+      "idea": "Kind and warm words have a great impact on calming souls and building confidence, especially when our children face tough challenges.",
+      "step": "In the next situation, I will make sure my first words to my child are full of encouragement and embrace."
+    },
+    {
+      "id": "mawqif_7-9_school_mockery",
+      "age_group": "7-9",
+      "topic": "fear",
+      "title": "Returned Sad from Peers' Mockery",
+      "situation": "Your child entered the house silently, with clear signs of sadness on their face. After a while, they confessed that some classmates at school laughed at their new bag or their way of speaking, making them feel ashamed and hurt.",
+      "choices": [
+        {
+          "key": "listen_validate",
+          "text": "You hugged your child and listened attentively, reassuring them that their feelings are normal and what their classmates did is unacceptable.",
+          "now": "Your child feels safe and supported, and their sadness lessens.",
+          "later": "Your child learns to express their feelings confidently, and their bond with you strengthens."
+        },
+        {
+          "key": "empower_solution",
+          "text": "You calmly discussed ways to handle similar situations in the future, such as ignoring or seeking help from a teacher.",
+          "now": "Your child feels empowered and capable of acting in difficult situations.",
+          "later": "Your child gains problem-solving skills and becomes more independent in facing challenges."
+        },
+        {
+          "key": "focus_strengths",
+          "text": "You reminded your child of their beautiful qualities and talents, affirming that their worth is not affected by negative opinions of others.",
+          "now": "Your child's spirits lift, and they feel proud of themselves.",
+          "later": "Your child's self-confidence is boosted, and they become less affected by others' criticisms."
+        }
+      ],
+      "evidence": {
+        "id": "q_la_yaskhar",
+        "kind": "quran",
+        "text_ar": "﴿يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُواْ لَا يَسۡخَرۡ قَوۡمٞ مِّن قَوۡمٍ عَسَىٰٓ أَن يَكُونُواْ خَيۡرٗا مِّنۡهُمۡ﴾ [الحجرات: ١١]",
+        "source": "سورة الحجرات — آية ١١",
+        "meaning": "O you who believe, let not a people ridicule another people; perhaps they may be better than them. (Surah Al-Hujurat 49:11)",
+        "context": "An explicit Quranic prohibition against mocking or belittling others."
+      },
+      "idea": "Mercy toward your hurt child begins with listening and comforting them, then teaching that mocking others is a blameworthy trait forbidden by Allah.",
+      "step": "In the next situation, I will make sure to teach my child the importance of empathy for others' feelings."
+    },
+    {
+      "id": "mawqif_7-9_took_without_asking",
+      "age_group": "7-9",
+      "topic": "lying",
+      "title": "Taking Something Without Permission",
+      "situation": "You found a pen or toy in your child's bag that isn't theirs. When you asked about it, they seemed flustered and tense, then claimed it was theirs, but you are certain it isn't.",
+      "choices": [
+        {
+          "key": "ask_gently",
+          "text": "Gently ask about the pen or toy's origin, reminding them of the importance of honesty and trustworthiness.",
+          "now": "Your child feels safe to speak openly and might confess what happened.",
+          "later": "Your child learns that honesty is the way to solve problems and builds trust in you."
+        },
+        {
+          "key": "explain_consequences",
+          "text": "Inform them that taking others' belongings without permission is wrong, and ask them to return it immediately and apologize.",
+          "now": "Your child learns the consequences of their actions and might feel ashamed of their behavior.",
+          "later": "Your child understands the value of respecting others' property and avoids repeating the mistake."
+        },
+        {
+          "key": "focus_on_feelings",
+          "text": "Talk to them about their feelings, asking why they felt the need to take this item without permission.",
+          "now": "Your child feels understood, and might reveal the real reason behind their action.",
+          "later": "Your child learns to express their needs and feelings appropriately, reducing reliance on lying."
+        }
+      ],
+      "evidence": {
+        "id": "h_sidq_birr",
+        "kind": "hadith",
+        "text_ar": "عليكم بالصدق، فإن الصدق يهدي إلى البر، وإن البر يهدي إلى الجنة",
+        "source": "صحيح مسلم — حديث ٢٦٠٧",
+        "provenance": {
+          "book": "مسلم",
+          "number": 2607
+        },
+        "context": "Narrated by Abdullah ibn Mas'ud (may Allah be pleased with him) on truthfulness leading to righteousness.",
+        "meaning": "Adhere to truthfulness, for truthfulness leads to righteousness, and righteousness leads to Paradise."
+      },
+      "idea": "Honesty is the foundation of trust in our relationships, teaching us to be truthful with ourselves and others, even in difficult situations.",
+      "step": "Next time, I will focus on creating a safe environment for my child to always feel comfortable telling the truth."
+    },
+    {
+      "id": "mawqif_7-9_refuses_chores",
+      "age_group": "7-9",
+      "topic": "other",
+      "title": "Refuses to Tidy His Room and Complains",
+      "situation": "You asked him to tidy his toys and books, and he said with annoyance: “Always me! My brother never tidies anything.”",
+      "choices": [
+        {
+          "key": "explain_responsibility",
+          "text": "You calmly explain that each person is responsible for their belongings and personal space.",
+          "now": "He understands the importance of his role and slowly starts tidying.",
+          "later": "He learns to take personal responsibility without comparing himself to others."
+        },
+        {
+          "key": "offer_help",
+          "text": "You offer to help him tidy a small part of the room to encourage him.",
+          "now": "He feels supported and starts tidying in a better mood.",
+          "later": "He gets used to cooperation and asks for help when needed."
+        },
+        {
+          "key": "set_consequence",
+          "text": "You inform him that the toys and books will remain unavailable until tidied.",
+          "now": "He feels frustrated, but he might start tidying to avoid losing them.",
+          "later": "He learns that every action has a consequence and becomes more committed."
+        }
+      ],
+      "evidence": {
+        "id": "h_kullukum_rain",
+        "kind": "hadith",
+        "text_ar": "كلكم راع وكلكم مسؤول عن رعيته",
+        "source": "صحيح البخاري — حديث ٨٩٣",
+        "provenance": {
+          "book": "البخاري",
+          "number": 893
+        },
+        "context": "Narrated by Ibn Umar (may Allah be pleased with them) on the trust of caring for one's family.",
+        "meaning": "Each of you is a shepherd and each of you is responsible for his flock."
+      },
+      "idea": "As shepherds of our homes, part of our responsibility is training our children to care for their own belongings and space, preparing them for greater trust as they grow.",
+      "step": "Tonight, I will dedicate time to discuss the importance of each person's responsibility for their belongings."
+    },
+    {
+      "id": "mawqif_10-12_prayer_claim",
+      "age_group": "10-12",
+      "topic": "prayer",
+      "title": "He says 'I prayed' but you doubt it",
+      "situation": "You asked your son about Dhuhr prayer, and he quickly replied, \"I prayed.\" However, you didn't see him perform ablution beforehand, and you felt a sense of doubt.",
+      "choices": [
+        {
+          "key": "ask_details",
+          "text": "Calmly ask him about the details of his prayer or where he prayed to confirm.",
+          "now": "He might feel pressured or interrogated, possibly resorting to lying.",
+          "later": "He might learn that lying is a way out of difficult situations, or feel a lack of trust."
+        },
+        {
+          "key": "remind_wudu",
+          "text": "Gently remind him that prayer is not valid without wudu, without making a direct accusation.",
+          "now": "He might understand the hint and reconsider, or feel that you doubt him.",
+          "later": "He learns that wudu is a condition for valid prayer and is more mindful of it next time."
+        },
+        {
+          "key": "trust_assume_best",
+          "text": "Trust his word and pray for his acceptance, then gently observe him later.",
+          "now": "He feels trusted and valued, which might encourage him to be more truthful.",
+          "later": "You build a bridge of trust with him, and he feels responsible for his prayer and honesty."
+        }
+      ],
+      "evidence": {
+        "id": "q_wamur_ahlaka",
+        "kind": "quran",
+        "text_ar": "﴿وَأۡمُرۡ أَهۡلَكَ بِٱلصَّلَوٰةِ وَٱصۡطَبِرۡ عَلَيۡهَا﴾ [طه: ١٣٢]",
+        "source": "سورة طه — آية ١٣٢",
+        "meaning": "And enjoin prayer upon your family and be steadfast therein. (Surah Ta-Ha 20:132)",
+        "context": "Allah commands parents to enjoin prayer upon their household and persevere with patience and wisdom."
+      },
+      "idea": "Following up on your child's prayer is your duty; follow up gently without accusation — such as inviting them to pray with you on time — so you protect both their prayer and their trust.",
+      "step": "In the next situation, I will prioritize assuming the best and trusting my children."
+    },
+    {
+      "id": "mawqif_10-12_late_screen",
+      "age_group": "10-12",
+      "topic": "screens",
+      "title": "Caught browsing device after bedtime",
+      "situation": "You entered his room after 11 PM and found him quickly hiding his phone under the pillow, his eyes looking tired.",
+      "choices": [
+        {
+          "key": "take_phone",
+          "text": "You calmly take the phone and remind him of his bedtime.",
+          "now": "He stops using the device immediately and goes to sleep.",
+          "later": "He learns the importance of adhering to rules and trusts your boundaries."
+        },
+        {
+          "key": "talk_tomorrow",
+          "text": "You ignore the situation and plan to talk to him calmly in the morning.",
+          "now": "He feels relieved by the lack of immediate confrontation, but might repeat the action.",
+          "later": "He might think you don't notice or care, weakening bedtime rules."
+        },
+        {
+          "key": "ask_reason",
+          "text": "You sit next to him and ask why he's using the device at this hour.",
+          "now": "He feels cared for and might open up, but stays awake longer.",
+          "later": "It builds a bridge of trust and dialogue, and he might share his worries or desires."
+        }
+      ],
+      "evidence": {
+        "id": "h_niamatan",
+        "kind": "hadith",
+        "text_ar": "نعمتان مغبون فيهما كثير من الناس: الصحة والفراغ",
+        "source": "صحيح البخاري — حديث ٦٤١٢",
+        "provenance": {
+          "book": "البخاري",
+          "number": 6412
+        },
+        "context": "Narrated by Ibn Abbas (may Allah be pleased with them) on valuing health and free time.",
+        "meaning": "There are two blessings which many people lose out on: health and free time."
+      },
+      "idea": "Good health and free time are two blessings many people neglect; staying up late on a screen wastes time and harms health, and guarding both is a shared responsibility.",
+      "step": "Tonight, I will ensure bedtime is peaceful and comfortable for everyone."
+    },
+    {
+      "id": "mawqif_10-12_peer_pressure",
+      "age_group": "10-12",
+      "topic": "other",
+      "title": "He asks for a game 'because all my friends have it'",
+      "situation": "Your son insists on downloading a group game unsuitable for his age, sadly saying: 'All my friends play it except me, I feel like I'm the only one missing out!'",
+      "choices": [
+        {
+          "key": "explain_age_limit",
+          "text": "You calmly explain why the game is not suitable for his age and suggest fun, appropriate alternatives.",
+          "now": "He accepts the explanation with difficulty but begins exploring the alternatives you suggested.",
+          "later": "He learns the importance of age limits, develops trust in your decisions, and becomes better at choosing what suits him."
+        },
+        {
+          "key": "discuss_peer_pressure",
+          "text": "You sit with him and discuss the idea of 'everyone does it,' helping him think critically about peer influence.",
+          "now": "He feels relieved that you understand his feelings and starts thinking deeper about his decisions.",
+          "later": "His ability to make independent, thoughtful decisions increases, and he becomes less affected by peer pressure."
+        },
+        {
+          "key": "find_common_ground",
+          "text": "You assure him you understand his desire to join his friends and search together for other shared activities.",
+          "now": "He feels valued for your understanding and gets excited to find other ways to connect with his friends.",
+          "later": "He strengthens his social bonds in healthy ways and learns that friendship doesn't depend on one game."
+        }
+      ],
+      "evidence": {
+        "id": "h_jalis_salih",
+        "kind": "hadith",
+        "text_ar": "إنما مثل الجليس الصالح والجليس السوء، كحامل المسك ونافخ الكير",
+        "source": "صحيح مسلم — حديث ٢٦٢٨",
+        "provenance": {
+          "book": "مسلم",
+          "number": 2628
+        },
+        "context": "Narrated by Abu Musa al-Ash'ari (may Allah be pleased with him) on the deep effect of good and bad company.",
+        "meaning": "The parable of a good companion and a bad companion is that of a musk-bearer and a bellows-blower."
+      },
+      "idea": "Choosing friends and activities wisely protects our children from being swept into what doesn't suit them, helping them distinguish between beneficial and harmful.",
+      "step": "Next time, I will make sure to boost my child's self-confidence to make wise decisions away from peer pressure."
+    },
+    {
+      "id": "mawqif_10-12_bad_grade",
+      "age_group": "10-12",
+      "topic": "study",
+      "title": "Hid a Bad Test Grade",
+      "situation": "You accidentally discovered a carefully folded test paper at the bottom of your child's school bag. The grade was very low, and they never told you about it. You feel disappointed and confused.",
+      "choices": [
+        {
+          "key": "talk_gently",
+          "text": "You sit down with your child calmly and gently bring up the topic, expressing understanding for their feelings.",
+          "now": "Your child feels safe to talk about why they hid the paper.",
+          "later": "Trust between you strengthens, and your child becomes more open about their challenges in the future."
+        },
+        {
+          "key": "focus_solution",
+          "text": "You immediately start looking for solutions to help them improve their academic performance, emphasizing the importance of learning from mistakes.",
+          "now": "Your child feels you are focused on supporting them, not blaming them.",
+          "later": "Your child learns how to deal with failures constructively and becomes more motivated to improve."
+        },
+        {
+          "key": "ask_why",
+          "text": "You directly ask them why they hid the paper and the grade, waiting for their answer without interruption.",
+          "now": "Your child feels pressured to answer and might avoid eye contact.",
+          "later": "Your child might fear your reaction, making them more cautious about sharing problems in the future."
+        }
+      ],
+      "evidence": {
+        "id": "h_ihris_qadar",
+        "kind": "hadith",
+        "text_ar": "احرص على ما ينفعك، واستعن بالله ولا تعجز، وإن أصابك شيء، فلا تقل لو أني فعلت كان كذا وكذا، ولكن قل قدر الله وما شاء فعل",
+        "source": "صحيح مسلم — حديث ٢٦٦٤",
+        "provenance": {
+          "book": "مسلم",
+          "number": 2664
+        },
+        "meaning": "Strive for that which benefits you, seek help from Allah, and do not feel helpless; and if anything befalls you, do not say 'If only I had done such and such,' rather say 'Allah decreed and what He willed He did.' (Sahih Muslim 2664)",
+        "context": "From Abu Hurayrah (may Allah be pleased with him): combining earnest effort with acceptance of Allah's decree."
+      },
+      "idea": "Striving earnestly and taking the right steps come first; then handling setbacks calmly teaches your child that mistakes are opportunities to learn without despair.",
+      "step": "In the next situation, I will make sure to be the first to reassure my child when facing difficulties."
+    },
+    {
+      "id": "mawqif_10-12_sibling_taunt",
+      "age_group": "10-12",
+      "topic": "siblings",
+      "title": "Taunts his younger brother in front of others",
+      "situation": "During a family gathering, your older son (11 years old) mocked his younger brother (8 years old) in front of relatives, causing the younger one to cry and withdraw from the gathering sadly.",
+      "choices": [
+        {
+          "key": "talk_privately",
+          "text": "You calmly talk to your older son privately about the impact of his words.",
+          "now": "Your older son feels ashamed of his behavior and considers apologizing.",
+          "later": "Your son learns to respect others' feelings and avoids mockery in the future."
+        },
+        {
+          "key": "comfort_younger",
+          "text": "You go to comfort your younger son and support him, then talk to the older one later.",
+          "now": "The younger child feels contained and safe, and his anger subsides.",
+          "later": "Children learn the importance of supporting each other, and their family bond strengthens."
+        },
+        {
+          "key": "involve_both",
+          "text": "You bring both sons together and ask the older one to apologize and explain the importance of respect.",
+          "now": "The older one learns to take responsibility for his actions, and the younger one feels valued.",
+          "later": "Conflict resolution skills grow between the children, and their relationship solidifies."
+        }
+      ],
+      "evidence": {
+        "id": "h_yuhibb_liakhih",
+        "kind": "hadith",
+        "text_ar": "لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه",
+        "source": "صحيح البخاري — حديث ١٣",
+        "provenance": {
+          "book": "البخاري",
+          "number": 13
+        },
+        "context": "Narrated by Anas (may Allah be pleased with him) on empathy and fairness toward others.",
+        "meaning": "None of you truly believes until he loves for his brother what he loves for himself."
+      },
+      "idea": "Wishing good for others starts at home. When we wish for our siblings what we wish for ourselves, we build a cohesive family and a connected community.",
+      "step": "In the next situation, I will remember that my children's feelings always deserve respect and appreciation."
+    },
+    {
+      "id": "mawqif_10-12_slam_door",
+      "age_group": "10-12",
+      "topic": "anger",
+      "title": "Raises Voice and Slams Door",
+      "situation": "You prevented him from going out to play before finishing his homework. He protested loudly, then walked quickly to his room and slammed the door shut forcefully.",
+      "choices": [
+        {
+          "key": "ignore_for_now",
+          "text": "You ignore what happened and wait until he calms down, then talk to him calmly about the importance of anger management.",
+          "now": "He finds space to calm himself, and might appreciate your trust in him.",
+          "later": "He learns that anger doesn't solve problems and that calm dialogue is better."
+        },
+        {
+          "key": "confront_immediately",
+          "text": "You go to him immediately and ask him to apologize for his unacceptable behavior, explaining the consequences of repeating it.",
+          "now": "He feels pressured and might become more stubborn, or apologize out of fear, not conviction.",
+          "later": "He might fear expressing his anger in front of you, or learn that an apology ends the problem."
+        },
+        {
+          "key": "offer_help",
+          "text": "You go to him a few minutes later and knock on the door, then offer to help with his homework or talk about the reason for his anger.",
+          "now": "He feels your interest and support, and might open up to you and share his feelings.",
+          "later": "He learns that you are his refuge when distressed, and that expressing feelings is better than suppressing or releasing them negatively."
+        }
+      ],
+      "evidence": {
+        "id": "h_shadid_ghadab",
+        "kind": "hadith",
+        "text_ar": "ليس الشديد بالصرعة، إنما الشديد الذي يملك نفسه عند الغضب",
+        "source": "صحيح البخاري — حديث ٦١١٤",
+        "provenance": {
+          "book": "البخاري",
+          "number": 6114
+        },
+        "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on true strength through self-control.",
+        "meaning": "The strong one is not the one who overpowers others in wrestling; the strong one is the one who controls himself when angry."
+      },
+      "idea": "Controlling anger is true strength. Help your child understand and express their emotions constructively, so they learn self-control when agitated.",
+      "step": "In the next situation, I will help my child name their feelings before acting on them."
+    },
+    {
+      "id": "mawqif_13-15_prayer_apathy",
+      "age_group": "13-15",
+      "topic": "prayer",
+      "title": "He says listlessly: “I pray and feel nothing”",
+      "situation": "Your teenage son confided in you that he performs prayers as quick movements and feels no devotion in them, as if it's just a heavy duty he performs to get it over with.",
+      "choices": [
+        {
+          "key": "discuss_intention",
+          "text": "Sit with him calmly and talk about sincere intention in accepting deeds, and how humility in prayer grows through patience and steady practice.",
+          "now": "He feels relieved that you understand his feelings and engage in deep conversation with him.",
+          "later": "He starts to seriously consider his intention before each prayer, and may gradually find some devotion in it."
+        },
+        {
+          "key": "suggest_small_changes",
+          "text": "You suggest some simple changes in his prayer, such as focusing on one word in each rak'ah or slightly prolonging prostration.",
+          "now": "He accepts the suggestions and might try them, feeling that you are supporting him with practical steps.",
+          "later": "He might find in these small changes a beginning to increase his focus and feeling in prayer over time."
+        },
+        {
+          "key": "share_personal_experience",
+          "text": "You share your personal experience with prayer and how you went through similar periods, emphasizing that this is a natural feeling many experience.",
+          "now": "He feels reassured that his feelings are not strange, and finds in you a sincere role model.",
+          "later": "He learns that faith is a fluctuating journey, and that patience and perseverance are key to overcoming these periods."
+        }
+      ],
+      "evidence": {
+        "id": "q_wastainu",
+        "kind": "quran",
+        "text_ar": "﴿وَٱسۡتَعِينُواْ بِٱلصَّبۡرِ وَٱلصَّلَوٰةِۚ وَإِنَّهَا لَكَبِيرَةٌ إِلَّا عَلَى ٱلۡخَٰشِعِينَ﴾ [البقرة: ٤٥]",
+        "source": "سورة البقرة — آية ٤٥",
+        "meaning": "And seek help through patience and prayer; and indeed it is difficult except for the humbly submissive. (Surah Al-Baqarah 2:45)",
+        "context": "The verse acknowledges that prayer can feel heavy, and that patience and steady effort build humility of heart."
+      },
+      "idea": "Sincere intention is the heart of any deed and what its acceptance and reward rest on; humility (khushu') is sought through patience and steady effort while maintaining prayer on time.",
+      "step": "In the next situation, I will make sure to renew my intention in every action I take, no matter how simple."
+    },
+    {
+      "id": "mawqif_13-15_sharp_tone",
+      "age_group": "13-15",
+      "topic": "anger",
+      "title": "He Replied Sharply in Front of His Siblings",
+      "situation": "You asked your teenage son to do a simple task, but he replied with a sharp, annoyed tone in front of his younger siblings, making you feel upset and embarrassed.",
+      "choices": [
+        {
+          "key": "ignore_and_talk_later",
+          "text": "Ignore his tone for now and calmly repeat your request, then talk to him later in private.",
+          "now": "Maintains calm in front of younger siblings, and your son feels respected despite his mistake.",
+          "later": "Your son learns that mutual respect is the basis of relationships, and calm discussion resolves issues."
+        },
+        {
+          "key": "address_tone_calmly",
+          "text": "Pause your request, look at him calmly, and say: \"I don't like that tone; speak respectfully.\"",
+          "now": "Your son stops his sharp tone and realizes you won't tolerate such behavior.",
+          "later": "Your son learns to control his emotions and understands that boundaries of respect are clear in family interactions."
+        },
+        {
+          "key": "ask_to_step_aside",
+          "text": "Calmly ask him to go with you to another room to finish the conversation away from his siblings.",
+          "now": "Saves your son's face in front of his siblings and provides privacy for handling the situation.",
+          "later": "Your son learns the importance of resolving conflicts calmly and privately, increasing his trust in you."
+        }
+      ],
+      "evidence": {
+        "id": "h_rifq_zana",
+        "kind": "hadith",
+        "text_ar": "إن الرفق لا يكون في شيء إلا زانه، ولا ينزع من شيء إلا شانه",
+        "source": "صحيح مسلم — حديث ٢٥٩٤",
+        "provenance": {
+          "book": "مسلم",
+          "number": 2594
+        },
+        "context": "Narrated by Aisha (may Allah be pleased with her) on the beauty and power of gentleness.",
+        "meaning": "Gentleness is not found in anything except that it adorns it, and it is not removed from anything except that it disfigures it."
+      },
+      "idea": "Dealing gently and kindly with children's emotions, even in moments of anger, instills calm and respect, strengthening family bonds.",
+      "step": "Next time, I will remember that gentleness in dealing with my children is the key to their hearts and behavior."
+    },
+    {
+      "id": "mawqif_13-15_doubt_question",
+      "age_group": "13-15",
+      "topic": "other",
+      "title": "A Difficult Faith Question",
+      "situation": "Your son approached you with a bold question about destiny or a doubt he saw in a short online clip, watching your face expectantly for your reaction.",
+      "choices": [
+        {
+          "key": "listen_validate",
+          "text": "Listen carefully to his question and assure him that asking questions is natural and important.",
+          "now": "He feels comfortable and safe to open up to you without fear of judgment.",
+          "later": "He learns that you are a reliable source for answers and deep discussions, strengthening his bond with you."
+        },
+        {
+          "key": "postpone_research",
+          "text": "Tell him you need to research and think before answering, and ask him to give you some time.",
+          "now": "He learns the importance of thought and research before making judgments, and appreciates your care.",
+          "later": "He sees you as a role model in seeking knowledge and deliberation, increasing his trust in your well-considered answers."
+        },
+        {
+          "key": "answer_simply",
+          "text": "Answer his question with a simple and direct response as much as possible, without overcomplicating it.",
+          "now": "He gets a quick answer that might not fully satisfy his curiosity.",
+          "later": "He might feel the topic wasn't taken seriously enough, and may seek other answers."
+        }
+      ],
+      "evidence": {
+        "id": "q_fasalu_ahl_dhikr",
+        "kind": "quran",
+        "text_ar": "﴿فَسۡـَٔلُوٓاْ أَهۡلَ ٱلذِّكۡرِ إِن كُنتُمۡ لَا تَعۡلَمُونَ﴾ [النحل: ٤٣]",
+        "source": "سورة النحل — آية ٤٣",
+        "meaning": "So ask the people of knowledge if you do not know. (Surah An-Nahl 16:43)",
+        "context": "The Quranic method for difficult questions: turning to trustworthy scholars of knowledge."
+      },
+      "idea": "Listen to his question with an open heart, then search together for the answer from trustworthy scholars.",
+      "step": "In the next situation, I will make sure to listen more than I speak, to understand what's on my child's mind."
+    },
+    {
+      "id": "mawqif_13-15_midnight_gaming",
+      "age_group": "13-15",
+      "topic": "screens",
+      "title": "Stays up gaming, misses Fajr and school",
+      "situation": "Your teenage son (13-15 years old) continues playing online with his friends past midnight. When you try to wake him for Fajr prayer and school in the morning, he is very tired and struggles to get up, affecting his school day and energy.",
+      "choices": [
+        {
+          "key": "remind_gently",
+          "text": "Gently remind him of the importance of sleeping early and how staying up late affects his health and studies, asking him to turn off the device.",
+          "now": "He might reluctantly agree or ask for a few more minutes.",
+          "later": "He might start considering the consequences of staying up late and gradually try to adjust his schedule."
+        },
+        {
+          "key": "set_strict_limit",
+          "text": "Set a strict time limit for evening gaming and inform him that you will disconnect the internet after that time.",
+          "now": "He might feel upset or angry initially.",
+          "later": "He will learn self-discipline and respect for rules, improving his sleep and academic performance."
+        },
+        {
+          "key": "discuss_consequences",
+          "text": "Sit with him in the morning to discuss why he struggles to wake up and its impact on his day, listening to his perspective.",
+          "now": "He feels understood and might start expressing his feelings.",
+          "later": "His time management skills develop, and he becomes more responsible for his choices."
+        }
+      ],
+      "evidence": {
+        "id": "h_niamatan",
+        "kind": "hadith",
+        "text_ar": "نعمتان مغبون فيهما كثير من الناس: الصحة والفراغ",
+        "source": "صحيح البخاري — حديث ٦٤١٢",
+        "provenance": {
+          "book": "البخاري",
+          "number": 6412
+        },
+        "context": "Narrated by Ibn Abbas (may Allah be pleased with them) on valuing health and free time.",
+        "meaning": "There are two blessings which many people lose out on: health and free time."
+      },
+      "idea": "Good health and free time are two blessings many people neglect; staying up late and missing Fajr while exhausting the body wastes both blessings together.",
+      "step": "Tonight, I will set a consistent time for ending gaming and help him gradually adhere to it."
+    },
+    {
+      "id": "mawqif_13-15_study_burnout",
+      "age_group": "13-15",
+      "topic": "study",
+      "title": "Neglects studying, says 'Studying is useless'",
+      "situation": "You've noticed your son's grades have dropped significantly recently. He quickly closes his books after a few minutes, saying with frustration: \"Studying is useless, everyone succeeds without all this effort!\"",
+      "choices": [
+        {
+          "key": "discuss_feelings",
+          "text": "Sit down calmly with him to listen to his feelings about studying and what makes him feel discouraged.",
+          "now": "He feels heard and might open up more to share what's bothering him.",
+          "later": "His trust in you strengthens, and he's more likely to seek help in the future."
+        },
+        {
+          "key": "set_small_goals",
+          "text": "Suggest setting small, specific study goals that are easily achievable to boost his sense of accomplishment.",
+          "now": "He agrees to try the small goals and might feel some optimism.",
+          "later": "He regains confidence in his learning ability and his performance gradually improves."
+        },
+        {
+          "key": "share_experience",
+          "text": "Share a story about a challenge you faced in your life and how perseverance helped you overcome it.",
+          "now": "He listens attentively and might find inspiration or encouragement in your story.",
+          "later": "He learns the value of effort and perseverance from you, becoming more ready to face difficulties."
+        }
+      ],
+      "evidence": {
+        "id": "h_mumin_qawi",
+        "kind": "hadith",
+        "text_ar": "المؤمن القوي، خير وأحب إلى الله من المؤمن الضعيف، وفي كل خير",
+        "source": "صحيح مسلم — حديث ٢٦٦٤",
+        "provenance": {
+          "book": "مسلم",
+          "number": 2664
+        },
+        "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on resolve, resilience, and striving for good.",
+        "meaning": "The strong believer is better and more beloved to Allah than the weak believer, while there is good in both."
+      },
+      "idea": "True strength lies in our continuous pursuit of growth and development. Every effort we make in seeking knowledge empowers us and makes us better.",
+      "step": "In the next situation, I will make sure to celebrate any effort my son makes, no matter how small."
+    },
+    {
+      "id": "mawqif_13-15_bad_company",
+      "age_group": "13-15",
+      "topic": "fear",
+      "title": "His Words Changed After a New Friendship",
+      "situation": "In recent weeks, you've noticed a change in your son's language; he's using strange words that were unfamiliar to him before. He also seems tense and uncomfortable at times. This change coincided with his new friendship.",
+      "choices": [
+        {
+          "key": "open_dialogue",
+          "text": "You initiate a calm conversation with him about your observations, expressing your concern and listening to his perspective and feelings.",
+          "now": "He feels cared for and might start expressing his worries or what he's going through.",
+          "later": "You build a bridge of trust and communication, making it easier for him to seek help in the future."
+        },
+        {
+          "key": "monitor_observe",
+          "text": "You closely monitor his behavior and language without direct intervention, gathering more information before taking any action.",
+          "now": "You avoid direct confrontation, and the situation might persist or worsen.",
+          "later": "You gain a deeper understanding of the situation, but it might be too late to offer timely support."
+        },
+        {
+          "key": "talk_to_friend",
+          "text": "You speak indirectly with his new friend or their parents to learn more about the nature of the relationship and its impact.",
+          "now": "You might gain additional information, or your son might feel his privacy is being invaded.",
+          "later": "The situation becomes clearer, but it might negatively affect your son's trust in you if he finds out."
+        }
+      ],
+      "evidence": {
+        "id": "h_jalis_salih",
+        "kind": "hadith",
+        "text_ar": "إنما مثل الجليس الصالح والجليس السوء، كحامل المسك ونافخ الكير",
+        "source": "صحيح مسلم — حديث ٢٦٢٨",
+        "provenance": {
+          "book": "مسلم",
+          "number": 2628
+        },
+        "context": "Narrated by Abu Musa al-Ash'ari (may Allah be pleased with him) on the deep effect of good and bad company.",
+        "meaning": "The parable of a good companion and a bad companion is that of a musk-bearer and a bellows-blower."
+      },
+      "idea": "Friends influence us, so be careful to choose those who elevate you and bring you good, and avoid bad company.",
+      "step": "In the next situation, I will make sure to be a good role model in my own choice of friends."
+    },
+    {
+      "id": "mawqif_16-18_independence_clash",
+      "age_group": "16-18",
+      "topic": "other",
+      "title": "He says: \"I'm grown up and don't need supervision!\"",
+      "situation": "You asked your teenage son where he was going and when he'd be back. He got upset and sharply retorted that you still treat him like a child, and that he's grown up and doesn't need constant supervision.",
+      "choices": [
+        {
+          "key": "explain_concern",
+          "text": "Calmly explain that your questions stem from care and love, not distrust, emphasizing the importance of communication.",
+          "now": "Your son partially understands your perspective and calms down, but may still feel some annoyance.",
+          "later": "Mutual trust gradually strengthens, and he becomes more open to sharing details with you."
+        },
+        {
+          "key": "give_space",
+          "text": "Apologize for bothering him, tell him you trust him, and ask him to share details when he feels comfortable.",
+          "now": "Your son feels respected and valued, and might start sharing some information voluntarily.",
+          "later": "His independence and sense of responsibility grow, and he might communicate better with you in the future."
+        },
+        {
+          "key": "set_boundaries",
+          "text": "Reiterate that these rules are essential for his safety, explaining that independence comes with responsibility and adherence to boundaries.",
+          "now": "Your son might initially feel resentful, but he realizes there are clear boundaries.",
+          "later": "He learns the importance of following rules, and the relationship based on mutual respect for boundaries becomes clearer."
+        }
+      ],
+      "evidence": {
+        "id": "h_nasihah",
+        "kind": "hadith",
+        "text_ar": "الدين النصيحة",
+        "source": "صحيح مسلم — حديث ٥٥",
+        "provenance": {
+          "book": "مسلم",
+          "number": 55
+        },
+        "context": "Narrated by Tamim al-Dari (may Allah be pleased with him); nasihah means sincere goodwill offered with care.",
+        "meaning": "The religion is sincere counsel and goodwill."
+      },
+      "idea": "Sincere and loving advice is key to building trust with our children, even as they grow, gently guiding them towards responsibility.",
+      "step": "Next time, I will make sure to express my care and love for my son before asking him for details."
+    },
+    {
+      "id": "mawqif_16-18_fajr_struggle",
+      "age_group": "16-18",
+      "topic": "prayer",
+      "title": "Sleeping Through Fajr and Annoyed by Waking Up",
+      "situation": "Every morning, tension arises when you wake your teenage son for Fajr prayer. He sleeps deeply, and when you wake him, he gets annoyed, feeling like the whole house is chasing and pressuring him, leaving a charged atmosphere at the start of the day.",
+      "choices": [
+        {
+          "key": "wake_gently",
+          "text": "Wake him gently and remind him of the prayer's importance, then let him pray alone.",
+          "now": "He might take some time to wake up, but feels a sense of independence.",
+          "later": "He gradually learns responsibility and feels confident in performing prayer on his own."
+        },
+        {
+          "key": "wake_firmly",
+          "text": "Wake him firmly and insist he gets up immediately to pray with you.",
+          "now": "He wakes up and prays, but might be annoyed or angry.",
+          "later": "He performs the obligatory prayer on time, though constant firmness without gentleness can make waking tense; combine firmness with kindness."
+        },
+        {
+          "key": "discuss_later",
+          "text": "Let him sleep and postpone the discussion about Fajr prayer until later in the day.",
+          "now": "He avoids morning tension but misses the prayer.",
+          "later": "This might reinforce the idea that Fajr prayer isn't a priority, and he loses the importance of discipline."
+        }
+      ],
+      "evidence": {
+        "id": "q_wamur_ahlaka_fajr",
+        "kind": "quran",
+        "text_ar": "﴿وَأۡمُرۡ أَهۡلَكَ بِٱلصَّلَوٰةِ وَٱصۡطَبِرۡ عَلَيۡهَا﴾ [طه: ١٣٢]",
+        "source": "سورة طه — آية ١٣٢",
+        "meaning": "And enjoin prayer upon your family and be steadfast therein. (Surah Ta-Ha 20:132)",
+        "context": "Fajr prayer is obligatory upon an adult, and Allah commands enjoining prayer with steadfastness and patience."
+      },
+      "idea": "Fajr prayer is an obligation not to be neglected; waking and guiding with kindness helps him keep it with love, combining firmness and gentleness.",
+      "step": "Tonight, I will calmly discuss his evening routine and how it can help him wake up."
+    },
+    {
+      "id": "mawqif_16-18_screen_waste",
+      "age_group": "16-18",
+      "topic": "screens",
+      "title": "Wasting his day browsing before crucial exams",
+      "situation": "Only a few weeks remain until your son's crucial exams, and he spends long hours daily browsing short videos on his phone, which deeply concerns you about his academic future.",
+      "choices": [
+        {
+          "key": "talk_calmly",
+          "text": "You calmly discuss with him the importance of time management and focusing on studying during this critical period.",
+          "now": "He listens attentively and might gradually start reducing his screen time.",
+          "later": "He learns the value of self-responsibility and effective time management, boosting his self-confidence."
+        },
+        {
+          "key": "set_limits",
+          "text": "You establish a clear plan with him to set specific times for phone use and study, and you monitor his adherence to it.",
+          "now": "He feels somewhat restricted initially but realizes the seriousness of the situation and begins to comply.",
+          "later": "He acquires time management skills and achieves better exam results, reducing his stress."
+        },
+        {
+          "key": "offer_help",
+          "text": "You offer to help him organize study materials or find additional educational resources, and you spend some time with him.",
+          "now": "He feels supported and cared for, and might ask for your help with some subjects he finds difficult.",
+          "later": "Your relationship strengthens, and his motivation to study increases as he feels you are a partner in his educational journey."
+        }
+      ],
+      "evidence": {
+        "id": "h_niamatan",
+        "kind": "hadith",
+        "text_ar": "نعمتان مغبون فيهما كثير من الناس: الصحة والفراغ",
+        "source": "صحيح البخاري — حديث ٦٤١٢",
+        "provenance": {
+          "book": "البخاري",
+          "number": 6412
+        },
+        "context": "Narrated by Ibn Abbas (may Allah be pleased with them) on valuing health and free time.",
+        "meaning": "There are two blessings which many people lose out on: health and free time."
+      },
+      "idea": "Investing time and leisure in youth is an invaluable treasure; life is full of opportunities that require preparation and effort.",
+      "step": "In the next situation, I will make sure to be a good role model in utilizing my time effectively."
+    },
+    {
+      "id": "mawqif_16-18_money_mistake",
+      "age_group": "16-18",
+      "topic": "other",
+      "title": "He spent his entire monthly allowance in a week",
+      "situation": "After your teenage son spent his entire monthly allowance on non-essentials in just a few days, he is now asking you for extra money to cover the rest of the month. You are concerned about this recurring pattern.",
+      "choices": [
+        {
+          "key": "give_with_advice",
+          "text": "Give him the money he asks for and calmly discuss the importance of financial planning and prioritizing.",
+          "now": "He feels temporary relief, but may not learn the lesson immediately.",
+          "later": "He might repeat the mistake if the concept of financial responsibility isn't firmly established."
+        },
+        {
+          "key": "refuse_and_explain",
+          "text": "Apologize for not giving him extra money and explain that this is his monthly allowance, and he must bear the consequences of his decisions.",
+          "now": "He feels frustrated and may struggle to manage his remaining affairs.",
+          "later": "He learns to take responsibility for his financial decisions and realizes the value of planning for the future."
+        },
+        {
+          "key": "offer_solution",
+          "text": "Do not give him extra money, but suggest he look for a simple part-time job or help around the house for a specific amount.",
+          "now": "He feels challenged and might find it difficult, but sees an opportunity for a solution.",
+          "later": "He gains self-reliance and work skills, understanding the value of money and the effort to earn it."
+        }
+      ],
+      "evidence": {
+        "id": "h_kullukum_rain",
+        "kind": "hadith",
+        "text_ar": "كلكم راع وكلكم مسؤول عن رعيته",
+        "source": "صحيح البخاري — حديث ٨٩٣",
+        "provenance": {
+          "book": "البخاري",
+          "number": 893
+        },
+        "context": "Narrated by Ibn Umar (may Allah be pleased with them) on the trust of caring for one's family.",
+        "meaning": "Each of you is a shepherd and each of you is responsible for his flock."
+      },
+      "idea": "Our responsibility as parents is to teach our children to manage their money wisely, so they can be accountable for their financial decisions in the future.",
+      "step": "Next time, I will make sure to dedicate time to discuss the family budget and how to manage it."
+    },
+    {
+      "id": "mawqif_16-18_heated_argument",
+      "age_group": "16-18",
+      "topic": "anger",
+      "title": "Heated Argument Over Late Return",
+      "situation": "Late at night, voices rose between you after your son returned home late with his friends without prior permission, and you felt deeply angry.",
+      "choices": [
+        {
+          "key": "calm_discussion",
+          "text": "Calm down and discuss calmly the importance of asking permission and adhering to agreed-upon times.",
+          "now": "Your son feels heard and may begin to express his perspective calmly.",
+          "later": "Mutual trust is strengthened, and your son learns the importance of communication and responsibility."
+        },
+        {
+          "key": "postpone_talk",
+          "text": "End the discussion now and suggest postponing the talk until morning after tempers have cooled.",
+          "now": "The argument stops immediately, and both of you feel some relief from the current tension.",
+          "later": "Allows for calm reflection, which may lead to more mature and understanding solutions to the situation."
+        },
+        {
+          "key": "express_disappointment",
+          "text": "Express your disappointment and sadness about his behavior without raising your voice.",
+          "now": "Your son feels the impact of his actions on you and may begin to feel remorse.",
+          "later": "Your son learns that his actions affect others, fostering a sense of responsibility and empathy."
+        }
+      ],
+      "evidence": {
+        "id": "h_qul_khayran",
+        "kind": "hadith",
+        "text_ar": "من كان يؤمن بالله واليوم الآخر فليقل خيرا أو ليصمت",
+        "source": "صحيح البخاري — حديث ٦٠١٨",
+        "provenance": {
+          "book": "البخاري",
+          "number": 6018
+        },
+        "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on guarding one's tongue and speaking good.",
+        "meaning": "Whoever believes in Allah and the Last Day, let him speak good or remain silent."
+      },
+      "idea": "Controlling our anger and choosing our words wisely in tense moments builds bridges of understanding and preserves affection, for our words are either good or we remain silent.",
+      "step": "In the next situation, I will make sure to breathe deeply before responding, to choose my words calmly and wisely."
+    },
+    {
+      "id": "mawqif_16-18_exam_anxiety",
+      "age_group": "16-18",
+      "topic": "fear",
+      "title": "Experiencing severe anxiety before university admission",
+      "situation": "Your teenager wakes up anxious and afraid of not achieving the required grades for university admission, feeling he will disappoint you and waste his and your efforts.",
+      "choices": [
+        {
+          "key": "reassure_and_distract",
+          "text": "Reassure him of your unconditional love and encourage him to relax and focus on what's next.",
+          "now": "He feels temporary relief and his tension decreases slightly.",
+          "later": "He learns that his worth is not solely tied to academic success and becomes more resilient."
+        },
+        {
+          "key": "discuss_options",
+          "text": "Sit with him calmly to discuss alternative university plans and remind him of multiple success opportunities.",
+          "now": "He feels reassured by the presence of other options and the pressure of a single path lessens.",
+          "later": "He learns to plan for the future with flexibility and realizes that failure is not the end."
+        },
+        {
+          "key": "validate_feelings",
+          "text": "Listen to him attentively and validate his feelings, then remind him that effort is what matters and results are in God's hands.",
+          "now": "He feels his emotions are understood and accepted, becoming calmer.",
+          "later": "He learns to trust in God and rely on Him, becoming more capable of handling pressure."
+        }
+      ],
+      "evidence": {
+        "id": "h_ihris_anfaak",
+        "kind": "hadith",
+        "text_ar": "احرص على ما ينفعك، واستعن بالله ولا تعجز",
+        "source": "صحيح مسلم — حديث ٢٦٦٤",
+        "provenance": {
+          "book": "مسلم",
+          "number": 2664
+        },
+        "meaning": "Strive for that which benefits you, seek help from Allah, and do not feel helpless. (Sahih Muslim 2664)",
+        "context": "From Abu Hurayrah (may Allah be pleased with him): striving earnestly while relying upon Allah."
+      },
+      "idea": "Teach your child to give their best effort, seek Allah's help, and accept what Allah decrees after taking the proper steps.",
+      "step": "In the next situation, I will focus on instilling the value of reliance on God in my children's hearts."
     }
-   ],
-   "evidence": {
-    "id": "h_rifq_zana",
-    "kind": "hadith",
-    "text_ar": "إن الرفق لا يكون في شيء إلا زانه، ولا ينزع من شيء إلا شانه",
-    "source": "صحيح مسلم — حديث ٢٥٩٤",
-    "provenance": {
-     "book": "مسلم",
-     "number": 2594
-    },
-    "context": "Narrated by Aisha (may Allah be pleased with her). In one narration in Muslim, she was riding a difficult camel, and the Prophet ﷺ told her to be gentle.",
-    "meaning": "Gentleness is not found in anything except that it adorns it, and it is not removed from anything except that it disfigures it."
-   },
-   "idea": "Gentleness does not mean taking back your \"no\". It means saying it while staying close.",
-   "step": "Before our next shopping trip, I tell my child calmly what we will buy and what we won't."
-  },
-  {
-   "id": "mawqif_4-6_broken_cup",
-   "age_group": "4-6",
-   "topic": "lying",
-   "title": "The broken cup",
-   "situation": "You hear glass breaking in the kitchen. You walk in and find your child next to a broken cup. They say quickly: \"It wasn't me, the cat did it.\"",
-   "choices": [
-    {
-     "key": "confront",
-     "text": "I confront them: \"You're lying, I saw you next to it.\"",
-     "now": "The truth is out at once, but they cling to their story out of fear.",
-     "later": "They may learn to lie better, not to stop lying."
-    },
-    {
-     "key": "together",
-     "text": "I say: \"The cup broke. Come, let's pick up the pieces together,\" then calmly ask what happened.",
-     "now": "You don't hear the confession straight away, and it may look as if you let the lie go.",
-     "later": "They learn that telling you the truth is safe, so they tell it next time."
-    },
-    {
-     "key": "punish_lie",
-     "text": "I punish the lie and let the breakage go.",
-     "now": "They understand that lying is worse than the mistake.",
-     "later": "The message is right, but fear of punishment is what made them lie in the first place."
-    }
-   ],
-   "evidence": {
-    "id": "h_sidq_birr",
-    "kind": "hadith",
-    "text_ar": "إن الصدق يهدي إلى البر، وإن البر يهدي إلى الجنة",
-    "source": "صحيح البخاري — حديث ٦٠٩٤",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6094
-    },
-    "context": "Narrated by Abdullah ibn Mas'ud (may Allah be pleased with him).",
-    "meaning": "Truthfulness leads to righteousness, and righteousness leads to Paradise."
-   },
-   "idea": "A child tells the truth when, with you, the truth is lighter than the lie. Make owning up the easiest road to you.",
-   "step": "When my child makes a mistake this week, I thank them for owning up first, then we fix it together."
-  },
-  {
-   "id": "mawqif_7-9_sibling_hit",
-   "age_group": "7-9",
-   "topic": "siblings",
-   "title": "He hit his brother",
-   "situation": "You hear shouting from the next room. You go in and find your older son has hit his little brother for tearing his drawing, and the little one is crying.",
-   "choices": [
-    {
-     "key": "shout",
-     "text": "I raise my voice at him straight away and send him to his room.",
-     "now": "The fight stops in a second.",
-     "later": "He sees that the loudest voice settles a quarrel, which is exactly what he did with his brother."
-    },
-    {
-     "key": "calm_first",
-     "text": "I check on the little one first, wait until I am calm myself, then talk to the older one about his anger and his drawing.",
-     "now": "The reckoning waits a few minutes, and the older one may seem to get away with it.",
-     "later": "He learns from your calm how to master himself, and feels you understood why he was angry without accepting the hitting."
-    },
-    {
-     "key": "apology",
-     "text": "I make the older one apologise to his brother in front of me, right now.",
-     "now": "It ends with an apology.",
-     "later": "A forced apology can come out empty, and his anger is left unresolved."
-    }
-   ],
-   "evidence": {
-    "id": "h_shadid_ghadab",
-    "kind": "hadith",
-    "text_ar": "ليس الشديد بالصرعة، إنما الشديد الذي يملك نفسه عند الغضب",
-    "source": "صحيح البخاري — حديث ٦١١٤",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6114
-    },
-    "context": "Narrated by Abu Hurayrah (may Allah be pleased with him).",
-    "meaning": "The strong one is not the one who overpowers others in wrestling; the strong one is the one who controls himself when angry."
-   },
-   "idea": "Before your child learns to manage his anger, he watches you manage yours. Your calm is the first lesson.",
-   "step": "At the first quarrel this week, I take a full minute to calm down before I speak, then I hear both of them."
-  },
-  {
-   "id": "mawqif_10-12_homework_screen",
-   "age_group": "10-12",
-   "topic": "screens",
-   "title": "The homework is still closed",
-   "situation": "You come home in the evening and find your daughter has been on the device since the afternoon. The homework hasn't been opened, and there's a test tomorrow.",
-   "choices": [
-    {
-     "key": "take_away",
-     "text": "I take the device away until the end of the week.",
-     "now": "The screen is off tonight, and she starts her homework angry.",
-     "later": "A long punishment doesn't teach her to manage her time, and may push her to use it in secret."
-    },
-    {
-     "key": "agree_rule",
-     "text": "I ask her to turn it off now, and after the test we sit down to agree together on when and where the device is used.",
-     "now": "She may object tonight, and you have to keep the promise of that talk after the test.",
-     "later": "A rule she helped make is a rule she keeps more."
-    },
-    {
-     "key": "let_go",
-     "text": "I let it go this time and remind her about the test.",
-     "now": "No argument tonight.",
-     "later": "She learns that limits change with the mood of the day."
-    }
-   ],
-   "evidence": {
-    "id": "h_ni3matan",
-    "kind": "hadith",
-    "text_ar": "نعمتان مغبون فيهما كثير من الناس: الصحة والفراغ",
-    "source": "صحيح البخاري — حديث ٦٤١٢",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6412
-    },
-    "context": "Narrated by Abdullah ibn Abbas (may Allah be pleased with them both).",
-    "meaning": "There are two blessings in which many people are at a loss: health and free time."
-   },
-   "idea": "Time is a blessing many adults lose before children do. Teach her to own her time, not just to have the device taken away.",
-   "step": "This week I sit with her and we write down together: when the device is on, and where it sleeps at night."
-  },
-  {
-   "id": "mawqif_13-15_open_phone",
-   "age_group": "13-15",
-   "topic": "screens",
-   "title": "The unlocked phone",
-   "situation": "Your son has started closing his door and turning his phone face down when you walk in. Today he left it on the table and went out, with the screen unlocked.",
-   "choices": [
-    {
-     "key": "read",
-     "text": "I read his messages quickly, just to be reassured.",
-     "now": "You learn what is going on, and feel reassured or more worried.",
-     "later": "If he finds out, a trust breaks that is hard to mend, and he hides more from you."
-    },
-    {
-     "key": "ask",
-     "text": "I leave the phone, pick a calm moment to ask him about his friends, and tell him honestly that I'm worried.",
-     "now": "You learn nothing tonight, and the worry stays.",
-     "later": "He knows you ask and don't spy, so he comes to you when he needs to."
-    },
-    {
-     "key": "open_rules",
-     "text": "I agree with him on open rules for the phone, including that I sometimes look at it with him present.",
-     "now": "He may object and see it as a lack of trust.",
-     "later": "Open oversight with limits he knows, instead of hidden checking that destroys trust if it is discovered."
-    }
-   ],
-   "evidence": {
-    "id": "h_zann_tajassus",
-    "kind": "hadith",
-    "text_ar": "إياكم والظن، فإن الظن أكذب الحديث، ولا تحسسوا، ولا تجسسوا",
-    "source": "صحيح البخاري — حديث ٦٠٦٤",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6064
-    },
-    "context": "Narrated by Abu Hurayrah (may Allah be pleased with him).",
-    "meaning": "Beware of suspicion, for suspicion is the most untruthful of speech; and do not seek out one another's faults, and do not spy."
-   },
-   "idea": "Protecting your son does not require spying on him: open oversight and conversation keep him safe and keep the trust. If a sign of real danger appears, firm action is a duty.",
-   "step": "This week I pick a calm moment to ask him about his friends, and listen without commenting."
-  },
-  {
-   "id": "mawqif_16-18_study_choice",
-   "age_group": "16-18",
-   "topic": "study",
-   "title": "A subject you didn't expect",
-   "situation": "Your daughter tells you she wants to study design, while you have pictured her as a doctor since she was small. She says: \"This is my life.\"",
-   "choices": [
-    {
-     "key": "insist",
-     "text": "I insist on my view; I know what is good for her.",
-     "now": "She may agree for now.",
-     "later": "She studies something she doesn't love, and may hold you responsible for years."
-    },
-    {
-     "key": "step_back",
-     "text": "I tell her it's her decision and step out of the discussion.",
-     "now": "She feels free.",
-     "later": "She may feel you left her alone with a big decision, and she loses your experience."
-    },
-    {
-     "key": "consult",
-     "text": "I ask that we sit together: she gives her reasons, I give mine, we ask people who know the field, and then she decides.",
-     "now": "It takes time and a conversation that may be hard.",
-     "later": "The decision is hers, but it is built on your counsel, so she comes back to you for the next ones."
-    }
-   ],
-   "evidence": {
-    "id": "h_yassiru",
-    "kind": "hadith",
-    "text_ar": "يسروا ولا تعسروا، وبشروا ولا تنفروا",
-    "source": "صحيح البخاري — حديث ٦٩",
-    "provenance": {
-     "book": "البخاري",
-     "number": 69
-    },
-    "context": "Narrated by Anas ibn Malik (may Allah be pleased with him).",
-    "meaning": "Make things easy and do not make them hard; give good news and do not drive people away."
-   },
-   "idea": "At this age you move from decision-maker to first adviser. Counsel keeps your place with her.",
-   "step": "This week I sit with her and hear all her reasons before I give my view."
-  },
-  {
-   "id": "mawqif_2-3_screen_tantrum",
-   "age_group": "2-3",
-   "topic": "screens",
-   "title": "Screen Time Ends and Intense Crying",
-   "situation": "After the set time ended, you asked your child to close the cartoon, but they clung to the phone and cried intensely, refusing to let go.",
-   "choices": [
-    {
-     "key": "distract_gently",
-     "text": "You gently hug your child and distract them with something else they love, like a story or a toy.",
-     "now": "Your child gradually calms down and feels safe and loved.",
-     "later": "Your child learns that there are fun alternatives to screens and accepts ending screen time better."
-    },
-    {
-     "key": "explain_firmly",
-     "text": "You calmly and firmly explain to your child that screen time is over, and you take the phone away.",
-     "now": "Your child continues to cry for a while, but understands that your decision is firm.",
-     "later": "Your child learns the limits of screen time, and their crying may decrease next time."
-    },
-    {
-     "key": "offer_more_time",
-     "text": "You give your child a few extra minutes to finish the clip, reminding them of the remaining time.",
-     "now": "Your child stops crying temporarily and feels that you understand their desire.",
-     "later": "Your child might get used to asking for more time every time, making it harder to accept ending."
-    }
-   ],
-   "evidence": {
-    "id": "h_rifq_amr",
-    "kind": "hadith",
-    "text_ar": "إن الله رفيق يحب الرفق في الأمر كله",
-    "source": "صحيح البخاري — حديث ٦٩٢٧",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6927
-    },
-    "context": "Narrated by Aisha (may Allah be pleased with her), teaching gentleness in every matter.",
-    "meaning": "Indeed, Allah is gentle and loves gentleness in every matter."
-   },
-   "idea": "Dealing with our child's difficult emotions with kindness and gentleness helps them understand boundaries and overcome challenges, strengthening their trust in us.",
-   "step": "Next time, I will make sure to remind my child about screen time ending a few minutes beforehand."
-  },
-  {
-   "id": "mawqif_2-3_refuses_food",
-   "age_group": "2-3",
-   "topic": "eating",
-   "title": "Refuses Food and Throws Spoon",
-   "situation": "You lovingly prepared lunch for your child, but they pushed the plate away, said \"No!\", and threw the spoon on the floor.",
-   "choices": [
-    {
-     "key": "offer_alternative",
-     "text": "Offer a simple, healthy alternative or ask if they are truly hungry.",
-     "now": "They might choose another food or realize they aren't hungry yet.",
-     "later": "They learn their opinion is heard, reducing mealtime stubbornness."
-    },
-    {
-     "key": "insist_eat",
-     "text": "Insist they eat their meal and explain the importance of not throwing food.",
-     "now": "They might eat a little under pressure, or become more defiant.",
-     "later": "Their resistance to food increases, associating eating with stress."
-    },
-    {
-     "key": "remove_plate",
-     "text": "Quietly remove the plate without comment, stating that mealtime is over.",
-     "now": "They might feel hungry later, or learn that actions have consequences.",
-     "later": "They learn to respect food and mealtimes, reducing throwing objects."
-    }
-   ],
-   "evidence": {
-    "id": "h_ma_aaba_taam",
-    "kind": "hadith",
-    "text_ar": "ما عاب النبي صلى الله عليه وسلم طعاما قط، إن اشتهاه أكله، وإن كرهه تركه",
-    "source": "صحيح البخاري — حديث ٥٤٠٩",
-    "provenance": {
-     "book": "البخاري",
-     "number": 5409
-    },
-    "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on Prophetic grace and gratitude at the table.",
-    "meaning": "The Prophet ﷺ never criticized any food: if he liked it he ate it, and if he disliked it he left it."
-   },
-   "idea": "Teaching your child to respect food means giving them choices sometimes, while instilling the value of gratitude and avoiding waste.",
-   "step": "Next time, I will make sure to offer my child limited healthy options."
-  },
-  {
-   "id": "mawqif_2-3_bedtime_delay",
-   "age_group": "2-3",
-   "topic": "sleep",
-   "title": "Bedtime Delay Every Night",
-   "situation": "After your child got into bed, they started asking for water, then a bathroom trip, then another story, trying to delay their usual bedtime.",
-   "choices": [
-    {
-     "key": "set_firm_limit",
-     "text": "Gently remind your child that it's bedtime and firmly decline any further requests.",
-     "now": "Your child might cry a little then eventually fall asleep.",
-     "later": "Your child learns that bedtime is fixed, and delays gradually decrease."
-    },
-    {
-     "key": "allow_one_more",
-     "text": "Allow one final request (like a quick sip of water) then end the day firmly but kindly.",
-     "now": "Your child feels heard, and might fall asleep a bit faster.",
-     "later": "Your child learns there's limited flexibility, and might continue with small requests."
-    },
-    {
-     "key": "negotiate_bedtime",
-     "text": "Sit down and discuss with your child why they don't want to sleep, trying to find a compromise.",
-     "now": "Your child feels listened to, but bedtime might be delayed further.",
-     "later": "Your child might see bedtime as negotiable, leading to more delays."
-    }
-   ],
-   "evidence": {
-    "id": "h_yassiru",
-    "kind": "hadith",
-    "text_ar": "يسروا ولا تعسروا، وبشروا ولا تنفروا",
-    "source": "صحيح البخاري — حديث ٦٩",
-    "provenance": {
-     "book": "البخاري",
-     "number": 69
-    },
-    "context": "Narrated by Anas (may Allah be pleased with him) on the Prophetic way of ease and encouragement.",
-    "meaning": "Make things easy and do not make them difficult; give glad tidings and do not drive people away."
-   },
-   "idea": "Making things easy for our children at bedtime doesn't mean constant leniency, but setting clear boundaries with love and firmness, so they learn discipline and rest.",
-   "step": "Tonight, I will review our bedtime routine to ensure it's comforting and clear for my child."
-  },
-  {
-   "id": "mawqif_2-3_hits_sibling",
-   "age_group": "2-3",
-   "topic": "siblings",
-   "title": "Hitting a Sibling or Snatching a Toy",
-   "situation": "Another child took your child's toy, and your child rushed forward, hitting their hand while screaming in anger.",
-   "choices": [
-    {
-     "key": "intervene_calmly",
-     "text": "You calmly intervene to separate them, asking your child to express their anger with words.",
-     "now": "The conflict temporarily stops, and your child begins to attempt verbal expression of their feelings.",
-     "later": "Your child learns how to express anger in a healthy way, reducing their reliance on aggression."
-    },
-    {
-     "key": "distract_offer_alternative",
-     "text": "You distract your child with another appealing toy, asking them to share play with their sibling.",
-     "now": "Your child calms down and gets engrossed in the new toy, stopping the current conflict.",
-     "later": "Your child learns flexibility in handling situations and becomes more accepting of sharing."
-    },
-    {
-     "key": "empathize_explain_feelings",
-     "text": "You hug your child and acknowledge their anger, then explain that hitting hurts others.",
-     "now": "Your child feels contained and calm, and begins to understand the impact of their actions on others.",
-     "later": "Feelings of empathy and compassion grow in them, and they gradually learn self-control."
-    }
-   ],
-   "evidence": {
-    "id": "h_rahmah_b",
-    "kind": "hadith",
-    "text_ar": "من لا يرحم لا يرحم",
-    "source": "صحيح البخاري — حديث ٥٩٩٧",
-    "provenance": {
-     "book": "البخاري",
-     "number": 5997
-    },
-    "context": "Spoken by the Prophet ﷺ after kissing al-Hasan ibn Ali (may Allah be pleased with them).",
-    "meaning": "Whoever does not show mercy will not be shown mercy."
-   },
-   "idea": "When we teach our children mercy and empathy, we plant seeds of goodness that make them kinder and more understanding of others' feelings.",
-   "step": "In the next situation, I will make sure to be a role model in expressing emotions calmly and respectfully."
-  },
-  {
-   "id": "mawqif_2-3_potty_refusal",
-   "age_group": "2-3",
-   "topic": "other",
-   "title": "Refusing Potty Training",
-   "situation": "Your child refuses to sit on the potty and resists whenever you ask, and you fear they are falling behind in potty training.",
-   "choices": [
-    {
-     "key": "insist_firmly",
-     "text": "You insist on them sitting and trying, showing some firmness.",
-     "now": "Your child might sit for a few moments then strongly refuse, or cry and completely reject it.",
-     "later": "Your child becomes more stubborn and associates the potty with pressure, delaying their training further."
-    },
-    {
-     "key": "offer_reward",
-     "text": "You offer a small reward or a favorite toy if they sit on the potty.",
-     "now": "Your child might sit due to the reward, but may not connect sitting with the actual need to use the potty.",
-     "later": "Your child gets used to rewards and demands them every time, potentially losing intrinsic motivation."
-    },
-    {
-     "key": "pause_rethink",
-     "text": "You stop pressuring them and think of other ways to make the experience enjoyable and motivating.",
-     "now": "Your child feels relaxed and less stressed, potentially becoming more receptive to the idea later.",
-     "later": "Your child learns that their needs and desires are respected, boosting their self-confidence and positive responsiveness."
-    }
-   ],
-   "evidence": {
-    "id": "h_rifq_zana",
-    "kind": "hadith",
-    "text_ar": "إن الرفق لا يكون في شيء إلا زانه، ولا ينزع من شيء إلا شانه",
-    "source": "صحيح مسلم — حديث ٢٥٩٤",
-    "provenance": {
-     "book": "مسلم",
-     "number": 2594
-    },
-    "context": "Narrated by Aisha (may Allah be pleased with her) on the beauty and power of gentleness.",
-    "meaning": "Gentleness is not found in anything except that it adorns it, and it is not removed from anything except that it disfigures it."
-   },
-   "idea": "Gentleness and kindness in dealing with children's stubbornness open their hearts, making them more responsive and avoiding aversion and pressure.",
-   "step": "Next time, I will ensure the potty training experience is enjoyable and free of pressure."
-  },
-  {
-   "id": "mawqif_2-3_fear_dark",
-   "age_group": "2-3",
-   "topic": "fear",
-   "title": "Afraid of the dark and night sounds",
-   "situation": "You turned off the lights, preparing for sleep, when your child clung to you, trembling, and whispered fearfully: \"There's a monster behind the curtain!\"",
-   "choices": [
-    {
-     "key": "hug_reassure",
-     "text": "You hug them gently and reassure them that you are there and nothing will harm them.",
-     "now": "Your child feels safe and warm, gradually calming down.",
-     "later": "Your child learns that you are their source of safety, increasing their attachment to you and self-confidence."
-    },
-    {
-     "key": "check_together",
-     "text": "You turn on the light and check behind the curtain with them, explaining that there is nothing there.",
-     "now": "Your child's fear temporarily dissipates upon seeing nothing, and they calm down a bit.",
-     "later": "Your child learns that fear can be imaginary, but they might rely on your presence to dispel their fears."
-    },
-    {
-     "key": "distract_story",
-     "text": "You change the subject and start telling a sweet story in a calm, loving voice.",
-     "now": "Your child gets engrossed in the story, momentarily forgetting their fear, and gradually relaxes.",
-     "later": "Your child learns there are ways to overcome difficult feelings, but they might not confront their fears directly."
-    }
-   ],
-   "evidence": {
-    "id": "h_rahmah_nas",
-    "kind": "hadith",
-    "text_ar": "من لا يرحم الناس، لا يرحمه الله عز وجل",
-    "source": "صحيح مسلم — حديث ٢٣١٩",
-    "provenance": {
-     "book": "مسلم",
-     "number": 2319
-    },
-    "context": "Narrated by Jarir ibn Abdullah (may Allah be pleased with him) on mercy toward people.",
-    "meaning": "Whoever does not show mercy to people, Allah the Almighty will not show mercy to him."
-   },
-   "idea": "Mercy towards children is shown by understanding their fears, however small, and providing them with safety and love to face life with calm hearts.",
-   "step": "Tonight, I will ensure a calm, comfortable environment for my child before bed, and be by their side."
-  },
-  {
-   "id": "mawqif_4-6_bad_word",
-   "age_group": "4-6",
-   "topic": "other",
-   "title": "A Bad Word",
-   "situation": "Your child returned from playing or kindergarten and surprised you by uttering a bad word you hadn't heard from them before, looking at you expectantly for your reaction.",
-   "choices": [
-    {
-     "key": "ignore_distract",
-     "text": "Completely ignore the word and calmly change the subject with a smile.",
-     "now": "Your child's attention is diverted, and they quickly forget the word.",
-     "later": "Your child learns that bad words don't attract attention, reducing the chances of repetition."
-    },
-    {
-     "key": "explain_gently",
-     "text": "Gently explain to them that this word is not nice and we don't say it.",
-     "now": "Your child understands the word is unacceptable and might feel a bit confused.",
-     "later": "Your child learns to distinguish between acceptable and unacceptable words, understanding why."
-    },
-    {
-     "key": "ask_source",
-     "text": "Calmly ask them where they heard this word, then ask them not to repeat it.",
-     "now": "Your child talks about the source of the word and might feel afraid of punishment.",
-     "later": "Your child learns that you care about what they hear, which can help you address the root of the problem."
-    }
-   ],
-   "evidence": {
-    "id": "h_qul_khayran",
-    "kind": "hadith",
-    "text_ar": "من كان يؤمن بالله واليوم الآخر فليقل خيرا أو ليصمت",
-    "source": "صحيح البخاري — حديث ٦٠١٨",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6018
-    },
-    "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on guarding one's tongue and speaking good.",
-    "meaning": "Whoever believes in Allah and the Last Day, let him speak good or remain silent."
-   },
-   "idea": "Our words reflect our hearts. Teach your child to choose kind words, and that silence is better than saying what hurts or is inappropriate.",
-   "step": "In the next situation, I will make sure to be a good role model for my child in choosing kind words."
-  },
-  {
-   "id": "mawqif_4-6_screen_more",
-   "age_group": "4-6",
-   "topic": "screens",
-   "title": "Five More Minutes!",
-   "situation": "Tablet time is over, and your child starts begging and crying for just one more episode, or five more minutes.",
-   "choices": [
-    {
-     "key": "allow_more_time",
-     "text": "I allow a few extra minutes to finish the episode, reminding them it’s an exception.",
-     "now": "They stop crying, calm down, and enjoy their extra time.",
-     "later": "They learn that crying might change the rules, making it harder to stick to limits later."
-    },
-    {
-     "key": "firm_but_kind",
-     "text": "I calmly and firmly refuse, remind them of the agreed-upon time, then suggest a fun alternative activity.",
-     "now": "They might grumble a bit, but gradually accept and start the new activity.",
-     "later": "They learn the importance of adhering to limits and trust my guidance towards beneficial activities."
-    },
-    {
-     "key": "distract_gently",
-     "text": "I hug them and gently change the subject, asking about something else that happened in their day or suggesting reading a story.",
-     "now": "They gradually calm down, forget their request, and engage with me.",
-     "later": "They learn there are other ways to end difficult situations, strengthening our emotional bond."
-    }
-   ],
-   "evidence": {
-    "id": "h_niamatan",
-    "kind": "hadith",
-    "text_ar": "نعمتان مغبون فيهما كثير من الناس: الصحة والفراغ",
-    "source": "صحيح البخاري — حديث ٦٤١٢",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6412
-    },
-    "context": "Narrated by Ibn Abbas (may Allah be pleased with them) on valuing health and free time.",
-    "meaning": "There are two blessings which many people lose out on: health and free time."
-   },
-   "idea": "Our children's time is precious, a blessing worth filling with what benefits and delights them, away from excessive screen use.",
-   "step": "Next time, I will clearly define screen time before it starts and commit to that limit."
-  },
-  {
-   "id": "mawqif_4-6_sibling_jealousy",
-   "age_group": "4-6",
-   "topic": "siblings",
-   "title": "Jealousy Towards the New Baby",
-   "situation": "You saw your child push their infant sibling, or angrily say: “You love them more than me!”",
-   "choices": [
-    {
-     "key": "explain_love",
-     "text": "You hug your child and reassure them of your immense love, explaining that loving their sibling doesn't diminish your love for them.",
-     "now": "Your child calms down and feels secure, perhaps asking to hug their younger sibling.",
-     "later": "Your child learns that love expands to include everyone, strengthening their self-confidence and your relationship."
-    },
-    {
-     "key": "involve_child",
-     "text": "You ask your child to help you care for their younger sibling, praising them for their assistance.",
-     "now": "Your child feels important and responsible, and may start interacting gently with their sibling.",
-     "later": "Feelings of brotherhood and cooperation grow, and their jealousy gradually decreases."
-    },
-    {
-     "key": "validate_feelings",
-     "text": "You sit with your child, listen to their angry feelings, and tell them you understand what they're feeling.",
-     "now": "Your child feels heard and accepted, and begins to express their feelings calmly.",
-     "later": "Your child learns how to deal with their negative emotions in a healthy and constructive way."
-    }
-   ],
-   "evidence": {
-    "id": "h_rahmah_b",
-    "kind": "hadith",
-    "text_ar": "من لا يرحم لا يرحم",
-    "source": "صحيح البخاري — حديث ٥٩٩٧",
-    "provenance": {
-     "book": "البخاري",
-     "number": 5997
-    },
-    "context": "Spoken by the Prophet ﷺ after kissing al-Hasan ibn Ali (may Allah be pleased with them).",
-    "meaning": "Whoever does not show mercy will not be shown mercy."
-   },
-   "idea": "Compassion is the foundation of parenting. Through it, we plant love and empathy for siblings in our children's hearts, allowing love to grow and embrace everyone.",
-   "step": "Next time, I will make sure to dedicate daily one-on-one time with my older child, to make them feel special."
-  },
-  {
-   "id": "mawqif_4-6_refuses_sleep_alone",
-   "age_group": "4-6",
-   "topic": "sleep",
-   "title": "Refuses to Sleep in His Own Bed",
-   "situation": "Your child comes out of their room three times every night, insisting on sleeping in your bed, despite your repeated attempts to return them to their own bed.",
-   "choices": [
-    {
-     "key": "sleep_with_us",
-     "text": "You allow them to sleep in your bed tonight, hoping they will sleep in their own bed tomorrow.",
-     "now": "The child falls asleep quickly, and you enjoy some quiet time.",
-     "later": "The child gets used to sleeping with you, making it harder for them to sleep alone."
-    },
-    {
-     "key": "firm_return",
-     "text": "You firmly and calmly return them to their bed each time, sitting beside them for a few minutes until they calm down.",
-     "now": "It takes longer for them to fall asleep, and they might cry a little.",
-     "later": "The child gradually learns to be self-reliant in sleeping and feels secure in their room."
-    },
-    {
-     "key": "negotiate_reward",
-     "text": "You agree on a reward they like if they sleep in their bed all night.",
-     "now": "The child might sleep in their bed tonight motivated by the reward.",
-     "later": "The child associates sleeping in their bed with external rewards and might lose intrinsic motivation."
-    }
-   ],
-   "evidence": {
-    "id": "h_rifq_amr",
-    "kind": "hadith",
-    "text_ar": "إن الله رفيق يحب الرفق في الأمر كله",
-    "source": "صحيح البخاري — حديث ٦٩٢٧",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6927
-    },
-    "context": "Narrated by Aisha (may Allah be pleased with her), teaching gentleness in every matter.",
-    "meaning": "Indeed, Allah is gentle and loves gentleness in every matter."
-   },
-   "idea": "Gentleness in addressing your child's need for security instills reassurance, preparing them for independence with calm and love.",
-   "step": "Tonight, I will ensure a comfortable bedtime routine for my child, showing them love and security in their room."
-  },
-  {
-   "id": "mawqif_4-6_picky_eating",
-   "age_group": "4-6",
-   "topic": "eating",
-   "title": "Complaining About Food at the Table",
-   "situation": "Your child sat at the dinner table, looked at the plate, and loudly exclaimed: “Ew! This is disgusting!”",
-   "choices": [
-    {
-     "key": "explain_food_value",
-     "text": "You calmly explain to your child the value of food and the effort put into it.",
-     "now": "Your child understands your message and reduces expressions of disgust.",
-     "later": "Your child learns to appreciate blessings and respect food."
-    },
-    {
-     "key": "ignore_and_eat",
-     "text": "You ignore their comment and continue eating your meal normally.",
-     "now": "Your child continues with their comments or remains silent without changing their behavior.",
-     "later": "Your child might think their behavior is acceptable or sees no importance in changing it."
-    },
-    {
-     "key": "offer_alternative",
-     "text": "You suggest they try a small amount or choose another available item.",
-     "now": "Your child might agree to try or choose an alternative, ending the offensive situation.",
-     "later": "Your child learns flexibility in dealing with food without insulting it."
-    }
-   ],
-   "evidence": {
-    "id": "h_sammillah",
-    "kind": "hadith",
-    "text_ar": "يا غلام، سم الله، وكل بيمينك، وكل مما يليك",
-    "source": "صحيح البخاري — حديث ٥٣٧٦",
-    "provenance": {
-     "book": "البخاري",
-     "number": 5376
-    },
-    "context": "Narrated by Umar ibn Abi Salamah (may Allah be pleased with them) when the Prophet ﷺ gently taught him table manners.",
-    "meaning": "O young boy, say Bismillah, eat with your right hand, and eat from what is nearest to you."
-   },
-   "idea": "Teaching our children table manners and respecting food instills in them values of gratitude and appreciation for every blessing, making them more aware of the bounty they eat.",
-   "step": "Tonight, I will make sure to be a good role model in appreciating food and thanking God for His blessings."
-  },
-  {
-   "id": "mawqif_4-6_prayer_imitation",
-   "age_group": "4-6",
-   "topic": "prayer",
-   "title": "Playing and moving next to you during prayer",
-   "situation": "You stood for prayer calmly, and suddenly your young child came and climbed on your back during prostration, laughing loudly, distracting you from your prayer.",
-   "choices": [
-    {
-     "key": "continue_prayer",
-     "text": "You calmly continue your prayer and let him do as he pleases, then hug him after finishing.",
-     "now": "Your child feels loved and safe, and you complete your prayer with some focus.",
-     "later": "Your child associates prayer with love and acceptance, and this behavior may gradually decrease."
-    },
-    {
-     "key": "gently_move",
-     "text": "You quickly finish your prayer, then turn to him and gently explain that this is prayer time.",
-     "now": "Your child stops playing, and may feel some confusion or lack of attention.",
-     "later": "Your child understands that prayer has its special time, but may associate it with temporary separation."
-    },
-    {
-     "key": "ignore_and_teach",
-     "text": "You ignore him and continue your prayer, and after finishing, you gently explain the importance of respecting prayer time.",
-     "now": "You finish your prayer with some distraction, and your child may continue playing longer.",
-     "later": "Your child gradually learns the boundaries of prayer, but may need more time to grasp them."
-    }
-   ],
-   "evidence": {
-    "id": "h_yassiru",
-    "kind": "hadith",
-    "text_ar": "يسروا ولا تعسروا، وبشروا ولا تنفروا",
-    "source": "صحيح البخاري — حديث ٦٩",
-    "provenance": {
-     "book": "البخاري",
-     "number": 69
-    },
-    "context": "Narrated by Anas (may Allah be pleased with him) on the Prophetic way of ease and encouragement.",
-    "meaning": "Make things easy and do not make them difficult; give glad tidings and do not drive people away."
-   },
-   "idea": "Gentleness and kindness in dealing with children during prayer instill in them a love for worship, making it a positive and welcoming experience.",
-   "step": "Next time, I will ensure my child's prayer experience is easy and endearing for them."
-  },
-  {
-   "id": "mawqif_7-9_prayer_delay",
-   "age_group": "7-9",
-   "topic": "prayer",
-   "title": "Delaying Prayer for Play",
-   "situation": "The Asr call to prayer has sounded, and you've called your child twice to pray, but he keeps saying, \"After this level!\" engrossed in his game.",
-   "choices": [
-    {
-     "key": "join_him",
-     "text": "Sit next to him and join his play for a few minutes, then gently and lovingly remind him about prayer.",
-     "now": "He responds with a smile, leaves his game, and prays with you.",
-     "later": "He learns that prayer doesn't conflict with fun and is a natural part of his day."
-    },
-    {
-     "key": "remind_firmly",
-     "text": "Firmly remind him of the importance of prayer on time, and tell him that play can wait.",
-     "now": "He leaves his game with a slight grumble and goes to pray.",
-     "later": "He understands there are priorities, but might feel some pressure regarding prayer."
-    },
-    {
-     "key": "offer_reward",
-     "text": "Offer him a small reward (like an extra story) if he prays immediately.",
-     "now": "He gets excited about the reward and quickly goes to pray.",
-     "later": "He associates prayer with external rewards, potentially reducing his intrinsic motivation."
-    }
-   ],
-   "evidence": {
-    "id": "h_aqrab_sujud",
-    "kind": "hadith",
-    "text_ar": "أقرب ما يكون العبد من ربه، وهو ساجد، فأكثروا الدعاء",
-    "source": "صحيح مسلم — حديث ٤٨٢",
-    "provenance": {
-     "book": "مسلم",
-     "number": 482
-    },
-    "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on prayer as a place of closeness and peace.",
-    "meaning": "The closest a servant comes to his Lord is while prostrating, so increase in supplication."
-   },
-   "idea": "Prayer is a special meeting with the Lord of the Worlds, where we draw closer to Him and ask for what we wish, an opportunity for peace and tranquility.",
-   "step": "In the next situation, I will make sure to be a good role model in praying on time."
-  },
-  {
-   "id": "mawqif_7-9_game_anger",
-   "age_group": "7-9",
-   "topic": "screens",
-   "title": "Gets violently angry when losing a game",
-   "situation": "Your child lost an electronic game, so they screamed, hit the table hard, and almost threw the device in a fit of rage.",
-   "choices": [
-    {
-     "key": "offer_comfort",
-     "text": "I approach them calmly and hug them, saying gently: “I know you’re feeling frustrated right now, this is very hard.”",
-     "now": "The child gradually calms down and feels that their emotions are understood and accepted.",
-     "later": "The child learns that anger is a natural emotion that can be handled calmly, and grows closer to you."
-    },
-    {
-     "key": "set_boundary",
-     "text": "I gently take the device and say firmly: “We cannot continue playing like this, we need to calm down first.”",
-     "now": "The aggressive behavior stops immediately, and the child might protest a little.",
-     "later": "The child learns that there are limits to anger and that unacceptable behavior has consequences, contributing to their emotional regulation."
-    },
-    {
-     "key": "teach_coping",
-     "text": "I sit next to them and suggest we take a deep breath together, then ask: “What can we do when we feel very angry?”",
-     "now": "The child’s attention is diverted from intense anger and focuses on finding solutions, and they might calm down slightly.",
-     "later": "The child learns strategies for dealing with anger, becoming capable of thinking of solutions instead of exploding."
-    }
-   ],
-   "evidence": {
-    "id": "h_la_taghdab",
-    "kind": "hadith",
-    "text_ar": "لا تغضب",
-    "source": "صحيح البخاري — حديث ٦١١٦",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6116
-    },
-    "context": "The Prophet's ﷺ repeated counsel to a man asking for advice: guarding oneself from anger protects the home.",
-    "meaning": "Do not get angry."
-   },
-   "idea": "Teaching our children how to manage intense feelings of anger is key to their emotional growth, helping them find calm and control their reactions.",
-   "step": "In the next situation, I will make sure to be a role model in controlling my own emotions in front of my child."
-  },
-  {
-   "id": "mawqif_7-9_homework_tears",
-   "age_group": "7-9",
-   "topic": "study",
-   "title": "Cries during homework, says 'I'm stupid'",
-   "situation": "Your child was struggling with a difficult math problem. He got very frustrated, threw his pen, and cried loudly, saying, \"I'm stupid! I'll never understand this!\"",
-   "choices": [
-    {
-     "key": "comfort_and_help",
-     "text": "You gently hugged your child, told him you understood how he felt, then sat with him calmly to help him with the problem step-by-step.",
-     "now": "Your child calms down and feels secure, starting to grasp the problem with your help.",
-     "later": "Your child learns that mistakes are part of learning and trusts his ability to overcome difficulties by asking for help."
-    },
-    {
-     "key": "encourage_indep",
-     "text": "You calmly told him, \"You're not stupid; this problem just needs focus. Try again by yourself, I'm confident you can do it.\"",
-     "now": "Your child might cry a little longer, but he might try again after your encouragement.",
-     "later": "Your child learns self-reliance in problem-solving, but might feel frustrated if he doesn't succeed alone."
-    },
-    {
-     "key": "distract_and_reassure",
-     "text": "You changed the subject slightly to calm him down, then reminded him of other things he's good at, promising to help later after he rests a bit.",
-     "now": "Your child calms down and stops crying, but the problem remains unresolved.",
-     "later": "Your child learns that rest is important, but might postpone facing difficulties instead of solving them immediately."
-    }
-   ],
-   "evidence": {
-    "id": "h_kalimah_tayyibah",
-    "kind": "hadith",
-    "text_ar": "والكلمة الطيبة صدقة",
-    "source": "صحيح البخاري — حديث ٢٩٨٩",
-    "provenance": {
-     "book": "البخاري",
-     "number": 2989
-    },
-    "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on the healing power of a kind word.",
-    "meaning": "And a good word is charity."
-   },
-   "idea": "Kind and warm words have a great impact on calming souls and building confidence, especially when our children face tough challenges.",
-   "step": "In the next situation, I will make sure my first words to my child are full of encouragement and embrace."
-  },
-  {
-   "id": "mawqif_7-9_school_mockery",
-   "age_group": "7-9",
-   "topic": "fear",
-   "title": "Returned Sad from Peers' Mockery",
-   "situation": "Your child entered the house silently, with clear signs of sadness on their face. After a while, they confessed that some classmates at school laughed at their new bag or their way of speaking, making them feel ashamed and hurt.",
-   "choices": [
-    {
-     "key": "listen_validate",
-     "text": "You hugged your child and listened attentively, reassuring them that their feelings are normal and what their classmates did is unacceptable.",
-     "now": "Your child feels safe and supported, and their sadness lessens.",
-     "later": "Your child learns to express their feelings confidently, and their bond with you strengthens."
-    },
-    {
-     "key": "empower_solution",
-     "text": "You calmly discussed ways to handle similar situations in the future, such as ignoring or seeking help from a teacher.",
-     "now": "Your child feels empowered and capable of acting in difficult situations.",
-     "later": "Your child gains problem-solving skills and becomes more independent in facing challenges."
-    },
-    {
-     "key": "focus_strengths",
-     "text": "You reminded your child of their beautiful qualities and talents, affirming that their worth is not affected by negative opinions of others.",
-     "now": "Your child's spirits lift, and they feel proud of themselves.",
-     "later": "Your child's self-confidence is boosted, and they become less affected by others' criticisms."
-    }
-   ],
-   "evidence": {
-    "id": "h_rahmah_nas",
-    "kind": "hadith",
-    "text_ar": "من لا يرحم الناس، لا يرحمه الله عز وجل",
-    "source": "صحيح مسلم — حديث ٢٣١٩",
-    "provenance": {
-     "book": "مسلم",
-     "number": 2319
-    },
-    "context": "Narrated by Jarir ibn Abdullah (may Allah be pleased with him) on mercy toward people.",
-    "meaning": "Whoever does not show mercy to people, Allah the Almighty will not show mercy to him."
-   },
-   "idea": "When we teach our children compassion and empathy, we raise a generation that rejects mockery and values others, earning God's reward.",
-   "step": "In the next situation, I will make sure to teach my child the importance of empathy for others' feelings."
-  },
-  {
-   "id": "mawqif_7-9_took_without_asking",
-   "age_group": "7-9",
-   "topic": "lying",
-   "title": "Taking Something Without Permission",
-   "situation": "You found a pen or toy in your child's bag that isn't theirs. When you asked about it, they seemed flustered and tense, then claimed it was theirs, but you are certain it isn't.",
-   "choices": [
-    {
-     "key": "ask_gently",
-     "text": "Gently ask about the pen or toy's origin, reminding them of the importance of honesty and trustworthiness.",
-     "now": "Your child feels safe to speak openly and might confess what happened.",
-     "later": "Your child learns that honesty is the way to solve problems and builds trust in you."
-    },
-    {
-     "key": "explain_consequences",
-     "text": "Inform them that taking others' belongings without permission is wrong, and ask them to return it immediately and apologize.",
-     "now": "Your child learns the consequences of their actions and might feel ashamed of their behavior.",
-     "later": "Your child understands the value of respecting others' property and avoids repeating the mistake."
-    },
-    {
-     "key": "focus_on_feelings",
-     "text": "Talk to them about their feelings, asking why they felt the need to take this item without permission.",
-     "now": "Your child feels understood, and might reveal the real reason behind their action.",
-     "later": "Your child learns to express their needs and feelings appropriately, reducing reliance on lying."
-    }
-   ],
-   "evidence": {
-    "id": "h_sidq_birr",
-    "kind": "hadith",
-    "text_ar": "عليكم بالصدق، فإن الصدق يهدي إلى البر، وإن البر يهدي إلى الجنة",
-    "source": "صحيح مسلم — حديث ٢٦٠٧",
-    "provenance": {
-     "book": "مسلم",
-     "number": 2607
-    },
-    "context": "Narrated by Abdullah ibn Mas'ud (may Allah be pleased with him) on truthfulness leading to righteousness.",
-    "meaning": "Adhere to truthfulness, for truthfulness leads to righteousness, and righteousness leads to Paradise."
-   },
-   "idea": "Honesty is the foundation of trust in our relationships, teaching us to be truthful with ourselves and others, even in difficult situations.",
-   "step": "Next time, I will focus on creating a safe environment for my child to always feel comfortable telling the truth."
-  },
-  {
-   "id": "mawqif_7-9_refuses_chores",
-   "age_group": "7-9",
-   "topic": "other",
-   "title": "Refuses to Tidy His Room and Complains",
-   "situation": "You asked him to tidy his toys and books, and he said with annoyance: “Always me! My brother never tidies anything.”",
-   "choices": [
-    {
-     "key": "explain_responsibility",
-     "text": "You calmly explain that each person is responsible for their belongings and personal space.",
-     "now": "He understands the importance of his role and slowly starts tidying.",
-     "later": "He learns to take personal responsibility without comparing himself to others."
-    },
-    {
-     "key": "offer_help",
-     "text": "You offer to help him tidy a small part of the room to encourage him.",
-     "now": "He feels supported and starts tidying in a better mood.",
-     "later": "He gets used to cooperation and asks for help when needed."
-    },
-    {
-     "key": "set_consequence",
-     "text": "You inform him that the toys and books will remain unavailable until tidied.",
-     "now": "He feels frustrated, but he might start tidying to avoid losing them.",
-     "later": "He learns that every action has a consequence and becomes more committed."
-    }
-   ],
-   "evidence": {
-    "id": "h_kullukum_rain",
-    "kind": "hadith",
-    "text_ar": "كلكم راع وكلكم مسؤول عن رعيته",
-    "source": "صحيح البخاري — حديث ٨٩٣",
-    "provenance": {
-     "book": "البخاري",
-     "number": 893
-    },
-    "context": "Narrated by Ibn Umar (may Allah be pleased with them) on the trust of caring for one's family.",
-    "meaning": "Each of you is a shepherd and each of you is responsible for his flock."
-   },
-   "idea": "Every family member is responsible for caring for their belongings and space, contributing to an organized and comfortable environment for all.",
-   "step": "Tonight, I will dedicate time to discuss the importance of each person's responsibility for their belongings."
-  },
-  {
-   "id": "mawqif_10-12_prayer_claim",
-   "age_group": "10-12",
-   "topic": "prayer",
-   "title": "He says 'I prayed' but you doubt it",
-   "situation": "You asked your son about Dhuhr prayer, and he quickly replied, \"I prayed.\" However, you didn't see him perform ablution beforehand, and you felt a sense of doubt.",
-   "choices": [
-    {
-     "key": "ask_details",
-     "text": "Calmly ask him about the details of his prayer or where he prayed to confirm.",
-     "now": "He might feel pressured or interrogated, possibly resorting to lying.",
-     "later": "He might learn that lying is a way out of difficult situations, or feel a lack of trust."
-    },
-    {
-     "key": "remind_wudu",
-     "text": "Remind him of the virtue of ablution and its importance for prayer without direct accusation.",
-     "now": "He might understand the hint and reconsider, or feel that you doubt him.",
-     "later": "He learns the importance of ablution for prayer, and might be more diligent about it in the future."
-    },
-    {
-     "key": "trust_assume_best",
-     "text": "Trust his word and pray for his acceptance, then gently observe him later.",
-     "now": "He feels trusted and valued, which might encourage him to be more truthful.",
-     "later": "You build a bridge of trust with him, and he feels responsible for his prayer and honesty."
-    }
-   ],
-   "evidence": {
-    "id": "h_la_tajasasu",
-    "kind": "hadith",
-    "text_ar": "إياكم والظن، فإن الظن أكذب الحديث، ولا تحسسوا، ولا تجسسوا",
-    "source": "صحيح البخاري — حديث ٦٠٦٤",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6064
-    },
-    "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on avoiding suspicion and spying.",
-    "meaning": "Beware of suspicion, for suspicion is the most untrue of speech; and do not pry or spy on one another."
-   },
-   "idea": "Doubt can spoil relationships and hurt hearts. Building trust and assuming the best cultivates honesty and responsibility in our children.",
-   "step": "In the next situation, I will prioritize assuming the best and trusting my children."
-  },
-  {
-   "id": "mawqif_10-12_late_screen",
-   "age_group": "10-12",
-   "topic": "screens",
-   "title": "Caught browsing device after bedtime",
-   "situation": "You entered his room after 11 PM and found him quickly hiding his phone under the pillow, his eyes looking tired.",
-   "choices": [
-    {
-     "key": "take_phone",
-     "text": "You calmly take the phone and remind him of his bedtime.",
-     "now": "He stops using the device immediately and goes to sleep.",
-     "later": "He learns the importance of adhering to rules and trusts your boundaries."
-    },
-    {
-     "key": "talk_tomorrow",
-     "text": "You ignore the situation and plan to talk to him calmly in the morning.",
-     "now": "He feels relieved by the lack of immediate confrontation, but might repeat the action.",
-     "later": "He might think you don't notice or care, weakening bedtime rules."
-    },
-    {
-     "key": "ask_reason",
-     "text": "You sit next to him and ask why he's using the device at this hour.",
-     "now": "He feels cared for and might open up, but stays awake longer.",
-     "later": "It builds a bridge of trust and dialogue, and he might share his worries or desires."
-    }
-   ],
-   "evidence": {
-    "id": "h_niamatan",
-    "kind": "hadith",
-    "text_ar": "نعمتان مغبون فيهما كثير من الناس: الصحة والفراغ",
-    "source": "صحيح البخاري — حديث ٦٤١٢",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6412
-    },
-    "context": "Narrated by Ibn Abbas (may Allah be pleased with them) on valuing health and free time.",
-    "meaning": "There are two blessings which many people lose out on: health and free time."
-   },
-   "idea": "Sufficient sleep and good health are precious blessings, and maintaining them is a shared responsibility between parents and children.",
-   "step": "Tonight, I will ensure bedtime is peaceful and comfortable for everyone."
-  },
-  {
-   "id": "mawqif_10-12_peer_pressure",
-   "age_group": "10-12",
-   "topic": "other",
-   "title": "He asks for a game 'because all my friends have it'",
-   "situation": "Your son insists on downloading a group game unsuitable for his age, sadly saying: 'All my friends play it except me, I feel like I'm the only one missing out!'",
-   "choices": [
-    {
-     "key": "explain_age_limit",
-     "text": "You calmly explain why the game is not suitable for his age and suggest fun, appropriate alternatives.",
-     "now": "He accepts the explanation with difficulty but begins exploring the alternatives you suggested.",
-     "later": "He learns the importance of age limits, develops trust in your decisions, and becomes better at choosing what suits him."
-    },
-    {
-     "key": "discuss_peer_pressure",
-     "text": "You sit with him and discuss the idea of 'everyone does it,' helping him think critically about peer influence.",
-     "now": "He feels relieved that you understand his feelings and starts thinking deeper about his decisions.",
-     "later": "His ability to make independent, thoughtful decisions increases, and he becomes less affected by peer pressure."
-    },
-    {
-     "key": "find_common_ground",
-     "text": "You assure him you understand his desire to join his friends and search together for other shared activities.",
-     "now": "He feels valued for your understanding and gets excited to find other ways to connect with his friends.",
-     "later": "He strengthens his social bonds in healthy ways and learns that friendship doesn't depend on one game."
-    }
-   ],
-   "evidence": {
-    "id": "h_jalis_salih",
-    "kind": "hadith",
-    "text_ar": "إنما مثل الجليس الصالح والجليس السوء، كحامل المسك ونافخ الكير",
-    "source": "صحيح مسلم — حديث ٢٦٢٨",
-    "provenance": {
-     "book": "مسلم",
-     "number": 2628
-    },
-    "context": "Narrated by Abu Musa al-Ash'ari (may Allah be pleased with him) on the deep effect of good and bad company.",
-    "meaning": "The parable of a good companion and a bad companion is that of a musk-bearer and a bellows-blower."
-   },
-   "idea": "Choosing friends and activities wisely protects our children from being swept into what doesn't suit them, helping them distinguish between beneficial and harmful.",
-   "step": "Next time, I will make sure to boost my child's self-confidence to make wise decisions away from peer pressure."
-  },
-  {
-   "id": "mawqif_10-12_bad_grade",
-   "age_group": "10-12",
-   "topic": "study",
-   "title": "Hid a Bad Test Grade",
-   "situation": "You accidentally discovered a carefully folded test paper at the bottom of your child's school bag. The grade was very low, and they never told you about it. You feel disappointed and confused.",
-   "choices": [
-    {
-     "key": "talk_gently",
-     "text": "You sit down with your child calmly and gently bring up the topic, expressing understanding for their feelings.",
-     "now": "Your child feels safe to talk about why they hid the paper.",
-     "later": "Trust between you strengthens, and your child becomes more open about their challenges in the future."
-    },
-    {
-     "key": "focus_solution",
-     "text": "You immediately start looking for solutions to help them improve their academic performance, emphasizing the importance of learning from mistakes.",
-     "now": "Your child feels you are focused on supporting them, not blaming them.",
-     "later": "Your child learns how to deal with failures constructively and becomes more motivated to improve."
-    },
-    {
-     "key": "ask_why",
-     "text": "You directly ask them why they hid the paper and the grade, waiting for their answer without interruption.",
-     "now": "Your child feels pressured to answer and might avoid eye contact.",
-     "later": "Your child might fear your reaction, making them more cautious about sharing problems in the future."
-    }
-   ],
-   "evidence": {
-    "id": "h_qadar_allah",
-    "kind": "hadith",
-    "text_ar": "وإن أصابك شيء، فلا تقل لو أني فعلت كان كذا وكذا، ولكن قل قدر الله وما شاء فعل",
-    "source": "صحيح مسلم — حديث ٢٦٦٤",
-    "provenance": {
-     "book": "مسلم",
-     "number": 2664
-    },
-    "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on peaceful acceptance after doing one's best.",
-    "meaning": "If something befalls you, do not say 'If only I had done such and such'; rather say: 'Allah decreed it, and what He willed He did.'"
-   },
-   "idea": "Dealing with failures calmly and with understanding teaches your child that mistakes are part of learning, and moving forward is what matters most.",
-   "step": "In the next situation, I will make sure to be the first to reassure my child when facing difficulties."
-  },
-  {
-   "id": "mawqif_10-12_sibling_taunt",
-   "age_group": "10-12",
-   "topic": "siblings",
-   "title": "Taunts his younger brother in front of others",
-   "situation": "During a family gathering, your older son (11 years old) mocked his younger brother (8 years old) in front of relatives, causing the younger one to cry and withdraw from the gathering sadly.",
-   "choices": [
-    {
-     "key": "talk_privately",
-     "text": "You calmly talk to your older son privately about the impact of his words.",
-     "now": "Your older son feels ashamed of his behavior and considers apologizing.",
-     "later": "Your son learns to respect others' feelings and avoids mockery in the future."
-    },
-    {
-     "key": "comfort_younger",
-     "text": "You go to comfort your younger son and support him, then talk to the older one later.",
-     "now": "The younger child feels contained and safe, and his anger subsides.",
-     "later": "Children learn the importance of supporting each other, and their family bond strengthens."
-    },
-    {
-     "key": "involve_both",
-     "text": "You bring both sons together and ask the older one to apologize and explain the importance of respect.",
-     "now": "The older one learns to take responsibility for his actions, and the younger one feels valued.",
-     "later": "Conflict resolution skills grow between the children, and their relationship solidifies."
-    }
-   ],
-   "evidence": {
-    "id": "h_yuhibb_liakhih",
-    "kind": "hadith",
-    "text_ar": "لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه",
-    "source": "صحيح البخاري — حديث ١٣",
-    "provenance": {
-     "book": "البخاري",
-     "number": 13
-    },
-    "context": "Narrated by Anas (may Allah be pleased with him) on empathy and fairness toward others.",
-    "meaning": "None of you truly believes until he loves for his brother what he loves for himself."
-   },
-   "idea": "Wishing good for others starts at home. When we wish for our siblings what we wish for ourselves, we build a cohesive family and a connected community.",
-   "step": "In the next situation, I will remember that my children's feelings always deserve respect and appreciation."
-  },
-  {
-   "id": "mawqif_10-12_slam_door",
-   "age_group": "10-12",
-   "topic": "anger",
-   "title": "Raises Voice and Slams Door",
-   "situation": "You prevented him from going out to play before finishing his homework. He protested loudly, then walked quickly to his room and slammed the door shut forcefully.",
-   "choices": [
-    {
-     "key": "ignore_for_now",
-     "text": "You ignore what happened and wait until he calms down, then talk to him calmly about the importance of anger management.",
-     "now": "He finds space to calm himself, and might appreciate your trust in him.",
-     "later": "He learns that anger doesn't solve problems and that calm dialogue is better."
-    },
-    {
-     "key": "confront_immediately",
-     "text": "You go to him immediately and ask him to apologize for his unacceptable behavior, explaining the consequences of repeating it.",
-     "now": "He feels pressured and might become more stubborn, or apologize out of fear, not conviction.",
-     "later": "He might fear expressing his anger in front of you, or learn that an apology ends the problem."
-    },
-    {
-     "key": "offer_help",
-     "text": "You go to him a few minutes later and knock on the door, then offer to help with his homework or talk about the reason for his anger.",
-     "now": "He feels your interest and support, and might open up to you and share his feelings.",
-     "later": "He learns that you are his refuge when distressed, and that expressing feelings is better than suppressing or releasing them negatively."
-    }
-   ],
-   "evidence": {
-    "id": "h_shadid_ghadab",
-    "kind": "hadith",
-    "text_ar": "ليس الشديد بالصرعة، إنما الشديد الذي يملك نفسه عند الغضب",
-    "source": "صحيح البخاري — حديث ٦١١٤",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6114
-    },
-    "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on true strength through self-control.",
-    "meaning": "The strong one is not the one who overpowers others in wrestling; the strong one is the one who controls himself when angry."
-   },
-   "idea": "Controlling anger is true strength. Help your child understand and express their emotions constructively, so they learn self-control when agitated.",
-   "step": "In the next situation, I will help my child name their feelings before acting on them."
-  },
-  {
-   "id": "mawqif_13-15_prayer_apathy",
-   "age_group": "13-15",
-   "topic": "prayer",
-   "title": "He says listlessly: “I pray and feel nothing”",
-   "situation": "Your teenage son confided in you that he performs prayers as quick movements and feels no devotion in them, as if it's just a heavy duty he performs to get it over with.",
-   "choices": [
-    {
-     "key": "discuss_intention",
-     "text": "You sit with him calmly and talk about the importance of intention in every action, and how it's the key to feeling prayer.",
-     "now": "He feels relieved that you understand his feelings and engage in deep conversation with him.",
-     "later": "He starts to seriously consider his intention before each prayer, and may gradually find some devotion in it."
-    },
-    {
-     "key": "suggest_small_changes",
-     "text": "You suggest some simple changes in his prayer, such as focusing on one word in each rak'ah or slightly prolonging prostration.",
-     "now": "He accepts the suggestions and might try them, feeling that you are supporting him with practical steps.",
-     "later": "He might find in these small changes a beginning to increase his focus and feeling in prayer over time."
-    },
-    {
-     "key": "share_personal_experience",
-     "text": "You share your personal experience with prayer and how you went through similar periods, emphasizing that this is a natural feeling many experience.",
-     "now": "He feels reassured that his feelings are not strange, and finds in you a sincere role model.",
-     "later": "He learns that faith is a fluctuating journey, and that patience and perseverance are key to overcoming these periods."
-    }
-   ],
-   "evidence": {
-    "id": "h_niyyat",
-    "kind": "hadith",
-    "text_ar": "إنما الأعمال بالنيات",
-    "source": "صحيح البخاري — حديث ١",
-    "provenance": {
-     "book": "البخاري",
-     "number": 1
-    },
-    "context": "Narrated by Umar ibn al-Khattab (may Allah be pleased with him) on sincerity of intention.",
-    "meaning": "Actions are judged only by intentions."
-   },
-   "idea": "Sincere intention is the soul of worship; through it, movements transform into deep connection with the Creator, yielding a sense of tranquility and devotion.",
-   "step": "In the next situation, I will make sure to renew my intention in every action I take, no matter how simple."
-  },
-  {
-   "id": "mawqif_13-15_sharp_tone",
-   "age_group": "13-15",
-   "topic": "anger",
-   "title": "He Replied Sharply in Front of His Siblings",
-   "situation": "You asked your teenage son to do a simple task, but he replied with a sharp, annoyed tone in front of his younger siblings, making you feel upset and embarrassed.",
-   "choices": [
-    {
-     "key": "ignore_and_talk_later",
-     "text": "Ignore his tone for now and calmly repeat your request, then talk to him later in private.",
-     "now": "Maintains calm in front of younger siblings, and your son feels respected despite his mistake.",
-     "later": "Your son learns that mutual respect is the basis of relationships, and calm discussion resolves issues."
-    },
-    {
-     "key": "address_tone_calmly",
-     "text": "Pause your request, look at him calmly, and say: \"I don't like that tone; speak respectfully.\"",
-     "now": "Your son stops his sharp tone and realizes you won't tolerate such behavior.",
-     "later": "Your son learns to control his emotions and understands that boundaries of respect are clear in family interactions."
-    },
-    {
-     "key": "ask_to_step_aside",
-     "text": "Calmly ask him to go with you to another room to finish the conversation away from his siblings.",
-     "now": "Saves your son's face in front of his siblings and provides privacy for handling the situation.",
-     "later": "Your son learns the importance of resolving conflicts calmly and privately, increasing his trust in you."
-    }
-   ],
-   "evidence": {
-    "id": "h_rifq_zana",
-    "kind": "hadith",
-    "text_ar": "إن الرفق لا يكون في شيء إلا زانه، ولا ينزع من شيء إلا شانه",
-    "source": "صحيح مسلم — حديث ٢٥٩٤",
-    "provenance": {
-     "book": "مسلم",
-     "number": 2594
-    },
-    "context": "Narrated by Aisha (may Allah be pleased with her) on the beauty and power of gentleness.",
-    "meaning": "Gentleness is not found in anything except that it adorns it, and it is not removed from anything except that it disfigures it."
-   },
-   "idea": "Dealing gently and kindly with children's emotions, even in moments of anger, instills calm and respect, strengthening family bonds.",
-   "step": "Next time, I will remember that gentleness in dealing with my children is the key to their hearts and behavior."
-  },
-  {
-   "id": "mawqif_13-15_doubt_question",
-   "age_group": "13-15",
-   "topic": "other",
-   "title": "A Difficult Faith Question",
-   "situation": "Your son approached you with a bold question about destiny or a doubt he saw in a short online clip, watching your face expectantly for your reaction.",
-   "choices": [
-    {
-     "key": "listen_validate",
-     "text": "Listen carefully to his question and assure him that asking questions is natural and important.",
-     "now": "He feels comfortable and safe to open up to you without fear of judgment.",
-     "later": "He learns that you are a reliable source for answers and deep discussions, strengthening his bond with you."
-    },
-    {
-     "key": "postpone_research",
-     "text": "Tell him you need to research and think before answering, and ask him to give you some time.",
-     "now": "He learns the importance of thought and research before making judgments, and appreciates your care.",
-     "later": "He sees you as a role model in seeking knowledge and deliberation, increasing his trust in your well-considered answers."
-    },
-    {
-     "key": "answer_simply",
-     "text": "Answer his question with a simple and direct response as much as possible, without overcomplicating it.",
-     "now": "He gets a quick answer that might not fully satisfy his curiosity.",
-     "later": "He might feel the topic wasn't taken seriously enough, and may seek other answers."
-    }
-   ],
-   "evidence": {
-    "id": "h_nasihah",
-    "kind": "hadith",
-    "text_ar": "الدين النصيحة",
-    "source": "صحيح مسلم — حديث ٥٥",
-    "provenance": {
-     "book": "مسلم",
-     "number": 55
-    },
-    "context": "Narrated by Tamim al-Dari (may Allah be pleased with him); nasihah means sincere goodwill offered with care.",
-    "meaning": "The religion is sincere counsel and goodwill."
-   },
-   "idea": "Offering guidance to our children begins with listening with an open heart, providing a safe space for all their questions.",
-   "step": "In the next situation, I will make sure to listen more than I speak, to understand what's on my child's mind."
-  },
-  {
-   "id": "mawqif_13-15_midnight_gaming",
-   "age_group": "13-15",
-   "topic": "screens",
-   "title": "Stays up gaming, misses Fajr and school",
-   "situation": "Your teenage son (13-15 years old) continues playing online with his friends past midnight. When you try to wake him for Fajr prayer and school in the morning, he is very tired and struggles to get up, affecting his school day and energy.",
-   "choices": [
-    {
-     "key": "remind_gently",
-     "text": "Gently remind him of the importance of sleeping early and how staying up late affects his health and studies, asking him to turn off the device.",
-     "now": "He might reluctantly agree or ask for a few more minutes.",
-     "later": "He might start considering the consequences of staying up late and gradually try to adjust his schedule."
-    },
-    {
-     "key": "set_strict_limit",
-     "text": "Set a strict time limit for evening gaming and inform him that you will disconnect the internet after that time.",
-     "now": "He might feel upset or angry initially.",
-     "later": "He will learn self-discipline and respect for rules, improving his sleep and academic performance."
-    },
-    {
-     "key": "discuss_consequences",
-     "text": "Sit with him in the morning to discuss why he struggles to wake up and its impact on his day, listening to his perspective.",
-     "now": "He feels understood and might start expressing his feelings.",
-     "later": "His time management skills develop, and he becomes more responsible for his choices."
-    }
-   ],
-   "evidence": {
-    "id": "h_niamatan",
-    "kind": "hadith",
-    "text_ar": "نعمتان مغبون فيهما كثير من الناس: الصحة والفراغ",
-    "source": "صحيح البخاري — حديث ٦٤١٢",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6412
-    },
-    "context": "Narrated by Ibn Abbas (may Allah be pleased with them) on valuing health and free time.",
-    "meaning": "There are two blessings which many people lose out on: health and free time."
-   },
-   "idea": "Wisely investing time and health is key to success in this life and the hereafter; our youth is an invaluable blessing.",
-   "step": "Tonight, I will set a consistent time for ending gaming and help him gradually adhere to it."
-  },
-  {
-   "id": "mawqif_13-15_study_burnout",
-   "age_group": "13-15",
-   "topic": "study",
-   "title": "Neglects studying, says 'Studying is useless'",
-   "situation": "You've noticed your son's grades have dropped significantly recently. He quickly closes his books after a few minutes, saying with frustration: \"Studying is useless, everyone succeeds without all this effort!\"",
-   "choices": [
-    {
-     "key": "discuss_feelings",
-     "text": "Sit down calmly with him to listen to his feelings about studying and what makes him feel discouraged.",
-     "now": "He feels heard and might open up more to share what's bothering him.",
-     "later": "His trust in you strengthens, and he's more likely to seek help in the future."
-    },
-    {
-     "key": "set_small_goals",
-     "text": "Suggest setting small, specific study goals that are easily achievable to boost his sense of accomplishment.",
-     "now": "He agrees to try the small goals and might feel some optimism.",
-     "later": "He regains confidence in his learning ability and his performance gradually improves."
-    },
-    {
-     "key": "share_experience",
-     "text": "Share a story about a challenge you faced in your life and how perseverance helped you overcome it.",
-     "now": "He listens attentively and might find inspiration or encouragement in your story.",
-     "later": "He learns the value of effort and perseverance from you, becoming more ready to face difficulties."
-    }
-   ],
-   "evidence": {
-    "id": "h_mumin_qawi",
-    "kind": "hadith",
-    "text_ar": "المؤمن القوي، خير وأحب إلى الله من المؤمن الضعيف، وفي كل خير",
-    "source": "صحيح مسلم — حديث ٢٦٦٤",
-    "provenance": {
-     "book": "مسلم",
-     "number": 2664
-    },
-    "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on resolve, resilience, and striving for good.",
-    "meaning": "The strong believer is better and more beloved to Allah than the weak believer, while there is good in both."
-   },
-   "idea": "True strength lies in our continuous pursuit of growth and development. Every effort we make in seeking knowledge empowers us and makes us better.",
-   "step": "In the next situation, I will make sure to celebrate any effort my son makes, no matter how small."
-  },
-  {
-   "id": "mawqif_13-15_bad_company",
-   "age_group": "13-15",
-   "topic": "fear",
-   "title": "His Words Changed After a New Friendship",
-   "situation": "In recent weeks, you've noticed a change in your son's language; he's using strange words that were unfamiliar to him before. He also seems tense and uncomfortable at times. This change coincided with his new friendship.",
-   "choices": [
-    {
-     "key": "open_dialogue",
-     "text": "You initiate a calm conversation with him about your observations, expressing your concern and listening to his perspective and feelings.",
-     "now": "He feels cared for and might start expressing his worries or what he's going through.",
-     "later": "You build a bridge of trust and communication, making it easier for him to seek help in the future."
-    },
-    {
-     "key": "monitor_observe",
-     "text": "You closely monitor his behavior and language without direct intervention, gathering more information before taking any action.",
-     "now": "You avoid direct confrontation, and the situation might persist or worsen.",
-     "later": "You gain a deeper understanding of the situation, but it might be too late to offer timely support."
-    },
-    {
-     "key": "talk_to_friend",
-     "text": "You speak indirectly with his new friend or their parents to learn more about the nature of the relationship and its impact.",
-     "now": "You might gain additional information, or your son might feel his privacy is being invaded.",
-     "later": "The situation becomes clearer, but it might negatively affect your son's trust in you if he finds out."
-    }
-   ],
-   "evidence": {
-    "id": "h_jalis_salih",
-    "kind": "hadith",
-    "text_ar": "إنما مثل الجليس الصالح والجليس السوء، كحامل المسك ونافخ الكير",
-    "source": "صحيح مسلم — حديث ٢٦٢٨",
-    "provenance": {
-     "book": "مسلم",
-     "number": 2628
-    },
-    "context": "Narrated by Abu Musa al-Ash'ari (may Allah be pleased with him) on the deep effect of good and bad company.",
-    "meaning": "The parable of a good companion and a bad companion is that of a musk-bearer and a bellows-blower."
-   },
-   "idea": "Friends influence us, so be careful to choose those who elevate you and bring you good, and avoid bad company.",
-   "step": "In the next situation, I will make sure to be a good role model in my own choice of friends."
-  },
-  {
-   "id": "mawqif_16-18_independence_clash",
-   "age_group": "16-18",
-   "topic": "other",
-   "title": "He says: \"I'm grown up and don't need supervision!\"",
-   "situation": "You asked your teenage son where he was going and when he'd be back. He got upset and sharply retorted that you still treat him like a child, and that he's grown up and doesn't need constant supervision.",
-   "choices": [
-    {
-     "key": "explain_concern",
-     "text": "Calmly explain that your questions stem from care and love, not distrust, emphasizing the importance of communication.",
-     "now": "Your son partially understands your perspective and calms down, but may still feel some annoyance.",
-     "later": "Mutual trust gradually strengthens, and he becomes more open to sharing details with you."
-    },
-    {
-     "key": "give_space",
-     "text": "Apologize for bothering him, tell him you trust him, and ask him to share details when he feels comfortable.",
-     "now": "Your son feels respected and valued, and might start sharing some information voluntarily.",
-     "later": "His independence and sense of responsibility grow, and he might communicate better with you in the future."
-    },
-    {
-     "key": "set_boundaries",
-     "text": "Reiterate that these rules are essential for his safety, explaining that independence comes with responsibility and adherence to boundaries.",
-     "now": "Your son might initially feel resentful, but he realizes there are clear boundaries.",
-     "later": "He learns the importance of following rules, and the relationship based on mutual respect for boundaries becomes clearer."
-    }
-   ],
-   "evidence": {
-    "id": "h_nasihah",
-    "kind": "hadith",
-    "text_ar": "الدين النصيحة",
-    "source": "صحيح مسلم — حديث ٥٥",
-    "provenance": {
-     "book": "مسلم",
-     "number": 55
-    },
-    "context": "Narrated by Tamim al-Dari (may Allah be pleased with him); nasihah means sincere goodwill offered with care.",
-    "meaning": "The religion is sincere counsel and goodwill."
-   },
-   "idea": "Sincere and loving advice is key to building trust with our children, even as they grow, gently guiding them towards responsibility.",
-   "step": "Next time, I will make sure to express my care and love for my son before asking him for details."
-  },
-  {
-   "id": "mawqif_16-18_fajr_struggle",
-   "age_group": "16-18",
-   "topic": "prayer",
-   "title": "Sleeping Through Fajr and Annoyed by Waking Up",
-   "situation": "Every morning, tension arises when you wake your teenage son for Fajr prayer. He sleeps deeply, and when you wake him, he gets annoyed, feeling like the whole house is chasing and pressuring him, leaving a charged atmosphere at the start of the day.",
-   "choices": [
-    {
-     "key": "wake_gently",
-     "text": "Wake him gently and remind him of the prayer's importance, then let him pray alone.",
-     "now": "He might take some time to wake up, but feels a sense of independence.",
-     "later": "He gradually learns responsibility and feels confident in performing prayer on his own."
-    },
-    {
-     "key": "wake_firmly",
-     "text": "Wake him firmly and insist he gets up immediately to pray with you.",
-     "now": "He wakes up and prays, but might be annoyed or angry.",
-     "later": "He might perform prayer as a forced duty, potentially associating it with tension and pressure."
-    },
-    {
-     "key": "discuss_later",
-     "text": "Let him sleep and postpone the discussion about Fajr prayer until later in the day.",
-     "now": "He avoids morning tension but misses the prayer.",
-     "later": "This might reinforce the idea that Fajr prayer isn't a priority, and he loses the importance of discipline."
-    }
-   ],
-   "evidence": {
-    "id": "h_yassiru",
-    "kind": "hadith",
-    "text_ar": "يسروا ولا تعسروا، وبشروا ولا تنفروا",
-    "source": "صحيح البخاري — حديث ٦٩",
-    "provenance": {
-     "book": "البخاري",
-     "number": 69
-    },
-    "context": "Narrated by Anas (may Allah be pleased with him) on the Prophetic way of ease and encouragement.",
-    "meaning": "Make things easy and do not make them difficult; give glad tidings and do not drive people away."
-   },
-   "idea": "Gentleness in guidance opens hearts and makes obedience beloved, while strictness may alienate and complicate the path.",
-   "step": "Tonight, I will calmly discuss his evening routine and how it can help him wake up."
-  },
-  {
-   "id": "mawqif_16-18_screen_waste",
-   "age_group": "16-18",
-   "topic": "screens",
-   "title": "Wasting his day browsing before crucial exams",
-   "situation": "Only a few weeks remain until your son's crucial exams, and he spends long hours daily browsing short videos on his phone, which deeply concerns you about his academic future.",
-   "choices": [
-    {
-     "key": "talk_calmly",
-     "text": "You calmly discuss with him the importance of time management and focusing on studying during this critical period.",
-     "now": "He listens attentively and might gradually start reducing his screen time.",
-     "later": "He learns the value of self-responsibility and effective time management, boosting his self-confidence."
-    },
-    {
-     "key": "set_limits",
-     "text": "You establish a clear plan with him to set specific times for phone use and study, and you monitor his adherence to it.",
-     "now": "He feels somewhat restricted initially but realizes the seriousness of the situation and begins to comply.",
-     "later": "He acquires time management skills and achieves better exam results, reducing his stress."
-    },
-    {
-     "key": "offer_help",
-     "text": "You offer to help him organize study materials or find additional educational resources, and you spend some time with him.",
-     "now": "He feels supported and cared for, and might ask for your help with some subjects he finds difficult.",
-     "later": "Your relationship strengthens, and his motivation to study increases as he feels you are a partner in his educational journey."
-    }
-   ],
-   "evidence": {
-    "id": "h_niamatan",
-    "kind": "hadith",
-    "text_ar": "نعمتان مغبون فيهما كثير من الناس: الصحة والفراغ",
-    "source": "صحيح البخاري — حديث ٦٤١٢",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6412
-    },
-    "context": "Narrated by Ibn Abbas (may Allah be pleased with them) on valuing health and free time.",
-    "meaning": "There are two blessings which many people lose out on: health and free time."
-   },
-   "idea": "Investing time and leisure in youth is an invaluable treasure; life is full of opportunities that require preparation and effort.",
-   "step": "In the next situation, I will make sure to be a good role model in utilizing my time effectively."
-  },
-  {
-   "id": "mawqif_16-18_money_mistake",
-   "age_group": "16-18",
-   "topic": "other",
-   "title": "He spent his entire monthly allowance in a week",
-   "situation": "After your teenage son spent his entire monthly allowance on non-essentials in just a few days, he is now asking you for extra money to cover the rest of the month. You are concerned about this recurring pattern.",
-   "choices": [
-    {
-     "key": "give_with_advice",
-     "text": "Give him the money he asks for and calmly discuss the importance of financial planning and prioritizing.",
-     "now": "He feels temporary relief, but may not learn the lesson immediately.",
-     "later": "He might repeat the mistake if the concept of financial responsibility isn't firmly established."
-    },
-    {
-     "key": "refuse_and_explain",
-     "text": "Apologize for not giving him extra money and explain that this is his monthly allowance, and he must bear the consequences of his decisions.",
-     "now": "He feels frustrated and may struggle to manage his remaining affairs.",
-     "later": "He learns to take responsibility for his financial decisions and realizes the value of planning for the future."
-    },
-    {
-     "key": "offer_solution",
-     "text": "Do not give him extra money, but suggest he look for a simple part-time job or help around the house for a specific amount.",
-     "now": "He feels challenged and might find it difficult, but sees an opportunity for a solution.",
-     "later": "He gains self-reliance and work skills, understanding the value of money and the effort to earn it."
-    }
-   ],
-   "evidence": {
-    "id": "h_kullukum_rain",
-    "kind": "hadith",
-    "text_ar": "كلكم راع وكلكم مسؤول عن رعيته",
-    "source": "صحيح البخاري — حديث ٨٩٣",
-    "provenance": {
-     "book": "البخاري",
-     "number": 893
-    },
-    "context": "Narrated by Ibn Umar (may Allah be pleased with them) on the trust of caring for one's family.",
-    "meaning": "Each of you is a shepherd and each of you is responsible for his flock."
-   },
-   "idea": "Our responsibility as parents is to teach our children to manage their money wisely, so they can be accountable for their financial decisions in the future.",
-   "step": "Next time, I will make sure to dedicate time to discuss the family budget and how to manage it."
-  },
-  {
-   "id": "mawqif_16-18_heated_argument",
-   "age_group": "16-18",
-   "topic": "anger",
-   "title": "Heated Argument Over Late Return",
-   "situation": "Late at night, voices rose between you and your son/daughter because he/she returned home late with friends without prior permission, and you felt intense anger.",
-   "choices": [
-    {
-     "key": "calm_discussion",
-     "text": "Calm down and discuss calmly the importance of asking permission and adhering to agreed-upon times.",
-     "now": "Your son/daughter feels heard and may begin to express his/her perspective calmly.",
-     "later": "Mutual trust is strengthened, and your son/daughter learns the importance of communication and responsibility."
-    },
-    {
-     "key": "postpone_talk",
-     "text": "End the discussion now and suggest postponing the talk until morning after tempers have cooled.",
-     "now": "The argument stops immediately, and both of you feel some relief from the current tension.",
-     "later": "Allows for calm reflection, which may lead to more mature and understanding solutions to the situation."
-    },
-    {
-     "key": "express_disappointment",
-     "text": "Express your disappointment and sadness about his/her behavior without raising your voice.",
-     "now": "Your son/daughter feels the impact of his/her actions on you and may begin to feel remorse.",
-     "later": "Your son/daughter learns that his/her actions affect others, fostering a sense of responsibility and empathy."
-    }
-   ],
-   "evidence": {
-    "id": "h_qul_khayran",
-    "kind": "hadith",
-    "text_ar": "من كان يؤمن بالله واليوم الآخر فليقل خيرا أو ليصمت",
-    "source": "صحيح البخاري — حديث ٦٠١٨",
-    "provenance": {
-     "book": "البخاري",
-     "number": 6018
-    },
-    "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on guarding one's tongue and speaking good.",
-    "meaning": "Whoever believes in Allah and the Last Day, let him speak good or remain silent."
-   },
-   "idea": "Controlling our anger and choosing our words wisely in tense moments builds bridges of understanding and preserves affection, for our words are either good or we remain silent.",
-   "step": "In the next situation, I will make sure to breathe deeply before responding, to choose my words calmly and wisely."
-  },
-  {
-   "id": "mawqif_16-18_exam_anxiety",
-   "age_group": "16-18",
-   "topic": "fear",
-   "title": "Experiencing severe anxiety before university admission",
-   "situation": "Your teenager wakes up anxious and afraid of not achieving the required grades for university admission, feeling he will disappoint you and waste his and your efforts.",
-   "choices": [
-    {
-     "key": "reassure_and_distract",
-     "text": "Reassure him of your unconditional love and encourage him to relax and focus on what's next.",
-     "now": "He feels temporary relief and his tension decreases slightly.",
-     "later": "He learns that his worth is not solely tied to academic success and becomes more resilient."
-    },
-    {
-     "key": "discuss_options",
-     "text": "Sit with him calmly to discuss alternative university plans and remind him of multiple success opportunities.",
-     "now": "He feels reassured by the presence of other options and the pressure of a single path lessens.",
-     "later": "He learns to plan for the future with flexibility and realizes that failure is not the end."
-    },
-    {
-     "key": "validate_feelings",
-     "text": "Listen to him attentively and validate his feelings, then remind him that effort is what matters and results are in God's hands.",
-     "now": "He feels his emotions are understood and accepted, becoming calmer.",
-     "later": "He learns to trust in God and rely on Him, becoming more capable of handling pressure."
-    }
-   ],
-   "evidence": {
-    "id": "h_qadar_allah",
-    "kind": "hadith",
-    "text_ar": "وإن أصابك شيء، فلا تقل لو أني فعلت كان كذا وكذا، ولكن قل قدر الله وما شاء فعل",
-    "source": "صحيح مسلم — حديث ٢٦٦٤",
-    "provenance": {
-     "book": "مسلم",
-     "number": 2664
-    },
-    "context": "Narrated by Abu Hurayrah (may Allah be pleased with him) on peaceful acceptance after doing one's best.",
-    "meaning": "If something befalls you, do not say 'If only I had done such and such'; rather say: 'Allah decreed it, and what He willed He did.'"
-   },
-   "idea": "Teach your child that effort is what's required, and results are solely in God's hands, so he doesn't grieve over the past or worry about the future.",
-   "step": "In the next situation, I will focus on instilling the value of reliance on God in my children's hearts."
-  }
- ],
- "translation": {
-  "translator_model": "gemini-2.5-flash",
-  "english_authors": [
-   "claude-opus-5-5",
-   "gemini-2.5-flash"
   ],
-  "generated_by": "phase3a_mawaqif_and_kb_clean.py"
- },
- "approved_by": null
+  "translation": {
+    "translator_model": "gemini-2.5-flash",
+    "english_authors": [
+      "claude-opus-5-5",
+      "gemini-2.5-flash"
+    ],
+    "generated_by": "phase3a_mawaqif_and_kb_clean.py"
+  },
+  "approved_by": null
 }

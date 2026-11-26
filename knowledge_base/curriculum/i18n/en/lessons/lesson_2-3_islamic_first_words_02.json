@@ -8,7 +8,7 @@
     "seed-defiance-23",
     "shm-isl-07-daughters-honor"
   ],
-  "summary": "Imagine returning home after a long day, or your little one entering the room where you're sitting. Do you remember the first word you say? Often, it's a simple greeting, yet it carries warmth and an acknowledgment of the other's presence. These small daily moments are your golden opportunity to plant the most beautiful words in your child's heart and on their tongue, so they become an integral part of their loving and polite personality.\n\nKind words are not just letters spoken; they are seeds planted in our children's souls to bear noble character and warm human relationships. When your child learns to begin their speech with salaam (peace) and to express their thanks and gratitude, they don't just acquire a social habit; they absorb deep values like respecting others, acknowledging their favors, and appreciating giving. These simple practices build bridges of affection and positive communication, preparing their heart to be soft and giving, and their tongue accustomed to all that is beautiful. The Prophet ﷺ said: \"Whoever believes in Allah and the Last Day should speak good or remain silent.\" (Sahih al-Bukhari 6018).\n\nIt doesn't require extraordinary effort, but rather a series of repeated moments we share with our children. Be the role model: offer salaam clearly, and express thanks audibly, and you will find your child imitating you with their pure nature. Celebrate their first words, and encourage them with a gentle smile or a warm hug. Every kind word you utter in front of them, and every encouragement you offer them, is a step towards building a balanced personality that knows how to express itself with gentleness and love, illuminating its own path and the path of those around it with beauty.",
+  "summary": "Imagine returning home after a long day, or your little one entering the room where you're sitting. Do you remember the first word you say? Often, it's a simple greeting, yet it carries warmth and an acknowledgment of the other's presence. These small daily moments are your golden opportunity to plant the most beautiful words in your child's heart and on their tongue, so they become an integral part of their loving and polite personality.\n\nKind words are not just letters spoken; they are seeds planted in our children's souls to bear noble character and warm human relationships. When your child learns to begin their speech with salaam (peace)—which Islam encourages spreading to foster love—and to express their thanks and gratitude, they don't just acquire a social habit; they absorb deep values like respecting others, acknowledging their kindness, and appreciating generosity. These simple practices build bridges of affection and positive communication, preparing their heart to be soft and giving, and their tongue accustomed to kind words, just as the Prophet ﷺ urged believers to speak good in his saying: \"Whoever believes in Allah and the Last Day should speak good or remain silent\" (Sahih al-Bukhari, Hadith 6018).\n\nIt doesn't require extraordinary effort, but rather a series of repeated moments we share with our children. Be the role model: offer salaam clearly, and express thanks audibly, and you may find your child imitating you over time. Celebrate their first words, and encourage them with a gentle smile or a warm hug. Every kind word you utter in front of them, and every encouragement you offer them, is a step towards building a balanced personality that knows how to express itself with gentleness and love, illuminating its own path and the path of those around it with beauty.",
   "try_this": "Today: When you enter any room where your child is, offer salaam clearly and with a smile, then gently encourage them to imitate you and return the salaam.",
   "order": 2,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"My darling, say: Assalamu alaykum!\"",
   "assistant_prompts": [
     "How do I deal with my child if they refuse to offer salaam or thanks?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "9559f807a69a62b50cfe5ac1aac548b2d36b262e066af770f035065dc32a8c0a",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "5bc885acdbaf2e7412cd2c8e234b176a8b5003823466a4d7e079cdba47e3b89c",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

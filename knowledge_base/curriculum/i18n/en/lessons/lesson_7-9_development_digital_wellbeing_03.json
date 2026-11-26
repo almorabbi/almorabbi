@@ -7,7 +7,7 @@
   "unit_ids": [
     "2dd953f6-aafe-4a67-9571-ba214533f43f"
   ],
-  "summary": "Imagine this scene: your seven-year-old child, who yesterday was chasing butterflies with an innocent smile, today sits in front of a screen, pressing buttons rapidly, eyes following virtual characters fighting and clashing. You might notice a slight change in their behavior after playing; perhaps louder shouting, more whining, or even pushing their younger sibling. These small changes might seem normal at first, but they are important signals that deserve our attention as parents.\n\nThe world of digital games is vast and varied, containing both beneficial and harmful elements. Some games, especially those with violent or intensely competitive scenes, can affect how our children think and interact with their surroundings. It's not just about what the child does on screen, but how these experiences shape their mind and behavior in real life. A child might find it difficult to distinguish between virtual violent play and acceptable behavior in their daily interactions, which could lead to aggressive or reckless behavior towards others.\n\nFortunately, we have the ability to guide our children towards better choices. It doesn't require complete deprivation, but rather conscious selection and attractive alternatives. We can be guides for our children in this digital world, choosing with them games that develop their creative skills, enhance their critical thinking, or even encourage them to move and be active. Always remember that our goal is to build a balanced personality, capable of interacting positively in both the real and virtual worlds.",
+  "summary": "Imagine this scene: your seven-year-old child, who yesterday was chasing butterflies with an innocent smile, today sits in front of a screen, pressing buttons rapidly, eyes following virtual characters fighting and clashing. You might notice a slight change in their behavior after playing; perhaps louder shouting, more whining, or even pushing their younger sibling. These small changes might seem normal at first, but they are important signals that deserve our attention as parents.\n\nThe world of digital games is vast and varied, containing both beneficial and harmful elements. Some games, especially those with violent or intensely competitive scenes, can affect how our children think and interact with their surroundings. It's not just about what the child does on screen, but how these experiences shape their mind and behavior in real life. Some children may show aggressive behavior or agitation after excessive play of violent games.\n\nFortunately, we have the ability to guide our children towards better choices. It doesn't require complete deprivation, but rather conscious selection and attractive alternatives. We can be guides for our children in this digital world, choosing with them games that develop their creative skills, enhance their critical thinking, or even encourage them to move and be active. Always remember that our goal is to build a balanced personality, capable of interacting positively in both the real and virtual worlds.",
   "try_this": "Tonight: Sit with your child and watch a part of their favorite game with them. Observe its content, then ask them: “What do you like about this game?”",
   "order": 3,
   "estimated_minutes": 4,
@@ -19,7 +19,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“Hey champ, let’s discover some fun new games together!”",
   "assistant_prompts": [
     "What are suitable games for children aged 7-9 that foster creativity?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "aa193c93b698d6331a36d49dcf27fa6476424cef583355375015cccf959cd0f2",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "eb6b458accb305bfb01e1287e6902a44d3bbce4e5ecb20e14a7450560b79bdd8",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -8,7 +8,7 @@
     "shm-aqd-79-07-allah-adl",
     "shm-aqd-79-03-ikhlas-niyyah"
   ],
-  "summary": "Imagine your child coming home from school, excitedly telling you about a new game they learned, or perhaps recounting a difficult situation they faced. Amidst these daily moments, a question might cross your mind: How do I instill in their heart a deep sense of Allah’s presence, not as a frightening overseer, but as a loving companion who sees and hears everything? How do I answer their innocent question, “Where is Allah?” in a way that touches their innate nature and instills tranquility and self-responsibility, without it becoming mere dry indoctrination?\n\nThe foundation at this age is to build a warm and reassuring understanding: Allah Almighty is in the heavens, high above His Throne, above all His creation, and at the same time, He is with us through His knowledge, hearing, and sight. He sees everything we do, hears everything we say, and knows what is in our hearts. This divine presence is not for authority and intimidation, but rather an invitation to modesty and self-monitoring. For your child to realize that Allah always sees them, even when no one else does, cultivates a living conscience that motivates them to do good in secret and prevents them from evil even when alone. This inner self-monitoring is the most precious gift you can give your child, for it is their trustworthy guardian when your eyes are not upon them.\n\nTo achieve this, we don't need long sermons, but rather simple and continuous educational touches. Gently remind your child of Allah’s presence in daily life situations, link their good deeds to this awareness, and make the remembrance of Allah a natural part of your conversations. These small practices build a bridge of love and awareness between the child and their Lord, making the concept of “Allah sees me” a source of strength and security, not a source of anxiety and fear, thereby solidifying values of integrity and honesty from within them.",
+  "summary": "Imagine your child coming home from school, excitedly telling you about a new game they learned, or perhaps recounting a difficult situation they faced. Amidst these daily moments, a question might cross your mind: How do I instill in their heart a deep sense of Allah’s presence, not as a frightening overseer, but as a merciful Lord who is kind to His servants, who sees and hears everything? How do I answer their innocent question, “Where is Allah?” in a way that touches their innate nature and instills tranquility and self-responsibility, without it becoming mere dry indoctrination?\n\nThe foundation at this age is to build a warm and reassuring understanding: Allah Almighty is high above His creation, risen over His Throne as He, Exalted is He, informed us in His Book, and He is with us through His knowledge, hearing, and sight wherever we are. He sees everything we do, hears everything we say, and knows what is in our hearts. This divine presence is not for authority and intimidation, but rather an invitation to modesty and self-monitoring. For your child to realize that Allah always sees them, even when no one else does, cultivates a living conscience that motivates them to do good in secret and prevents them from evil even when alone. This inner self-monitoring is the most precious gift you can give your child, for it is their trustworthy guardian when your eyes are not upon them.\n\nTo achieve this, we don't need long sermons, but rather simple and continuous educational touches. Gently remind your child of Allah’s presence in daily life situations, link their good deeds to this awareness, and make the remembrance of Allah a natural part of your conversations. These small practices build a bridge of love and awareness between the child and their Lord, making the concept of “Allah sees me” a source of strength and security, not a source of anxiety and fear, thereby solidifying values of integrity and honesty from within them.",
   "try_this": "Today: When your child does something good without anyone seeing them (like tidying their small toys in their room, or quietly helping their sibling), gently remind them with a smile: “Allah saw you, and He loves this beautiful action from you.”",
   "order": 4,
   "estimated_minutes": 4,
@@ -20,8 +20,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“Allah sees us and loves us, and He is pleased with our good deeds even if no one sees us.”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“Allah sees us and loves those who do good, and He knows our good deeds even if no one sees us.”",
   "assistant_prompts": [
     "How do I explain to my 7-year-old child the meaning of Allah being in the heavens and with us at the same time?",
     "What practical activities can I do to foster the concept of self-monitoring in my child?"
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,30 +58,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "acc2fbff17dd8a6e0f3dd1ef95dea4ece39bee9d187c5ae7dcf5b67b680ab313",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "parent_script",
-          "type": "meaning",
-          "why": "«يفرح» conveys warmth and delight, while \"is pleased\" is more formal and slightly understates the emotional tone the Arabic intends for a child-facing script."
-        }
-      ],
+      "content_sha256": "bbbd223acaa169105814a210e61a0984ab74d3b3b414eff4284f9d87a50bb1f4",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "parent_script",
-        "type": "meaning",
-        "why": "«يفرح» conveys warmth and delight, while \"is pleased\" is more formal and slightly understates the emotional tone the Arabic intends for a child-facing script."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

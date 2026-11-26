@@ -8,7 +8,7 @@
     "isl-d54fd8e8",
     "isl-1bceeaf6"
   ],
-  "summary": "At seven, your child moves from imitating prayer to learning it and getting used to it. Scholars have guided parents to begin at this age by instructing the child to pray — gently and gradually — so that when they reach puberty and prayer becomes obligatory, they are already used to it, rather than meeting it suddenly after puberty.\n\nAmong Luqman's counsel to his son in the Qur'an is a verse about prayer. Allah says: ﴿يَا بُنَيَّ أَقِمِ الصَّلَاةَ وَأْمُرْ بِالْمَعْرُوفِ وَانْهَ عَنِ الْمُنكَرِ وَاصْبِرْ عَلَىٰ مَا أَصَابَكَ﴾ [Surah Luqman, 31:17] Instructing a child in prayer is a long journey that needs patience from you before it needs it from your child, and a gentle, loving call rather than an angry voice.\n\nStart gradually: one or two prayers a day in the first week, such as Maghrib and Isha when you are at home, then add a prayer every week or two according to how ready they are. Remind them with a short, kind word at the adhan (call to prayer): «It's time for Maghrib, come let's pray together», and don't turn the reminder into a lecture or shouting. At this age a child may forget or be lazy, and this is expected; what is required is continuity, not perfection.\n\nMake prayer at home a congregation whenever possible, for praying beside you is dearer to them than praying alone. Praise their commitment specifically: «I liked that you came to pray at the very first call.» And remember that the firmness required is steadiness in reminding, day after day, not harshness; a child who loves prayer when small keeps it when grown.",
+  "summary": "At seven, your child moves from imitating prayer to learning it and getting used to it. Scholars have guided parents to begin at this age by instructing the child to pray — gently and gradually — so that when they reach puberty and prayer becomes obligatory, they are already used to it, rather than meeting it suddenly after puberty.\n\nAmong Luqman's wise counsel to his son in the Qur'an is his call to establish prayer and be patient; Allah the Exalted says: ﴿يَا بُنَيَّ أَقِمِ الصَّلَاةَ وَأْمُرْ بِالْمَعْرُوفِ وَانْهَ عَنِ الْمُنكَرِ وَاصْبِرْ عَلَىٰ مَا أَصَابَكَ﴾ [Surah Luqman: 17] (interpretation of the meaning: \"O my son, establish prayer, enjoin what is right, forbid what is wrong, and be patient over what befalls you\"). The Qur'an has also guided us to instruct our family to pray and to be steadfastly patient in doing so; accustoming a child to prayer is a long journey that needs patience from you before it needs it from your child, and a gentle, loving call rather than an angry voice.\n\nStart gradually: one or two prayers a day in the first week, such as Maghrib and Isha when you are at home, then add a prayer every week or two according to how ready they are. Remind them with a short, kind word at the adhan (call to prayer): «It's time for Maghrib, come let's pray together», and don't turn the reminder into a lecture or shouting. At this age a child may forget or be lazy, and this is expected; what is required is continuity, not perfection.\n\nMake prayer at home a congregation whenever possible, for praying beside you is dearer to them than praying alone. Praise their commitment specifically: «I liked that you came to pray at the very first call.» And remember that the firmness required is steadiness in reminding, day after day, not harshness; a child who loves prayer when small is hoped to maintain it when grown, by Allah's will.",
   "try_this": "Today: Choose one prayer when you will be at home, such as Maghrib, and calmly say to your child at the adhan: «Come, let's pray Maghrib together.» Pray it in congregation with them, and after the salam give them one specific sentence of praise about something they did in their prayer.",
   "order": 5,
   "estimated_minutes": 4,
@@ -21,8 +21,8 @@
   "version": "1.0.0",
   "created_at": "2026-10-04T17:13:00",
   "updated_at": "2026-10-04T17:13:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "My dear, prayer is our meeting with our Lord. Let's pray Maghrib together so we can be close to Him.",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "My dear, prayer is our intimate conversation with our Lord. Let's pray Maghrib together so we can be close to Him.",
   "assistant_prompts": [
     "How can I make my 7-year-old child love prayer and not see it as a burden?",
     "What fun activities can I do with my child to teach them the importance of prayer?"
@@ -41,7 +41,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -60,8 +60,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5c73ff8b2edad9a2f12d78375e0ac704070ea5e4c5e18c8a9310f1c14a1cab83",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "95713a0c5ff1eb062220caba39810355f2c20c6e8e984a7aed5a9d00377ba579",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -70,6 +70,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

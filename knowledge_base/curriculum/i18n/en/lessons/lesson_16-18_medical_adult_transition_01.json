@@ -10,8 +10,8 @@
     "e19e72c2-d553-4e12-a6e6-5d7c6f3fc083",
     "e5d132da-cdb4-403a-a43e-e78640ee6270"
   ],
-  "summary": "Do you remember those days when your child would run to you with any problem, big or small? Now, as they stand on the cusp of a completely new phase, you might see them spending more time in their room or sharing less than before. The transition to university or a work environment brings with it storms of challenges: feelings of loneliness in a new city, academic or professional performance pressure, the complexity of social relationships, and even the responsibility of managing money. All these changes can be overwhelming, and your child might feel the need for their own space, but at the same time, they need to know that you are their primary support.\n\nThe age range between 16 and 18 is a critical period for shaping independence, and this includes building the ability to care for one's own mental health. It's not about always relying on others, but about developing internal and external tools that enable them to deal with pressures effectively. The foundation of these tools is a stable routine that includes sufficient sleep, regular physical activity, and a balanced diet, as these are all essential pillars for brain health and stability. In addition, they need a strong support network, starting with a trusted friend, and potentially expanding to include an academic mentor or a psychological counselor in their new environment, with the importance of saving mental health support line numbers on their phone.\n\nYour role as a parent now is to be a guide and a supporter, not a controller. Help them identify personal warning signs that might indicate a decline in their mental state, and encourage them to monitor these weekly. Most importantly, together, create a clear emergency plan: who will they call in a crisis? What is the general emergency number? What will they do when they feel extremely distressed? These practical steps not only provide them with safety but also teach them the value of preparedness and self-responsibility. Remember, independence does not mean detachment; it means the ability to take care of oneself while knowing that a helping hand is always extended when needed. You are their support, and that is enough for them to face the world with confidence and calm.",
-  "try_this": "Tonight: Sit with your child in a quiet place and together write a simple \"safety card\": 3 personal warning signs (e.g., difficulty sleeping, loss of appetite, isolation), 3 ways to calm down (e.g., walking, listening to music, talking to a friend), 3 trusted people they can turn to, and your country's emergency number. Encourage them to keep it in their wallet or phone.",
+  "summary": "Do you remember those days when your child would run to you with any problem, big or small? Now, as they stand on the cusp of a completely new phase, you might see them spending more time in their room or sharing less than before. The transition to university or a work environment brings with it storms of challenges: feelings of loneliness in a new city, academic or professional performance pressure, the complexity of social relationships, and even the responsibility of managing money. All these changes can be overwhelming, and your child might feel the need for their own space, but at the same time, they need to know that you are their primary support.\n\nThe age range between 16 and 18 is a critical period for shaping independence, and this includes building the ability to care for one's own mental health. It's not about always relying on others, but about developing internal and external tools that enable them to deal with pressures effectively. The foundation of these tools is a stable routine that includes sufficient sleep, regular physical activity, and a balanced diet, as these are all essential pillars for brain health and stability. In addition, they need a strong support network, starting with a trusted friend, and potentially expanding to include an academic mentor or a psychological counselor in their new environment, with the importance of saving mental health support line numbers on their phone.\n\nYour role as a parent now is to be a guide and a supporter, not a controller. Help them identify personal warning signs that might indicate a decline in their mental state, and encourage them to monitor these weekly. Most importantly, together, create a clear emergency plan: who will they call in a crisis? What is the general emergency number? What will they do when they feel extremely distressed? These practical steps not only provide them with safety but also teach them the value of preparedness and self-responsibility. Remember, independence does not mean detachment; it means the ability to take care of oneself while knowing that a helping hand is always extended when needed. You are their support, and your supportive presence strengthens their confidence and calm as they face the world, alongside specialized sources of support when needed.",
+  "try_this": "Tonight: Sit with your child in a quiet place and together write a simple \"safety card\": 3 personal warning signs (e.g., difficulty sleeping, loss of appetite, isolation), 3 ways to calm down (e.g., walking, performing wudu and praying, listening to a calm Quran recitation, or talking to a friend), 3 trusted people they can turn to, and your country's emergency number. Encourage them to keep it in their wallet or phone.",
   "order": 1,
   "estimated_minutes": 5,
   "reflection_prompts": [
@@ -26,7 +26,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I am always here to listen, no matter what challenges you face.”",
   "assistant_prompts": [
     "How can I help my child build a healthy routine for sleep, physical activity, and diet before moving to university?",
@@ -44,7 +44,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -63,8 +63,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "bc35513f739e038014288dc7ced4b2aefa11636a24007dfbab95ac12248986dc",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "6288707e2024ae9fe25240a1a332cf369746a1fb68aebb71a6e97c920423366a",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -73,6 +73,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

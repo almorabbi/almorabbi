@@ -8,8 +8,8 @@
     "shm-aqd-1618-07-tawbah-renewal",
     "shm-aqd-1618-01-yaqin-knowledge"
   ],
-  "summary": "Imagine your teenage son, with his bright eyes and open mind, scrolling through his phone in his room. Suddenly, he comes to you with an unexpected question, or shares a video that raises a religious doubt he saw online. You might feel a hidden worry, as the digital world opens doors to all kinds of ideas, some of which might shake the foundations of faith. These moments are not for scolding or forbidding, but rather golden opportunities for constructive dialogue, and for strengthening his self-confidence and his faith.\n\nThe core idea here is not to isolate our children from these doubts, as this is impossible in our world today. Rather, it is to arm them with critical thinking tools and the skill of seeking truth. Teach them that a doubt is merely a question, and every question has an answer. And that many of those who raise doubts may base their words on ignorance or whims, not on sound knowledge. Our role is to be their primary reference, opening our hearts before our ears, and reassuring them that seeking truth is not weakness, but strength.\n\nStart by strengthening his confidence that his religion is solid and stands firm in the face of discussion, and that faith is not just imitation, but a firm conviction built on evidence. Train him to distinguish between a question that seeks knowledge and a doubt that aims to destroy. Guide him towards reliable sources of knowledge, and teach him how to differentiate between the valuable and the worthless in the sea of information. Always remember that you are planting a tree with deep roots in him, not just a fleeting branch, and that this journey requires patience, wisdom, and gentleness. The Prophet ﷺ said: «Make things easy and do not make them difficult; gladden people and do not repel them.» (Sahih al-Bukhari 69).",
-  "try_this": "Tonight: Choose a short online clip (less than a minute) that raises a common religious doubt, and watch it with your son. Then calmly ask him: «What do you think of this statement?» Listen to his answer without interruption, then search together for a reliable response.",
+  "summary": "Imagine your teenage son, with his bright eyes and open mind, scrolling through his phone in his room. Suddenly, he comes to you with an unexpected question, or shares a video that raises a religious doubt he saw online. You might feel a hidden worry, as the digital world opens doors to all kinds of ideas, some of which might shake the foundations of faith. These moments are not for scolding or forbidding, but rather golden opportunities for constructive dialogue, and for strengthening his self-confidence and his faith.\n\nThe core idea here is not to isolate our children from these doubts, as this is impossible in our world today. Rather, it is to arm them with critical thinking tools and the skill of seeking truth. Teach them that many doubts are answered through knowledge and evidence, that what we do not know we ask trustworthy scholars about, and that matters of the unseen are submitted to authentic scripture. And that many of those who raise doubts may base their words on ignorance or whims, not on sound knowledge. Our role is to be their primary reference, opening our hearts before our ears, and reassuring them that seeking truth is not weakness, but strength.\n\nStart by strengthening his confidence that his religion is solid and stands firm in the face of discussion, and that faith is not just imitation, but a firm conviction built on evidence. Train him to distinguish between a question that seeks knowledge and a doubt that aims to destroy. Guide him towards reliable sources of knowledge, and teach him how to differentiate between the valuable and the worthless in the sea of information. Always remember that you are planting a tree with deep roots in him, not just a fleeting branch, and that this journey requires patience, wisdom, and gentleness. The Prophet ﷺ said: \"Make things easy and do not make them difficult; give glad tidings and do not repel people\" (Sahih al-Bukhari, Hadith 69).",
+  "try_this": "Tonight: First review a common religious doubt and a trustworthy scholar's response to it yourself, then calmly present it to your son and ask him: \"What do you think of this statement?\" Listen to his answer without interruption, then review the trustworthy response together.",
   "order": 2,
   "estimated_minutes": 4,
   "reflection_prompts": [
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«Our religion is strong, and facing difficult questions makes our faith deeper.»",
   "assistant_prompts": [
     "How do I deal with my teenage son when he tells me he doubts some religious matters?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,42 +57,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "cf9e014fec93048e40916f43212ebd65d4129735d4e62f15bab5b3f8e0c2dc56",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "fields.try_this.english",
-          "type": "leakage",
-          "why": "Arabic-style guillemets («») are used in the English text instead of standard English quotation marks."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "fields.parent_script.english",
-          "type": "leakage",
-          "why": "Arabic-style guillemets («») are used in the English text instead of standard English quotation marks."
-        }
-      ],
+      "content_sha256": "4f074935d0fc813dd294cfdbbfec65b0d244d8489b24e58ea7dbd6a1cde34901",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "fields.try_this.english",
-        "type": "leakage",
-        "why": "Arabic-style guillemets («») are used in the English text instead of standard English quotation marks."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "fields.parent_script.english",
-        "type": "leakage",
-        "why": "Arabic-style guillemets («») are used in the English text instead of standard English quotation marks."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

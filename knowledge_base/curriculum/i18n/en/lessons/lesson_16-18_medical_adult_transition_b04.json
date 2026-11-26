@@ -8,7 +8,7 @@
     "83f8a5c4-defa-49a6-91ec-8504fee1140e",
     "85d5303f-da97-49ab-985a-8c31901d84a2"
   ],
-  "summary": "Do you remember how your little one used to come to you with every scratch or pain, trusting you as their refuge? Now, as they stand on the threshold of independence, they go through days when their door is closed, their phone is silent, and their expression changes. You might see them distracted, losing interest in what they once loved, or even avoiding friends. These moments, though painful for you as a parent, are your opportunity to instill in them an invaluable life skill: the skill of seeking help when life becomes difficult.\n\nSeeking psychological help is not a weakness; rather, it is a sign of awareness and strength. Just as someone goes to a doctor when they feel physical pain, seeking psychological support is a proactive step to maintain mental health. Teach them that there are signs that should not be ignored: prolonged sadness, sudden isolation, sleep or eating disturbances, or self-harming thoughts. These are not just \"a phase\"; they are a call to action, to seek a helping hand before things escalate.\n\nYour task now is to be the safe bridge your child crosses to seek help. Introduce them to available sources of support: a mental health professional, specialized helplines, or even a trusted adult outside the family. Most importantly, they must know that your door is always open, without judgment or blame, and that you are the first person they will turn to. A young person who has a \"help-seeking plan\" is more resilient and capable of facing life's challenges, whether in university, at work, or even in moments of loneliness.",
+  "summary": "Do you remember how your little one used to come to you with every scratch or pain, trusting you as their refuge? Now, as they stand on the threshold of independence, they go through days when their door is closed, their phone is silent, and their expression changes. You might see them distracted, losing interest in what they once loved, or even avoiding friends. These moments, though painful for you as a parent, are your opportunity to instill in them an invaluable life skill: the skill of seeking help when life becomes difficult.\n\nSeeking psychological help is not a weakness; rather, it is a sign of awareness and strength. Just as someone goes to a doctor when they feel physical pain, seeking psychological support is a proactive step to maintain mental health. Teach them that there are signs that should not be ignored: prolonged sadness, sudden isolation, sleep or eating disturbances, or self-harming thoughts. These are not just \"a phase\"; they are a call to action, to seek a helping hand before things escalate.\n\nYour task now is to be the safe bridge your child crosses to seek help. Introduce them to available sources of support: a mental health professional, specialized helplines, or even a trusted adult outside the family. Most importantly, they must know that your door is always open, without judgment or blame, and that you will be among the first people they can turn to. A young person who has a \"help-seeking plan\" is more resilient and capable of facing life's challenges, whether in university, at work, or even in moments of loneliness.",
   "try_this": "Tonight: Talk to your child about the importance of seeking help as a sign of strength, and let them know that you are always here to listen and support.",
   "order": 4,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I am always here for you, for anything, and without any judgment.”",
   "assistant_prompts": [
     "How do I differentiate between normal adolescent mood swings and signs of psychological distress that require intervention?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,14 +58,14 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "0f5ae26c8533d7772725da1a1ff1030d7cdc34489339aab0afaff9d2900c3b36",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "39b8f61d1a9467f7f486206613a4c8bc68459fdb016d7b53f680a4022ceb8146",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [
         {
-          "model": "deepseek-v4-pro",
+          "model": "glm-5.2",
           "field": "summary",
           "type": "meaning",
-          "why": "The Arabic says seeking help is the very essence of awareness and strength, while the English weakens it to a mere sign."
+          "why": "«عين» means 'the very essence/epitome of', which is stronger than 'a sign of'; the English understates the Arabic."
         }
       ],
       "adjudicated": [],
@@ -76,12 +76,12 @@
     "review_verdict": "low_only",
     "review_defects": [
       {
-        "model": "deepseek-v4-pro",
+        "model": "glm-5.2",
         "field": "summary",
         "type": "meaning",
-        "why": "The Arabic says seeking help is the very essence of awareness and strength, while the English weakens it to a mere sign."
+        "why": "«عين» means 'the very essence/epitome of', which is stronger than 'a sign of'; the English understates the Arabic."
       }
     ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

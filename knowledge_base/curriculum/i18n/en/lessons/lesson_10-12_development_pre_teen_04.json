@@ -8,7 +8,7 @@
     "dev-9d31767e",
     "dev-3b7d4a62"
   ],
-  "summary": "Does your child's day seem like a frantic race between schoolwork, endless screens, and an intense desire to play? As parents, we often find ourselves repeating phrases like: \"Have you finished your homework?\" or \"How much screen time do you have left?\" while our children are distracted by the allure of the digital world and the demands of their studies. This age, between ten and twelve, is a crucial stage where your child begins to form their identity and independence, and time management is one of the most important skills they will acquire.\n\nInstead of being our children's time managers, we can be their guides. The core idea here is to empower the child to become responsible for their own schedule. When your child participates in creating their daily plan, they feel ownership and responsibility, which fosters self-discipline. It's not about a rigid, unchangeable schedule, but about learning flexibility and planning, and how to allocate enough time for every aspect of their life: for studying, for rest, for free play, and for enjoyable screen time with awareness.\n\nStart with simple, realistic steps. Sit with your child in a quiet moment, not as a business manager, but as a supportive partner. Talk about the activities they love and the tasks they need to accomplish. Help them see how they can distribute their time to achieve a balance that satisfies them and makes them feel accomplished. This time management skill will stay with them throughout their lives and will be a foundation for their success and happiness more than any information they acquire in school.",
+  "summary": "Does your child's day seem like a frantic race between schoolwork, endless screens, and an intense desire to play? As parents, we often find ourselves repeating phrases like: \"Have you finished your homework?\" or \"How much screen time do you have left?\" while our children are distracted by the allure of the digital world and the demands of their studies. This age, between ten and twelve, is a crucial stage where your child begins to form their identity and independence, and time management is one of the most important skills they will acquire.\n\nInstead of being our children's time managers, we can be their guides. The core idea here is to empower the child to become responsible for their own schedule. When your child participates in creating their daily plan, they feel ownership and responsibility, which fosters self-discipline. It's not about a rigid, unchangeable schedule, but about learning flexibility and planning, and how to allocate enough time for every aspect of their life: for studying, for rest, for free play, and for enjoyable screen time with awareness.\n\nStart with simple, realistic steps. Sit with your child in a quiet moment, not as a business manager, but as a supportive partner. Talk about the activities they love and the tasks they need to accomplish. Help them see how they can distribute their time to achieve a balance that satisfies them and makes them feel accomplished. This time management skill will stay with them throughout their lives and will help them, by Allah's will, to organize their life and fulfill their responsibilities.",
   "try_this": "Tonight: Sit with your child for 5 minutes and ask them about the 3 most important things they want to accomplish tomorrow. Then, ask them to write them on a small piece of paper and place it next to their bed.",
   "order": 4,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I trust your ability to organize your time, and I will be here to support you.”",
   "assistant_prompts": [
     "How do I deal with a child who refuses to create a schedule for their time?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "25588a8dc161e9e1ad2af621b24555a1c913f18ceac6a913a5b7a1047701f0d5",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "83806f7eb363db56b6abbc3dadb37011efdd32d5c39dd4698fb31045a1517c86",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -8,7 +8,7 @@
     "isl-dcb6d4e8",
     "723a3b98-bf3c-4607-8a02-9e774d1da69c"
   ],
-  "summary": "Your child comes home from school or the club, unusually silent. After a few minutes of quiet conversation, they confide in you: \"My friends laughed at me because I stopped playing to pray,\" or \"Everyone watches this video except me!\" Between the ages of ten and twelve, peer acceptance becomes a very strong psychological need. Therefore, downplaying their pain with a phrase like \"Don't mind them!\" makes them feel that you don't understand the weight of the moment for them.\n\nFirst, begin by acknowledging and embracing their feelings: \"I completely understand that you felt upset; it's not easy to be different from those around you.\" Then, lift their head with a sense of quiet dignity, not superiority over their friends. For the Prophet ﷺ gave glad tidings to those who remain steadfast in goodness, saying: \"Islam began as something strange and it will return to being strange as it began, so blessed are the strangers\" (Sahih Muslim 145). Remind them that good companionship helps and strengthens the heart, as he ﷺ said: \"The example of a good companion and a bad companion is like that of the carrier of musk and the blower of the bellows\" (Sahih Muslim 2628).\n\nPractically, train your child on a short, confident sentence they can say without emotional reaction or lecturing, such as: \"I'll pray for five minutes and be back with you.\" Also, search with them for an additional environment (a sports club, a mosque circle, family friends) where they can find companions who share their values, so they don't feel alone.",
+  "summary": "Your child comes home from school or the club, unusually silent. After a few minutes of quiet conversation, they confide in you: \"My friends laughed at me because I stopped playing to pray,\" or \"Everyone watches this video except me!\" Between the ages of ten and twelve, peer acceptance becomes a very strong psychological need. Therefore, downplaying their pain with a phrase like \"Don't mind them!\" makes them feel that you don't understand the weight of the moment for them.\n\nFirst, begin by acknowledging and embracing their feelings: \"I completely understand that you felt upset; it's not easy to be different from those around you.\" Then, lift their head with a sense of quiet dignity, not superiority over their friends. For the Prophet ﷺ gave glad tidings to those who remain steadfast upon the truth when its people are few—without that meaning isolating oneself from friends or looking down on them—saying: \"Islam began as something strange and it will return to being strange as it began, so blessed are the strangers\" (Sahih Muslim 145). Remind them that good companionship helps and strengthens the heart, as he ﷺ said: \"The example of a good companion and a bad companion is like that of the carrier of musk and the blower of the bellows\" (Sahih Muslim 2628).\n\nPractically, train your child on a short, confident sentence they can say without emotional reaction or lecturing, such as: \"I'll pray for five minutes and be back with you.\" Also, search with them for an additional environment (a sports club, a mosque circle, family friends) where they can find companions who share their values, so they don't feel alone.",
   "try_this": "Tonight: Gently ask your child if they have ever felt embarrassed or different in front of their friends because of their commitment or our family's boundaries. Listen to them first, then practice together a short, confident, and calm response they can use in the next situation.",
   "order": 4,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"I appreciate your courage for telling me; it's really hard to feel different from your friends. Let's agree on a calm sentence that preserves your values and makes you comfortable in front of them.\"",
   "assistant_prompts": [
     "My 12-year-old son's peers mock him because he doesn't use foul language or he prays. How can I strengthen his confidence?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,30 +58,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "36731a5a1f9e4ae8785342b1a2692fc41c5c26d00ecadf56c63892e185db092f",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "assistant_prompts[1]",
-          "type": "meaning",
-          "why": "The Arabic specifies \"my son\" (لابني) but the English generalizes to \"my child\"."
-        }
-      ],
+      "content_sha256": "378b91b0cf46ec4f3468c6f3e198aecf8f3957f2db96286afb1dc4d3c12df75b",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "assistant_prompts[1]",
-        "type": "meaning",
-        "why": "The Arabic specifies \"my son\" (لابني) but the English generalizes to \"my child\"."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

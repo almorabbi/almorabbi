@@ -8,7 +8,7 @@
     "gap-dev-sexual-worries-01",
     "dev-4fb3af0c"
   ],
-  "summary": "Have you ever wondered why your teenager sometimes seems like a completely different person? One moment they're bursting with enthusiasm for something, and the next they withdraw completely or make a decision that seems illogical to you? This familiar scene in our homes isn't a sign of a \"malfunction\" in your teen; rather, it's a clear indication of their brain working hard behind the scenes, reorganizing itself and preparing for a new stage of maturity.\n\nImagine your teen's brain as a lush garden undergoing intensive pruning. Everything that is used and practiced regularly flourishes and strengthens, while what is neglected gradually withers. This process, known as \"synaptic pruning,\" is a golden opportunity for the brain to get rid of unnecessary connections and strengthen essential ones. At the same time, a fast insulating layer called \"myelin\" begins to coat nerve fibers, making signals transmit at lightning speed. This development finally reaches the front part of the brain, which is the center for decision-making, planning, and impulse control, and continues to mature until the early twenties.\n\nThis means that every activity your teen engages in now – whether learning a new language, playing a sport, mastering a musical instrument, participating in volunteer work, or even just having deep conversations with you – is a direct investment in building their future brain. Don't view this stage as merely a period of challenges, but rather as a unique window for reshaping, where together you can direct this immense energy towards building habits and skills that will accompany them throughout life. Give them the opportunity and support, and watch how their brain blossoms to become more mature and focused.",
+  "summary": "Have you ever wondered why your teenager sometimes seems like a completely different person? One moment they're bursting with enthusiasm for something, and the next they withdraw completely or make a decision that seems illogical to you? This familiar scene in our homes isn't a sign of a \"malfunction\" in your teen; rather, it's a clear indication of their brain working hard behind the scenes, reorganizing itself and preparing for a new stage of maturity.\n\nImagine your teen's brain as a lush garden undergoing intensive pruning. Everything that is used and practiced regularly flourishes and strengthens, while what is neglected gradually withers. This process, known as \"synaptic pruning,\" is a golden opportunity for the brain to get rid of unnecessary connections and strengthen essential ones. At the same time, a fast insulating layer called \"myelin\" begins to coat nerve fibers, making signals transmit at lightning speed. This development finally reaches the front part of the brain, which is the center for decision-making, planning, and impulse control, and continues to mature until the early twenties.\n\nThis means that every activity your teen engages in now – whether learning a new language, playing a sport, playing a musical instrument, participating in volunteer work, or even just having deep conversations with you – is a direct investment in building their future brain. Don't view this stage as merely a period of challenges, but rather as a unique window for reshaping, where together you can direct this immense energy towards building habits and skills that will benefit them in their life. Give them the opportunity and support, and you will notice, by Allah's will, the impact of that on their maturity and focus over time.",
   "try_this": "Tonight: Talk to your teen about one thing they'd like to get better at. Listen attentively without judgment.",
   "order": 1,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I’m proud of the effort you’re putting in, and I’m excited to see you learn and grow.”",
   "assistant_prompts": [
     "How can I encourage my teen to practice a new skill without them feeling pressured?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "d44b4bd2daadd355fe7e082f3440fe05869f29e415330f54f613bfcfcfc67959",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "65b2e2595a01b9f4911502eb36d73181d760b374035ccc99aa693dc51c05fe58",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

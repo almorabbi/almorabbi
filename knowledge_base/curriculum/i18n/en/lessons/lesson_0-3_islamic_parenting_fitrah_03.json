@@ -8,7 +8,7 @@
     "shm-aqd-p1-02-adhan-ear",
     "shm-aqd-p1-06-shukr-niamah"
   ],
-  "summary": "Imagine your infant child, sleeping peacefully in their crib, or playing with their simple toys, while the feelings of the home around them seep in. Before they understand your words, they pick up on your tone of voice, the warmth of your touch, and the calm or tension in the atmosphere. Your home is not just walls; it is a large embrace that nourishes their small soul and forms the first building blocks of their sense of security and tranquility.\n\nFaith is not merely words to be taught; rather, it is a deep feeling of security and reassurance that grows in fertile ground. When the home is filled with mercy, remembrance of God, and calm, these feelings seep into your child's tender heart, planting deep reassurance within them. This reassurance is the foundation upon which their faith will later be built, for as the Prophet ﷺ said: «Whoever does not show mercy will not be shown mercy» (Sahih al-Bukhari 5997). Thus, mutual mercy in the home is the seed of divine love.\n\nYou don't need extraordinary efforts to create this atmosphere. Start with simple steps: quiet moments of remembrance of God or reciting the Quran aloud, or even just warm, calm conversation among family members. These small moments accumulate to create an atmosphere of tranquility, in which your child feels the presence and mercy of God, even before they grasp the meaning. Make your home an oasis of peace, where your child's innate nature grows to love God and feel secure with Him.",
+  "summary": "Imagine your infant child, sleeping peacefully in their crib, or playing with their simple toys, while the feelings of the home around them seep in. Before they understand your words, they pick up on your tone of voice, the warmth of your touch, and the calm or tension in the atmosphere. Your home is not just walls; it is a large embrace that nourishes their small soul and forms the first building blocks of their sense of security and tranquility.\n\nFaith is not merely words to be taught; rather, it is conviction and tranquility in the heart accompanied by action, and it grows through learning, good example, and a safe environment. When the home is filled with mercy, remembrance of Allah, and calm, these feelings seep into your child's tender heart, planting deep reassurance within them. This reassurance is the foundation upon which their faith will later be built, and the Prophet ﷺ said: «Whoever does not show mercy will not be shown mercy» (Sahih al-Bukhari 5997); thus, a home where mercy prevails prepares the child to later understand the meaning of Allah's mercy.\n\nYou don't need extraordinary efforts to create this atmosphere. Start with simple steps: quiet moments of remembrance of Allah or reciting the Quran aloud, or even just warm, calm conversation among family members. These small moments accumulate to create an atmosphere of tranquility, in which your child feels the presence and mercy of Allah, even before they grasp the meaning. Make your home an oasis of peace, where your child's innate nature grows to love Allah and find reassurance in Him.",
   "try_this": "Tonight: Before your child sleeps, sit with them for a few minutes in complete quiet. Read a short verse aloud, or repeat a simple supplication, or simply enjoy a warm moment of silence with them.",
   "order": 3,
   "estimated_minutes": 4,
@@ -20,8 +20,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "«My darling, our home is full of love and peace, because our Lord loves us.»",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "«My darling, our home is full of love and calm, and Alhamdulillah for His blessing.»",
   "assistant_prompts": [
     "How can I calm my infant when they are agitated or cry a lot?",
     "What short remembrances of God can I recite aloud for my infant?"
@@ -37,7 +37,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -56,8 +56,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "91e4e39f2062cdcbb812ece40d20870462a875804ee7945b69f5942fbc115caf",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "5c8497d7b1330772a9051f4826a31b5de09c7208b8525384e086ae54b15b91f9",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -66,6 +66,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

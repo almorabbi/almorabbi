@@ -8,7 +8,7 @@
     "dev-77d7ab2f",
     "dev-c5e6f09a"
   ],
-  "summary": "Do you remember how your little one insisted on choosing their own clothes, or planned their complex games? Now, in adolescence, the circle of their \"decisions\" expands to include their studies, friendships, and even their vision for their future. They might entertain ideas about unusual professions, unfamiliar hobbies, or even refuse to think about tomorrow. This stage is full of fluctuations, but it's also a golden opportunity to plant the seeds of independence and responsibility.\n\nDuring these crucial years, the adolescent brain is busy building its future \"identity.\" Every decision they make, and every consequence they bear, contributes to forming new neural pathways in their prefrontal cortex, the area responsible for planning, decision-making, and impulse control. It's like an internal workshop where the features of their mature personality are being shaped. Our role as parents is not to impose a specific path, but to provide the tools and a safe environment that enables them to experiment, learn, and grow.\n\nHow do we help them on this journey? Start by teaching them the art of simple planning: how to set a small goal for their week, prioritize, and manage their time. Then train them in decision-making: gathering information, consulting those they trust, then taking their step and calmly observing the results. The most important thing is to instill the concept of responsibility: that the consequences of their decisions are theirs alone, and that blame changes nothing. Encourage them to write down their vision for themselves years from now: what are their values? What do they love to do? And whom do they aspire to serve? Be advisors, not judges; celebrate their successes, and analyze their mistakes together without blame.",
+  "summary": "Do you remember how your little one insisted on choosing their own clothes, or planned their complex games? Now, in adolescence, the circle of their \"decisions\" expands to include their studies, friendships, and even their vision for their future. They might entertain ideas about unusual professions, unfamiliar hobbies, or even refuse to think about tomorrow. This stage is full of fluctuations, but it's also a golden opportunity to plant the seeds of independence and responsibility.\n\nDuring these crucial years, the adolescent brain is busy building its future \"identity.\" Every decision they make, and every consequence they bear, contributes to forming new neural pathways in their prefrontal cortex, the area responsible for planning, decision-making, and impulse control. It's like an internal workshop where the features of their mature personality are being shaped. Our role as parents is not to impose a specific path, but to provide the tools and a safe environment that enables them to experiment, learn, and grow.\n\nHow do we help them on this journey? Start by teaching them the art of simple planning: how to set a small goal for their week, prioritize, and manage their time. Then train them in decision-making: gathering information, consulting those they trust, then taking their step and calmly observing the results. The most important thing is to instill the concept of responsibility: that their decisions have consequences for them and for those around them and they are responsible for them, and that calm accountability and correcting mistakes are more beneficial than blame. Encourage them to write down their vision for themselves years from now: what are their values? What do they love to do? And whom do they aspire to serve? Be advisors, not judges; celebrate their successes, and analyze their mistakes together without blame.",
   "try_this": "Tonight: Ask them about the most important decision they made today, and how they felt about it, then listen curiously without interruption.",
   "order": 3,
   "estimated_minutes": 4,
@@ -20,8 +20,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“I am here to support you on your journey, and your decisions are yours.”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“I am here to support you on your journey, and we will consult together on your big decisions.”",
   "assistant_prompts": [
     "How can I encourage my teenage child to think about their career future without pressuring them?",
     "What practical activities help teenagers develop planning and decision-making skills?"
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "a9f1ed75265957b398c7ac16f90e1ea18547605b646b42325d34dc9ece044062",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "f41af1f27d3eb74ffd316ad9dcd164f41339bff700c69a1a53568915d706ca16",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

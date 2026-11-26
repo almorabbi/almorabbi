@@ -8,7 +8,7 @@
     "dev-a3cf002d",
     "dev-7d13f16a"
   ],
-  "summary": "Do you remember how your little child used to run to you with such enthusiasm to tell you about their day? Now, you might find them sitting silently in front of a computer screen, or closing their bedroom door, and you might notice that their smile has become less frequent, or their sleep is disturbed. The high school period, with the approach of crucial exams and university applications, is a stage full of pressures and expectations, whether from parents, peers, or even themselves. They might feel the burden of comparisons with others, or the fear of not achieving what they aspire to, which generates a natural anxiety that drives them to work. But when does this anxiety become a burden?\n\nAnxiety is a natural part of growth, pushing our children to plan and strive. But when this anxiety turns into persistent sadness, social withdrawal, or a loss of enjoyment in activities they previously enjoyed, and this continues for more than two weeks, these are signals that warrant our attention. This is not just a fleeting \"teenage phase\"; rather, it could be signs that your child needs greater support. Our role as parents is not to add more pressure, but to be a safe haven where they can express their fears without judgment or belittling them.\n\nBe that safe haven. Start by listening with an open heart, and ask about their feelings, not just their grades. Sometimes, all a teenager needs is to feel that someone understands them and stands by them, even if you don't have all the answers. Reassure your child that you are there for them, and that their worth is not determined by their academic results or university acceptance. Encourage them to express their fears, and remind them that asking for help is not weakness, but strength. This sensitive period requires patience and unconditional love from us, to help them navigate it safely.",
+  "summary": "Do you remember how your little son used to run to you with such enthusiasm to tell you about his day? Now, you might find him sitting silently in front of a computer screen, or closing his bedroom door, and you might notice that his smile has become less frequent, or his sleep is disturbed. The high school period, with the approach of crucial exams and university applications, is a stage full of pressures and expectations, whether from parents, peers, or even himself. He might feel the burden of comparisons with others, or the fear of not achieving what he aspires to, which generates a natural anxiety that drives him to work. But when does this anxiety become a burden?\n\nAnxiety is a natural part of growth, pushing our children to plan and strive. But when this anxiety turns into persistent sadness, social withdrawal, or a loss of enjoyment in activities he previously enjoyed—and this persists or affects his sleep, studies, and relationships—these are signals that warrant our attention and consulting a specialist. This is not just a fleeting \"teenage phase\"; rather, it could be signs that your son needs greater support. Our role as parents is not to add more pressure, but to be a safe haven where he can express his fears without judgment or belittling him.\n\nBe that safe haven. Start by listening with an open heart, and ask about his feelings, not just his grades. Sometimes, all a teenager needs is to feel that someone understands him and stands by him, even if you don't have all the answers. Reassure your son that you are there for him, and that his worth is not determined by his academic results or university acceptance. Encourage him to express his fears, and remind him that asking for help is not weakness, but strength. This sensitive period requires patience and unconditional love from us, to help him navigate it safely.",
   "try_this": "Tonight: Choose a quiet time with no distractions, sit with your child, and ask them: \"How are you doing these days?\" Listen carefully to their answer without interrupting or offering immediate solutions.",
   "order": 3,
   "estimated_minutes": 4,
@@ -24,7 +24,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"I am here for you, no matter what your feelings are, and your future is more important than any result.\"",
   "assistant_prompts": [
     "How do I differentiate between normal anxiety and anxiety that requires intervention in a 17-year-old teenager?",
@@ -42,7 +42,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -61,14 +61,14 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "3b8ce937abf17973bbcd045b0eabadc5ea51b6f641e117b97e3f210989d5ed0a",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "5a81ae672f4e9bdd11c52979fa5a6c2134b268938624a1a6a125e1b90701e28d",
+      "reviewed_at": "2026-11-26T10:40:41+00:00",
       "residual_low": [
         {
-          "model": "glm-5.2",
+          "model": "deepseek-v4-pro",
           "field": "summary",
           "type": "meaning",
-          "why": "The Arabic consistently addresses the parent of a son (ابنك, masculine); the English neutralises to 'child/them/their', creating a mild inconsistency with the title which keeps 'son'."
+          "why": "The pronoun referent is shifted from his fears to him."
         }
       ],
       "adjudicated": [],
@@ -79,12 +79,12 @@
     "review_verdict": "low_only",
     "review_defects": [
       {
-        "model": "glm-5.2",
+        "model": "deepseek-v4-pro",
         "field": "summary",
         "type": "meaning",
-        "why": "The Arabic consistently addresses the parent of a son (ابنك, masculine); the English neutralises to 'child/them/their', creating a mild inconsistency with the title which keeps 'son'."
+        "why": "The pronoun referent is shifted from his fears to him."
       }
     ],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:40:41+00:00"
   }
 }

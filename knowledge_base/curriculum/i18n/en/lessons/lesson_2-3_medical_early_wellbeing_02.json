@@ -8,8 +8,8 @@
     "seed-sleep-23",
     "c7b72252-7135-405e-98fd-a46d466d9055"
   ],
-  "summary": "As the sun sets, the daily sleep battle begins: your toddler runs around the house as if night is the start of a new day, resisting every attempt to calm them, and may wake up several times during the night, leaving you all exhausted and bewildered. These fragmented nights are not easy for anyone, but they are a natural part of a toddler's development, whose sleep needs are constantly changing, and who needs our support to learn how to sleep peacefully.\n\nAt this age, your toddler needs between 11 and 14 hours of sleep daily, including one or two naps. Night waking and sleep resistance are very common at this age, and are often related to their rapid development and exploration of the world around them. The important thing here is to realize that we can help them build healthy sleep habits, and that patience and love are the key to this journey.\n\nTo begin your nights with tranquility, establish a short, calm evening routine that is repeated in the same order every night. Start with a warm bath, then a short story read in a quiet voice, with dim lighting. Avoid screens and exciting activities for at least an hour before bedtime. And if you notice that your child wakes up frequently and disturbingly, or suffers from snoring, or stops breathing during sleep, do not hesitate to consult a doctor, as these are signs that require attention.",
-  "try_this": "Tonight: Start your child's bedtime routine 15 minutes earlier than usual, focusing on calmness and dim lighting.",
+  "summary": "As the sun sets, the daily sleep battle begins: your toddler runs around the house as if night is the start of a new day, resisting every attempt to calm them, and may wake up several times during the night, leaving you all exhausted and bewildered. These fragmented nights are not easy for anyone, but they are a natural part of a toddler's development, whose sleep needs are constantly changing, and who needs our support to learn how to sleep peacefully.\n\nAt this age, your toddler needs between 11 and 14 hours of sleep daily, including daytime naps. Night waking and sleep resistance are very common at this age, and are often related to their rapid development and exploration of the world around them. The important thing here is to realize that we can help them build healthy sleep habits, and that patience and love are the key to this journey.\n\nTo begin your nights with tranquility, establish a short, calm evening routine that is repeated in the same order every night. Start with a warm bath, then a short story read in a quiet voice, with dim lighting. Avoid screens and exciting activities for at least an hour before bedtime. And if you notice that your child wakes up frequently and disturbingly, or suffers from snoring, or stops breathing during sleep, do not hesitate to consult a doctor, as these are signs that require attention.",
+  "try_this": "Tonight: Start your child's bedtime routine at the same time every night, focusing on calmness and dim lighting.",
   "order": 2,
   "estimated_minutes": 4,
   "reflection_prompts": [
@@ -23,7 +23,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“It’s time for peaceful sleep, my little one. We’ll read a beautiful story, and then we’ll sleep.”",
   "assistant_prompts": [
     "What quiet activities can I include in my toddler's bedtime routine?",
@@ -41,7 +41,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -60,8 +60,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "6d8ff8d0089fd628adbed6f9b9e8a853b608e853495334ed9cec56c3d0fe9bff",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "2f6fc101d7cae61e559ed90226eb21f2e2665017b48aa2de0a2bb0e307233f0b",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -70,6 +70,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

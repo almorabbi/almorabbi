@@ -8,7 +8,7 @@
     "seed-aggression-23",
     "seed-tantrum-23"
   ],
-  "summary": "Your child may hit their brother because he took their toy, or bite another child while they are playing. Hitting and biting happen often among little ones; your child has not yet learned to control themselves, and does not have enough words to say they are angry or frustrated, so they express it with their body, and they may not yet understand that biting hurts. When this happens now and then, it does not mean they will grow up to be aggressive, but they need to learn another way.\n\nWhen it happens, do not ignore it: stop it straight away, calmly and firmly. Move the two children apart, and stay close to them until they calm down. Start with the child who was hurt: comfort them and look after them, then turn to your child and say one short, clear sentence: «I know you are angry, but no hitting. Hitting hurts.» Make sure they do not get the toy by hitting, so they do not learn that hitting gets them what they want.\n\nDo not hit them or bite them «so they know how it hurts»; this teaches them that hitting and biting are acceptable. Do not shout at them, threaten them or humiliate them. If you feel your own anger rising, take deep breaths while staying close to them, or ask someone you trust to stay with them until you calm down, then go back to them; your child learns from the way you handle your own anger.\n\nAfter they calm down, teach them what to do instead of hitting: to say «No» in a firm voice, or «I am angry», or «It is my turn», or to walk away. Watch them while they play with others, and step in early when you see their frustration building, before their hand reaches out. Look as well: Are they hungry or tired, in pain from teething, or do they seem anxious or sad? If a need shows, meet it. Praise them with specific words when they play gently or use words: «You said you were angry and you did not hit!», and show them your love with hugs and praise during their calm times.\n\nTalk with the pediatrician if the hitting or biting is frequent or severe, if it continues and you cannot manage it, if it leaves bite marks or bruises, if you have come to fear for the safety of those around them, if they have been kept from playing with other children because of it, if they hurt themselves, or if they seem sad or upset most of the time. If there is a serious injury or you cannot keep the children safe, seek urgent help straight away.",
+  "summary": "Your child may hit their brother because he took their toy, or bite another child while they are playing. Hitting and biting happen often among little ones; your child has not yet learned to control themselves, and does not have enough words to say they are angry or frustrated, so they express it with their body, and they may not yet understand that biting hurts. Having this happen occasionally is common at this age, but they need to learn another way.\n\nWhen it happens, do not ignore it: stop it straight away, calmly and firmly. Move the two children apart, and stay close to them until they calm down. Start with the child who was hurt: comfort them and look after them, then turn to your child and say one short, clear sentence: \"I know you are angry, but no hitting. Hitting hurts.\" Make sure they do not get the toy by hitting, so they do not learn that hitting gets them what they want.\n\nDo not hit them or bite them \"so they know how it hurts\"; this teaches them that hitting and biting are acceptable. Do not shout at them, threaten them or humiliate them. If you feel your own anger rising, take deep breaths while staying close to them, or ask someone you trust to stay with them until you calm down, then go back to them; your child learns from the way you handle your own anger.\n\nAfter they calm down, teach them what to do instead of hitting: to say \"No\" in a firm voice, or \"I am angry\", or \"It is my turn\", or to walk away. Watch them while they play with others, and step in early when you see their frustration building, before their hand reaches out. Look as well: Are they hungry or tired, in pain from teething, or do they seem anxious or sad? If a need shows, meet it. Praise them with specific words when they play gently or use words: \"You said you were angry and you did not hit!\", and show them your love with hugs and praise during their calm times.\n\nTalk with the pediatrician if the hitting or biting is frequent or severe, if it continues and you cannot manage it, if it leaves bite marks or bruises, if you have come to fear for the safety of those around them, if they have been kept from playing with other children because of it, if they hurt themselves, or if they seem sad or upset most of the time. If there is a serious injury or you cannot keep the children safe, seek urgent help straight away.",
   "try_this": "Today: Agree with whoever cares for your child on what you will all do if they hit or bite: move the two children apart calmly, comfort the child who was hurt first, then say the same sentence to them: «I know you are angry, but no hitting. Hitting hurts.»",
   "order": 7,
   "estimated_minutes": 5,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-10-08T10:47:40",
   "updated_at": "2026-10-08T10:47:40",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "Hands don't hit; gently hold your hand so we can protect your brother, and tell me with words what made you angry.",
   "assistant_prompts": [
     "My 2.5-year-old child bites or hits their siblings whenever they get angry. How can I stop this firmly and calmly?",
@@ -40,7 +40,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,14 +59,20 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "303cdce20810e4a401c2b05b8d42cac520c71acad2c3da0e8abe1471c2d44128",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "43d39c053c44c450babdd07559ae68920b94694ac74efe0befcf6a7d58b03625",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [
         {
           "model": "deepseek-v4-pro",
-          "field": "parent_script",
-          "type": "meaning",
-          "why": "The Arabic is first-person (the parent is saying they are holding the child's hand), but the English reads as an imperative addressed to the child, changing who acts."
+          "field": "try_this",
+          "type": "structure",
+          "why": "The English field uses Arabic quotation marks around an English sentence instead of English quotation marks."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "fields.try_this.english",
+          "type": "leakage",
+          "why": "Arabic guillemets «» are used in the English text instead of standard English quotation marks."
         }
       ],
       "adjudicated": [],
@@ -78,11 +84,17 @@
     "review_defects": [
       {
         "model": "deepseek-v4-pro",
-        "field": "parent_script",
-        "type": "meaning",
-        "why": "The Arabic is first-person (the parent is saying they are holding the child's hand), but the English reads as an imperative addressed to the child, changing who acts."
+        "field": "try_this",
+        "type": "structure",
+        "why": "The English field uses Arabic quotation marks around an English sentence instead of English quotation marks."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "fields.try_this.english",
+        "type": "leakage",
+        "why": "Arabic guillemets «» are used in the English text instead of standard English quotation marks."
       }
     ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

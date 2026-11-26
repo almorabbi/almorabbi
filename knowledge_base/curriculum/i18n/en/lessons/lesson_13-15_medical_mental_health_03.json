@@ -1,7 +1,7 @@
 {
   "id": "lesson_13-15_medical_mental_health_03",
   "path_id": "path_13-15_medical_mental_health",
-  "title": "Our Unique Children: Understanding, Embracing, Empowering",
+  "title": "Our Children and Different Ways of Learning and Thinking: Understanding, Embracing, Empowering",
   "age_group": "13-15",
   "domain": "medical",
   "unit_ids": [
@@ -11,7 +11,7 @@
     "med-e64897f2",
     "0650c50f-5267-458e-943e-15495ecf1610"
   ],
-  "summary": "You might be sitting at the dinner table, noticing your teenage son (13-15 years old) staring blankly, or perhaps he can't sit still for a minute, or struggles to understand simple social cues. You might feel frustrated or worried, wondering: Is this normal? Is something different? These daily moments are what drive us to seek a deeper understanding of our children and how we can support them to flourish in their own unique way.\n\nSome of our children have brains that work in unique ways, and this is not a deficit but a difference. Those with ADHD may possess tremendous energy and boundless creativity, alongside challenges with focus or impulsivity. As for those on the autism spectrum, they can excel with deep focus in their areas of interest, strong visual memory, and innovative ways of thinking, even if they face challenges in social communication or adapting to changes. These differences grant them unique strengths that are worth discovering and celebrating.\n\nThe key to success lies in early understanding, appropriate intervention, and continuous support. Start with a specialized assessment to accurately identify needs, then collaborate with the school to provide a supportive learning environment (such as extra time for tests or short breaks). Behavioral therapy, like Cognitive Behavioral Therapy (CBT), can offer valuable tools, and medication may be an effective option in some cases. Always remember that focusing on your child's strengths and embracing their uniqueness is the greatest support you can offer them to reach their full potential.",
+  "summary": "You might be sitting at the dinner table, noticing your teenage son (13-15 years old) staring blankly, or perhaps he can't sit still for a minute, or struggles to understand simple social cues. You might feel frustrated or worried, wondering: Is this normal? Is something different? These daily moments are what drive us to seek a deeper understanding of our children and how we can support them to flourish in their own unique way.\n\nSome of our children have brains that work in unique ways, and this is not a deficit but a difference. Some of those with ADHD may have high energy and creative ability, alongside challenges with focus or impulsivity. As for those on the autism spectrum, some may show good abilities in their areas of interest, alongside challenges in social communication or adapting to changes; abilities and needs vary from child to child, and deserve discovery and appropriate support.\n\nThe key to success lies in early understanding, appropriate intervention, and continuous support. Start with a specialized assessment to accurately identify needs, then collaborate with the school to provide a supportive learning environment (such as extra time for tests or short breaks). Behavioral therapy, like Cognitive Behavioral Therapy (CBT), can offer valuable tools, and medication may be an effective option in some cases. Always remember that focusing on your child's strengths and embracing their uniqueness is the greatest support you can offer them to reach their full potential.",
   "try_this": "Tonight: Before bed, mention one positive quality you noticed in your child today (e.g., \"I liked how you focused on your project today\" or \"I loved your creativity in solving that particular problem\").",
   "order": 3,
   "estimated_minutes": 4,
@@ -27,7 +27,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“You are special in your own way, and I am proud of you.”",
   "assistant_prompts": [
     "How can I talk to my child's teachers about their special needs in the classroom?",
@@ -45,7 +45,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -64,8 +64,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "52020797eb73877537c430512944036f5de80458ea62d3b699688b2cb9b1e8aa",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "55ff6537dd88f18c490b40e9353a027ed350c420a3d9a96a68a2244e04bbe74f",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -74,6 +74,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

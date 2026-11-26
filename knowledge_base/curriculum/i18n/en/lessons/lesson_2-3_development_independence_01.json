@@ -8,7 +8,7 @@
     "2b2d1fdd-1a30-40f3-aa2b-0dbadea2ce2c",
     "dev-034fe17e"
   ],
-  "summary": "Imagine this scene with me: your little one, who was taking their first steps just yesterday, stands before you today with sparkling eyes, asking for your help with something that concerns only them. This might be their desire to use the toilet, or even just their attempt to take off their clothes by themselves. These small moments are major gateways to their independence, and every interaction from you in these moments shapes the features of their confident and independent personality.\n\nPotty training a child is not just about teaching a healthy habit; it's a journey of building self-confidence and self-reliance. It begins when your child shows readiness, which is often between the ages of two and three years. Starting before this readiness can cause unnecessary frustration and pressure, and may delay the process instead of speeding it up. Remember that every child is unique and has their own pace of growth and development, and your role is to observe and support, not to push or force.\n\nStart by teaching them simple, specific steps: how to clean themselves after using the toilet, and how to enter the toilet with their left foot and exit with their right. You can also teach them the supplications for entering and exiting the toilet as part of their daily routine, to instill these manners in a loving way. The most important thing is to be a role model for them, and to offer help with gentleness and patience, to encourage them to serve themselves and take on their small responsibilities. This instills in them the seeds of diligence and self-reliance, far from dependency.",
+  "summary": "Imagine this scene with me: your little one, who was taking their first steps just yesterday, stands before you today with sparkling eyes, asking for your help with something that concerns only them. This might be their desire to use the toilet, or even just their attempt to take off their clothes by themselves. These small moments are major gateways to their independence, and the way you respond to them contributes to building their self-confidence and independence.\n\nPotty training a child is not just about teaching a healthy habit; it's a journey of building self-confidence and self-reliance. It begins when your child shows readiness, which is often between the ages of two and three years. Starting before this readiness can cause unnecessary frustration and pressure, and may delay the process instead of speeding it up. Remember that every child is unique and has their own pace of growth and development, and your role is to observe and support, not to push or force.\n\nStart by teaching them simple, specific steps: how to clean themselves after using the toilet, and you can gradually introduce them to the recommended bathroom etiquettes explained by scholars—such as stepping in with the left foot and exiting with the right—and teach them the authentic supplications for entering and exiting as part of their daily routine, to instill these manners in a loving way. The most important thing is to be a role model for them, and to offer help with gentleness and patience, to encourage them to serve themselves and take on their small responsibilities. This instills in them the seeds of diligence and self-reliance, far from dependency.",
   "try_this": "Today: Start by teaching your child one simple step of using the toilet, such as washing hands after using it, or helping them take off their clothes before entering.",
   "order": 1,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-13T10:00:00",
   "updated_at": "2026-06-13T10:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“My little one, you are growing every day, and I am here to help you do things by yourself.”",
   "assistant_prompts": [
     "What are the best ways to teach my child proper and safe cleaning after using the toilet?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,16 +58,42 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "9a02aabacdc9316b8db3ba7c9af2410c848a831737b11d3dd1e8584e6df238b8",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [],
+      "content_sha256": "366c21ff1827581be1ba741c0eed3c07ab5f7439c26274dd642c401e2f0766bf",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "summary",
+          "type": "addition",
+          "why": "The Arabic 'مأثورة' means transmitted or narrated; rendering it as 'authentic' adds a religious authentication claim not present in the source."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "meaning",
+          "why": "المأثورة means 'transmitted/reported from the Sunnah,' while 'authentic' (صحيحة) is a stronger claim about their validity."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "summary",
+        "type": "addition",
+        "why": "The Arabic 'مأثورة' means transmitted or narrated; rendering it as 'authentic' adds a religious authentication claim not present in the source."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "meaning",
+        "why": "المأثورة means 'transmitted/reported from the Sunnah,' while 'authentic' (صحيحة) is a stronger claim about their validity."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

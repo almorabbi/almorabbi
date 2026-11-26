@@ -8,7 +8,7 @@
     "shm-aqd-1618-02-moderation-wasatiyah",
     "shm-aqd-1618-06-taqwa-provision"
   ],
-  "summary": "You might sit with your teenage child, watching them scroll through their phone or talk about their friends, and wonder to yourself: \"What truly occupies their mind? Are they thinking about their future? Do they have a dream or ambition that goes beyond academic and career success?\" Perhaps you hear them discuss their desires for a university major or a job, but sometimes you feel that these goals lack deeper meaning or purpose, and that they might just be a reaction to societal or peer pressure, rather than stemming from an inner conviction.\n\nMany young people today feel lost in a sea of choices and anxious about the future because they haven't connected their worldly ambitions to a higher purpose. The core idea here is to help our children see that their work and studies, no matter how simple, can be part of a larger mission: to benefit people, to build up the earth, and to seek the pleasure of Allah Almighty in everything they do. True success is not just a certificate or money, but rather excellence, sincerity, and benefit that extends beyond the individual, as the Prophet ﷺ said: «Indeed, actions are by intentions» (Sahih al-Bukhari 1).\n\nTherefore, instead of focusing on \"What will you become?\", we can focus on \"How will you benefit?\" and \"What impact do you wish to leave?\" Start by listening to their passions and what drives them, then gently guide them to see how this passion can serve a deeper purpose. Help them connect their daily interests with a good intention, and make them realize that every step they take, and every effort they exert, can be an act of worship if it is coupled with sincerity to Allah and benefit to His creation. This will give them an inner compass, a sense of calm and tranquility, and protect them from getting lost and anxious.",
+  "summary": "You might sit with your teenage child, watching them scroll through their phone or talk about their friends, and wonder to yourself: \"What truly occupies their mind? Are they thinking about their future? Do they have a dream or ambition that goes beyond academic and career success?\" Perhaps you hear them discuss their desires for a university major or a job, but sometimes you feel that these goals lack deeper meaning or purpose, and that they might just be a reaction to societal or peer pressure, rather than stemming from an inner conviction.\n\nMany young people today feel lost in a sea of choices and anxious about the future because they haven't connected their worldly ambitions to a higher purpose. The core idea here is to help our children see that their work and studies, no matter how simple, can be part of a larger mission: to benefit people, to build up the earth, and to seek the pleasure of Allah Almighty in everything they do. True success is not just a certificate or money, but rather excellence, sincerity, and benefit that extends beyond the individual, as the Prophet ﷺ said: \"Indeed, actions are by intentions\" (Sahih al-Bukhari, Hadith 1).\n\nTherefore, instead of focusing on \"What will you become?\", we can focus on \"How will you benefit?\" and \"What impact do you wish to leave?\" Start by listening to their passions and what drives them, then gently guide them to see how this passion can serve a deeper purpose. Help them connect their daily interests with a good intention, and make them realize that every permissible, beneficial deed they do can become an act of worship if the intention behind it is sound and it aligns with Islamic law. This may help them, by Allah's will, feel meaning and tranquility, and ease their sense of aimlessness and anxiety.",
   "try_this": "Tonight: Ask your child: «If you could make one positive difference in the world, what would that difference be?» Listen attentively without interrupting.",
   "order": 4,
   "estimated_minutes": 4,
@@ -22,8 +22,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "«I am here to support you in everything you dream of, and how you can make your dreams beneficial for you and for people.»",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "\"I am here to support you in the good things you dream of, and let's think together about how to make your dreams beneficial for you and for others.\"",
   "assistant_prompts": [
     "How can I help my child identify their true passion at this age?",
     "What practical activities can I suggest to my child to connect their worldly ambition with an otherworldly purpose?"
@@ -40,7 +40,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,20 +59,14 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "fa8f82c1870d24e1e388f7bcd76c615bac40a0c4cdb5b98f926e5c3e85972c71",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "82a065166cb06edb5d47633d9003b566187ec0dc94d63ac0bc9a96bb73e3d604",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [
         {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "meaning",
-          "why": "The English 'Indeed' loses the restrictive force of the Arabic particle إنما, which means 'only/but'."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "reflection_prompts[0]",
-          "type": "meaning",
-          "why": "The Arabic prompt addresses the parent with 'your child' (ابنك), while the English shifts to first-person 'my child'."
+          "model": "glm-5.2",
+          "field": "try_this",
+          "type": "leakage",
+          "why": "The English uses French-style guillemets («») carried over from the Arabic instead of standard English quotation marks."
         }
       ],
       "adjudicated": [],
@@ -83,18 +77,12 @@
     "review_verdict": "low_only",
     "review_defects": [
       {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "meaning",
-        "why": "The English 'Indeed' loses the restrictive force of the Arabic particle إنما, which means 'only/but'."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "reflection_prompts[0]",
-        "type": "meaning",
-        "why": "The Arabic prompt addresses the parent with 'your child' (ابنك), while the English shifts to first-person 'my child'."
+        "model": "glm-5.2",
+        "field": "try_this",
+        "type": "leakage",
+        "why": "The English uses French-style guillemets («») carried over from the Arabic instead of standard English quotation marks."
       }
     ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -1,14 +1,14 @@
 {
   "id": "lesson_7-9_aqeedah_fundamentals_08",
   "path_id": "path_7-9_aqeedah_fundamentals",
-  "title": "Stories of the Unseen: Angels, Books, and Messengers",
+  "title": "Belief in the Angels, the Books, and the Messengers",
   "age_group": "7-9",
   "domain": "aqeedah",
   "unit_ids": [
     "shm-aqd-79-01-pillars-iman",
     "shm-aqd-79-10-sadaqah-barakah"
   ],
-  "summary": "Has your 7-9 year old ever asked you to tell them a story about something they can't see? Perhaps about jinn, or about Paradise and Hellfire? At this age, children's imaginations expand, and they become ready to receive deeper concepts about the world around them, including the unseen realms that we don't perceive with our eyes. This is a wonderful opportunity to instill faith in what Allah and His Messenger, peace and blessings be upon him, have informed us, so we believe and affirm it.\n\nBelief in angels, books, and messengers is a fundamental pillar of our creed, and it gives children a sense of connection to a wider, more sacred world. Angels are noble, luminous creations whom Allah created to obey Him; among them is Jibreel, who brought down revelation, and among them are those who protect us, and among them are the two scribes who record our deeds. The books are guidance and light sent down by Allah for people; the greatest and most complete of them is the Noble Qur'an, the word of Allah, which He has guaranteed to preserve. As for the messengers, they are prophets sent by Allah to teach people their religion; the first of them was Nuh and the last was Muhammad ﷺ. These pillars are not just theoretical information; rather, they are concepts that influence a child's daily behavior and actions.\n\nTo make these concepts alive in our children's lives, we can connect them to their daily behavior. When a child knows that there is an angel recording their deeds, they will be keen to ensure they dictate good, and they will feel a greater responsibility for their actions. And when they love the Qur'an because it is the word of their Lord, they will learn it and be keen to recite it and reflect upon it. This is an opportunity to instill reverence and love for these great pillars in a warm and accessible way, far from burdensome obligation, so that love and firm faith may grow in their hearts.",
+  "summary": "Has your 7-9 year old ever asked you to tell them a story about something they can't see? Perhaps about jinn, or about Paradise and Hellfire? At this age, children's imaginations expand, and they become ready to receive deeper concepts about the world around them, including the unseen realms that we don't perceive with our eyes. This is a wonderful opportunity to instill faith in what Allah and His Messenger, peace and blessings be upon him, have informed us, so we believe and affirm it.\n\nBelief in angels, books, and messengers is a fundamental pillar of our creed, and it gives children a sense of connection to a wider, more sacred world. Angels are noble, luminous creations whom Allah created to obey Him; among them is Jibreel, who brought down revelation, and among them are those who protect us, and among them are the two scribes who record our deeds. The books are guidance and light sent down by Allah for people; the greatest and most complete of them is the Noble Qur'an, the word of Allah, which He has guaranteed to preserve. As for the messengers, they are those whom Allah chose and sent to people with His revealed law; the first of them was Nuh (peace be upon him) and the last was Muhammad ﷺ. These pillars are not just theoretical information; rather, they are concepts that influence a child's daily behavior and actions.\n\nTo make these concepts alive in our children's lives, we can connect them to their daily behavior. When a child knows that there is an angel recording their deeds, they will be keen to have good recorded for them, and they will feel a greater responsibility for their actions. And when they love the Qur'an because it is the word of their Lord, they will learn it and be keen to recite it and reflect upon it. This is an opportunity to instill reverence and love for these great pillars in a warm and accessible way, far from burdensome obligation, so that love and firm faith may grow in their hearts.",
   "try_this": "Tonight: Before bed, tell your child a short story about an angel or a messenger, or listen together to a short verse from the Noble Qur'an and discuss it in simple language.",
   "order": 8,
   "estimated_minutes": 4,
@@ -20,8 +20,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“Imagine there's a noble angel writing down all your good deeds today. What would you like to fill your scroll with?”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“Know that Allah has appointed noble angels over us who record our deeds, so what good would you like to fill your record with today?”",
   "assistant_prompts": [
     "How do I explain to my 7-9 year old who angels are and what their functions are in a simple, age-appropriate way?",
     "What practical activities can I do with my child to strengthen their love for the Noble Qur'an and their attachment to it?"
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,30 +58,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "ea95ebcb56202a1c6e751bf9cbbc2a6052b4beb0793946f49419c5618dbd1ed9",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "meaning",
-          "why": "The Arabic uses masculine singular pronouns (him) referring to the Messenger or Allah, while the English renders the object as impersonal 'it' (the information), slightly shifting the personal affirma"
-        }
-      ],
+      "content_sha256": "261def7fb0f48a30545c6d57e8a2ff1985705d715a5c50890e1e98a30619be3b",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "meaning",
-        "why": "The Arabic uses masculine singular pronouns (him) referring to the Messenger or Allah, while the English renders the object as impersonal 'it' (the information), slightly shifting the personal affirma"
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

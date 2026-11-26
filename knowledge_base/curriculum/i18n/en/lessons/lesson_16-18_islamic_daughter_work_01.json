@@ -1,14 +1,14 @@
 {
   "id": "lesson_16-18_islamic_daughter_work_01",
   "path_id": "path_16-18_islamic_parenting_adult_faith",
-  "title": "Parental Disagreement with a Daughter's Desire to Work: A Balanced Jurisprudential and Human Dialogue",
+  "title": "Parental Disagreement with a Daughter's Desire to Work: A Calm and Balanced Parenting Dialogue",
   "age_group": "16-18",
   "domain": "islamic_parenting",
   "unit_ids": [
     "isl-6a157c3f",
     "isl-85e3c490"
   ],
-  "summary": "Your daughter, at seventeen or eighteen, brings up the topic of her university major or her desire to work in the future. The discussion quickly becomes tense between parental fear and the daughter's desire for independence or to contribute. The first key to calming this issue is scientific and psychological fairness: a daughter's desire to work is not inherently a sin. There is a recognized difference of opinion among scholars regarding the regulations and fields of women's work outside the home, with their agreement on preserving her dignity, religion, and priorities.\n\nWhen the conversation is reduced to an absolute prohibition without hearing the real motivation, the daughter feels that her ambition is being accused and that her religion is being used to silence her. However, when we sit down for a session of understanding, not a session of judgment, we discover what lies behind the desire: Is it a beneficial academic ambition, a search for financial security, or a desire for self-affirmation? The Prophet ﷺ taught us the balance of gentleness in every matter: «Gentleness is not found in anything except that it adorns it, and it is not removed from anything except that it shames it» (Sahih Muslim 2594).\n\nShare with her the wise balance between beneficial knowledge, a safe environment regulated by Islamic law, and the possibilities of flexible work or specialties that serve society and suit her family mission. When your daughter sees that you respect her intellect and discuss with her with evidence and mercy, the space for agreement expands and trust strengthens.",
+  "summary": "Your daughter, at seventeen or eighteen, brings up the topic of her university major or her desire to work in the future. The discussion quickly becomes tense between parental fear and the daughter's desire for independence or to contribute. The first key to calming this issue is scholarly and psychological fairness: a daughter's desire for academic ambition and beneficial work is not blameworthy in itself, and scholars have detailed guidelines regarding the conditions and fields of women's work; therefore, it is best to refer to trustworthy scholars for specific details while preserving her dignity and religion.\n\nWhen the conversation is reduced to an absolute prohibition without hearing the real motivation, the daughter feels that her ambition is being accused and that her religion is being used to silence her. However, when we sit down for a session of understanding, not a session of judgment, we discover what lies behind the desire: Is it a beneficial academic ambition, a search for financial security, or a desire for self-affirmation? The Prophet ﷺ taught us the balance of gentleness in every matter: \"Gentleness is not found in anything except that it adorns it, and it is not removed from anything except that it shames it\" (Sahih Muslim, Hadith 2594).\n\nShare with her the wise balance between beneficial knowledge, a safe environment governed by Islamic law, and the possibilities of flexible work or specializations that serve society and suit her abilities and her family's circumstances. When your daughter sees that you respect her intellect and discuss with her with evidence and mercy, the space for agreement expands and trust strengthens.",
   "try_this": "Tonight: Sit with your daughter for a pure listening session (without a preconceived decision) and ask her: «What field do you wish to learn in or benefit people with?» And write down your concerns and suggestions to discuss them together calmly.",
   "order": 3,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«Your ambition and intellect are very important to me; let's sit quietly and hear your vision for your future, then we'll think together about the option that preserves your religion, dignity, and ambition.»",
   "assistant_prompts": [
     "My 18-year-old daughter is determined to pursue a major or job that I'm concerned about. How can I discuss it with her gently and with evidence without causing a rift?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,14 +57,20 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "78b585e36a79d27b59e40747bc2ed441befd9703b14e49e2e9d467418e561cdf",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "f27779fc12f8d6155bf9e6f7d0d929f66e3bc4cb663f77347c7fd17aed05fe36",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [
         {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "meaning",
-          "why": "«العلمي» here means scholarly/academic fairness, not 'scientific'; the context is jurisprudential discussion, not empirical science."
+          "model": "deepseek-v4-pro",
+          "field": "try_this",
+          "type": "leakage",
+          "why": "Arabic guillemets are kept around the English quotation instead of English quotation marks."
+        },
+        {
+          "model": "deepseek-v4-pro",
+          "field": "parent_script",
+          "type": "leakage",
+          "why": "Arabic guillemets are retained in the English parent script instead of English quotation marks."
         }
       ],
       "adjudicated": [],
@@ -75,12 +81,18 @@
     "review_verdict": "low_only",
     "review_defects": [
       {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "meaning",
-        "why": "«العلمي» here means scholarly/academic fairness, not 'scientific'; the context is jurisprudential discussion, not empirical science."
+        "model": "deepseek-v4-pro",
+        "field": "try_this",
+        "type": "leakage",
+        "why": "Arabic guillemets are kept around the English quotation instead of English quotation marks."
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "field": "parent_script",
+        "type": "leakage",
+        "why": "Arabic guillemets are retained in the English parent script instead of English quotation marks."
       }
     ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -1,7 +1,7 @@
 {
   "id": "lesson_4-6_cyber_early_screens_04",
   "path_id": "path_4-6_cyber_early_screens",
-  "title": "A Gentle Goodbye to the Screen: A Tear-Free Routine",
+  "title": "A Gentle Goodbye to the Screen: A Routine That Eases the Tears",
   "age_group": "4-6",
   "domain": "cyber",
   "unit_ids": [
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“Five more minutes, my dear, then we’ll play with cars!”",
   "assistant_prompts": [
     "What alternative activities can I offer my 4-6 year old after screen time?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,14 +58,14 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "b59464bb6a2c2588e4a3ac289796aabc66419b1f92d31578e6a53ea54e8ce035",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "988232830f620ccf49fd3f4726f3b4b9813aea6cc24b7cfed0e6dd63288fd634",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [
         {
-          "model": "deepseek-v4-pro",
-          "field": "try_this",
-          "type": "source_corruption",
-          "why": "The imperative shifts from singular (أعطِ) to plural (انتقلوا) without a clear plural addressee, creating a grammatical inconsistency."
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "meaning",
+          "why": "The Arabic says 'as if their life stops at this moment,' conveying a sense of everything ending, while the English idiom 'as if their life depends on it' conveys desperate clinging — a subtly differen"
         }
       ],
       "adjudicated": [],
@@ -76,12 +76,12 @@
     "review_verdict": "low_only",
     "review_defects": [
       {
-        "model": "deepseek-v4-pro",
-        "field": "try_this",
-        "type": "source_corruption",
-        "why": "The imperative shifts from singular (أعطِ) to plural (انتقلوا) without a clear plural addressee, creating a grammatical inconsistency."
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "meaning",
+        "why": "The Arabic says 'as if their life stops at this moment,' conveying a sense of everything ending, while the English idiom 'as if their life depends on it' conveys desperate clinging — a subtly differen"
       }
     ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -1,13 +1,13 @@
 {
-  "total_units": 1528,
-  "generated_at": "2026-11-24T19:14:39.117035+00:00",
+  "total_units": 1512,
+  "generated_at": "2026-11-26T09:48:55.627472+00:00",
   "by_domain": {
     "medical": 362,
     "cyber": 284,
-    "islamic_parenting": 645,
+    "islamic_parenting": 634,
     "development": 134,
     "app_help": 12,
-    "aqeedah": 91
+    "aqeedah": 86
   },
   "units": [
     {
@@ -7737,18 +7737,6 @@
       "behavior_type": "قلق تربوي",
       "needs_ocr": false,
       "size_chars": 1273
-    },
-    {
-      "id": "isl-1812a28d",
-      "domain": "islamic_parenting",
-      "title": "الالتزام بالشعائر وعزة المسلم",
-      "source_file": "",
-      "language": "",
-      "original_age_group": "13-15",
-      "normalized_age_group": "13-15",
-      "behavior_type": "الحوار",
-      "needs_ocr": false,
-      "size_chars": 1239
     },
     {
       "id": "isl-18fa1a80",
@@ -16741,14 +16729,14 @@
     {
       "id": "shm-aqd-1012-01-tawhid-asma",
       "domain": "aqeedah",
-      "title": "فهم البسملة وأثرها في استقامة السلوك",
+      "title": "معنى البسملة: الاستعانة بالله ودعاؤه بأسمائه الحسنى",
       "source_file": "shamela:20854:62",
       "language": "ar",
       "original_age_group": "10-12",
       "normalized_age_group": "10-12",
       "behavior_type": "تعزيز الاستعانة بالله",
       "needs_ocr": false,
-      "size_chars": 1027
+      "size_chars": 852
     },
     {
       "id": "shm-aqd-1012-02-qadar-levels",
@@ -16760,31 +16748,31 @@
       "normalized_age_group": "10-12",
       "behavior_type": "الإيمان بالقدر خيره وشره",
       "needs_ocr": false,
-      "size_chars": 1064
+      "size_chars": 547
     },
     {
       "id": "shm-aqd-1012-03-day-judgment",
       "domain": "aqeedah",
-      "title": "الإيمان باليوم الآخر أساس الأمانة",
+      "title": "أصول الإيمان التي اتفق عليها الرسل",
       "source_file": "shamela:8352:397",
       "language": "ar",
       "original_age_group": "10-12",
       "normalized_age_group": "10-12",
       "behavior_type": "تعزيز الأمانة والمسؤولية",
       "needs_ocr": false,
-      "size_chars": 1220
+      "size_chars": 313
     },
     {
       "id": "shm-aqd-1012-04-quran-miracle",
       "domain": "aqeedah",
-      "title": "وحدانية الله وأسمائه الحسنى",
+      "title": "وحدانية الله وأسماؤه الحسنى",
       "source_file": "shamela:20854:125",
       "language": "ar",
       "original_age_group": "10-12",
       "normalized_age_group": "10-12",
       "behavior_type": "فهم أسماء الله وصفاته",
       "needs_ocr": false,
-      "size_chars": 604
+      "size_chars": 493
     },
     {
       "id": "shm-aqd-1012-05-sunnah-authority",
@@ -16796,12 +16784,12 @@
       "normalized_age_group": "10-12",
       "behavior_type": "اتباع السنة النبوية",
       "needs_ocr": false,
-      "size_chars": 1202
+      "size_chars": 369
     },
     {
       "id": "shm-aqd-1012-06-patience-trials",
       "domain": "aqeedah",
-      "title": "الصبر الجميل عند أول لحظات الحزن",
+      "title": "إنما الصبر عند الصدمة الأولى",
       "source_file": "shamela:2348:50",
       "language": "ar",
       "original_age_group": "10-12",
@@ -16809,18 +16797,6 @@
       "behavior_type": "الصبر والرضا عند الابتلاء",
       "needs_ocr": false,
       "size_chars": 486
-    },
-    {
-      "id": "shm-aqd-1012-07-envy-hasad",
-      "domain": "aqeedah",
-      "title": "الرضا بقسمة الله يطفئ الحسد",
-      "source_file": "shamela:42:1883",
-      "language": "ar",
-      "original_age_group": "10-12",
-      "normalized_age_group": "10-12",
-      "behavior_type": "الرضا بقسمة الله",
-      "needs_ocr": false,
-      "size_chars": 840
     },
     {
       "id": "shm-aqd-1012-08-avoid-superstition",
@@ -16832,7 +16808,7 @@
       "normalized_age_group": "10-12",
       "behavior_type": "تعزيز التفاؤل والإيجابية",
       "needs_ocr": false,
-      "size_chars": 664
+      "size_chars": 161
     },
     {
       "id": "shm-aqd-1012-09-purpose-creation",
@@ -16856,12 +16832,12 @@
       "normalized_age_group": "10-12",
       "behavior_type": "تعزيز حب الله والتوحيد",
       "needs_ocr": false,
-      "size_chars": 1214
+      "size_chars": 869
     },
     {
       "id": "shm-aqd-1315-01-fitrah-proofs",
       "domain": "aqeedah",
-      "title": "دلائل التوحيد في الكون والفطرة",
+      "title": "شهادة الله وملائكته وأهل العلم على التوحيد",
       "source_file": "shamela:42:202",
       "language": "ar",
       "original_age_group": "13-15",
@@ -16873,14 +16849,14 @@
     {
       "id": "shm-aqd-1315-02-wisdom-trials",
       "domain": "aqeedah",
-      "title": "الابتلاء طريق النصر والصبر مفتاح الفرج",
+      "title": "قصة طالوت: الصبر والثبات سبب النصر بإذن الله",
       "source_file": "shamela:42:171",
       "language": "ar",
       "original_age_group": "13-15",
       "normalized_age_group": "13-15",
       "behavior_type": "الصبر عند الشدائد",
       "needs_ocr": false,
-      "size_chars": 1127
+      "size_chars": 986
     },
     {
       "id": "shm-aqd-1315-03-freewill-qadar",
@@ -16892,7 +16868,7 @@
       "normalized_age_group": "13-15",
       "behavior_type": "الرجاء والعمل الصالح",
       "needs_ocr": false,
-      "size_chars": 1173
+      "size_chars": 718
     },
     {
       "id": "shm-aqd-1315-04-reason-revelation",
@@ -16904,19 +16880,19 @@
       "normalized_age_group": "13-15",
       "behavior_type": "التسليم للنصوص الشرعية",
       "needs_ocr": false,
-      "size_chars": 1232
+      "size_chars": 363
     },
     {
       "id": "shm-aqd-1315-05-handling-waswas",
       "domain": "aqeedah",
-      "title": "طمأنة القلب عند وساوس الأفكار",
+      "title": "طمأنة القلب عند الوساوس الشيطانية",
       "source_file": "shamela:8352:332",
       "language": "ar",
       "original_age_group": "13-15",
       "normalized_age_group": "13-15",
       "behavior_type": "التعامل مع الوسوسة",
       "needs_ocr": false,
-      "size_chars": 1052
+      "size_chars": 1046
     },
     {
       "id": "shm-aqd-1315-06-prophethood-signs",
@@ -16957,7 +16933,7 @@
     {
       "id": "shm-aqd-1315-09-wala-fairness",
       "domain": "aqeedah",
-      "title": "القدوة الحسنة والتعامل مع الآخرين",
+      "title": "القدوة بإبراهيم عليه السلام والبر والقسط مع غير المحاربين",
       "source_file": "shamela:42:1948",
       "language": "ar",
       "original_age_group": "13-15",
@@ -16969,19 +16945,19 @@
     {
       "id": "shm-aqd-1618-01-yaqin-knowledge",
       "domain": "aqeedah",
-      "title": "الحذر من علم الكلام وأثره على اليقين",
+      "title": "نقول السلف في ذم علم الكلام",
       "source_file": "shamela:8352:13",
       "language": "ar",
       "original_age_group": "16-18",
       "normalized_age_group": "16-18",
       "behavior_type": "بناء اليقين الإيماني",
       "needs_ocr": false,
-      "size_chars": 956
+      "size_chars": 762
     },
     {
       "id": "shm-aqd-1618-02-moderation-wasatiyah",
       "domain": "aqeedah",
-      "title": "وسطية الإسلام وحماية الشباب من الغلو",
+      "title": "تحويل القبلة والتسليم لحكم الله",
       "source_file": "shamela:42:100",
       "language": "ar",
       "original_age_group": "16-18",
@@ -17029,7 +17005,7 @@
     {
       "id": "shm-aqd-1618-06-taqwa-provision",
       "domain": "aqeedah",
-      "title": "التوكل على الله في تدبير الأرزاق",
+      "title": "اصطفاء الله لأنبيائه وأوليائه",
       "source_file": "shamela:42:210",
       "language": "ar",
       "original_age_group": "16-18",
@@ -17041,7 +17017,7 @@
     {
       "id": "shm-aqd-1618-07-tawbah-renewal",
       "domain": "aqeedah",
-      "title": "باب التوبة مفتوح دائمًا إلا للشرك",
+      "title": "الشرك لا يُغفر لمن مات عليه، وما دونه تحت مشيئة الله",
       "source_file": "shamela:42:324",
       "language": "ar",
       "original_age_group": "16-18",
@@ -17084,12 +17060,12 @@
       "normalized_age_group": "2-3",
       "behavior_type": "التسمية قبل الأكل والشرب",
       "needs_ocr": false,
-      "size_chars": 1172
+      "size_chars": 327
     },
     {
       "id": "shm-aqd-23-02-alhamdulillah",
       "domain": "aqeedah",
-      "title": "غرس الشكر والحمد لله في نفوس الصغار",
+      "title": "شكر نعم الله يكون من جنس النعمة",
       "source_file": "shamela:9260:2981",
       "language": "ar",
       "original_age_group": "2-3",
@@ -17101,7 +17077,7 @@
     {
       "id": "shm-aqd-23-03-allah-khaliq",
       "domain": "aqeedah",
-      "title": "الله خالق كل شيء ورازق كل حي",
+      "title": "الله الخالق العليم الرحيم",
       "source_file": "shamela:20854:43",
       "language": "ar",
       "original_age_group": "2-3",
@@ -17113,26 +17089,14 @@
     {
       "id": "shm-aqd-23-04-allah-rahman",
       "domain": "aqeedah",
-      "title": "الله الحي القيوم: رحمة وحكمة في كل شيء",
+      "title": "الله الحي القيوم",
       "source_file": "shamela:42:197",
       "language": "ar",
       "original_age_group": "2-3",
       "normalized_age_group": "2-3",
       "behavior_type": "التعرف على صفات الله",
       "needs_ocr": false,
-      "size_chars": 1222
-    },
-    {
-      "id": "shm-aqd-23-05-allah-razzaq",
-      "domain": "aqeedah",
-      "title": "الله الرزاق: نعمته في كل طعام",
-      "source_file": "shamela:20854:44",
-      "language": "ar",
-      "original_age_group": "2-3",
-      "normalized_age_group": "2-3",
-      "behavior_type": "تقدير نعم الله",
-      "needs_ocr": false,
-      "size_chars": 1217
+      "size_chars": 529
     },
     {
       "id": "shm-aqd-23-06-sleep-dhikr",
@@ -17149,26 +17113,14 @@
     {
       "id": "shm-aqd-23-07-love-prophet",
       "domain": "aqeedah",
-      "title": "محبة النبي ﷺ طريق للجنة",
+      "title": "المرء مع من أحب: محبة النبي ﷺ",
       "source_file": "shamela:9260:109",
       "language": "ar",
       "original_age_group": "2-3",
       "normalized_age_group": "2-3",
       "behavior_type": "غرس محبة النبي",
       "needs_ocr": false,
-      "size_chars": 987
-    },
-    {
-      "id": "shm-aqd-23-08-allah-hafiz",
-      "domain": "aqeedah",
-      "title": "الله الحفيظ: أمان وطمأنينة لطفلك",
-      "source_file": "shamela:20854:46",
-      "language": "ar",
-      "original_age_group": "2-3",
-      "normalized_age_group": "2-3",
-      "behavior_type": "بث الطمأنينة في قلب الصغير",
-      "needs_ocr": false,
-      "size_chars": 1210
+      "size_chars": 745
     },
     {
       "id": "shm-aqd-46-01-tawhid-rububiyah",
@@ -17180,16 +17132,16 @@
       "normalized_age_group": "4-6",
       "behavior_type": "الإيمان بقدرة الله",
       "needs_ocr": false,
-      "size_chars": 1227
+      "size_chars": 1033
     },
     {
       "id": "shm-aqd-46-02-tawhid-uluhiyah",
       "domain": "aqeedah",
-      "title": "أهمية معرفة أصول الدين للأطفال",
+      "title": "علم أصول الدين أشرف العلوم",
       "source_file": "shamela:8352:1",
       "language": "ar",
-      "original_age_group": "4-6",
-      "normalized_age_group": "4-6",
+      "original_age_group": "16-18",
+      "normalized_age_group": "16-18",
       "behavior_type": "تعزيز الفهم الديني",
       "needs_ocr": false,
       "size_chars": 972
@@ -17197,7 +17149,7 @@
     {
       "id": "shm-aqd-46-03-allah-sami-basir",
       "domain": "aqeedah",
-      "title": "الله يسمع ويرى كل شيء بلطف",
+      "title": "الله الأحد السميع البصير",
       "source_file": "shamela:20854:136",
       "language": "ar",
       "original_age_group": "4-6",
@@ -17209,26 +17161,26 @@
     {
       "id": "shm-aqd-46-04-allah-latif",
       "domain": "aqeedah",
-      "title": "لطف الله وعنايته بعباده الصغار",
+      "title": "لطف الله بعباده",
       "source_file": "shamela:20854:46",
       "language": "ar",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "غرس محبة الله في قلوب الأطفال",
       "needs_ocr": false,
-      "size_chars": 1210
+      "size_chars": 952
     },
     {
       "id": "shm-aqd-46-05-angels-faith",
       "domain": "aqeedah",
-      "title": "الإيمان بالملائكة الكرام وأعمالهم الطيبة",
+      "title": "الإيمان بالملائكة والكتب والنبيين",
       "source_file": "shamela:8352:396",
       "language": "ar",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "الإيمان بالغيبيات",
       "needs_ocr": false,
-      "size_chars": 1214
+      "size_chars": 857
     },
     {
       "id": "shm-aqd-46-06-quran-book",
@@ -17240,36 +17192,24 @@
       "normalized_age_group": "4-6",
       "behavior_type": "تعظيم الله وتوحيده",
       "needs_ocr": false,
-      "size_chars": 1241
+      "size_chars": 503
     },
     {
       "id": "shm-aqd-46-07-prophets-mercy",
       "domain": "aqeedah",
-      "title": "هدايا عظيمة من الله للأنبياء",
+      "title": "نوران أُعطيهما النبي ﷺ: الفاتحة وخواتيم البقرة",
       "source_file": "shamela:8352:400",
       "language": "ar",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "تقدير نعم الله",
       "needs_ocr": false,
-      "size_chars": 1215
-    },
-    {
-      "id": "shm-aqd-46-08-jannah-hope",
-      "domain": "aqeedah",
-      "title": "الجنة دار الأمان والخلود",
-      "source_file": "shamela:20854:134",
-      "language": "ar",
-      "original_age_group": "4-6",
-      "normalized_age_group": "4-6",
-      "behavior_type": "غرس حب الجنة",
-      "needs_ocr": false,
-      "size_chars": 1055
+      "size_chars": 401
     },
     {
       "id": "shm-aqd-46-09-dua-closeness",
       "domain": "aqeedah",
-      "title": "الله قريب يجيب دعاء الأطفال",
+      "title": "الله قريب يجيب دعوة الداعي",
       "source_file": "shamela:42:124",
       "language": "ar",
       "original_age_group": "4-6",
@@ -17288,31 +17228,19 @@
       "normalized_age_group": "4-6",
       "behavior_type": "التفكر في خلق الله",
       "needs_ocr": false,
-      "size_chars": 1246
-    },
-    {
-      "id": "shm-aqd-46-11-amanah-muraqabah",
-      "domain": "aqeedah",
-      "title": "فهم القدر في تربية الأبناء",
-      "source_file": "shamela:20854:565",
-      "language": "ar",
-      "original_age_group": "4-6",
-      "normalized_age_group": "4-6",
-      "behavior_type": "فهم العقيدة الصحيحة",
-      "needs_ocr": false,
-      "size_chars": 1050
+      "size_chars": 527
     },
     {
       "id": "shm-aqd-46-12-seeking-refuge",
       "domain": "aqeedah",
-      "title": "علم طفلك الاستعاذة بالله عند الخوف",
+      "title": "علّم طفلك الاستعاذة بالله من وساوس الشيطان",
       "source_file": "shamela:42:1699",
       "language": "ar",
       "original_age_group": "4-6",
       "normalized_age_group": "4-6",
       "behavior_type": "الاستعاذة بالله",
       "needs_ocr": false,
-      "size_chars": 1219
+      "size_chars": 897
     },
     {
       "id": "shm-aqd-79-01-pillars-iman",
@@ -17324,12 +17252,12 @@
       "normalized_age_group": "7-9",
       "behavior_type": "تعزيز الإيمان بالغيب",
       "needs_ocr": false,
-      "size_chars": 1164
+      "size_chars": 175
     },
     {
       "id": "shm-aqd-79-02-pillars-islam",
       "domain": "aqeedah",
-      "title": "أركان الإسلام: أساس حب الله وطاعته",
+      "title": "أركان الإسلام الخمسة",
       "source_file": "shamela:20854:602",
       "language": "ar",
       "original_age_group": "7-9",
@@ -17353,14 +17281,14 @@
     {
       "id": "shm-aqd-79-04-tawakkul-causes",
       "domain": "aqeedah",
-      "title": "التقوى والتوكل: مفتاح السعادة والرزق",
+      "title": "تقوى الله سبب المخرج والرزق",
       "source_file": "shamela:8352:346",
       "language": "ar",
       "original_age_group": "7-9",
       "normalized_age_group": "7-9",
       "behavior_type": "التقوى والتوكل على الله",
       "needs_ocr": false,
-      "size_chars": 1242
+      "size_chars": 247
     },
     {
       "id": "shm-aqd-79-05-allah-shafi",
@@ -17372,7 +17300,7 @@
       "normalized_age_group": "7-9",
       "behavior_type": "الصبر على الأقدار",
       "needs_ocr": false,
-      "size_chars": 1218
+      "size_chars": 1127
     },
     {
       "id": "shm-aqd-79-06-allah-ghafur",
@@ -17389,7 +17317,7 @@
     {
       "id": "shm-aqd-79-07-allah-adl",
       "domain": "aqeedah",
-      "title": "العدل والإنصاف أساس التعامل بين الناس",
+      "title": "الدعوة إلى كلمة سواء: التوحيد بعدل وإنصاف",
       "source_file": "shamela:42:219",
       "language": "ar",
       "original_age_group": "7-9",
@@ -17408,7 +17336,7 @@
       "normalized_age_group": "7-9",
       "behavior_type": "محبة الصحابة والاقتداء بهم",
       "needs_ocr": false,
-      "size_chars": 847
+      "size_chars": 574
     },
     {
       "id": "shm-aqd-79-09-qadar-basics",
@@ -17416,16 +17344,16 @@
       "title": "قدرة الله وعلمه المحيط بكل شيء",
       "source_file": "shamela:8352:350",
       "language": "ar",
-      "original_age_group": "7-9",
-      "normalized_age_group": "7-9",
+      "original_age_group": "16-18",
+      "normalized_age_group": "16-18",
       "behavior_type": "تأسيس الإيمان بالقدر",
       "needs_ocr": false,
-      "size_chars": 1167
+      "size_chars": 1054
     },
     {
       "id": "shm-aqd-79-10-sadaqah-barakah",
       "domain": "aqeedah",
-      "title": "العطاء من أحب الأموال بركة ونماء",
+      "title": "الصدقة بأحب المال إلى النفس",
       "source_file": "shamela:2348:354",
       "language": "ar",
       "original_age_group": "7-9",
@@ -17437,14 +17365,14 @@
     {
       "id": "shm-aqd-p1-01-fitrah-birth",
       "domain": "aqeedah",
-      "title": "الفطرة السليمة للمولود وحفظها",
+      "title": "خصال الفطرة: سنن النظافة والطهارة",
       "source_file": "shamela:9260:2766",
       "language": "ar",
       "original_age_group": "prenatal-1",
       "normalized_age_group": "prenatal-1",
       "behavior_type": "حفظ فطرة الطفل",
       "needs_ocr": false,
-      "size_chars": 1175
+      "size_chars": 1174
     },
     {
       "id": "shm-aqd-p1-02-adhan-ear",
@@ -17749,7 +17677,7 @@
     {
       "id": "shm-rem-01-salam-children",
       "domain": "islamic_parenting",
-      "title": "تعليم الأطفال قيمة إلقاء السلام",
+      "title": "سلام الكبار على الصغار سنة نبوية",
       "source_file": "shamela:2348:981",
       "language": "ar",
       "original_age_group": "4-6",
@@ -17768,12 +17696,12 @@
       "normalized_age_group": "7-9",
       "behavior_type": "تعليم القرآن للأطفال",
       "needs_ocr": false,
-      "size_chars": 765
+      "size_chars": 113
     },
     {
       "id": "shm-rem-03-parents-patience",
       "domain": "islamic_parenting",
-      "title": "الصبر عند المصيبة الأولى",
+      "title": "الصبر عند الصدمة الأولى",
       "source_file": "shamela:2348:50",
       "language": "ar",
       "original_age_group": "unspecified",
@@ -17792,12 +17720,12 @@
       "normalized_age_group": "10-12",
       "behavior_type": "تعليم أركان الدين",
       "needs_ocr": false,
-      "size_chars": 1220
+      "size_chars": 1048
     },
     {
       "id": "shm-rem-05-honesty-no-trap",
       "domain": "islamic_parenting",
-      "title": "لا تحرموا الطيبات: شكر النعم والصدق",
+      "title": "لا تحرّموا ما أحل الله: شكر النعمة",
       "source_file": "shamela:42:442",
       "language": "ar",
       "original_age_group": "7-9",
@@ -17816,7 +17744,7 @@
       "normalized_age_group": "7-9",
       "behavior_type": "المبادرة إلى الأعمال الصالحة",
       "needs_ocr": false,
-      "size_chars": 910
+      "size_chars": 486
     },
     {
       "id": "shm-rem-07-mosque-eid-kids",
@@ -17833,19 +17761,19 @@
     {
       "id": "shm-rem-08-gentle-discipline",
       "domain": "islamic_parenting",
-      "title": "الرفق والحكمة في تأديب الأطفال",
+      "title": "الرفق أولًا والتأديب بالقوة عند الحاجة بضوابط الشرع",
       "source_file": "shamela:96478:242",
       "language": "ar",
       "original_age_group": "7-9",
       "normalized_age_group": "7-9",
       "behavior_type": "التأديب بحكمة ورفق",
       "needs_ocr": false,
-      "size_chars": 1141
+      "size_chars": 1053
     },
     {
       "id": "shm-rem-09-play-with-kids",
       "domain": "islamic_parenting",
-      "title": "الرفق بالأطفال: رحمة وتيسير في التربية",
+      "title": "لا يكلف الله نفسًا إلا وسعها",
       "source_file": "shamela:42:195",
       "language": "ar",
       "original_age_group": "4-6",
@@ -17853,18 +17781,6 @@
       "behavior_type": "الرفق والتيسير في التربية",
       "needs_ocr": false,
       "size_chars": 1131
-    },
-    {
-      "id": "shm-rem-10-kissing-mercy",
-      "domain": "islamic_parenting",
-      "title": "استحباب تقبيل الأطفال والأهل",
-      "source_file": "shamela:6266:5",
-      "language": "ar",
-      "original_age_group": "2-3",
-      "normalized_age_group": "2-3",
-      "behavior_type": "إظهار المودة والرحمة",
-      "needs_ocr": false,
-      "size_chars": 868
     },
     {
       "id": "shm-rem-11-justice-children",
@@ -17924,19 +17840,7 @@
       "normalized_age_group": "10-12",
       "behavior_type": "الإحسان والرفق بالوالدين",
       "needs_ocr": false,
-      "size_chars": 1231
-    },
-    {
-      "id": "shm-rem-16-good-companions",
-      "domain": "islamic_parenting",
-      "title": "أثر الصحبة الصالحة في استقامة الأبناء",
-      "source_file": "shamela:96478:2",
-      "language": "ar",
-      "original_age_group": "10-12",
-      "normalized_age_group": "10-12",
-      "behavior_type": "توجيه الأبناء لاختيار الصديق",
-      "needs_ocr": false,
-      "size_chars": 873
+      "size_chars": 1174
     },
     {
       "id": "shm-rem-17-guarding-tongue",
@@ -17948,7 +17852,7 @@
       "normalized_age_group": "7-9",
       "behavior_type": "حفظ اللسان من الغيبة",
       "needs_ocr": false,
-      "size_chars": 1156
+      "size_chars": 897
     },
     {
       "id": "shm-rem-18-haya-modesty",
@@ -17960,12 +17864,12 @@
       "normalized_age_group": "10-12",
       "behavior_type": "تنمية خلق الحياء",
       "needs_ocr": false,
-      "size_chars": 920
+      "size_chars": 589
     },
     {
       "id": "shm-rem-19-controlling-anger",
       "domain": "islamic_parenting",
-      "title": "ضبط الغضب يرفع قدرك عند الله",
+      "title": "كظم الغيظ يكرمك الله به يوم القيامة",
       "source_file": "shamela:2348:66",
       "language": "ar",
       "original_age_group": "7-9",
@@ -17985,18 +17889,6 @@
       "behavior_type": "المسؤولية والأمانة",
       "needs_ocr": false,
       "size_chars": 607
-    },
-    {
-      "id": "shm-rem-21-kindness-animals",
-      "domain": "islamic_parenting",
-      "title": "الرحمة بالطفل والحزن عليه",
-      "source_file": "shamela:6266:104",
-      "language": "ar",
-      "original_age_group": "4-6",
-      "normalized_age_group": "4-6",
-      "behavior_type": "التعاطف والرحمة",
-      "needs_ocr": false,
-      "size_chars": 889
     },
     {
       "id": "shm-rem-22-neighbor-rights",
@@ -18020,19 +17912,7 @@
       "normalized_age_group": "4-6",
       "behavior_type": "تقدير الآخرين وشكرهم",
       "needs_ocr": false,
-      "size_chars": 1052
-    },
-    {
-      "id": "shm-rem-24-generosity-sharing",
-      "domain": "islamic_parenting",
-      "title": "الصبر على الشدائد يجلب النصر والفرج",
-      "source_file": "shamela:42:859",
-      "language": "ar",
-      "original_age_group": "4-6",
-      "normalized_age_group": "4-6",
-      "behavior_type": "الصبر على البلاء",
-      "needs_ocr": false,
-      "size_chars": 1182
+      "size_chars": 988
     },
     {
       "id": "shm-rem-25-humility-no-arrogance",
@@ -18047,33 +17927,9 @@
       "size_chars": 1019
     },
     {
-      "id": "shm-rem-26-forgiveness-pardon",
-      "domain": "islamic_parenting",
-      "title": "العفو وسلامة الصدر بين الأبناء",
-      "source_file": "shamela:42:1275",
-      "language": "ar",
-      "original_age_group": "7-9",
-      "normalized_age_group": "7-9",
-      "behavior_type": "العفو وسلامة الصدر",
-      "needs_ocr": false,
-      "size_chars": 1247
-    },
-    {
-      "id": "shm-rem-27-prayer-at-seven",
-      "domain": "islamic_parenting",
-      "title": "أهمية الختان قبل البلوغ",
-      "source_file": "shamela:6266:180",
-      "language": "ar",
-      "original_age_group": "7-9",
-      "normalized_age_group": "7-9",
-      "behavior_type": "الاستعداد_للتكاليف_الشرعية",
-      "needs_ocr": false,
-      "size_chars": 771
-    },
-    {
       "id": "shm-rem-28-wudu-cleanliness",
       "domain": "islamic_parenting",
-      "title": "الطهارة والنظافة: مفتاح الإيمان والسعادة",
+      "title": "الطهور شطر الإيمان",
       "source_file": "shamela:2348:43",
       "language": "ar",
       "original_age_group": "4-6",
@@ -18128,19 +17984,7 @@
       "normalized_age_group": "unspecified",
       "behavior_type": "القدوة الحسنة للوالدين",
       "needs_ocr": false,
-      "size_chars": 1001
-    },
-    {
-      "id": "shm-rem-33-halal-income",
-      "domain": "islamic_parenting",
-      "title": "أهمية الأمانة في حفظ الأنساب",
-      "source_file": "shamela:42:156",
-      "language": "ar",
-      "original_age_group": "unspecified",
-      "normalized_age_group": "unspecified",
-      "behavior_type": "الأمانة وحفظ الحقوق",
-      "needs_ocr": false,
-      "size_chars": 1249
+      "size_chars": 845
     },
     {
       "id": "shm-rem-34-consulting-youth",
@@ -18152,7 +17996,7 @@
       "normalized_age_group": "13-15",
       "behavior_type": "غرس القيم والعلم",
       "needs_ocr": false,
-      "size_chars": 1012
+      "size_chars": 271
     },
     {
       "id": "shm-rem-35-modesty-screens-gaze",
@@ -18176,7 +18020,7 @@
       "normalized_age_group": "10-12",
       "behavior_type": "قيمة الوقت والفراغ",
       "needs_ocr": false,
-      "size_chars": 1021
+      "size_chars": 314
     },
     {
       "id": "shm-rem-37-physical-strength",
@@ -18188,12 +18032,12 @@
       "normalized_age_group": "10-12",
       "behavior_type": "التحكم_بالنفس_عند_الغضب",
       "needs_ocr": false,
-      "size_chars": 1244
+      "size_chars": 784
     },
     {
       "id": "shm-rem-38-mercy-daughters",
       "domain": "islamic_parenting",
-      "title": "الإحسان إلى من هم تحت رعايتكم",
+      "title": "الإحسان إلى من أمر الله بالإحسان إليهم",
       "source_file": "shamela:2348:1499",
       "language": "ar",
       "original_age_group": "unspecified",
@@ -18201,18 +18045,6 @@
       "behavior_type": "الإحسان إلى من تحت اليد",
       "needs_ocr": false,
       "size_chars": 307
-    },
-    {
-      "id": "shm-rem-39-orphan-compassion",
-      "domain": "islamic_parenting",
-      "title": "إطعام الطعام: فرحة وسرور للجيران والمساكين",
-      "source_file": "shamela:6266:74",
-      "language": "ar",
-      "original_age_group": "7-9",
-      "normalized_age_group": "7-9",
-      "behavior_type": "الإحسان إلى المحتاجين",
-      "needs_ocr": false,
-      "size_chars": 1096
     },
     {
       "id": "shm-rem-40-truthful-promise",
@@ -18229,7 +18061,7 @@
     {
       "id": "shm-rem-41-calm-advice-private",
       "domain": "islamic_parenting",
-      "title": "النصيحة للمراهق: أساس الأخوة والمحبة",
+      "title": "النصيحة من حقوق الأخوة",
       "source_file": "shamela:2348:221",
       "language": "ar",
       "original_age_group": "13-15",
@@ -18248,31 +18080,19 @@
       "normalized_age_group": "10-12",
       "behavior_type": "بر الوالدين",
       "needs_ocr": false,
-      "size_chars": 1187
+      "size_chars": 673
     },
     {
       "id": "shm-rem-43-guarding-secrets",
       "domain": "islamic_parenting",
-      "title": "أمانة حفظ الأسرار الزوجية والبيوت",
+      "title": "حفظ السر وأسرار الزوجين",
       "source_file": "shamela:2348:787",
       "language": "ar",
-      "original_age_group": "10-12",
-      "normalized_age_group": "10-12",
+      "original_age_group": "unspecified",
+      "normalized_age_group": "unspecified",
       "behavior_type": "حفظ الأسرار والأمانة",
       "needs_ocr": false,
       "size_chars": 362
-    },
-    {
-      "id": "shm-rem-44-charity-secret",
-      "domain": "islamic_parenting",
-      "title": "العقيقة: معناها، وقتها، وفضلها",
-      "source_file": "shamela:6266:32",
-      "language": "ar",
-      "original_age_group": "7-9",
-      "normalized_age_group": "7-9",
-      "behavior_type": "فعل الخير والصدقة",
-      "needs_ocr": false,
-      "size_chars": 783
     },
     {
       "id": "shm-rem-45-fasting-training",
@@ -18301,14 +18121,14 @@
     {
       "id": "shm-rem-47-courage-speaking-truth",
       "domain": "islamic_parenting",
-      "title": "تأثير الكلمات على مجريات الحياة",
+      "title": "تحسين الأسماء واجتناب القبيح منها",
       "source_file": "shamela:6266:120",
       "language": "ar",
       "original_age_group": "13-15",
       "normalized_age_group": "13-15",
       "behavior_type": "القول الحسن والكلمة الطيبة",
       "needs_ocr": false,
-      "size_chars": 1038
+      "size_chars": 946
     },
     {
       "id": "shm-rem-48-marriage-preparation",
@@ -18325,7 +18145,7 @@
     {
       "id": "shm-rem-49-brotherhood-peace",
       "domain": "islamic_parenting",
-      "title": "الإصلاح بين الإخوة بالعدل والتقوى",
+      "title": "الإصلاح بين المؤمنين بالعدل",
       "source_file": "shamela:42:1828",
       "language": "ar",
       "original_age_group": "7-9",
@@ -18333,18 +18153,6 @@
       "behavior_type": "الإصلاح بين المتخاصمين",
       "needs_ocr": false,
       "size_chars": 1164
-    },
-    {
-      "id": "shm-rem-50-home-serenity",
-      "domain": "islamic_parenting",
-      "title": "أساس المودة والسكن في الحياة الزوجية",
-      "source_file": "shamela:42:605",
-      "language": "ar",
-      "original_age_group": "unspecified",
-      "normalized_age_group": "unspecified",
-      "behavior_type": "بناء الأسرة على المودة",
-      "needs_ocr": false,
-      "size_chars": 1245
     }
   ]
 }

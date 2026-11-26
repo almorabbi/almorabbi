@@ -9,7 +9,7 @@
     "isl-52462ce7",
     "isl-572e7df3"
   ],
-  "summary": "Your child might be a little scared of the dark when the lights go out, or sad because their friend is sick, or wishing they could succeed at riding their bike. In those fleeting moments, you hold the greatest door to instill living faith in their heart: for them to see prayer as a true, close refuge, not memorized words recited with dry automatism.\n\nMany homes associate the remembrance of Allah with fear or warning (\"Allah sees you if you do such-and-such!\"), which shapes in the child's mind a feeling of heavy surveillance instead of love and comfort. But warm, shared prayer builds within them a luminous image: that Allah, the Exalted, is near, merciful, and loves for us to speak to Him in our simple language, in joy and fear alike.\n\nThe Prophet ﷺ taught us about the servant's closeness to their Lord, saying: \"The closest a servant is to their Lord is when they are prostrating, so increase your supplications (du'a).\" (Sahih Muslim 482). In your daily life with your child, let them hear you supplicate for them in a tender voice while they are in your lap, then open the door for them to supplicate with their spontaneous words — even if they pray for their cat, or their toy, or their grandmother! Do not mock the innocence of their prayer, and do not prolong it until they get bored; thirty sincere seconds every night will instill in their heart a certainty that will stay with them their whole life: that the door to the heavens is never closed.",
+  "summary": "Your child might be a little scared of the dark when the lights go out, or sad because their friend is sick, or wishing they could succeed at riding their bike. In those fleeting moments, you hold the greatest door to instill living faith in their heart: for them to see prayer as a true, close refuge, not memorized words recited with dry automatism.\n\nMany homes associate the remembrance of Allah with fear or warning (\"Allah sees you if you do such-and-such!\"), which shapes in the child's mind a feeling of heavy surveillance instead of love and comfort. But warm, shared prayer builds within them a luminous image: that Allah, the Exalted, is near, merciful, and loves for us to speak to Him in our simple language, in joy and fear alike.\n\nThe Prophet ﷺ taught us about the servant's closeness to their Lord in prostration and urged us to supplicate abundantly, saying ﷺ: \"The closest a servant is to their Lord is when they are prostrating, so increase your supplications (du'a).\" (Sahih Muslim 482). A beautiful part of upbringing is accustoming your child to supplicate at all times: in your daily life with your child, let them hear you supplicate for them in a tender voice while they are in your lap, then open the door for them to supplicate with their spontaneous words — even if they pray for their cat, or their toy, or their grandmother! Do not mock the innocence of their prayer, and do not prolong it until they get bored; a few sincere minutes every night instill in their heart that Allah is near and hears their supplication, and that He, Exalted is He, answers whoever calls upon Him as He wills.",
   "try_this": "Tonight before your child sleeps: gently place your hand on their head, make one supplication for them where they hear their name, then say to them: \"Now it's your turn, what would you like to ask Allah for tonight?\" And affirm their supplication with joy.",
   "order": 4,
   "estimated_minutes": 4,
@@ -22,7 +22,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"O Allah, protect my beloved, bless them, and make them happy and content. And now, my champion, what would you like to ask Allah for tonight?\"",
   "assistant_prompts": [
     "How can I instill the love of Allah in the heart of a 5-year-old without scaring them?",
@@ -41,7 +41,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -60,20 +60,14 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "44a84b631a66db3ba68a4ba71107c69b802432062f2e2f4a1cbbd52b5802edd3",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "557e50efcd854af2f9a56ea8eb0b127f5f7b6b7f2657618b04f93cd272cd5ebc",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "fields.title.english",
-          "type": "meaning",
-          "why": "الدعاء here means supplication (du'a), not salah; 'Praying Together' may be misread as ritual prayer."
-        },
         {
           "model": "glm-5.2",
           "field": "fields.try_this.english",
           "type": "meaning",
-          "why": "أمِّن means 'say ameen to', not merely 'affirm'; the specific act of saying ameen is lost."
+          "why": "«أمِّن» specifically means to say 'ameen' after a du'a, a distinct Islamic practice; 'affirm' is more general and loses that specificity."
         }
       ],
       "adjudicated": [],
@@ -85,17 +79,11 @@
     "review_defects": [
       {
         "model": "glm-5.2",
-        "field": "fields.title.english",
-        "type": "meaning",
-        "why": "الدعاء here means supplication (du'a), not salah; 'Praying Together' may be misread as ritual prayer."
-      },
-      {
-        "model": "glm-5.2",
         "field": "fields.try_this.english",
         "type": "meaning",
-        "why": "أمِّن means 'say ameen to', not merely 'affirm'; the specific act of saying ameen is lost."
+        "why": "«أمِّن» specifically means to say 'ameen' after a du'a, a distinct Islamic practice; 'affirm' is more general and loses that specificity."
       }
     ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

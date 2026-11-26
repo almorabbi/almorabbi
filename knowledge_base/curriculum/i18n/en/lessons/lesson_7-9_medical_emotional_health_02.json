@@ -13,7 +13,7 @@
     "93088170-21d3-4095-91a2-b86c44afa56b",
     "med-6fd9c009"
   ],
-  "summary": "Do you find your child staying up late every night, or waking up tired as if they haven't slept? Perhaps you notice their attention wandering during homework, or they unconsciously bite their nails, or seem constantly exhausted. These familiar scenes might just be expressions of a long day, but sometimes they carry deeper messages that require us to pause and reflect calmly.\n\nAt this age (7-9 years), a child's body and mind are undergoing rapid changes, and sufficient, good quality sleep is their essential fuel. When a child misses the recommended hours of sleep (9-11 hours), or when their sleep is interrupted and uncomfortable, it directly affects their ability to focus, their mood, and even how they handle daily pressures. These signs might indicate that your child is facing a challenge that needs your support, whether it's a hidden anxiety or difficulty regulating their attention.\n\nTherefore, start with simple yet effective steps: make bedtime a consistent and comfortable routine, away from screens for at least an hour beforehand. Help them break down large tasks into smaller parts to make them easier to complete, and reward their efforts immediately with a kind word or a hug. Observe these changes for a few weeks, and if the symptoms persist and affect their daily life at school or home, do not hesitate to consult a pediatrician or a psychologist; they are your support in the parenting journey.",
+  "summary": "Do you find your child staying up late every night, or waking up tired as if they haven't slept? Perhaps you notice their attention wandering during homework, or they unconsciously bite their nails, or seem constantly exhausted. These familiar scenes might just be expressions of a long day, but sometimes they carry deeper messages that require us to pause and reflect calmly.\n\nAt this age (7-9 years), a child's body and mind are undergoing rapid changes, and sufficient, good quality sleep is their essential fuel. When a child misses the recommended hours of sleep (9-12 hours), or when their sleep is interrupted and uncomfortable, it directly affects their ability to focus, their mood, and even how they handle daily pressures. These signs might indicate that your child is facing a challenge that needs your support, whether it's a hidden anxiety or difficulty regulating their attention.\n\nTherefore, start with simple yet effective steps: make bedtime a consistent and comfortable routine, away from screens for at least an hour beforehand. Help them break down large tasks into smaller parts to make them easier to complete, and reward their efforts immediately with a kind word or a hug. Observe these changes for a few weeks, and if the symptoms persist and affect their daily life at school or home, do not hesitate to consult a pediatrician or a psychologist; they are your support in the parenting journey.",
   "try_this": "Tonight: Dedicate 15 quiet minutes before bed to read a story with your child or talk about their day, away from any screens.",
   "order": 2,
   "estimated_minutes": 4,
@@ -29,7 +29,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“My dear, bedtime is a chance for your body and mind to rest and get ready for a new day full of fun and learning.”",
   "assistant_prompts": [
     "What quiet activities can help my child relax before bed?",
@@ -48,7 +48,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -67,8 +67,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4d3a00f07802b8b0f492f5a74f3d2e9af8572ccf1170447cd64d9aede9723b66",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "fea791aaffb654a2b6e4aa6b9d184435270ef573973e0742f8bf2ee119fc2a98",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -77,6 +77,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

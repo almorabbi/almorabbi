@@ -8,7 +8,7 @@
     "cyb-3d7483b2",
     "cyb-d32b686d"
   ],
-  "summary": "Imagine your little one, with wide eyes, eagerly sharing stories from their day: \"Mama, my friend so-and-so at school said...\" or \"Baba, I saw a cool game online!\" This innocent enthusiasm is a beautiful part of their childhood, but it carries a great responsibility for us as parents in today's digital world. What your child sees on screen and what they share might seem like just a game or a casual chat to them, but in reality, it leaves an indelible mark.\n\nAt this age, your child doesn't fully grasp that what is posted online stays there forever, and that those who see it may not always be kind or honest. Our mission is to plant this seed of awareness and caution in them, not with fear, but with love and security. To teach them that there is very precious and private information, such as their full name, home address, school name, personal photos, or even their passwords, that should never be shared with anyone online. And that people behind screens may not always be who they claim to be, and their intentions might be completely different from what your child expects.\n\nLet's make this lesson an opportunity to strengthen trust between us and our children. Gently and simply explain to your child that they should tell you immediately, without fear or hesitation, if anyone online asks them for personal information or photos. This simple rule is not to restrict their freedom, but to protect their small world from any potential harm. By teaching them these fundamental principles, we give them the necessary tools to navigate their digital world safely and confidently, and we build a conscious and responsible generation.",
+  "summary": "Imagine your little one, with wide eyes, eagerly sharing stories from their day: \"Mama, my friend so-and-so at school said...\" or \"Baba, I saw a cool game online!\" This innocent enthusiasm is a beautiful part of their childhood, but it carries a great responsibility for us as parents in today's digital world. What your child sees on screen and what they share might seem like just a game or a casual chat to them, but in reality, it may leave a trace that is hard to erase.\n\nAt this age, your child doesn't fully grasp that what is posted online may remain for a long time and be hard to delete, and that those who see it may not always be kind or honest. Our mission is to plant this seed of awareness and caution in them, not with fear, but with love and security. To teach them that there is very precious and private information, such as their full name, home address, school name, personal photos, or even their passwords, that should never be shared with anyone online without the parents' knowledge and approval. And that people behind screens may not always be who they claim to be, and their intentions might be completely different from what your child expects.\n\nLet's make this lesson an opportunity to strengthen trust between us and our children. Gently and simply explain to your child that they should tell you immediately, without fear or hesitation, if anyone online asks them for personal information or photos. This simple rule is not to restrict their freedom, but to protect their small world from any potential harm. By teaching them these fundamental principles, we give them the necessary tools to navigate their digital world safely and confidently, and we build a conscious and responsible generation.",
   "try_this": "Tonight: During dinner or before bed, play a quick game with your child called \"Do We Share This?\" Ask examples like: \"Do we share your full name with a stranger online?\" or \"Do we share a picture of your room?\" And let them answer yes or no with a simple explanation.",
   "order": 3,
   "estimated_minutes": 4,
@@ -22,7 +22,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"There are things that are very private to us, like our full name and our pictures. We keep them to ourselves and don't share them with anyone online, unless I say it's okay.\"",
   "assistant_prompts": [
     "How can I explain the concept of \"strangers online\" to my 8-year-old in a safe and age-appropriate way?",
@@ -41,7 +41,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -60,16 +60,30 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "3e54bf8fa127eb1ef135043752dcf0fddc847f165ffb8f86dbdb8d4a82879b93",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [],
+      "content_sha256": "952a72540a45732e64103abba299334a7fb6ae115505ee9ca50f7acebeb8ab3a",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "addition",
+          "why": "The English adds \"so-and-so\" which is not present in the Arabic; the Arabic simply says \"my friend at school said.\""
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "addition",
+        "why": "The English adds \"so-and-so\" which is not present in the Arabic; the Arabic simply says \"my friend at school said.\""
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

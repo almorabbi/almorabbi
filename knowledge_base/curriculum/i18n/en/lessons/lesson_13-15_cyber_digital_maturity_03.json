@@ -10,7 +10,7 @@
     "1e23d518-5d54-4ad0-b7d0-7147a15d13a6",
     "beb0e561-be2a-51dc-85ac-83c158c748ef"
   ],
-  "summary": "Imagine this scene: Your teenage son's bedroom door is closed, and the sound of video games echoes from behind it. You tried calling him for dinner, but he didn't respond. Perhaps his tension increases when you ask him to turn off the device, and you might find him sneaking out at night to return to it. This situation is repeated in many homes, making us wonder: Have screens become an integral part of their lives, or have they started to dominate them?\n\nThe goal is not to deprive our children of enjoyment or keeping up with the times, as digital games can be a source of entertainment, communication, and the development of some skills. But when these activities begin to dominate their lives and affect their sleep, studies, or family and social relationships, that's where the challenge lies. The World Health Organization points to clear signs of digital addiction, such as losing the ability to control play time, preferring play over important life activities, or continuing to play despite knowing the harms.\n\nThe solution is not in outright prohibition, which often provokes resistance, but in building bridges of understanding and trust. We can, as a family, together establish a clear and logical framework for screen use. This framework should include a specific daily time and clear conditions, such as completing homework before playing and setting regular breaks. Most importantly is providing real and attractive alternatives in the real world: encouraging sports, hobbies, and meeting with friends. Our role as parents is gentle monitoring of their mood, sleep, and academic achievement to ensure that screens serve them and do not control them.",
+  "summary": "Imagine this scene: Your teenage son's bedroom door is closed, and the sound of video games echoes from behind it. You tried calling him for dinner, but he didn't respond. Perhaps his tension increases when you ask him to turn off the device, and you might find him sneaking out at night to return to it. This situation is repeated in many homes, making us wonder: Have screens become an integral part of their lives, or have they started to dominate them?\n\nThe goal is not to deprive our children of enjoyment or keeping up with the times, as digital games can be a source of entertainment, communication, and the development of some skills. But when these activities begin to dominate their lives and affect their sleep, studies, or family and social relationships, that's where the challenge lies. The World Health Organization classifies \"gaming disorder\" and lists clear signs for it, such as losing the ability to control play time, prioritizing play over important life activities, or continuing to play despite knowing the harms.\n\nThe solution is not in outright prohibition, which often provokes resistance, but in building bridges of understanding and trust. We can, as a family, together establish a clear and logical framework for screen use. This framework should include a specific daily time and clear conditions, such as completing homework before playing and setting regular breaks. Most importantly is providing real and attractive alternatives in the real world: encouraging sports, hobbies, and meeting with friends. Our role as parents is gentle monitoring of their mood, sleep, and academic achievement to ensure that screens serve them and do not control them.",
   "try_this": "Tonight: Sit with your son/daughter and open a calm dialogue about \"How can we make screen time enjoyable and beneficial without affecting the rest of your life?\" Listen more than you speak.",
   "order": 3,
   "estimated_minutes": 4,
@@ -26,7 +26,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I am here to help you find balance, not to stop you from enjoying yourself.”",
   "assistant_prompts": [
     "How can I help my teenage son find enjoyable alternatives to video games?",
@@ -44,7 +44,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -63,30 +63,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "d324ce37bd6dd9f0d23146d62a7716fdc279959b9724d73113634176aa3efa9a",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "meaning",
-          "why": "The English adds 'out', implying leaving the house, whereas the Arabic only says he sneaks at night to return to the games/screen."
-        }
-      ],
+      "content_sha256": "e42aa3ecf284fd29093e7996d48da0f459ea54502442e7ff9fe5fc44b9ba886f",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "meaning",
-        "why": "The English adds 'out', implying leaving the house, whereas the Arabic only says he sneaks at night to return to the games/screen."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -8,7 +8,7 @@
     "isl-85efb0a3",
     "isl-ce1b71bd"
   ],
-  "summary": "When your son, between the ages of sixteen and eighteen, begins to make decisions about his studies, time, and friends, a hidden fear might creep into your heart: \"Has he distanced himself from me? Is his independence a sign of weakened filial piety?\" This concern is very understandable, but confusing healthy independence with disobedience is the quickest way to a conflict that exhausts both parties.\n\nIn truth, a young person's maturity and independence of opinion are the fruit of your successful upbringing, not a sign of its failure! Your role at this stage transforms from the \"manager\" who decides every detail to the \"wise advisor\" who engages in dialogue, explains consequences, and then leaves room for decisions where there is no religious prohibition or severe harm. The Prophet ﷺ said: \"Religion is sincerity\" (Sahih Muslim — Hadith 55). Sincere advice is offered with gentleness, respect, and kind words: ﴿وَقُل لِّعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ﴾ (interpretation of the meaning: \"And tell My servants to say that which is best\" — Surah Al-Isra 17:53).\n\nWhen you respect your young person's opinion, consult them, and distinguish between uncompromisable principles and personal preferences where people differ, their adherence to honoring you and their appreciation for your opinion will increase. This is because they return to you by their choice and love, not out of fear or coercion. Balanced independence and sincere filial piety are not adversaries; rather, they are two wings that carry your young person to maturity.",
+  "summary": "When your son, between the ages of sixteen and eighteen, begins to make decisions about his studies, time, and friends, a hidden fear might creep into your heart: \"Has he distanced himself from me? Is his independence a sign of weakened filial piety?\" This concern is very understandable, but confusing healthy independence with disobedience is the quickest way to a conflict that exhausts both parties.\n\nIn truth, a young person's maturity and independence of opinion are a natural stage of growth, and may be among the fruits of your good upbringing—not necessarily a sign of shortcoming. Your role at this stage transforms from the \"manager\" who decides every detail to the \"wise advisor\" who engages in dialogue, explains consequences, and then leaves room for decisions where there is no religious prohibition or severe harm. The Prophet ﷺ said: \"Religion is sincerity\" (Sahih Muslim, Hadith 55). Sincere advice is offered with gentleness, respect, and kind words, as Allah says: ﴿وَقُل لِّعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ﴾ [Surah Al-Isra: 53] (interpretation of the meaning: \"And tell My servants to say that which is best\").\n\nWhen you respect your young person's opinion, consult them, and distinguish between uncompromisable principles and personal preferences where people differ, it is hoped that their commitment to honoring you and their appreciation for your opinion will increase; because they return to you by their choice and love, not out of fear or coercion. Balanced independence and sincere filial piety are not adversaries; rather, they are two wings that carry your young person to maturity.",
   "try_this": "Tonight: Open a calm conversation with your son or daughter – unrelated to a current problem – in which you ask them about their vision for something related to their academic year or their upcoming plan, and listen to the end of their words before expressing your opinion.",
   "order": 1,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"You are now at an age of maturity and responsibility, and I'm interested in hearing your perspective first; I am here as a support and advisor for you whenever you need me.\"",
   "assistant_prompts": [
     "My 17-year-old son refuses my interference in his academic choices and friends, viewing it as control. How do I balance advice and trust?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "ff73dbf94317b114670de6927ac797d262d97d89f522125ca2ed6a6100783fac",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "3b879228f5433031f740cbd43df7b8d2aef1273f4dc33c6ae0b67aae4bd72fb9",
+      "reviewed_at": "2026-11-26T10:40:41+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:40:41+00:00"
   }
 }

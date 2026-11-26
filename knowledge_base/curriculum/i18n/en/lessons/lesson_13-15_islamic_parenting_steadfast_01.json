@@ -8,7 +8,7 @@
     "isl-teen-calm-not-mockery-01",
     "isl-teen-write-doubts-one-by-one-01"
   ],
-  "summary": "You notice a change in your teenager's tone of voice, or perhaps in how they sit and are engrossed in their phone. You might catch their gaze lingering differently on screens, or hear new words they exchange with friends. These small moments are not just fleeting details; they are subtle signs that their inner world is changing, and the instinct of puberty is beginning to awaken within them. Our silence during this sensitive stage can leave our children vulnerable to distorted sources of information or to ideas that may not align with our authentic values.\n\nChastity is not a restriction or deprivation; rather, it is an inner strength, a protection for the soul, and a modesty that adorns its possessor. It is the ability to control oneself and manage desires, and it is not a weakness or a flaw, but a sign of maturity and strength. In a world filled with temptations and conflicting messages, our role as parents becomes to be the primary guides for our children, and to open the doors of dialogue to them with open hearts and understanding minds, to build bridges of trust that enable them to express their questions and fears without shame.\n\nBegin the conversation calmly and warmly, not as a rigid lesson, but as a sharing of life experiences and values. Talk about modesty as beauty and strength, and about chastity as a conscious choice that protects the self and elevates its status. Encourage them to fast as a way to discipline the soul, and to engage in beneficial activities as a shield against idleness that can lead to pitfalls. Most importantly, keep the door of your heart always open to their questions, no matter how embarrassing they may seem, for their trust in you is the most precious thing you possess at this stage.",
+  "summary": "You notice a change in your teenager's tone of voice, or perhaps in how they sit and are engrossed in their phone. You might catch their gaze lingering differently on screens, or hear new words they exchange with friends. These small moments are not just fleeting details; they are subtle signs that their inner world is changing, and the instinct of puberty is beginning to awaken within them. Our silence during this sensitive stage can leave our children vulnerable to distorted sources of information or to ideas that may not align with our authentic values.\n\nChastity is not a restriction or deprivation; rather, it is an inner strength, a protection for the soul, and a modesty that adorns its possessor. It is the ability to control oneself and manage desires, and it is not a weakness or a flaw, but a sign of maturity and strength. In a world filled with temptations and conflicting messages, our role as parents becomes to be the primary guides for our children, and to open the doors of dialogue to them with open hearts and understanding minds, to build bridges of trust that enable them to express their questions and fears without shame.\n\nBegin the conversation calmly and warmly, not as a rigid lesson, but as a sharing of life experiences and values. Talk about modesty as beauty and strength, and about chastity as a conscious choice that protects the self and elevates its status. Encourage them to observe voluntary fasting as a prophetic means that helps youth with self-control and chastity, and to engage in beneficial activities as a shield against idleness that can lead to pitfalls. Most importantly, keep the door of your heart always open to their questions, no matter how embarrassing they may seem, for their trust in you is the most precious thing you possess at this stage.",
   "try_this": "Tonight: Open a calm conversation with your teenager about the concept of strength in self-control and modesty, and listen to their opinion without interruption.",
   "order": 1,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I am here for any question that comes to your mind, no matter what it is.”",
   "assistant_prompts": [
     "How do I handle my teenager's embarrassing questions about puberty?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "bf6c6a8dff8c8739845d6696ac180d0eb7e1e2f5a786a24c5eadbc87dee73e61",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "aca2b3f3ec6be10fbf3678f9562b32393381bcf5c9b1e33a1f6d63d797095297",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

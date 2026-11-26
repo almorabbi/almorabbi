@@ -14,7 +14,7 @@
     "e93bb1b3-277f-4b93-b530-9946896fd1e0",
     "a77834fd-ec17-4e0f-b98d-048e87c44bdb"
   ],
-  "summary": "Do you remember how your son used to laugh heartily, how he would run around the house, sharing the details of his day with enthusiasm? Suddenly, everything changes. He becomes silent, isolated in his room, avoids conversations, and perhaps you notice a change in his sleep or appetite. You might think it's just a passing \"teenage mood\" or a normal phase of rebellion, but your heart whispers that something deeper is happening. This sudden or persistent change could be a sign that your son is going through something more significant than just natural fluctuations.\n\nIt's important to realize that depression and anxiety are not signs of weakness or lack of faith, nor are they a choice that a teenager can simply overcome by willpower. They are real health conditions, often the result of complex interactions between biological, psychological, and environmental factors. Just as a teenager can get tonsillitis or break a leg, they can also develop a mood or anxiety disorder. These disorders affect their thinking, feelings, and behavior, making daily life difficult and stressful for them.\n\nOur role as parents is to be a safe haven for our children. Listen to them with open hearts, without judgment, and reassure them that what they are experiencing is an illness like any other, and it has a cure. The first step is to acknowledge the problem, then seek professional help. Cognitive behavioral therapy, and sometimes medication under medical supervision, in addition to your warm family support, can make a tremendous difference in your son's recovery journey and his return to life with its usual sparkle.",
+  "summary": "Do you remember how your son used to laugh heartily, how he would run around the house, sharing the details of his day with enthusiasm? Suddenly, everything changes. He becomes silent, isolated in his room, avoids conversations, and perhaps you notice a change in his sleep or appetite. You might think it's just a passing \"teenage mood\" or a normal phase of rebellion, but your heart whispers that something deeper is happening. This sudden or persistent change could be a sign that your son is going through something more significant than just natural fluctuations.\n\nIt's important to realize that depression and anxiety are not signs of weakness or lack of faith, nor are they a choice that a teenager can simply overcome by willpower. They are real health conditions, often the result of complex interactions between biological, psychological, and environmental factors. Just as a teenager can get tonsillitis or break a leg, they can also develop a mood or anxiety disorder. These disorders affect their thinking, feelings, and behavior, making daily life difficult and stressful for them.\n\nOur role as parents is to be a safe haven for our children. Listen to them with open hearts, without judgment, and reassure them that what they are experiencing is an illness like any other, and it has treatment. The first step is to acknowledge the problem, then seek professional help. If thoughts of self-harm or suicide appear, seek urgent medical help immediately, do not leave your son alone, keep means of harm away from him, and call your country's emergency number. Cognitive behavioral therapy, and sometimes medication under medical supervision, in addition to your warm family support, may help, by Allah's will, your son gradually improve and recover.",
   "try_this": "Today: Dedicate some quiet time to talk with your son, and gently ask him: \"How are you really doing these days? I'm here to listen to you, no matter how you feel.\"",
   "order": 1,
   "estimated_minutes": 4,
@@ -30,7 +30,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"I see that you're going through a difficult time, and I'm here for you. We will find a solution together.\"",
   "assistant_prompts": [
     "What are the early signs of depression in teenagers?",
@@ -48,7 +48,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -67,8 +67,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "a5f9e98740684d8df2a69cb6b7c2859b9380809513fad1c052733ae65bcbc502",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "6d0435dcdb0a5a11db5f070972615b9c388e16be8fd3eff00107f722e70d4565",
+      "reviewed_at": "2026-11-26T10:40:41+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -77,6 +77,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:40:41+00:00"
   }
 }

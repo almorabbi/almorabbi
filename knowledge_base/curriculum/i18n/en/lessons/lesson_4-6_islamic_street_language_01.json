@@ -19,8 +19,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "«My darling, sweet words make our hearts happy. What do you think about saying (alternative word) instead of (inappropriate word)?»",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "«My darling, kind words bring joy to our hearts. What do you think about saying \"How wonderful!\" instead of that word?»",
   "assistant_prompts": [
     "How do I deal with my child if I hear a rude word from them for the first time?",
     "What are some kind alternative words I can suggest to my child instead of bad words?"
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "186167a1f76ff369a978fbbdefa63ea44fb5a54b63e51c2bcae1e64d088f251f",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "af578618e41334f023e76efd2f4812b8cfb4a920ab2ccfb11097f2dc62e1ea15",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

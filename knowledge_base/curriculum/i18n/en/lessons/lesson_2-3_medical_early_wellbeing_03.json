@@ -8,8 +8,8 @@
     "gap-med-speech-delay-01",
     "d7a09c7e-769c-48b5-aaf8-0511fedfc0db"
   ],
-  "summary": "Do you remember the moment your child uttered their first word? Or when they took their first wobbly steps? Every day is a new adventure in their small world, where they discover their abilities, try to imitate you, and perhaps run around the house with laughter filling the air. At two and three years old, your child becomes like a butterfly just beginning to flutter its wings, putting two words together to form a simple sentence, running and jumping, and diving into the world of imaginative play built by their vast imagination. It's a stage full of life and movement, and every small achievement is a big celebration.\n\nIt's natural for children to vary in their pace of development; every child has their own rhythm, just like a fingerprint—no two children are identical. However, there are some signs that gently and wisely warrant our attention. The complete absence of words, or the loss of skills your child had previously mastered, such as stopping walking after they had been walking, or the absence of eye contact, are signals that deserve early consultation. These signs are not necessarily a cause for extreme worry, but rather an invitation to seek understanding and information, because the earlier the intervention, the greater and better the impact on your child's future.\n\nAlways remember that you are your child's primary support, and your watchful, reassuring eye. Do not hesitate to consult a pediatrician if you have any questions or concerns. Doctors are our partners in the parenting journey, and they are here to provide you with the support and information you need. Be calm and confident, for your gentle observation and early attention are the best gift you can give your child to continue their journey of growth and discovery of the world with confidence and safety.",
-  "try_this": "Today: Dedicate a few minutes to observe how your child communicates with you, how they move, and what words they use. Calmly note anything that catches your attention or concerns you.",
+  "summary": "Do you remember the moment your child uttered their first word? Or when they took their first wobbly steps? Every day is a new adventure in their small world, where they discover their abilities, try to imitate you, and perhaps run around the house with laughter filling the air. At two and three years old, your child becomes like a butterfly just beginning to flutter its wings, putting two words together to form a simple sentence, running and jumping, and diving into the world of imaginative play built by their vast imagination. It's a stage full of life and movement, and every small achievement is a big celebration.\n\nIt's natural for children to vary in their pace of development; every child has their own rhythm, just like a fingerprint—no two children are identical. However, there are some signs that gently and wisely warrant our attention. Having few words—such as not saying around 50 words by 24 months of age, or not putting together a short sentence by age three—or the loss of skills your child had previously mastered, such as stopping walking after they had been walking, or the absence of eye contact, are signals that deserve early consultation. These signs are not necessarily a cause for extreme worry, but rather an invitation to seek understanding and information, as early evaluation allows for more appropriate and timely support.\n\nAlways remember that you are your child's primary support, and your watchful, reassuring eye. Do not hesitate to consult a pediatrician if you have any questions or concerns. Doctors are our partners in the parenting journey, and they are here to provide you with the support and information you need. Be calm and confident, for your gentle observation and early attention are the best gift you can give your child to continue their journey of growth and discovery of the world with confidence and safety.",
+  "try_this": "Today: Dedicate a few minutes to observe how your child communicates with you, how they move, and what words they use. Calmly note anything that catches your attention or concerns you to share with the pediatrician.",
   "order": 3,
   "estimated_minutes": 4,
   "reflection_prompts": [
@@ -24,7 +24,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I am here for you, my little one; I observe you and love you every step of the way.”",
   "assistant_prompts": [
     "What are the normal language development milestones for a two-and-a-half-year-old?",
@@ -42,7 +42,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -61,8 +61,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "740fff80bcbab524a7f5141b6018cca7397e18d04c8e239d428eb4e71daaf863",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "98c7ae0087b410c6a3b18bbdbdee0a8f8b09f72c1d4424ea8a249b1d3857e048",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -71,6 +71,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

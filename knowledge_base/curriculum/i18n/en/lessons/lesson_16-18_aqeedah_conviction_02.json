@@ -8,7 +8,7 @@
     "shm-aqd-1618-07-tawbah-renewal",
     "shm-aqd-1618-02-moderation-wasatiyah"
   ],
-  "summary": "Do you remember how your young child used to ask you about everything, from the color of their shirt to which toy to choose? Now, they face much bigger decisions: which university major to pursue? Who are their close friends? How should they handle money? And what are the boundaries of their relationships? These questions are not just fleeting choices; they are milestones that define their path. Sometimes, you might feel like you're at a crossroads with them, wondering how to guide them without imposing your will.\n\nThis is where faith comes in, not as a list of dry rituals, but as a true inner compass that illuminates their way. It is the scale by which they weigh every decision, and the question that echoes in their heart: \"Does this please Allah?\" When a young person believes firmly in the Hereafter, pleasing Allah takes precedence over any immediate gain or false glitter. This faith gives them a steadfastness that is not shaken by peer pressure or the temptations of the forbidden, because they possess an inner standard stronger than all external influences—a standard that guides them towards goodness and tranquility.\n\nOur role as parents is to instill this compass in our children's hearts with gentleness and wisdom, not through direct preaching, but through calm discussion and good example. Teach them to see every decision as an opportunity to strengthen their connection with Allah, and to realize that true tranquility lies in choosing what pleases the Creator. In this way, they will not be alone in facing life's challenges; instead, they will have an inner guide leading them towards what is right, and giving them the strength to stand firm on the truth, no matter the temptations.",
+  "summary": "Do you remember how your young child used to ask you about everything, from the color of their shirt to which toy to choose? Now, they face much bigger decisions: which university major to pursue? Who are their close friends? How should they handle money? And what are the boundaries of their relationships? These questions are not just fleeting choices; they are milestones that define their path. Sometimes, you might feel like you're at a crossroads with them, wondering how to guide them without imposing your will.\n\nThis is where creed (aqeedah) comes in—not as theoretical information detached from worship and life, but as a true inner compass that illuminates their way. It is the scale by which they weigh every decision, and the question that echoes in their heart: \"Does this please Allah?\" When a young person believes firmly in the Hereafter, pleasing Allah takes precedence over any immediate gain or false glitter. This faith helps them, by Allah's will, remain steadfast in the face of peer pressure and the temptations of what is forbidden, because they possess an inner standard stronger than all external influences—a standard that guides them towards goodness and tranquility.\n\nOur role as parents is to instill this compass in our children's hearts with gentleness and wisdom, not through direct preaching, but through calm discussion and good example. Teach them to see every decision as an opportunity to strengthen their connection with Allah, and to realize that true tranquility lies in choosing what pleases the Creator. In this way, they will not be alone in facing life's challenges; instead, they will have an inner guide leading them towards what is right, and helping them, by Allah's will, stand firm upon the truth in the face of temptations.",
   "try_this": "Tonight: Choose a simple decision your child faces today (such as choosing a movie to watch, or how to handle a specific situation), and gently discuss it with them: \"If we thought about how this choice would please Allah, what would our decision be?\"",
   "order": 3,
   "estimated_minutes": 4,
@@ -20,8 +20,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "\"I trust your wisdom, and I know you will always choose what pleases Allah.\"",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "\"I trust your wisdom, and I pray that Allah guides you to choose what pleases Him.\"",
   "assistant_prompts": [
     "How can I discuss with my teenage child the importance of choosing good friends based on our religious values?",
     "What are practical ways to help my child resist the temptations of unlawful money amidst societal pressures?"
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,42 +57,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "02cb6959afc339f5316cdb84e5b2a714f5ab3cf380544ed1b16efd2b963be2c3",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "meaning",
-          "why": "العقيدة (aqeedah) is a specific Islamic term for creed/conviction; rendering it as the generic \"faith\" loses the precise concept the lesson is built around."
-        },
-        {
-          "model": "glm-5.2",
-          "field": "reflection_prompts[0]",
-          "type": "meaning",
-          "why": "Same nuance loss: العقيدة is narrowed to the generic \"faith\"."
-        }
-      ],
+      "content_sha256": "f5fea276b9e23f75aa4388ecc175353c2f653b0c24b39550e4db33069db8f00a",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "meaning",
-        "why": "العقيدة (aqeedah) is a specific Islamic term for creed/conviction; rendering it as the generic \"faith\" loses the precise concept the lesson is built around."
-      },
-      {
-        "model": "glm-5.2",
-        "field": "reflection_prompts[0]",
-        "type": "meaning",
-        "why": "Same nuance loss: العقيدة is narrowed to the generic \"faith\"."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

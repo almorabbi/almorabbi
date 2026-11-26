@@ -8,7 +8,7 @@
     "seed-screen-46",
     "cyb-236a4b5e"
   ],
-  "summary": "Do you sometimes find yourself perplexed by the phone or TV screen, with your four-year-old child staring at it as if it's another world? Perhaps you've heard about the importance of setting screen time limits, but implementing them sometimes feels like a daily battle. You might feel guilty or frustrated, especially when screen time is the only available solution for some quiet or to get an urgent task done. These feelings are very natural, and we all experience them as parents.\n\nThe good news is that we are not alone in this challenge, and there are warm, effective ways to manage this aspect of our children's lives. Global recommendations suggest that children aged 2 to 5 years benefit most when screen time does not exceed one hour daily, and the less, the better. This is not a harsh ban, but an invitation to a healthy balance. Excessive screen time can affect their sleep, language development, and even their ability to focus and pay attention to other activities important for their growth.\n\nThe key is not in complete prohibition, but in conscious and loving limitation. Imagine offering your child a world of fun and engaging alternatives: drawing with bright colors, building a castle from blocks, reading an interesting story, or even just free play in the garden. When we prepare these alternatives in advance, we not only reduce screen time but also enrich our child's experience and teach them how to enjoy their time in diverse and beneficial ways. This way, the screen becomes a part of their day, not its center.",
+  "summary": "Do you sometimes find yourself perplexed by the phone or TV screen, with your four-year-old child staring at it as if it's another world? Perhaps you've heard about the importance of setting screen time limits, but implementing them sometimes feels like a daily battle. You might feel guilty or frustrated, especially when screen time is the only available solution for some quiet or to get an urgent task done. These feelings are very natural, and we all experience them as parents.\n\nThe good news is that we are not alone in this challenge, and there are warm, effective ways to manage this aspect of our children's lives. Global recommendations advise that for ages 4 to 6, recreational screen time should not exceed a maximum of one hour daily, consisting of high-quality, age-appropriate content—and the less, the better. This is not a harsh ban, but an invitation to a healthy balance. Excessive screen time can affect their sleep, language development, and even their ability to focus and pay attention to other activities important for their growth.\n\nThe key is not in complete prohibition, but in conscious and loving limitation. Imagine offering your child a world of fun and engaging alternatives: drawing with bright colors, building a castle from blocks, reading an interesting story, or even just free play in the garden. When we prepare these alternatives in advance, we not only reduce screen time but also enrich our child's experience and teach them how to enjoy their time in diverse and beneficial ways. This way, the screen becomes a part of their day, not its center.",
   "try_this": "Tonight: Before your child asks for the screen, prepare an attractive and fun alternative activity (such as a new puzzle or a picture book) and place it in a visible spot.",
   "order": 1,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“My dear, after this fun activity, we will choose something else to do together.”",
   "assistant_prompts": [
     "How can I help my child transition smoothly from screen time to another activity?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "c9a9bab8f5f15a7f5b90334061d23139646ac269f9fbe9481425b97635541bbb",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "fc06ee39f60870d3d4790f90b921d3173b291062c7dbae007e03008f05494457",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

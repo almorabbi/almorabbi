@@ -16,30 +16,119 @@ Videos (H.264 yuv420p +faststart, AAC 96k):
     with the spoken voice-only outro
 
 Usage:
-  python3 ops/tools/brand_lesson_media.py --file <path> [--lang ar|en] [--force]
+  # Preferred: write branded copies into a separate directory (leaves originals untouched)
+  python3 ops/tools/brand_lesson_media.py --file <path> --output-dir <branded_dir> [--lang ar|en]
   python3 ops/tools/brand_lesson_media.py --batch-from-index docs/lesson_index.json \
-      --media-root /home/khalednew/projects/tutor-guardian/docs \
-      [--kind podcasts|videos|all] [--workers 8]
+      --media-root docs --output-dir docs_branded [--kind podcasts|videos|all] [--workers 2]
+
+  # In-place replacement: REFUSES to overwrite unless --originals-dir is given strictly outside --media-root
+  python3 ops/tools/brand_lesson_media.py --file <path> --originals-dir /var/backups/media_originals
 """
 from __future__ import annotations
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import hashlib
 import json
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
 from urllib.parse import urlparse
 
 BRAND_MARKER = "almorabbi_branded_v1"
-DEFAULT_ASSETS_DIR = Path("/home/khalednew/projects/tutor-guardian/scratch/brand_assets_v1")
+DEFAULT_ASSETS_DIR = Path(
+    os.environ.get("TG_BRAND_ASSETS_DIR", str(Path.cwd() / "scratch" / "brand_assets_v1"))
+)
 
 _SILENCE_END_RE = re.compile(
     r"silence_end:\s*([0-9.]+)\s*\|\s*silence_duration:\s*([0-9.]+)"
 )
+
+
+def _sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _is_within(child: Path, parent: Path) -> bool:
+    try:
+        child.resolve().relative_to(parent.resolve())
+        return True
+    except ValueError:
+        return False
+
+
+def _resolve_safe_destination(
+    src: Path,
+    *,
+    output_dir: Path | None = None,
+    originals_dir: Path | None = None,
+    serving_root: Path | None = None,
+) -> tuple[Path, Path | None]:
+    """Validate non-destructive target paths without writing anything yet.
+
+    Returns ``(dest_path, backup_path)`` where ``backup_path`` is ``None`` in
+    separate ``--output-dir`` mode and a verified outside-serving-dir path in
+    in-place mode.
+    """
+    src_resolved = src.resolve()
+    guard_root = (serving_root or src.parent).resolve()
+
+    if output_dir is not None:
+        out_root = output_dir.resolve()
+        if serving_root is not None and _is_within(src_resolved, serving_root):
+            rel = src_resolved.relative_to(serving_root.resolve())
+            dest = out_root / rel
+        else:
+            dest = out_root / src.name
+        if dest.resolve() == src_resolved:
+            raise ValueError(
+                f"Refusing to overwrite {src} via --output-dir: destination resolves to source file."
+            )
+        return dest, None
+
+    if originals_dir is None:
+        raise ValueError(
+            f"Refusing in-place overwrite of {src.name}: pass --output-dir to keep originals untouched, "
+            "or pass --originals-dir pointing strictly outside the serving directory."
+        )
+
+    orig_root = originals_dir.resolve()
+    if _is_within(orig_root, guard_root) or _is_within(guard_root, orig_root):
+        raise ValueError(
+            f"Refusing in-place overwrite: --originals-dir ({orig_root}) must be strictly outside "
+            f"the serving directory ({guard_root})."
+        )
+
+    if serving_root is not None and _is_within(src_resolved, serving_root):
+        rel = src_resolved.relative_to(serving_root.resolve())
+        backup = orig_root / rel
+    else:
+        backup = orig_root / src.name
+    return src, backup
+
+
+def _archive_original(src: Path, backup: Path) -> None:
+    """Copy ``src`` to ``backup`` (without clobbering an existing archive) and verify SHA-256."""
+    src_resolved = src.resolve()
+    backup.parent.mkdir(parents=True, exist_ok=True)
+    if not backup.exists():
+        src_hash = _sha256_file(src_resolved)
+        tmp_bak = backup.with_suffix(backup.suffix + ".bak_tmp")
+        shutil.copy2(src_resolved, tmp_bak)
+        if _sha256_file(tmp_bak) != src_hash:
+            tmp_bak.unlink(missing_ok=True)
+            raise RuntimeError(f"Backup SHA-256 verification failed for {src.name}")
+        os.replace(tmp_bak, backup)
+    if not backup.is_file() or backup.stat().st_size == 0:
+        raise RuntimeError(f"Archived original missing or empty at {backup}")
 
 
 def _ffprobe_json(path: Path) -> dict:
@@ -121,11 +210,26 @@ def brand_podcast(
     assets_dir: Path = DEFAULT_ASSETS_DIR,
     lang: str | None = None,
     force: bool = False,
+    output_dir: Path | None = None,
+    originals_dir: Path | None = None,
+    serving_root: Path | None = None,
 ) -> str:
     if not path.is_file():
         return f"MISSING:{path}"
-    if not force and is_branded(path):
+    dest, backup = _resolve_safe_destination(
+        path,
+        output_dir=output_dir,
+        originals_dir=originals_dir,
+        serving_root=serving_root,
+    )
+    if not force and dest.is_file() and is_branded(dest):
+        return f"SKIP:{dest.name}"
+    if not force and dest != path and is_branded(path):
         return f"SKIP:{path.name}"
+    if backup is not None:
+        _archive_original(path, backup)
+    else:
+        dest.parent.mkdir(parents=True, exist_ok=True)
 
     lg = detect_lang(path, lang)
     intro = assets_dir / f"intro_{lg}.wav"
@@ -269,12 +373,12 @@ def brand_podcast(
         subprocess.run(cmd, check=True)
         if not is_branded(out_tmp):
             raise RuntimeError(f"Branded verification failed for {path}")
-        dest_tmp = path.with_suffix(".brand_tmp.mp3")
+        dest_tmp = dest.with_suffix(".brand_tmp.mp3")
         dest_tmp.write_bytes(out_tmp.read_bytes())
         os.chmod(dest_tmp, 0o644)
-        os.replace(dest_tmp, path)
+        os.replace(dest_tmp, dest)
     tag = f"mid@{split_at:.1f}s" if split_at is not None else "no-mid"
-    return f"OK:MP3:{lg}:{tag}:{path.name}"
+    return f"OK:MP3:{lg}:{tag}:{dest.name}"
 
 
 def brand_video(
@@ -283,11 +387,26 @@ def brand_video(
     assets_dir: Path = DEFAULT_ASSETS_DIR,
     lang: str | None = None,
     force: bool = False,
+    output_dir: Path | None = None,
+    originals_dir: Path | None = None,
+    serving_root: Path | None = None,
 ) -> str:
     if not path.is_file():
         return f"MISSING:{path}"
-    if not force and is_branded(path):
+    dest, backup = _resolve_safe_destination(
+        path,
+        output_dir=output_dir,
+        originals_dir=originals_dir,
+        serving_root=serving_root,
+    )
+    if not force and dest.is_file() and is_branded(dest):
+        return f"SKIP:{dest.name}"
+    if not force and dest != path and is_branded(path):
         return f"SKIP:{path.name}"
+    if backup is not None:
+        _archive_original(path, backup)
+    else:
+        dest.parent.mkdir(parents=True, exist_ok=True)
 
     lg = detect_lang(path, lang)
     wm = assets_dir / f"watermark_{lg}.png"
@@ -492,11 +611,11 @@ def brand_video(
                 f"(expected>={expected_min_frames}), dur={out_dur:.1f}s "
                 f"(expected~{orig_dur + outro_dur:.1f}s)"
             )
-        dest_tmp = path.with_suffix(".brand_tmp.mp4")
+        dest_tmp = dest.with_suffix(".brand_tmp.mp4")
         dest_tmp.write_bytes(out_tmp.read_bytes())
         os.chmod(dest_tmp, 0o644)
-        os.replace(dest_tmp, path)
-    return f"OK:MP4:{lg}:{w}x{h}:{path.name}"
+        os.replace(dest_tmp, dest)
+    return f"OK:MP4:{lg}:{w}x{h}:{dest.name}"
 
 
 def collect_from_index(index_path: Path, media_root: Path, kind: str) -> list[tuple[Path, str, str]]:
@@ -534,10 +653,22 @@ def collect_from_index(index_path: Path, media_root: Path, kind: str) -> list[tu
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--file", type=Path, help="Single .mp3 or .mp4 file to brand in-place")
+    ap.add_argument("--file", type=Path, help="Single .mp3 or .mp4 source file to brand")
     ap.add_argument("--lang", choices=["ar", "en"], help="Explicit language override")
     ap.add_argument("--batch-from-index", type=Path, help="lesson_index.json path for batch branding")
-    ap.add_argument("--media-root", type=Path, default=Path("/home/khalednew/projects/tutor-guardian/docs"))
+    ap.add_argument("--media-root", type=Path, default=Path("docs"))
+    ap.add_argument(
+        "--output-dir",
+        type=Path,
+        default=None,
+        help="Write branded copies here without modifying source files (recommended).",
+    )
+    ap.add_argument(
+        "--originals-dir",
+        type=Path,
+        default=None,
+        help="Required for in-place branding: archive unbranded originals strictly outside --media-root before replacing.",
+    )
     ap.add_argument("--assets-dir", type=Path, default=DEFAULT_ASSETS_DIR)
     ap.add_argument("--kind", choices=["podcasts", "videos", "all"], default="all")
     ap.add_argument("--workers", type=int, default=2)
@@ -546,10 +677,31 @@ def main() -> int:
 
     if args.file:
         ext = args.file.suffix.lower()
+        serving_root = args.media_root if _is_within(args.file, args.media_root) else args.file.parent
         if ext == ".mp3":
-            print(brand_podcast(args.file, assets_dir=args.assets_dir, lang=args.lang, force=args.force))
+            print(
+                brand_podcast(
+                    args.file,
+                    assets_dir=args.assets_dir,
+                    lang=args.lang,
+                    force=args.force,
+                    output_dir=args.output_dir,
+                    originals_dir=args.originals_dir,
+                    serving_root=serving_root,
+                )
+            )
         elif ext == ".mp4":
-            print(brand_video(args.file, assets_dir=args.assets_dir, lang=args.lang, force=args.force))
+            print(
+                brand_video(
+                    args.file,
+                    assets_dir=args.assets_dir,
+                    lang=args.lang,
+                    force=args.force,
+                    output_dir=args.output_dir,
+                    originals_dir=args.originals_dir,
+                    serving_root=serving_root,
+                )
+            )
         else:
             print(f"Unsupported extension: {args.file}", file=sys.stderr)
             return 2
@@ -565,8 +717,24 @@ def main() -> int:
     def _run(job: tuple[Path, str, str]) -> str:
         p, mtype, lg = job
         if mtype == "podcast":
-            return brand_podcast(p, assets_dir=args.assets_dir, lang=lg, force=args.force)
-        return brand_video(p, assets_dir=args.assets_dir, lang=lg, force=args.force)
+            return brand_podcast(
+                p,
+                assets_dir=args.assets_dir,
+                lang=lg,
+                force=args.force,
+                output_dir=args.output_dir,
+                originals_dir=args.originals_dir,
+                serving_root=args.media_root,
+            )
+        return brand_video(
+            p,
+            assets_dir=args.assets_dir,
+            lang=lg,
+            force=args.force,
+            output_dir=args.output_dir,
+            originals_dir=args.originals_dir,
+            serving_root=args.media_root,
+        )
 
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         futs = {pool.submit(_run, j): j for j in jobs}

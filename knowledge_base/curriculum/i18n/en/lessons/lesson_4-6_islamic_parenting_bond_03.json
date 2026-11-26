@@ -8,7 +8,7 @@
     "isl-00ca8ce8",
     "isl-d4dbc6b8"
   ],
-  "summary": "When a father asks his child returning from kindergarten, «What did you do today?», he often hears a single word: «Nothing.» This isn't because their day was empty, but because a broad question overwhelms a five-year-old's mind, and sometimes the child feels the conversation will quickly turn into an interrogation or a correction of their mistakes.\n\nAt this age, your child begins to realize that people have feelings and ideas different from their own, and this is a golden opportunity to build a habit of warm conversation before distances grow. If you want them to tell you their secrets when they turn fourteen, start today by genuinely listening to their small story about a classmate who took their pencil or the ant they saw in the yard.\n\nReflect on the Qur'an's guidance for good speech: Allah Almighty says: ﴿وَقُل لِّعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ﴾ (interpretation of the meaning: \"And tell My servants to say that which is best\") [Al-Isra: 53]. And among the best speech with a child is for you to start by telling a short story from your day before you ask them, and to ask specific, warm questions like: «What was the moment that made you laugh today?» or «Did anything bother you?» And when they speak, do not interrupt to correct their pronunciation or to give them an immediate moral lesson; first name their feeling («It seems you were upset when your toy was taken»), and you will be amazed how much they open their heart to you when they feel you are truly listening to them.",
+  "summary": "When a father asks his child returning from kindergarten, «What did you do today?», he often hears a single word: «Nothing.» This isn't because their day was empty, but because a broad question overwhelms a five-year-old's mind, and sometimes the child feels the conversation will quickly turn into an interrogation or a correction of their mistakes.\n\nAt this age, your child begins to realize that people have feelings and ideas different from their own, and this is a golden opportunity to build a habit of warm conversation before distances grow. If you want them to tell you their secrets when they turn fourteen, start today by genuinely listening to their small story about a classmate who took their pencil or the ant they saw in the yard.\n\nReflect on the Qur'an's guidance for good speech: Allah Almighty says: ﴿وَقُل لِّعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ﴾ [Al-Isra: 53] (interpretation of the meaning: \"And tell My servants to say that which is best\"). The verse calls us to good speech, and part of applying this with a young child is for you to start by telling a short story from your day before you ask them, and to ask specific, warm questions like: «What was the moment that made you laugh today?» or «Did anything bother you?» And when they speak, do not interrupt to correct their pronunciation or to give them an immediate moral lesson; first name their feeling («It seems you were upset when your toy was taken»), and they may open their heart to you more when they feel you are truly listening to them.",
   "try_this": "Tonight at bedtime: Tell your child a small, pleasant situation you experienced today in two sentences, then ask them one specific question: «What was the most beautiful moment of your day today?» And listen to them completely without interruption or correction.",
   "order": 3,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-08T14:00:00",
   "updated_at": "2026-06-08T14:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«I'll tell you something that made me happy today... Now it's your turn: What was the most beautiful moment you experienced today? I'm listening to you.»",
   "assistant_prompts": [
     "My 5-year-old child doesn't tell me what happens at kindergarten. What smart questions can open a conversation with them?",
@@ -40,7 +40,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,8 +59,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "ae7c0f196658b06d0528b42ea273e59868823c0f3d8bd04c07ec897006fe47aa",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "62c783aa0940e39907c535dcda8e4a72ab20ef8b98be489502c359df39ea4264",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -69,6 +69,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -8,7 +8,7 @@
     "cyb-aap-digital-ecosystems-2026",
     "cyb-who-screen-under5-2019"
   ],
-  "summary": "Imagine yourself in the midst of a long day, your little one crying or constantly demanding attention, and you desperately need a few quiet minutes to prepare a meal, finish a work call, or simply catch your breath. In these moments, a screen might seem like a magic solution that grants you some peace. This feeling is very natural, as we live in a digital world, and it's sometimes difficult to completely separate our children from it, especially with all the devices surrounding us.\n\nHowever, the most important thing is to remember that the first years of our children's lives are foundational for their development. During this period, they learn through play, movement, direct interaction with us, and discovering the world with their hands and eyes. Experts confirm that infants do not benefit educationally from screens, and while high-quality content may not always be harmful, it does not replace free play and human interaction. The goal is not complete deprivation, but rather finding a healthy balance that protects their natural growth and gives them the best possible start.\n\nSo, instead of feeling guilty, let's think about the quality of time our children spend, whether in front of a screen or away from it. We can set clear and flexible boundaries that suit our family's routine, prioritizing sufficient sleep, active play, reading, and the precious moments we spend with them face-to-face. Remember that every moment you spend playing or reading with your child is an investment in their future, and it is more valuable than any digital content.",
+  "summary": "Imagine yourself in the midst of a long day, your little one crying or constantly demanding attention, and you desperately need a few quiet minutes to prepare a meal, finish a work call, or simply catch your breath. In these moments, a screen might seem like a magic solution that grants you some peace. This feeling is very natural, as we live in a digital world, and it's sometimes difficult to completely separate our children from it, especially with all the devices surrounding us.\n\nHowever, the most important thing is to remember that the first years of our children's lives are foundational for their development. During this period, they learn through play, movement, direct interaction with us, and discovering the world with their hands and eyes. Experts confirm that infants do not benefit educationally from screens, and while high-quality content may not always be harmful, it does not replace free play and human interaction. The goal is not complete deprivation, but rather finding a healthy balance that protects their natural growth and gives them the best possible start.\n\nSo, instead of feeling guilty, let's think about the quality of time our children spend, whether in front of a screen or away from it. We can set clear and flexible boundaries that suit our family's routine, prioritizing sufficient sleep, active play, reading, and the precious moments we spend with them face-to-face. Remember that playing and reading with your child are among the most beneficial things you can offer them at this stage, and digital content cannot replace them.",
   "try_this": "Tonight: Before bedtime, dedicate 5 minutes to playing with your child without any screens. Get down to their level, play together with any simple toy or even kitchen pots and pans. Observe how they interact with you.",
   "order": 1,
   "estimated_minutes": 4,
@@ -23,7 +23,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-10T18:00:00",
   "updated_at": "2026-10-07T09:13:07.475746+00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I’m here with you, let’s play!”",
   "assistant_prompts": [
     "What are some screen-free alternative activities suitable for a two-year-old?",
@@ -40,7 +40,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,8 +59,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "d91ec604ed2dacee569f3a5ba0c1bf6af908948dd64785a2f7b8ba6f34935e49",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "85dceaefdaf806f1aeb7e08448fab5cac2516f4e91bc442a0e6dd107ac133115",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -69,6 +69,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -6,10 +6,9 @@
   "domain": "islamic_parenting",
   "unit_ids": [
     "isl-199c7aaf",
-    "isl-1812a28d",
     "aa540ac5-be92-4d96-8615-13cda8aef1d1"
   ],
-  "summary": "Between the ages of thirteen and fifteen, your child undergoes a profound transformation: they are no longer convinced by the phrase, “Do this because we tell you to.” Instead, they ask internally—and perhaps aloud— “Why should I pray if I don’t feel anything?” Many parents are shocked by this question and respond with anger or accusations of weak faith, even though this very question is the gateway for them to transition from habitual worship to worship based on conviction and choice.\n\nHelp them understand that devotion (khushu') is not a magical feeling that descends suddenly, but rather a relationship built step by step, and that honesty in a moment of spiritual dryness is better than hypocrisy or pretense. The Prophet’s ﷺ call to worship was a call of ease and love, as he ﷺ said: “Make things easy and do not make them difficult; give glad tidings and do not repel them” (Sahih al-Bukhari 69). And the supplication of Prophet Ibrahim (peace be upon him) reminds us that guidance and steadfastness are a gift from Allah that we earnestly seek: ﴿رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِن ذُرِّيَّتِي﴾ [Ibrahim: 40] — an interpretation of the meaning is: “My Lord, make me an establisher of prayer, and [many] from my descendants” (Surah Ibrahim 14:40).\n\nInstead of long sermons, suggest a small experiment that they can decide on: that they choose one prayer today, turn off their phone notifications for two minutes before it, and reflect on the meaning of a short verse they recite in it. Then, they can tell you, if they wish, how the experience was. When worship transforms from family pressure into a space of tranquility that they consciously choose, their faith will deepen and become firm.",
+  "summary": "Between the ages of thirteen and fifteen, your child undergoes a profound transformation: they are no longer convinced by the phrase, \"Do this because we tell you to.\" Instead, they ask internally—and perhaps aloud—\"Why should I pray if I don't feel anything?\" Many parents are shocked by this question and respond with anger or accusations of weak faith, even though this very question can be the gateway for them to transition from habitual worship to worship rooted in understanding and conviction—while prayer remains an obligation upon the mature believer with no option to abandon it.\n\nHelp them understand that devotion (khushu') is not a magical feeling that descends suddenly, but rather a relationship built step by step, and that confiding in you about their spiritual dryness is better than keeping it hidden, while continuing to perform their prayers on time; for prayer is an obligation that does not fall away in the absence of feeling, and devotion is attained through striving and supplication. The Prophet's ﷺ call to worship was a call of ease and love, as he ﷺ said: \"Make things easy and do not make them difficult; give glad tidings and do not repel people\" (Sahih al-Bukhari, Hadith 69). And the supplication of Prophet Ibrahim (peace be upon him) reminds us that guidance and steadfastness are a favor from Allah that we earnestly seek ﴿رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِن ذُرِّيَّتِي﴾ [Surah Ibrahim: 40] (interpretation of the meaning: \"My Lord, make me an establisher of prayer, and from my descendants\").\n\nInstead of long sermons, suggest a small experiment that they can decide on: that they choose one prayer today, turn off their phone notifications for two minutes before it, and reflect on the meaning of a short verse they recite in it. Then, they can tell you, if they wish, how the experience was. When they experience this obligation with awareness and tranquility rather than as family pressure, they are helped, by Allah's will, toward deeper and firmer faith.",
   "try_this": "Tonight: Have a short, honest conversation with your child, free of blame. Share with them when you find it difficult to feel devotion and how you renew your heart. Then ask them: “What helps you feel calm in your prayer?”",
   "order": 1,
   "estimated_minutes": 4,
@@ -21,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“Honestly, even I sometimes get distracted during prayer and need a minute to calm down beforehand. What helps you the most to bring your heart into your prayer?”",
   "assistant_prompts": [
     "My 14-year-old son says he doesn't feel anything in prayer and has become lazy about it. How can I talk to him calmly?",
@@ -39,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,30 +57,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4a94829a7643b46cc8069665501358bb9a5365e205d90ce7952c97eac66ef59d",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "omission",
-          "why": "The honorific title «الخليل» (the close friend of Allah) is dropped, losing a religious title the Arabic deliberately uses for Prophet Ibrahim."
-        }
-      ],
+      "content_sha256": "34eaf330c777bb97a7709a784b51b5051c01b3eb74cc380d08605ede84c7e28e",
+      "reviewed_at": "2026-11-26T10:40:41+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "omission",
-        "why": "The honorific title «الخليل» (the close friend of Allah) is dropped, losing a religious title the Arabic deliberately uses for Prophet Ibrahim."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:40:41+00:00"
   }
 }

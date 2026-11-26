@@ -8,7 +8,7 @@
     "isl-3f0af447",
     "isl-c4d83813"
   ],
-  "summary": "Prayer is not valid without purity, so teaching prayer at seven begins with teaching wudu (ablution). A child this age loves order and clear steps, and is proud to master a skill grown-ups do. Use that to teach wudu in a practical, enjoyable way.\n\nTeach the steps in order, by doing and not only by explaining: the intention in the heart, then saying «Bismillah», then washing the hands, then rinsing the mouth and nose, then washing the face, then washing the arms including the elbows, then wiping the head and ears, then washing the feet including the ankles. This is a practical way that combines the obligatory and recommended acts of wudu, and jurists differ over the ruling on some of them, such as saying «Bismillah», rinsing the mouth and nose, and wiping the ears; so do not judge their wudu invalid merely because a step was forgotten, and ask a scholar you trust which of them are obligatory. Make wudu slowly in front of them, naming each step, then let them make wudu with you beside them, and repeat this for a few days until they know the order.\n\nA useful idea: a picture card of the wudu steps hung near the sink, which they draw or colour with you. Teach them not to waste water by turning off the tap between steps. If they forget a step, don't scold them; say gently: «There's one step left — which one?» and let them remember it themselves.\n\nIf detailed questions come up, such as what breaks wudu or what to do if they are injured, answer what you know for certain, and for anything else turn to a trusted children's book on the fiqh of purity or to a scholar you trust. Praise their mastery specifically: «Today you made wudu completely, in the right order.» This way wudu becomes a habit they master and are proud of, and they enter their prayer at ease.",
+  "summary": "Prayer is not valid without purity, so teaching prayer at seven begins with teaching wudu (ablution). A child this age loves order and clear steps, and is proud to master a skill grown-ups do. Use that to teach wudu in a practical, enjoyable way.\n\nTeach the steps in order, by doing and not only by explaining: the intention in the heart, then saying «Bismillah», then washing the hands, then rinsing the mouth and nose, then washing the face, then washing the arms including the elbows, then wiping the head and ears, then washing the feet including the ankles. This is a practical way that combines the obligatory and recommended acts of wudu, and jurists differ over the ruling on some of them, such as saying «Bismillah», rinsing the mouth and nose, and wiping the ears; and if they forget a step, ask a scholar you trust whether it is one of the obligatory acts for which purification must be repeated or one of the recommended acts. Make wudu slowly in front of them, naming each step, then let them make wudu with you beside them, and repeat this for a few days until they know the order.\n\nA useful idea: a picture card of the wudu steps hung near the sink, which they draw or colour with you. Teach them not to waste water by turning off the tap between steps. If they forget a step, don't scold them; say gently: «There's one step left — which one?» and let them remember it themselves.\n\nIf detailed questions come up, such as what breaks wudu or what to do if they are injured, answer what you know for certain, and for anything else turn to a trusted children's book on the fiqh of purity or to a scholar you trust. Praise their mastery specifically: «Today you made wudu completely, in the right order.» This way wudu becomes a habit they master and are proud of, and they enter their prayer at ease.",
   "try_this": "Today: Before Asr or Maghrib, make wudu slowly in front of your child, naming each step aloud, then ask them to make wudu with you beside them. If they forget a step, help with a gentle question instead of telling them.",
   "order": 6,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-10-04T17:13:00",
   "updated_at": "2026-10-04T17:13:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "My dear, how beautiful it is to be pure and clean before we stand before Allah. Come, let's perform ablution together, step by step.",
   "assistant_prompts": [
     "How can I make my child love ablution and not see it as just an obligation?",
@@ -41,7 +41,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -60,8 +60,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "015814a3df19cf48c6a785199e5662b9ff2d164f0ee75eaf1d04e28102055c3d",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "6cd22b6a5f60a5677a0a5fd4a709c3d117acbbabeacc6ec8f2349d79fc5b27f9",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -70,6 +70,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

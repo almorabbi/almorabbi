@@ -5,9 +5,9 @@
   "behavior_type": "الاعتدال في الفهم الديني",
   "intervention_type": "وقائي",
   "severity": "خفيف",
-  "reference_type": "كتاب_فقهي",
+  "reference_type": "كتاب_تفسير",
   "reference_info": "عبد الرحمن السعدي، تفسير السعدي = تيسير الكريم الرحمن، ص ٧٠.",
-  "title": "وسطية الإسلام وحماية الشباب من الغلو",
+  "title": "تحويل القبلة والتسليم لحكم الله",
   "language": "ar",
   "source_file": "shamela:42:100",
   "source_meta": {
@@ -23,6 +23,6 @@
     "فهم_الأحكام"
   ],
   "created_at": "2026-11-24T19:10:49Z",
-  "updated_at": "2026-11-24T19:10:49Z",
+  "updated_at": "2026-11-26",
   "version": "1.1.0"
 }

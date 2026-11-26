@@ -5,9 +5,9 @@
   "behavior_type": "الشكر والحمد لله",
   "intervention_type": "وقائي",
   "severity": "خفيف",
-  "reference_type": "كتاب_تربوي",
+  "reference_type": "شرح_حديث",
   "reference_info": "ابن عثيمين، شرح رياض الصالحين لابن عثيمين، ج ٥، ص ٤٥٩.",
-  "title": "غرس الشكر والحمد لله في نفوس الصغار",
+  "title": "شكر نعم الله يكون من جنس النعمة",
   "language": "ar",
   "source_file": "shamela:9260:2981",
   "source_meta": {
@@ -23,6 +23,6 @@
     "تربية_الأطفال"
   ],
   "created_at": "2026-11-24T19:01:15Z",
-  "updated_at": "2026-11-24T19:01:15Z",
+  "updated_at": "2026-11-26",
   "version": "1.1.0"
 }

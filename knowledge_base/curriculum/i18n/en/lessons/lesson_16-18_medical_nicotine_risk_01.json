@@ -1,7 +1,7 @@
 {
   "id": "lesson_16-18_medical_nicotine_risk_01",
   "path_id": "path_16-18_medical_adult_transition",
-  "title": "My Teenager and Nicotine: A Heart-to-Heart Before It's Too Late",
+  "title": "My Teenager and Nicotine: A Heart-to-Heart Before the Problem Escalates",
   "age_group": "16-18",
   "domain": "medical",
   "unit_ids": [
@@ -22,7 +22,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I am here to listen to you, no matter what, and I will not judge you.”",
   "assistant_prompts": [
     "How do I deal with my teenage son (16-18) if he admits to trying nicotine?",
@@ -40,7 +40,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,8 +59,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "0135104cd86656a8b8efbc8416484bf13cf688dcba6e19f297bbb856a67de23b",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "d6a5209605c8b6a2b9922d24a6073bedc1f6ca28bc60c443fb10a093a71798fa",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -69,6 +69,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

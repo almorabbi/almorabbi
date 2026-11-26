@@ -8,7 +8,7 @@
     "cyb-db2bb48f",
     "cyb-26236b19"
   ],
-  "summary": "Do you remember how your teenager, now on the cusp of university or the working world, used to spend long hours in front of a screen? Those hours could now be a golden opportunity to build their future. At this crucial age (16-18), their digital identity is no longer just photos with friends; it has become their first resume, the gateway through which they will enter countless educational and professional opportunities. Imagine that every click, every share, and every project adds a brick to building their future reputation.\n\nThe core idea here is that the digital world is not just a place for entertainment; it is an extension of our children's real lives, and a space where they can showcase their true potential. When we help them craft a conscious and professional digital presence, we are not just teaching them a technical skill, but instilling in them values of responsibility, future-oriented thinking, and how to present themselves to the world in the best possible light. It's like teaching them how to plant seeds of success in fertile soil, from which they await abundant fruits in the near future.\n\nSo, let us take our children's hands on this important journey. Start by helping them create a professional profile on platforms like LinkedIn, with a clear photo and a headline that reflects their ambitions. Encourage them to build a digital portfolio that includes their projects and achievements, whether they are code, artistic designs, or articles. And don't forget the importance of searching for their names on search engines to clean up any digital footprint that may not be appropriate. Finally, guide them to interact intelligently with leaders in their fields of interest, as every thoughtful comment or request for a recommendation from a teacher can open doors they never imagined.",
+  "summary": "Do you remember how your teenager, now on the cusp of university or the working world, used to spend long hours in front of a screen? Those hours could now be a golden opportunity to build their future. At this crucial age (16-18), their digital identity is no longer just photos with friends; it has become their first resume, the gateway through which they will enter many educational and professional opportunities, by Allah's will. Imagine that every click, every share, and every project adds a brick to building their future reputation.\n\nThe core idea here is that the digital world is not just a place for entertainment; it is an extension of our children's real lives, and a space where they can showcase their true potential. When we help them craft a conscious and professional digital presence, we are not just teaching them a technical skill, but instilling in them values of responsibility, future-oriented thinking, and how to present themselves to the world in the best possible light. It's like teaching them how to plant seeds of success in fertile soil, from which they await abundant fruits in the near future.\n\nSo, let us take our children's hands on this important journey. Start by helping them create a professional profile on platforms like LinkedIn, with a clear photo and a headline that reflects their ambitions. Encourage them to build a digital portfolio that includes their projects and achievements, whether they are code, artistic designs, or articles. And don't forget the importance of searching for their names on search engines to clean up any digital footprint that may not be appropriate. Finally, guide them to interact intelligently with leaders in their fields of interest, as every thoughtful comment or request for a recommendation from a teacher can open doors they never imagined.",
   "try_this": "Tonight: Sit with your son/daughter for 5 minutes, open their LinkedIn account (or create one), then add a professional photo and a clear headline describing their ambitions.",
   "order": 1,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“My son/daughter, your digital identity is your footprint in tomorrow's world; let's take care of it together.”",
   "assistant_prompts": [
     "What are the best platforms for building a digital portfolio for teenagers in design or programming?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "b47428c26eb95b736636fe62925b4a551dcbe9b09b901c4d2eda1957a05e8490",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "368c90766d6525c9c5ef253847f3a2d55a43353010f5d3a6674f8dcb75c9a833",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

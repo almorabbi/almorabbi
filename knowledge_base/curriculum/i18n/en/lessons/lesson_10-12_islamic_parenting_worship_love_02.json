@@ -8,7 +8,7 @@
     "isl-30775bae",
     "isl-c4b3fccc"
   ],
-  "summary": "As Ramadan approaches, you might notice in your child at this age (10-12) a mix of enthusiasm and a desire to imitate adults, and perhaps some apprehension about the long hours of fasting. They might ask you: “Mom, do I have to fast all day?” or “Can I break my fast if I feel tired?” These questions are very natural, and they are your golden opportunity to establish a positive relationship between your child and this great act of worship, far from any pressure or exhaustion.\n\nRemember that fasting before puberty is not a religious obligation, but rather a beloved training and a psychological and spiritual preparation. The goal is not to complete a full day of fasting by force, but to build a positive experience associated with joy and celebration, not with deprivation and hardship. Here comes your role in adopting an approach of gradualism and gentleness, for as the Prophet ﷺ said: “Make things easy and do not make them difficult, and give glad tidings and do not make people flee.” (Sahih al-Bukhari 69). Your child at this stage is acquiring their habits and values, and their first experience with fasting will remain etched in their memory.\n\nStart by setting small goals appropriate for their ability and health, such as fasting for a few hours or even half a day. The most important thing is flexibility and responding to their body's signals and feelings. If they feel tired or sick, allow them to break their fast without hesitation, and remind them that this is training, not an obligation. Make Ramadan an occasion for joy and celebration by creating beloved family rituals, such as preparing iftar together, reading Ramadan stories, or even small rewards for their efforts. These beautiful memories are what will make them love fasting and eagerly embrace it when it becomes obligatory for them.",
+  "summary": "As Ramadan approaches, you might notice in your child at this age (10-12) a mix of enthusiasm and a desire to imitate adults, and perhaps some apprehension about the long hours of fasting. They might ask you: “Mom, do I have to fast all day?” or “Can I break my fast if I feel tired?” These questions are very natural, and they are your golden opportunity to establish a positive relationship between your child and this great act of worship, far from any pressure or exhaustion.\n\nRemember that fasting before puberty is not a religious obligation, but rather a beloved training and a psychological and spiritual preparation. The goal is not to complete a full day of fasting by force, but to build a positive experience associated with joy and celebration, not with deprivation and hardship. Here comes your role in adopting an approach of gradualism and gentleness, for as the Prophet ﷺ said: “Make things easy and do not make them difficult, and give glad tidings and do not make people flee.” (Sahih al-Bukhari 69). Your child at this stage is acquiring their habits and values, and their first experience with fasting will remain etched in their memory.\n\nStart by setting small goals appropriate for their ability and health, such as fasting for a few hours or even half a day. The most important thing is flexibility and responding to their body's signals and feelings. If they feel tired or sick, allow them to break their fast without hesitation, and remind them that this is training as long as they have not reached puberty, whereas once they reach puberty, fasting becomes obligatory upon them. Make Ramadan an occasion for joy and celebration by creating beloved family rituals, such as preparing iftar together, reading Ramadan stories, or even small rewards for their efforts. These beautiful memories are what will make them love fasting and eagerly embrace it when it becomes obligatory for them.",
   "try_this": "Tonight: Talk with your child about the upcoming Ramadan, and together agree on a small, beloved fasting goal that suits their ability and health, such as fasting until Asr or Maghrib prayer.",
   "order": 2,
   "estimated_minutes": 4,
@@ -20,8 +20,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“You’re a champion, you’re strong and brave, and we will support you every step of the way on your fasting journey.”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“My son, you are strong and brave, and we will support you every step of the way on your fasting journey.”",
   "assistant_prompts": [
     "What Ramadan activities can I share with my 10-12 year old to foster their love for fasting?",
     "How do I handle my child's disappointment if they can't complete the fast as they planned?"
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,16 +58,42 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "bacd7041b4350e5ac5ec03ab8fb2700ff1fc7d3f5fcfbde35ddbe5514b6244c9",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [],
+      "content_sha256": "9558116b65af30c25d3c0cc939655770986946ab5307337516c56329fc9571fb",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "hadith",
+          "why": "\"تنفروا\" means \"drive/repel people away,\" not \"make people flee.\""
+        },
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "meaning",
+          "why": "The Arabic consistently uses \"ابنك\" (your son) with masculine pronouns, but the English neutralizes to \"your child\" with \"they/their,\" shifting the gender specificity."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "hadith",
+        "why": "\"تنفروا\" means \"drive/repel people away,\" not \"make people flee.\""
+      },
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "meaning",
+        "why": "The Arabic consistently uses \"ابنك\" (your son) with masculine pronouns, but the English neutralizes to \"your child\" with \"they/their,\" shifting the gender specificity."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

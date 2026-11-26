@@ -8,8 +8,8 @@
     "seed-defiance-23",
     "isl-343ab724"
   ],
-  "summary": "Imagine your little one running towards you, eyes gleaming with hunger, asking for their favorite food. As you hand them the plate, you say in a gentle, playful voice, \"Bismillah.\" They imitate you with a smile, then begin to eat. After they finish, you notice them sneeze, so you gently tell them, \"Say Alhamdulillah,\" and they look at you with curiosity. These simple daily moments are true treasures; they are golden opportunities to plant the seeds of remembrance in their little heart, to grow with them and become an integral part of their life.\n\nChildren aged two and three learn through imitation and repetition more than anything else. They absorb everything they see and hear around them and spontaneously imitate adults. When we link words of remembrance to specific daily actions – such as saying \"Bismillah\" before eating, and \"Alhamdulillah\" after it or when sneezing – we build strong mental connections for them. These words are not just sounds; they are small keys that open wide doors for contemplation and gratitude, making them feel the presence of Allah in every detail of their lives, in a way that suits their simple yet profound understanding.\n\nDon't expect them to understand the full meaning at first; what's important is gentle repetition and the love that envelops these words. Be a good role model, and repeat these remembrances in front of them with a clear, joyful voice, without pressure or coercion. With time, you will notice how these small words transform into a deeply ingrained habit, and how your child begins to repeat them automatically. These good habits that we instill in them when they are young are a true investment in building a mindful and grateful personality, filled with tranquility and contentment.",
-  "try_this": "Tonight: Before your child begins to eat their dinner, say \"Bismillah\" in a clear, joyful voice, and gently encourage them to repeat it with you before each bite.",
+  "summary": "Imagine your little one running towards you, eyes gleaming with hunger, asking for their favorite food. As you hand them the plate, you say in a gentle, playful voice, \"Bismillah.\" They imitate you with a smile, then begin to eat. After they finish, you notice them sneeze, so you gently tell them, \"Say Alhamdulillah,\" and they look at you with curiosity. These simple daily moments are true treasures; they are golden opportunities to plant the seeds of remembrance in their little heart, to grow with them and become an integral part of their life.\n\nChildren aged two and three learn through imitation and repetition more than anything else. They absorb everything they see and hear around them and spontaneously imitate adults. When we link words of remembrance to specific daily actions—such as saying \"Bismillah\" before eating, and \"Alhamdulillah\" after it or when sneezing—we build strong mental connections for them. These words are not just sounds; they are small keys that accustom them to connecting food and blessings to Allah in a simple way that suits their age.\n\nDon't expect them to understand the full meaning at first; what's important is gentle repetition and the love that envelops these words. Be a good role model, and repeat these remembrances in front of them with a clear, joyful voice, without pressure or coercion. With gentle repetition, your child may begin to say them on their own. And these good habits that we instill in them while they are young are a good step that helps your child grow up remembering Allah and feeling grateful, by Allah's will.",
+  "try_this": "Tonight: Before your child begins to eat their dinner, say \"Bismillah\" in a clear, joyful voice, and gently encourage them to say it with you before they start eating.",
   "order": 1,
   "estimated_minutes": 4,
   "reflection_prompts": [
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"Come on, my darling, let's say Bismillah before we eat!\"",
   "assistant_prompts": [
     "What other remembrances are suitable for a two- or three-year-old child?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,16 +57,30 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "02c06ce75222cac483b367faf4a913daa5a4596e8156c93f1facd878071933eb",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
-      "residual_low": [],
+      "content_sha256": "76912c1f6d6ff74e6142de95fa525c45e7faa0e4b34fcb9076e2f90c08c4573f",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "meaning",
+          "why": "«العطاء» means giving/bounty/gifts, while 'blessings' would more closely render «البركات» or «النعم»; the nuance of Allah as the Giver is slightly shifted."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "meaning",
+        "why": "«العطاء» means giving/bounty/gifts, while 'blessings' would more closely render «البركات» or «النعم»; the nuance of Allah as the Giver is slightly shifted."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

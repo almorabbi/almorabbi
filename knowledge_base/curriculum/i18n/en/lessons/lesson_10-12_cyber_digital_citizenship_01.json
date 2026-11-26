@@ -1,7 +1,7 @@
 {
   "id": "lesson_10-12_cyber_digital_citizenship_01",
   "path_id": "path_10-12_cyber_digital_citizenship",
-  "title": "The Impact of Our Digital Footsteps: An Indelible Mark, Privacy We Protect",
+  "title": "The Impact of Our Digital Footsteps: A Footprint That May Last Long, Privacy We Protect",
   "age_group": "10-12",
   "domain": "cyber",
   "unit_ids": [
@@ -9,8 +9,8 @@
     "bd4afec4-d395-55f4-9953-22cc698564fd",
     "cyb-36b8ad48"
   ],
-  "summary": "Imagine your child sharing a funny picture of themselves with friends, or writing a spontaneous comment on a post. In the moment, these things might seem simple and fleeting, but in today's digital world, they leave an indelible mark. Everything we post, share, or even like becomes part of our digital footprint, which can remain visible for many years, and may be seen by people we never expected.\n\nThe internet world is like a large public square, and everything we do in it is recorded in one way or another. It's important to realize that digital privacy isn't just about app settings; it's a deep understanding that every digital action has consequences, and what we consider private today might become public tomorrow. Teaching our children this concept fosters a sense of responsibility in them towards themselves and others, and protects them from embarrassing or undesirable situations in the future.\n\nLet's give our children the necessary tools to be aware and responsible digital citizens. It starts with calm and continuous dialogue, and with small practical steps through which we build with them a fortress of awareness and protection. Remember that our goal is not to prevent them from enjoying the digital world, but to empower them to interact with it safely and confidently, while preserving their privacy and respecting the privacy of others.",
-  "try_this": "Tonight: Sit with your child and together review the privacy settings in one app they use frequently (such as a social media app or a game). Make sure to activate the \"private account\" option, turn off location sharing, and enable the request for approval before being tagged in photos or posts.",
+  "summary": "Imagine your child sharing a funny picture of themselves with friends, or writing a spontaneous comment on a post. In the moment, these things might seem simple and fleeting, but in today's digital world, they can leave a trace that is hard to erase. Everything we post, share, or even like becomes part of our digital footprint, which can remain visible for many years, and may be seen by people we never expected.\n\nThe internet world is like a large public square, and everything we do in it is recorded in one way or another. It's important to realize that digital privacy isn't just about app settings; it's a deep understanding that every digital action has consequences, and what we consider private today might become public tomorrow. Teaching our children this concept fosters a sense of responsibility in them towards themselves and others, and protects them from embarrassing or undesirable situations in the future.\n\nLet's give our children the necessary tools to be aware and responsible digital citizens. It starts with calm and continuous dialogue, and with small practical steps through which we build with them a fortress of awareness and protection. Remember that our goal is not to prevent them from enjoying the digital world, but to empower them to interact with it safely and confidently, while preserving their privacy and respecting the privacy of others.",
+  "try_this": "Tonight: Sit with your child and together review the privacy settings in an app or game they use under your supervision, and make sure their age meets the app's minimum age requirement. Make sure to activate the \"private account\" option, turn off location sharing, and enable the request for approval before being tagged in photos or posts.",
   "order": 1,
   "estimated_minutes": 4,
   "reflection_prompts": [
@@ -21,8 +21,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“My son/daughter, every picture or word we post online is like a footprint in the sand, but it’s a footprint that never fades. Let’s always think before we step.”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“My son/daughter, every picture or word we post online is like a footprint in the sand, except it can remain for a long time even if we delete it. Let’s always think before we step.”",
   "assistant_prompts": [
     "How can I explain the concept of \"digital footprint\" to my 11-year-old child in a simple and fun way?",
     "What are the top 3 privacy settings I should review with my child in the most common apps for their age?"
@@ -40,7 +40,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,8 +59,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "23ca62ac4fad4476099c56df73477b4bad2a756aae442197c4c5ef35f4316289",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "259d2ab2e705387443b7fd7a80404c782cfa0b7a1b0ed72910a0ff138f728612",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -69,6 +69,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

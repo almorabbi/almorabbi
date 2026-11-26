@@ -8,7 +8,7 @@
     "isl-c4d83813",
     "isl-1bceeaf6"
   ],
-  "summary": "Five prayers a day may seem a lot to a seven-year-old, but they become easy when they are tied to the rhythm of a day they already know. Children learn through routine: they know when they wake up, when they go to school, when they eat, play and sleep. If you tie each prayer to one of these stations, it becomes a natural part of their day.\n\nDraw a «map of the day» with them: Fajr when they wake for it, before sunrise, Dhuhr at school if possible, or after coming home while its time remains, Asr before playtime, Maghrib at sunset, and Isha before bed. This changes with your country, the season and their school hours; what matters is that they know each prayer has a time to look forward to.\n\nMake the adhan (call to prayer) a family signal: when it is called from the mosque or from an app at home, everyone pauses a little and gets ready. That doesn't mean cutting off their play suddenly; give them a warning a few minutes before: «Five more minutes, then we make wudu for Asr.» A sudden switch from play to prayer creates resistance that isn't needed.\n\nAt this age your child is still in training; if they forget a prayer or are late for it, don't make it a battle and don't reproach them — remind them calmly and pray it with them when they remember it, then they carry on with their usual prayers for the day. The aim is for the prayers to become landmarks in their day that they know and expect, so that when they reach puberty they find their day already organised around them, without strain.",
+  "summary": "Five prayers a day may seem a lot to a seven-year-old, but they become easy when they are tied to the rhythm of a day they already know. Children learn through routine: they know when they wake up, when they go to school, when they eat, play and sleep. If you tie each prayer to one of these stations, it becomes a natural part of their day.\n\nDraw a «map of the day» with them: Fajr when they wake for it, before sunrise, Dhuhr at school if possible, or after coming home while its time remains, Asr before playtime, Maghrib at sunset, and Isha before bed. This changes with your country, the season and their school hours; what matters is that they know each prayer has a time to look forward to.\n\nMake the adhan (call to prayer) a family signal: when it is called from the mosque or from an app at home, everyone pauses a little and gets ready. That doesn't mean cutting off their play suddenly; give them a warning a few minutes before: «Five more minutes, then we make wudu for Asr.» A sudden switch from play to prayer creates resistance that isn't needed.\n\nAt this age your child is still in training; if they forget a prayer or are late for it, don't make it a battle and don't reproach them — remind them calmly and pray it with them when they remember it, then they carry on with their usual prayers for the day. The aim is for the prayers to become landmarks in their day that they know and expect, so that when they reach puberty it will be easier for their day to be organised around them, by Allah's will.",
   "try_this": "Today: Sit with your child for ten minutes and draw together, on a sheet of paper, the «map of their day»: the stations of their day in order, and next to each station the prayer that comes near it. Then hang it where they will see it every day.",
   "order": 7,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-10-04T17:13:00",
   "updated_at": "2026-10-04T17:13:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "My dear, prayer is like the sweet stations of our day where we do things we love. Each prayer has its special time, which makes our day organized and beautiful.",
   "assistant_prompts": [
     "How can I make my child feel love and desire for prayer, instead of seeing it as a heavy obligation?",
@@ -41,7 +41,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -60,8 +60,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "a2262dff86c468fb52294e2265d0c0afb6df648099fa28cb44a81a024cfd6dbf",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "8c0603d37405b8d224ed309efc2e03fd491e949c8122a047156fd523ce495002",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -70,6 +70,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -8,7 +8,7 @@
     "shm-aqd-p1-02-adhan-ear",
     "shm-aqd-p1-01-fitrah-birth"
   ],
-  "summary": "Imagine your little one, eyes sparkling with curiosity, reaching out for a warm hug. In that simple, seemingly ordinary moment, bridges of love and security are built. These tender touches, shared smiles, and gentle whispers are not just expressions of affection; they are a strong foundation that connects your child to the world around them, giving them a deep sense of acceptance and comfort.\n\nThese warm feelings, with which you envelop your child, are the first building block in their understanding of religion. When your child connects love and security with your presence, and with the presence of Allah who inspired this mercy in you, they grow up with an innate religiosity that stems from the heart, not from fear or coercion. The Prophet ﷺ was an example in this; he kissed children, carried them, and showed them mercy, teaching us that mercy is the basis of dealing with creation, saying: «Whoever does not show mercy will not be shown mercy.» (Sahih al-Bukhari 5997). This mercy is the first lesson of faith your child receives.\n\nDon't worry about searching for complex ways to instill faith. It is enough to give your child lots of love, hugs, and tender touches. Make every touch and every hug an implicit message that Allah is Merciful, and that His religion is built on love and goodness. These simple actions are what shape their consciousness and plant the seeds of sincere faith in their heart, making them see religion as a source of security and tranquility, not a source of anxiety or fear.",
+  "summary": "Imagine your little one, eyes sparkling with curiosity, reaching out for a warm hug. In that simple, seemingly ordinary moment, bridges of love and security are built. These tender touches, shared smiles, and gentle whispers are not just expressions of affection; they are a strong foundation that connects your child to the world around them, giving them a deep sense of acceptance and comfort.\n\nThese warm feelings, with which you envelop your child, are the first building block in their understanding of religion. When your child connects love and security with your presence, and with the mercy Allah has placed in parents' hearts, it is hoped they will grow up upon a sound fitrah inclined toward faith in Allah. The Prophet ﷺ was an example in this; he kissed children, carried them, and showed them mercy, teaching us that mercy is the basis of dealing with creation, saying: «Whoever does not show mercy will not be shown mercy.» (Sahih al-Bukhari 5997). This mercy is the first lesson of faith your child receives.\n\nDon't worry about searching for complex ways to instill faith. It is enough to give your child lots of love, hugs, and tender touches. Make every touch and every hug an implicit message that Allah is Merciful and Most Loving, and that His religion holds mercy and goodness. These simple actions contribute to shaping their awareness and planting seeds of faith in their heart, helping them see religion as a source of security and tranquility, rather than anxiety or aversion.",
   "try_this": "Tonight: Before your child sleeps, hug them tenderly for a full minute, and whisper warm words of your love for them in their ear.",
   "order": 4,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«My darling, I love you very much, and this love is a gift from Allah to us.»",
   "assistant_prompts": [
     "How can I show mercy to my infant who cries a lot?",
@@ -37,7 +37,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -56,8 +56,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "41fc6f26e13172d2214604eda8c0d76654ea742e74d95bf2b1afc0e1cebbc5b5",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "ddaf8fa1776bbdac2e5eabd2c5d0ea7ad5c2cda8d056fbb3bae66bc4e418d48f",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -66,6 +66,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

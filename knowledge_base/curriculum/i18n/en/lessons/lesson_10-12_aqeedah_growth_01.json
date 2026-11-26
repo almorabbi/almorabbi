@@ -9,7 +9,7 @@
     "shm-aqd-1012-02-qadar-levels"
   ],
   "summary": "You remember your child memorizing the six pillars of faith in their early years, repeating them with a small tongue, perhaps without realizing their depth. Now, having passed the age of ten, their questions have begun to change. They are no longer content with \"What do we believe?\" but insist on \"Why?\" and \"What does this have to do with my daily life?\" They might ask you about the reason for angels, or why books and messengers were sent, or what makes them believe in the Last Day. These questions are your golden opportunity to transform faith from mere memorized information into a firm conviction that illuminates their path.\n\nAt this age, your child can see the practical impact of faith in their life. When you link belief in the Last Day to the necessity of honesty and trustworthiness, because they know there will be an accountability, you plant the seed of responsibility in them. And when you explain to them that belief in divine decree gives them tranquility during failure or difficulties, because they realize that everything is by Allah's measure, you guide them to serenity and contentment. These practical connections are what make creed alive in their heart, not just theoretical lessons.\n\nOur goal is not just for them to enumerate the pillars of faith, but for them to understand their wisdom and feel their impact in every detail of their life. Sit with them, choose one pillar, and talk about it deeply, not as a lesson, but as a warm conversation that opens new horizons. Let them share their thoughts and questions with you, and be a good listener. In this way, creed transforms from mere information into an integral part of their personality, guiding their behavior and giving them strength and clarity in a world full of challenges.",
-  "try_this": "Tonight: Choose one pillar of faith and ask your child: \"If we didn't believe in this, how would our lives be different?\" Then listen to their answer and discuss the impact of this pillar on your daily lives.",
+  "try_this": "Tonight: Choose one pillar of faith and ask your child: \"How does our belief in this pillar affect our actions and feelings every day?\" Then listen to their answer and discuss the impact of this pillar on your daily lives.",
   "order": 2,
   "estimated_minutes": 4,
   "reflection_prompts": [
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"This faith of ours, my child, is our compass that shows us the right path every day.\"",
   "assistant_prompts": [
     "How can I explain the importance of believing in angels to my child (10-12 years old) in a practical way?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "6640e1ecf0aa58f4436ab2d05b39cec094cfc49ab22e8cedccb27a3f0b2e995a",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "3d3dd8441d096f5be366a23b48646443a0134801c87f6de0a1f9981e00c78e9e",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

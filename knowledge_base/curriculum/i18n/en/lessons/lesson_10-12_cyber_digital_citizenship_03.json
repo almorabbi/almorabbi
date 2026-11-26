@@ -23,8 +23,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“My champion, always remember: If the news is impossible to believe, it’s probably not true.”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“My son, always remember: before believing any news, ask: Who said it? What is their evidence? And have reliable sources confirmed it?”",
   "assistant_prompts": [
     "How can I explain the concept of algorithms to my child (10-12) in a simplified way?",
     "What are the best reliable educational websites suitable for 10-12 year olds?"
@@ -42,7 +42,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -61,8 +61,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "937a3c8be5b9af9e36ea5593d5aed6c1236042f007e54ae1b6c98b4aa6d4bd8a",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "28d0ddbd86dd2da3e237dae14f0876696f5a18cbd7f1052bc45f76e009dcd7af",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -71,6 +71,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

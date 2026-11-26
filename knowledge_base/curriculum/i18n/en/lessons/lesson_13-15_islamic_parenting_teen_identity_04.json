@@ -9,7 +9,7 @@
     "isl-047ad111",
     "f6f992c4-d790-4c92-8651-226a37b564bd"
   ],
-  "summary": "Parents often complain about their teenager's idleness and long hours spent browsing, but the real emptiness isn't in their schedule; it's in the absence of a \"meaning\" where they feel useful and impactful. Between the ages of thirteen and fifteen, creative energy and a love for challenges glow brightly. This energy can either be consumed in passive reception behind screens, or it can be directed towards a real skill or service where they see its impact with their own eyes, making them feel their worth and competence.\n\nThe Prophet ﷺ clearly instilled this meaning, saying: \"The strong believer is better and more beloved to Allah than the weak believer, and there is good in both\" (Sahih Muslim 2664). Strength here isn't just physical muscles, but strength of knowledge, skill, initiative, and benefit to people. This is how the Prophet ﷺ raised the young companions, who took on real responsibilities at an early age with confidence and guidance, not through dictation and marginalization.\n\nYour role today is not to choose their hobby or project for them, but to be \"the helper and encourager.\" Notice where their eyes light up when they talk (technology, design, sports, helping younger children, reading, fixing things), and ask them about a small, feasible initiative they can undertake this month to serve their family or community. When an adolescent moves from being a \"consumer\" to a \"creator,\" their self-discipline and self-confidence change from within.",
+  "summary": "Parents often complain about their teenager's idleness and long hours spent browsing, but the real emptiness isn't in their schedule; it's in the absence of a \"meaning\" where they feel useful and impactful. Between the ages of thirteen and fifteen, creative energy and a love for challenges glow brightly. This energy can either be consumed in passive reception behind screens, or it can be directed towards a real skill or service where they see its impact with their own eyes, making them feel their worth and competence.\n\nThe Prophet ﷺ clearly instilled this meaning, saying: \"The strong believer is better and more beloved to Allah than the weak believer, and there is good in both\" (Sahih Muslim, Hadith 2664). Strength here means strength of faith and resolve in obedience and righteous deeds, which includes the ability to bring benefit. It is well known in the Prophetic biography (Sirah) that young Companions were entrusted with real responsibilities at an early age—such as appointing Usamah ibn Zayd (may Allah be pleased with both him and his father) as commander—with trust and guidance, not through dictation and marginalization.\n\nYour role today is not to choose their hobby or project for them, but to be \"the helper and encourager.\" Notice where their eyes light up when they talk (technology, design, sports, helping younger children, reading, fixing things), and ask them about a small, feasible initiative they can undertake this month to serve their family or community. When an adolescent moves from being a \"consumer\" to a \"creator,\" their self-discipline and self-confidence change from within.",
   "try_this": "Tonight: Ask your child with genuine curiosity (not as a task): \"If you could fix one thing or master one skill to benefit those around you this month, what would you choose?\" And tell them how you can support them.",
   "order": 3,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"I see beautiful energy and intelligence in you; what small skill or initiative are you excited to try out during this period, and how can I help you get started?\"",
   "assistant_prompts": [
     "My 14-year-old spends hours on video games and shows no enthusiasm for any other activity. How can I help him?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4b452e1cc48692cfaffcc4d6264805840f61c04243eff874e23dc5193f44f552",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "f2c5b0ac533ec127d69bfacb95a9ef75d378a1783de24030cca3436c4afb82c0",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

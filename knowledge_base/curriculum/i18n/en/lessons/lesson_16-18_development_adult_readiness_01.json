@@ -8,7 +8,7 @@
     "dev-7b2f411e",
     "dev-a97a6769"
   ],
-  "summary": "Do you remember that time your intelligent teenage son made a decision that seemed a bit reckless to you? Perhaps it was a decision about his studies, going out with friends, or even how he spent his allowance. You felt a mix of worry and a desire to intervene, but you hesitated, wondering: Should I let him learn from his mistakes, or should I step in to protect him? This hesitation is very natural, as adolescence is full of decisions that sometimes seem illogical to us adults.\n\nThe reality is that your teenager's brain is still developing, specifically the part responsible for planning, impulse control, and assessing long-term consequences. This part, known as the prefrontal cortex, doesn't fully mature until after the age of twenty. This means that your son might make decisions that seem reckless not because he doesn't understand, but because his brain's tools responsible for future thinking and controlling immediate reactions are not yet complete. Our role here is not to dictate or impose our opinions, but rather to be a coach who guides and supports.\n\nInstead of imposing your decisions on him, give him a safe space to practice making decisions. Sit with him, discuss the available options, and help him see the full picture, including the potential consequences of each choice. Start with small, safe decisions, then gradually progress with him. Every decision he makes, even if it seems wrong in our eyes, is a valuable learning opportunity. Remember that your goal is to build a personality capable of critical thinking and making responsible decisions in the future, not just to comply with your orders.",
+  "summary": "Do you remember that time your intelligent teenage son made a decision that seemed a bit reckless to you? Perhaps it was a decision about his studies, going out with friends, or even how he spent his allowance. You felt a mix of worry and a desire to intervene, but you hesitated, wondering: Should I let him learn from his mistakes, or should I step in to protect him? This hesitation is very natural, as adolescence is full of decisions that sometimes seem illogical to us adults.\n\nThe reality is that your teenager's brain is still developing, specifically the part responsible for planning, impulse control, and assessing long-term consequences. This part, known as the prefrontal cortex, usually does not fully mature until the mid-twenties. This means that your son might make decisions that seem reckless not because he doesn't understand, but because his brain's tools responsible for future thinking and controlling immediate reactions are not yet complete. Our role here is not to dictate or impose our opinions, but rather to be a coach who guides and supports.\n\nInstead of imposing your decisions on him, give him a safe space to practice making decisions. Sit with him, discuss the available options, and help him see the full picture, including the potential consequences of each choice. Start with small, safe decisions, then gradually progress with him. Every decision he makes, even if it seems wrong in our eyes, is a valuable learning opportunity. Remember that your goal is to build a personality capable of critical thinking and making responsible decisions in the future, not just to comply with your orders.",
   "try_this": "Tonight: Choose a simple decision that concerns your son (such as choosing a movie to watch or tidying his room), and ask him to state the pros and cons of each option before he chooses, then discuss them together.",
   "order": 1,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“What do you think if we consider the pros and cons of this decision together before we choose it?”",
   "assistant_prompts": [
     "How can I help my teenage son think about the long-term consequences of his decisions?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "449ca2360de2b427aa3eaf657f4845b9d29a11a2a75156a9ecbacbabae987bb3",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "6e336686274ccc81eafc4ed476bc176a2d6130db0a423796de519f07f9fba90d",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

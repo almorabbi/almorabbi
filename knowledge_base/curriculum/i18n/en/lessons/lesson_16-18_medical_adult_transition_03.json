@@ -10,7 +10,7 @@
     "f42e35c1-4bbd-4037-8bfa-4668a530f6d8",
     "83f8a5c4-defa-49a6-91ec-8504fee1140e"
   ],
-  "summary": "Have you ever seen your teenage son aimlessly scrolling on his phone, staying up late, or coming home exhausted after a long school day? You might sometimes notice him distracted or slightly anxious, and you wonder to yourself: Is he okay? Does he have enough tools to face life's ever-increasing challenges? These questions are very natural, as late adolescence is a stage of self-building and preparing for independence, and it requires conscious and continuous support from us.\n\nMental health is not merely the absence of illness; it is a comprehensive construct that requires conscious care. Imagine it as an impenetrable fortress for your son: its foundation is simple yet powerful daily habits, such as sufficient sleep (7-9 hours), regular physical activity (30 minutes daily), balanced nutrition, and genuine connection with friends and family. Its walls are built with meaning and purpose; when your son discovers what gives him passion and purpose – whether it's serving others, learning, art, or building strong family relationships – he finds a shield that protects him from emptiness and loss. These components together create a sense of stability and the ability to cope with life's fluctuations.\n\nOur role as parents is to be guides, not controllers. Help your son discover these building blocks himself, and encourage him to build a professional support network: a therapist or counselor he trusts, a psychiatrist whose number he knows, and the number for your country's mental health helpline saved on his phone. Most importantly, teach him that seeking help is the pinnacle of maturity and strength, not weakness. Your son is not just going through a passing phase; he is building a whole life, and every support we offer him today is an investment in his future and his sustainable mental health.",
+  "summary": "Have you ever seen your teenage son aimlessly scrolling on his phone, staying up late, or coming home exhausted after a long school day? You might sometimes notice him distracted or slightly anxious, and you wonder to yourself: Is he okay? Does he have enough tools to face life's ever-increasing challenges? These questions are very natural, as late adolescence is a stage of self-building and preparing for independence, and it requires conscious and continuous support from us.\n\nMental health is not merely the absence of illness; it is a comprehensive construct that requires conscious care. Imagine it as an impenetrable fortress for your son: its foundation is simple yet powerful daily habits, such as sufficient sleep (8–10 hours), regular physical activity (60 minutes daily), balanced nutrition, and genuine connection with friends and family. Its walls are built with meaning and purpose; when your son discovers what gives him passion and purpose—whether it's serving others, learning, art, or building strong family relationships—he finds a shield that protects him from emptiness and loss. These components together create a sense of stability and the ability to cope with life's fluctuations.\n\nOur role as parents is to be guides, not controllers. Help your son discover these building blocks himself, and encourage him to build a professional support network: a therapist or counselor he trusts, a psychiatrist whose number he knows, and the number for your country's mental health helpline saved on his phone. Most importantly, teach him that seeking help is the pinnacle of maturity and strength, not weakness. Your son is not just going through a passing phase; he is building a whole life, and every support we offer him today is an investment in his future and his sustainable mental health.",
   "try_this": "Tonight: Talk to your son about the importance of good sleep. Ask him how many hours he usually sleeps, then suggest he set a fixed bedtime and wake-up time for just two days as a start.",
   "order": 3,
   "estimated_minutes": 4,
@@ -26,7 +26,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I’m here to listen to you, no matter how you feel or what you’re going through.”",
   "assistant_prompts": [
     "How can I encourage my son to get enough sleep without making him feel controlled?",
@@ -44,7 +44,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -63,8 +63,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "8c2bb110f786834d5db1fbdd3f485f1c2ec1aab96bb11b3aa1e31a40cf50652a",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "2740f3dc3d1b41f2c7bb14cce0e02aaf8ca88e3ad88158294b5fdee9e5b52827",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -73,6 +73,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

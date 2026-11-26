@@ -7,7 +7,7 @@
   "unit_ids": [
     "dev-8fdf563b"
   ],
-  "summary": "Have you ever watched your little one throw a toy repeatedly, crawl into every corner of the house, or touch every surface they see? It might seem chaotic at times, and perhaps their constant movement worries you, but in reality, these moments are the heart of their world. Every touch, every step, every attempt to grasp is not just random play; it's their unique way of understanding the world around them, based on what they hear, see, touch, and move through.\n\nIn these early years, your child's brain acts like a tiny engineer building mental maps for every sensory and motor experience. When they run, jump, or throw things, they are not causing trouble; they are testing gravity, exploring spaces, and learning about cause and effect. This continuous movement, which might seem excessive to us, is the primary driver of their exploration and development. It's not a 'problem' to be solved, but rather your child's language for communicating with their environment and forming their own understanding of how things work.\n\nOur role as parents is to provide a safe environment that encourages this free movement and exploration. Think of a soft rug, safe cushions, and ample space for crawling and playing. Minimize time spent in stationary seats or strollers as much as possible, and give them the opportunity to move freely. Always remember that movement is your child's first learning, and it is key to their healthy growth and cognitive and physical development. The more they move, the more they learn, and the wider world they discover.",
+  "summary": "Have you ever watched your little one throw a toy repeatedly, crawl into every corner of the house, or touch every surface they see? It might seem chaotic at times, and perhaps their constant movement worries you, but in reality, these moments are the heart of their world. Every touch, every step, every attempt to grasp is not just random play; it's their unique way of understanding the world around them, based on what they hear, see, touch, and move through.\n\nIn these early years, your child learns from every sensory and motor experience they go through. When they run, jump, or throw things, they are not causing trouble; they are testing gravity, exploring spaces, and learning about cause and effect. This active movement, as long as it is within normal limits, is an essential means of their exploration and development—not necessarily a problem to be solved, but rather your child's language for communicating with their environment and forming their own understanding of how things work.\n\nOur role as parents is to provide a safe environment that encourages this free movement and exploration. Think of a soft rug, safe cushions, and ample space for crawling and playing. Minimize time spent in stationary seats or strollers as much as possible, and give them the opportunity to move freely. Remember that safe free movement is one of the most important ways your child learns at this stage, and one of the pillars of their cognitive and physical development.",
   "try_this": "Tonight: Dedicate 5 minutes to observing your child playing completely freely on the floor. Jot down quick notes: What movements do they repeat? Do they use their hands and feet together?",
   "order": 1,
   "estimated_minutes": 4,
@@ -22,7 +22,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-10T20:00:00",
   "updated_at": "2026-06-10T20:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“Your world is vast, my little one; explore it safely.”",
   "assistant_prompts": [
     "How can I provide a safe environment for my child to explore and move freely at home?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "57040d1a9fb5e19419f1a90498446675a694b1a4d0cfb3fc8a775879bf874b88",
-      "reviewed_at": "2026-11-24T18:01:18+00:00",
+      "content_sha256": "a74c0934038779f6c114a58dc49e565cc044578216880a7b7e43067961efc2f4",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:01:18+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

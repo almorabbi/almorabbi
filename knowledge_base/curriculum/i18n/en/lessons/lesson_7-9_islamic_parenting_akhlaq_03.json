@@ -8,7 +8,7 @@
     "isl-f4accfb8",
     "isl-162e28c1"
   ],
-  "summary": "We often do things for our children ourselves because it's faster and cleaner: we pack their school bags, prepare their clothes, pick up scattered toys. Then, years later, we complain that our children don't take responsibility or keep trusts! The truth is, a child between seven and nine years old yearns to feel \"grown-up and trusted,\" but they lose enthusiasm if tasks are just scattered commands thrown at them when we're angry.\n\nIn the Prophetic upbringing, responsibility is an honor entrusted to a person according to their capacity. The Prophet ﷺ said: \"All of you are shepherds and all of you are responsible for your flock\" (Sahih al-Bukhari 893). When you assign your child one clear, consistent task — such as watering a houseplant, setting out water on the table, or keeping their belongings on their own shelf — you are practically telling them: \"The home needs you, and I trust your reliability.\"\n\nFor the task to succeed and not turn into a struggle, follow three steps: First, do it with them for two days so they see how it's done well; second, accept the proficiency of an eight-year-old, not an adult's; third, gently remind them without taking the task away after the first forgetfulness. With every small trust your child fulfills, a quiet confidence grows within them that their word is a promise, and that Allah sees them and loves their excellence.",
+  "summary": "We often do things for our children ourselves because it's faster and cleaner: we pack their school bags, prepare their clothes, pick up scattered toys. Then, years later, we complain that our children don't take responsibility or keep trusts! The truth is, a child between seven and nine years old yearns to feel \"grown-up and trusted,\" but they lose enthusiasm if tasks are just scattered commands thrown at them when we're angry.\n\nResponsibility in Islam is a trust, and part of Allah's mercy is that He does not burden a soul beyond its capacity; the Prophet ﷺ said: \"All of you are shepherds and all of you are responsible for your flock\" (Sahih al-Bukhari 893). When you assign your child one clear, consistent task — such as watering a houseplant, setting out water on the table, or keeping their belongings on their own shelf — you are practically telling them: \"The home needs you, and I trust your reliability.\"\n\nFor the task to succeed and not turn into a struggle, follow three steps: First, do it with them for two days so they see how it's done well; second, accept the proficiency of an eight-year-old, not an adult's; third, gently remind them without taking the task away after the first forgetfulness. With every small trust your child fulfills, a quiet confidence grows within them that their word is a promise, and that Allah sees them, knows their deed, and loves those who do good.",
   "try_this": "Tonight: Choose one small household task with your child that will become their daily \"special trust\" (like setting the table or watering a plant), and practice it with them today, step-by-step, in a team spirit.",
   "order": 3,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“You’ve grown up and I trust you a lot; what do you think about being responsible for this task in our home? I’ll show you how we do it together tonight.”",
   "assistant_prompts": [
     "My 8-year-old child gets excited about a task for two days, then forgets it and complains. How can I follow up without being annoyingly persistent?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "fffb6f4fee2d8ef7182414967923f29d986774925c9d9b63d15833f82ed48da4",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "b0ec814fae8d1deb0f28363c113638033c471148839e7c82caff4d9bf64557c4",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

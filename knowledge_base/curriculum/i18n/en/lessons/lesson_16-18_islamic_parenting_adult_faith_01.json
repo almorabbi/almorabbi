@@ -8,7 +8,7 @@
     "shm-aqd-1618-02-moderation-wasatiyah",
     "shm-aqd-1618-05-steadfastness-fitan"
   ],
-  "summary": "Imagine your child, who was yesterday running around the house, sitting today in front of his computer screen, his eyes following a heated online debate about matters of faith. Perhaps he is participating in a discussion with his peers at university or work, or hearing new ideas that raise deep questions in his mind. These moments, away from the fortress of home, are a real test of what you have instilled in him. You may feel a natural concern — how can he stand firm in a world crowded with conflicting ideas and pressures that may shake the foundations of his faith?\n\nThe goal is not to protect him from every question — that is impossible — but rather that he possesses a faith built on firm conviction, not mere imitation. That he knows why he believes, and that he has the necessary tools to engage in dialogue with those who disagree with confidence and courtesy, relying on deep understanding rather than mere memorization. What he learns at home of values and principles is the foundation, but this foundation needs to be built upon with understanding, dialogue, and evidence appropriate to his age, so that his faith becomes an impenetrable fortress that doubts cannot shake.\n\nAlways make them feel that their questions do not diminish their standing with you, nor your love for them. Be a safe haven where they can express everything on their mind without fear of judgment or blame. Listen to them with your heart and mind, and share in the search for answers from reliable sources. Always remember Allah Almighty's saying: ﴿وَقُل لِّعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ﴾ (interpretation of the meaning: \"And tell My servants to say that which is best\") (Surah Al-Isra 17:53). For calm and respectful dialogue is the key to building conviction and strengthening faith.",
+  "summary": "Imagine your child, who was yesterday running around the house, sitting today in front of his computer screen, his eyes following a heated online debate about matters of faith. Perhaps he is participating in a discussion with his peers at university or work, or hearing new ideas that raise deep questions in his mind. These moments, away from the fortress of home, are a real test of what you have instilled in him. You may feel a natural concern—how can he stand firm in a world crowded with conflicting ideas and pressures that may shake the foundations of his faith?\n\nThe goal is not to protect him from every question—that is impossible—but rather that he possesses a faith built on firm conviction, not mere imitation. That he knows why he believes, and that he has the necessary tools to engage in dialogue with those who disagree with confidence and courtesy, relying on deep understanding rather than mere memorization. What he learns at home of values and principles is the foundation, but this foundation needs to be built upon with understanding, dialogue, and evidence appropriate to his age, so that his faith may become firmer, by Allah's will, in the face of doubts.\n\nAlways make them feel that their questions do not diminish their standing with you, nor your love for them. Be a safe haven where they can express everything on their mind without fear of judgment or blame. Listen to them with your heart and mind, and share in the search for answers from reliable sources. Always remember Allah Almighty's words: ﴿وَقُل لِّعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ﴾ [Surah Al-Isra: 53] (interpretation of the meaning: \"And tell My servants to say that which is best\"). For speaking the best words and engaging in calm dialogue are part of the etiquette of guidance, and they help, by Allah's will, in building conviction.",
   "try_this": "Today: Ask your child about the idea they hear most often that raises questions about faith for them, and agree to search together for a solid answer from a trusted scholar, without denial or haste.",
   "order": 1,
   "estimated_minutes": 4,
@@ -23,7 +23,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"Your questions are important to me, and I'll always be here to search for their answers with you.\"",
   "assistant_prompts": [
     "How can I help my teenager understand common doubts about faith?",
@@ -41,7 +41,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -60,14 +60,14 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "55cd7f8ea24187e8db643723c273a4cc5ea65a951f3bc8b96f8689eb9b27904e",
-      "reviewed_at": "2026-11-24T18:38:53+00:00",
+      "content_sha256": "da9ad0a836ed79edfa690f4ff48a3d0d9145d34276648ec6156723595012e82c",
+      "reviewed_at": "2026-11-26T10:40:41+00:00",
       "residual_low": [
         {
           "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "meaning",
-          "why": "English shifts from the singular masculine 'he/him' used earlier to plural/neutral 'them/their' although the Arabic consistently uses singular masculine."
+          "field": "title",
+          "type": "omission",
+          "why": "The word 'heart' is omitted and 'your son' is broadened to 'your child'."
         }
       ],
       "adjudicated": [],
@@ -79,11 +79,11 @@
     "review_defects": [
       {
         "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "meaning",
-        "why": "English shifts from the singular masculine 'he/him' used earlier to plural/neutral 'them/their' although the Arabic consistently uses singular masculine."
+        "field": "title",
+        "type": "omission",
+        "why": "The word 'heart' is omitted and 'your son' is broadened to 'your child'."
       }
     ],
-    "revalidated_at": "2026-11-24T18:38:53+00:00"
+    "revalidated_at": "2026-11-26T10:40:41+00:00"
   }
 }

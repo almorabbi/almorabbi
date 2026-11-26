@@ -8,7 +8,7 @@
     "f414d4fc-4ee9-4385-b7d6-4496c1ee9aaa",
     "b1bd26fc-3144-4928-9bb4-ce2b30f95876"
   ],
-  "summary": "Imagine your seven or eight-year-old child finishing their homework, then picking up the small Quran you chose for them. They turn its pages carefully, perhaps reading a verse aloud, or pausing to contemplate an illustration or decoration. This scene is not far-fetched; rather, it is a seed we plant today to bear fruit tomorrow: a true companion for your child, guiding and supporting them through all stages of their life. At this age, a child's linguistic understanding blossoms, and they become capable of fluent reading and grasping initial meanings, making it the ideal time to connect their heart to the Book of Allah.\n\nThe Quran is not merely a book to be recited; it is a way of life and a companion on a journey that grants tranquility and serenity. When we teach our children the Quran, we don't just aim for memorizing chapters, but for instilling a love for divine words in their souls and training them to understand their simple meanings appropriate for their age. Connecting verses to their daily situations and behaviors deepens this understanding and makes the Quran present in their consciousness, guiding them in their interactions with themselves and with others. It is about building a personal and warm relationship with the word of Allah, not just a duty to be performed.\n\nTo make this journey enjoyable and unburdensome, we start with small, steady steps. Choosing a short, beloved chapter and dedicating a brief, enjoyable daily time for reading and contemplation is key. We don't focus on quantity, but on quality and emotional connection. Let your child feel that the Quran is their friend who opens new horizons for them, answers their questions, and gives them strength. In this way, we instill in them a love for the Quran as a constant companion, illuminating their paths in life and being their best helper at all times, in accordance with the Prophet's ﷺ saying: «The best among you are those who learn the Quran and teach it» (Sahih al-Bukhari 5027).",
+  "summary": "Imagine your seven or eight-year-old child finishing their homework, then picking up the small Quran you chose for them. They turn its pages carefully, perhaps reading a verse aloud, or pausing to contemplate an illustration or decoration. This scene is not far-fetched; rather, it is a seed we plant today to bear fruit tomorrow: a true companion for your child, guiding and supporting them through all stages of their life. At this age, a child's linguistic understanding blossoms, and they become capable of fluent reading and grasping initial meanings, making it the ideal time to connect their heart to the Book of Allah.\n\nThe Quran is not merely a book to be recited; it is a way of life and a companion on a journey that grants tranquility and serenity. When we teach our children the Quran, we don't just aim for memorizing chapters, but for instilling a love for divine words in their souls and training them to understand their simple meanings appropriate for their age. Connecting verses to their daily situations and behaviors deepens this understanding and makes the Quran present in their consciousness, guiding them in their interactions with themselves and with others. It is about building a personal and warm relationship with the word of Allah, not just a duty to be performed.\n\nTo make this journey enjoyable and unburdensome, we start with small, steady steps. Choosing a short, beloved chapter and dedicating a brief, enjoyable daily time for reading and contemplation is key. We don't focus on quantity, but on quality and emotional connection. Let your child feel that the Quran is their friend who opens new horizons for them, answers their questions, and gives them strength. In this way, we instill in them a love for the Quran as a constant companion, and we hope that the Quran will aid them in the affairs of their lives; the Prophet ﷺ said regarding the virtue of learning and teaching it: «The best among you are those who learn the Quran and teach it» (Sahih al-Bukhari 5027).",
   "try_this": "Tonight: Choose a short surah (like Ad-Duha or Al-Sharh) and read one verse from it with your child, then ask them: \"What did you understand from this verse?\" or \"How can we apply this verse in our daily lives?\"",
   "order": 3,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«My dear child, the Quran is a light for your heart and a guide for your life. Let's discover its wisdom together.»",
   "assistant_prompts": [
     "How do I choose suitable short surahs for my 7-9 year old child to begin their Quran memorization journey?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5d50e1c56ce47e370aeaf846c4e7501a826be31ec29ea8c25ca174354c3b8a75",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "08340ace321906ecee20b52bdc595ebd32e1ea1c928bdbbb019216ed45991789",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

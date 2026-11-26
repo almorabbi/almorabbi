@@ -23,8 +23,8 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“My dear, if anyone bothers you or says unkind words to you online, come to me immediately. I am with you, and I will never punish you or take away your device.”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“My dear, if anyone bothers you or says unkind words to you online, come to me immediately and I am with you; I will listen to you first and I won't be angry that you told me.”",
   "assistant_prompts": [
     "How can I help my child deal with feelings of anger or sadness after experiencing cyberbullying?",
     "What games or apps are suitable for 7-9 year olds that reduce the chances of cyberbullying?"
@@ -42,7 +42,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -61,16 +61,30 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "87ce1aa526628728cd5fd181b99d2546e09a35d5479038a3cc8cd529b9f43821",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
-      "residual_low": [],
+      "content_sha256": "a682b6870acbf577e58e6faa5257973f21ab63543c4406c3163fa89c716ba7c6",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "parent_script",
+          "type": "meaning",
+          "why": "The Arabic «يا بُنيّ» specifically addresses a son (\"my son\"), while \"My dear\" is gender-neutral and loses that specificity."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "parent_script",
+        "type": "meaning",
+        "why": "The Arabic «يا بُنيّ» specifically addresses a son (\"my son\"), while \"My dear\" is gender-neutral and loses that specificity."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

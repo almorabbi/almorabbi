@@ -8,8 +8,8 @@
     "shm-aqd-46-12-seeking-refuge",
     "shm-aqd-46-10-tafakkur-creation"
   ],
-  "summary": "Imagine your four-year-old child joyfully running around the house, then suddenly stopping to share their favorite toy with you. Or perhaps you see them whisper a word of thanks after you helped them tidy up their toys. These small moments, full of innocence and spontaneity, are your golden opportunity to plant the seed of faith and love, not fear, in their heart. How can we connect these good deeds with a deep sense of security and divine love?\n\nAt this early age (4-6 years), a child's awareness of Allah is formed through what they see, hear, and feel. The key to building a warm relationship with the Creator is to focus on love, care, and security. When we tell our child \"Allah sees you,\" it must be accompanied by a feeling of reassurance, as if to say, \"Allah loves you, sees you, and protects you even while you sleep.\" This connection between divine sight and love instills in their heart that Allah is not a monitor for punishment, but a source of tenderness, joy, and peace of mind.\n\nTherefore, make every good deed your child performs an opportunity to reinforce this feeling. When they share their toy, or obey you gently, connect that with Allah's joy in them and His love for them. This practical and warm approach builds a solid foundation for sound belief, where the child grows up with their heart finding comfort in their Lord, feeling His love and care at every moment, so Allah becomes a source of security and happiness in their life.",
-  "try_this": "Tonight: Before your child sleeps, hug them gently and say: \"Allah loves you very much, cares for you, and protects you while you sleep.\"",
+  "summary": "Imagine your four-year-old child joyfully running around the house, then suddenly stopping to share their favorite toy with you. Or perhaps you see them whisper a word of thanks after you helped them tidy up their toys. These small moments, full of innocence and spontaneity, are your golden opportunity to plant the seed of faith and love, not fear, in their heart. How can we connect these good deeds with a deep sense of security and divine love?\n\nAt this early age (4-6 years), a child's awareness of Allah is formed through what they see, hear, and feel. The key to building a warm relationship with the Creator is to focus on love, care, and security. When we tell our child \"Allah sees you,\" it must be accompanied by a feeling of reassurance, such as saying, \"Allah is merciful to His servants, hears you and sees you, and loves those who do good, and we pray to Allah to protect and care for you even while you sleep.\" This connection between divine sight and love instills in their heart that Allah is not merely a monitor for punishment, but the Most Merciful of the merciful and a source of mercy, kindness, and peace of mind.\n\nTherefore, make every good deed your child performs an opportunity to reinforce this feeling. When they share their toy, or obey you gently, connect that with Allah's love for excellence and good deeds, and pray for Allah to accept it from them. This practical and warm approach builds a solid foundation for sound belief, where the child grows up with their heart finding comfort in their Lord, feeling His mercy and care, and finding comfort in remembering Him in their life.",
+  "try_this": "Tonight: Before your child sleeps, hug them gently and say: \"Allah is merciful to His servants, hears you and sees you, and I pray to Allah to protect you tonight.\"",
   "order": 2,
   "estimated_minutes": 4,
   "reflection_prompts": [
@@ -20,8 +20,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "«Allah loves you very much, cares for you, and protects you while you sleep.»",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "«Allah is merciful to His servants, hears you and sees you, and I pray to Allah to protect you tonight.»",
   "assistant_prompts": [
     "How can I help my child understand that Allah loves and cares for them in simple, age-appropriate ways?",
     "What activities or stories can I use to foster my child's sense of security with the idea that Allah sees them?"
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,16 +58,42 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "e75beef78322145898b589ee2661b3f941e41e379cb16e39a95dc52724249027",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [],
+      "content_sha256": "36ec794ad033bf96c9f9a51c3ae6a63403ea23db59dd2f1f371d57f35a623ccc",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "parent_script",
+          "type": "structure",
+          "why": "The English parent_script uses Arabic-style guillemets instead of standard English quotation marks."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "parent_script",
+          "type": "leakage",
+          "why": "Arabic guillemets «» are used in the English field instead of standard English quotation marks."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "parent_script",
+        "type": "structure",
+        "why": "The English parent_script uses Arabic-style guillemets instead of standard English quotation marks."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "parent_script",
+        "type": "leakage",
+        "why": "Arabic guillemets «» are used in the English field instead of standard English quotation marks."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -11,7 +11,7 @@
   "reference_type": "كتاب_تربوي",
   "reference_info": "كيف تربي ولدك",
   "text_original": "لدعلاو قدصلاك قلاخلأا ضعبو باوصلاو أطلخا ملعت )2( ءاطعلاو ذخلأاو نواعتلا ملعتي ذإ ،ةيعامتجلاا تاقلاعلا ءانبو ،يعاملجا بعللا قيرط نع بيصلا لثيمو ملأا رود ةاتفلا لثتم ذإ ،يلبقّتسلما هرود ملعتي امك ،نيرخلآا قوقّح مارتحاو .نهلما نم ةنهم نلاثيم دقو ،بلأا رود تلاضعلا ونم ىلع دعاسيو ةنطفلاو ءاكذلا دّقوَت ىلع ةرثكب بعللا لدي )3( . ةفلتخلما تاراهلما ةيمنتو ،طاشنلا ديدتجو . 49 ص :رهاط ةرسيمو ملاسلا دبع قوراف ،ةيوبرتو ةيسفن ثوبح ةلسلس :رظنا ) ( . 2/3 ليازغلا ،نيدلا مولع ءايحإ :رظنا )2( . 49 ص :رهاط ةرسيمو ملاسلا دبع قوراف ،ةيوبرتو ةيسفن ثوبح ةلسلس :رظنا )3( .393 ص .بطق دممح ،ةيملاسلإا ةيبرتلا جهنم :رظنا )4( ص .ثراحاب ناندع دلولا ةيبرت في ملسلما بلأا ةيلوؤسم نع لاقّن ،6 ص ع ،ةيبرتلا لبقّتسم ةلمج :رظنا ) ( .424 ص ،قباسلا عجرلما :رظنا )6( :اهنم طباوض ِبعلل :بعللا طباوض * :ةيعرش طباوض )أ( تتح لخديو ماملحاب بعللاو رامقّلاو درنلاك ،اتهاذ دح في ةمرمح ةبعلُلا نوكت دقّف تابجاولا نع لغشت انهلأ ًامارح ةبعللا نوكت دقو ،عورشلما يرغ ناهرِلاو بيصنايلا كلذ وأ ةروع فشكك مرمح ابه نرتقّي هنأ وأ ،كلاهلل هضرعتو مسلجا يذؤت انهلأ وأ ،ةيعرشلا كلذ يرغ وأ بيلص وأ حوُر تاذ ةروص وأ ،رفاكل ةلااوم وأ ملسلم ةاداعم وأ متش وأ نعل وأ مرمح ابه نرتقا وأ ،عراشلا اهمرَح َةَبعل لاإ ةحابم ةبعل لك نأ :كلذ في ةدعاقلاو .مرمح باكترا وأ بجاو تاوف لىإ تدأ :ةيحص طباوض )ب( اهيف رشتنت ةعاسلا كلت نلأ ،ءاشعلا لىإ برغلما دعب بعللا نع يهنلا في درو ام اهنم بعللاك ةبرجتلاو لقّعلاب ةمولعم راطخأ كانهو ،ًاعرش مولعم رطلخا",
-  "text_simplified": "Group play helps children learn cooperation, sharing, and respecting the rights of others. It also enhances intelligence, creativity, and develops various skills. Play should be *mubah* (permissible) according to *Shari'ah*, and should not include *haram* (prohibited) elements such as disbelief, obscenity, or neglecting obligations. Health guidelines should also be considered, such as avoiding play between *Maghrib* and *Isha*.",
+  "text_simplified": "Group play helps children learn cooperation, sharing, and respect for others' rights, while also nurturing intelligence, creativity, and skills. Play must remain Islamically permissible, free of prohibited acts or neglecting obligations. Prophetic etiquette also includes keeping young children indoors at the onset of nightfall around Maghrib, as authentically reported from the Prophet (peace be upon him) in the Sahihayn.",
   "labels": [
     "اللعب الجماعي",
     "الضوابط الشرعية",
@@ -34,22 +34,32 @@
     "needs_scholar_review": true,
     "review_verdict": "clean",
     "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "fea9d5a79b374717ae3bd9f5acc5e2b20beab205e01482c8c002165912d3b453",
-      "reviewed_at": "2026-10-04T11:18:18+00:00",
+      "content_sha256": "034018db2043a11f9aff79fc4fc6ae132655c5c14aa642ec03ebc4a62eabda1c",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
-    "revalidated_at": "2026-10-04T11:18:18+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -9,7 +9,7 @@
     "dev-10a2fcc0",
     "med-88c1469a"
   ],
-  "summary": "Imagine your seven-year-old child running lightly in the park, confidently catching a ball, and tying their own shoes before going out to play. These daily scenes are not just fleeting moments; they are clear signs of rapid and amazing physical and motor development. At this stage, your child needs at least one hour of physical activity daily and 9-12 hours of nightly sleep to support their small body through this significant development. It's as if their body is telling you: \"I am exploring the world with my increasing strength!\"\n\nAs they grow older, towards nine and ten, you will notice that their friends begin to occupy a larger space in their world. This is not a sign of them drifting away from you, but rather a natural and necessary stage for their social and emotional development. Their friendships deepen and become an important source of support and new experiences. Peer pressure may increase during this period, and this is where the self-confidence you have built with them becomes their protective shield. Accompany their growing independence instead of resisting it, for every step towards self-reliance is an achievement worth celebrating.\n\nIt is important to be aware of the signs of puberty. Their appearance in your daughter before age eight, or in your son before age nine, warrants consultation with a pediatrician or endocrinologist; do not hesitate to do so. However, the appearance of pubertal signs in your daughter between 8 and 13 years old is normal, and often the first sign is a small bud under the nipple. Talk to her calmly about these changes before they happen. If your daughter starts comparing herself to her friends in terms of clothes, give her a regular allowance to learn how to choose what she truly wants and to differentiate between genuine desire and peer influence. In this way, you are not just fulfilling her wishes, but training her to make conscious decisions.",
+  "summary": "Imagine your seven-year-old child running lightly in the park, confidently catching a ball, and tying their own shoes before going out to play. These daily scenes are not just fleeting moments; they are clear signs of rapid and amazing physical and motor development. At this stage, your child needs at least one hour of physical activity daily and 9-12 hours of nightly sleep to support their small body through this significant development. It's as if their body is telling you: \"I am exploring the world with my increasing strength!\"\n\nAs they grow older, towards nine, you will notice that their friends begin to occupy a larger space in their world. This is not a sign of them drifting away from you, but rather a natural and necessary stage for their social and emotional development. Their friendships deepen and become an important source of support and new experiences. Peer pressure may increase during this period, and this is where the self-confidence you have built with them becomes their protective shield. Accompany their growing independence instead of resisting it, for every step towards self-reliance is an achievement worth celebrating.\n\nIt is important to be aware of the signs of puberty. Their appearance in your daughter before age eight, or in your son before age nine, warrants consultation with a pediatrician or endocrinologist; do not hesitate to do so. Signs of puberty in girls may begin between ages eight and thirteen, and if they appear before age eight, consult a doctor. Talk to her calmly about these changes before they happen. If your daughter starts comparing herself to her friends in terms of clothes, give her a regular allowance to learn how to choose what she truly wants and to differentiate between genuine desire and peer influence. In this way, you are not just fulfilling her wishes, but training her to make conscious decisions.",
   "try_this": "Tonight: Before bedtime, talk to your child about the best thing they did today with their friends, and about what they most enjoyed doing with their body (such as running or playing with a ball).",
   "order": 5,
   "estimated_minutes": 4,
@@ -23,7 +23,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I am here to support you every step of the way, my son/daughter.”",
   "assistant_prompts": [
     "How can I help my child build self-confidence to face peer pressure?",
@@ -42,7 +42,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -61,14 +61,14 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "fc65440719661af7486cdc04ee62cd41ed352df0794ad46aa43fae666d9ab057",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "328a9f76fbf9be7aeb16dc7f8797a01b883f4b26e15a151920657c0fdd6f2816",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [
         {
           "model": "glm-5.2",
           "field": "title",
           "type": "meaning",
-          "why": "«ابني» specifies 'my son' and «أرافق» means 'accompany,' but English generalizes to 'My Child' and shifts to 'Support,' slightly altering the personal, companionate tone."
+          "why": "The Arabic title says 'my son' (ابني) while the English generalizes to 'my child'; the body content does address both sons and daughters, so the English is arguably more consistent, but it does not ma"
         }
       ],
       "adjudicated": [],
@@ -82,9 +82,9 @@
         "model": "glm-5.2",
         "field": "title",
         "type": "meaning",
-        "why": "«ابني» specifies 'my son' and «أرافق» means 'accompany,' but English generalizes to 'My Child' and shifts to 'Support,' slightly altering the personal, companionate tone."
+        "why": "The Arabic title says 'my son' (ابني) while the English generalizes to 'my child'; the body content does address both sons and daughters, so the English is arguably more consistent, but it does not ma"
       }
     ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

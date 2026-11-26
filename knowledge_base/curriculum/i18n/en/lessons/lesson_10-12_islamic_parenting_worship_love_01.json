@@ -1,14 +1,14 @@
 {
   "id": "lesson_10-12_islamic_parenting_worship_love_01",
   "path_id": "path_10-12_islamic_parenting_worship_love",
-  "title": "Prayer: A Heartfelt Meeting, Not a Compulsory Duty",
+  "title": "Prayer: A Meeting of the Heart with Allah, and Habituation Through Gentleness and Follow-Up",
   "age_group": "10-12",
   "domain": "islamic_parenting",
   "unit_ids": [
     "isl-c4986b8f",
     "isl-c4b3fccc"
   ],
-  "summary": "The hands of the clock creep towards prayer time, and you find your ten-year-old son sighing, dragging his feet slowly, or perhaps evading with the excuse of homework. You feel a bit distressed; how can he not grasp the importance of this great pillar? You try to remind him, sometimes with a firm tone, and sometimes with some pleading, but the result is often a quick performance devoid of reverence, or a silent aversion that grows with each reminder.\n\nPrayer at this critical age, where a child's personality is forming and their perceptions are opening, requires a different approach. The goal is not merely to perform the movements, but to instill a love for meeting with Allah, and a feeling of tranquility and peace that prayer grants. Compulsion alone, though necessary at some stages, can turn into a heavy burden that extinguishes the light of spirituality. The wisdom of the Prophet ﷺ reminds us: «Make things easy and do not make them difficult; give glad tidings and do not make people flee» (Sahih al-Bukhari 69). Ease and glad tidings are the keys to hearts.\n\nInstead of focusing on compulsion, make prayer a warm, shared experience. Pray in front of him with visible reverence; let him see in you a living example of tranquility and calmness. Talk to him about the beauty of prayer as an opportunity to speak with Allah, to thank Him, and to ask for His help. Praise his commitment and encourage him, even if his performance is not perfect, and focus on the effort made, not on perfection. Love and inclusion are the fertile soil in which the roots of deep faith grow.",
+  "summary": "The hands of the clock creep towards prayer time, and you find your ten-year-old son sighing, dragging his feet slowly, or perhaps evading with the excuse of homework. You feel a bit distressed; how can he not grasp the importance of this great pillar? You try to remind him, sometimes with a firm tone, and sometimes with some pleading, but the result is often a quick performance devoid of reverence, or a silent aversion that grows with each reminder.\n\nPrayer at this critical age, where a child's personality is forming and their perceptions are opening, requires a different approach. The goal is not merely to perform the movements, but to instill a love for meeting with Allah, and a feeling of tranquility and peace that prayer grants. Enjoining prayer and following up on it is an established parenting responsibility, yet if done alone without gentleness and good example, it can turn into a heavy burden that extinguishes the light of spirituality. The wisdom of the Prophet ﷺ reminds us: «Make things easy and do not make them difficult; give glad tidings and do not make people flee» (Sahih al-Bukhari 69). Ease and glad tidings are the keys to hearts.\n\nAlongside gentle follow-up, make prayer a warm, shared experience. Pray in front of him with visible reverence; let him see in you a living example of tranquility and calmness. Talk to him about the beauty of prayer as an opportunity to speak with Allah, to thank Him, and to ask for His help. Praise his commitment and encourage him, even if his performance is not perfect, and focus on the effort made, not on perfection. Love and inclusion are the fertile soil in which the roots of deep faith grow.",
   "try_this": "Tonight: Pray Isha prayer next to your son, making sure to prolong the prostration slightly. Then, after the salutation, smile at him and invite him to share a quiet supplication with you.",
   "order": 1,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«How beautiful it is for us to meet with Allah together, my son. He loves us and hears us.»",
   "assistant_prompts": [
     "How do I deal with a son who completely refuses to pray at age 11?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,16 +58,42 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "c312c85be624ad854feeed34788eaaef0567b28241cdf98abd9c0e3f707c65bc",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
-      "residual_low": [],
+      "content_sha256": "12d57a8f6418a103bdb46d2bfd1b7c657376b01c37422449481da67a6eb2f14d",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "summary",
+          "type": "meaning",
+          "why": "The Arabic \"احتواء\" means emotional containment/embracing, not \"inclusion\", slightly shifting the parenting tone."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "hadith",
+          "why": "\"تنفروا\" means \"drive/repel people away,\" not \"make people flee\"; the latter implies literal running away rather than being turned off."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "summary",
+        "type": "meaning",
+        "why": "The Arabic \"احتواء\" means emotional containment/embracing, not \"inclusion\", slightly shifting the parenting tone."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "hadith",
+        "why": "\"تنفروا\" means \"drive/repel people away,\" not \"make people flee\"; the latter implies literal running away rather than being turned off."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

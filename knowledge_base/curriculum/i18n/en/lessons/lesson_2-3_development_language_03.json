@@ -8,7 +8,7 @@
     "2b2d1fdd-1a30-40f3-aa2b-0dbadea2ce2c",
     "seed-picky-23"
   ],
-  "summary": "Have you ever seen your two or three-year-old seriously feeding their stuffed doll with a spoon, or wearing your oversized shoes and taking clumsy steps as if they were someone else? These magical moments are not just fleeting play; they are a window through which your child looks out onto a wider world, a world where they begin to form their understanding of reality through imagination, laying the first bricks of their linguistic and cognitive skills that will accompany them throughout their lives.\n\nThis imaginative play, which may seem simple, is actually a powerful engine for your child's growth. When they pretend to feed their doll, they are not just imitating; they are practicing symbolic thinking. The spoon is no longer just a spoon; it has become a tool for feeding, and the doll is no longer just a toy; it is a being that needs care. This thinking is the foundation of language development, as your child learns to connect words with their abstract meanings and explores different roles, which enhances their ability to communicate and understand the world around them more deeply.\n\nTo encourage this amazing journey, you don't need complex toys. Provide your child with a stimulating environment through simplicity: some old pots and pans for them to pretend to cook, a set of building blocks to create their own world, or even some of your large clothes for them to role-play different characters. Most importantly, join them in play; pretend to eat the food they cooked, or talk to them as if you were another character. This participation not only enhances their imagination but also strengthens your bond and gives them a sense of security and confidence to explore more.",
+  "summary": "Have you ever seen your two or three-year-old seriously feeding their stuffed doll with a spoon, or wearing your oversized shoes and taking clumsy steps as if they were someone else? These magical moments are not just fleeting play; they are a window through which your child looks out onto a wider world, a world where they begin to form their understanding of reality through imagination, laying the first bricks of their linguistic and cognitive skills that will accompany them throughout their lives.\n\nThis imaginative play, which may seem simple, is actually a powerful engine for your child's growth. When they pretend to feed their doll, they are not just imitating; they are practicing symbolic thinking. The spoon is no longer just a spoon; it has become a tool for feeding, and the doll is no longer just a toy; it is a being that needs care. This symbolic thinking is linked to a child's language development, as your child learns to connect words with their abstract meanings and explores different roles, which enhances their ability to communicate and understand the world around them more deeply.\n\nTo encourage this amazing journey, you don't need complex toys. Provide your child with a stimulating environment through simplicity: some old pots and pans for them to pretend to cook, a set of building blocks to create their own world, or even some of your large clothes for them to role-play different characters. Most importantly, join them in play; pretend to eat the food they cooked, or talk to them as if you were another character. This participation not only enhances their imagination but also strengthens your bond and gives them a sense of security and confidence to explore more.",
   "try_this": "Tonight: Give your child a spoon and their stuffed doll, and encourage them to pretend to feed it. Then, switch roles, and you pretend to feed your doll.",
   "order": 2,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-13T10:00:00",
   "updated_at": "2026-06-13T10:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"My little one, how delicious is this food you cooked! May I have another bite?\"",
   "assistant_prompts": [
     "What simple household items can my two-year-old use for imaginative play?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,30 +58,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "81a223a14b423cbf50688c1daaa0ac4e4bfdf4cf9feadd6124b28e372572e40f",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "meaning",
-          "why": "متثاقلة means slow, heavy or deliberate steps, not clumsy (uncoordinated); the nuance is altered."
-        }
-      ],
+      "content_sha256": "9a2d4c3a84cccff91ae4865041604a12bf02b8dcb02aebf924031962a7fc857c",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "meaning",
-        "why": "متثاقلة means slow, heavy or deliberate steps, not clumsy (uncoordinated); the nuance is altered."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

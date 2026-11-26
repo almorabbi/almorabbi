@@ -9,7 +9,7 @@
     "e9717a72-3836-4c57-9c93-9d9ba67f1ed9",
     "f69ebfd7-8cec-4eca-b7f9-3c2ac0f38996"
   ],
-  "summary": "Imagine your teenage child coming to you excited, sharing an amazing video or image that went viral online, perhaps news that sparks anger or fear. At first glance, everything seems completely real and convincing. You might even feel surprised or worried by the content yourself, and wonder: Is this real? Could something like this actually be happening? This scene is repeated often in our digital world today, where the pace of information spread accelerates, and facts mix with illusions.\n\nIn the age of artificial intelligence, the ability to distinguish real content from fake has become an essential and indispensable skill. Images and videos that look incredibly realistic, and news that spreads at lightning speed, could all be products of advanced technologies like \"Deepfake\" or AI-generated images. These technologies make it very difficult for the human eye alone to distinguish between what is real and what is artificial. It's not about doubting everything, but about teaching our children how to think critically and deal with information consciously and cautiously.\n\nTo make our children knights in this digital world, we can equip them with the shield of critical thinking. Start together by searching for reliable sources, checking for other independent sources that confirm the news, and paying attention to signals that provoke anger, fear, or urgency, as these are often signs of deception. Use simple tools like reverse image search, or video verification tools, and always remember that the official website of the platform is often the most truthful. These practical steps will give them calm and confidence in dealing with the flood of information.",
+  "summary": "Imagine your teenage child coming to you excited, sharing an amazing video or image that went viral online, perhaps news that sparks anger or fear. At first glance, everything seems completely real and convincing. You might even feel surprised or worried by the content yourself, and wonder: Is this real? Could something like this actually be happening? This scene is repeated often in our digital world today, where the pace of information spread accelerates, and facts mix with illusions.\n\nIn the age of artificial intelligence, the ability to distinguish real content from fake has become an essential and indispensable skill. Images and videos that look incredibly realistic, and news that spreads at lightning speed, could all be products of advanced technologies like \"Deepfake\" or AI-generated images. These technologies make it very difficult for the human eye alone to distinguish between what is real and what is artificial. It's not about doubting everything, but about teaching our children how to think critically and deal with information consciously and cautiously.\n\nTo make our children knights in this digital world, we can equip them with the shield of critical thinking. Start together by searching for reliable sources, checking for other independent sources that confirm the news, and paying attention to signals that provoke anger, fear, or urgency, as these are often signs of deception. Use simple tools like reverse image search, or video verification tools, and always remember that relying on a platform post or the publishing account alone is not enough, and verifying through multiple reliable, independent sources is the standard. These practical steps will give them calm and confidence in dealing with the flood of information.",
   "try_this": "Tonight: Together, choose a video or image that has recently gone viral and raises doubts. Use reverse image search or video verification tools to find the original source. Discuss together what you discovered.",
   "order": 2,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“My dear child, let's be digital detectives today and uncover the truth of this news together.”",
   "assistant_prompts": [
     "How can I explain the concept of \"Deepfake\" to my teenager in a simplified way?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,30 +58,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5d55c576b7edb22ef98294723a3944b417d63d0da9f65cec25912c854f9a2fa3",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "title",
-          "type": "meaning",
-          "why": "The Arabic says «عالم» (world) not «عصر» (age/era); 'Age of AI' shifts the metaphor slightly."
-        }
-      ],
+      "content_sha256": "f106d74492b201e165646bc83c569c172470c53bab105f8bc2f4b04129d60a99",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "title",
-        "type": "meaning",
-        "why": "The Arabic says «عالم» (world) not «عصر» (age/era); 'Age of AI' shifts the metaphor slightly."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

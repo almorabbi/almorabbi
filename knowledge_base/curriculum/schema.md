@@ -50,7 +50,7 @@ DAILY TIP (knowledge_base/curriculum/daily_tips/*.json) — مستقل
 | `domain` | `medical`, `cyber`, `islamic_parenting`, `development` | `CANONICAL_DOMAINS` |
 | `severity` | `خفيف`, `متوسط`, `شديد`, `طارئ` | `CANONICAL_SEVERITIES` (في الـ units فقط) |
 | `intervention_type` | `وقائي`, `إرشادي`, `علاجي`, `إحالة_لطبيب` | `CANONICAL_INTERVENTIONS` (في الـ units فقط) |
-| `reference_type` | `DSM-5`, `كتاب_فقهي`, `حديث`, `كتاب_تربوي`, `تقرير_سيبراني`, `إرشاد_مهني`, `مقال_تنموي`, `تقرير_طبي`, `مقال_تربوي` | `CANONICAL_REFERENCE_TYPES` |
+| `reference_type` | `DSM-5`, `كتاب_فقهي`, `كتاب_عقيدة`, `كتاب_تفسير`, `كتاب_حديث`, `شرح_حديث`, `حديث`, `كتاب_تربوي`, `تقرير_سيبراني`, `إرشاد_مهني`, `مقال_تنموي`, `تقرير_طبي`, `مقال_تربوي` | `CANONICAL_REFERENCE_TYPES` |
 
 > **للـ paths/lessons/tips نستخدم 4 age groups (بدون `unspecified`) و 4 domains الأساسية فقط.** الـ `severity` و `intervention_type` خاصين بـ `knowledge_unit` فقط (تشخيص ربع).
 

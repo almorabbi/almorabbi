@@ -9,8 +9,8 @@
     "b37a6dcf-3b48-41df-9837-4460b5f64179",
     "beb0e561-be2a-51dc-85ac-83c158c748ef"
   ],
-  "summary": "Your teenage child scrolls through their screen, laughs at a post, comments on a picture, and shares a video clip. These fleeting moments, which seem like mere entertainment, are actually building blocks for their digital story. Every button press, every like, every search leaves an indelible mark, added to their personal profile that will stay with them for many years to come, and may even determine their path in university or work.\n\nImagine this digital footprint as a resume written daily, read and analyzed by various entities: universities looking for committed students, companies hiring responsible employees, and even future social relationships. What is published today may be interpreted differently tomorrow, and may be understood out of context. Therefore, teaching our children to think before posting is an investment in their future and a protection of their reputation, which is being built now.\n\nLet's teach them that the screen is not a wall that hides them, but a window through which the world looks at them. We can start with a simple and regular review of their accounts, not to spy, but to guide and participate. Help them understand that privacy is not just about settings, but about awareness of what is shared and with whom it is shared. These small steps build their sense of digital responsibility and give them the necessary tools to be confident in their digital story.",
-  "try_this": "Tonight: Sit together for 5 minutes and open one of your child's accounts (such as Instagram or TikTok). Review the last 5 posts or comments and talk about how they feel about them and whether they truly represent them.",
+  "summary": "Your teenage child scrolls through their screen, laughs at a post, comments on a picture, and shares a video clip. These fleeting moments, which seem like mere entertainment, are actually building blocks for their digital story. Every button press, every like, every search leaves a trace that can be hard to erase, added to their personal profile that will stay with them for many years to come, and may even determine their path in university or work.\n\nImagine this digital footprint as a resume written daily, read and analyzed by various entities: universities looking for committed students, companies hiring responsible employees, and even future social relationships. What is published today may be interpreted differently tomorrow, and may be understood out of context. Therefore, teaching our children to think before posting is an investment in their future and a protection of their reputation, which is being built now.\n\nLet's teach them that the screen is not a wall that hides them, but a window through which the world looks at them. We can start with a simple and regular review of their accounts, not to spy, but to guide and participate. Help them understand that privacy is not just about settings, but about awareness of what is shared and with whom it is shared. These small steps build their sense of digital responsibility and give them the necessary tools to be confident in their digital story.",
+  "try_this": "Tonight: Sit together for 5 minutes, and ask your child—with their consent—to show you one or two posts they chose themselves from their account, and talk about how they feel about them and whether they truly represent them.",
   "order": 1,
   "estimated_minutes": 4,
   "reflection_prompts": [
@@ -21,7 +21,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“Your digital footprint is your story; let’s write it wisely together.”",
   "assistant_prompts": [
     "How can I talk to my teenage child about the importance of digital privacy without making them feel like I'm invading their life?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "39ef9cb1ade6ec52ecae8846e0a9766a46acc2c903a0fc51e8972853ecca54c0",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "eebf4d2501d6835382b6ae065a2b221976265a6e64fa034cb1ad2b52e52e574a",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

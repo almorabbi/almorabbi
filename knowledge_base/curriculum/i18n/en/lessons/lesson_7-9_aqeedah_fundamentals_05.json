@@ -5,10 +5,9 @@
   "age_group": "7-9",
   "domain": "aqeedah",
   "unit_ids": [
-    "shm-aqd-79-07-allah-adl",
-    "shm-aqd-79-09-qadar-basics"
+    "shm-aqd-79-07-allah-adl"
   ],
-  "summary": "Imagine your little seven-year-old, running towards you after falling, eyes brimming with tears. You hug him tenderly, stroke his head, and whisper words of reassurance. In that moment, he experiences the meaning of safety and love. But how do we connect this deep feeling to a Lord we cannot see? How do we make our children love their Creator and attach their hearts to Him, so He becomes closer to them than any abstract idea? The answer lies in Allah’s Beautiful Names, which are a key to their small hearts and minds.\n\nAllah’s Beautiful Names are not just words to be memorized; they are gateways to understanding His greatness, mercy, and power. When we introduce a child to the name “Ar-Rahman, Ar-Rahim” (The Most Gracious, The Most Merciful), we don't just tell them that Allah is merciful. Instead, we connect it to a tangible situation: “Allah is more merciful to us than our mother when she forgives us for an unintentional mistake.” And when we mention “Ar-Razzaq” (The Provider), we point to the tiny ant that Allah provides for in its hole, or to the delicious food we find on our table every day. “As-Sami’, Al-Basir” (The All-Hearing, The All-Seeing) means He hears our prayers and sees everything we do, which gives a sense of closeness and security, and teaches them that Allah is always with them. “Al-Ghafur” (The Forgiving) reassures their little hearts that Allah forgives us if we make a mistake and ask for forgiveness.\n\nLet's make this knowledge alive, not just a dry lesson. Choose a name that resonates with your child's heart and connect it to a daily situation they experience. Teach them to supplicate to Allah using His names, for example: “Ya Rahman, have mercy on me” when they feel sad, or “Ya Razzaq, provide for me” when they wish for something. This method transforms the relationship with Allah from a distant idea into a tangible reality, nourishing their soul, strengthening their faith, and making their heart feel secure in the presence of a generous Lord who loves and cares for them. This is the foundation of the warm, faith-based upbringing we wish for our children.",
+  "summary": "Imagine your little seven-year-old, running towards you after falling, eyes brimming with tears. You hug him tenderly, stroke his head, and whisper words of reassurance. In that moment, he experiences the meaning of safety and love. But how do we connect this deep feeling to a Lord we cannot see? How do we make our children love their Creator and attach their hearts to Him, so He becomes closer to them than any abstract idea? The answer lies in Allah’s Beautiful Names, which are a key to their small hearts and minds.\n\nAllah’s Beautiful Names are not just words to be memorized; they are gateways to understanding His greatness, mercy, and power. When we introduce a child to the name “Ar-Rahman, Ar-Rahim” (The Most Gracious, The Most Merciful), we don't just tell them that Allah is merciful. Instead, we connect it to a tangible situation: “Allah is more merciful to His servants than a mother is to her child, as the Prophet ﷺ informed us.” And when we mention “Ar-Razzaq” (The Provider), we point to the tiny ant that Allah provides for in its hole, or to the delicious food we find on our table every day. “As-Sami’, Al-Basir” (The All-Hearing, The All-Seeing) means He hears our prayers and sees everything we do, which gives a sense of closeness and security, and teaches them that Allah is always with them. “Al-Ghafur” (The Forgiving) reassures their little hearts that Allah forgives us if we make a mistake and ask for forgiveness.\n\nLet's make this knowledge alive, not just a dry lesson. Choose a name that resonates with your child's heart and connect it to a daily situation they experience. Teach them to supplicate to Allah using His names, for example: “Ya Rahman, have mercy on me” when they feel sad, or “Ya Razzaq, provide for me” when they wish for something. This method transforms the relationship with Allah from a distant idea into a tangible reality, nourishing their soul, strengthening their faith, and making their heart feel secure in the presence of a generous Lord who loves and cares for them. This is the foundation of the warm, faith-based upbringing we wish for our children.",
   "try_this": "Tonight: Before bedtime, mention one of Allah’s Beautiful Names (e.g., Ar-Rahman), connect it to a situation your child experienced today, then ask them to supplicate to Allah using this name in their prayer.",
   "order": 5,
   "estimated_minutes": 4,
@@ -20,8 +19,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“My darling, Allah is Ar-Rahman, meaning He loves us and forgives us much, much more than anyone else in the world.”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“My darling, Allah is Ar-Rahman, meaning vast in mercy, and His mercy toward us is greater than anyone else's mercy.”",
   "assistant_prompts": [
     "How can I explain the meaning of Allah’s name “Ar-Razzaq” to my 8-year-old child in a simple and fun way?",
     "What practical activities can I do with my child to connect Allah’s Beautiful Names to real-life situations?"
@@ -39,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,16 +57,30 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "40b71e0e9405d6fe9e660a789e8957d5a219d524b040de90a74ead93bb410279",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
-      "residual_low": [],
+      "content_sha256": "02533a144bc62bffdb96b5c10cbe965ea0fe4ed2b6e73d4c9c52fccdcaee0a73",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "parent_script",
+          "type": "meaning",
+          "why": "«يا بُنيّ» specifically addresses a son; \"My darling\" is gender-neutral and loses that specificity."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "parent_script",
+        "type": "meaning",
+        "why": "«يا بُنيّ» specifically addresses a son; \"My darling\" is gender-neutral and loses that specificity."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

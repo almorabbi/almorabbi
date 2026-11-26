@@ -8,7 +8,7 @@
     "seed-fear-46",
     "gap-med-enuresis-01"
   ],
-  "summary": "Imagine yourself after a long day, getting ready for dinner with your little one, and suddenly you notice their small hands have touched everything on their way from the garden to the dining table. Or perhaps you're getting ready for bed, and you remember your child's teeth haven't been brushed yet. These daily moments aren't just routine tasks; they are golden opportunities to instill healthy habits that will be a protective shield for them throughout life, forming an essential part of our care and love for our children at this age full of exploration and curiosity.\n\nIn these early years, your child has an amazing ability to imitate and learn through observation. They don't need dry commands, but rather a living model they can see and mimic. When you wash your hands enthusiastically in front of them, or brush your teeth with a smile, you're not just teaching them how to do it, but also embedding in their mind that these actions are a natural and enjoyable part of daily life. These simple habits, like washing hands before eating and after using the bathroom, brushing teeth twice a day, and covering the mouth when sneezing, are small investments in their big health.\n\nDon't make these habits a burden; instead, turn them into a game, a short song, or even a fun story told during cleaning. Allow your child to participate as much as possible, even if it means some mess at first. The most important thing is for them to associate cleanliness with a feeling of comfort and safety. Remember that building these habits requires patience and repetition, but the reward is a healthier child, and a parent who feels reassured that their child has the necessary tools to protect themselves in their small and big world.",
+  "summary": "Imagine yourself after a long day, getting ready for dinner with your little one, and suddenly you notice their small hands have touched everything on their way from the garden to the dining table. Or perhaps you're getting ready for bed, and you remember your child's teeth haven't been brushed yet. These daily moments aren't just routine tasks; they are golden opportunities to instill healthy habits that help protect their health, by Allah's will, forming an essential part of our care and love for our children at this age full of exploration and curiosity.\n\nIn these early years, your child has an amazing ability to imitate and learn through observation. They don't need dry commands, but rather a living model they can see and mimic. When you wash your hands enthusiastically in front of them, or brush your teeth with a smile, you're not just teaching them how to do it, but also embedding in their mind that these actions are a natural and enjoyable part of daily life. These simple habits, like washing hands before eating and after using the bathroom, brushing teeth twice a day, and covering the mouth when sneezing, are small investments in their big health.\n\nDon't make these habits a burden; instead, turn them into a game, a short song, or even a fun story told during cleaning. Allow your child to participate as much as possible, even if it means some mess at first. The most important thing is for them to associate cleanliness with a feeling of comfort and safety. Remember that building these habits requires patience and repetition, but the reward is a healthier child, and a parent who feels reassured that their child has the necessary tools to protect themselves in their small and big world.",
   "try_this": "Tonight: Make brushing teeth before bed a fun adventure; choose a colorful toothbrush or a toothpaste flavor they love, and let them imitate how you brush.",
   "order": 4,
   "estimated_minutes": 4,
@@ -20,8 +20,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“Come on, champ, let’s wash our hands and chase away the naughty germs!”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“Come on, champ, let’s wash our hands with soap and water so we stay healthy!”",
   "assistant_prompts": [
     "What are some suitable songs or games to teach my child handwashing?",
     "How do I handle my child if they refuse to brush their teeth?"
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "9bef9db11e113e6d43b7c1dc1ec9261ac3f927e6f5183fbe747fb7cc9e285bac",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "5462b056ec6c65de748824f4d7065507fcb09be125611dc171e0c6d7369ae997",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

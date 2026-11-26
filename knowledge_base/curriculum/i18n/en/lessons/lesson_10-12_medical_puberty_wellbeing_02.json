@@ -20,7 +20,7 @@
     "med-ca2a9d86",
     "med-ec6f874a"
   ],
-  "summary": "Do you remember how your child used to run carefree in the park, their laughter filling the air? Now, you sit beside them on the sofa, noticing their absentmindedness. Perhaps they're staring at their phone screen more than usual, or avoiding talking about their school day. Those days when they shared every detail with you seem to be drifting away. You might whisper to yourself, \"Is this just a passing mood, or is there something deeper?\" This age, between ten and twelve, is a stage of major transformations, physical and psychological, making them susceptible to pressures they haven't experienced before.\n\nIt's natural for your child to feel stressed or sad sometimes. School, friends, body image, and hormonal changes all put pressure on their small world. But the difference lies in the persistence and intensity of these feelings. If you notice that sadness lasts for more than two weeks, or there's noticeable social withdrawal, a decline in academic performance, drastic changes in sleep patterns or appetite, or even talk of self-harm, these are signals that cannot be ignored. It's not a call for panic, but a call for attention and action.\n\nYour role as a parent is to be a safe haven. Listen to them without judgment; let them feel that you understand, even if you don't understand everything. Reassure them that you are by their side, and that you will face this challenge together. Don't hesitate to seek professional help early, as intervention at this early stage can make a huge difference. A pediatrician or psychologist can provide the necessary support and guidance to help your child successfully navigate this stage and return to their laughter that fills the air.",
+  "summary": "Do you remember how your child used to run carefree in the park, their laughter filling the air? Now, you sit beside them on the sofa, noticing their absentmindedness. Perhaps they're staring at their phone screen more than usual, or avoiding talking about their school day. Those days when they shared every detail with you seem to be drifting away. You might whisper to yourself, \"Is this just a passing mood, or is there something deeper?\" This age, between ten and twelve, is a stage of major transformations, physical and psychological, making them susceptible to pressures they haven't experienced before.\n\nIt's natural for your child to feel stressed or sad sometimes. School, friends, body image, and hormonal changes all put pressure on their small world. But the difference lies in the persistence and intensity of these feelings. If you notice that sadness lasts for more than two weeks, or there's noticeable social withdrawal, a decline in academic performance, drastic changes in sleep patterns or appetite, or even talk of self-harm, these are signals that cannot be ignored. It's not a call for panic, but a call for attention and action.\n\nYour role as a parent is to be a safe haven. Listen to them without judgment; let them feel that you understand, even if you don't understand everything. Reassure them that you are by their side, and that you will face this challenge together. Don't hesitate to seek professional help early, as intervention at this early stage can make a huge difference. A pediatrician or psychologist can provide the necessary support and guidance to help your child get through this stage, thereby increasing their chances of recovery and regaining their peace of mind, by Allah's will.",
   "try_this": "Tonight: After dinner, suggest a simple game to your child: each person mentions the \"best thing\" and the \"hardest thing\" that happened to them today. Listen to them attentively without interruption or comment; just listen.",
   "order": 2,
   "estimated_minutes": 4,
@@ -38,7 +38,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I am here for you, no matter how you feel, we will get through this together.”",
   "assistant_prompts": [
     "What are the specific signs that warrant a visit to a psychiatrist for an 11-year-old child?",
@@ -57,7 +57,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -76,30 +76,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "dfa93c15745c96b8970d601ac3a9fc485d6422bf3c80d115661973cfcfc25955",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "try_this",
-          "type": "meaning",
-          "why": "The Arabic uses dual imperative forms addressing both parents, while the English does not explicitly convey that both parents are being addressed."
-        }
-      ],
+      "content_sha256": "783215424960eb258dae7e1ccb7c9064197a9091d92f72846bcfaf1cf06e71d3",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "try_this",
-        "type": "meaning",
-        "why": "The Arabic uses dual imperative forms addressing both parents, while the English does not explicitly convey that both parents are being addressed."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

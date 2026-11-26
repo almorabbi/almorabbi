@@ -7,7 +7,7 @@
   "unit_ids": [
     "6970f436-c954-45ac-ab96-30a798cf523f"
   ],
-  "summary": "Imagine yourself right after birth, your little one in your arms, touching your warm skin. These first moments are not just the beginning of feeding; they are the first pages of a deep love story, where your little one finds safety, warmth, and life in your embrace. You might feel some anxiety about mastering breastfeeding, and this is completely normal. Remember that this journey is a mutual discovery, where you and your baby learn a new language of communication and love.\n\nBreastfeeding is more than just food; it's a bridge of tenderness and immunity that connects you to your baby. The first drops of colostrum, or what we call \"first milk,\" are a magical gift from nature, rich in antibodies that protect your little one and give them their first immune shield. Successful breastfeeding begins with a correct latch, where your baby takes the nipple and a large part of the areola deeply, which prevents pain for you and ensures they get enough. The most important thing is to respond to early hunger cues, such as mouth movements or hand sucking, before they reach the crying stage, which can make feeding more difficult.\n\nDon't worry if you face difficulties at first, as every mother and baby are different. Remember that your husband is an essential partner in this journey; his role is no less important in supporting you and providing you with comfort, from bringing water and food to helping you burp and change diapers after feeding. This support gives you the space and calm to focus on your baby and strengthen that unique bond forming between you. Enjoy these precious moments, for every drop of milk is a touch of love, and every feeding is an opportunity to deepen the connection.",
+  "summary": "Imagine yourself right after birth, your little one in your arms, touching your warm skin. These first moments are not just the beginning of feeding; they are the first pages of a deep love story, where your little one finds safety, warmth, and life in your embrace. You might feel some anxiety about mastering breastfeeding, and this is completely normal. Remember that this journey is a mutual discovery, where you and your baby learn a new language of communication and love.\n\nBreastfeeding is more than just food; it's a bridge of tenderness and immunity that connects you to your baby. The first drops of colostrum are a blessing that Allah has placed in mother's milk, rich in antibodies that protect your little one and give them their first immune shield. Successful breastfeeding begins with a correct latch, where your baby takes the nipple and a large part of the areola deeply, which prevents pain for you and ensures they get enough. The most important thing is to respond to early hunger cues, such as mouth movements or hand sucking, before they reach the crying stage, which can make feeding more difficult.\n\nDon't worry if you face difficulties at first, as every mother and baby are different. Remember that your husband is an essential partner in this journey; his role is no less important in supporting you and providing you with comfort, from bringing water and food to helping you burp and change diapers after feeding. This support gives you the space and calm to focus on your baby and strengthen that unique bond forming between you. Enjoy these precious moments, for every drop of milk is a touch of love, and every feeding is an opportunity to deepen the connection.",
   "try_this": "Today: Talk to your husband about your preferred breastfeeding positions (such as the cradle hold or side-lying position), and how he can help you create a calm and comfortable environment for you during feeding, such as bringing a pillow or a cup of water.",
   "order": 3,
   "estimated_minutes": 4,
@@ -22,7 +22,7 @@
   "version": "1.0.0",
   "created_at": "2026-09-12T19:00:00",
   "updated_at": "2026-09-12T19:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I am here to support you and be your rock every step of the way, my little one.”",
   "assistant_prompts": [
     "What are comfortable positions for breastfeeding?",
@@ -36,7 +36,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -55,14 +55,14 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "82446420fc23a97813ec015a442f98e02cead54ca21a99bf53bb5f868d3a90d1",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "af2fb79f946101983b9293e649eb1ffb717360a7f427cdf4bf376e35e47ac800",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [
         {
           "model": "glm-5.2",
           "field": "parent_script",
-          "type": "tone",
-          "why": "The Arabic term of endearment is addressed to the wife, but 'my little one' in English reads as addressing a child, which may confuse readers about who is being spoken to."
+          "type": "meaning",
+          "why": "The Arabic «يا صغيرتي» (feminine) is a term of endearment addressed to the wife in the breastfeeding-support context, but the English \"my little one\" reads most naturally as addressing a baby, creatin"
         }
       ],
       "adjudicated": [],
@@ -75,10 +75,10 @@
       {
         "model": "glm-5.2",
         "field": "parent_script",
-        "type": "tone",
-        "why": "The Arabic term of endearment is addressed to the wife, but 'my little one' in English reads as addressing a child, which may confuse readers about who is being spoken to."
+        "type": "meaning",
+        "why": "The Arabic «يا صغيرتي» (feminine) is a term of endearment addressed to the wife in the breastfeeding-support context, but the English \"my little one\" reads most naturally as addressing a baby, creatin"
       }
     ],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

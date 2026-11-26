@@ -8,7 +8,7 @@
     "shm-aqd-46-12-seeking-refuge",
     "shm-aqd-46-03-allah-sami-basir"
   ],
-  "summary": "Imagine your little one running towards you with a smile, holding a new toy, and excitedly saying, \"Mama, look what I did!\" In that moment, you feel a flood of love for this tiny being who sees the world with eyes full of wonder. These daily moments are our golden opportunities to plant the seeds of divine love and love for the Prophet ﷺ in their tender hearts, not through dry sermons, but through warm stories and gentle touches.\n\nConnecting the love of Allah with the love of His Prophet Muhammad ﷺ in a child's consciousness at this early age is a strong foundation for building their faith identity. Children aged 4-6 are influenced by stories and beloved characters. When we tell them about our Prophet Muhammad ﷺ as a kind, merciful character who loved children and played with them, we plant an instinctive love for this noble Prophet in their hearts. This love goes beyond mere knowledge, becoming part of their sense of belonging to their religion, inspired by his fragrant character.\n\nWe don't need complex details, but rather simple glimpses of the Prophet's ﷺ kindness and mercy. Teach your child to say \"peace and blessings be upon him\" whenever they hear the Prophet's ﷺ name, not as an obligation, but as a spontaneous expression of love and respect. These small habits, mixed with enjoyable stories, build bridges of affection in their heart, making them see the Prophet ﷺ as a good role model and a loving friend, before they grow up and realize the greatness and details of his message.",
+  "summary": "Imagine your little one running towards you with a smile, holding a new toy, and excitedly saying, \"Mama, look what I did!\" In that moment, you feel a flood of love for this tiny being who sees the world with eyes full of wonder. These daily moments are our golden opportunities to plant the seeds of divine love and love for the Prophet ﷺ in their tender hearts, not through dry sermons, but through warm stories and gentle touches.\n\nConnecting the love of Allah with the love of His Prophet Muhammad ﷺ in a child's consciousness at this early age is a strong foundation for building their faith identity. Children aged 4-6 are influenced by stories and beloved characters. When we tell them about our Prophet Muhammad ﷺ as a kind, merciful character who loved children and played with them, we plant love for this noble Prophet in their hearts. This love goes beyond mere knowledge, becoming part of their sense of belonging to their religion, inspired by his fragrant character.\n\nWe don't need complex details, but rather simple glimpses of the Prophet's ﷺ kindness and mercy. Teach your child to say \"peace and blessings be upon him\" whenever they hear the Prophet's ﷺ name, not as an obligation, but as a spontaneous expression of love and respect. These small habits, mixed with enjoyable stories, build bridges of affection in their heart, making them see the Prophet ﷺ as a good role model and a loving friend, before they grow up and realize the greatness and details of his message.",
   "try_this": "Tonight: Before bedtime, tell your child a very short story about a situation where the Prophet ﷺ showed mercy to children or animals, and gently remind them with a smile to say \"peace and blessings be upon him\" when they hear his name.",
   "order": 4,
   "estimated_minutes": 4,
@@ -20,10 +20,10 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“My darling, our Prophet Muhammad ﷺ loved children very much, and he was kind and gentle.”",
   "assistant_prompts": [
-    "I want a very short story suitable for a 4-6 year old about the Prophet's ﷺ mercy towards children.",
+    "I want a very short story established in the two Sahihs (or either of them) about the Prophet's ﷺ mercy towards children, mentioning its source, suitable for a 4-6 year old.",
     "How can I encourage my child to say \"peace and blessings be upon him\" in a non-obligatory and loving way?"
   ],
   "ecosystem_links": {
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "5d207e1f04d1fafe6b3526b7552f34e139e0d02a55774172f5a5706471354eee",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "ea5bf4a3a4164be9d68b25189ad51f9626cf63327f7ebaad7205313e0273fe88",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

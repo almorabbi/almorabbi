@@ -1,14 +1,14 @@
 {
   "id": "lesson_2-3_islamic_first_words_03",
   "path_id": "path_2-3_islamic_first_words",
-  "title": "Our First Table: The Right Hand is a Blessing, and Gratitude is Thanks",
+  "title": "Our First Table: Saying Bismillah and Eating with the Right Hand",
   "age_group": "2-3",
   "domain": "islamic_parenting",
   "unit_ids": [
     "seed-defiance-23",
     "isl-426e674e"
   ],
-  "summary": "Imagine your little one sitting at the dining table, their small hand reaching for a spoon, or perhaps trying to pick up a piece of their food. They might choose their left hand, or grasp the food with both hands in childish enthusiasm. These simple daily moments are our golden opportunities to instill great prophetic values, not with harshness or scolding, but with love and example. The dining table is not just for filling stomachs; it is a small school for great manners, where a child's character is built and their first habits are formed.\n\nTeaching a child to eat with their right hand and to say \"Bismillah\" before eating is not just teaching a habit; it is instilling a blessing and a prophetic tradition. Remember that children at this age learn through imitation and play more than through direct instruction. When we teach them gently and show them the importance of these manners through our actions, we instill in them a deep value that will stay with them. The Prophet ﷺ said: \"Make things easy and do not make them difficult; give glad tidings and do not repel\" (Sahih al-Bukhari 69). This noble hadith is our methodology in every educational step, for by making things easy and giving glad tidings, we build bridges of love and cooperation with our children.\n\nBegin by teaching your child these manners step by step, without pressure or coercion. Make mealtime enjoyable and full of joy. Praise them whenever they try to eat with their right hand, even if they sometimes make a mistake. Use games and stories to reinforce the idea, and be a good role model yourself. Remember that manners instilled with love and gentleness grow and blossom, becoming an integral part of your child's character, making them a righteous, well-mannered child, grateful to their Lord.",
+  "summary": "Imagine your little one sitting at the dining table, their small hand reaching for a spoon, or perhaps trying to pick up a piece of their food. They might choose their left hand, or grasp the food with both hands in childish enthusiasm. These simple daily moments are our golden opportunities to instill great prophetic values, not with harshness or scolding, but with love and example. The dining table is not just for filling stomachs; it is a small school for great manners, where a child's character is built and their first habits are formed.\n\nTeaching a child to eat with their right hand and to say \"Bismillah\" before eating is not just teaching a habit; it is instilling a noble prophetic tradition. Remember that children at this age learn through imitation and play more than through direct instruction. When we teach them gently and show them the importance of these manners through our actions, we instill in them a deep value that will stay with them. The Prophet ﷺ said: \"Make things easy and do not make them difficult; give glad tidings and do not repel people\" (Sahih al-Bukhari, Hadith 69). This noble hadith is our methodology in every educational step, for by making things easy and giving glad tidings, we build bridges of love and cooperation with our children.\n\nBegin by teaching your child these manners step by step, without pressure or coercion. Make mealtime enjoyable and full of joy. Praise them whenever they try to eat with their right hand, even if they sometimes make a mistake. Use games and stories to reinforce the idea, and be a good role model yourself. Remember that manners instilled with love and gentleness grow and blossom, becoming an integral part of your child's character, and this helps, by Allah's will, for them to grow up well-mannered and grateful to their Lord.",
   "try_this": "Tonight: Before you start eating, gently remind your child to eat with their right hand, hand them the spoon with your right hand, then say \"Bismillah\" aloud.",
   "order": 3,
   "estimated_minutes": 4,
@@ -20,10 +20,10 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"My darling, let's eat with our right hand, and say: Bismillah!\"",
   "assistant_prompts": [
-    "What games can help my child naturally use their right hand?",
+    "How can I gently teach my child to eat and drink with their right hand without pressuring them about which hand they prefer for play?",
     "How do I deal with my child if they insist on using their left hand despite my reminder?"
   ],
   "ecosystem_links": {
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,30 +57,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "088d193101f9c34f7b7afc663eddd7cd1865c1af77eacc2b99b5a103b8989026",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "title",
-          "type": "meaning",
-          "why": "The Arabic says al-hamd (praise) is shukr (thanks), but the English uses two near-synonyms and loses the reference to al-hamd."
-        }
-      ],
+      "content_sha256": "1543711013d732b683989d5cce9cd0891409396edaacff7941c60a3f264a2549",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "title",
-        "type": "meaning",
-        "why": "The Arabic says al-hamd (praise) is shukr (thanks), but the English uses two near-synonyms and loses the reference to al-hamd."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -8,8 +8,8 @@
     "med-0b65e4b5",
     "gap-med-speech-delay-01"
   ],
-  "summary": "The clock hands move towards daycare time, and your heart tightens a little as you imagine your little girl's (2-3 years old) tears as she clings to you. This scene repeats every morning, leaving you feeling guilty and confused. Is this normal? Is there anything that can be done to alleviate this anxiety that fills her small eyes at the classroom door?\n\nRest assured, this crying is not a sign of weakness or a mistake on your part; rather, it is a healthy sign of her secure attachment to you. Separation anxiety at this age is very normal and often peaks between 18 months and 3 years. Your child does not understand the concept of time as we do, so your absence may seem endless to her. Sneaking away without a goodbye, though it may seem easier for a moment, breaks her trust and makes every subsequent separation harder because it lacks the element of security and predictability.\n\nThe key lies in consistency and clarity. Create a short, consistent goodbye ritual: the same word, the same hug, the same kiss. Make it quick and decisive. Link your return to something tangible your child understands, such as \"I'll be back after naptime\" or \"after lunch.\" The most important thing is to stick to this time. Do not go back into the classroom if they cry, and do not cancel your plans because of it. Your consistency in returning at the agreed-upon time builds a bridge of trust that gradually reduces their anxiety and gives them the security they need to know that you will always return.",
-  "try_this": "Today: Create a consistent and very short goodbye ritual (one word and one hug), and repeat it exactly when dropping your child off at daycare or a club. Do not return to the classroom no matter how much they cry after the goodbye.",
+  "summary": "The clock hands move towards daycare time, and your heart tightens a little as you imagine your little girl's (2-3 years old) tears as she clings to you. This scene repeats every morning, leaving you feeling guilty and confused. Is this normal? Is there anything that can be done to alleviate this anxiety that fills her small eyes at the classroom door?\n\nRest assured, this crying is not a sign of weakness or a mistake on your part; rather, it is a healthy sign of her secure attachment to you. Separation anxiety at this age is very normal and often peaks between 18 months and 3 years. Your child does not understand the concept of time as we do, so your absence may seem endless to her. Sneaking away without a goodbye, though it may seem easier for a moment, breaks her trust and makes every subsequent separation harder because it lacks the element of security and predictability.\n\nThe key lies in consistency and clarity. Create a short, consistent goodbye ritual: the same word, the same hug, the same kiss. Make it quick and decisive. Link your return to something tangible your child understands, such as \"I'll be back after naptime\" or \"after lunch.\" The most important thing is to stick to this time. Do not go back into the classroom if they cry, and do not cancel your plans because of it. Your consistency in returning at the agreed-upon time builds a bridge of trust that gradually reduces their anxiety, helping them learn that you return at the time you promised them.",
+  "try_this": "Today: Create a consistent and very short goodbye ritual (one word and one hug), and repeat it exactly when dropping your child off at daycare or a club. Do not return to the classroom after saying goodbye to repeat it; and if they seem to be in pain, ill, or intensely afraid, contact the teacher or the doctor.",
   "order": 5,
   "estimated_minutes": 4,
   "reflection_prompts": [
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I love you, my little one. I’ll be back after naptime.”",
   "assistant_prompts": [
     "How do I deal with my child's intense crying when leaving them at daycare for the first time?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,30 +57,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "c9ea2e673de889d231ee6515032d80a0d6de6ed9809337ffb390a17dcc3e1274",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "source_corruption",
-          "why": "The Arabic starts with a feminine child (طفلتكِ) then switches to masculine pronouns and verbs (طفلكِ، يفهمه، بكى، بسببه، قلقه، يمنحه) in the same summary."
-        }
-      ],
+      "content_sha256": "e490ed64373f48d93e5005bde7ec6cea49e45894e9f7baf727f28ca62e3c8a50",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "source_corruption",
-        "why": "The Arabic starts with a feminine child (طفلتكِ) then switches to masculine pronouns and verbs (طفلكِ، يفهمه، بكى، بسببه، قلقه، يمنحه) in the same summary."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

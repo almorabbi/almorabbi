@@ -8,8 +8,8 @@
     "isl-30775bae",
     "isl-dcb6d4e8"
   ],
-  "summary": "Imagine your child, at this age when their understanding is blossoming, facing a challenge at school or feeling some anxiety about something. They might come to you to share their worries, or they might prefer to keep them to themselves. In both cases, there remains an inner feeling of seeking support, a greater power that listens and helps. How can we teach our children that this support is always available, and that an open door awaits them at every moment?\n\nSupplication (Du'a) is not just words spoken; it is an intimate conversation between a servant and their Lord, a direct link that nourishes the soul and reassures the heart. When we teach our children to supplicate to Allah with their own words, in their true language, about their sincere feelings, their dreams, and their pains, we instill in them a living faith that Allah is near, hears, and responds. This is not just religious education; it is building a strong character that knows where to find help and tranquility, and realizes that they have a Lord who will never abandon them, and that they are not alone in facing life.\n\nStart by encouraging your child to express their need for Allah in their own way, without pretense or barriers. Sit with them, listen to them, then gently remind them that Allah is closer to them than their jugular vein, and that He loves to hear our voices and our supplications. These simple moments build a bridge of trust and faith, transforming supplication from a mere ritual into a sincere heartfelt communion that strengthens faith and brings peace and reassurance.",
-  "try_this": "Today: Encourage your child to supplicate to Allah for a real need of theirs, using their own words, and together observe the effect of this supplication on them or on the actual matter.",
+  "summary": "Imagine your child, at this age when their understanding is blossoming, facing a challenge at school or feeling some anxiety about something. They might come to you to share their worries, or they might prefer to keep them to themselves. In both cases, there remains an inner feeling of seeking support, a Merciful Lord who hears and helps. How can we teach our children that this support is always available, and that an open door awaits them at every moment?\n\nSupplication (Du'a) is not just words spoken; it is an intimate conversation between a servant and their Lord, a direct link that nourishes the soul and reassures the heart. When we teach our children to supplicate to Allah with their own words, in their true language, about their sincere feelings, their dreams, and their pains, we instill in them a living faith that Allah is near, hears, and responds. This is not just religious education; it is building a strong character that knows where to find help and tranquility, and realizes that they have a Merciful, Near Lord who hears their supplication and knows best what is good for them, and that they are not alone in facing life.\n\nStart by encouraging your child to express their need for Allah in their own way, without pretense or barriers. Sit with them, listen to them, then gently remind them that Allah is near to His servants, hears their supplication and responds to it when they call upon Him, and that He loves for us to call upon Him and confide in Him. These simple moments build a bridge of trust and faith, transforming supplication from a mere ritual into a sincere heartfelt communion that strengthens faith and brings peace and reassurance.",
+  "try_this": "Today: Encourage your child to supplicate to Allah for a real need of theirs using their own words, talk together about how they felt after making du'a, and remind them that Allah responds with what is best for them: either by granting what they asked for, by averting harm from them, or by storing up the reward for them.",
   "order": 4,
   "estimated_minutes": 4,
   "reflection_prompts": [
@@ -20,11 +20,11 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“My child, Allah always hears you. Tell Him everything in your heart in your own words.”",
   "assistant_prompts": [
     "What are the best ways to teach my child aged 10-12 to supplicate to Allah sincerely and spontaneously?",
-    "How can I help my child see Allah's response to their supplications to strengthen their faith?"
+    "How can I help my child understand the ways Allah responds to supplications to strengthen their faith?"
   ],
   "ecosystem_links": {
     "story_id": "sira_jidh_older",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,16 +58,54 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "f8522cf564a9b852d9c189dd8716fcc8e9c5531a9e1640e4b2fbdb5b0a578064",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [],
+      "content_sha256": "b299ed9cd150d847b5e54b54b965b0c403edc088e4c0369bb6ee609b14392a48",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "parent_script",
+          "type": "meaning",
+          "why": "The Arabic directly addresses a son as \"يا بني\", while the English uses the more neutral \"My child\", losing the affectionate masculine address."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "meaning",
+          "why": "The Arabic consistently uses \"ابنك\" (your son) with masculine pronouns, but the English neutralizes to \"your child\" with \"they/their.\""
+        },
+        {
+          "model": "glm-5.2",
+          "field": "parent_script",
+          "type": "meaning",
+          "why": "\"يا بني\" means \"my son\"; translating as \"my child\" loses the direct address form used in the Arabic."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "parent_script",
+        "type": "meaning",
+        "why": "The Arabic directly addresses a son as \"يا بني\", while the English uses the more neutral \"My child\", losing the affectionate masculine address."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "meaning",
+        "why": "The Arabic consistently uses \"ابنك\" (your son) with masculine pronouns, but the English neutralizes to \"your child\" with \"they/their.\""
+      },
+      {
+        "model": "glm-5.2",
+        "field": "parent_script",
+        "type": "meaning",
+        "why": "\"يا بني\" means \"my son\"; translating as \"my child\" loses the direct address form used in the Arabic."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

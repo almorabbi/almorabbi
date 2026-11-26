@@ -8,7 +8,7 @@
     "shm-isl-07-daughters-honor",
     "isl-908e4c80"
   ],
-  "summary": "Imagine holding your little one in your arms, looking at you with wide eyes, or smiling a spontaneous smile that melts your heart. In the midst of a day full of tasks, these moments might pass like any fleeting moment, but in reality, they are fundamental building blocks in shaping their inner world. Their cries, their laughter, and even their deep gazes are all messages they send to you, waiting for you to understand and respond to them. This response is not just a reaction; it is a silent dialogue that tells them you are here, and their world is safe.\n\nThe essence of warm parenting lies in this actual presence, which goes beyond mere physical presence. When you respond to your child with love and attention, you build what psychologists call \"secure attachment,\" which is exactly what our upright religion calls for in mercy and care for children. The Prophet ﷺ said: \"Whoever does not show mercy will not be shown mercy\" (Sahih al-Bukhari 5997). This mercy is manifested in being a good listener, even to the smallest sounds, and a vigilant observer of the subtlest signals. Communication does not just mean talking; it means being present with your heart and mind, looking into their eyes, smiling at their smile, and imitating their first sounds, for all of this plants the seeds of self-confidence and trust in the world around them.\n\nDon't feel burdened; it's simpler than you imagine. A few minutes of full presence make a huge difference. These moments are not a luxury; they are an investment in your child's future personality. A parent who is present in body and heart creates a confident, psychologically stable child capable of facing life's challenges. Remember that building trust begins with these small moments, and it is a prophetic guidance in dealing with children with gentleness and mercy.",
+  "summary": "Imagine holding your little one in your arms, looking at you with wide eyes, or smiling a spontaneous smile that melts your heart. In the midst of a day full of tasks, these moments might pass like any fleeting moment, but in reality, they are fundamental building blocks in shaping their inner world. Their cries, their laughter, and even their deep gazes are all messages they send to you, waiting for you to understand and respond to them. This response is not just a reaction; it is a silent dialogue that tells them you are here, and their world is safe.\n\nThe essence of warm parenting lies in this actual presence, which goes beyond mere physical presence. When you respond to your child with love and attention, you build what psychologists call \"secure attachment,\" which is a concept close to what our upright religion calls for in mercy and care for children. The Prophet ﷺ said: \"Whoever does not show mercy will not be shown mercy\" (Sahih al-Bukhari 5997). This mercy is manifested in being a good listener, even to the smallest sounds, and a vigilant observer of the subtlest signals. Communication does not just mean talking; it means being present with your heart and mind, looking into their eyes, smiling at their smile, and imitating their first sounds, for all of this plants the seeds of self-confidence and trust in the world around them.\n\nDon't feel burdened; it's simpler than you imagine. A few minutes of full presence make a huge difference. These moments are not a luxury; they are an investment in your child's future personality. A warm presence from a father or mother helps the child grow up more confident and psychologically stable, by Allah's will. Remember that building trust begins with these small moments, and it is a prophetic guidance in dealing with children with gentleness and mercy.",
   "try_this": "Tonight: Dedicate ten minutes before your child sleeps. Put your phone completely aside, sit with them on the floor, and let them lead the play or interaction. If they point to something, say its name. If they make a sound, imitate it. If they smile, reflect their smile. Be a mirror to them, and interact with them with all your senses.",
   "order": 3,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-10T16:00:00",
   "updated_at": "2026-06-10T16:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I am here, my little one; I see what you see, and I hear what you hear.”",
   "assistant_prompts": [
     "How can I respond to my infant's crying in a way that enhances their sense of security?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "2fb26300ae6c248113a42d178332cbab1733dbe3192c3aedcc3c36b3dcd4e86c",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "3b546a3d9769fa1eeabd5e859501eca3e24509590646d55ce714c0a19eb95e47",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -7,7 +7,7 @@
   "unit_ids": [
     "med-c7a1bbf6"
   ],
-  "summary": "Imagine holding your child for the very first time, that moment when time stands still. Everything around you fades away, and only this tiny being in your hands remains, filling your heart with indescribable emotions. You might feel some anxiety about how to welcome them and how to give them the best possible start in life. This is a completely natural feeling, as every parent wishes their child all the best and happiness from the very first moment.\n\nIt is beautiful to draw inspiration from ancient traditions and spiritual practices that give these first moments depth and meaning. Since ancient times, there have been ways to welcome a newborn, aiming to instill tranquility in their little heart and connect them to their spiritual and human roots. These practices are not limited to the religious aspect alone; they also carry a deep psychological and social dimension, as they enhance the parents' sense of responsibility and love, and create an atmosphere of joy and celebration for the arrival of a new family member.\n\nSo, don't worry about the minute details. The most important thing is to be ready with an open and loving heart. You can think of some simple touches that make your child's welcome special, such as choosing a name with a beautiful meaning, or planning a small celebration with loved ones. These preparations are not just rituals; they are an expression of the deep love you hold for your child and the establishment of a warm and welcoming environment that helps them grow and develop in an atmosphere of safety and serenity.",
+  "summary": "Imagine holding your child for the very first time, that moment when time stands still. Everything around you fades away, and only this tiny being in your hands remains, filling your heart with indescribable emotions. You might feel some anxiety about how to welcome them and how to give them the best possible start in life. This is a completely natural feeling, as every parent wishes their child all the best and happiness from the very first moment.\n\nIt is beautiful to welcome the newborn according to the guidance of the Prophetic Sunnah, which gives these first moments blessing and meaning. Among the legislated Sunnah practices when welcoming a newborn are tahnik (rubbing a softened date on the infant's palate), giving them a good name, and offering the aqiqah on their behalf, while consulting trusted people of knowledge regarding their details and rulings. These blessed Sunnah practices carry a beautiful faith-based, psychological, and social impact, as they strengthen the parents' sense of responsibility and love and create an atmosphere of joy and celebration at the arrival of a new member of the family.\n\nIt is not a burden to worry over; rather, you can prepare for it with an open, loving heart and a simple familiarity with these Sunnah practices. You can think of some simple touches that make your child's welcome special, such as choosing a name with a beautiful meaning, or planning a small celebration with loved ones. These preparations are not just rituals; they are an expression of the deep love you hold for your child and the establishment of a warm and welcoming environment that helps them grow and develop in an atmosphere of safety and serenity.",
   "try_this": "Tonight: Discuss together your future child's name and how you imagine your first meeting with them, focusing on the feelings of love and welcome you wish to convey to them.",
   "order": 2,
   "estimated_minutes": 4,
@@ -22,7 +22,7 @@
   "version": "1.0.0",
   "created_at": "2026-09-12T19:00:00",
   "updated_at": "2026-09-12T19:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«Welcome, my little one. Your mother's and father's hearts await you with all love and longing.»",
   "assistant_prompts": [
     "What gentle songs or lullabies can I play for my infant to soothe them?",
@@ -36,7 +36,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -55,8 +55,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "ce280b20893564feb9c43b768019532c49c5ad118114a6a1e3c025cb5aa6938b",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "9a85108fd7fc36ee1cc85c8efe46499fadb3be454c4c851ee225db29baffb93f",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -65,6 +65,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

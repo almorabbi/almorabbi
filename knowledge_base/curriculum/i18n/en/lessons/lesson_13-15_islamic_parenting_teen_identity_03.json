@@ -6,10 +6,9 @@
   "domain": "islamic_parenting",
   "unit_ids": [
     "cf8f3b3c-fe62-40b7-9fe8-37cb85a68bd4",
-    "isl-1812a28d",
     "cd81035d-4fdb-4274-bcf2-55074ee7a1de"
   ],
-  "summary": "Between the ages of thirteen and fifteen, physical and emotional changes accelerate, and teenagers are bombarded with constant messages through screens and peers that reduce their value to admiration, appearance, and fleeting relationships. At this age, your son or daughter doesn't need early lessons about the details of marriage as much as they need a clear compass about self-dignity, healthy relationship boundaries, and the meaning of mutual respect within the family.\n\nIf you remain silent out of shyness or resort to angry prohibitions, the internet and peers will fill this void with a distorted image. However, calm and dignified dialogue grants your teenager internal immunity: that feelings of growth and attraction are a natural human inclination that one is not blamed for, but Islam honors them by preserving their heart and boundaries until they place this emotion in its honorable place when they mature.\n\nThe Prophet ﷺ said: «Whoever believes in Allah and the Last Day should speak good or remain silent» (Sahih al-Bukhari 6018), and he guided us to good company that protects the heart: «The example of a good companion and a bad companion is like that of the carrier of musk and the blower of the bellows» (Sahih Muslim 2628). And the deepest protection for a teenager's heart emotionally is the warmth of their home: when they find respect, affection, and acceptance from their parents, they will not seek their value in fleeting relationships behind screens.",
+  "summary": "Between the ages of thirteen and fifteen, physical and emotional changes accelerate, and teenagers are bombarded with constant messages through screens and peers that reduce their value to admiration, appearance, and fleeting relationships. At this age, your son or daughter doesn't need early lessons about the details of marriage as much as they need a clear compass about self-dignity, healthy relationship boundaries, and the meaning of mutual respect within the family.\n\nIf you remain silent out of shyness or resort to angry prohibitions, the internet and peers will fill this void with a distorted image. However, calm and dignified dialogue grants your teenager internal immunity: that feelings of growth and attraction are a natural human inclination that one is not blamed for, but Islam honors them by preserving their heart and boundaries until they place this emotion in its honorable place when they mature.\n\nAmong the pillars of safeguarding the heart and relationship boundaries are modesty (haya'), which is a branch of faith, and guarding one's tongue and words in communication and messages, for the Prophet ﷺ said: \"Whoever believes in Allah and the Last Day should speak good or remain silent\" (Sahih al-Bukhari, Hadith 6018), and he guided us to good company that protects the heart: \"The example of a good companion and a bad companion is like that of the carrier of musk and the blower of the bellows\" (Sahih Muslim, Hadith 2628). And the deepest protection for a teenager's heart emotionally is the warmth of their home: when they find respect, affection, and acceptance from their parents, they will not seek their value in fleeting relationships behind screens.",
   "try_this": "Tonight: Choose a quiet moment (during a drive or a one-on-one chat) and express to your son or daughter your appreciation for their character and boundaries. Then, gently ask them: «What is the most embarrassing situation young people face on social media today?» And listen without interruption.",
   "order": 2,
   "estimated_minutes": 4,
@@ -24,7 +23,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«I know your time is full of pressures regarding relationships and social media, and I want you to know that my door is open for any question that comes to your mind, without embarrassment or judgment.»",
   "assistant_prompts": [
     "How can I talk to my 14-year-old son or daughter about boundaries in interacting with the opposite gender calmly without alienating them?",
@@ -42,7 +41,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -61,16 +60,30 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "4a8ea070e60974e8d2a380f978c7050abb2d17fdb83c7decc8faa9082035e2f1",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
-      "residual_low": [],
+      "content_sha256": "4faf29ed6eceb789745c2211970fe950e0e25e92fbecb67ee98851833f530bf0",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "try_this",
+          "type": "meaning",
+          "why": "Arabic 'نزهة' means an outing/walk, not necessarily a drive; the English narrows it to a car drive."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "try_this",
+        "type": "meaning",
+        "why": "Arabic 'نزهة' means an outing/walk, not necessarily a drive; the English narrows it to a car drive."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

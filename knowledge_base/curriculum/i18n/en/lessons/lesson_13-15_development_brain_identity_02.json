@@ -9,7 +9,7 @@
     "gap-dev-sexual-worries-01"
   ],
   "summary": "Have you ever asked your teenage son to think before he leaps, or to pause before he decides, only to be met with a look of boredom or a quick, thoughtless answer? Perhaps you sometimes feel they rush into everything new and exciting without considering the consequences, as if they're seeking thrills at every turn. This feeling is very natural and is part of their growth journey, which can seem full of risks to us.\n\nAt this age, a teenager's brain works in a unique way. It seeks rewards and excitement, driven by dopamine, which gives them a wonderful feeling when trying new things, adventuring, or even spending time with friends. In contrast, the part responsible for logical thinking and impulse control (the brakes) is still developing. This doesn't mean they are \"reckless\"; rather, it means their impulses are very strong, and they need our help in guiding this energy towards safe and productive paths.\n\nOur mission as parents is to be guides, not guards. We can offer them safe alternatives for adventure, such as challenging sports, creative projects, or even intellectual challenges. Teach them a simple yet powerful strategy: \"Stop-Think-Decide.\" Encourage them to stop for ten seconds, then think about the potential consequences, and finally make a decision. Most importantly, give them real space to make their own decisions in their daily lives, within clear boundaries, so they feel in control and build their self-confidence.",
-  "try_this": "Tonight: When your teenage son asks to do something that might seem a bit risky (like staying out a little later), apply the \"Stop-Think-Decide\" step together. Ask him to stop for 10 seconds, then think together about the potential consequences (positive and negative), and then let him make his final decision after this reflection.",
+  "try_this": "Tonight: When your teenage son asks to do something that might seem a bit risky (like staying out a little later), apply the \"Stop-Think-Decide\" step together. Ask him to stop for 10 seconds, then think together about the potential consequences (positive and negative), and then decide together within the boundaries set by the parents for his safety, with the final decision in risky matters remaining in the parents' hands.",
   "order": 2,
   "estimated_minutes": 4,
   "reflection_prompts": [
@@ -24,7 +24,7 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I trust your ability to think and make the right decision, and my goal is to help you be aware of your choices.”",
   "assistant_prompts": [
     "How can I encourage my teenage son to participate in safe adventure sports?",
@@ -42,7 +42,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -61,30 +61,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "249eceec96193427aa3eea0653c69d0e9ffba23a673b3b68cb55c0c1284f76ec",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "reflection_prompts[1]",
-          "type": "structure",
-          "why": "The English omits the preposition \"in\", making the sentence ungrammatical."
-        }
-      ],
+      "content_sha256": "47a2c8e8c94f5e3206f529cfb8a3a1697310fac636db0b7892ab5018e762691f",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "reflection_prompts[1]",
-        "type": "structure",
-        "why": "The English omits the preposition \"in\", making the sentence ungrammatical."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

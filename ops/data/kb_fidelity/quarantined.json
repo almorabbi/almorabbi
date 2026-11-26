@@ -5237,6 +5237,294 @@
      "to": "ops/data/en_unpublished/kb_units_source/isl-44227dfe.json"
     }
    ]
+  },
+  {
+   "id": "shm-rem-10-kissing-mercy",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:6266:5",
+   "title": "استحباب تقبيل الأطفال والأهل",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "TOC-only extract (chapter list of Tuhfat al-Mawdud); text_simplified invented content not in excerpt.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-rem-10-kissing-mercy.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-rem-10-kissing-mercy.json"
+    }
+   ]
+  },
+  {
+   "id": "shm-rem-16-good-companions",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:96478:2",
+   "title": "أثر الصحبة الصالحة في استقامة الأبناء",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "TOC-only extract (mabhath list of Al-Hady al-Nabawi); text_simplified invented content and promises not in excerpt.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-rem-16-good-companions.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-rem-16-good-companions.json"
+    }
+   ]
+  },
+  {
+   "id": "shm-rem-44-charity-secret",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:6266:32",
+   "title": "العقيقة: معناها، وقتها، وفضلها",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "TOC-only extract (fasl list of Bab al-Aqiqah); completely unrelated to charity-secret.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-rem-44-charity-secret.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-rem-44-charity-secret.json"
+    }
+   ]
+  },
+  {
+   "id": "shm-aqd-23-08-allah-hafiz",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:20854:46",
+   "title": "الله الحفيظ: أمان وطمأنينة لطفلك",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "Verbatim duplicate of shm-aqd-46-04-allah-latif; does not mention Al-Hafiz and opens with punishment verses for age 2-3.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-aqd-23-08-allah-hafiz.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-aqd-23-08-allah-hafiz.json"
+    }
+   ]
+  },
+  {
+   "id": "shm-aqd-23-05-allah-razzaq",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:20854:44",
+   "title": "الله الرزاق: نعمته في كل طعام",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "Off-topic & age-inappropriate for 2-3: discusses Al-Quddus/Al-Jabbar and Azab al-Hawiyah; never mentions Al-Razzaq or food.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-aqd-23-05-allah-razzaq.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-aqd-23-05-allah-razzaq.json"
+    }
+   ]
+  },
+  {
+   "id": "shm-aqd-46-08-jannah-hope",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:20854:134",
+   "title": "الجنة دار الأمان والخلود",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "Off-topic & age-inappropriate for 4-6: describes seizing souls and Day of Judgment terror (Al-Qahhar), not Jannah.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-aqd-46-08-jannah-hope.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-aqd-46-08-jannah-hope.json"
+    }
+   ]
+  },
+  {
+   "id": "shm-aqd-46-11-amanah-muraqabah",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:20854:565",
+   "title": "فهم القدر في تربية الأبناء",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "Off-topic & age-inappropriate for 4-6: long isnad on emergence of Qadariyyah sect; unrelated to amanah/muraqabah.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-aqd-46-11-amanah-muraqabah.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-aqd-46-11-amanah-muraqabah.json"
+    }
+   ]
+  },
+  {
+   "id": "shm-aqd-1012-07-envy-hasad",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:42:1883",
+   "title": "الرضا بقسمة الله يطفئ الحسد",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "Off-topic misinference: verse is about dividing water between Thamud and Salih's she-camel and their destruction, not envy or rizq.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-aqd-1012-07-envy-hasad.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-aqd-1012-07-envy-hasad.json"
+    }
+   ]
+  },
+  {
+   "id": "shm-rem-21-kindness-animals",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:6266:104",
+   "title": "الرحمة بالطفل والحزن عليه",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "Off-topic & age-inappropriate for 4-6: discusses weeping over a dead child and washing the corpse; unrelated to kindness to animals.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-rem-21-kindness-animals.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-rem-21-kindness-animals.json"
+    }
+   ]
+  },
+  {
+   "id": "shm-rem-24-generosity-sharing",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:42:859",
+   "title": "الصبر على الشدائد يجلب النصر والفرج",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "Off-topic & age-inappropriate for 4-6: discusses prophets' despair and punishment of criminals; unrelated to generosity/sharing.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-rem-24-generosity-sharing.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-rem-24-generosity-sharing.json"
+    }
+   ]
+  },
+  {
+   "id": "shm-rem-26-forgiveness-pardon",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:42:1275",
+   "title": "العفو وسلامة الصدر بين الأبناء",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "Off-topic & age-inappropriate for 7-9: Incident of Ifk (slander of Aisha); unrelated to forgiveness among children.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-rem-26-forgiveness-pardon.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-rem-26-forgiveness-pardon.json"
+    }
+   ]
+  },
+  {
+   "id": "shm-rem-27-prayer-at-seven",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:6266:180",
+   "title": "أهمية الختان قبل البلوغ",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "Off-topic & misstated ruling for 7-9: discusses circumcision and minor's iddah with unattributed decisive ruling on female circumcision; unrelated to prayer at seven.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-rem-27-prayer-at-seven.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-rem-27-prayer-at-seven.json"
+    }
+   ]
+  },
+  {
+   "id": "shm-rem-39-orphan-compassion",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:6266:74",
+   "title": "إطعام الطعام: فرحة وسرور للجيران والمساكين",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "Verbatim duplicate of shm-rem-22-neighbor-rights (cooking aqiqah meat); unrelated to orphan compassion.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-rem-39-orphan-compassion.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-rem-39-orphan-compassion.json"
+    }
+   ]
+  },
+  {
+   "id": "shm-rem-33-halal-income",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:42:156",
+   "title": "أهمية الأمانة في حفظ الأنساب",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "Off-topic: discusses divorced women's iddah and forbidding concealment of pregnancy; unrelated to halal income.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-rem-33-halal-income.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-rem-33-halal-income.json"
+    }
+   ]
+  },
+  {
+   "id": "shm-rem-50-home-serenity",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "shamela:42:605",
+   "title": "أساس المودة والسكن في الحياة الزوجية",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "Truncated tafsir snippet ending right before Al-Sa'di clarifies 'ja'ala lahu shuraka', leaving theological ambiguity plus explicit marital phrasing.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/shm-rem-50-home-serenity.json",
+     "to": "ops/data/en_unpublished/kb_units_source/shm-rem-50-home-serenity.json"
+    }
+   ]
+  },
+  {
+   "id": "isl-1812a28d",
+   "category": "unfaithful",
+   "retrieved": 0,
+   "source_file": "",
+   "title": "الالتزام بالشعائر وعزة المسلم",
+   "flags": [
+    "independent-sharia-audit-2026-11-26"
+   ],
+   "reason": "OCR-garbled extract with unfaithful simplification declaring Muslims sinful ('إلا فهم آثمون') over a political thesis and using disputed expression 'خليفة الله'; inappropriate for teen prayer lesson.",
+   "on": "2026-11-26",
+   "files": [
+    {
+     "from": "knowledge_base/units/isl-1812a28d.json",
+     "to": "ops/data/en_unpublished/kb_units_source/isl-1812a28d.json"
+    }
+   ]
   }
  ]
 }

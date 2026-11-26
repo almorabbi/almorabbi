@@ -11,7 +11,7 @@
     "cyb-74c93d51",
     "cyb-8c2cbb56"
   ],
-  "summary": "Imagine your child, aged 10-12, comes home from school and is enjoying time playing on their tablet or phone. Suddenly, their expression changes, their smile freezes, and signs of worry or sadness appear on their face. They might not talk about it immediately, but you sense something isn't right. Is it just a minor disagreement with a friend? Or is something deeper and more painful happening in their digital world?\n\nCyberbullying isn't just a fleeting joke or a momentary disagreement; it's a specter that haunts our children everywhere and at all times. Unlike traditional bullying, which ends when the school day is over, cyberbullying remains present 24/7, infiltrating the privacy of their homes, and its digital traces are etched forever. This continuous and widespread nature makes it more painful and harder to deal with, as it threatens their psychological well-being and affects their sense of security even in their own homes.\n\nOur mission as parents is to be a shield and a fortress for our children. Teach your child that their role is not just a bystander, but a change-maker. Encourage them not to participate in any form of bullying, even if it's just by liking or re-sharing. Train them to take a screenshot of any harmful content, then report it to the relevant platform, and most importantly, to come directly to you to tell you what happened. In serious cases, always remember that there are specialized official bodies in your country that can deal with cybercrimes.",
+  "summary": "Imagine your child, aged 10-12, comes home from school and is enjoying time playing on their tablet or phone. Suddenly, their expression changes, their smile freezes, and signs of worry or sadness appear on their face. They might not talk about it immediately, but you sense something isn't right. Is it just a minor disagreement with a friend? Or is something deeper and more painful happening in their digital world?\n\nCyberbullying isn't just a fleeting joke or a momentary disagreement; it is repeated harm that can reach children at school and in games and apps, and it can be addressed with calmness and support. Unlike traditional bullying, which ends when the school day is over, cyberbullying can extend into their time at home, and its digital traces may last a long time. This ongoing and widespread nature can make its impact just as painful and calls for parents' presence and support, as it threatens their psychological well-being and affects their sense of safety even in their own homes.\n\nOur mission as parents is to be a shield and a fortress for our children. Teach your child that their role is not just a bystander, but a change-maker. Encourage them not to participate in any form of bullying, even if it's just by liking or re-sharing. Train them to take a screenshot of any harmful content, then report it to the relevant platform, and most importantly, to come directly to you to tell you what happened. In serious cases, always remember that there are specialized official bodies in your country that can deal with cybercrimes.",
   "try_this": "Tonight: Talk to your child about a hypothetical scenario: \"If you saw cyberbullying happening to your close friend, what would you do?\" And train them on the practical steps: screenshot the content → report to the platform → tell me immediately.",
   "order": 2,
   "estimated_minutes": 4,
@@ -27,8 +27,8 @@
   "needs_professional_followup": true,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“Always remember, my dear, your screen is a safe place for you, and if you see anything that hurts you or others, I am here to listen and help you.”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“Always remember, my dear, you can tell me about anything you see on a screen that hurts you or others, and I am here to listen to you and help you.”",
   "assistant_prompts": [
     "How can I explain to my 11-year-old child the importance of not sharing offensive content online?",
     "What are the best ways to help my child cope with feelings of anxiety after witnessing cyberbullying?"
@@ -46,7 +46,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -65,8 +65,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "992f87782af1d828f138defea8617dd30084a7149d0f62c9ddb18f51919a255d",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "7194d32977ace7602ce9fd56c28392d3fb4ce9e20c0902cea92ec0cb3fdf87c3",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -75,6 +75,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

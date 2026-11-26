@@ -1,14 +1,14 @@
 {
   "id": "lesson_13-15_aqeedah_certainty_01",
   "path_id": "path_13-15_aqeedah_certainty",
-  "title": "The Journey of Certainty: How Do We See God in Everything Around Us?",
+  "title": "The Journey of Certainty: How Do We Find Evidence of Allah in the Universe Around Us?",
   "age_group": "13-15",
   "domain": "aqeedah",
   "unit_ids": [
     "shm-aqd-1315-01-fitrah-proofs",
     "shm-aqd-1315-05-handling-waswas"
   ],
-  "summary": "You might find your teenage child, while browsing the internet or sitting with friends, suddenly asking you: “How do I know God truly exists? And why Islam specifically?” Perhaps you feel some anxiety or even fear from these questions, and it might cross your mind that their faith is wavering. But wait, these questions are not a sign of weakness; rather, they are the beginning of a healthy journey towards a deeper, more firmly rooted faith. They are a golden opportunity to strengthen your relationship and build bridges of trust and open dialogue.\n\nAt this age, the mind begins to seek logic and evidence, and is not satisfied with mere imitation or what it has inherited. Our role as parents is to be guides, not interrogators. Help them discover the signs of God's existence in the perfection and beautiful harmony of the universe, for just as a craft indicates its maker, the grandeur of this existence indicates a wise Creator. Remind them of the sound innate disposition that testifies to the existence of a higher power, and how the Noble Qur'an, with its linguistic and scientific miraculousness, its preservation through centuries, and its profound impact on souls, is conclusive proof that it is the word of God. Do not stop at “just believe,” but build their certainty on clear insight.\n\nRemember that the goal is not to convince them by force, but to open their eyes and hearts to see the truths for themselves. Be a good listener, and let them express everything on their mind without judgment or criticism. This safe space for dialogue is what will build a firm faith that can withstand any doubts they may face in the future. Embrace their questions, and let them see in you the helper who guides them on the path, not the guard who prevents them from searching.",
+  "summary": "You might find your teenage child, while browsing the internet or sitting with friends, suddenly asking you: “How do I know Allah truly exists? And why Islam specifically?” Perhaps you feel some anxiety or even fear from these questions, and it might cross your mind that their faith is wavering. But wait, these questions are not a sign of weakness; rather, they are the beginning of a healthy journey towards a deeper, more firmly rooted faith. They are a golden opportunity to strengthen your relationship and build bridges of trust and open dialogue.\n\nAt this age, the mind begins to seek logic and evidence, and is not satisfied with mere imitation or what it has inherited. Our role as parents is to be guides, not interrogators. Help them discover the signs of Allah's existence in the perfection and beautiful harmony of the universe, for just as a craft indicates its maker, the grandeur of this existence indicates a wise Creator. Remind them of the sound innate nature that testifies to the existence of Allah Almighty as Creator and Sustainer, and how the Noble Qur'an—with its miraculous eloquence, its preservation through centuries, and its profound impact on souls—is among the greatest proofs that it is the word of Allah, and certainty in it grows through reflection and contemplation upon its verses. Do not stop at “just believe,” but build their certainty on clear insight.\n\nRemember that the goal is not to convince them by force, but to open their eyes and hearts to see the truths for themselves. Be a good listener, and let them express everything on their mind without judgment or criticism. This safe space for dialogue is among the means of building a firm faith that helps them, by Allah's will, face whatever doubts may come their way. Embrace their questions, and let them see in you the helper who guides them on the path, not the guard who prevents them from searching.",
   "try_this": "Tonight: After dinner or before bed, sit with your child in a calm atmosphere and together pose the question, “How do we know God exists?” Then, calmly and with open discussion, review just one piece of evidence (such as the perfect creation of the sky or the succession of night and day) for 5 minutes.",
   "order": 2,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“Your questions are very important, and I am here to help you find the answers together.”",
   "assistant_prompts": [
     "How do I respond to my teenage child's question: 'Why is Islam the true religion and not others?'",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,16 +57,42 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "b071121b7c171c265b7838c9c5991f82e82490d091aca28dbfee910c7b9b7264",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [],
+      "content_sha256": "e463d3bb1c4b8912360f8150ddfe8b2586f21dcbc677d3887f2219e9024bc165",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "fields.try_this.english",
+          "type": "meaning",
+          "why": "The Arabic says «الله» (Allah) but the English renders it as \"God,\" inconsistent with the rest of the lesson which uses \"Allah.\""
+        },
+        {
+          "model": "glm-5.2",
+          "field": "fields.assistant_prompts.english[1]",
+          "type": "meaning",
+          "why": "The Arabic says «الله» (Allah) but the English uses \"God,\" inconsistent with the rest of the content which uses \"Allah.\""
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "fields.try_this.english",
+        "type": "meaning",
+        "why": "The Arabic says «الله» (Allah) but the English renders it as \"God,\" inconsistent with the rest of the lesson which uses \"Allah.\""
+      },
+      {
+        "model": "glm-5.2",
+        "field": "fields.assistant_prompts.english[1]",
+        "type": "meaning",
+        "why": "The Arabic says «الله» (Allah) but the English uses \"God,\" inconsistent with the rest of the content which uses \"Allah.\""
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

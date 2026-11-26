@@ -9,7 +9,7 @@
     "c88f868b-4f40-45eb-b357-f8867b2c327d",
     "med-1eb2b059"
   ],
-  "summary": "Do you remember that moment? You were holding your little one, gazing at their sleeping face, and suddenly... a faint smile appeared on their lips. Perhaps you thought it was just gas, but your heart leaped with joy. A few weeks later, this smile will reappear, but it will be different this time. It will be directed at you, a response to your warm voice or your smiling face. These small moments are the seeds of a deep relationship forming between you, and the beginning of an amazing journey of connection.\n\nAround two months of age, your baby begins to show clear signs of social and emotional development. They calm down when you talk to them or hold them, they smile when you smile at them, and they may make gentle sounds other than crying. You'll also notice them tracking your face with their eyes and lifting their head slightly when on their tummy. These are not just random movements; they are strong indicators that their social brain is developing rapidly, and they are building a solid foundation for a secure attachment with you.\n\nRemember that you don't need complex tools to stimulate this growth. Your voice, your touch, and your loving gaze are the most powerful motivators. Talk to them gently, read aloud to them, and sing their favorite songs. These simple interactions nourish their soul and mind, and help them understand the world around them. Every word, every smile, and every touch is an investment in their emotional and linguistic future, planting the seeds of trust and security within them.",
+  "summary": "Do you remember that moment? You were holding your little one, gazing at their sleeping face, and suddenly... a faint smile appeared on their lips. Perhaps you thought it was just gas, but your heart leaped with joy. A few weeks later, this smile will reappear, but it will be different this time. It will be directed at you, a response to your warm voice or your smiling face. These small moments are the seeds of a deep relationship forming between you, and the beginning of an amazing journey of connection.\n\nAround two months of age, your baby begins to show clear signs of social and emotional development. They calm down when you talk to them or hold them, they smile when you smile at them, and they may make gentle sounds other than crying. You'll also notice them tracking your face with their eyes and lifting their head slightly when on their tummy. These are among the usual signs of social development at this age, and they reflect their interaction with you.\n\nRemember that you don't need complex tools to stimulate this growth. Your voice, your touch, and your loving gaze are among the most important stimulators. Talk to them gently, read aloud to them, and sing their favorite songs. These simple interactions nourish their soul and mind, and help them understand the world around them. Every word, every smile, and every touch is an investment in their emotional and linguistic future, planting the seeds of trust and security within them.",
   "try_this": "Tonight: Before bedtime, hold your baby and bring your face within 20-30 cm. Smile gently and speak to them in a soft voice for a few minutes. Observe their facial expressions: Do they calm down? Do they smile? Do they try to make a sound? Just your presence and observation are enough.",
   "order": 1,
   "estimated_minutes": 4,
@@ -24,7 +24,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-10T14:00:00",
   "updated_at": "2026-06-10T14:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I’m here, my little one. I see your beautiful smile, and I love you very much.”",
   "assistant_prompts": [
     "What simple games can I play with my two-month-old baby to stimulate their visual communication?",
@@ -41,7 +41,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -60,14 +60,14 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "6a04f9c3045ba6cc9fc458c6b586734e27df15153860de6d5f61e61db4b0d588",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "4eda9febc30e83a46b379033ccdb63c743238faf446f8ef972e0fb6105d36588",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [
         {
           "model": "deepseek-v4-pro",
           "field": "title",
           "type": "meaning",
-          "why": "The English reverses the direction: the Arabic says the smile is a small window from the child's heart toward you, while the English makes it a window into the child's heart."
+          "why": "The Arabic describes the smile as the baby's heart opening toward the parent ('إليك'), while the English reverses it to a window into the baby's heart and drops 'إليك'."
         }
       ],
       "adjudicated": [],
@@ -81,9 +81,9 @@
         "model": "deepseek-v4-pro",
         "field": "title",
         "type": "meaning",
-        "why": "The English reverses the direction: the Arabic says the smile is a small window from the child's heart toward you, while the English makes it a window into the child's heart."
+        "why": "The Arabic describes the smile as the baby's heart opening toward the parent ('إليك'), while the English reverses it to a window into the baby's heart and drops 'إليك'."
       }
     ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

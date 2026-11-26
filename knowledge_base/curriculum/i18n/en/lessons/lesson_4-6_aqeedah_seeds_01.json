@@ -5,10 +5,9 @@
   "age_group": "4-6",
   "domain": "aqeedah",
   "unit_ids": [
-    "shm-aqd-46-08-jannah-hope",
     "shm-aqd-46-10-tafakkur-creation"
   ],
-  "summary": "Imagine your little one running in the garden, touching a flower, pointing to a bird flying, or gazing at the moon in the night sky. Their eyes sparkle with curiosity, and their tongue never stops asking: “What is this? Who made this?” These simple moments are precious treasures for planting the first seeds of faith in their heart, to connect every beauty they see with the One who created and perfected it. At this age, children learn through tangible things, so make Allah present in their small, tangible world.\n\nInstead of abstract explanations, use these tangible things to introduce them to Allah the Creator. When they see a beautiful flower, ask them: “Who created this sweet flower?” And when they see a bird flying, tell them: “Allah created this bird so it could fly.” Connect everything that impresses or intrigues them with Allah, focusing on simple and loving phrases like: “Allah created us, and Allah is Generous.” This method instills in their heart that this universe has a magnificent Lord, and that this Lord is the One who created everything beautiful around them, without delving into details that might be difficult for them to grasp.\n\nThese repeated daily practices, which integrate Allah's name with the beauty of life, build a strong foundation of love and reverence for the Creator within them. Don't pressure them; instead, make it a fun game and a warm conversation. The goal is for the child to connect Allah with everything beautiful and generous in their life, and to feel the presence of this Great Creator who cares for and loves them. With this simplicity and gentleness, the first seeds of faith will sprout in their heart, to grow and blossom with time.",
+  "summary": "Imagine your little one running in the garden, touching a flower, pointing to a bird flying, or gazing at the moon in the night sky. Their eyes sparkle with curiosity, and their tongue never stops asking: \"What is this? Who made this?\" These simple moments are precious treasures for planting the first seeds of faith in their heart, to connect every beauty they see with the One who created and perfected it. At this age, children learn through tangible things, so make Allah present in their small, tangible world.\n\nInstead of abstract explanations, use these tangible things to introduce them to Allah the Creator. When they see a beautiful flower, ask them: \"Who created this beautiful flower?\" And when they see a bird flying, tell them: \"Allah created this bird so it could fly.\" Connect everything that impresses or intrigues them with Allah, focusing on simple and loving phrases like: \"Allah created us, and Allah is Generous.\" This method instills in their heart that this universe has a magnificent Lord, and that this Lord is the One who created everything beautiful around them, without delving into details that might be difficult for them to grasp.\n\nThese repeated daily practices, which integrate Allah's name with the beauty of life, build a strong foundation of love and reverence for the Creator within them. Don't pressure them; instead, make it a fun game and a warm conversation. The goal is for the child to connect Allah with everything beautiful and generous in their life, and to feel the presence of this Great Creator who cares for and loves them. With this simplicity and gentleness, the first seeds of faith will sprout in their heart, to grow and blossom with time.",
   "try_this": "Tonight: Before bed, while looking out the window or flipping through a picture book, ask your child about something beautiful they see: “Who created this bright moon?” or “Who created this gentle cat?” Let them answer, then both of you say together: “Allahu Akbar” or “Allah is Generous.”",
   "order": 1,
   "estimated_minutes": 4,
@@ -20,7 +19,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“Allah created everything beautiful around us, and He loves us very much.”",
   "assistant_prompts": [
     "Give me examples of simple phrases to introduce my child (4-6 years old) to Allah the Creator when seeing animals.",
@@ -39,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "ad98135248b81e7feb7f9da4c62413073c7192d6893639c488e136017eb98405",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "a5b11282d583d1aaf9b8b218c919b1a0ffba209e762abd1a665c644ddf9cbf3a",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

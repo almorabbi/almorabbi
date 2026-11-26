@@ -8,7 +8,7 @@
     "dev-8fdf563b",
     "e724817e-4bd5-4314-9d27-e560b2ca41ef"
   ],
-  "summary": "Imagine this warm scene: your little one in your lap, their tiny hands touching the colorful pages of a book, their eyes following your finger on the pictures. They may not yet understand the meaning of the words, but they absorb the warmth of your voice, the scent of the book, and the feeling of closeness and security. These simple moments are not just reading; they are a daily ritual that weaves threads of love and attachment, planting the seeds of language deep within their young mind.\n\nShared reading with your child at this early stage, even before they utter a single word, is a precious investment in their linguistic and cognitive development. Your child's brain at this age is like a sponge, absorbing everything around it. When they see the book and associate it with your gentle voice and warm touch, they build strong neural bridges connecting words, images, and positive emotions. The goal is not for them to understand the story, but to interact with the book as a toy: turning pages, pointing to pictures, and sometimes even chewing the book, all of which are a natural part of their exploration of the world.\n\nYou don't need to be a reading expert. Just make it a fun and relaxing moment for both of you. Point to pictures and name them with simple words, imitate animal sounds, and let your child turn the pages themselves to feel a sense of independence. A few minutes daily are enough to make a big difference in their future vocabulary and their attachment to books as friends. Remember that these moments are your first gift to your child towards the world of knowledge and language.",
+  "summary": "Imagine this warm scene: your little one in your lap, their tiny hands touching the colorful pages of a book, their eyes following your finger on the pictures. They may not yet understand the meaning of the words, but they absorb the warmth of your voice, the scent of the book, and the feeling of closeness and security. These simple moments are not just reading; they are a daily ritual that weaves threads of love and attachment, planting the seeds of language deep within their young mind.\n\nShared reading with your child at this early stage, even before they utter a single word, is a precious investment in their linguistic and cognitive development. Your child's brain at this age is like a sponge, absorbing everything around it. When they see the book and associate it with your gentle voice and warm touch, they connect words, images, and positive emotions. The goal is not for them to understand the story, but to interact with the book as a toy: turning pages, pointing to pictures, and sometimes even chewing the book, all of which are a natural part of their exploration of the world.\n\nYou don't need to be a reading expert. Just make it a fun and relaxing moment for both of you. Point to pictures and name them with simple words, imitate animal sounds, and let your child turn the pages themselves to feel a sense of independence. Remember that daily repetition, even for a few minutes, supports their language growth over time and strengthens their familiarity with books. Remember that these moments are your first gift to your child toward the world of knowledge and language.",
   "try_this": "Tonight: Choose one picture book and read it with your child for two minutes before bedtime. Point to a picture and name it, imitate a sound, and let them turn the page themselves if they can.",
   "order": 4,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“My little one, how I love to read to you. Let’s explore this book together.”",
   "assistant_prompts": [
     "What are the best types of picture books for children aged 0-3 years?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "a3d6cda088e35277ad4d2666ebfbfbfa68604e920b5e45368ef3e3fc3e210841",
-      "reviewed_at": "2026-11-24T18:01:18+00:00",
+      "content_sha256": "298f0cb609cc1815f1742facff5e4e2fff82d80ecd97744279cf884356a0dab8",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:01:18+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

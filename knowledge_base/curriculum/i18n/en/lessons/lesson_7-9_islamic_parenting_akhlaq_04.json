@@ -8,7 +8,7 @@
     "isl-8e3e1052",
     "isl-d8fa6d4a"
   ],
-  "summary": "Your child lost a group game, or his brother took his pen without permission, so his face turned red, he threw the pen, and screamed in anger. Many parents make two mistakes in this situation: either we shame him for the feeling itself (\"It's shameful to be angry!\"), or we confront his anger with even greater anger, turning the home into a storm. The truth is that anger is a natural feeling, and what's required is not to hide it, but to learn to control it before it leads us to harm or regret.\n\nThe Prophet ﷺ gave your child the greatest definition of true courage; he ﷺ said: \"The strong person is not the one who can wrestle others down, but the one who controls himself when he is angry\" (Sahih al-Bukhari 6114). He also guided the angry person to seek refuge with Allah from Satan (Sahih al-Bukhari 3282), and he advised a man repeatedly, saying ﷺ: \"Do not get angry\" (Sahih al-Bukhari 6116).\n\nThe best time to teach a calming plan is during a calm moment, not in the middle of an outburst! Agree with him tonight on the \"Hero's Three-Step Plan\": First, audibly seek refuge with Allah from Satan. Second, take a deep breath, change his place or sitting position, and drink a sip of water. Third, express himself with words instead of screaming or hitting. Most importantly: when you get angry in front of him, execute the plan openly and say: \"I am angry now, I will seek refuge with Allah and sit down to calm myself.\" Your example of self-control is more powerful than a thousand lectures.",
+  "summary": "Your child lost a group game, or his brother took his pen without permission, so his face turned red, he threw the pen, and screamed in anger. Many parents make two mistakes in this situation: either we shame him for the feeling itself (\"It's shameful to be angry!\"), or we confront his anger with even greater anger, turning the home into a storm. The truth is that anger is a natural feeling, and what's required is not to hide it, but to learn to control it before it leads us to harm or regret.\n\nThe Prophet ﷺ clarified the meaning of true strength; he ﷺ said: \"The strong person is not the one who can wrestle others down, but the one who controls himself when he is angry\" (Sahih al-Bukhari 6114). He also guided the angry person to seek refuge with Allah from Satan (Sahih al-Bukhari 3282), and he advised a man repeatedly, saying ﷺ: \"Do not get angry\" (Sahih al-Bukhari 6116).\n\nThe best time to teach a calming plan is during a calm moment, not in the middle of an outburst! Agree with him tonight on the \"Three-Step Calming Plan\": first, seeking refuge with Allah from Satan; second, sitting down or changing his posture as the Prophet ﷺ guided; and third, expressing himself with words instead of screaming or hitting (this last step is a practical parenting suggestion that helps with calming down). Most importantly: when you get angry in front of him, execute the plan openly and say: \"I am angry now, I will seek refuge with Allah and sit down to calm myself.\" Your example of self-control is more powerful than a thousand lectures.",
   "try_this": "Tonight, during a quiet time: draw or write with your child the \"Three-Step Calming Plan\" (I seek refuge with Allah — I sit and breathe — I speak calmly), and practice it together as a fun 30-second role-play.",
   "order": 4,
   "estimated_minutes": 4,
@@ -20,8 +20,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "\"Anger is a strong visitor that comes to all of us, but the real hero is the one who controls himself. Let's agree on our three-step plan to overcome anger together.\"",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "\"Anger is a feeling that comes to all of us, but the truly strong person is the one who controls himself. Come, let's agree on our three-step plan to overcome anger together.\"",
   "assistant_prompts": [
     "My 9-year-old child hits his brother or breaks his belongings when he loses in games. How can I train him to control himself?",
     "How can I help my child apologize after an anger outburst without him feeling humiliated or stubborn?"
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,16 +58,30 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "afcb130289822d7ce6da273b82507a315a367837807233d2af564d57a78c1263",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [],
+      "content_sha256": "a4d16743c86e74544816294650aead4bb0cdcd81b765de988952cbbe29abd400",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "summary",
+          "type": "meaning",
+          "why": "The Arabic wordplay قيادته/يقودنا (learn to steer it before it steers us) is flattened by using 'control' for the first verb, losing the parallelism."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "summary",
+        "type": "meaning",
+        "why": "The Arabic wordplay قيادته/يقودنا (learn to steer it before it steers us) is flattened by using 'control' for the first verb, losing the parallelism."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

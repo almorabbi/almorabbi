@@ -9,7 +9,7 @@
     "isl-85efb0a3",
     "isl-162e28c1"
   ],
-  "summary": "After many long years of meticulous daily supervision, the moment approaches when your son or daughter steps into university, work, or establishes an independent life. The hardest thing for a loving parent to face is gradually loosening the grip of control before the child leaves home; for a young person who hasn't experienced making a decision and bearing its consequences under your safe roof may be long confused when facing bigger decisions alone.\n\nThe required transformation now is to shift from \"the supervisor\" to \"the safe harbor\": a place your young person returns to when they make a mistake, to learn and correct, not to receive gloating with your words, \"Didn't I tell you!\" And remember the principle of shared responsibility in the words of the Prophet ﷺ: \"All of you are shepherds, and all of you are responsible for your flock\" (Sahih al-Bukhari 893); and among your greatest care for them at eighteen is to hand them the reins of real responsibilities: managing their monthly budget, organizing their appointments, their commitments to the family, and building their personal plan.\n\nAnd when they make a non-critical mistake, resist the urge to immediately rescue them, and discuss with them calmly: \"What did you learn from this experience? And how will you act next time?\" With sincere prayer and calm trust, you launch into life a mature individual, relying on Allah, who knows that their back is supported by your love and prayers, no matter how old they become.",
+  "summary": "After many long years of meticulous daily supervision, the moment approaches when your son or daughter steps into university, work, or establishes an independent life. The hardest thing for a loving parent to face is gradually loosening the grip of control before the child leaves home; for a young person who hasn't experienced making a decision and bearing its consequences under your safe roof may be long confused when facing bigger decisions alone.\n\nThe required transformation now is to shift from \"the supervisor\" to \"the safe harbor\": a place your young person returns to when they make a mistake, to learn and correct, not to receive gloating with your words, \"Didn't I tell you!\" And remember that parenthood is a trust and a responsibility, as in the words of the Prophet ﷺ: \"All of you are shepherds, and all of you are responsible for your flock\" (Sahih al-Bukhari, Hadith 893); and part of truly caring for them at eighteen is to gradually train your child to take on real responsibilities: managing their monthly budget, organizing their appointments, their commitments to the family, and building their personal plan.\n\nAnd when they make a non-critical mistake, resist the urge to immediately rescue them, and discuss with them calmly: \"What did you learn from this experience? And how will you act next time?\" With sincere prayer and calm trust, you launch into life a mature individual, relying on Allah, who knows that their back is supported by your love and prayers, no matter how old they become.",
   "try_this": "Tonight: Choose one real responsibility that you used to handle for your young person (managing a monthly allowance, coordinating a family outing, following up on a personal commitment) and hand it over to them clearly and confidently, and give them space to experiment and learn.",
   "order": 4,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"I trust your ability to manage this matter yourself from today; if you need my advice, I am always here, but the decision and follow-up are in your hands.\"",
   "assistant_prompts": [
     "My 18-year-old son relies on me for every detail of his day and doesn't take initiative. How can I gradually train him for independence?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,42 +58,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "af436ebadf8b8d40bcc6204cb31ad1bd82554be0ecfa62de723d5f7310a4eda5",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "meaning",
-          "why": "The Arabic specifies a mistake in a non-critical decision; the English drops 'decision' and modifies 'mistake' instead, slightly shifting the focus."
-        },
-        {
-          "model": "deepseek-v4-pro",
-          "field": "summary",
-          "type": "structure",
-          "why": "The English phrase 'may be long confused' is awkward and less clear than the Arabic 'may remain confused for a long time'."
-        }
-      ],
+      "content_sha256": "45bc8b5f4a6b941b93cf3a5b986b5f4c74ce2b1e7661fa88fe0754a053b5ccea",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "meaning",
-        "why": "The Arabic specifies a mistake in a non-critical decision; the English drops 'decision' and modifies 'mistake' instead, slightly shifting the focus."
-      },
-      {
-        "model": "deepseek-v4-pro",
-        "field": "summary",
-        "type": "structure",
-        "why": "The English phrase 'may be long confused' is awkward and less clear than the Arabic 'may remain confused for a long time'."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

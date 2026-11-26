@@ -8,7 +8,7 @@
     "shm-aqd-1315-03-freewill-qadar",
     "shm-aqd-1315-05-handling-waswas"
   ],
-  "summary": "Your teenage son is scrolling through his phone. He sees a friend's post about an athletic achievement or a school project that received a lot of praise. You notice a mix of admiration and perhaps some wistfulness on his face. He might start thinking, \"Should I do something like that to get the same recognition?\" These small moments are our opportunities to plant a great value in their hearts: that their actions should stem from within them, purely for the sake of Allah, not for the eyes of people.\n\nThe essence of sincerity is that our primary motivation for action is the Creator's pleasure, not to gain praise or avoid criticism from people. In a world bustling with appearances and constant comparisons, sincerity gives a teenager inner strength and steadfastness that is not shaken by the fluctuations of others' opinions. When he understands that the true value of his work lies in his sincere intention, he is freed from the burden of seeking external admiration and finds deeper meaning in everything he does, whether in his studies, helping at home, or even in his personal choices. The Prophet ﷺ said: «Indeed, actions are by intentions» (Sahih al-Bukhari 1).\n\nSo, let us help our children build this internal compass. It's not about direct preaching, but about situations and stories that show them how sincere work for Allah brings tranquility and blessings. Encourage them to think about their motivations, and remind them that Allah sees hearts before actions. In this way, we plant in them the seed of self-confidence and inner contentment, and strengthen their connection with their Creator, so they become more steadfast and happy on their journey.",
+  "summary": "Your teenage son is scrolling through his phone. He sees a friend's post about an athletic achievement or a school project that received a lot of praise. You notice a mix of admiration and perhaps some wistfulness on his face. He might start thinking, \"Should I do something like that to get the same recognition?\" These small moments are our opportunities to plant a great value in their hearts: that their actions should stem from within them, purely for the sake of Allah, not for the eyes of people.\n\nThe essence of sincerity is that our primary motivation for action is the Creator's pleasure, not to gain praise or avoid criticism from people. In a world bustling with appearances and constant comparisons, sincerity gives a teenager inner strength and steadfastness that is not shaken by the fluctuations of others' opinions. When he understands that the true value of his work lies in his sincere intention, he is freed from the burden of seeking external admiration and finds deeper meaning in everything he does, whether in his studies, helping at home, or even in his personal choices. The Prophet ﷺ said: «Indeed, actions are by intentions» (Sahih al-Bukhari 1).\n\nSo, let us help our children build this internal compass. It's not about direct preaching, but about situations and stories that show them how sincerity brings tranquility to the heart, and acceptance and blessing from Allah are hoped for sincere deeds. Encourage them to think about their motivations, and remind them that Allah knows what is in the hearts and looks at both hearts and deeds. In this way, we plant in them the seed of self-confidence and inner contentment, and strengthen their connection with their Creator, so they become more steadfast and happy on their journey.",
   "try_this": "Tonight: Talk about a situation your son experienced today, and how his inner motivation (intention) was more important than any external result or others' opinions.",
   "order": 3,
   "estimated_minutes": 4,
@@ -20,8 +20,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "«Always remember, my son, that Allah sees your heart before He sees your action. That is what is most important.»",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "«Always remember, my son, that Allah knows what is in your heart and looks at your heart and your deeds. That is what matters most.»",
   "assistant_prompts": [
     "How can I explain the concept of sincerity to my teenage son in a way he understands and applies in his daily life?",
     "What are some activities or real-life examples that can help my teenage son understand the value of working for Allah and not for people?"
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "08188e95eec00d902bd7364f545e3480afc1daea542efd3d89daac62d07f56a1",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "6382014a6f9780716a886662780a17fa7b1fc938693a766318f8ea4f0ab1df50",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

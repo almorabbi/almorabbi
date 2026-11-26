@@ -8,7 +8,7 @@
     "seed-defiance-23",
     "isl-8a046b9b"
   ],
-  "summary": "Imagine you are preparing for prayer, and your little child watches you with wide eyes. They imitate your movements, whisper incomprehensible words, and perhaps try to prostrate beside you. These spontaneous moments are not just play; they are profound lessons your child receives without you uttering a single word. They pick up details, sense your tranquility, and connect these actions with the feelings of safety and serenity they see in you.\n\nChildren at this age learn much more through imitation and emulation than through direct instruction. They are like sponges, absorbing all the behaviors and ethics around them. When they see you dealing kindly with others, or remembering Allah in your day, or performing your acts of worship with devotion, these values become rooted in them as a natural part of life, not as an imposed duty. You are not just a parent; you are the living book your child reads every day, and the curriculum they follow to understand the world around them.\n\nDo not underestimate the power of your presence and your example. Every action, every word, every moment of calm or anger, is a message that reaches your child. Make these messages positive and inspiring. Remember that building values begins with a living model, not with dry instructions. Be the example you wish your child to see in the future, and you will find that the seed of goodness grows within them quietly and steadily.",
+  "summary": "Imagine you are preparing for prayer, and your little child watches you with wide eyes. They imitate your movements, whisper incomprehensible words, and perhaps try to prostrate beside you. These spontaneous moments are not just play; they are profound lessons your child receives without you uttering a single word. They pick up details, sense your tranquility, and connect these actions with the feelings of safety and serenity they see in you.\n\nChildren at this age learn a great deal through imitation and modeling alongside simple guidance. They are like sponges, absorbing all the behaviors and ethics around them. When they see you dealing kindly with others, or remembering Allah in your day, or performing your acts of worship with devotion, these values become rooted in them as a natural part of life, not as an imposed duty. You are not just a parent; you are the living book your child reads every day, and the curriculum they follow to understand the world around them.\n\nDo not underestimate the power of your presence and your example. Every action, every word, every moment of calm or anger, is a message that reaches your child. Make these messages positive and inspiring. Remember that building values begins with a living model, not with dry instructions. Be the example you wish your child to see in the future, and over time you may see the effect of that in their behavior.",
   "try_this": "Today: Let your child see you in a moment of worship or good character, without asking anything of them.",
   "order": 4,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“My little one, you see and learn every day.”",
   "assistant_prompts": [
     "How can I encourage my child to imitate positive behaviors without pressuring them?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "b9d2a29a7f760e415bfa885b92db5ac3db2b53f06e9377d457b237f46fd17445",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "48859b35a517a97f112c909b6e1cb12a3253827edcff7af3cf4d582c387daedb",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

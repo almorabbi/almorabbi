@@ -1,14 +1,14 @@
 {
   "id": "lesson_10-12_islamic_parenting_identity_04",
   "path_id": "path_10-12_aqeedah_growth",
-  "title": "My Dear Son: Your Value to Allah is Determined by No One But Him",
+  "title": "My Dear Son: Your Worth Lies in Your Faith and Character, Not Your Appearance or Popularity",
   "age_group": "10-12",
   "domain": "aqeedah",
   "unit_ids": [
     "shm-aqd-1012-09-purpose-creation",
     "shm-aqd-1012-02-qadar-levels"
   ],
-  "summary": "You sit with your ten-year-old son, watching him scroll through his phone with a frown, then he asks you, \"Am I good enough?\" or \"Why don't I have what so-and-so has?\" He might start comparing himself to his friends – their clothes, or even the number of likes on their posts. This age is sensitive, as a child begins to build their self-identity, and the evaluations of others become very significant, which can shake their self-confidence and make them doubt their true worth.\n\nIt is very important that we instill in our children's hearts that their true value is not tied to external appearances, or what they possess, or even how popular they are among their peers. Their true value stems from their essence, their character, their pursuit of good, and their relationship with their Creator. Teach your children that Allah sees their hearts and their deeds, and that this is the truest scale. Praise their effort and striving, not just the results, and give them space to make their own decisions so they feel independent and capable. Remember the saying of the Prophet ﷺ: «The strong believer is better and more beloved to Allah than the weak believer, and there is good in both» (Sahih Muslim 2664), and strength here includes strength of faith and self-confidence.\n\nTo solidify this value, focus on boosting his self-confidence through his good deeds. Encourage him in actions that bring him closer to Allah, such as prayer, honesty, and helping others, and make these actions the source of his pride. Supplicate for his steadfastness upon the truth, and always remind him that Allah loves him and cares for him, and that his true value lies in being a righteous servant of Allah, not in anything else. This will give him a solid foundation for his identity that will not be shaken by life's fluctuations or people's opinions.",
+  "summary": "You sit with your ten-year-old son, watching him scroll through his phone with a frown, then he asks you, \"Am I good enough?\" or \"Why don't I have what so-and-so has?\" He might start comparing himself to his friends – their clothes, or even the number of likes on their posts. This age is sensitive, as a child begins to build their self-identity, and the evaluations of others become very significant, which can shake their self-confidence and make them doubt their true worth.\n\nIt is very important that we instill in our children's hearts that their true value is not tied to external appearances, or what they possess, or even how popular they are among their peers. Their true value stems from their essence, their character, their pursuit of good, and their relationship with their Creator. Teach your children that Allah does not look at our appearances or our wealth, but rather He looks at our hearts and our deeds, and that this is the truest scale. Praise their effort and striving, not just the results, and give them space to make their own decisions so they feel independent and capable. Remember the saying of the Prophet ﷺ: «The strong believer is better and more beloved to Allah than the weak believer, and in each there is good» (Sahih Muslim 2664), and strength here includes strength of faith and resolve to do good, while reminding him that there is good in every believer.\n\nTo solidify this value, focus on boosting his self-confidence through his good deeds. Encourage him in actions that bring him closer to Allah, such as prayer, honesty, and helping others, and make these actions the source of his pride. Supplicate for his steadfastness upon the truth, and remind him that Allah loves His believing servants who do good, that His mercy encompasses all things, and that we should strive to earn His love through faith and righteous deeds; for a person's true worth lies in their piety and righteousness, not in anything else. This helps him, by Allah's will, build a solid foundation for his identity that stands firm before life's fluctuations and people's opinions.",
   "try_this": "Tonight: Before bedtime, ask your child to tell you one thing they did today that made them feel proud, whether it was praying on time, saying a kind word, or helping someone. Listen to them attentively and share in their feeling.",
   "order": 1,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«Remember, my son, your true value is with Allah, and He sees your heart and your effort, and that is what matters most.»",
   "assistant_prompts": [
     "How can I help my child understand that their value is not linked to their appearance or possessions?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "00abcb4af224c86f34446a11dc2244bec8201ff4f440cd4d12d9d2a90c6eb825",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "099f8bf28f5ea5d1c6bda44fdace1dd3e9f33bfe10a13341615ef9a39e65c722",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

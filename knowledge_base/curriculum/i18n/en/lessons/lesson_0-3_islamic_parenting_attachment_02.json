@@ -7,7 +7,7 @@
   "unit_ids": [
     "f66f6ba1-d342-47a0-8184-6bfb848c47be"
   ],
-  "summary": "Imagine your infant crying in the middle of the night, or your toddler throwing food on the floor for the tenth time. In those moments, you might feel exhaustion and frustration tightening your nerves. It might cross your mind to raise your voice or to deal with the situation with extreme firmness. But remember that your little one, at this early stage, is still exploring the world around them, and all their actions are attempts to communicate or express a need. Our reactions are what shape their first world and determine how they see themselves and others.\n\nGentleness is not weakness; rather, it is a true strength stemming from a deep understanding of human nature. The Prophet ﷺ said: «Indeed, Allah is gentle and loves gentleness in all matters» (Sahih al-Bukhari 6927). This prophetic principle goes beyond mere soft handling; it is a philosophy of upbringing. A child aged 0-3 years receives our messages not only through words but through tone, touch, and a calm presence. When we choose gentleness and patience, we plant seeds of security and trust within them, teaching them that the world is a safe and loving place, and that their feelings are accepted and understood.\n\nStart with a small change in how you respond. When your child cries, approach them calmly, breathe deeply, and use a low, warm voice. Even if they don't understand your words, they sense your tone of voice and the touch of your hand. These small moments build bridges of trust and love, teaching them that you are their safe haven. Every gentle touch, every kind word, is a building block in shaping your child's balanced and reassured personality, showing them that gentleness is the best way to deal with life.",
+  "summary": "Imagine your infant crying in the middle of the night, or your toddler throwing food on the floor for the tenth time. In those moments, you might feel exhaustion and frustration tightening your nerves. It might cross your mind to raise your voice or to deal with the situation with extreme firmness. But remember that your little one, at this early stage, is still exploring the world around them, and all their actions are attempts to communicate or express a need. Our reactions contribute to shaping their first world and how they view themselves and others.\n\nGentleness is not weakness; rather, it is a true strength stemming from a deep understanding of human nature. The Prophet ﷺ said: «Indeed, Allah is gentle and loves gentleness in all matters» (Sahih al-Bukhari 6927). This prophetic principle goes beyond mere soft handling; it is a philosophy of upbringing. A child aged 0-3 years receives our messages not only through words but through tone, touch, and a calm presence. When we choose gentleness and patience, we plant seeds of security and trust within them, teaching them that the world is a safe and loving place, and that their feelings are accepted and understood.\n\nStart with a small change in how you respond. When your child cries, approach them calmly, breathe deeply, and use a low, warm voice. Even if they don't understand your words, they sense your tone of voice and the touch of your hand. These small moments build bridges of trust and love, teaching them that you are their safe haven. Every gentle touch, every kind word, is a building block in shaping your child's balanced and reassured personality, showing them that gentleness is the best way to deal with life.",
   "try_this": "Tonight: When it's time to change your child's diaper or bathe them, speak to them in a calm, warm voice, describing what you are doing with simple words like: «Now we'll change your diaper so you can be clean and comfortable» or «Let's wash your beautiful hands with warm water».",
   "order": 2,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-10T16:00:00",
   "updated_at": "2026-06-10T16:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«I am here, my darling. I hear you, and I am by your side.»",
   "assistant_prompts": [
     "How do I deal with my infant's incessant crying even after all their needs have been met?",
@@ -37,7 +37,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -56,30 +56,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "6059efad6a6dad556e5ea223e7bbddeb4e519901cb438fa8caff4bf628b6a192",
-      "reviewed_at": "2026-11-24T18:01:18+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "omission",
-          "why": "The Arabic describes it as a philosophy of life (حياة) related to upbringing, but the English drops the 'life' element."
-        }
-      ],
+      "content_sha256": "ac74d314e2ba02f71dd5fed89f6e283e30eaef82a976b915b4bdfb41ec9c24fc",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "omission",
-        "why": "The Arabic describes it as a philosophy of life (حياة) related to upbringing, but the English drops the 'life' element."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:01:18+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

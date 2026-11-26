@@ -5,9 +5,9 @@
   "behavior_type": "تعزيز الإيمان بالله",
   "intervention_type": "وقائي",
   "severity": "خفيف",
-  "reference_type": "كتاب_فقهي",
+  "reference_type": "كتاب_تفسير",
   "reference_info": "عبد الرحمن السعدي، تفسير السعدي = تيسير الكريم الرحمن، ص ١٢٤.",
-  "title": "دلائل التوحيد في الكون والفطرة",
+  "title": "شهادة الله وملائكته وأهل العلم على التوحيد",
   "language": "ar",
   "source_file": "shamela:42:202",
   "source_meta": {
@@ -23,6 +23,6 @@
     "التربية_الإيمانية"
   ],
   "created_at": "2026-11-24T19:04:30Z",
-  "updated_at": "2026-11-24T19:04:30Z",
+  "updated_at": "2026-11-26",
   "version": "1.1.0"
 }

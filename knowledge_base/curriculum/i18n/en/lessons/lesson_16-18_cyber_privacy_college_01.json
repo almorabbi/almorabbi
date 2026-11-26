@@ -1,14 +1,14 @@
 {
   "id": "lesson_16-18_cyber_privacy_college_01",
   "path_id": "path_16-18_cyber_digital_professional",
-  "title": "Your Child's Digital Image: Your Child's Bridge to University",
+  "title": "Your Child's Digital Image Before University: Awareness Before Applying",
   "age_group": "16-18",
   "domain": "cyber",
   "unit_ids": [
     "cyb-e2c8532b",
     "cyb-f815145d"
   ],
-  "summary": "Remember that moment when you asked your teenage child to wear their \"best clothes\" for a family event or an important interview? Today, there are other \"clothes\" our children wear every day, but they are invisible: their digital footprint. As university application season approaches, your child may not realize that what they post today, or even years ago, could become part of their \"profile\" seen by admissions officers. This is not a call for alarm, but a call for awareness and preparation.\n\nThe internet is a vast world, and every post, photo, or comment your child leaves is a small piece of their digital puzzle. More than a third of university admissions officers in America review applicants' social media accounts, and according to a 2021 Kaplan survey, most of the impact from this review is negative, not positive. This doesn't mean your child should erase their digital presence, but rather learn how to manage it consciously, and how to understand that everything they share is part of their public image that could affect their future opportunities.\n\nLet us be role models for our children in this regard. Sit together, not as a monitor, but as a guide, to review privacy settings and search for their name online. These simple steps not only protect their privacy but also teach them the value of self-awareness in the digital world. It's an opportunity to build trust and communication, and to prepare them for a bright future, where their digital image is a bridge for them, not a barrier.",
+  "summary": "Remember that moment when you asked your teenage child to wear their \"best clothes\" for a family event or an important interview? Today, there are other \"clothes\" our children wear every day, but they are invisible: their digital footprint. As university application season approaches, your child may not realize that what they post today, or even years ago, could become part of their \"profile\" seen by admissions officers. This is not a call for alarm, but a call for awareness and preparation.\n\nThe internet is a vast world, and every post, photo, or comment your child leaves is a small piece of their digital puzzle. More than a third of university admissions officers in America review applicants' social media accounts, and according to a 2021 Kaplan survey, most of the impact from this review is negative, not positive. This doesn't mean your child should erase their digital presence, but rather learn how to manage it consciously, and how to understand that everything they share is part of their public image that could affect their future opportunities.\n\nLet us be role models for our children in this regard. Sit together, not as a monitor, but as a guide, to review privacy settings and search for their name online. These simple steps not only protect their privacy but also teach them the value of self-awareness in the digital world. It's an opportunity to build trust and communication, and to prepare them for university applications with greater awareness of what appears about them online.",
   "try_this": "Tonight: Sit together for five minutes and search for your child's name on search engines. Discuss any results that appear and how they might be interpreted by a stranger.",
   "order": 5,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“My child, let's take a look at your digital footprint together, to make sure it reflects the best of you.”",
   "assistant_prompts": [
     "What are the best privacy management apps for teenagers?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,16 +57,30 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "e4a7126c90ff21ff5f52af9716ecc1e07cdadf4ee24d4a982dc9f114dec4ce44",
-      "reviewed_at": "2026-11-24T18:38:53+00:00",
-      "residual_low": [],
+      "content_sha256": "34a2ff8f94af649cd00210f6c7bd7031e3bb2d189a9ff57b557e5b035adb2859",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "deepseek-v4-pro",
+          "field": "parent_script",
+          "type": "meaning",
+          "why": "The Arabic addresses a son specifically, while the English uses the gender-neutral 'child', a minor loss of nuance."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:38:53+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "deepseek-v4-pro",
+        "field": "parent_script",
+        "type": "meaning",
+        "why": "The Arabic addresses a son specifically, while the English uses the gender-neutral 'child', a minor loss of nuance."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

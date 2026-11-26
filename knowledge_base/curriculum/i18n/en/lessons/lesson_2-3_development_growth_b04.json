@@ -8,7 +8,7 @@
     "8b595d9b-62ce-48af-b5a5-a3bfe748041d",
     "dev-ff2c707a"
   ],
-  "summary": "Imagine your little one angrily throwing their favorite toy, or screaming with joy at the sight of a small cat, or freezing in fear from a sudden loud noise. At this age, emotions erupt like a small volcano inside them, powerful and confusing, without them yet having the words to express or understand them. Your parental task here is to be your child's 'emotion translator,' to give them the words that connect this overwhelming inner feeling with a clear, understandable name.\n\nNaming emotions is not just about teaching words; it's about building real neural bridges in your child's brain. When you tell them: 'You're angry because the toy didn't work,' or 'You're happy because we're going to the park,' you help them connect the vague inner feeling with a specific word. This vital process is the first building block for emotional regulation, and it's the foundation of their future ability to understand and manage their emotions instead of being controlled by them. It gives them a powerful tool to express themselves instead of resorting to tantrums or screaming.\n\nDon't hesitate to use a mirror to imitate different facial expressions with your child, such as joy, sadness, and surprise, and let them imitate you. Read simple stories together that talk about emotions, and point out facial expressions in the pictures. The more words your child has for emotions, the less prone they will be to emotional outbursts, because they now have a way to express what's going on inside them. These simple steps build a calmer child who is more capable of understanding themselves and their world.",
+  "summary": "Imagine your little one angrily throwing their favorite toy, or screaming with joy at the sight of a small cat, or freezing in fear from a sudden loud noise. At this age, emotions erupt like a small volcano inside them, powerful and confusing, without them yet having the words to express or understand them. Your parental task here is to be your child's 'emotion translator,' to give them the words that connect this overwhelming inner feeling with a clear, understandable name.\n\nNaming emotions is not just about teaching words; it helps your child's young brain connect the feeling with the appropriate word. When you tell them: 'You're angry because the toy didn't work,' or 'You're happy because we're going to the park,' you help them connect the vague inner feeling with a specific word. This vital process is the first building block for emotional regulation, and it's the foundation of their future ability to understand and manage their emotions instead of being controlled by them. It gives them a powerful tool to express themselves instead of resorting to tantrums or screaming.\n\nDon't hesitate to use a mirror to imitate different facial expressions with your child, such as joy, sadness, and surprise, and let them imitate you. Read simple stories together that talk about emotions, and point out facial expressions in the pictures. The more words your child has for emotions, the less prone they will be to emotional outbursts, because they now have a way to express what's going on inside them. These simple steps build a calmer child who is more capable of understanding themselves and their world.",
   "try_this": "Today: Choose 3 different moments (joy, sadness, frustration) and clearly name your child's emotion in that moment, such as: 'You're excited!' or 'This is frustrating.'",
   "order": 4,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"I see you're angry right now, is that right?\"",
   "assistant_prompts": [
     "What are some fun activities that help my child aged 2-3 years learn emotion words?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,30 +58,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "30c163e7f7b1bed3171ecb7f6bf545e68f65349ab7795fdf020efbc101234201",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "fields.try_this.english",
-          "type": "meaning",
-          "why": "The Arabic uses the noun 'إحباط' (frustration), so the modelled phrase is 'This is frustration,' whereas the English uses the adjective 'frustrating,' slightly shifting the modelled parent wording."
-        }
-      ],
+      "content_sha256": "9da629b58c9e61476298440eba7465d2b888e93c2b56481b2fb3dfd50fe39102",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "fields.try_this.english",
-        "type": "meaning",
-        "why": "The Arabic uses the noun 'إحباط' (frustration), so the modelled phrase is 'This is frustration,' whereas the English uses the adjective 'frustrating,' slightly shifting the modelled parent wording."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

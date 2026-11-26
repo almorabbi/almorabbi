@@ -8,7 +8,7 @@
     "shm-aqd-p1-02-adhan-ear",
     "shm-aqd-p1-04-dua-offspring"
   ],
-  "summary": "Imagine holding your child in your arms, their small face touching your chest, their wide eyes gazing at the world around them. In this quiet moment, you might feel a flood of emotions: love, hope, and perhaps a slight worry for their future. These moments are your golden opportunity to plant seeds of goodness in their life, not just through physical care, but through spiritual care that begins with your sincere words and supplications.\n\nSupplicating for your child is not just words spoken; it is a deep expression of your love and your trust that there is a greater power that cares for and protects. It is the first spiritual investment you offer your beloved child, giving you a sense of peace and tranquility, and reminding you that you are not alone in this parenting journey. When you supplicate for your child, you open doors of goodness and blessings for them, and you ask for their righteousness and success in all stages of their life, even before they utter a word or take a step.\n\nDo not think that these moments are limited to the first days after birth. Rather, it is a daily habit you can embed in your routine, every time you hug your child, or help them sleep, or even when you see them playing. This simple habit will be a bridge connecting your heart to your child's heart, filling your home with serenity and mercy, and always reminding you that raising your child is a journey of continuous love and supplication.",
+  "summary": "Imagine holding your child in your arms, their small face touching your chest, their wide eyes gazing at the world around them. In this quiet moment, you might feel a flood of emotions: love, hope, and perhaps a slight worry for their future. These moments are your golden opportunity to plant seeds of goodness in their life, not just through physical care, but through spiritual care that begins with your sincere words and supplications.\n\nSupplicating for your child is not just words spoken; it is a deep expression of your love and your trust that Allah alone cares and protects. It is the first spiritual investment you offer your beloved child, giving you a sense of peace and tranquility, and reminding you that you are not alone in this parenting journey. When you supplicate for your child, you ask Allah for goodness and blessings for them, and seek their righteousness and success in all stages of their life, even before they utter a word or take a step.\n\nDo not think that these moments are limited to the first days after birth. Rather, it is a daily habit you can embed in your routine, every time you hug your child, or help them sleep, or even when you see them playing. This simple habit will be a bridge connecting your heart to your child's heart, filling your home with serenity and mercy, and always reminding you that raising your child is a journey of continuous love and supplication.",
   "try_this": "Today: Choose a short and beloved supplication (such as: \"O Allah, make him/her among the righteous\") and supplicate with it for your child three times while holding or playing with them, and make it a daily habit.",
   "order": 2,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“My dear, I ask Allah to protect you, bless you, and make you among the righteous.”",
   "assistant_prompts": [
     "What are some authentic supplications I can make for my infant child?",
@@ -37,7 +37,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -56,16 +56,30 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "32c52594d01cf8b6c7d174eb5e922d3a32b8c4208c3722c9d6252a83b4afd13a",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [],
+      "content_sha256": "c8f27f0345b68a5d56ffdd00e0a73cab464ab9e97c2b04c82ed1f9aef87f080a",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "fields.assistant_prompts[0]",
+          "type": "meaning",
+          "why": "«مأثورة» means transmitted/inherited supplications, not necessarily «authentic» (صحيحة), so the English adds a verification claim the Arabic does not make."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "fields.assistant_prompts[0]",
+        "type": "meaning",
+        "why": "«مأثورة» means transmitted/inherited supplications, not necessarily «authentic» (صحيحة), so the English adds a verification claim the Arabic does not make."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

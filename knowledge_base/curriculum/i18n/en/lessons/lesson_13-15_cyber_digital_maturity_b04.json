@@ -9,7 +9,7 @@
     "d1196e24-669b-432f-8fe1-a12814a03e97",
     "c3437dc8-02bd-41b2-8137-028c681a24d5"
   ],
-  "summary": "Imagine your teenage child sitting in their room, sometimes laughing, sometimes perhaps anxious as they scroll through their phone. You might not know that their digital world is teeming with hidden pressures: groups bullying a classmate, dangerous challenges spreading like wildfire, or strange requests for photos or personal information. Social media amplifies these pressures and makes mistakes seem constant and widespread, putting our children in difficult situations that demand extraordinary courage.\n\nTrue courage isn't about going with the flow, but about the ability to stand up, withdraw, or report any harmful behavior. Silence in the face of bullying makes one a partner in it, and this is what we must instill in our children. Their digital world needs a strong moral compass and a firm belief that their values are more important than any external pressure. Our role as parents is to build this inner conviction in them and equip them with the necessary tools to face these challenges.\n\nTo foster this courage, agree on a golden rule: never send any photo or information that could be used against you in the future. More importantly, no matter what mistake happens, your child must trust that your door is always open, and that you are their safe haven without scandal or harsh reprimand. This trust is their first and strongest line of defense; knowing that they can tell you anything without fear of your violent reaction is what will truly protect them in their complex digital world.",
+  "summary": "Imagine your teenage child sitting in their room, sometimes laughing, sometimes perhaps anxious as they scroll through their phone. You might not know that their digital world is teeming with hidden pressures: groups bullying a classmate, dangerous challenges spreading like wildfire, or strange requests for photos or personal information. Social media amplifies these pressures and makes mistakes seem constant and widespread, putting our children in difficult situations that demand extraordinary courage.\n\nTrue courage isn't about going with the flow, but about the ability to stand up, withdraw, or report any harmful behavior. Staying silent about bullying can encourage the bully to continue, and one's duty—according to their ability—is to support the wronged person and report it, and this is what we should instill in our children. Their digital world needs a strong moral compass and a firm belief that their values are more important than any external pressure. Our role as parents is to build this inner conviction in them and equip them with the necessary tools to face these challenges.\n\nTo foster this courage, agree on a golden rule: never send any photo or information that could be used against you in the future. More importantly, no matter what mistake happens, your child must trust that your door is always open, and that you are their safe haven without scandal or harsh reprimand. This trust is their first and strongest line of defense; knowing that they can tell you anything without fear of a harsh reaction from you is among the strongest things that helps keep them safe, by Allah's will, in their complex digital world.",
   "try_this": "Tonight: Ask your child (with curiosity, not interrogation) about a difficult digital situation they or a friend experienced, and how they handled it. Listen more than you speak.",
   "order": 4,
   "estimated_minutes": 4,
@@ -22,7 +22,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“Always remember, no matter what happens in your digital world, I am here to listen and help, and our door is open to you.”",
   "assistant_prompts": [
     "How can I help my teenage child build self-confidence to resist digital peer pressure?",
@@ -40,7 +40,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,30 +59,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "937d31b8dfad0a266e0700d63d529254df3e3195c5096088c741f06293f0c193",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "summary",
-          "type": "tone",
-          "why": "The Arabic refers to a harsh or severe emotional reaction, but 'violent' in English can imply physical violence, slightly overstating the intended meaning."
-        }
-      ],
+      "content_sha256": "a698809808f911af58f9eb5dce9db7d1acfb993c13a22c5617efa3c3c41b2755",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "summary",
-        "type": "tone",
-        "why": "The Arabic refers to a harsh or severe emotional reaction, but 'violent' in English can imply physical violence, slightly overstating the intended meaning."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

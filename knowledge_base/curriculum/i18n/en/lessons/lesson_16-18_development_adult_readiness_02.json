@@ -1,7 +1,7 @@
 {
   "id": "lesson_16-18_development_adult_readiness_02",
   "path_id": "path_16-18_development_adult_readiness",
-  "title": "Wings of Independence: How Do We Prepare Our Children for Adulthood?",
+  "title": "Preparing for Independence: How Do We Prepare Our Children for Adulthood?",
   "age_group": "16-18",
   "domain": "development",
   "unit_ids": [
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I trust in your ability to accomplish this task, and I am here to support you if you need me.”",
   "assistant_prompts": [
     "What are the best ways to teach teenagers how to manage their personal budget?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "d1e82017efc1a6f311c77bc2cdcd2c85612cd2ed80b4746cfded0c5b4e1f1442",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "4730e3b9d4725c15d116c3eb82269f40bc05237657740b128db4aa93e1e1ee9b",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

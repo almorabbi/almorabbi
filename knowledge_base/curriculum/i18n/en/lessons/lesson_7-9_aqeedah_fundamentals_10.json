@@ -8,8 +8,8 @@
     "shm-aqd-79-07-allah-adl",
     "shm-aqd-79-02-pillars-islam"
   ],
-  "summary": "Imagine your little child, seven or eight years old, comes home from school having lost their favorite game with friends, but honestly tells you that they were the one who made a mistake in the game, even though no one else would have noticed. Or perhaps you see them sharing their new toy with their younger sibling without you asking, or apologizing with a pure heart after making a mistake against their sister. These small moments are not just fleeting actions; rather, they are flashes of a deep faith that has begun to take root in their heart, translating what they have learned about Allah into tangible reality in their daily life.\n\nBelief is not just information memorized in the head or words recited; rather, it is a light that illuminates the heart and motivates its owner to do good and abandon evil. It is the belief that Allah sees us and loves the truthful, the benevolent, and the merciful, and this belief is the primary driver of good behavior. When your child realizes that their honesty is not out of fear of your punishment, but because they love Allah who loves the truthful, and that their kindness to their parents is obedience to Allah who commanded it, then abstract faith concepts transform into an inner strength that propels them towards virtue and refines their character to be upon the sound natural disposition.\n\nOur mission as parents is to build these bridges between the heart and behavior. Instead of merely commanding and forbidding, connect every good character trait to a clear and beloved faith-based motivation. Tell them: “You are truthful because Allah loves the truthful,” “You help because Allah loves the benevolent.” And most importantly, be the good role model your child sees living their faith through their actions before you command them to; for a role model is more eloquent than a thousand sermons. In this way, we transform faith into a lived life and build in our children a generation that sees Allah in every detail of their lives.",
-  "try_this": "Today: When you see your child performing a good behavior (such as helping their sibling or telling the truth), immediately connect this behavior to their faith with a warm word, such as saying: “I am proud of you, Allah loves those who help their siblings!”",
+  "summary": "Imagine your little child, seven or eight years old, comes home from school having lost their favorite game with friends, but honestly tells you that they were the one who made a mistake in the game, even though no one else would have noticed. Or perhaps you see them sharing their new toy with their younger sibling without you asking, or apologizing with a pure heart after making a mistake against their sister. These small moments are not just fleeting actions; rather, they are flashes of a deep faith that has begun to take root in their heart, translating what they have learned about Allah into tangible reality in their daily life.\n\nBelief is not just information memorized in the head or words recited; rather, it is a light that illuminates the heart and motivates its owner to do good and abandon evil. It is the belief that Allah sees us and loves the truthful, the benevolent, and the merciful, and this belief is the primary driver of good behavior. When your child realizes that their honesty is not out of fear of your punishment, but because they love Allah who loves the truthful, and that their kindness to their parents is obedience to Allah who commanded it, then abstract faith concepts transform into an inner strength that propels them towards virtue and refines their character to be upon the sound natural disposition.\n\nOur mission as parents is to build these bridges between the heart and behavior. Instead of merely commanding and forbidding, connect every good character trait to a clear and beloved faith-based motivation. Tell them: “Truthfulness leads to righteousness, and how wonderful it is to be truthful,” “You help because Allah loves those who do good.” And most importantly, be the good role model your child sees living their faith through their actions before you command them to; for a role model is more eloquent than a thousand sermons. In this way, we transform faith into a lived life and build in our children a generation that stays mindful of Allah's watchfulness and His benevolence in every detail of their lives.",
+  "try_this": "Today: When you see your child performing a good behavior (such as helping their sibling or telling the truth), immediately connect this behavior to their faith with a warm word, such as saying: “I am proud of you—helping your siblings is part of the kindness and excellence that Allah loves!”",
   "order": 10,
   "estimated_minutes": 4,
   "reflection_prompts": [
@@ -20,8 +20,8 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“Allah loves the truthful, and I love you because you are truthful.”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“Truthfulness leads to righteousness, and I always love you and feel happy when you are truthful.”",
   "assistant_prompts": [
     "How can I encourage my child to apologize sincerely when they make a mistake, connecting that to their faith?",
     "What simple daily activities can I use to reinforce the idea that Allah sees us and loves our good deeds?"
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "1624e50bceb9ecfd462366abe2648c79d454f4799ce2eead9963f2415ff7204f",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "734693ca823ebdbe8eb13d2145552f2bfb11fef3635d7f47efb306276512a305",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

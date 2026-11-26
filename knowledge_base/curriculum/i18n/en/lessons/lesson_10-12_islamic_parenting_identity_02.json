@@ -8,7 +8,7 @@
     "72cea396-0533-4b24-8d2b-8ef82412b221",
     "a9219a05-46a1-4ece-8961-686d0d27f960"
   ],
-  "summary": "Your son finishes his daily portion of memorization or recitation, then quickly closes the Mus'haf as if he's completed an exam. If you ask him about the meaning of a word he read a minute ago, he shrugs his shoulders! Between the ages of ten and twelve, a child's faculty for understanding and questioning blossoms; it's no longer enough for him to just repeat letters. Rather, he wants to feel that the words of Allah are addressing him personally and illuminating the details of his day.\n\nThe Prophet ﷺ said: «The best among you are those who learn the Qur'an and teach it» (Sahih al-Bukhari 5027). And the Qur'an itself calls for understanding, as Allah the Almighty says: ﴿أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ﴾ (interpretation of the meaning: \"Do they not then reflect upon the Qur'an?\") [An-Nisa: 82]. Reflection with an eleven-year-old doesn't mean a lengthy, boring tafsir lesson, but rather a lively five-minute session about two or three verses from a familiar surah like Surah Luqman, Al-Qadr, or Ad-Duha. In it, we ask: What does this verse say to our hearts today? And how can we apply it tomorrow at school or at home?\n\nBe careful not to let the Mus'haf become a tool for punishment or comparison with siblings. Instead, link it to the most beautiful and calmest times of the week. Let your son choose the surah you will read from, and read its meaning together from an easy tafsir. Share with him first how a verse affected your day. When he feels that the Qur'an is alive in your heart, the Qur'an will become his compass that he turns to in the coming teenage years.",
+  "summary": "Your son finishes his daily portion of memorization or recitation, then quickly closes the Mus'haf as if he's completed an exam. If you ask him about the meaning of a word he read a minute ago, he shrugs his shoulders! Between the ages of ten and twelve, a child's faculty for understanding and questioning blossoms; it's no longer enough for him to just repeat letters. Rather, he wants to feel that the words of Allah are addressing him personally and illuminating the details of his day.\n\nThe Prophet ﷺ said: «The best among you are those who learn the Qur'an and teach it» (Sahih al-Bukhari 5027). And the Qur'an itself calls for understanding, as Allah the Almighty says: ﴿أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ﴾ (interpretation of the meaning: \"Do they not then reflect upon the Qur'an?\") [An-Nisa: 82]. Reflection with an eleven-year-old doesn't mean a lengthy, boring tafsir lesson, but rather a lively five-minute session about two or three verses from a familiar surah like Surah Luqman, Al-Qadr, or Ad-Duha. In it, we ask: What does this verse say to our hearts today? And how can we apply it tomorrow at school or at home?\n\nBe careful not to let the Mus'haf become a tool for punishment or comparison with siblings. Instead, link it to the most beautiful and calmest times of the week. Let your son choose the surah you will read from, and read its meaning together from an easy tafsir. Share with him first how a verse affected your day. When he senses that the Qur'an is alive in your heart, it is hoped that his attachment to the Qur'an will grow so that he turns to it in his teenage years, by Allah's will.",
   "try_this": "Tonight: Choose with your son just three verses from a short surah he likes. Read them together, then open an easy tafsir for one new word in them, and exchange ideas on how you can act upon them tomorrow.",
   "order": 2,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "«Come, let's read just three verses together, and discover the secret of one word in them that we haven't noticed before; which surah would you like us to choose?»",
   "assistant_prompts": [
     "My 10-year-old son gets bored in the memorization circle and refuses to review. How can I restore his love for the Qur'an without forcing him?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "e81e5502219de521bfde662fb74989e4902ee46992ab6e413298c494291ac633",
-      "reviewed_at": "2026-11-24T18:37:34+00:00",
+      "content_sha256": "f158d83f1f2f74658a391d007622f74558920fef8ef6e1f025bfed38224d693a",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:37:34+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

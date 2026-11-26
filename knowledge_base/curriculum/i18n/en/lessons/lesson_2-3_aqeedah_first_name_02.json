@@ -8,7 +8,7 @@
     "shm-aqd-23-02-alhamdulillah",
     "shm-aqd-23-06-sleep-dhikr"
   ],
-  "summary": "Imagine your little one, two or three years old, sitting in front of a full plate, eyes sparkling with anticipation for the first bite. In this simple moment, repeated dozens of times throughout their day, lies a golden opportunity to plant the first seed of faith in their heart. It doesn't require complex explanations or many words, just a warm, consistent routine that connects these daily moments to Allah, with two small words that carry immense meanings.\n\nChildren at this age learn through imitation and modeling, not logical explanation. They absorb the world around them through what they constantly see and hear, especially from their parents. When your child hears \"Bismillah\" from you before every meal, and \"Alhamdulillah\" after it, they begin to associate these words with the action itself, and then with the feelings that accompany it. These are not just words; they are small keys that open their heart to the meaning of gratitude and thankfulness, and to sensing Allah's presence in every detail of their life, even the simplest ones.\n\nDon't expect them to say it immediately, and don't pressure them to say it. Just be the role model yourself; say it in a clear, audible voice, with a smile and calmness. After a few weeks, you'll notice a magical change: they might precede you in saying it, or imitate you in whispering it. This is the moment when the remembrance of Allah begins spontaneously, as a natural part of their day, and this is the ultimate goal: for Allah to be present in their little heart without pretense or compulsion. Always remember: \"Make things easy and do not make them difficult; give glad tidings and do not repel people\" (Sahih al-Bukhari 69).",
+  "summary": "Imagine your little one, two or three years old, sitting in front of a full plate, eyes sparkling with anticipation for the first bite. In this simple moment, repeated dozens of times throughout their day, lies a golden opportunity to plant the first seed of faith in their heart. It doesn't require complex explanations or many words, just a warm, consistent routine that connects these daily moments to Allah, with two small words that carry immense meanings.\n\nChildren at this age learn through imitation and modeling, not logical explanation. They absorb the world around them through what they constantly see and hear, especially from their parents. When your child hears \"Bismillah\" from you before every meal, and \"Alhamdulillah\" after it, they begin to associate these words with the action itself, and then with the feelings that accompany it. These are not just words; they are small keys that open their heart to the meaning of gratitude and thankfulness, and to sensing Allah's presence in every detail of their life, even the simplest ones.\n\nDon't expect them to say it immediately, and don't pressure them to say it. Just be the role model yourself; say it in a clear, audible voice, with a smile and calmness. With consistency, you may notice your child beginning to imitate you: they might precede you in saying it, or imitate you in whispering it. This is the moment when the remembrance of Allah begins spontaneously, as a natural part of their day, and this is the ultimate goal: for Allah to be present in their little heart without pretense or compulsion. Always remember: \"Make things easy and do not make them difficult; give glad tidings and do not repel people\" (Sahih al-Bukhari, Hadith 69).",
   "try_this": "Today: Choose one consistent meal (like dinner), and before your child starts eating, say aloud with a smile: \"Bismillah.\" After they finish, say: \"Alhamdulillah.\"",
   "order": 2,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"Bismillah... Alhamdulillah.\"",
   "assistant_prompts": [
     "What other short remembrances are suitable for two and three-year-olds?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,8 +57,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "9b57fb92fae4dc92dd3b66a86dab8154e1b126ac2c4561d6810cb4a95735ac80",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "76b1a1866d8f1f9cd16d393e0f5706ea82da4ff398b2c5b29c10fdf3f4035a4e",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -67,6 +67,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -8,7 +8,7 @@
     "shm-aqd-09-tawhid-muraqabah",
     "shm-aqd-23-01-bismillah-habit"
   ],
-  "summary": "Imagine your little child running around the house, suddenly falling, hitting their head on a chair, and starting to cry intensely. Your first reaction is to hug and comfort them, perhaps saying, \"It's okay, my darling, I love you.\" This spontaneous moment is a very important seed in building their relationship with their Lord. Just as you love your child despite their mistakes and falls, Allah is more merciful and loving.\n\nThe first impression a child receives about their Lord remains etched in their heart and mind for many years. If the name of Allah is associated in their mind with fear, punishment, and threats, they will grow up carrying a burden of anxiety and distance from their Creator. However, if His name is associated with love, mercy, and giving, they will grow with a tranquil heart, loving Allah, and desiring to obey Him out of longing, not fear. Building obedience comes with clear boundaries and tenderness, and building faith comes with love and mercy; neither should replace the other.\n\nTherefore, always make your words about Allah carry a message of love and mercy. Tell your child \"Allah loves you\" when they are happy and laughing, and when they make a mistake or break something. Completely avoid linking Allah's name with threats or behavior correction, such as \"If you don't listen, Allah will be upset with you.\" This sentence, though seemingly simple, creates an early fear that is difficult to overcome later. Remember that the Prophet ﷺ said: \"Make things easy and do not make them difficult; give glad tidings and do not repel people\" (Sahih al-Bukhari 69).",
+  "summary": "Imagine your little child running around the house, suddenly falling, hitting their head on a chair, and starting to cry intensely. Your first reaction is to hug and comfort them, perhaps saying, \"It's okay, my darling, I love you.\" This spontaneous moment is a very important seed in building their relationship with their Lord. Just as you love your child despite their mistakes and falls, Allah is more merciful to His servants than a mother is to her child.\n\nThe first impression a child receives about their Lord remains etched in their heart and mind for many years. If the name of Allah is associated in their mind with fear, punishment, and threats, they will grow up carrying a burden of anxiety and distance from their Creator. However, if His name is associated with love, mercy, and giving, they will grow, by Allah's will, with a tranquil heart, loving Allah, and desiring to obey Him out of hope for His mercy and reverence for Him. Building obedience comes with clear boundaries and tenderness, and building faith comes with love and mercy; neither should replace the other.\n\nTherefore, always make your words about Allah carry a message of love and mercy. Tell your child \"Allah loves kind children\" when they are happy and laughing, and when they make a mistake or break something, say: \"Allah is Merciful, and we are learning to do better.\" Completely avoid linking Allah's name with threats or behavior correction, such as \"If you don't listen, Allah will be upset with you.\" This sentence, though seemingly simple, creates an early fear that is difficult to overcome later. Remember that the Prophet ﷺ said: \"Make things easy and do not make them difficult; give glad tidings and do not repel people\" (Sahih al-Bukhari, Hadith 69).",
   "try_this": "Today: Pay attention to one sentence where you linked Allah's name with anger or punishment, and replace it with a word expressing love or mercy.",
   "order": 3,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"Allah loves you, my little one; you are a gift from Allah.\"",
   "assistant_prompts": [
     "What daily actions can I link to Allah's love for my two-year-old child?",
@@ -38,7 +38,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -57,30 +57,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "798fffbdfeed2daa5432e25154f1e27560b83f33e8978e8acdb3ce1fddbb7b6a",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "deepseek-v4-pro",
-          "field": "title",
-          "type": "meaning",
-          "why": "The English title omits the rain metaphor ('الغيث') from the Arabic, losing the sense of a first rain drop that brings mercy."
-        }
-      ],
+      "content_sha256": "99eed042b73c6edc5da97e94f49c28af389f9f8d53e73ef2e3c6c3a2d7fc10bf",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "deepseek-v4-pro",
-        "field": "title",
-        "type": "meaning",
-        "why": "The English title omits the rain metaphor ('الغيث') from the Arabic, losing the sense of a first rain drop that brings mercy."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

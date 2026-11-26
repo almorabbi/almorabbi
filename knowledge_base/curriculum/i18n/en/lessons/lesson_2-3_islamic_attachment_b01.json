@@ -6,9 +6,9 @@
   "domain": "islamic_parenting",
   "unit_ids": [
     "29896a42-3c9a-4c22-bbf0-8e4d2e4da0e4",
-    "0f8e1ff3-7aa9-4a2c-9a6d-c0c2475c2152"
+    "shm-aqd-23-02-alhamdulillah"
   ],
-  "summary": "Imagine your little one running in the garden, laughing wholeheartedly as they touch a beautiful red flower, or gazing at a colorful butterfly fluttering around them. In these innocent moments filled with wonder, their first perceptions of the world are formed. How can we connect these magical moments with the existence of a magnificent Creator, without burdening their little heart with fear or threats? How do we make the remembrance of Allah a natural and beloved part of their beautiful world?\n\nAt this early age (2-3 years), a child receives the world with their little heart before their mind. They do not understand abstract concepts or distant threats, but they absorb the emotions and atmosphere around them. Therefore, the first thing that should touch their soul is the love and mercy of Allah, not the fear of His punishment. When we connect Allah with everything beautiful and joyful in their life – the warm sun, delicious food, the laughter of family – we build a bridge of love and security between them and their Lord. This secure relationship is the strong foundation that will grow with them, making them embrace their religion with love and passion.\n\nMake the remembrance of Allah a part of your warm daily moments. Say \"Alhamdulillah for this delicious food\" when they eat, or \"Allah created this beautiful rose\" when they see a flower. Completely avoid connecting Allah with punishment or intimidation at this age, because the emotional foundation you lay now will determine how they feel towards their Lord for many years to come. Remember that the Prophet ﷺ said: \"Make things easy and do not make them difficult; give glad tidings and do not make people flee.\" (Sahih al-Bukhari 69)",
+  "summary": "Imagine your little one running in the garden, laughing wholeheartedly as they touch a beautiful red flower, or gazing at a colorful butterfly fluttering around them. In these innocent moments filled with wonder, their first perceptions of the world are formed. How can we connect these magical moments with the existence of a magnificent Creator, without burdening their little heart with fear or threats? How do we make the remembrance of Allah a natural and beloved part of their beautiful world?\n\nAt this early age (2-3 years), a child receives the world with their little heart before their mind. They do not understand abstract concepts or distant threats, but they absorb the emotions and atmosphere around them. Therefore, the first thing that should touch their soul is the love and mercy of Allah, not the fear of His punishment. When we connect Allah with everything beautiful and joyful in their life—the warm sun, delicious food, the laughter of family—we build a bridge of love and security between them and their Lord. This secure relationship is the strong foundation that will grow with them, making them embrace their religion with love and passion.\n\nMake the remembrance of Allah a part of your warm daily moments. Say \"Alhamdulillah for this delicious food\" when they eat, or \"Allah created this beautiful rose\" when they see a flower. Completely avoid connecting Allah with punishment or intimidation at this age, because the emotional foundation you lay now will determine how they feel towards their Lord for many years to come. Remember that the Prophet ﷺ said: \"Make things easy and do not make them difficult; give glad tidings and do not repel people\" (Sahih al-Bukhari, Hadith 69).",
   "try_this": "Today: When your child sees something beautiful or enjoys a joyful moment (like playing with water or eating their favorite fruit), gently and lovingly connect it with the remembrance of Allah. Tell them: \"Allah created this beauty for us\" or \"Alhamdulillah for this blessing.\"",
   "order": 1,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "\"Allah loves you very much, my dear, and He is the One who created all these beautiful things for us.\"",
   "assistant_prompts": [
     "How do I deal with my child if they start associating Allah with fear due to things they heard from others?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "0bb76a1e714481626d00d6e28fa5d391ace8f56d6fac59b5d12a89bc1275a4fd",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "fe83bcf0c27b8d6147283a2eb57cd30d2eba6d324ec1d814e16d5a1f8e43620f",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

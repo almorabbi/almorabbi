@@ -8,7 +8,7 @@
     "seed-screen-46",
     "cyb-60a0c4df"
   ],
-  "summary": "Imagine this scene: your young child sits in front of a screen, eyes following one episode after another, non-stop. An episode about dinosaurs begins, then automatically transitions to a noisy space adventure, then an advertisement for a product you don't recognize, then suddenly a scene appears that might be scary or inappropriate for their age. In this moment, you might feel a little anxious, wondering: Is what my child is watching truly safe? And can I control this endless stream of content?\n\nIn the vast world of screens, not all programs are equal. Some might be fast-paced and overstimulating, distracting your child and making it difficult for them to focus later. While other programs are carefully designed, calm, educational, and develop their skills in a fun and beneficial way. The key here is not complete prohibition, but conscious and intelligent selection. We don't want to leave platform algorithms to determine what our child's young mind receives; rather, we want to be the conscious guides.\n\nStart with simple yet impactful steps. Sit with your child and browse the available programs together. Choose a specific program that is suitable for their age, then turn off the autoplay feature. This way, you will give your child the opportunity to enjoy meaningful content and avoid sudden exposure to violent or frightening scenes, especially before bedtime. Remember that our goal is to build a healthy relationship with screens, where they are a tool for learning and calm entertainment, not a source of anxiety or excess.",
+  "summary": "Imagine this scene: your young child sits in front of a screen, eyes following one episode after another, non-stop. An episode about dinosaurs begins, then automatically transitions to a noisy space adventure, then an advertisement for a product you don't recognize, then suddenly a scene appears that might be scary or inappropriate for their age. In this moment, you might feel a little anxious, wondering: Is what my child is watching truly safe? And can I control this endless stream of content?\n\nIn the vast world of screens, not all programs are equal. Some might be fast-paced and overly stimulating, and this may affect some children's attention and focus. While other programs are carefully designed, calm, educational, and develop their skills in a fun and beneficial way. The key here is not complete prohibition, but conscious and intelligent selection. We don't want to leave platform algorithms to determine what our child's young mind receives; rather, we want to be the conscious guides.\n\nStart with simple yet impactful steps. Sit with your child and browse the available programs together. Choose a specific program that is suitable for their age, then turn off the autoplay feature. This way, you will give your child the opportunity to enjoy meaningful content and reduce the likelihood of sudden exposure to violent or frightening scenes, especially before bedtime. Remember that our goal is to build a healthy relationship with screens, where they are a tool for learning and calm entertainment, not a source of anxiety or excess.",
   "try_this": "Tonight: Before your child starts watching any program, sit with them and choose just one episode together, then make sure to turn off autoplay.",
   "order": 2,
   "estimated_minutes": 4,
@@ -20,7 +20,7 @@
   "needs_professional_followup": false,
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“My dear, let’s choose one fun and calm program to watch together tonight.”",
   "assistant_prompts": [
     "How can I find calm and age-appropriate educational programs for 4-6 year olds?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "91b3dadfa9812dd0df851727e3384363cfbda7c4a7dd8c7c314e431f040fb47b",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "39720c27224fbed5ce8ddabd1d98d00a21aa1f8ccc5631bb1fac38fd3e5658e0",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

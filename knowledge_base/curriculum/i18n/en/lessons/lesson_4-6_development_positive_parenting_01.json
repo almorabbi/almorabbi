@@ -8,8 +8,8 @@
     "a1d7697e-c8d5-45c3-89b8-6c89954ce9b0",
     "seed-picky-46"
   ],
-  "summary": "Imagine your four-year-old spending a long time arranging colorful blocks, then looking at you with eyes anticipating a word from you. You might instinctively say, \"Well done, champ!\" — a warm word, no doubt. But what if there was a way to make your words touch the depths of their soul, instilling in them a genuine sense of competence, not just momentary satisfaction? At this age, your child begins to weave the threads of their self-image from every word they hear and every look they see. They are searching for their place in this big world, and your words are their first compass.\n\nThe secret lies in \"specific praise,\" which is not just fleeting words, but a mirror that reflects to your child the beauty of their effort and the details of their achievement. Instead of \"You're smart!\" try saying: \"I liked how you thought to put the big blocks first to stabilize the tower; that's great arranging!\" This type of praise doesn't just focus on the final result; it celebrates the process, the thinking, the effort expended. It plants within them an intrinsic motivation to explore and try, and makes them realize that their value is not tied to perfection, but to diligence and perseverance.\n\nWhen we praise effort and details, we teach our children that mistakes are a natural part of learning, and that trying is more important than achieving. This builds psychological resilience in them, protects them from the fear of failure, and encourages them to embark on new experiences with confidence. Remember that your words are seeds you plant in your child's inner garden; make them seeds that grow into towering trees of self-confidence, authentic motivation, and a lifelong love of learning. It's simple, but its impact is profound and long-lasting.",
-  "try_this": "Tonight: Before bedtime, choose one specific behavior your child exhibited today. Describe this behavior accurately and honestly to them, such as: \"My child, I noticed today that you shared your toys with your friend without me asking; that was kind of you and shows your generosity.\"",
+  "summary": "Imagine your four-year-old spending a long time arranging colorful blocks, then looking at you with eyes anticipating a word from you. You might instinctively say, \"Well done, champ!\" — a warm word, no doubt. But what if there was a way to make your words touch the depths of their soul, instilling in them a genuine sense of competence, not just momentary satisfaction? At this age, your child begins to weave the threads of their self-image from every word they hear and every look they see. They are searching for their place in this big world, and your words are their first compass.\n\nThe secret lies in \"specific praise,\" which is not just fleeting words, but a mirror that reflects to your child the beauty of their effort and the details of their achievement. Instead of \"You're smart!\" try saying: \"I liked how you thought to put the big blocks first to stabilize the tower; that's great arranging!\" This type of praise doesn't just focus on the final result; it celebrates the process, the thinking, the effort expended. It plants within them an intrinsic motivation to explore and try, and makes them realize that their value is not tied to perfection, but to diligence and perseverance.\n\nWhen we praise effort and details, we teach our children that mistakes are a natural part of learning, and that trying is more important than achieving. This builds psychological resilience in them, protects them from the fear of failure, and encourages them to embark on new experiences with confidence. Remember that your words are seeds you plant in your child's inner garden; make them seeds that grow into towering trees of self-confidence, authentic motivation, and a lifelong love of learning. It's simple, and with repetition its effect may show in your child's self-confidence.",
+  "try_this": "Tonight: Before bedtime, choose one specific behavior your child exhibited today. Describe this behavior accurately and honestly to them, such as: \"My child, I noticed today that you shared your toys with your friend without me asking, and that made them happy.\"",
   "order": 3,
   "estimated_minutes": 4,
   "reflection_prompts": [
@@ -21,8 +21,8 @@
   "version": "1.0.0",
   "created_at": "2026-06-08T19:00:00",
   "updated_at": "2026-06-08T19:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "“I see and appreciate the effort you put into everything you do.”",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“I saw how hard you worked to arrange the blocks, and that made me happy.”",
   "assistant_prompts": [
     "Give me examples of specific praise sentences for a 5-year-old who tidied up their toys.",
     "What should I do if I can't find anything specific to praise my child for today?"
@@ -40,7 +40,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,30 +59,16 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "ab6b1137303e7dcfac35dac42adb148fce056bcb3b59744ade712487451fbe32",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [
-        {
-          "model": "glm-5.2",
-          "field": "try_this",
-          "type": "meaning",
-          "why": "يا بني means 'my son'; 'My child' is a reasonable gender-neutral adaptation but loses the direct address form."
-        }
-      ],
+      "content_sha256": "e193051398f2bd950c92c9839113e8ce50cf50ca19a67c8f8d24958e37b8decd",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "low_only",
-    "review_defects": [
-      {
-        "model": "glm-5.2",
-        "field": "try_this",
-        "type": "meaning",
-        "why": "يا بني means 'my son'; 'My child' is a reasonable gender-neutral adaptation but loses the direct address form."
-      }
-    ],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "clean",
+    "review_defects": [],
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

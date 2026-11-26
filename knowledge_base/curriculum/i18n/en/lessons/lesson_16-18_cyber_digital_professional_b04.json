@@ -8,7 +8,7 @@
     "2aeb1bdb-f2b0-40d4-8371-1f8cd6f03921",
     "cyb-8b16e204"
   ],
-  "summary": "Imagine walking past your teenage son's room late at night, only to find him engrossed in his phone or gaming device, while schoolwork or essential sleep awaits him. You feel anxious, knowing that in just a few months, he'll be heading to university or work, and your direct supervision will disappear. Many parents realize that their intelligent children might stumble at this stage, not due to a lack of ability, but because screens devour their precious time and distract them from their true priorities.\n\nThe challenge here isn't to ban screens, but to teach our children how to be masters of their digital tools, not slaves to them. Apps and games are cleverly designed to steal attention and keep users connected for as long as possible, exploiting known psychological vulnerabilities. The real skill your son needs now is to build a self-regulating system for managing his attention and time—a system that will hold up even when no one is watching. This conscious control over technology use is what will determine his success in building an independent life.\n\nYou can help him build this system through calm, conscious conversations. Start by understanding how he spends his digital time, then invite him to set conscious limits for social media and gaming himself. Encourage him to allocate times for deep focus away from his phone, so he can feel the value of productivity and calm. The goal is for him to take the initiative, to realize that controlling his screen time is an investment in his future, and that this skill will be his most important companion on his journey to independence.",
+  "summary": "Imagine walking past your teenage son's room late at night, only to find him engrossed in his phone or gaming device, while schoolwork or essential sleep awaits him. You feel anxious, knowing that in just a few months, he'll be heading to university or work, and your direct supervision will disappear. Many parents realize that their intelligent children might stumble at this stage, not due to a lack of ability, but because screens devour their precious time and distract them from their true priorities.\n\nThe challenge here isn't to ban screens, but to teach our children how to be masters of their digital tools, not slaves to them. Many apps and games are designed to capture attention and prolong usage. The real skill your son needs now is to build a self-regulating system for managing his attention and time—a system that will hold up even when no one is watching. This conscious control over technology use is what will determine his success in building an independent life.\n\nYou can help him build this system through calm, conscious conversations. Start by understanding how he spends his digital time, then invite him to set conscious limits for social media and gaming himself. Encourage him to allocate times for deep focus away from his phone, so he can feel the value of productivity and calm. The goal is for him to take the initiative, to realize that controlling his screen time is an investment in his future, and that this skill will be his most important companion on his journey to independence.",
   "try_this": "Today: Ask your son to open his phone settings and show you his actual screen time from yesterday. Then, calmly ask him: \"What amount of screen time do you think is suitable for you daily?\"",
   "order": 4,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I trust your ability to manage your time and attention, and this will help you greatly in your future.”",
   "assistant_prompts": [
     "How can I help my teenage son understand the design of attention-stealing apps without making him feel blamed?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "925a57fa7f999457ee9b64715bb3222fab05e09bc218ccb50891cbe5307f01b8",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "a0a56884a84682b87b6aa9ebc552eabf77adb167baa14f5f9cebcf518d0ad328",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -1,14 +1,14 @@
 {
   "id": "lesson_2-3_development_tantrums_05",
   "path_id": "path_2-3_development_tantrums",
-  "title": "The Little «No»: Stubbornness Is a Sign of Growth",
+  "title": "The Little \"No\": Repeated Refusal Is Part of Growing Independence",
   "age_group": "2-3",
   "domain": "development",
   "unit_ids": [
     "dev-35865ddb",
     "seed-tantrum-23"
   ],
-  "summary": "You may hear «No!» from your two- or three-year-old many times: when getting dressed, at bath time, and at bedtime. This refusal may tire you, or you may feel they are pulling away from you, and that feeling is understandable. But at this age your child is beginning to show their independence, and they test limits to learn what is allowed and what is not. Repeated refusal does not mean they are a bad child, or that you have failed in raising them.\n\nBefore you call it stubbornness, look at how they are: difficult behavior can come from tiredness, hunger, pain or the start of an illness, or from frustration or boredom. If a need shows, meet it first.\n\nThen keep limits few and clear, and hold to them: what concerns their safety, and what hurts others. Explain the reason in simple words, such as: «Hold my hand when we cross the street so you stay safe.» As for small matters that do no harm, do not turn each one into a battle, and be flexible when you can.\n\nIf the matter does not allow a «no», do not ask a question whose answer is yes or no. Instead of «Do you want a bath?», say calmly: «It is bath time.» You can also make what they refuse more fun, such as a small toy in the bath water.\n\nRespond the same way every time, agree with whoever cares for them on the same approach, and calmly carry out what you said. When they cooperate, praise them with specific words: «You put your shoes on by yourself!» Do not give them the reward before they have done what you asked, or give them sweets to end a tantrum; that is a bribe, not a reward. But if you agree in advance on a simple reward for a clear behavior that suits their age, such as an extra story or a game with you, give it to them right after they do it, with specific praise; that is encouragement, not a bribe. Do not hit them, shout at them, threaten them or humiliate them; hitting teaches them that hitting is acceptable. If you feel your own anger rising, take deep breaths while staying close to them, or ask someone you trust to stay with them until you calm down, then go back to them.\n\nTalk with the pediatrician if the tantrums are very frequent or last longer than expected for their age, if they cannot calm down, if they hurt themselves or others, if the tantrums get in the way of daily life, if they lose skills they once had, or if they seem withdrawn, sad, or very demanding and unsatisfied most of the time. If there is a serious injury or you cannot keep them safe, seek urgent help straight away.",
+  "summary": "You may hear \"No!\" from your two- or three-year-old many times: when getting dressed, at bath time, and at bedtime. This refusal may tire you or make you feel they are pulling away—a feeling that is understandable—yet at this age your child is beginning to show their independence, and they test limits to learn what is allowed and what is not. Repeated refusal does not mean they are a bad child, or that you have failed in raising them.\n\nBefore you call it stubbornness, look at how they are: difficult behavior can come from tiredness, hunger, pain or the start of an illness, or from frustration or boredom. If a need shows, meet it first.\n\nThen keep limits few and clear, and hold to them: what concerns their safety, and what hurts others. Explain the reason in simple words, such as: \"Hold my hand when we cross the street so you stay safe.\" As for small matters that do no harm, do not turn each one into a battle, and be flexible when you can.\n\nIf the matter does not allow a \"no\", do not ask a question whose answer is yes or no. Instead of \"Do you want a bath?\", say calmly: \"It is bath time.\" You can also make what they refuse more fun, such as a small toy in the bath water.\n\nRespond the same way every time, agree with whoever cares for them on the same approach, and calmly carry out what you said. When they cooperate, praise them with specific words: \"You put your shoes on by yourself!\" Do not give them the reward before they have done what you asked, or give them sweets to end a tantrum; that is giving in to the tantrum, not a reward for good behavior. But if you agree in advance on a simple reward for a clear behavior that suits their age, such as an extra story or a game with you, give it to them right after they do it, with specific praise; that is encouragement, not bargaining. Do not hit them, shout at them, threaten them or humiliate them; hitting teaches them that hitting is acceptable. If anger rises, breathe deeply nearby, or let a trusted person stay with them until you calm down, then return.\n\nTalk with the pediatrician if the tantrums are very frequent or last longer than expected for their age, if they cannot calm down, if they hurt themselves or others, if the tantrums get in the way of daily life, if they lose skills they once had, or if they seem withdrawn, sad, or very demanding and unsatisfied most of the time. If there is a serious injury or you cannot keep them safe, seek urgent help straight away.",
   "try_this": "Today: Choose one situation in which your child usually says «no», and use a calm, clear sentence instead of a question, such as «It is bath time» instead of «Do you want a bath?»",
   "order": 5,
   "estimated_minutes": 5,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-10-08T08:43:40",
   "updated_at": "2026-10-08T18:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "It's time to put on your shoes now, champion; I'll help you with the first foot, and you can do the second one.",
   "assistant_prompts": [
     "My child says 'no!' to everything, even things they like. How can I overcome this battle of wills?",
@@ -40,7 +40,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,16 +59,42 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "334b8f7e157b9dfa518c6fc111fb58abca62ad503b6d67033dd9f73cf168a1e4",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
-      "residual_low": [],
+      "content_sha256": "e9601680ded7de344f6aec04e15fb3bb6f56306cab7d555c798b02c47a2e749f",
+      "reviewed_at": "2026-11-26T10:41:29+00:00",
+      "residual_low": [
+        {
+          "model": "glm-5.2",
+          "field": "try_this.english",
+          "type": "leakage",
+          "why": "English text uses Arabic-style guillemets «» instead of standard English quotation marks, inconsistent with the title and summary which use standard quotes."
+        },
+        {
+          "model": "glm-5.2",
+          "field": "reflection_prompts.english[0]",
+          "type": "leakage",
+          "why": "English text uses Arabic-style guillemets «» instead of standard English quotation marks."
+        }
+      ],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
       "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     },
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
-    "review_verdict": "clean",
-    "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "review_verdict": "low_only",
+    "review_defects": [
+      {
+        "model": "glm-5.2",
+        "field": "try_this.english",
+        "type": "leakage",
+        "why": "English text uses Arabic-style guillemets «» instead of standard English quotation marks, inconsistent with the title and summary which use standard quotes."
+      },
+      {
+        "model": "glm-5.2",
+        "field": "reflection_prompts.english[0]",
+        "type": "leakage",
+        "why": "English text uses Arabic-style guillemets «» instead of standard English quotation marks."
+      }
+    ],
+    "revalidated_at": "2026-11-26T10:41:29+00:00"
   }
 }

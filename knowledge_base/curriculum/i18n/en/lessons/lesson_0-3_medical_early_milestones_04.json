@@ -8,7 +8,7 @@
     "med-895d3705",
     "med-e7e88a3b"
   ],
-  "summary": "You might be sitting with your little one, watching them try to reach for a toy, smile at you, or make spontaneous sounds. Amidst these warm moments, a gentle whisper might cross your mind: \"Is their development on track?\" This feeling is very natural, as every parent wishes the best for their child and eagerly observes every step they take. Don't let this worry accumulate in silence; instead, let it motivate you to ask questions.\n\nRemember that seeking help is a sign of strength and love, not weakness or an admission of shortcoming. Your child deserves to receive all possible support during their crucial early years. Speaking with your pediatrician is your first and most important step. They are your partner on this journey and have the tools and knowledge to help you understand your child's developmental path. Do not hesitate to request a comprehensive developmental check-up; this is your child's right and a valuable opportunity for you to feel reassured.\n\nMany countries offer free or subsidized \"early intervention\" programs for children under the age of three, which do not require a definitive diagnosis to enroll. These programs are designed to provide timely support and can make a significant difference. Remember also that your emotional support as a parent is no less important; worry is exhausting, and seeking help for yourself gives you the strength to be the best support for your child.",
+  "summary": "You might be sitting with your little one, watching them try to reach for a toy, smile at you, or make spontaneous sounds. Amidst these warm moments, a gentle whisper might cross your mind: \"Is their development on track?\" This feeling is very natural, as every parent wishes the best for their child and eagerly observes every step they take. Don't let this worry accumulate in silence; instead, let it motivate you to ask questions.\n\nRemember that seeking help is a sign of strength and love, not weakness or an admission of shortcoming. Your child deserves to receive all possible support during their crucial early years. Speaking with your pediatrician is your first and most important step. They are your partner on this journey and have the tools and knowledge to help you understand your child's developmental path. Do not hesitate to request a comprehensive developmental check-up; this is your child's right and a valuable opportunity for you to feel reassured.\n\nEarly intervention programs may be available in your country, so ask your pediatrician about the appropriate provider and eligibility requirements. These programs are designed to provide timely support and can make a significant difference. Remember also that your emotional support as a parent is no less important; worry is exhausting, and seeking help for yourself gives you the strength to be the best support for your child.",
   "try_this": "Today: Open your phone's notepad and write down one specific question you have about your child's development, then find your pediatrician's clinic number to schedule an appointment.",
   "order": 4,
   "estimated_minutes": 4,
@@ -23,7 +23,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-10T14:00:00",
   "updated_at": "2026-06-10T14:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
   "parent_script": "“I am here for you, my little one, and I will do everything I can to support you.”",
   "assistant_prompts": [
     "How do I prepare for a pediatrician appointment to discuss my child's development?",
@@ -40,7 +40,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -59,8 +59,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "bf5ce3986b3b4f892ab73a2a4e9d86b329dbd2ccf730e8a608b70351c567aa69",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "7da003df6a08327147971c8def2ddc2cc91afb2aa119017a4beb8796a8bfb49d",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -69,6 +69,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }

@@ -8,7 +8,7 @@
     "med-1eb2b059",
     "isl-572e7df3"
   ],
-  "summary": "A baby may calm down when you talk to them in a calm voice or pick them up, and a repeated sleep routine helps them learn what to expect. So it is good for the end of the evening routine to include a calm, familiar voice carrying a good meaning: remembrance of Allah, and du'a for your baby.\n\nHold them or sit beside their cot, and softly recite what you know of the evening and bedtime adhkar from a trusted book of adhkar, or whatever you can of the Qur'an. Then make du'a for them in your own words: that Allah protects them, keeps them well, blesses them and makes them righteous; making du'a for one's children for good and righteousness is their right over their parents. Be careful not to let your tongue slip into making du'a against them when you are tired or angry. It does not need to be long.\n\nThese moments are not for your baby alone, but for you too; the first nights with a baby are tiring, and worry for them is great. The Qur'an has a verse every tired parent would do well to remember. Allah says: ﴿أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ﴾ [Surah Ar-Ra'd, 13:28] So make this moment a rest for your heart, just as it is soothing for your baby.\n\nThen put them on their back in their own empty cot in your room, and never doze off with them on your chest or in your arms on a sofa or armchair. This routine does not mean your baby will sleep through the night; waking at night is normal in their first months. With repetition, remembering Allah at bedtime becomes a habit in your home that your baby grows up with. If, when you try to wake them, they are hard to wake or will not wake, are floppy in an unusual way, have difficulty breathing or stop breathing, turn blue or grey, or have a temperature of 38C or higher while under three months old or 39C or higher while aged three to six months, call an ambulance or go to the emergency department straight away. You will find the other signs, such as a seizure, a low temperature or a rash that does not fade when you press on it, in the lesson «Signs That Cannot Wait Until Morning».",
+  "summary": "A baby may calm down when you talk to them in a calm voice or pick them up, and a repeated sleep routine helps them learn what to expect. So it is good for the end of the evening routine to include a calm, familiar voice carrying a good meaning: remembrance of Allah, and du'a for your baby.\n\nHold them or sit beside their cot, and softly recite what you know of the evening and bedtime adhkar from a trusted book of adhkar, or whatever you can of the Qur'an. Then make du'a for them in your own words: that Allah protects them, keeps them well, blesses them and makes them righteous; making du'a for one's children for good and righteousness is part of the guidance of the prophets, such as the du'a of Zakariyya and Ibrahim (peace be upon them). Be careful not to let your tongue slip into making du'a against them when you are tired or angry. It does not need to be long.\n\nThese moments are not for your baby alone, but for you too; the first nights with a baby are tiring, and worry for them is great. The Qur'an has a verse every tired parent would do well to remember. Allah says: ﴿أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ﴾ (interpretation of the meaning: \"Unquestionably, by the remembrance of Allah hearts find rest\") [Surah Ar-Ra'd: 28]. So make this moment a rest for your heart, just as it is soothing for your baby.\n\nThen put them on their back in their own empty cot in your room, and never doze off with them on your chest or in your arms on a sofa or armchair. This routine does not mean your baby will sleep through the night; waking at night is normal in their first months. With repetition, remembering Allah at bedtime becomes a habit in your home that your baby grows up with. If, when you try to wake them, they are hard to wake or will not wake, are floppy in an unusual way, have difficulty breathing or stop breathing, turn blue or grey, or have a temperature of 38C or higher while under three months old or 39C or higher while aged three to six months, call an ambulance or go to the emergency department straight away. You will find the other signs, such as a seizure, a low temperature or a rash that does not fade when you press on it, in the lesson «Signs That Cannot Wait Until Morning».",
   "try_this": "Today: At the end of the bedtime routine, softly recite what you know of the bedtime adhkar from a trusted book, then make a short du'a for your baby in your own words, then put them on their back in their cot.",
   "order": 8,
   "estimated_minutes": 5,
@@ -21,8 +21,8 @@
   "version": "1.0.0",
   "created_at": "2026-10-08T07:35:57",
   "updated_at": "2026-10-09T00:30:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
-  "parent_script": "I seek refuge for you in the perfect words of Allah. With a gentle voice, we conclude our day with tranquility and remembrance.",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "parent_script": "“I seek refuge for you in the perfect words of Allah from every devil and every harmful creature, and from every evil eye; with a calm voice, we conclude our day with tranquility and remembrance.”",
   "assistant_prompts": [
     "What are the short, established bedtime remembrances (adhkar) that I can recite for my infant before sleep?",
     "Does playing Quran recitation or ruqyah throughout the night help the infant, or is my gentle voice better?"
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-24",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "99fa2c7dc396b39ca5481c17551bef2d2f4d02cf1ab4179e51edede0854f210a",
-      "reviewed_at": "2026-11-24T18:28:44+00:00",
+      "content_sha256": "d2f97b088392f7434fb7e8852a76acad60492b3ca42debe28c9c894a02f15f6d",
+      "reviewed_at": "2026-11-26T10:33:00+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-24T18:28:44+00:00"
+    "revalidated_at": "2026-11-26T10:33:00+00:00"
   }
 }
