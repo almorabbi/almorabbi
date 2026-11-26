@@ -10,7 +10,7 @@
       "quizzes": "205/205",
       "reports": "136/205",
       "data_tables": "142/205",
-      "infographics": "195/205",
+      "infographics": "205/205",
       "podcasts": "205/205",
       "videos": "205/205"
     },
@@ -29,7 +29,7 @@
       "ar"
     ],
     "last_updated": "2026-06-17T10:36:45.998689",
-    "updated_at": "2026-11-25T00:41:46.429815+00:00"
+    "updated_at": "2026-11-26T00:52:57.738878+00:00"
   },
   "lessons": [
     {
@@ -65,6 +65,14 @@
             "item_count": 0,
             "resolution": "2752x1536",
             "language": "ar"
+          },
+          {
+            "id": "6ac867c5-7031-471f-b759-b9957edb8c7c_infographic",
+            "file": "docs/lesson_assets/infographics/6ac867c5-7031-471f-b759-b9957edb8c7c_infographic_lesson_10-12_cyber_01_en.png",
+            "title": "The Impact of Our Digital Footsteps: An Indelible Mark, Privacy We Protect",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
           }
         ],
         "podcasts": [
@@ -145,6 +153,14 @@
             "item_count": 0,
             "resolution": "2752x1536",
             "language": "ar"
+          },
+          {
+            "id": "1c0662d7-4841-4503-a26b-62aeaa1ff789_infographic",
+            "file": "docs/lesson_assets/infographics/1c0662d7-4841-4503-a26b-62aeaa1ff789_infographic_lesson_10-12_cyber_02_en.png",
+            "title": "When Screens Become a Battlefield: How Do We Protect Our Children from Cyberbullying?",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
           }
         ],
         "podcasts": [
@@ -225,6 +241,14 @@
             "item_count": 0,
             "resolution": "2752x1536",
             "language": "ar"
+          },
+          {
+            "id": "e646f391-1ee4-427c-b8f9-31bb3fbcaa6c_infographic",
+            "file": "docs/lesson_assets/infographics/e646f391-1ee4-427c-b8f9-31bb3fbcaa6c_infographic_lesson_10-12_cyber_03_en.png",
+            "title": "Screen Friends: How Do We Distinguish Fact from Digital Fiction?",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
           }
         ],
         "podcasts": [
@@ -289,6 +313,14 @@
             "type": "image/png",
             "description": "Infographic for lesson_10-12_islamic_01",
             "language": "ar"
+          },
+          {
+            "id": "7a2f1825-1fb6-4c9a-a822-5d09c3b925bb_infographic",
+            "file": "docs/lesson_assets/infographics/7a2f1825-1fb6-4c9a-a822-5d09c3b925bb_infographic_lesson_10-12_islamic_01_en.png",
+            "title": "Prayer at Ten: Companionship That Endears, Not Surveillance That Alienates",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
           }
         ],
         "podcasts": [
@@ -306,17 +338,18 @@
         "videos": [
           {
             "source_id": "440183bc-479c-49c1-bb07-fe35fa62295f",
-            "file": "docs/path_videos/path_10-12_islamic_parenting_identity_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_10-12_islamic_parenting_identity_01_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "description": "Path intro video for path_10-12_islamic_parenting_identity"
+            "description": "Custom lesson explainer video for lesson_10-12_islamic_parenting_identity_01 (ar)",
+            "size_bytes": 7092189
           },
           {
-            "file": "docs/path_videos/path_10-12_islamic_parenting_identity_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_10-12_islamic_parenting_identity_01_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 25038430,
-            "description": "Path intro video for path_10-12_islamic_parenting_identity (en)"
+            "size_bytes": 7127936,
+            "description": "Custom lesson explainer video for lesson_10-12_islamic_parenting_identity_01 (en)"
           }
         ]
       }
@@ -353,6 +386,14 @@
             "type": "image/png",
             "description": "Infographic for lesson_10-12_islamic_02",
             "language": "ar"
+          },
+          {
+            "id": "a7618cd7-9081-4533-bf55-901d2d0166bf_infographic",
+            "file": "docs/lesson_assets/infographics/a7618cd7-9081-4533-bf55-901d2d0166bf_infographic_lesson_10-12_islamic_02_en.png",
+            "title": "The Qur'an in His Life: From Swift Recitation to the Light of Understanding",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
           }
         ],
         "podcasts": [
@@ -417,6 +458,14 @@
             "type": "image/png",
             "description": "Infographic for lesson_10-12_islamic_03",
             "language": "ar"
+          },
+          {
+            "id": "fdda64f4-b858-4def-afc1-0f7bc27862d5_infographic",
+            "file": "docs/lesson_assets/infographics/fdda64f4-b858-4def-afc1-0f7bc27862d5_infographic_lesson_10-12_islamic_03_en.png",
+            "title": "Character in Action: Trustworthiness in Private and Public, and Filial Piety",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
           }
         ],
         "podcasts": [
@@ -481,6 +530,14 @@
             "type": "image/png",
             "description": "Infographic for lesson_10-12_islamic_04",
             "language": "ar"
+          },
+          {
+            "id": "eee73af1-4e22-4f60-ba37-8609d2115028_infographic",
+            "file": "docs/lesson_assets/infographics/eee73af1-4e22-4f60-ba37-8609d2115028_infographic_lesson_10-12_islamic_04_en.png",
+            "title": "My Dear Son: Your Value to Allah is Determined by No One But Him",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
           }
         ],
         "podcasts": [
@@ -498,17 +555,18 @@
         "videos": [
           {
             "source_id": "dab0fff1-8180-4a3f-99ae-6791b243d690",
-            "file": "docs/path_videos/path_10-12_islamic_parenting_identity_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_10-12_islamic_parenting_identity_04_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "description": "Path intro video for path_10-12_islamic_parenting_identity"
+            "description": "Custom lesson explainer video for lesson_10-12_islamic_parenting_identity_04 (ar)",
+            "size_bytes": 6701611
           },
           {
-            "file": "docs/path_videos/path_10-12_aqeedah_growth_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_10-12_islamic_parenting_identity_04_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 31095469,
-            "description": "Path intro video for path_10-12_aqeedah_growth (en)"
+            "size_bytes": 8707235,
+            "description": "Custom lesson explainer video for lesson_10-12_islamic_parenting_identity_04 (en)"
           }
         ]
       }
@@ -545,6 +603,14 @@
             "type": "image/png",
             "description": "Infographic for lesson_10-12_medical_01",
             "language": "ar"
+          },
+          {
+            "id": "a85b624a-5399-4533-953f-f8ccb391752d_infographic",
+            "file": "docs/lesson_assets/infographics/a85b624a-5399-4533-953f-f8ccb391752d_infographic_lesson_10-12_medical_01_en.png",
+            "title": "The Journey of Puberty: Heart-to-Heart Conversations Before Bodies Change",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
           }
         ],
         "podcasts": [
@@ -609,6 +675,14 @@
             "type": "image/png",
             "description": "Infographic for lesson_10-12_medical_02",
             "language": "ar"
+          },
+          {
+            "id": "5dcfdf2a-1b9b-4bb8-a913-41677d3fcf03_infographic",
+            "file": "docs/lesson_assets/infographics/5dcfdf2a-1b9b-4bb8-a913-41677d3fcf03_infographic_lesson_10-12_medical_02_en.png",
+            "title": "When My Child's Features Change: When Is Worry a Call for Help?",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
           }
         ],
         "podcasts": [
@@ -704,6 +778,14 @@
             "item_count": 0,
             "resolution": "2752x1536",
             "language": "ar"
+          },
+          {
+            "id": "dfff68a0-d02b-4798-8090-40dd4ee1dc55_infographic",
+            "file": "docs/lesson_assets/infographics/dfff68a0-d02b-4798-8090-40dd4ee1dc55_infographic_lesson_10-12_medical_03_en.png",
+            "title": "Our Children's Health: Investing Today for a Brighter Tomorrow",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
           }
         ],
         "podcasts": [
@@ -769,6 +851,14 @@
             "item_count": 0,
             "resolution": "2752x1536",
             "language": "ar"
+          },
+          {
+            "id": "7aef47d5-5f46-4a89-814d-9f58386ffc3a_infographic",
+            "file": "docs/lesson_assets/infographics/7aef47d5-5f46-4a89-814d-9f58386ffc3a_infographic_lesson_13-15_cyber_01_en.png",
+            "title": "Your Digital Footprint: A Story the Future Tells About You",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
           }
         ],
         "podcasts": [
@@ -833,6 +923,14 @@
             "type": "image/png",
             "description": "Infographic for lesson_13-15_cyber_02",
             "language": "ar"
+          },
+          {
+            "id": "e1ff94fc-a727-4f40-8bc4-ba250022afb2_infographic",
+            "file": "docs/lesson_assets/infographics/e1ff94fc-a727-4f40-8bc4-ba250022afb2_infographic_lesson_13-15_cyber_02_en.png",
+            "title": "The Shield of Thought: How Do We Distinguish Truth in the Age of AI?",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
           }
         ],
         "podcasts": [
@@ -898,6 +996,14 @@
             "item_count": 0,
             "resolution": "2752x1536",
             "language": "ar"
+          },
+          {
+            "id": "7e1b0ddb-abdb-480e-96f0-3fd186f0e248_infographic",
+            "file": "docs/lesson_assets/infographics/7e1b0ddb-abdb-480e-96f0-3fd186f0e248_infographic_lesson_13-15_cyber_03_en.png",
+            "title": "Our Children's Screens: How Do We Balance Enjoyment and Responsibility?",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "en"
           }
         ],
         "podcasts": [
@@ -1326,17 +1432,18 @@
         "videos": [
           {
             "source_id": "6b437e64-40c5-483d-9abc-bd3bbc94d008",
-            "file": "docs/path_videos/path_13-15_islamic_parenting_teen_identity_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_13-15_islamic_parenting_teen_identity_02_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "description": "Path intro video for path_13-15_islamic_parenting_teen_identity"
+            "description": "Custom lesson explainer video for lesson_13-15_islamic_parenting_teen_identity_02 (ar)",
+            "size_bytes": 5909138
           },
           {
-            "file": "docs/path_videos/path_13-15_islamic_parenting_teen_identity_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_13-15_islamic_parenting_teen_identity_02_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 31525070,
-            "description": "Path intro video for path_13-15_islamic_parenting_teen_identity (en)"
+            "size_bytes": 8154231,
+            "description": "Custom lesson explainer video for lesson_13-15_islamic_parenting_teen_identity_02 (en)"
           }
         ]
       }
@@ -2733,17 +2840,18 @@
         "videos": [
           {
             "source_id": "3de4e313-6f2f-4c77-a368-c6682bc43afd",
-            "file": "docs/path_videos/path_4-6_islamic_parenting_bond_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_4-6_islamic_parenting_bond_01_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "description": "Path intro video for path_4-6_islamic_parenting_bond"
+            "description": "Custom lesson explainer video for lesson_4-6_islamic_parenting_bond_01 (ar)",
+            "size_bytes": 5839776
           },
           {
-            "file": "docs/path_videos/path_4-6_islamic_parenting_bond_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_4-6_islamic_parenting_bond_01_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 23227325,
-            "description": "Path intro video for path_4-6_islamic_parenting_bond (en)"
+            "size_bytes": 7145258,
+            "description": "Custom lesson explainer video for lesson_4-6_islamic_parenting_bond_01 (en)"
           }
         ]
       }
@@ -2827,17 +2935,18 @@
         "videos": [
           {
             "source_id": "cda01e43-ade6-4c2a-b389-e73f03d179f5",
-            "file": "docs/path_videos/path_4-6_islamic_parenting_bond_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_4-6_islamic_parenting_bond_02_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "description": "Path intro video for path_4-6_islamic_parenting_bond"
+            "description": "Custom lesson explainer video for lesson_4-6_islamic_parenting_bond_02 (ar)",
+            "size_bytes": 6165996
           },
           {
-            "file": "docs/path_videos/path_4-6_islamic_parenting_bond_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_4-6_islamic_parenting_bond_02_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 23227325,
-            "description": "Path intro video for path_4-6_islamic_parenting_bond (en)"
+            "size_bytes": 6820532,
+            "description": "Custom lesson explainer video for lesson_4-6_islamic_parenting_bond_02 (en)"
           }
         ]
       }
@@ -4362,17 +4471,18 @@
         "videos": [
           {
             "source_id": "b9bc7171-c5ed-4663-bb13-48d9d227dd2e",
-            "file": "docs/path_videos/path_0-3_islamic_parenting_attachment_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_0-3_islamic_parenting_attachment_01_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "description": "Path intro video for path_0-3_islamic_parenting_attachment"
+            "description": "Custom lesson explainer video for lesson_0-3_islamic_parenting_attachment_01 (ar)",
+            "size_bytes": 6234310
           },
           {
-            "file": "docs/path_videos/path_0-3_islamic_parenting_attachment_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_0-3_islamic_parenting_attachment_01_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 27039696,
-            "description": "Path intro video for path_0-3_islamic_parenting_attachment (en)"
+            "size_bytes": 6511142,
+            "description": "Custom lesson explainer video for lesson_0-3_islamic_parenting_attachment_01 (en)"
           }
         ]
       }
@@ -4459,17 +4569,18 @@
         "videos": [
           {
             "source_id": "145fc9e8-bc71-4fdb-95f7-87dccb24a345",
-            "file": "docs/path_videos/path_0-3_islamic_parenting_attachment_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_0-3_islamic_parenting_attachment_02_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "description": "Path intro video for path_0-3_islamic_parenting_attachment"
+            "description": "Custom lesson explainer video for lesson_0-3_islamic_parenting_attachment_02 (ar)",
+            "size_bytes": 6288758
           },
           {
-            "file": "docs/path_videos/path_0-3_islamic_parenting_attachment_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_0-3_islamic_parenting_attachment_02_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 27039696,
-            "description": "Path intro video for path_0-3_islamic_parenting_attachment (en)"
+            "size_bytes": 7618443,
+            "description": "Custom lesson explainer video for lesson_0-3_islamic_parenting_attachment_02 (en)"
           }
         ]
       }
@@ -6830,17 +6941,18 @@
         "videos": [
           {
             "source_id": "8429769a-26e2-4efa-86fe-c03ff3f7d21c",
-            "file": "docs/path_videos/path_2-3_islamic_attachment_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_2-3_islamic_attachment_b01_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "description": "Path intro video for path_2-3_islamic_attachment"
+            "description": "Custom lesson explainer video for lesson_2-3_islamic_attachment_b01 (ar)",
+            "size_bytes": 5453049
           },
           {
-            "file": "docs/path_videos/path_2-3_islamic_attachment_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_2-3_islamic_attachment_b01_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 30715764,
-            "description": "Path intro video for path_2-3_islamic_attachment (en)"
+            "size_bytes": 6653172,
+            "description": "Custom lesson explainer video for lesson_2-3_islamic_attachment_b01 (en)"
           }
         ]
       }
@@ -6925,17 +7037,18 @@
         "videos": [
           {
             "source_id": "b745f863-e9cf-4ff8-adb8-e19c08b765a1",
-            "file": "docs/path_videos/path_2-3_islamic_attachment_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_2-3_islamic_attachment_b02_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "description": "Path intro video for path_2-3_islamic_attachment"
+            "description": "Custom lesson explainer video for lesson_2-3_islamic_attachment_b02 (ar)",
+            "size_bytes": 5861324
           },
           {
-            "file": "docs/path_videos/path_2-3_islamic_attachment_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_2-3_islamic_attachment_b02_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 30715764,
-            "description": "Path intro video for path_2-3_islamic_attachment (en)"
+            "size_bytes": 7180767,
+            "description": "Custom lesson explainer video for lesson_2-3_islamic_attachment_b02 (en)"
           }
         ]
       }
@@ -7937,18 +8050,18 @@
         ],
         "videos": [
           {
-            "file": "docs/path_videos/path_0-3_islamic_parenting_fitrah_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_0-3_islamic_parenting_fitrah_01_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "size_bytes": 16536006,
-            "description": "Path intro video for path_0-3_islamic_parenting_fitrah (ar)"
+            "size_bytes": 7647158,
+            "description": "Custom lesson explainer video for lesson_0-3_islamic_parenting_fitrah_01 (ar)"
           },
           {
-            "file": "docs/path_videos/path_0-3_islamic_parenting_fitrah_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_0-3_islamic_parenting_fitrah_01_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 27682934,
-            "description": "Path intro video for path_0-3_islamic_parenting_fitrah (en)"
+            "size_bytes": 7281453,
+            "description": "Custom lesson explainer video for lesson_0-3_islamic_parenting_fitrah_01 (en)"
           }
         ]
       },
@@ -10158,18 +10271,18 @@
         ],
         "videos": [
           {
-            "file": "docs/path_videos/path_16-18_islamic_parenting_adult_faith_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_16-18_islamic_parenting_adult_faith_02_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "size_bytes": 26233540,
-            "description": "Path intro video for path_16-18_islamic_parenting_adult_faith (ar)"
+            "size_bytes": 7980860,
+            "description": "Custom lesson explainer video for lesson_16-18_islamic_parenting_adult_faith_02 (ar)"
           },
           {
-            "file": "docs/path_videos/path_16-18_islamic_parenting_adult_faith_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_16-18_islamic_parenting_adult_faith_02_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 29519774,
-            "description": "Path intro video for path_16-18_islamic_parenting_adult_faith (en)"
+            "size_bytes": 7618374,
+            "description": "Custom lesson explainer video for lesson_16-18_islamic_parenting_adult_faith_02 (en)"
           }
         ]
       },
@@ -12435,18 +12548,18 @@
         ],
         "videos": [
           {
-            "file": "docs/path_videos/path_7-9_islamic_parenting_akhlaq_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_7-9_islamic_parenting_akhlaq_01_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "size_bytes": 27331784,
-            "description": "Path intro video for path_7-9_islamic_parenting_akhlaq (ar)"
+            "size_bytes": 7098808,
+            "description": "Custom lesson explainer video for lesson_7-9_islamic_parenting_akhlaq_01 (ar)"
           },
           {
-            "file": "docs/path_videos/path_7-9_islamic_parenting_akhlaq_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_7-9_islamic_parenting_akhlaq_01_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 31187973,
-            "description": "Path intro video for path_7-9_islamic_parenting_akhlaq (en)"
+            "size_bytes": 7361800,
+            "description": "Custom lesson explainer video for lesson_7-9_islamic_parenting_akhlaq_01 (en)"
           }
         ]
       },
@@ -12800,18 +12913,18 @@
         ],
         "videos": [
           {
-            "file": "docs/path_videos/path_7-9_aqeedah_fundamentals_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_7-9_aqeedah_fundamentals_01_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "size_bytes": 26409162,
-            "description": "Path intro video for path_7-9_aqeedah_fundamentals (ar)"
+            "size_bytes": 6591681,
+            "description": "Custom lesson explainer video for lesson_7-9_aqeedah_fundamentals_01 (ar)"
           },
           {
-            "file": "docs/path_videos/path_7-9_aqeedah_fundamentals_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_7-9_aqeedah_fundamentals_01_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 30601909,
-            "description": "Path intro video for path_7-9_aqeedah_fundamentals (en)"
+            "size_bytes": 8366738,
+            "description": "Custom lesson explainer video for lesson_7-9_aqeedah_fundamentals_01 (en)"
           }
         ]
       }
@@ -14256,18 +14369,18 @@
         ],
         "videos": [
           {
-            "file": "docs/path_videos/path_4-6_aqeedah_seeds_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_4-6_aqeedah_seeds_01_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "size_bytes": 18880901,
-            "description": "Path intro video for path_4-6_aqeedah_seeds (ar)"
+            "size_bytes": 6868282,
+            "description": "Custom lesson explainer video for lesson_4-6_aqeedah_seeds_01 (ar)"
           },
           {
-            "file": "docs/path_videos/path_4-6_aqeedah_seeds_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_4-6_aqeedah_seeds_01_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 31615338,
-            "description": "Path intro video for path_4-6_aqeedah_seeds (en)"
+            "size_bytes": 5797874,
+            "description": "Custom lesson explainer video for lesson_4-6_aqeedah_seeds_01 (en)"
           }
         ]
       }
@@ -15654,17 +15767,18 @@
         ],
         "videos": [
           {
-            "file": "docs/path_videos/path_2-3_aqeedah_first_name_ar_eg.mp4",
+            "file": "docs/lesson_videos/lesson_2-3_aqeedah_first_name_01_ar_eg.mp4",
             "type": "video/mp4",
             "language": "ar_eg",
-            "description": "Path intro video for path_2-3_aqeedah_first_name"
+            "description": "Custom lesson explainer video for lesson_2-3_aqeedah_first_name_01 (ar)",
+            "size_bytes": 5676715
           },
           {
-            "file": "docs/path_videos/path_2-3_aqeedah_first_name_en_us.mp4",
+            "file": "docs/lesson_videos/lesson_2-3_aqeedah_first_name_01_en_us.mp4",
             "type": "video/mp4",
             "language": "en_us",
-            "size_bytes": 31923485,
-            "description": "Path intro video for path_2-3_aqeedah_first_name (en)"
+            "size_bytes": 7787894,
+            "description": "Custom lesson explainer video for lesson_2-3_aqeedah_first_name_01 (en)"
           }
         ]
       },
@@ -17456,7 +17570,16 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "74e44f85-237a-43dd-b10e-6350f7368435_infographic",
+            "file": "docs/lesson_assets/infographics/74e44f85-237a-43dd-b10e-6350f7368435_infographic_lesson_2-3_development_tantrums_07.png",
+            "title": "حين يضرب أو يعضّ",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_2-3_development_tantrums_07_podcast.mp3",
@@ -17511,7 +17634,16 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "74bb97c5-ef2a-4179-8f05-03363227bf3d_infographic",
+            "file": "docs/lesson_assets/infographics/74bb97c5-ef2a-4179-8f05-03363227bf3d_infographic_lesson_2-3_development_tantrums_08.png",
+            "title": "نوبةٌ في السوق أو أمام الضيوف",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_2-3_development_tantrums_08_podcast.mp3",
@@ -17566,7 +17698,16 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "95e3cc6f-077e-4576-9c82-d5014ba6519a_infographic",
+            "file": "docs/lesson_assets/infographics/95e3cc6f-077e-4576-9c82-d5014ba6519a_infographic_lesson_2-3_development_tantrums_09.png",
+            "title": "حين تنفد طاقتك أنت",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_2-3_development_tantrums_09_podcast.mp3",
@@ -17621,7 +17762,16 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "ae6ff970-3f15-4c59-ad7f-97eadefe888c_infographic",
+            "file": "docs/lesson_assets/infographics/ae6ff970-3f15-4c59-ad7f-97eadefe888c_infographic_lesson_7-9_aqeedah_fundamentals_11.png",
+            "title": "«مَن خلق الله؟» حين يسأل السؤال المحيّر",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_7-9_aqeedah_fundamentals_11_podcast.mp3",
@@ -17676,7 +17826,16 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "83644a44-2523-4239-b245-09a3a9fd4d34_infographic",
+            "file": "docs/lesson_assets/infographics/83644a44-2523-4239-b245-09a3a9fd4d34_infographic_lesson_7-9_aqeedah_fundamentals_12.png",
+            "title": "الحلال والحرام: كيف نسأل حين لا نعرف الحكم؟",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_7-9_aqeedah_fundamentals_12_podcast.mp3",
@@ -17731,7 +17890,16 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "8c70105a-3c76-487a-bc90-7fda38619ca9_infographic",
+            "file": "docs/lesson_assets/infographics/8c70105a-3c76-487a-bc90-7fda38619ca9_infographic_lesson_7-9_islamic_parenting_worship_05.png",
+            "title": "السابعة: بداية أمر الصلاة بالرفق",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_7-9_islamic_parenting_worship_05_podcast.mp3",
@@ -17786,7 +17954,16 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "7f6ec815-fb08-4ac8-9892-da3fc30116dd_infographic",
+            "file": "docs/lesson_assets/infographics/7f6ec815-fb08-4ac8-9892-da3fc30116dd_infographic_lesson_7-9_islamic_parenting_worship_06.png",
+            "title": "الوضوء خطوةً بخطوة",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_7-9_islamic_parenting_worship_06_podcast.mp3",
@@ -17841,7 +18018,16 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "ceb6de95-510e-4602-a261-79b98c983908_infographic",
+            "file": "docs/lesson_assets/infographics/ceb6de95-510e-4602-a261-79b98c983908_infographic_lesson_7-9_islamic_parenting_worship_07.png",
+            "title": "خمس صلواتٍ في يوم طفلك",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_7-9_islamic_parenting_worship_07_podcast_en.mp3",
@@ -17896,7 +18082,16 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "fdac4197-8e36-4afb-8b2f-ad4b2144bda5_infographic",
+            "file": "docs/lesson_assets/infographics/fdac4197-8e36-4afb-8b2f-ad4b2144bda5_infographic_lesson_7-9_islamic_parenting_worship_08.png",
+            "title": "حين يقول: «لا أريد أن أصلّي»",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_7-9_islamic_parenting_worship_08_podcast.mp3",
@@ -17951,7 +18146,16 @@
         ],
         "reports": [],
         "data_tables": [],
-        "infographics": [],
+        "infographics": [
+          {
+            "id": "c375f034-4600-41f9-82b9-b92a770ceab3_infographic",
+            "file": "docs/lesson_assets/infographics/c375f034-4600-41f9-82b9-b92a770ceab3_infographic_lesson_7-9_islamic_parenting_worship_09.png",
+            "title": "جدول الصلاة: رفيقٌ لقلب طفلك لا صفقة",
+            "item_count": 0,
+            "resolution": "2752x1536",
+            "language": "ar"
+          }
+        ],
         "podcasts": [
           {
             "file": "docs/lesson_7-9_islamic_parenting_worship_09_podcast.mp3",
