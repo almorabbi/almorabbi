@@ -1,5 +1,5 @@
 {
-  "total_units": 1512,
+  "total_units": 1511,
   "generated_at": "2026-11-26T09:48:55.627472+00:00",
   "by_domain": {
     "medical": 362,
@@ -11925,18 +11925,6 @@
       "behavior_type": "الحوار",
       "needs_ocr": false,
       "size_chars": 1242
-    },
-    {
-      "id": "isl-cc4ee988",
-      "domain": "islamic_parenting",
-      "title": "العبادات والالتزام: طريق عزة المسلم",
-      "source_file": "",
-      "language": "",
-      "original_age_group": "13-15",
-      "normalized_age_group": "13-15",
-      "behavior_type": "الحوار",
-      "needs_ocr": false,
-      "size_chars": 1239
     },
     {
       "id": "isl-cd4d1888",
