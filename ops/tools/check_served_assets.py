@@ -22,11 +22,14 @@ Exit codes: 0 clean (or nothing to check), 1 problems found. --warn-only always
 exits 0 while still printing everything, for a grace period after rollout.
 """
 import argparse
+import glob
 import hashlib
 import json
 import os
 import sys
 from collections import defaultdict
+
+DEFAULT_QUARANTINE_GLOB = "/root/quarantined_media_*/MANIFEST.json"
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -128,6 +131,83 @@ def find_missing(root, refs):
     return by_file
 
 
+def _normalize_doc_ref(raw_path):
+    """Extract a normalized repo-relative `docs/...` path from a manifest entry."""
+    if not raw_path:
+        return None
+    norm = str(raw_path).replace("\\", "/").strip()
+    if "/docs/" in norm:
+        return "docs/" + norm.split("/docs/", 1)[1].lstrip("/")
+    norm = norm.lstrip("/")
+    if not norm:
+        return None
+    return norm if norm.startswith("docs/") else f"docs/{norm}"
+
+
+def _is_existing_inside(candidate_path, parent_dir_real):
+    """Return True iff candidate_path is a real file residing inside parent_dir_real."""
+    if not candidate_path or not os.path.isfile(candidate_path):
+        return False
+    real_cand = os.path.realpath(candidate_path)
+    return real_cand.startswith(parent_dir_real + os.sep)
+
+
+def find_quarantined_files(manifest_glob=DEFAULT_QUARANTINE_GLOB):
+    """Return {repo_rel_ref: physical_copy_path} for verified quarantined files.
+
+    A missing media file is accepted ONLY when BOTH conditions hold:
+      1. Its repo-relative `docs/...` path appears in a matching MANIFEST.json
+         (`files` list, either string path or dict with `from`/`rel` and `to`).
+      2. Its physical copy actually exists as a regular file inside that same
+         quarantine directory.
+    """
+    verified = {}
+    if not manifest_glob:
+        return verified
+
+    for manifest_path in sorted(glob.glob(manifest_glob)):
+        if not os.path.isfile(manifest_path):
+            continue
+        manifest_dir = os.path.dirname(os.path.realpath(manifest_path))
+        try:
+            with open(manifest_path, encoding="utf-8") as fh:
+                data = json.load(fh)
+        except (OSError, ValueError):
+            continue
+        entries = data.get("files") if isinstance(data, dict) else None
+        if not isinstance(entries, list):
+            continue
+
+        for entry in entries:
+            ref = None
+            candidates = []
+            if isinstance(entry, dict):
+                ref = _normalize_doc_ref(entry.get("from") or entry.get("rel"))
+                if not ref:
+                    continue
+                sub = ref[len("docs/"):] if ref.startswith("docs/") else ref
+                if entry.get("to"):
+                    candidates.append(entry["to"])
+                candidates.append(os.path.join(manifest_dir, sub))
+                candidates.append(os.path.join(manifest_dir, ref))
+            elif isinstance(entry, str):
+                ref = _normalize_doc_ref(entry)
+                if not ref:
+                    continue
+                sub = ref[len("docs/"):] if ref.startswith("docs/") else ref
+                candidates.append(os.path.join(manifest_dir, sub))
+                candidates.append(os.path.join(manifest_dir, ref))
+            else:
+                continue
+
+            for cand in candidates:
+                if _is_existing_inside(cand, manifest_dir):
+                    verified[ref] = os.path.realpath(cand)
+                    break
+
+    return verified
+
+
 def find_podcast_collisions(root, refs):
     """Podcasts that are byte-identical but belong to different lessons.
 
@@ -161,13 +241,18 @@ def find_podcast_collisions(root, refs):
     return collisions
 
 
-def main():
+def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", default=REPO_ROOT, help="repo root holding docs/")
     parser.add_argument(
+        "--quarantine-glob",
+        default=DEFAULT_QUARANTINE_GLOB,
+        help="glob for quarantine MANIFEST.json files (default: /root/quarantined_media_*/MANIFEST.json)",
+    )
+    parser.add_argument(
         "--warn-only", action="store_true", help="report problems but exit 0"
     )
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     index_path = os.path.join(args.root, "docs", "lesson_index.json")
     if not os.path.exists(index_path):
@@ -224,12 +309,35 @@ def main():
         return 0
 
     missing = find_missing(args.root, refs)
-    if missing:
-        problems += len(missing)
-        print(f"\n  ❌ REFERENCED BUT MISSING — {len(missing)} file(s)")
-        for ref, lids in sorted(missing.items()):
+    quarantined = find_quarantined_files(args.quarantine_glob) if missing else {}
+    allowed_quarantined = {
+        ref: (lids, quarantined[ref])
+        for ref, lids in missing.items()
+        if ref in quarantined
+    }
+    unexplained_missing = {
+        ref: lids for ref, lids in missing.items() if ref not in quarantined
+    }
+
+    if allowed_quarantined:
+        print(
+            f"\n  🟡 QUARANTINED (ALLOWED BY MANIFEST + ON-DISK COPY) — "
+            f"{len(allowed_quarantined)} file(s)"
+        )
+        for ref, (_lids, qpath) in sorted(allowed_quarantined.items()):
+            print(f"     {ref}  →  {qpath}")
+
+    if unexplained_missing:
+        problems += len(unexplained_missing)
+        print(f"\n  ❌ REFERENCED BUT MISSING — {len(unexplained_missing)} file(s)")
+        for ref, lids in sorted(unexplained_missing.items()):
             print(f"     {ref}")
             print(f"        ← {len(lids)} lesson(s): {', '.join(lids)}")
+    elif allowed_quarantined:
+        print(
+            f"\n  ✅ every non-quarantined referenced file is on this host "
+            f"({len(allowed_quarantined)} quarantined)"
+        )
     else:
         print("\n  ✅ every referenced file is on this host")
 
