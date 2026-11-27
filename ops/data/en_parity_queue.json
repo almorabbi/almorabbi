@@ -5,12 +5,5 @@
     "awaiting-review: waits for a reviewer from a family other than its English authors'. source-unverified: the Arabic is not verified against its own source — never stamped until the hold is released (unqueue) after re-extraction.",
     "Written by `review_en_parity.py queue` / `unqueue`; stamping removes the entry."
   ],
-  "units": {
-    "path_2-3_aqeedah_first_name": {
-      "category": "awaiting-review",
-      "reason": "Title updated from Ages 2-3 to Ages 1-3 (#fb_b796ab75); original EN translation predates translator_model tracking",
-      "content_sha256": "334b0bffc0eb0210d887da416368d27ec8690ecc05d17f6c5cfe27044f9139d9",
-      "queued_on": "2026-11-27"
-    }
-  }
+  "units": {}
 }
