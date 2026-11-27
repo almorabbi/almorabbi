@@ -1514,7 +1514,6 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | الملف | أسطر | الدور |
 |---|---:|---|
 | `scripts/README_reels.md` | 77 | Reels Production Pipeline |
-| `scripts/add_new_lesson_podcasts.py` | 141 | One-shot: register the 25 newly-authored lessons in the podcast pipeline. Uploads ONLY the new lesson markdown sources (knowledge_base/notebooklm/**/ |
 | `scripts/adhkar_tips_en.py` | 794 | English wording for the 124 `tip` items in the family adhkar pack. Kept as a separate, reviewable table rather than generated at build time: these |
 | `scripts/archive/audit_age_groups.py` | 35 | مدقّق age_group قديم (نُقل من `knowledge_base/units/` 2026-11-08؛ مسار نسبي للريبو) |
 | `scripts/archive/cleanup_duplicate_podcasts.py` | 56 | أرشيف: حذف بودكاستات مكررة بالـmd5 |
@@ -1559,7 +1558,6 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `scripts/gen_podcasts_cron.py` | 484 | Cron-safe podcast generator (NotebookLM audio overviews), any language. Mirror of gen_path_videos_cron.py but for audio. Idempotent (skips lessons… |
 | `scripts/gen_tts_podcasts.py` | 82 | Local-ish alternative to NotebookLM: narrate each new lesson as an MP3 using edge-tts (Microsoft free neural TTS, Arabic Egyptian voice). Reads only… |
 | `scripts/generate_all_podcasts.py` | 172 | توليد بودكاست لكل الدروس عبر notebooklm CLI |
-| `scripts/generate_all_podcasts_v2.py` | 212 | generate_all_podcasts_v2.py Upload missing lesson markdown files to NotebookLM, then trigger + poll + download podcasts. Handles both lessons with… |
 | `scripts/generate_arabic_podcasts.py` | 159 | توليد بودكاستات عربية |
 | `scripts/generate_clean_assets.py` | 2158 | Clean per-lesson interactive assets (flashcards + quiz), authored from each lesson's own content — replacing the broken NotebookLM batch. |
 | `scripts/generate_gap_fill_units.py` | 355 | Gap-filling content generator — knowledge units for the top-9 repeated parent-question themes that retrieval failed to serve (2026-08-26 week, 215… |
@@ -1627,11 +1625,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `scripts/trigger_and_download_podcasts.py` | 442 | trigger_and_download_podcasts.py Trigger audio generation for all lessons that have source_id but no podcast, then poll and download. Skips upload… |
 | `scripts/update_lesson_index.py` | 170 | Update lesson_index.json with newly generated flashcards and slides |
 | `scripts/update_production_registry.py` | 96 | Update production_registry.md - robust table parsing |
-| `scripts/upload_new_podcast_sources.py` | 71 | Efficient one-shot upload of the 48 new lesson md sources to NotebookLM. Unlike add_new_lesson_podcasts.py this lists sources ONCE up front and ONCE… |
-| `scripts/upload_to_notebooklm.py` | 122 | List of possible method names and their call signatures |
 | `scripts/validate_podcasts.py` | 161 | Guard against placeholder/broken lesson podcasts. Real NotebookLM podcasts are multi-minute (>= ~3 min, several MB). The old |
-| `scripts/write_notebooklm_sources.py` | 97 | Write the NotebookLM markdown source for lessons that have none. The podcast pipeline is: curriculum lesson JSON → markdown source under |
-| `scripts/write_path_source.py` | 66 | Write the NotebookLM path source a path video is generated from. Path videos (docs/path_videos/<path_id>_ar_eg.mp4) are NotebookLM video |
 
 ## 7) اختبارات E2E — `e2e/` (Maestro على المحاكي)
 
@@ -1856,7 +1850,6 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 | `knowledge_base/curriculum/mawaqif/mawaqif.json` |  | بنك «موقف بقرار»: 6 مواقف (واحد لكل عمر من 2-3 إلى 16-18)، كلٌّ بثلاثة ردود وحديث من الصحيحين وخطوة — سطح محروس في `content_surfaces.py` |
 | `knowledge_base/curriculum/i18n/en/` | 486 (json×485, md×1) | ترجمة المنهج الإنجليزية (دروس/مسارات/نصائح/اتفاقيات/مواقف/…) + تقارير مراجعة |
 | `knowledge_base/curriculum/{agreements,license,missions,programs,weekly_plan}` | 16 (json×16) | بنوك: بنود الاتفاقية، مواقف الرخصة، المهام، برامج الأسرة (رمضان/الصلاة/المراحل)، خطط الأسبوع |
-| `knowledge_base/notebooklm/` | 198 (md×198) | مصادر NotebookLM لكل فئة عمرية ومسار |
 | `knowledge_base/raw_sources/` | 9 (txt×5, log×2, json×1, part×1) | سجلات تنزيل المصادر الخام |
 | `knowledge_base_markdown/` | 741 (md×741) | نسخة Markdown مقروءة من المنهج والوحدات (مولّدة) |
 
@@ -1968,7 +1961,7 @@ Google Sign-In الاختياري «احفظ تقدّمك»
 
 | المجموعة | عدد الملفات | ما هي |
 |---|---:|---|
-| `notebooklm_sources/` | 26 (md×26) | مصادر NotebookLM مبكرة لمساري 0-3 والحمل (مستبدلة ببنية knowledge_base/notebooklm) |
+| `notebooklm_sources/` | 26 (md×26) | مصادر NotebookLM مبكرة لمساري 0-3 والحمل (أرشيف أولي؛ حُذف knowledge_base/notebooklm في PR #60) |
 
 ### ملفات الجذر
 
