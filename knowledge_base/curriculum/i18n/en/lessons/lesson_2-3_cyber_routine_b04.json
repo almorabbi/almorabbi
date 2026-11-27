@@ -8,7 +8,7 @@
     "seed-sleep-23",
     "cyb-aap-media-young-minds-2016"
   ],
-  "summary": "Have you ever experienced those nights where your little one is running around the house, eyes sparkling with energy, while the clock ticks past their usual bedtime? Perhaps they were watching cheerful cartoons or playing a game on a tablet just moments before. This familiar scene might seem innocent, but it may be one of the hidden reasons behind your child's difficulty falling asleep, frequent awakenings, or even their cranky mood the next day. Our children at this age need sleep more than anything else; it's the fuel for their growing little brains.\n\nThe secret lies in what happens in the last hour before your child closes their eyes. Screens, with all their bright colors and exciting content, send the wrong signals to a child's brain. Blue light tricks the brain into thinking it's daytime, delaying the release of the sleep hormone (melatonin). And fast-paced, stimulating content excites and stimulates the brain, making it difficult to transition to the calm and relaxation needed for deep sleep. Imagine asking your child to sleep after a fast sprint; that's exactly what screens do to their brain.\n\nBut the solution is easier than you imagine. The golden rule is simple: no screens in the hour before bedtime, and never a screen in the bedroom. Replace this time with a calm, beloved, and consistent routine: a warm bath to relax the body, a short story in your gentle voice, dim lighting that tells the eyes darkness is coming, and perhaps a soft song. This consistent routine sends a clear signal to your child's brain: \"It's time to calm down, it's time for sleep.\" A child who sleeps well is calmer during the day, better able to learn, and happier. And the price is simple: one screen-free hour each evening, in exchange for a childhood of deep and peaceful sleep.",
+  "summary": "Have you ever experienced those nights where your little one is running around the house, eyes sparkling with energy, while the clock ticks past their usual bedtime? Perhaps they were watching cheerful cartoons or playing a game on a tablet just moments before. This familiar scene might seem innocent, but it may be one of the hidden reasons behind your child's difficulty falling asleep, frequent awakenings, or even their cranky mood the next day. Our children at this age need sleep more than anything else; it's the fuel for their growing little brains.\n\nThe secret lies in what happens in the last hour before your child closes their eyes. Screens, with all their bright colors and exciting content, send the wrong signals to a child's brain. Blue light tricks the brain into thinking it's daytime, delaying the release of the sleep hormone (melatonin). And fast-paced, stimulating content excites and stimulates the brain, making it difficult to transition to the calm and relaxation needed for deep sleep. Imagine asking your child to sleep after a fast sprint; that's exactly what screens do to their brain.\n\nBut the solution is easier than you imagine. The golden rule is simple: no screens in the hour before bedtime, and never a screen in the bedroom. For children under two, the American Academy of Pediatrics (AAP) recommends avoiding screens before 18 months of age and relying instead on direct sensory play and calm bedtime rituals. Replace this time with a calm, beloved, and consistent routine: a warm bath to relax the body, a short story in your gentle voice, dim lighting that tells the eyes darkness is coming, and perhaps a soft song. This consistent routine sends a clear signal to your child's brain: \"It's time to calm down, it's time for sleep.\" A child who sleeps well is calmer during the day, better able to learn, and happier. And the price is simple: one screen-free hour each evening, in exchange for a childhood of deep and peaceful sleep.",
   "try_this": "Tonight: Make the last hour before bedtime a 'screen-free zone' for the whole family, and replace it with a consistent, calm routine (like a warm bath and a short story).",
   "order": 4,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-27",
   "parent_script": "“It’s time to calm down, my darling. Let’s read a beautiful story before bed.”",
   "assistant_prompts": [
     "What are some calm and suitable activities for a 2-3 year old before bedtime?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-27",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "c38f90820808e6003a6151bff23a8268db3e249b6bca72f3b49141112a6f4aaf",
-      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "content_sha256": "632819f9146c062e67180cf68b5edc13a20c5dd70b85a76dd13c213cca3d92ca",
+      "reviewed_at": "2026-11-27T13:29:16+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-26T10:33:00+00:00"
+    "revalidated_at": "2026-11-27T13:29:16+00:00"
   }
 }

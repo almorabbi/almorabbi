@@ -8,7 +8,7 @@
     "cyb-aap-media-young-minds-2016",
     "cyb-aap-digital-ecosystems-2026"
   ],
-  "summary": "Imagine with me: You're preparing dinner, and your little one (two or three years old) is running around you, sometimes demanding attention, other times trying to climb a chair. Time passes with difficulty, and you find yourself reaching for your phone to show them a short clip, just for a few minutes of quiet. You feel temporary relief, but soon the quiet turns into a repeated demand for the screen, and perhaps a tantrum when it's time to turn it off. This scene repeats in many homes, leaving us to wonder: What is the appropriate limit? And how do we balance our digital world with our child's real needs?\n\nAt this early age, your child's brain is working like a very active construction site. Every movement, every touch, every real interaction with the world around them, contributes to building vital neural connections. The screen, despite its appeal, cannot offer the same sensory and interactive richness. Global parenting guidelines recommend that screen time should not exceed one hour daily after the age of two, and preferably much less. The most important thing is the quality of the content: that it is calm, educational, and free of annoying advertisements, and it's best if you participate with them.\n\nDon't worry, it's not a continuous battle. Your child doesn't need the screen; they need ready and enjoyable alternatives. Think of a magic box filled with blocks, colors, picture books, or even a short walk in the park. The more accessible and appealing these alternatives are, the easier it will be for you to manage screen time without conflict. Make screen time a short exception, with carefully selected content, and avoid it entirely before bedtime or during meals. This way, you are not depriving them of something, but rather opening wider doors for discovery and growth.",
+  "summary": "Imagine with me: You're preparing dinner, and your little one (two or three years old) is running around you, sometimes demanding attention, other times trying to climb a chair. Time passes with difficulty, and you find yourself reaching for your phone to show them a short clip, just for a few minutes of quiet. You feel temporary relief, but soon the quiet turns into a repeated demand for the screen, and perhaps a tantrum when it's time to turn it off. This scene repeats in many homes, leaving us to wonder: What is the appropriate limit? And how do we balance our digital world with our child's real needs?\n\nAt this early age, your child's brain is working like a very active construction site. Every movement, every touch, every real interaction with the world around them, contributes to building vital neural connections. The screen, despite its appeal, cannot offer the same sensory and interactive richness. For children under two, the American Academy of Pediatrics (AAP) recommends avoiding screens before 18 months of age and favoring direct sensory play. Global parenting guidelines recommend that screen time should not exceed one hour daily after the age of two, and preferably much less. The most important thing is the quality of the content: that it is calm, educational, and free of annoying advertisements, and it's best if you participate with them.\n\nDon't worry, it's not a continuous battle. Your child doesn't need the screen; they need ready and enjoyable alternatives. Think of a magic box filled with blocks, colors, picture books, or even a short walk in the park. The more accessible and appealing these alternatives are, the easier it will be for you to manage screen time without conflict. Make screen time a short exception, with carefully selected content, and avoid it entirely before bedtime or during meals. This way, you are not depriving them of something, but rather opening wider doors for discovery and growth.",
   "try_this": "Today: Before your child asks for the screen, prepare a fun alternative activity for them (like blocks or colors) and place it in a visible spot. When they ask for the screen, enthusiastically offer them the alternative.",
   "order": 1,
   "estimated_minutes": 4,
@@ -21,7 +21,7 @@
   "version": "1.0.0",
   "created_at": "2026-06-13T00:00:00",
   "updated_at": "2026-06-13T00:00:00",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-27",
   "parent_script": "“Our real world is full of fun, let's discover it together!”",
   "assistant_prompts": [
     "What are suitable screen alternatives for a two-and-a-half-year-old child?",
@@ -39,7 +39,7 @@
       "gemini-2.5-flash"
     ],
     "generated_by": "phase3b_translate_en.py",
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-26",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-27",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
@@ -58,8 +58,8 @@
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "3aa4669abb2d38ca168c1c1d1aad211099a6f57033e7d0c205c771db34d9599b",
-      "reviewed_at": "2026-11-26T10:33:00+00:00",
+      "content_sha256": "b85a32740e048a7d02bdad00be76769add5ecdafa93db85917e6af48bf014f03",
+      "reviewed_at": "2026-11-27T13:29:16+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
@@ -68,6 +68,6 @@
     "reviewer_model": "deepseek-v4-pro+glm-5.2",
     "review_verdict": "clean",
     "review_defects": [],
-    "revalidated_at": "2026-11-26T10:33:00+00:00"
+    "revalidated_at": "2026-11-27T13:29:16+00:00"
   }
 }
