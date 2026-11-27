@@ -37,7 +37,7 @@ from datetime import datetime, timedelta, timezone
 from typing import Any, Optional
 
 from app.config.guardrails_loader import ChildSurfacePolicy, ResolvedBand, SurfaceSpec
-from app.core.taxonomy import map_profile_age_to_band
+from app.services import programs_common
 from app.services import family_agreement
 from app.db.init_db import get_conn
 
@@ -222,7 +222,7 @@ def _allowance(spec: SurfaceSpec, band: ResolvedBand,
 def _load_child(conn: sqlite3.Connection, device_id: str,
                 child_id: int) -> Optional[sqlite3.Row]:
     return conn.execute(
-        "SELECT id, age_group FROM child_profiles WHERE id = ? AND device_id = ?",
+        "SELECT id, age_group, birth_month FROM child_profiles WHERE id = ? AND device_id = ?",
         (child_id, device_id),
     ).fetchone()
 
@@ -295,7 +295,7 @@ def open_session(device_id: str, child_id: int, surface: str,
         if child is None:
             return {"ok": False, "reason": "child_not_found"}
 
-        band_name = map_profile_age_to_band(child["age_group"])
+        band_name = programs_common.child_surface_band(child)
         band = policy.band(band_name)
 
         if not band.screen_allowed and surface not in band.allowed_surfaces:
@@ -424,7 +424,7 @@ def heartbeat(session_id: int, policy: ChildSurfacePolicy) -> dict[str, Any]:
             _charge_and_close(conn, row, "timeout", now, 0)
             conn.commit()
             return {"ok": False, "reason": "session_closed"}
-        band = policy.band(map_profile_age_to_band(child["age_group"]))
+        band = policy.band(programs_common.child_surface_band(child))
 
         interval = band.heartbeat_interval_seconds
         grace = band.heartbeat_grace_seconds

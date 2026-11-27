@@ -27,7 +27,7 @@ from app.routers.value_tracking import (
     _persist_event,
     _verify_child_ownership,
 )
-from app.core.taxonomy import map_profile_age_to_band
+from app.services import programs_common
 from app.services import child_license, license_alert
 from app.services import child_budget, child_missions, family_agreement
 from app.services.habit_streak import habit_streak
@@ -362,7 +362,7 @@ def child_mission_today(request: Request, tz_offset_minutes: int = Query(0),
     conn = get_conn()
     try:
         row = conn.execute(
-            "SELECT age_group FROM child_profiles WHERE id = ? AND device_id = ?",
+            "SELECT age_group, birth_month FROM child_profiles WHERE id = ? AND device_id = ?",
             (child_id, device_id),
         ).fetchone()
     finally:
@@ -370,7 +370,7 @@ def child_mission_today(request: Request, tz_offset_minutes: int = Query(0),
     if row is None:
         raise HTTPException(status_code=404, detail={"error": "child_not_found"})
 
-    band = map_profile_age_to_band(row["age_group"])
+    band = programs_common.child_surface_band(row)
     local_date = child_budget.local_date_for(
         datetime.now(timezone.utc), tz_offset_minutes
     )
@@ -412,7 +412,7 @@ def _band_for(device_id: str, child_id: int) -> str:
     conn = get_conn()
     try:
         row = conn.execute(
-            "SELECT age_group FROM child_profiles WHERE id = ? AND device_id = ?",
+            "SELECT age_group, birth_month FROM child_profiles WHERE id = ? AND device_id = ?",
             (child_id, device_id),
         ).fetchone()
     finally:
@@ -424,7 +424,7 @@ def _band_for(device_id: str, child_id: int) -> str:
         # profile had been deleted got the ten-year-old's bank and had answers
         # recorded against it.
         raise HTTPException(status_code=404, detail={"error": "child_not_found"})
-    return map_profile_age_to_band(row["age_group"])
+    return programs_common.child_surface_band(row)
 
 
 # ── Internet licence (Sprint 3, level 1) ───────────────────────────────────

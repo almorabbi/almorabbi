@@ -1,6 +1,6 @@
 {
   "id": "path_2-3_medical_early_wellbeing",
-  "title": "Health of the Toddler: Caring for Your Child’s Body from Two to Three",
+  "title": "Health of the Toddler: Caring for Your Child’s Body from One to Three",
   "age_group": "2-3",
   "domain": "medical",
   "description": "A path to help parents care for their toddler’s health: nutrition after weaning, toddler sleep and nighttime awakenings, monitoring growth milestones, and home safety and accident prevention — with guidance on when to consult a doctor.",
@@ -20,7 +20,7 @@
   "prerequisites": [],
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-27",
   "language": "en",
   "source_language": "ar",
   "translation": {
@@ -34,22 +34,32 @@
     },
     "review_verdict": "clean",
     "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:18:19+00:00",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-27",
+    "revalidated_at": "2026-11-27T11:43:20+00:00",
     "auto_review": {
       "reviewers": [
         "deepseek-v4-pro",
         "glm-5.2"
       ],
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
       "fixer": null,
       "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "ea57844d7fb52eda46b43c409f7299b35e473611b89644054fe099cb1902a1cf",
-      "reviewed_at": "2026-10-04T11:18:19+00:00",
+      "content_sha256": "925ca5094b3d31e1a57fb12402ec23956cfe741b15e0da9a705d924375389314",
+      "reviewed_at": "2026-11-27T11:43:20+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     }
   }
 }

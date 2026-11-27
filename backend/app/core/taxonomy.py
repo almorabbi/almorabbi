@@ -158,7 +158,11 @@ def canonical_age_group(value: str) -> str:
     return AGE_ALIASES.get(key, key)
 
 
-def map_profile_age_to_band(value: str | None) -> str:
+def map_profile_age_to_band(
+    value: str | None,
+    *,
+    age_months: int | None = None,
+) -> str:
     """The child-surface band a stored profile age falls into.
 
     Fails closed. Every input that is not a recognised developmental band —
@@ -167,12 +171,19 @@ def map_profile_age_to_band(value: str | None) -> str:
     the raw column, so a profile that nobody has updated cannot open a session
     by being unreadable.
 
+    When `age_months` is known (computed from `birth_month`) and is strictly
+    under 24, the child ALWAYS maps onto "under-2" regardless of `value`:
+    a 12–23-month-old placed on the "2-3" (1–3 years) parent curriculum band
+    still falls under the no-screen under-2 child-surface rule.
+
     The legacy "0-3" is the case that matters in production: four profiles
     still carry it, and it straddles infancy and toddlerhood. It aliases onto
     prenatal-1 and therefore onto "under-2" — a two-and-a-half-year-old whose
     parent never re-picked the age is refused the screen rather than an infant
     being granted one. The parent-facing message says which way to fix it.
     """
+    if age_months is not None and age_months < 24:
+        return FALLBACK_CHILD_SURFACE_BAND
     canonical = canonical_age_group(value or "")
     if canonical not in ADDRESSABLE_AGE_GROUPS:
         return FALLBACK_CHILD_SURFACE_BAND

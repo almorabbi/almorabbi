@@ -226,6 +226,29 @@ def effective_age_group(
     return (stored or "4-6").strip() or "4-6"
 
 
+def child_surface_band(
+    row: sqlite3.Row | dict,
+    on: Optional[date] = None,
+) -> str:
+    """Resolve the child-surface policy band for a child profile row.
+
+    Enforces the under-2 rule by months when `birth_month` is known: any child
+    under 24 months maps to `"under-2"` regardless of `age_group` (even when
+    12–23 months maps to `"2-3"` for parent curriculum content). When
+    `birth_month` is unknown, falls back to the stored `age_group` via
+    `map_profile_age_to_band` (failing closed to `"under-2"` on unknown values).
+    """
+    from app.core.taxonomy import map_profile_age_to_band
+
+    today = on or datetime.now(_UTC).date()
+    info = child_age(row, today)
+    if info["months"] is not None:
+        return map_profile_age_to_band(info["band"], age_months=info["months"])
+    keys = row.keys() if hasattr(row, "keys") else ()
+    stored = row["age_group"] if "age_group" in keys else None
+    return map_profile_age_to_band(stored)
+
+
 # ── The family's clock ─────────────────────────────────────────────────────
 
 def validate_tz_offset(tz_offset_minutes: Optional[int]) -> Optional[int]:

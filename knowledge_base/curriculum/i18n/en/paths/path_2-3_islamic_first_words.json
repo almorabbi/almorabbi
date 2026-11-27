@@ -1,6 +1,6 @@
 {
   "id": "path_2-3_islamic_first_words",
-  "title": "The First Good Words: The Seed of the Remembering Tongue (2-3 Years)",
+  "title": "The First Good Words: The Seed of the Remembering Tongue (1-3 Years)",
   "age_group": "2-3",
   "domain": "islamic_parenting",
   "description": "A path to assist parents in planting the first words of dhikr and adab in their toddler’s tongue: the basmalah, al-ḥamd, salām, and the good word—and the first adab by qudwah (example), not talqīn (instruction).",
@@ -19,7 +19,7 @@
   "prerequisites": [],
   "is_published": true,
   "version": "1.0.0",
-  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
+  "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-27",
   "language": "en",
   "source_language": "ar",
   "translation": {
@@ -33,8 +33,8 @@
     },
     "review_verdict": "clean",
     "review_defects": [],
-    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-10-04",
-    "revalidated_at": "2026-10-04T11:26:06+00:00",
+    "approved_by": "auto-review:deepseek-v4-pro+glm-5.2:2026-11-27",
+    "revalidated_at": "2026-11-27T11:43:20+00:00",
     "fixed_at": "2026-08-13T18:18:07.570948+00:00",
     "fixer_model": "mistral-large-3:675b",
     "auto_review": {
@@ -42,15 +42,25 @@
         "deepseek-v4-pro",
         "glm-5.2"
       ],
-      "fixer": "mistral-large-3:675b",
-      "rounds": 2,
+      "providers": {
+        "deepseek-v4-pro": {
+          "provider": "ollama-cloud",
+          "model": "deepseek-v4-pro"
+        },
+        "glm-5.2": {
+          "provider": "ollama-cloud",
+          "model": "glm-5.2"
+        }
+      },
+      "fixer": null,
+      "rounds": 1,
       "prompt_version": "dfa8a5f39718",
-      "content_sha256": "f960ec3798eb6026b329684bbd74cdaac41b1e6df774da94a75debaf21b94e98",
-      "reviewed_at": "2026-10-04T11:26:06+00:00",
+      "content_sha256": "1885b95c354fce1db39ccc55851567167b87f2b068532d58c0816064fe6aca11",
+      "reviewed_at": "2026-11-27T11:43:20+00:00",
       "residual_low": [],
       "adjudicated": [],
       "tool": "ops/tools/review_en_parity.py",
-      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; not a scholar's ijazah"
+      "meaning": "deterministic guards passed and two different-family model reviewers found no medium/high defect in this exact text; certifies that the English matches the Arabic, not that the Arabic is faithful to its own source; not a scholar's ijazah"
     }
   }
 }

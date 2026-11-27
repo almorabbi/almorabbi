@@ -36,7 +36,7 @@ from pydantic import BaseModel, Field, field_validator
 
 from app.config.guardrails_loader import load_child_surface_policy
 from app.core.proof import confirmed_session, require_device_proof_once_enrolled
-from app.core.taxonomy import CANONICAL_AGE_GROUPS, map_profile_age_to_band
+from app.core.taxonomy import CANONICAL_AGE_GROUPS
 from app.core.times import now_z
 from app.db.init_db import get_conn
 from app.services import child_budget, child_license, child_missions, family_agreement
@@ -518,13 +518,13 @@ def get_screen_usage(child_id: int, request: Request,
     conn = get_conn()
     try:
         child = _load_owned_child(conn, child_id, device_id)
-        age_group = programs_common.effective_age_group(child)
+        surface_band = programs_common.child_surface_band(child)
     finally:
         conn.close()
 
     policy = getattr(request.app.state, "child_surface_policy", None) \
         or load_child_surface_policy()
-    band = policy.band(map_profile_age_to_band(age_group))
+    band = policy.band(surface_band)
     local_date = on_date or child_budget.local_date_for(
         datetime.now(timezone.utc), tz_offset_minutes
     )
@@ -816,10 +816,9 @@ def suggested_agreement_clauses(child_id: int, request: Request,
     conn = get_conn()
     try:
         child = _load_owned_child(conn, child_id, device_id)
-        age_group = programs_common.effective_age_group(child)
+        band = programs_common.child_surface_band(child)
     finally:
         conn.close()
-    band = map_profile_age_to_band(age_group)
     return {"child_id": child_id, "age_band": band,
             "pairs": family_agreement.load_clause_bank(band, lang),
             "clauses": family_agreement.suggested_clauses(band, lang)}
@@ -934,7 +933,7 @@ def _owned_child_band(request: Request, child_id: int) -> tuple[str, str]:
         row = _load_owned_child(conn, child_id, device_id)
     finally:
         conn.close()
-    return device_id, map_profile_age_to_band(programs_common.effective_age_group(row))
+    return device_id, programs_common.child_surface_band(row)
 
 
 @router.get("/children/{child_id}/mission/today",
@@ -989,7 +988,7 @@ def child_day_summary(child_id: int, request: Request,
 
     policy = getattr(request.app.state, "child_surface_policy", None) \
         or load_child_surface_policy()
-    band_name = map_profile_age_to_band(programs_common.effective_age_group(row))
+    band_name = programs_common.child_surface_band(row)
     band = policy.band(band_name)
     now = datetime.now(timezone.utc)
     local_date = child_budget.local_date_for(now, tz_offset_minutes)
@@ -1069,7 +1068,7 @@ def child_license_summary(child_id: int, request: Request,
     finally:
         conn.close()
     return child_license.summary(
-        device_id, child_id, map_profile_age_to_band(programs_common.effective_age_group(row)))
+        device_id, child_id, programs_common.child_surface_band(row))
 
 
 @router.post("/children/{child_id}/license/talked",
@@ -1104,7 +1103,7 @@ def child_license_grant(child_id: int, request: Request,
     conn = get_conn()
     try:
         row = _load_owned_child(conn, child_id, device_id)
-        band = map_profile_age_to_band(programs_common.effective_age_group(row))
+        band = programs_common.child_surface_band(row)
     finally:
         conn.close()
     result = child_license.grant(device_id, child_id, payload.level_key, band)

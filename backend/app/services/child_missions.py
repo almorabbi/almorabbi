@@ -396,7 +396,7 @@ def pending_for_device(device_id: str, lang: Optional[str] = None) -> list[dict[
     conn = get_conn()
     try:
         rows = conn.execute(
-            "SELECT m.*, c.name AS child_name, c.age_group "
+            "SELECT m.*, c.name AS child_name, c.age_group, c.birth_month "
             "FROM child_missions m JOIN child_profiles c ON c.id = m.child_id "
             "WHERE m.device_id = ? AND m.status = 'claimed' "
             "ORDER BY m.claimed_at",
@@ -404,8 +404,8 @@ def pending_for_device(device_id: str, lang: Optional[str] = None) -> list[dict[
         ).fetchall()
         out = []
         for row in rows:
-            from app.core.taxonomy import map_profile_age_to_band
-            band = map_profile_age_to_band(row["age_group"])
+            from app.services import programs_common
+            band = programs_common.child_surface_band(row)
             missions = [] if _program_of(row) else load_missions(band, lang)
             card = _row_to_card(row, missions, lang)
             if card is None:
